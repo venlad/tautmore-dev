@@ -1,0 +1,1002 @@
+.sub-list-main {
+  padding: 15px 40px;
+  margin: 0 auto;
+  display: block;
+  div {
+    display: inline-block;
+    width: 14.4%;
+    margin-right: 30px;
+    /* border: 1px solid; */
+    padding: 10px 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+  }
+  div:last-child {
+    margin-right: 0;
+    background: transparent;
+    text-align: right;
+    color: #43aa8b;
+    padding-right: 0;
+    font-size: 20px;
+    font-family: "proxima_nova_rgbold";
+    line-height: 24px;
+    span {
+      cursor: pointer;
+    }
+    svg {
+      margin-right: 0;
+      position: relative;
+      top: -1px;
+    }
+  }
+  img {
+    height: 25px;
+    width: 25px !important;
+    margin-right: 10px;
+    display: inline-block;
+    margin-top: -8px;
+  }
+  h5 {
+    margin-bottom: 0;
+    color: #454c4e;
+    font-size: 16px;
+    line-height: 22px;
+    font-family: "Proxima Nova";
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -7px;
+  }
+}
+.banner-main {
+  padding: 50px;
+  padding-top: 130px;
+  .banner-left {
+    color: #20282a;
+    position: relative;
+    h4 {
+      font-family: "proxima_nova_rgbold";
+      font-size: 60px;
+      line-height: 64px;
+      margin: 0;
+      position: relative;
+      z-index: 9;
+      span {
+        position: relative;
+        z-index: 9;
+      }
+      span:after {
+        content: "";
+        position: absolute;
+        width: 300px;
+        height: 260px;
+        border-radius: 90px 0px 90px 90px;
+        background-color: #fff6e9;
+        top: -57px;
+        z-index: -1;
+        right: -15%;
+      }
+    }
+    p {
+      font-family: "proxima_nova_rgregular";
+      font-size: 20px;
+      line-height: 28px;
+      margin: 45px 0px 55px;
+      position: relative;
+      z-index: 9;
+    }
+    button {
+      width: 303px;
+      background-color: #43aa8b;
+      border-radius: 33.75px;
+      color: #fff;
+      border: 0;
+      height: 66px;
+      font-weight: bold;
+      font-size: 20px;
+      font-family: "proxima_nova_rgbold";
+      text-align: left;
+      padding: 0px 25px;
+      box-shadow: 5px 5px 5px rgba(67, 170, 139, 0.25) !important;
+      span {
+        float: right;
+        height: 24px;
+        width: 24px;
+        background-color: #fca834;
+        border-radius: 50%;
+        padding: 0px 7px;
+        margin-top: 4px;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    .banner-left-bottom-icon {
+      width: 65px;
+      height: 56px;
+      border-radius: 17px 0px 17px 17px;
+      background-color: #e3fff6;
+      display: inline-block;
+      margin-left: 60px;
+      position: relative;
+      top: 25px;
+    }
+  }
+}
+
+.learningprogram-main {
+  background-color: #e3fff6;
+  border-radius: 90px 0px 90px 0px;
+  padding: 120px 60px 50px 40px;
+  .learning-progress-left {
+    h4 {
+      margin: 0;
+      font-family: "proxima_nova_rgbold";
+      color: #20282a;
+      font-size: 40px;
+      line-height: 48px;
+      position: relative;
+      z-index: 9;
+      span.our {
+        position: relative;
+        z-index: 9;
+      }
+      span.our:after {
+        content: "";
+        position: absolute;
+        width: 91px;
+        height: 78px;
+        border-radius: 0px 31px 31px 31px;
+        background-color: #fff6e9;
+        top: -18px;
+        z-index: -1;
+        right: -15%;
+      }
+      span.learn {
+        position: relative;
+        z-index: 9;
+      }
+      span.learn:after {
+        content: "";
+        position: absolute;
+        width: 35px;
+        height: 30px;
+        border-radius: 10px 0px 10px 10px;
+        background-color: #e3e5ff;
+        top: -45px;
+        z-index: -1;
+        right: 5%;
+      }
+    }
+    p {
+      margin-top: 25px;
+      font-family: "proxima_nova_rgregular";
+      font-size: 20px;
+      line-height: 24px;
+      color: #20282a;
+    }
+  }
+  .learning-progress-right {
+    position: relative;
+    z-index: 9;
+    .learning-block-main {
+      background-color: #fff;
+      margin-bottom: 20px;
+      padding: 15px 10px;
+      border-radius: 80px 0 80px 80px;
+      height: 160px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.07) !important;
+      .icon {
+        height: 70px;
+        width: 70px;
+        background-color: #d3fff1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        margin-left: 20px;
+        font-size: 30px;
+      }
+      h5 {
+        margin: 0;
+        color: #277da1;
+        font-family: "proxima_nova_rgbold";
+        font-size: 20px;
+        line-height: 24px;
+      }
+      p {
+        font-family: "proxima_nova_rgregular";
+        font-size: 16px;
+        line-height: 24px;
+        color: #20282a;
+        margin-top: 10px;
+        margin-bottom: 0;
+      }
+      .learning-right-icon svg {
+        color: #d9d9d9;
+        width: 19px;
+        height: 16px;
+      }
+    }
+    .learning-block-main:hover {
+      background: linear-gradient(#1ee9ba, #43aa8b);
+      h5,
+      p {
+        color: #fff !important;
+      }
+      .icon {
+        background-color: #358e74 !important;
+        color: #fff !important;
+      }
+      .learning-right-icon svg {
+        color: #fff !important;
+        width: 39px !important;
+        height: 16px !important;
+      }
+    }
+    .learning-block-main.first {
+      position: relative;
+      .icon {
+        background-color: #d3fff1;
+        color: #52b194;
+      }
+    }
+    .learning-block-main.first:after {
+      content: "";
+      position: absolute;
+      width: 62px;
+      height: 53px;
+      border-radius: 22px 0 22px 22px;
+      background-color: #c9fcbc;
+      top: -75px;
+      right: -3%;
+    }
+    .learning-six-second {
+      position: relative;
+      z-index: 9;
+      .learning-block-main.second {
+        .icon {
+          background-color: #358e74;
+          color: #fff;
+        }
+      }
+    }
+    .learning-block-main.second::after {
+      content: "";
+      position: absolute;
+      width: 143px;
+      height: 123px;
+      border-radius: 47px 0 47px 47px;
+      background-color: #c5f7e7;
+      z-index: -1;
+      top: -47px;
+      right: -6%;
+    }
+    .learning-block-main.third {
+      position: relative;
+      .icon {
+        background-color: #fff9da;
+        color: #fdca79;
+      }
+    }
+    .learning-block-main.third:after {
+      content: "";
+      position: absolute;
+      width: 35px;
+      height: 30px;
+      border-radius: 10px 0 10px 10px;
+      background-color: #ffe6c1;
+      bottom: -15px;
+      right: -3%;
+    }
+    .learning-block-main.fourth {
+      .icon {
+        background-color: #f9e7fd;
+        color: #dc50fa;
+      }
+    }
+  }
+}
+.counter-main {
+  padding: 100px 40px;
+  .counter-common {
+    height: 152px;
+    border-radius: 0 76px 76px 76px;
+    background: linear-gradient(to right, #f1f1ff, #ddddff);
+    display: flex;
+    align-items: center;
+    padding: 0px 25px;
+    h4 {
+      color: #fca834;
+      font-size: 30px;
+      line-height: 50px;
+      font-family: "proxima_nova_rgbold";
+      margin: 0;
+    }
+    p {
+      font-family: "proxima_nova_rgregular";
+      color: #20282a;
+      font-size: 20px;
+      line-height: 22px;
+      margin: 0;
+    }
+  }
+}
+.classroom-main {
+  padding: 50px 40px;
+  ul {
+    padding: 0;
+    margin: 0;
+    li {
+      list-style: none;
+    }
+  }
+  .classroom-right {
+    color: #20282a;
+    font-family: "proxima_nova_rgregular";
+    h4 {
+      font-size: 45px;
+      font-family: "proxima_nova_rgbold";
+      line-height: 64px;
+      span {
+        position: relative;
+        z-index: 9;
+      }
+      span:after {
+        content: "";
+        position: absolute;
+        height: 66px;
+        width: 85px;
+        border-radius: 25px 0 25px 25px;
+        background-color: #fff6e9;
+        top: -10px;
+        z-index: -1;
+        right: -15%;
+      }
+    }
+    p {
+      font-size: 22px;
+      line-height: 32px;
+      margin: 30px 0px;
+    }
+    li {
+      font-size: 18px;
+      letter-spacing: 0;
+      line-height: 36px;
+      svg {
+        height: 14px;
+        width: 14px;
+        margin-right: 5px;
+        color: #fca834;
+      }
+    }
+    button {
+      height: 66px;
+      width: 303px;
+      border-radius: 33.75px;
+      background-color: #43aa8b;
+      box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
+      border: 0;
+      text-align: left;
+      padding: 0px 20px;
+      color: #fff;
+      font-size: 20px;
+      font-family: "proxima_nova_rgbold";
+      line-height: 24px;
+      margin-top: 40px;
+      span {
+        float: right;
+        height: 24px;
+        width: 24px;
+        background-color: #fca834;
+        border-radius: 50%;
+        padding: 0px 7px;
+        margin-top: 0px;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg {
+          margin-top: 2px;
+        }
+      }
+    }
+  }
+}
+.activities-main {
+  padding: 50px 40px;
+
+  h4 {
+    font-size: 45px;
+    font-family: "proxima_nova_rgbold";
+    line-height: 64px;
+    position: relative;
+    z-index: 9;
+    span {
+      position: relative;
+    }
+    span:after {
+      content: "";
+      position: absolute;
+      height: 76px;
+      width: 85px;
+      border-radius: 25px 0 25px 25px;
+      background-color: #e3fff6;
+      top: -10px;
+      z-index: -1;
+      right: -60%;
+    }
+  }
+  p {
+    font-size: 22px;
+    line-height: 32px;
+    margin: 30px 0px;
+    margin-bottom: 15px;
+  }
+  button {
+    height: 66px;
+    width: 303px;
+    border-radius: 33.75px;
+    background-color: #43aa8b;
+    box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
+    border: 0;
+    text-align: left;
+    padding: 0px 20px;
+    color: #fff;
+    font-size: 20px;
+    font-family: "proxima_nova_rgbold";
+    line-height: 24px;
+    margin-top: 40px;
+    span {
+      float: right;
+      height: 24px;
+      width: 24px;
+      background-color: #fca834;
+      border-radius: 50%;
+      padding: 0px 7px;
+      margin-top: 0px;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        margin-top: 2px;
+      }
+    }
+  }
+}
+.olympiad-main {
+  padding: 50px 40px;
+
+  h4 {
+    font-size: 45px;
+    font-family: "proxima_nova_rgbold";
+    line-height: 64px;
+    position: relative;
+    z-index: 9;
+    span {
+      position: relative;
+    }
+    span:after {
+      content: "";
+      position: absolute;
+      height: 76px;
+      width: 85px;
+      border-radius: 25px 0 25px 25px;
+      background-color: #fff6e9;
+      top: -10px;
+      z-index: -1;
+      right: -16%;
+    }
+  }
+  p {
+    font-size: 22px;
+    line-height: 32px;
+    margin: 30px 0px;
+    margin-bottom: 15px;
+  }
+  button {
+    height: 66px;
+    width: 303px;
+    border-radius: 33.75px;
+    background-color: #43aa8b;
+    box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
+    border: 0;
+    text-align: left;
+    padding: 0px 20px;
+    color: #fff;
+    font-size: 20px;
+    font-family: "proxima_nova_rgbold";
+    line-height: 24px;
+    margin-top: 40px;
+    span {
+      float: right;
+      height: 24px;
+      width: 24px;
+      background-color: #fca834;
+      border-radius: 50%;
+      padding: 0px 7px;
+      margin-top: 0px;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        margin-top: 2px;
+      }
+    }
+  }
+}
+.brain-main {
+  padding: 50px 40px;
+
+  h4 {
+    font-size: 45px;
+    font-family: "proxima_nova_rgbold";
+    line-height: 64px;
+    position: relative;
+    z-index: 9;
+    span {
+      position: relative;
+    }
+    span:after {
+      content: "";
+      position: absolute;
+      height: 76px;
+      width: 85px;
+      border-radius: 25px 0 25px 25px;
+      background-color: #fff6e9;
+      top: -10px;
+      z-index: -1;
+      right: 20px;
+    }
+  }
+  p {
+    font-size: 22px;
+    line-height: 32px;
+    margin: 30px 0px;
+    margin-bottom: 15px;
+  }
+  button {
+    height: 66px;
+    width: 303px;
+    border-radius: 33.75px;
+    background-color: #43aa8b;
+    box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
+    border: 0;
+    text-align: left;
+    padding: 0px 20px;
+    color: #fff;
+    font-size: 20px;
+    font-family: "proxima_nova_rgbold";
+    line-height: 24px;
+    margin-top: 40px;
+    span {
+      float: right;
+      height: 24px;
+      width: 24px;
+      background-color: #fca834;
+      border-radius: 50%;
+      padding: 0px 7px;
+      margin-top: 0px;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        margin-top: 2px;
+      }
+    }
+  }
+}
+.learningjoyful-main {
+  padding: 50px 40px;
+
+  h4 {
+    font-size: 45px;
+    font-family: "proxima_nova_rgbold";
+    line-height: 64px;
+    position: relative;
+    z-index: 9;
+  }
+  p {
+    font-size: 22px;
+    line-height: 32px;
+    margin: 30px 0px;
+    margin-bottom: 15px;
+  }
+  button {
+    height: 66px;
+    width: 303px;
+    border-radius: 33.75px;
+    background-color: #43aa8b;
+    box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
+    border: 0;
+    text-align: left;
+    padding: 0px 20px;
+    color: #fff;
+    font-size: 20px;
+    font-family: "proxima_nova_rgbold";
+    line-height: 24px;
+    margin-top: 40px;
+    span {
+      float: right;
+      height: 24px;
+      width: 24px;
+      background-color: #fca834;
+      border-radius: 50%;
+      padding: 0px 7px;
+      margin-top: 0px;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        margin-top: 2px;
+      }
+    }
+  }
+}
+.physical-classroom-main {
+  padding: 50px 40px;
+
+  h4 {
+    font-size: 45px;
+    font-family: "proxima_nova_rgbold";
+    line-height: 64px;
+    position: relative;
+    z-index: 9;
+    text-align: center;
+    span {
+      position: relative;
+    }
+    span:after {
+      content: "";
+      position: absolute;
+      height: 56px;
+      width: 65px;
+      border-radius: 17px 0 17px 17px;
+      background-color: #fae3ff;
+      top: -4px;
+      z-index: -1;
+      right: 34px;
+    }
+  }
+  p.main-p {
+    font-size: 22px;
+    line-height: 32px;
+    width: 70%;
+    margin: 30px auto;
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: "proxima_nova_rgregular";
+    margin-bottom: 40px;
+  }
+  .common-div {
+    border-radius: 80px 0 80px 80px;
+    padding: 40px;
+    svg {
+      height: 70px;
+      width: 70px;
+      color: #f9b53d;
+    }
+    h5 {
+      margin: 30px 0px 20px;
+      color: #277da1;
+      font-size: 20px;
+      line-height: 24px;
+      font-family: "proxima_nova_rgbold";
+    }
+    p {
+      color: #20282a;
+      font-size: 16px;
+      line-height: 24px;
+      font-family: "proxima_nova_rgregular";
+    }
+  }
+  .common-div-1 {
+    background: linear-gradient(#fffbf6, #fff0da);
+    position: relative;
+  }
+  .common-div-1:after {
+    content: "";
+    position: absolute;
+  }
+  .common-div-2 {
+    background: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1) !important;
+  }
+  .common-div-3 {
+    background: linear-gradient(#fdf5ff, #f7d4ff);
+  }
+  .common-div-4 {
+    background: linear-gradient(#f6fff8, #d5ffe1);
+  }
+}
+
+.learning-journey-main {
+  padding: 80px 60px 70px 80px;
+  background: #e9ffef;
+  border-radius: 180px 0 180px 0;
+
+  h4 {
+    font-size: 45px;
+    font-family: "proxima_nova_rgbold";
+    line-height: 64px;
+    position: relative;
+    z-index: 9;
+    span {
+      position: relative;
+    }
+    span:after {
+      content: "";
+      position: absolute;
+      height: 78px;
+      width: 91px;
+      border-radius: 0px 31px 31px 31px;
+      background-color: #fff6e9;
+      top: -15px;
+      z-index: -1;
+      right: -52px;
+    }
+  }
+
+  button {
+    height: 66px;
+    width: 303px;
+    border-radius: 33.75px;
+    background-color: #43aa8b;
+    box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
+    border: 0;
+    text-align: left;
+    padding: 0px 20px;
+    color: #fff;
+    font-size: 20px;
+    font-family: "proxima_nova_rgbold";
+    line-height: 24px;
+    margin-top: 40px;
+    span {
+      float: right;
+      height: 24px;
+      width: 24px;
+      background-color: #fca834;
+      border-radius: 50%;
+      padding: 0px 7px;
+      margin-top: 0px;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        margin-top: 2px;
+      }
+    }
+  }
+}
+.give-gift-main {
+  padding: 120px 40px;
+
+  .border-common {
+    position: relative;
+    height: 50px;
+    display: block;
+  }
+  .border-common::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    border-left: 2px dotted #f9844a;
+  }
+  .border-common::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #f9844a;
+    left: 48.5%;
+    top: 40%;
+  }
+  .border-common-2::after {
+    border-color: #f9c74f;
+  }
+  .border-common-2::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #f9c74f;
+    left: 48.5%;
+    top: 40%;
+  }
+  .gift-common {
+    display: flex;
+    align-items: center;
+    border-radius: 0 100px 68px 68px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    height: 106px;
+    width: 587px;
+    //margin-bottom: 50px;
+    padding-left: 30px;
+    font-family: "proxima_nova_rgbold";
+
+    .icon {
+      height: 43px;
+      width: 43px;
+      border-radius: 50%;
+      background: #f9844a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 24px;
+    }
+    h5 {
+      margin-bottom: 0;
+      padding-left: 25px;
+      font-family: "Proxima Nova";
+      font-size: 30px;
+      line-height: 36px;
+      color: #f9844a;
+    }
+  }
+
+  .gift-common-2 {
+    .icon {
+      background: #f9c74f;
+    }
+    h5 {
+      color: #f9c74f;
+    }
+  }
+  .gift-common-3 {
+    .icon {
+      background: #43aa8b;
+    }
+    h5 {
+      color: #43aa8b;
+    }
+  }
+  .gift-right {
+    h4 {
+      font-size: 52px;
+      font-family: "proxima_nova_rgbold";
+      line-height: 64px;
+      position: relative;
+      z-index: 9;
+      margin-bottom: 25px;
+      margin-top: 50px;
+      span.span-1 {
+        position: relative;
+      }
+      span.span-1:after {
+        content: "";
+        position: absolute;
+        height: 30px;
+        width: 35px;
+        border-radius: 10px 0 10px 10px;
+        background-color: #e3e5ff;
+        top: -45px;
+        z-index: -1;
+        right: 8px;
+      }
+      span.span-2 {
+        position: relative;
+      }
+      span.span-2:after {
+        content: "";
+        position: absolute;
+        height: 56px;
+        width: 65px;
+        border-radius: 17px 0 17px 17px;
+        background-color: #e9ffef;
+        top: -5px;
+        z-index: -1;
+        right: -5px;
+      }
+      span.span-3 {
+        position: relative;
+      }
+      span.span-3:after {
+        content: "";
+        position: absolute;
+        height: 30px;
+        width: 35px;
+        border-radius: 10px 0 10px 10px;
+        background-color: #fbe8ff;
+        top: 10px;
+        z-index: -1;
+        right: -65px;
+      }
+      span.span-4 {
+        position: relative;
+      }
+      span.span-4:after {
+        content: "";
+        position: absolute;
+        height: 91px;
+        width: 106px;
+        border-radius: 0px 31px 31px 31px;
+        background-color: #fff6e9;
+        top: 2px;
+        z-index: -1;
+        right: -178px;
+      }
+      span.span-4:before {
+        content: "";
+        position: absolute;
+        height: 53px;
+        width: 62px;
+        border-radius: 22px 0 22px 22px;
+        background-color: #e9ffef;
+        top: 100px;
+        z-index: -1;
+        right: -320px;
+      }
+    }
+
+    button {
+      height: 66px;
+      width: 303px;
+      border-radius: 33.75px;
+      background-color: #43aa8b;
+      box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
+      border: 0;
+      text-align: left;
+      padding: 0px 20px;
+      color: #fff;
+      font-size: 20px;
+      font-family: "proxima_nova_rgbold";
+      line-height: 24px;
+      margin-top: 40px;
+      position: relative;
+      span {
+        float: right;
+        height: 24px;
+        width: 24px;
+        background-color: #fca834;
+        border-radius: 50%;
+        padding: 0px 7px;
+        margin-top: 0px;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg {
+          margin-top: 2px;
+        }
+      }
+    }
+    button:before {
+      content: "";
+      position: absolute;
+      height: 25px;
+      width: 27px;
+      border-radius: 10px 0 10px 10px;
+      background-color: #e3e5ff;
+      top: 40px;
+      z-index: -1;
+      right: -50px;
+    }
+    button:after {
+      content: "";
+      position: absolute;
+      height: 30px;
+      width: 35px;
+      border-radius: 10px 0 10px 10px;
+      background-color: #fbe8ff;
+      top: 115px;
+      z-index: -1;
+      left: 20%;
+    }
+  }
+}
