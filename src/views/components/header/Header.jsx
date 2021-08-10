@@ -8,7 +8,7 @@ function Header() {
       <div className="Header">
         <div className="row">
           <div className="col-sm-2 header-left">
-            <img src={Logo} alt="website_log"/>
+            <img src={Logo} alt="website_log" />
           </div>
           <div className="col-sm-10 header-right">
             <ul>

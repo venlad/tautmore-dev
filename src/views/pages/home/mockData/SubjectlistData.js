@@ -1,24 +1,28 @@
-import Icon from "../../../../assets/images/mathicon.png";
+import mathIcon from "../../../../assets/images/design-tool.png";
+import engIcon from "../../../../assets/images/alphabet.png";
+import brainIcon from "../../../../assets/images/brain.png";
+import coIcon from "../../../../assets/images/artist.png";
+import examIcon from "../../../../assets/images/ancient-scroll.png";
 
 export const SubjectData = [
   {
     title: "Mathematics",
-    image: Icon,
+    image: mathIcon,
   },
   {
     title: "English",
-    image: Icon,
+    image: engIcon,
   },
   {
     title: "Brain-gym",
-    image: Icon,
+    image: brainIcon,
   },
   {
     title: "Co-curricular",
-    image: Icon,
+    image: coIcon,
   },
   {
     title: "Exams",
-    image: Icon,
+    image: examIcon,
   },
 ];

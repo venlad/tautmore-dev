@@ -1,12 +1,15 @@
 import React from "react";
 import { Circle, chevRight } from "../../../assets/icons/IconList";
+import classroomimg from "../../../assets/images/Group 17.png";
 
 function Classroom() {
   return (
     <div>
       <div className="classroom-main">
         <div className="row">
-          <div className="col-md-6 classroom-left"></div>
+          <div className="col-md-6 classroom-left">
+            <img src={classroomimg} alt="Classroom_img" />
+          </div>
           <div className="col-md-4 classroom-right">
             <h4>
               Class<span>room</span>

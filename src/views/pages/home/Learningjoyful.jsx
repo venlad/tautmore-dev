@@ -1,12 +1,15 @@
 import React from "react";
 import { chevRight } from "../../../assets/icons/IconList";
+import joyfulImg from "../../../assets/images/Group 27.png";
 
 function Learningjoyful() {
   return (
     <div>
       <div className="learningjoyful-main">
         <div className="row">
-          <div className="col-md-6"></div>
+          <div className="col-md-6 learningjoyful-left">
+            <img src={joyfulImg} alt="Joyful_img" />
+          </div>
           <div className="col-md-5">
             <h4>
               Tautmore makes <br />

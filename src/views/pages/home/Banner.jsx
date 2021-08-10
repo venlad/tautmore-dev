@@ -1,5 +1,6 @@
 import React from "react";
 import { chevRight } from "../../../assets/icons/IconList";
+import Bannerimg from "../../../assets/images/Banner 5.png";
 
 function Banner() {
   return (
@@ -22,7 +23,9 @@ function Banner() {
 
           <div className="banner-left-bottom-icon"></div>
         </div>
-        <div className="col-md-6 banner-right"></div>
+        <div className="col-md-6 banner-right">
+          <img src={Bannerimg} alt="banner_img" />
+        </div>
       </div>
     </div>
   );

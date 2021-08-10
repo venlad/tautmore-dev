@@ -1,5 +1,6 @@
 import React from "react";
 import { chevRight } from "../../../assets/icons/IconList";
+import activityImg from "../../../assets/images/Group 14.png";
 
 function Activities() {
   return (
@@ -19,7 +20,10 @@ function Activities() {
               <span>{chevRight}</span>
             </button>
           </div>
-          <div className="col-md-6"></div>
+          <div className="col-md-1"></div>
+          <div className="col-md-7 activity-right">
+            <img src={activityImg} alt="activity_img" />
+          </div>
         </div>
       </div>
     </div>

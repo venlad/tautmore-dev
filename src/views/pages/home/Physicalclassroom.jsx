@@ -1,5 +1,9 @@
 import React from "react";
-import { User } from "../../../assets/icons/IconList";
+import physicalImg from "../../../assets/images/phyback.png";
+import userone from "../../../assets/images/celebration.png";
+import usertwo from "../../../assets/images/online-class.png";
+import userthree from "../../../assets/images/male-teacher.png";
+import userfour from "../../../assets/images/trophy.png";
 
 function Physicalclassroom() {
   return (
@@ -16,8 +20,13 @@ function Physicalclassroom() {
 
         <div className="row">
           <div className="col-md-3">
-            <div className="col-md-12 common-div common-div-1">
-              {User}
+            <div
+              className="col-md-12 common-div common-div-1"
+              style={{
+                backgroundImage: `url(${physicalImg})`,
+              }}
+            >
+              <img src={userone} alt="user_image" />
               <h5>
                 Joyful, Self paced <br />
                 learning
@@ -25,10 +34,14 @@ function Physicalclassroom() {
               <p>Lorem ipsum dolar sit amet Sip alum doren</p>
             </div>
           </div>
-
           <div className="col-md-3">
-            <div className="col-md-12 common-div common-div-2">
-              {User}
+            <div
+              className="col-md-12 common-div common-div-2"
+              style={{
+                backgroundImage: `url(${physicalImg})`,
+              }}
+            >
+              <img src={usertwo} alt="user_image" />
               <h5>
                 Live classes &
                 <br />
@@ -39,8 +52,13 @@ function Physicalclassroom() {
           </div>
 
           <div className="col-md-3">
-            <div className="col-md-12 common-div common-div-3">
-              {User}
+            <div
+              className="col-md-12 common-div common-div-3"
+              style={{
+                backgroundImage: `url(${physicalImg})`,
+              }}
+            >
+              <img src={userthree} alt="user_image" />
               <h5>
                 Doubt clearing
                 <br />
@@ -51,8 +69,13 @@ function Physicalclassroom() {
           </div>
 
           <div className="col-md-3">
-            <div className="col-md-12 common-div common-div-4">
-              {User}
+            <div
+              className="col-md-12 common-div common-div-4"
+              style={{
+                backgroundImage: `url(${physicalImg})`,
+              }}
+            >
+              <img src={userfour} alt="user_image" />
               <h5>
                 Fun badges &
                 <br />

@@ -16,6 +16,7 @@
           list-style-type: none;
           display: inline-block;
           margin-right: 33px;
+          cursor: pointer;
           svg {
             height: 30px;
             width: 30px;
@@ -39,18 +40,19 @@
           line-height: 40px;
           color: #4e5d61;
           list-style: none;
+          cursor: pointer;
         }
       }
     }
   }
   .footer-bottom {
     height: 76px;
-    background-color: #34373B;
+    background-color: #34373b;
     padding: 27px 40px;
     color: #fff;
     font-family: "proxima_nova_rgregular";
     .text-right {
-        text-align: right;
+      text-align: right;
     }
   }
 }
