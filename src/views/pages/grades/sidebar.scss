@@ -1,0 +1,272 @@
+.slidebar .container {
+  width: 352px;
+  height: 1228px;
+}
+
+.slidebar-split .innercontainer {
+  margin-top: 60px;
+}
+.slidebar-split .grade {
+  margin-bottom: 30px;
+}
+.slidebar-split .grade p {
+  color: #20282a;
+  font-family: "proxima_nova_rgbold";
+  font-size: 20px;
+
+  letter-spacing: 0;
+  line-height: 24px;
+  padding-left: 15px;
+  text-transform: uppercase;
+}
+.slidebar-split .pre-kindergarten {
+  height: 65px;
+  /* width: 354px; */
+  background-color: #fff4e9;
+}
+
+.slidebar-split .lipre-kindergarten {
+  height: 24px;
+
+  color: #f3722c;
+  font-family: "Proxima Nova";
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+
+.slidebar-split .kindergarten {
+  height: 22px;
+  width: 114px;
+  color: #42494b;
+  font-family: "Proxima Nova";
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 22px;
+  margin-top: 22px;
+}
+.slidebar-split .class-1 {
+  padding: 15px 0px;
+
+  color: #42494b;
+  font-family: "Proxima Nova";
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 22px;
+  margin-top: 10px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.slidebar-split ul li:hover {
+  background-color: #fff4e9;
+  color: #f3722c;
+}
+.slidebar-split ul li:hover a {
+  color: #f3722c;
+  font-family: "Proxima Nova";
+}
+
+.innercontainer ul li a {
+  list-style-type: none;
+
+  color: #42494b;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-family: "proxima_nova_rgregular";
+}
+.right {
+  margin-top: 0;
+}
+.rectangle {
+  /* height: 972px;
+    width: 1092px; */
+  background-color: #fffdfb;
+  /* margin: 50px; */
+  /* margin-right: 120px; */
+}
+.classroom-subject {
+  /* height: 94px;
+    width: 693px; */
+  padding-top: 20px;
+}
+
+.classroom {
+  height: 24px;
+  width: 123px;
+  color: #20282a;
+  font-family: "proxima_nova_rgbold";
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+/* .classroom-subject {
+  
+    color: #20282a;
+    font-family: "Proxima Nova";
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 24px;
+    height: 94px;
+    width: 693px;
+  } */
+.subjects ul {
+  padding: 0;
+  margin: 0;
+  li {
+    padding-left: 0;
+  }
+}
+
+.subjects ul li a {
+  list-style-type: none;
+  margin-top: 30px;
+  color: #454c4e;
+  padding-top: 40px;
+  text-decoration: none;
+  font-family: "proxima_nova_rgbold";
+}
+
+.rectangle-curri {
+  height: 156px;
+  width: 740px;
+}
+.co-curricular {
+  height: 24px;
+  width: 160px;
+  color: #20282a;
+  font-family: "proxima_nova_rgbold";
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+
+.brain-gym {
+  height: 24px;
+  width: 110px;
+  color: #20282a;
+  font-family: "proxima_nova_rgbold";
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 24px;
+  margin-top: 20px;
+}
+
+.rectangle-olympiad {
+  height: 152px;
+  width: 725px;
+}
+.olympiad {
+  height: 24px;
+  width: 100px;
+  color: #20282a;
+  font-family: "proxima_nova_rgbold";
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 24px;
+  margin-top: 40px;
+}
+
+.rectangle-curri {
+  padding-top: 80px;
+}
+.rectangle-brain {
+  padding-top: 140px;
+}
+.rectangle-olympiad {
+  padding-top: 140px;
+}
+
+.subjects {
+  font-family: "Proxima Nova";
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+/* .space {
+    margin-top: 5px;
+  } */
+
+.idivide {
+  height: 28.2px;
+  width: 26.72px;
+  background-color: #454c4e;
+}
+
+.myexams-icon {
+  padding-right: 16px;
+  height: 34px;
+}
+
+.head-common {
+  height: auto;
+  width: auto;
+  margin-top: 0;
+}
+.head-common p {
+  margin-bottom: 0;
+}
+.main-common {
+  padding-top: 0;
+  height: auto;
+  margin-bottom: 60px;
+  width: auto;
+}
+.main-common ul li {
+  margin-top: 25px;
+}
+.main-common ul li a:hover {
+  color: #f3722c;
+  font-family: "proxima_nova_rgbold";
+}
+.rectangle-curri {
+  position: relative;
+}
+.rectangle-curri::after {
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 30px;
+  border-radius: 10px 0 10px 10px;
+  opacity: 64%;
+  background: #fae3cc;
+  bottom: -39px;
+}
+.pre-kindergarten-center h1 {
+  height: 120px;
+  width: 795px;
+  color: #fff6ed;
+  font-family: "proxima_nova_rgbold";
+  font-size: 100px;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 120px;
+  /* margin-left: 30%;
+    margin-top: 10%; */
+  position: relative;
+  left: -30px;
+}
+.classroom-two {
+  position: relative;
+}
+.classroom-two:after {
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 30px;
+  border-radius: 10px 0 10px 10px;
+  opacity: 64%;
+  background-color: #fae3cc;
+  bottom: -40px;
+  left: -10px;
+}
