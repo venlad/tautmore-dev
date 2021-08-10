@@ -1,6 +1,6 @@
 import React from "react";
-import { chevRight } from "../../../assets/icons/IconList";
 import Bannerimg from "../../../assets/images/Banner 5.png";
+import Buttoncommon from "./Buttoncommon";
 
 function Banner() {
   return (
@@ -17,9 +17,8 @@ function Banner() {
             co-curricular learning. Give your child the gift of wholesome
             development & prepare for the future.
           </p>
-          <button>
-            Let’s try brain - gym <span>{chevRight}</span>
-          </button>
+
+          <Buttoncommon content="Let’s try brain - gym" />
 
           <div className="banner-left-bottom-icon"></div>
         </div>

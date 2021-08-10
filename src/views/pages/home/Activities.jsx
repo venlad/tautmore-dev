@@ -1,6 +1,6 @@
 import React from "react";
-import { chevRight } from "../../../assets/icons/IconList";
 import activityImg from "../../../assets/images/Group 14.png";
+import Buttoncommon from "./Buttoncommon";
 
 function Activities() {
   return (
@@ -15,10 +15,8 @@ function Activities() {
               Lorem ipsum dolor sit amet, consec teturadipiscing elit, sed do
               eiusmod tem porincididunt ut
             </p>
-            <button>
-              Subscribe now
-              <span>{chevRight}</span>
-            </button>
+
+            <Buttoncommon content="Subscribe now" />
           </div>
           <div className="col-md-1"></div>
           <div className="col-md-7 activity-right">

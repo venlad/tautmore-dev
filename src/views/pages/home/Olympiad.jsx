@@ -1,6 +1,6 @@
 import React from "react";
-import { chevRight } from "../../../assets/icons/IconList";
 import olympidImg from "../../../assets/images/Groupolm.png";
+import Buttoncommon from "./Buttoncommon";
 
 function Olympiad() {
   return (
@@ -18,10 +18,8 @@ function Olympiad() {
               Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do
               eiusmod tem por incididunt ut
             </p>
-            <button>
-              Take sample test
-              <span>{chevRight}</span>
-            </button>
+
+            <Buttoncommon content="Take sample test" />
           </div>
         </div>
       </div>

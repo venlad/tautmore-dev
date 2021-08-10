@@ -1,6 +1,6 @@
 import React from "react";
-import { chevRight } from "../../../assets/icons/IconList";
 import joyfulImg from "../../../assets/images/Group 27.png";
+import Buttoncommon from "./Buttoncommon";
 
 function Learningjoyful() {
   return (
@@ -22,10 +22,7 @@ function Learningjoyful() {
               activity that also helps your child learn concepts beyond
               classroom.
             </p>
-            <button>
-              Let’s try brain-gym
-              <span>{chevRight}</span>
-            </button>
+            <Buttoncommon content="Let’s try brain-gym" />
           </div>
         </div>
       </div>

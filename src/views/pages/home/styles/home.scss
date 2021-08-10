@@ -12,6 +12,7 @@
     border-radius: 10px;
     cursor: pointer;
   }
+
   div:last-child {
     margin-right: 0;
     background: transparent;
@@ -186,6 +187,9 @@
   .learning-progress-right {
     position: relative;
     z-index: 9;
+    .secondtop {
+      position: relative;
+    }
     .learning-block-main {
       background-color: #fff;
       margin-bottom: 20px;
@@ -716,6 +720,9 @@
   .common-div {
     border-radius: 80px 0 80px 80px;
     padding: 40px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 306px;
 
     svg {
       height: 70px;
@@ -828,6 +835,7 @@
     position: relative;
     height: 50px;
     display: block;
+    width: 587px;
   }
   .border-common::after {
     content: "";
@@ -835,7 +843,7 @@
     z-index: -1;
     top: 0;
     bottom: 0;
-    left: 50%;
+    left: 51.6%;
     border-left: 2px dotted #f9844a;
   }
   .border-common::before {
@@ -846,7 +854,7 @@
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-top: 10px solid #f9844a;
-    left: 48.5%;
+    left: 50%;
     top: 40%;
   }
   .border-common-2::after {
@@ -860,7 +868,7 @@
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-top: 10px solid #f9c74f;
-    left: 48.5%;
+    left: 50%;
     top: 40%;
   }
   .gift-common {
@@ -1044,4 +1052,16 @@
       left: 20%;
     }
   }
+}
+.button-common span svg {
+  margin-top: 0 !important;
+}
+.button-common:hover {
+  background-color: #fff !important;
+  color: #43aa8b !important;
+  border: 2px solid #43aa8b !important;
+}
+.button-common:hover span {
+  background-color: #43aa8b !important;
+  color: #fff !important;
 }

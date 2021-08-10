@@ -1,6 +1,6 @@
 import React from "react";
-import { chevRight } from "../../../assets/icons/IconList";
 import brainImg from "../../../assets/images/Group 20.png";
+import Buttoncommon from "./Buttoncommon";
 function Braingym() {
   return (
     <div>
@@ -14,10 +14,7 @@ function Braingym() {
               Lorem ipsum dolor sit amet, consec teturadipiscing elit, sed do
               eiusmod tem porincididunt ut
             </p>
-            <button>
-              Let’s try brain-gym
-              <span>{chevRight}</span>
-            </button>
+            <Buttoncommon content="Let’s try brain-gym" />
           </div>
           <div className="col-md-1"></div>
           <div className="col-md-6 brain-right">

@@ -1,6 +1,6 @@
 import React from "react";
-import { chevRight } from "../../../assets/icons/IconList";
 import journeyImg from "../../../assets/images/Group 24.png";
+import Buttoncommon from "./Buttoncommon";
 
 function Learningjourney() {
   return (
@@ -16,10 +16,7 @@ function Learningjourney() {
               the learning journey
             </h4>
 
-            <button>
-              Let’s try brain-gym
-              <span>{chevRight}</span>
-            </button>
+            <Buttoncommon content="Let’s try brain-gym" />
           </div>
           <div className="col-md-7 learning-journey-right">
             <img src={journeyImg} alt="Journey_img" />
