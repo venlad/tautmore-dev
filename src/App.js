@@ -1,22 +1,27 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import RouteEnum from "./constants/RouteEnum";
-import Home from "./views/pages/home/Home";
-import Subject from "./views/pages/subject/Subject";
-import Grades from "./views/pages/grades/Grades";
+import Layout from "./Layout/Layout";
+import { routes } from "./Routes";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact={true} path={RouteEnum.HOME} component={Home} />
-        <Route exact={true} path={RouteEnum.SUBJECT} component={Subject} />
-        <Route exact={true} path={RouteEnum.GRADES} component={Grades} />
-      </Switch>
-    </BrowserRouter>
+    <Layout>
+      <BrowserRouter>
+        <Switch>
+          {routes.map((data) => (
+            <Route
+              key={data.key}
+              exact={true}
+              path={data.path}
+              component={data.component}
+            />
+          ))}
+        </Switch>
+      </BrowserRouter>
+    </Layout>
   );
 }
 

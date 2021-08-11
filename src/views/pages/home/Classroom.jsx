@@ -1,6 +1,7 @@
 import React from "react";
-import { Circle, chevRight } from "../../../assets/icons/IconList";
+import { Circle } from "../../../assets/icons/IconList";
 import classroomimg from "../../../assets/images/Group 17.png";
+import Buttoncommon from "./Buttoncommon";
 
 function Classroom() {
   return (
@@ -25,10 +26,7 @@ function Classroom() {
               <li>{Circle} Consec tetur adipiscing elit</li>
             </ul>
 
-            <button>
-              Subscribe now
-              <span>{chevRight}</span>
-            </button>
+            <Buttoncommon content="Subscribe now" />
           </div>
         </div>
       </div>

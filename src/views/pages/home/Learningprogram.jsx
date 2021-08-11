@@ -1,6 +1,5 @@
 import React from "react";
-
-import { Building, errowRight } from "../../../assets/icons/IconList";
+import LearningprogramBlock from "./LearningprogramBlock";
 
 function Learningprogram() {
   return (
@@ -23,79 +22,32 @@ function Learningprogram() {
         </div>
         <div className="col-md-9 learning-progress-right">
           <div className="row">
-            <div className="col-md-6 ">
-              <div className="col-md-12 learning-block-main first">
-                <div className="row">
-                  <div className="col-md-3 learning-block-left">
-                    <div className="icon">{Building}</div>
-                  </div>
-                  <div className="col-md-7 learning-block-right">
-                    <h5>Classroom</h5>
-                    <p>Lorem ipsum dolar sit ametSip alum doren</p>
-                  </div>
+            <LearningprogramBlock
+              title="Classroom"
+              desc="Lorem ipsum dolar sit ametSip alum doren"
+              className="first"
+            />
 
-                  <div className="col-md-2 learning-right-icon">
-                    {errowRight}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-6 learning-six-second">
-              <div className="col-md-12 learning-block-main second">
-                <div className="row">
-                  <div className="col-md-3 learning-block-left">
-                    <div className="icon">{Building}</div>
-                  </div>
-                  <div className="col-md-7 learning-block-right">
-                    <h5>Extra curricular activities </h5>
-                    <p>Lorem ipsum dolar sit ametSip alum doren</p>
-                  </div>
-
-                  <div className="col-md-2 learning-right-icon">
-                    {errowRight}
-                  </div>
-                </div>
-              </div>
-            </div>
+            <LearningprogramBlock
+              title="Extra curricular activities "
+              desc="Lorem ipsum dolar sit ametSip alum doren"
+              className="second"
+              second="secondtop"
+            />
           </div>
 
           <div className="row">
-            <div className="col-md-6 ">
-              <div className="col-md-12 learning-block-main third">
-                <div className="row">
-                  <div className="col-md-3 learning-block-left">
-                    <div className="icon">{Building}</div>
-                  </div>
-                  <div className="col-md-7 learning-block-right">
-                    <h5>Self-paced learning</h5>
-                    <p>Lorem ipsum dolar sit ametSip alum doren</p>
-                  </div>
+            <LearningprogramBlock
+              title="Self-paced learning"
+              desc="Lorem ipsum dolar sit ametSip alum doren"
+              className="third"
+            />
 
-                  <div className="col-md-2 learning-right-icon">
-                    {errowRight}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-6 ">
-              <div className="col-md-12 learning-block-main fourth">
-                <div className="row">
-                  <div className="col-md-3 learning-block-left">
-                    <div className="icon">{Building}</div>
-                  </div>
-                  <div className="col-md-7 learning-block-right">
-                    <h5>Olympiad</h5>
-                    <p>Lorem ipsum dolar sit ametSip alum doren</p>
-                  </div>
-
-                  <div className="col-md-2 learning-right-icon">
-                    {errowRight}
-                  </div>
-                </div>
-              </div>
-            </div>
+            <LearningprogramBlock
+              title="Olympiad"
+              desc="Lorem ipsum dolar sit ametSip alum doren"
+              className="fourth"
+            />
           </div>
         </div>
       </div>
