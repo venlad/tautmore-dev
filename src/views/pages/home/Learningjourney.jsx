@@ -1,6 +1,6 @@
 import React from "react";
 import journeyImg from "../../../assets/images/Group 24.png";
-import Buttoncommon from "./Buttoncommon";
+import Buttoncommon from "./Button";
 
 function Learningjourney() {
   return (

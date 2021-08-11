@@ -1,6 +1,6 @@
 import React from "react";
 import Bannerimg from "../../../assets/images/Banner 5.png";
-import Buttoncommon from "./Buttoncommon";
+import Buttoncommon from "./Button";
 
 function Banner() {
   return (

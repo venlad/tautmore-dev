@@ -1,6 +1,6 @@
 import React from "react";
 import GivegiftBlock from "./GivegiftBlock";
-import Buttoncommon from "./Buttoncommon";
+import Buttoncommon from "./Button";
 
 function Givegift() {
   return (

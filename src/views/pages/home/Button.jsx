@@ -1,7 +1,7 @@
 import React from "react";
 import { chevRight } from "../../../assets/icons/IconList";
 
-const Buttoncommon = ({ content }) => {
+const Button = ({ content }) => {
   return (
     <button className="button-common">
       {content}
@@ -10,4 +10,4 @@ const Buttoncommon = ({ content }) => {
   );
 };
 
-export default Buttoncommon;
+export default Button;
