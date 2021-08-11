@@ -9,7 +9,9 @@ function Header() {
       <div className="Header">
         <div className="row">
           <div className="col-sm-2 header-left">
-            <img src={Logo} alt="website_log" />
+            <Link to="/">
+              <img src={Logo} alt="website_log" />
+            </Link>
           </div>
           <div className="col-sm-10 header-right">
             <ul>

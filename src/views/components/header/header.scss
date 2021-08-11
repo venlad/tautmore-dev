@@ -2,10 +2,18 @@
   border-bottom: 1px solid #dfdfdf;
   padding: 30px 40px 15px;
   .header-left {
-    img {
+    a {
       width: 250px;
       height: 64px;
       cursor: pointer;
+      display: block;
+      position: relative;
+      z-index: 99;
+      img {
+        width: 250px;
+        height: 64px;
+        cursor: pointer;
+      }
     }
   }
   .header-right {

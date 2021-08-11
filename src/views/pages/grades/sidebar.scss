@@ -262,7 +262,7 @@ ul {
   /* margin-left: 30%;
     margin-top: 10%; */
   position: relative;
-  left: -30px;
+  left: -50px;
 }
 .classroom-two {
   position: relative;
@@ -277,4 +277,12 @@ ul {
   background-color: #fae3cc;
   bottom: -40px;
   left: -10px;
+}
+.grade-container {
+  display: flex;
+  width: 100%;
+}
+.grade-right-part {
+  width: 80%;
+  padding: 10px 45px;
 }

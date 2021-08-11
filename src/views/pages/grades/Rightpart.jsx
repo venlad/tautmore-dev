@@ -5,7 +5,7 @@ import { rightpartData } from "./mockData/Data";
 
 function Rightpart() {
   return (
-    <div className="rectangle col col-md-9">
+    <div className="rectangle grade-right-part">
       <div className="pre-kindergarten-center">
         <h1>Pre-kindergarten</h1>
       </div>
@@ -17,24 +17,22 @@ function Rightpart() {
               <p>{data.titleone}</p>
             </div>
             <div className="subjects">
-              <Router>
-                <ul className="row">
-                  {data?.dataone?.map((item, index) => {
-                    return (
-                      <li className="col-md-4 math" key={index}>
-                        <Link to="/mathematics">
-                          <img
-                            className="myexams-icon"
-                            src={item.image}
-                            alt="logo"
-                          />
-                          {item.title}
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </Router>
+              <ul className="row">
+                {data?.dataone?.map((item, index) => {
+                  return (
+                    <li className="col-md-4 math" key={index}>
+                      <Link to={`/syllabus/${item.title}`}>
+                        <img
+                          className="myexams-icon"
+                          src={item.image}
+                          alt="logo"
+                        />
+                        {item.title}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           </div>
         ))}
@@ -47,24 +45,22 @@ function Rightpart() {
               <p>{data.titletwo}</p>
             </div>
             <div className="subjects">
-              <Router>
-                <ul className="row">
-                  {data?.datatwo?.map((item, index) => {
-                    return (
-                      <li className="col-md-4 math" key={index}>
-                        <Link to="/mathematics">
-                          <img
-                            className="myexams-icon"
-                            src={item.image}
-                            alt="logo"
-                          />
-                          {item.title}
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </Router>
+              <ul className="row">
+                {data?.datatwo?.map((item, index) => {
+                  return (
+                    <li className="col-md-4 math" key={index}>
+                      <Link to={`/syllabus/${item.title}`}>
+                        <img
+                          className="myexams-icon"
+                          src={item.image}
+                          alt="logo"
+                        />
+                        {item.title}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           </div>
         ))}
@@ -77,24 +73,22 @@ function Rightpart() {
               <p>{data.titlethree}</p>
             </div>
             <div className="subjects">
-              <Router>
-                <ul className="row">
-                  {data?.datathree?.map((item, index) => {
-                    return (
-                      <li className="col-md-4 math" key={index}>
-                        <Link to="/mathematics">
-                          <img
-                            className="myexams-icon"
-                            src={item.image}
-                            alt="logo"
-                          />
-                          {item.title}
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </Router>
+              <ul className="row">
+                {data?.datathree?.map((item, index) => {
+                  return (
+                    <li className="col-md-4 math" key={index}>
+                      <Link to={`/syllabus/${item.title}`}>
+                        <img
+                          className="myexams-icon"
+                          src={item.image}
+                          alt="logo"
+                        />
+                        {item.title}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           </div>
         ))}
@@ -107,24 +101,22 @@ function Rightpart() {
               <p>{data.titlefour}</p>
             </div>
             <div className="subjects">
-              <Router>
-                <ul className="row">
-                  {data?.datafour?.map((item, index) => {
-                    return (
-                      <li className="col-md-4 math" key={index}>
-                        <Link to="/mathematics">
-                          <img
-                            className="myexams-icon"
-                            src={item.image}
-                            alt="logo"
-                          />
-                          {item.title}
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </Router>
+              <ul className="row">
+                {data?.datafour?.map((item, index) => {
+                  return (
+                    <li className="col-md-4 math" key={index}>
+                      <Link to={`/syllabus/${item.title}`}>
+                        <img
+                          className="myexams-icon"
+                          src={item.image}
+                          alt="logo"
+                        />
+                        {item.title}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           </div>
         ))}

@@ -12,6 +12,15 @@
     border-radius: 10px;
     cursor: pointer;
   }
+  div.active {
+    background: #e3fff6;
+    position: relative;
+    top: -15px;
+    padding: 25px 20px;
+    border-radius: 0;
+    border-bottom: 2px solid #43aa8b;
+    text-align: center;
+  }
 
   div:last-child {
     margin-right: 0;
