@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../../../assets/images/Logo.png";
 import "./header.scss";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -12,7 +13,10 @@ function Header() {
           </div>
           <div className="col-sm-10 header-right">
             <ul>
-              <li>Grades</li>
+              <Link to="/grades">
+                <li>Grades</li>
+              </Link>
+
               <li>About us</li>
               <button className="login-signin">Login/Signup</button>
             </ul>

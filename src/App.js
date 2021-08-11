@@ -8,20 +8,22 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <Layout>
-      <BrowserRouter>
+    <BrowserRouter>
+      <Layout>
         <Switch>
-          {routes.map((data) => (
-            <Route
-              key={data.key}
-              exact={true}
-              path={data.path}
-              component={data.component}
-            />
-          ))}
+          {routes.map((data) => {
+            return (
+              <Route
+                key={data.key}
+                exact={true}
+                path={data.path}
+                component={data.component}
+              />
+            );
+          })}
         </Switch>
-      </BrowserRouter>
-    </Layout>
+      </Layout>
+    </BrowserRouter>
   );
 }
 

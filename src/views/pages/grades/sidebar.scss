@@ -70,6 +70,14 @@ ul {
   color: #f3722c;
   font-family: "Proxima Nova";
 }
+.slidebar-split ul li.active {
+  background-color: #fff4e9;
+  color: #f3722c;
+}
+.slidebar-split ul li.active a {
+  color: #f3722c;
+  font-family: "Proxima Nova";
+}
 
 .innercontainer ul li a {
   list-style-type: none;
