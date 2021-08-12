@@ -1,0 +1,47 @@
+.Header {
+  border-bottom: 1px solid #dfdfdf;
+  padding: 30px 40px 15px;
+  .header-left {
+    a {
+      width: 250px;
+      height: 64px;
+      cursor: pointer;
+      display: block;
+      position: relative;
+      z-index: 99;
+      img {
+        width: 250px;
+        height: 64px;
+        cursor: pointer;
+      }
+    }
+  }
+  .header-right {
+    text-align: right;
+    ul {
+      padding: 0;
+      margin: 0;
+      li {
+        display: inline-block;
+        color: #20282a;
+        font-size: 18px;
+        line-height: 20px;
+        font-family: "proxima_nova_rgregular";
+        margin-right: 40px;
+        cursor: pointer;
+      }
+      button {
+        background-color: #fff;
+        color: #f3722c;
+        border-radius: 33.75px;
+        width: 210px;
+        height: 56px;
+        border: 1px solid #f3722c;
+        font-family: "proxima_nova_rgbold";
+        font-size: 20px;
+        line-height: 24px;
+        cursor: pointer;
+      }
+    }
+  }
+}
