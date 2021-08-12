@@ -3,6 +3,7 @@ import Home from "./views/pages/home/Home";
 import Subject from "./views/pages/subject/Subject";
 import Grades from "./views/pages/grades/Grades";
 import Chapters from "./views/pages/Chapters";
+import Register from "./views/components/auth/register/Index";
 
 export const routes = [
   {
@@ -24,5 +25,10 @@ export const routes = [
     key: 4,
     path: RouteEnum.CHAPTERS,
     component: Chapters,
+  },
+  {
+    key: 5,
+    path: RouteEnum.register,
+    component: Register,
   },
 ];
