@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { rightpartData } from "./mockData/Data";
 
@@ -11,101 +11,17 @@ function Rightpart() {
       </div>
 
       <div className="classroom-subject main-common">
-        {rightpartData.map((data, ind) => (
-          <div key={ind}>
+        {rightpartData.map((data) => (
+          <div key={data.key} className="subject-list-main">
             <div className="classroom head-common">
-              <p>{data.titleone}</p>
+              <p>{data.title}</p>
             </div>
             <div className="subjects">
               <ul className="row">
-                {data?.dataone?.map((item, index) => {
+                {data?.data?.map((item) => {
                   return (
-                    <li className="col-md-4 math" key={index}>
-                      <Link to={`/syllabus/${item.title}`}>
-                        <img
-                          className="myexams-icon"
-                          src={item.image}
-                          alt="logo"
-                        />
-                        {item.title}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="classroom-subject main-common classroom-two">
-        {rightpartData.map((data, ind) => (
-          <div key={ind}>
-            <div className="classroom head-common">
-              <p>{data.titletwo}</p>
-            </div>
-            <div className="subjects">
-              <ul className="row">
-                {data?.datatwo?.map((item, index) => {
-                  return (
-                    <li className="col-md-4 math" key={index}>
-                      <Link to={`/syllabus/${item.title}`}>
-                        <img
-                          className="myexams-icon"
-                          src={item.image}
-                          alt="logo"
-                        />
-                        {item.title}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="classroom-subject main-common">
-        {rightpartData.map((data, ind) => (
-          <div key={ind}>
-            <div className="classroom head-common">
-              <p>{data.titlethree}</p>
-            </div>
-            <div className="subjects">
-              <ul className="row">
-                {data?.datathree?.map((item, index) => {
-                  return (
-                    <li className="col-md-4 math" key={index}>
-                      <Link to={`/syllabus/${item.title}`}>
-                        <img
-                          className="myexams-icon"
-                          src={item.image}
-                          alt="logo"
-                        />
-                        {item.title}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="classroom-subject main-common">
-        {rightpartData.map((data, ind) => (
-          <div key={ind}>
-            <div className="classroom head-common">
-              <p>{data.titlefour}</p>
-            </div>
-            <div className="subjects">
-              <ul className="row">
-                {data?.datafour?.map((item, index) => {
-                  return (
-                    <li className="col-md-4 math" key={index}>
-                      <Link to={`/syllabus/${item.title}`}>
+                    <li key={item.title} className="col-md-4 math">
+                      <Link to={`/chapters/${item.title}`}>
                         <img
                           className="myexams-icon"
                           src={item.image}

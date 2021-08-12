@@ -15,11 +15,13 @@
   div.active {
     background: #e3fff6;
     position: relative;
-    top: -15px;
-    padding: 25px 20px;
+    padding: 25px 15px;
     border-radius: 0;
     border-bottom: 2px solid #43aa8b;
-    text-align: center;
+    margin-top: -15px;
+    a {
+      display: block;
+    }
   }
 
   div:last-child {
@@ -58,6 +60,15 @@
     margin-top: -7px;
   }
 }
+.sub-list-main.mainactive {
+  div {
+    text-align: center;
+  }
+  div:last-child {
+    text-align: right;
+  }
+}
+
 .banner-main {
   padding: 50px;
   padding-top: 160px;

@@ -200,6 +200,7 @@ ul {
   font-weight: bold;
   letter-spacing: 0;
   line-height: 24px;
+  margin-bottom: 60px;
 }
 /* .space {
     margin-top: 5px;
@@ -264,10 +265,10 @@ ul {
   position: relative;
   left: -50px;
 }
-.classroom-two {
+.classroom-subject div.subject-list-main:nth-child(2) {
   position: relative;
 }
-.classroom-two:after {
+.classroom-subject div.subject-list-main:nth-child(2):after {
   content: "";
   position: absolute;
   width: 35px;
@@ -275,7 +276,7 @@ ul {
   border-radius: 10px 0 10px 10px;
   opacity: 64%;
   background-color: #fae3cc;
-  bottom: -40px;
+  bottom: -45px;
   left: -10px;
 }
 .grade-container {

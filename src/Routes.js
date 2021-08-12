@@ -2,7 +2,7 @@ import RouteEnum from "./constants/RouteEnum";
 import Home from "./views/pages/home/Home";
 import Subject from "./views/pages/subject/Subject";
 import Grades from "./views/pages/grades/Grades";
-import Syllabus from "./views/pages/Syllabus";
+import Chapters from "./views/pages/Chapters";
 
 export const routes = [
   {
@@ -22,7 +22,7 @@ export const routes = [
   },
   {
     key: 4,
-    path: RouteEnum.SYLLABUS,
-    component: Syllabus,
+    path: RouteEnum.CHAPTERS,
+    component: Chapters,
   },
 ];

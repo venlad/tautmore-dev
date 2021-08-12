@@ -1,6 +1,9 @@
+import { v4 as uuid } from "uuid";
+
 export const data = [
   {
     name: "shapes",
+    key: uuid(),
     chapters: [
       {
         name: "Topic",
@@ -30,6 +33,7 @@ export const data = [
   },
   {
     name: "Count to 3",
+    key: uuid(),
     chapters: [
       {
         name: "Topic",
@@ -49,6 +53,7 @@ export const data = [
   },
   {
     name: "Count to 5",
+    key: uuid(),
     chapters: [
       {
         name: "Topic",
@@ -66,6 +71,7 @@ export const data = [
   },
   {
     name: "Count to 5",
+    key: uuid(),
     chapters: [
       {
         name: "Topic",
@@ -85,6 +91,7 @@ export const data = [
   },
   {
     name: "Count to 10",
+    key: uuid(),
     chapters: [
       {
         name: "Topic",

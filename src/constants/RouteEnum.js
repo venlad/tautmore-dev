@@ -2,7 +2,7 @@ const RouteEnum = {
   HOME: "/",
   SUBJECT: "/subject",
   GRADES: "/grades",
-  SYLLABUS: "/syllabus/:subject",
+  CHAPTERS: "/chapters/:subject",
 };
 
 export default RouteEnum;

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { gradeLinks } from "./data";
 
-const Syllabuslink = () => {
+const Chapterslink = () => {
   const [selectedLink, setSelectedLink] = useState(0);
   return (
-    <div className="syllabus-links">
+    <div className="chapters-links">
       <h1>Grade</h1>
       <ul className="links-list">
         {gradeLinks.map((link, linkIdx) => {
@@ -23,4 +23,4 @@ const Syllabuslink = () => {
   );
 };
 
-export default Syllabuslink;
+export default Chapterslink;

@@ -10,6 +10,7 @@ const SubtopicDesc = forwardRef(({ isShow, shouldToggleStyle, index }, ref) => {
         }`}
         ref={ref}
         id={index}
+        onClick={shouldToggleStyle}
       >
         <h1>How many planes can you spot flying here?</h1>
         <div className="desc-img-cont">

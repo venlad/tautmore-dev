@@ -1,4 +1,6 @@
 import myexams from "../../../../assets/images/design-tool.png";
+import { v4 as uuid } from "uuid";
+
 const data = [
   {
     title: "Pre-Kindergarten",
@@ -131,19 +133,23 @@ const data4 = [
 
 export const rightpartData = [
   {
-    titleone: "CLASSROOM",
-    dataone: data1,
+    key: uuid(),
+    title: "CLASSROOM",
+    data: data1,
   },
   {
-    titletwo: "CO-CURRICULAR",
-    datatwo: data2,
+    key: uuid(),
+    title: "CO-CURRICULAR",
+    data: data2,
   },
   {
-    titlethree: "BRAIN-GYM",
-    datathree: data3,
+    key: uuid(),
+    title: "BRAIN-GYM",
+    data: data3,
   },
   {
-    titlefour: "OLYMPIAD",
-    datafour: data4,
+    key: uuid(),
+    title: "OLYMPIAD",
+    data: data4,
   },
 ];
