@@ -12,7 +12,12 @@ const Chapterslink = () => {
                         key={link}
                         className={linkIdx === selectedLink ? 'active' : ''}
                     >
-                        <button type="button" onClick={() => setSelectedLink(linkIdx)}>{link}</button>
+                        <button
+                            type="button"
+                            onClick={() => setSelectedLink(linkIdx)}
+                            className={linkIdx === selectedLink ? 'active' : ''}
+                        >{link}
+                        </button>
 
                     </li>
                 ))}

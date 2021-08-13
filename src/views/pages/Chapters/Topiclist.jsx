@@ -54,7 +54,16 @@ const Topiclist = ({
                             : ''
                     }`}
                 >
-                    <button onClick={() => setViewMoreTopic([idx, topicIdx])} type="button">  View more</button>
+                    <button
+                        className={`view-more ${
+                            viewMoreTopic[0] === idx && viewMoreTopic[1] === topicIdx
+                                ? 'hide'
+                                : ''
+                        }`}
+                        onClick={() => setViewMoreTopic([idx, topicIdx])}
+                        type="button"
+                    >  View more
+                    </button>
                 </li>
             )}
         </ul>
