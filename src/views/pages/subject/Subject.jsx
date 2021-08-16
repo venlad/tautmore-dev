@@ -1,11 +1,9 @@
-import React from "react";
+import React from 'react';
 
-const Subject = () => {
-  return (
+const Subject = () => (
     <div>
-      <h1>Subject</h1>
+        <h1>Subject</h1>
     </div>
-  );
-};
+);
 
 export default Subject;
