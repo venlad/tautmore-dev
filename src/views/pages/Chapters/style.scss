@@ -199,3 +199,11 @@ div.chapter-name:nth-child(3n) .subtopic-desc {
   right: 50%;
   left: auto;
 }
+.subtopic-desc button{
+  height: 279px;
+  width: 500px;
+  border-radius: 0 70px 70px 70px;
+  background-color: #FFF4E9;
+  box-shadow: 0 30px 74px -8px rgba(70,196,137,0.1);
+  border: none;
+}
