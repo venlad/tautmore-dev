@@ -7,26 +7,18 @@ import AnswerOption from './AnswerOption';
 const TestAnswer = ({
     ansData,
     selectedAnswer,
-    handleClickAnswer,
-    questionType,
+    handleSelectOption,
+    ansType,
 }) => (
-    <div className="row">
-        <div className="col-12 mt-4 mb-4">
-            <span className="answer-title pt-4">Select your answer</span>
-            <div className="question-options-wrapper">
-                {ansData?.map((item) => (
-                    <AnswerOption
-                        key={item?.id}
-                        item={item}
-                        questionType={questionType}
-                        selectAnswer={selectedAnswer}
-                        handleAnswerclick={handleClickAnswer}
-                    />
-                ))}
-            </div>
-        </div>
-    </div>
-);
+    ansData?.map((item) => (
+        <AnswerOption
+            key={item?.id}
+            item={item}
+            ansType={ansType}
+            selectAnswer={selectedAnswer}
+            handleSelectOption={handleSelectOption}
+        />
+    )));
 
 TestAnswer.propTypes = {
     ansData: shape({
@@ -34,8 +26,8 @@ TestAnswer.propTypes = {
         value: number.isRequired,
     }).isRequired,
     selectedAnswer: string.isRequired,
-    handleClickAnswer: func.isRequired,
-    questionType: string.isRequired,
+    handleSelectOption: func.isRequired,
+    ansType: string.isRequired,
 };
 
 export default TestAnswer;
