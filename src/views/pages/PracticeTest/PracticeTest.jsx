@@ -6,7 +6,7 @@ import TestHeader from './TestHeader';
 import TestQuestion from './TestQuestion';
 import TestAnswerWrapper from './TestAnswerWrapper';
 import TestSubmitButton from './TestSubmitButton';
-import RightAnswerWidgets from './RightAnswerWidgets';
+import SubscriberScreenOne from './SubscriberScreenOne';
 
 const PracticeTest = () => {
     const ansStatus = {
@@ -41,7 +41,7 @@ const PracticeTest = () => {
         ? 'background-on-error'
         : 'background-on-success';
 
-    return quesStatus.isSubmitted && quesStatus.isTrue ? <RightAnswerWidgets /> : (
+    return quesStatus.isSubmitted && quesStatus.isTrue ? <SubscriberScreenOne /> : (
         <div
             className={`pt-4 pb-4 px-5 test-container ${backgroundClass}`}
         >
@@ -49,7 +49,7 @@ const PracticeTest = () => {
             <TestQuestion quesData={quesData} APImage={APImage} />
             <TestAnswerWrapper
                 ansData={ansData}
-                ansType="selectTileType"
+                ansType="enterInput"
                 quesType="inputType"
                 selectedAnswer={selectedAnswer}
                 handleSelectOption={handleClickAnswer}

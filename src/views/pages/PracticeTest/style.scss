@@ -171,7 +171,26 @@
 .question-options-wrapper {
   margin-top: 15px;
   display: flex;
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 390px);
+  column-gap: 20px;
+  row-gap: 20px;
+
 }
+.question-options-wrapper div input{
+  box-sizing: border-box;
+  height: 70px;
+  width: 169px;
+  border: 1.44px solid #9BA4A7;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+} 
+.question-options-wrapper div input:focus{
+  outline: none;
+}
+
+
 
 .icon--check-wrapper {
   height: 24px;
@@ -250,7 +269,146 @@
   align-items: center;
   line-height: 36px;
 }
+/* SubscriberScreenOne start */
+.subscriberscreen-one{
+  overflow: none;
+  background-color: #e3fff6;
+}
+.subscriberscreen-one .right-answer-modal h1{
+  height: 84px;
+  width: 495px;
+  color: #43AA8B;
+  font-family: 'ProximaNovaBold';
+  font-size: 69.3px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 84px;
+  text-align: center;
+}
 
+.subscriberscreen-one .success-bonus p {
+  font-family: 'ProximaNovaBold';
+  font-size: 29.7px;
+  letter-spacing: 0;
+  line-height: 35px;
+  color: #4a5052;
+}
+
+.subscriberscreen-one .success-bonus p span {
+  color: #fca834;
+  font-family: 'ProximaNovaBold';
+  font-weight: bold;
+  margin-left: 10px;
+  height: 35px;
+  width: 222px;
+  font-size: 29.7px;
+  letter-spacing: 0;
+  line-height: 35px;
+}
+.sub-screen-right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  height: 100vh;
+  border-radius: 100px 0 0 100px;
+  background-color: white;
+}
+.sub-screen-right-img{
+  height: 79px;
+  width: 312px;
+  color: white;
+  margin-bottom: 54px;
+  text-align: center;
+}
+.sub-screen-right-heading{
+  height: 159px;
+  width: 458px;
+  color: #454C4E;
+  font-family: "proxima_nova_rgbold";
+  font-size: 44px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 53px;
+  text-align: center;
+  margin-bottom: 52px;
+}
+.sub-screen-right-headtwo{
+  height: 26px;
+  width: 410px;
+  color: #454C4E;
+  font-family: 'ProximaNovaRegular';
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 26px;
+  text-align: center;
+  font-weight: bold;
+}
+.sub-screen-right button{
+  height: 66px;
+  width: 303px;
+  border-radius: 33.75px;
+  background-color: #43aa8b;
+  box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
+  border: 0;
+  text-align: left;
+  padding: 0px 20px;
+  color: #fff;
+  font-size: 20px;
+  font-family: "proxima_nova_rgbold";
+  line-height: 24px;
+  margin-top: 68px;
+  position: relative;
+}
+.sub-screen-right span {
+        float: right;
+        height: 24px;
+        width: 24px;
+        background-color: #fca834;
+        border-radius: 50%;
+        padding: 0px 7px;
+        margin-top: 0px;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+.sub-screen-right button:before {
+  content: "";
+  position: absolute;
+  height: 25px;
+  width: 27px;
+  border-radius: 10px 0 10px 10px;
+  background-color: #e3e5ff;
+  top: 40px;
+  z-index: -1;
+  right: -50px;
+}
+.sub-screen-right button:after {
+  content: "";
+  position: absolute;
+  height: 30px;
+  width: 35px;
+  border-radius: 10px 0 10px 10px;
+  background-color: #fbe8ff;
+  top: 115px;
+  z-index: -1;
+  left: 20%;
+}
+.button-common span svg {
+  margin-top: 0 !important;
+}
+.button-common:hover {
+  background-color: #fff !important;
+  color: #43aa8b !important;
+  border: 2px solid #43aa8b !important;
+}
+.button-common:hover span {
+  background-color: #43aa8b !important;
+  color: #fff !important;
+}
+/* SubscriberScreenOne end */
 .score-text .score {
   color: #43aa8b;
   font-family: "proxima_nova_rgbold";

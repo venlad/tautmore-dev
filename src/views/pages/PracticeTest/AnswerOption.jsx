@@ -35,6 +35,11 @@ const AnswerOption = ({
                 </div>
             );
             break;
+        case 'enterInput':
+            renderAnswer = (
+                <div><input placeholder="text" /></div>
+            );
+            break;
         default:
             renderAnswer = null;
     }
