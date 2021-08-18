@@ -14,9 +14,9 @@ const TestAnswerWrapper = ({
     const renderAnswer = () => {
         let answer = null;
         switch (quesType) {
-            case 'optionsType':
+            case 'inputType':
                 answer = (
-                    <TestAnswer
+                    <AnswerOption
                         ansData={ansData}
                         ansType={ansType}
                         selectAnswer={selectedAnswer}
@@ -24,7 +24,7 @@ const TestAnswerWrapper = ({
                     />
                 );
                 break;
-            case 'inputType':
+            case 'optionsType':
                 answer = (
                     ansData?.map((item) => (
                         <AnswerOption

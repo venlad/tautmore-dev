@@ -8,7 +8,7 @@ const AnswerOption = ({
     handleSelectOption,
     ansType,
 }) => {
-    const optionClass = selectAnswer?.value === item?.value && ' select-answer';
+    const optionClass = selectAnswer?.value === item?.value && 'select-answer';
     // selectAnswer.filter((order) => order.value === item.value).length &&
     // " select-answer";
     let renderAnswer = null;

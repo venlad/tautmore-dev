@@ -6,7 +6,7 @@ import TestHeader from './TestHeader';
 import TestQuestion from './TestQuestion';
 import TestAnswerWrapper from './TestAnswerWrapper';
 import TestSubmitButton from './TestSubmitButton';
-import SubscriberScreenOne from './SubscriberScreenOne';
+import SubscriberWidgets from './SubscriberWidgets';
 
 const PracticeTest = () => {
     const ansStatus = {
@@ -41,7 +41,7 @@ const PracticeTest = () => {
         ? 'background-on-error'
         : 'background-on-success';
 
-    return quesStatus.isSubmitted && quesStatus.isTrue ? <SubscriberScreenOne /> : (
+    return !quesStatus.isSubmitted && !quesStatus.isTrue ? <SubscriberWidgets /> : (
         <div
             className={`pt-4 pb-4 px-5 test-container ${backgroundClass}`}
         >
