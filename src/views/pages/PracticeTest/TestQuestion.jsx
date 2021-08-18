@@ -8,7 +8,7 @@ const TestQuestion = ({ quesData, APImage }) => (
             <div className="question-box">
                 <h4>Question - 1</h4>
                 <h2>{quesData?.title}</h2>
-                <div className="d-flex justify-content-between mt-4">
+                <div className="question-box-common mt-4">
                     {quesData?.objects?.map(() => (
                         <img key={uuid()} className="image" src={APImage} alt="answer" />
                     ))}

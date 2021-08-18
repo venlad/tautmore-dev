@@ -14,7 +14,17 @@ const TestAnswerWrapper = ({
     const renderAnswer = () => {
         let answer = null;
         switch (quesType) {
-            case 'optionsTypes':
+            case 'optionsType':
+                answer = (
+                    <TestAnswer
+                        ansData={ansData}
+                        ansType={ansType}
+                        selectAnswer={selectedAnswer}
+                        handleSelectOption={handleSelectOption}
+                    />
+                );
+                break;
+            case 'inputType':
                 answer = (
                     <TestAnswer
                         ansData={ansData}
@@ -40,7 +50,7 @@ const TestAnswerWrapper = ({
         <div className="row">
             <div className="col-12 mt-4 mb-4">
                 <span className="answer-title pt-4">Select your answer</span>
-                <div className="question-options-wrapper">
+                <div className={`question-options-wrapper ${ansType}`}>
                     {renderAnswer()}
                 </div>
             </div>

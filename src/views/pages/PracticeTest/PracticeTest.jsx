@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './style.css';
+import './style.scss';
 import APImage from './travelling.png';
 import { quesData, ansData } from './data';
 import TestHeader from './TestHeader';
@@ -43,14 +43,14 @@ const PracticeTest = () => {
 
     return quesStatus.isSubmitted && quesStatus.isTrue ? <RightAnswerWidgets /> : (
         <div
-            className={`pt-4 pb-4 px-4 test-container ${backgroundClass}`}
+            className={`pt-4 pb-4 px-5 test-container ${backgroundClass}`}
         >
             <TestHeader />
             <TestQuestion quesData={quesData} APImage={APImage} />
             <TestAnswerWrapper
                 ansData={ansData}
                 ansType="selectTileType"
-                quesType="optionsTypes"
+                quesType="inputType"
                 selectedAnswer={selectedAnswer}
                 handleSelectOption={handleClickAnswer}
             />

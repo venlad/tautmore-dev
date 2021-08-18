@@ -7,16 +7,18 @@ function Learningjourney() {
         <div>
             <div className="learning-journey-main">
                 <div className="row">
-                    <div className="col-md-5">
-                        <h4>
-                            <span>We</span> keep the fun
-                            <br />
-                            going throughout
-                            <br />
-                            the learning journey
-                        </h4>
+                    <div className="col-md-5 learning-journey-left">
+                        <div>
+                            <h4>
+                                <span>We</span> keep the fun
+                                <br />
+                                going throughout
+                                <br />
+                                the learning journey
+                            </h4>
 
-                        <Buttoncommon content="Let’s try brain-gym" />
+                            <Buttoncommon content="Let’s try brain-gym" />
+                        </div>
                     </div>
                     <div className="col-md-7 learning-journey-right">
                         <img src={journeyImg} alt="Journey_img" />
