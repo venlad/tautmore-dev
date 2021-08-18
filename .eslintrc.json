@@ -17,6 +17,7 @@
       "mountWrapper": true,
       "wrapperStore": true
     },
+    
     "rules": {
       "camelcase": "off",
       "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
