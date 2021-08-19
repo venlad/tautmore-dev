@@ -2,15 +2,16 @@ import React from 'react';
 import {  bool, func } from 'prop-types';
 import Logo from '../../../../assets/images/Logo.png';
 import Profile from '../../../../assets/images/profileimage.jpeg';
-import {
-    Dashboardoverview,
-    Dashboardaccount,
-} from '../mockData/dashboardsidebardata';
+import sidebardata from '../mockData/dashboardsidebardata';
 import { menu } from '../../../../assets/icons/IconList';
 
-function Sidemenu({ open, setOpen }) {
+function Sidemenu({ open, setOpen, setView }) {
     const toggleTrueFalse = () => {
         setOpen(!open);
+    };
+
+    const changeValue = (value) => {
+        setView(value);
     };
 
     return (
@@ -37,13 +38,13 @@ function Sidemenu({ open, setOpen }) {
                 </div>
             </div>
 
-            <div className="dashboard-overview dash-list-common">
-                {Dashboardoverview?.map((item) => (
+            <div className="dashboard-overview dash-list-common ">
+                {sidebardata?.map((item) => (
                     <div key={item.title}>
                         <h5>{item.title}</h5>
                         <ul>
                             {item?.data?.map((data) => (
-                                <li key={data.title}>
+                                <li key={data.title} onClick={() => changeValue(data.title)} aria-hidden="true">
                                     <img src={data.image} alt="dash_list_img" />
                                     {data.title}
                                 </li>
@@ -53,21 +54,6 @@ function Sidemenu({ open, setOpen }) {
                 ))}
             </div>
 
-            <div className="dashboard-account dash-list-common">
-                {Dashboardaccount?.map((item) => (
-                    <div key={item.title}>
-                        <h5>{item.title}</h5>
-                        <ul>
-                            {item?.data?.map((data) => (
-                                <li key={data.title}>
-                                    <img src={data.image} alt="dash_list_img" />
-                                    {data.title}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                ))}
-            </div>
         </div>
     );
 }

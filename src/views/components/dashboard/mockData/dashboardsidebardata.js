@@ -8,7 +8,7 @@ import Settingicon from '../../../../assets/images/settingicon.png';
 import Helpdeskicon from '../../../../assets/images/helpdeskicon.png';
 import Logouticon from '../../../../assets/images/logouticon.png';
 
-export const Dashboardoverview = [
+const sidebardata = [
     {
         title: 'OVERVIEW',
         data: [
@@ -38,9 +38,6 @@ export const Dashboardoverview = [
             },
         ],
     },
-];
-
-export const Dashboardaccount = [
     {
         title: 'Account',
         data: [
@@ -67,3 +64,5 @@ export const Dashboardaccount = [
         ],
     },
 ];
+
+export default sidebardata;

@@ -67,10 +67,14 @@
               padding: 20px;
               padding-left: 30px;
               padding-top: 13px;
+              div:nth-child(2) {
+                margin-top: 40px;
+              }
               h5 {
                 font-size: 12px;
                 margin-bottom: 20px;
                 font-family: "proxima_nova_rgbold";
+                text-transform: uppercase;
               }
               ul {
                 padding: 0;
@@ -121,6 +125,7 @@
             padding-left: 25px;
             width: 79%;
             padding-top: 25px;
+            position: relative;
             .dashboard-right-search {
                 background: #FFFFFF;
                 height: 60px;
@@ -175,6 +180,11 @@
                 }
                 .dash-right-search-common-one {
                     justify-content: flex-end;
+                    button {
+                      padding: 0;
+                      border: 0;
+                      background: transparent;
+                    }
                 }
                 .dash-right-search-common-two {
                     padding-left: 0;
@@ -558,6 +568,491 @@
                 
                 }
             }
+            .notification-menu {
+              position: absolute;
+              background: #fff;
+              box-shadow: 0px 5px 5px rgb(0 0 0 / 31%);
+              top: 88px;
+              right: 11px;
+              border-radius: 10px;
+              padding: 20px;
+              max-width: 480px;
+              z-index: 999;
+              display: none;
+              h4 {
+                font-family: "proxima_nova_rgbold";
+                font-size: 20px;
+                color: #20282A;
+                border-bottom: 1px solid #EAEAEA;
+                padding-bottom: 15px;
+                margin-bottom: 20px;
+              }
+              .icon {
+                height: 55px;
+                width: 55px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #F3722C;
+              }
+              h5 {
+                font-size: 16px;
+                color: #2E2E2E;
+                font-family: "proxima_nova_rgbold";
+                margin-bottom: 5px;
+              }
+              p {
+                font-family: "proxima_nova_rgregular";
+                color: #2E2E2E;
+                font-size: 14px;
+                line-height: 18px;
+              }
+              span {
+                font-family: "Proxima Nova";
+                font-size: 12px;
+                color: #6F797B;
+              }
+              .notification-menu-right {
+                text-align: right;
+              }
+              .row {
+                margin-bottom: 15px;
+              }
+            }
+            .notification-menu.true {
+              display: block !important;
+            }
+            .brain-gym-popup {
+              position: fixed;
+              z-index: 9999;
+              background: #E3FFF6;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 50%;
+              box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+              border-radius: 10px;
+              padding: 40px;
+              display: none;
+              max-width: 700px;
+              h3 {
+                font-size: 40px;
+              }
+              p {
+                font-family: "Proxima Nova";
+                color: #454C4E;
+                font-size: 22px;
+              }
+              h4 {
+                margin-top: 15px;
+                color: #FCA834;
+                font-family: "proxima_nova_rgbold";
+                font-size: 36px;
+              }
+              span {
+                font-size: 18px;
+                font-family: "proxima_nova_rgregular";
+                color: #454C4E;
+              }
+              div.text-center { 
+                button {
+                  margin: 40px auto 20px auto !important;
+                  svg {
+                    color: #fff !important;
+                  }
+                }
+                p {
+                  margin-bottom: 0;
+                }
+              }
+              .btn-close {
+                position: absolute;
+                top: -15px;
+                right: -10px;
+                width: 40px;
+                height: 40px;
+                background: #fff !important;
+                border: 0;
+                padding: 0;
+                border-radius: 5px;
+                opacity: 1;
+                svg {
+                  height: 30px;
+                  width: 30px;    
+                }
+              }
+              .btn-close:focus {
+                outline: none;
+                box-shadow: none;
+              }
+            }
+            .brain-gym-popup.true {
+              display: block !important;
+            }
+            .overlay {
+              height: 100%;
+              width: 100%;
+              position: fixed;
+              top: 0;
+              left: 0;
+              background: #000000;
+              opacity: 60%;
+              z-index: 999;
+              display: none;
+            }
+            .overlay.true {
+              display: block !important;
+            }
+            .error-part {
+              background-color: #ffe7d9;
+              border-radius: 10px;
+              height: 80px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin: auto;
+              margin-top: 30px;
+              h4 {
+                color: #f3722c;
+                font-family: "proxima_nova_rgbold";
+                font-size: 20px;
+                margin-bottom: 5px;
+                line-height: 24px;
+              }
+              p {
+                color: #454c4e;
+                line-height: 19px;
+                font-size: 16px;
+                font-family: "Proxima Nova";
+                margin: 0;
+                span {
+                  color: #f3722c;
+                }
+              }
+              svg {
+                float: right;
+                font-size: 35px;
+                color: #ffbc33;
+              }
+              button {
+                width: 190px;
+                height: 50px;
+                border-radius: 10px;
+                background-color: #f3722c;
+                border: 0;
+                color: #fff;
+                margin: 0;
+                font-family: "proxima_nova_rgbold";
+                font-size: 19px;
+                float: right;
+                a {
+                  text-decoration: underline;
+                  font-size: 16px;
+                  color: #fff;
+                }
+              }
+            }
+            .upcoming-class {
+              margin-top: 30px;
+              .upcoming-common {
+                background-color: #FFFFFF;
+                border-radius: 10px;
+                box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+                margin: auto;
+                padding: 15px;
+                height: 265px;
+                h3 {
+                  font-size: 28px;
+                  color: #454C4E;
+                  font-family: "proxima_nova_rgbold";
+                  text-transform: uppercase;
+                  margin-bottom: 0;
+                }
+              }
+              .left {
+                .second {
+                  text-align: right;
+                  li {
+                    list-style: none;
+                    color: #43AA8B;
+                    font-family: "proxima_nova_rgbold";
+                    text-transform: uppercase;
+                    text-decoration: underline;
+                  }
+                }
+                .icon {
+                  height: 60px;
+                  width: 60px;
+                  border-radius: 10px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                    svg {
+                      height: 30px;
+                      width: 30px;
+                    }
+                }
+                h5 {
+                  color: #454C4E;
+                  font-size: 20px;
+                  font-family: "proxima_nova_rgbold";
+                  margin-bottom: 5px;
+                }
+                p {
+                  font-family: "proxima_nova_rgregular";
+                  font-size: 15px;
+                  color: #454C4E;
+                  margin-bottom: 0;
+                }
+                span {
+                  font-size: 15px;
+                  font-family: "Proxima Nova";
+                  color: #454C4E;
+                  margin-top: 10px;
+                  display: inline-block;
+                  svg {
+                    margin-right: 5px;
+                  }
+                }
+                button {
+                  border: 0;
+                  width: 100%;
+                  height: 40px;
+                  border-radius: 5px;
+                  text-transform: uppercase;
+                  font-size: 14px;
+                  font-family: "proxima_nova_rgbold";
+                  color: #B0B0B0;
+                  background-color: transparent;
+                }
+                button:hover {
+                  background-color: #E3FFF6;
+                  color: #43AA8B;
+                }
+                .upcoming-shedule {
+                  margin-top: 30px;
+                  padding-right: 0;
+                  .upcoming-shedule-last {
+                    padding-right: 0;
+                  }
+                }
+              }
+              .right {
+                h3 {
+                  margin-bottom: 15px;
+                }
+                .icon {
+                  height: 60px;
+                  width: 60px;
+                  border-radius: 10px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                    svg {
+                      height: 30px;
+                      width: 30px;
+                    }
+                }
+                h5 {
+                  font-size: 24px;
+                  font-family: "proxima_nova_rgbold";
+                }
+                p {
+                  font-family: "proxima_nova_rgbold";
+                  font-size: 15px;
+                  color: 15px;
+                  color: #454C4E;
+                }
+                .upcoming-progress {
+                  margin-top: 10px;
+                }
+              }
+            }
+            .report {
+
+              background-color: #fff;
+              padding: 30px 20px;
+              border-radius: 10px;
+              box-shadow: 0px 0px 5px rgb(0 0 0 / 5%);
+              margin: auto;
+              margin-top: 30px;
+              .report-left {
+                h3 {
+                  font-family: "proxima_nova_rgbold";
+                  color: #454C4E;
+                  font-size: 28px;
+                  text-transform: uppercase;
+                }
+                .progress-bar-one {
+                  color: #f3722c;
+                  margin-top: 30px;
+                  .progress {
+                    background-color: #ffe7d9;
+                    border-radius: 10px;
+                    height: 10px;
+                    .progress-bar {
+                      background-color: #f3722c;
+                      border-radius: 10px;
+                      overflow: visible;
+                      position: relative;
+                      &:after {
+                        content: "";
+                        position: absolute;
+                        background: #fff;
+                        height: 1px;
+                        width: 85.7%;
+                        top: 2.3px;
+                        left: 13px;
+                      }
+                      &:before {
+                        content: "";
+                        position: absolute;
+                        background: #fff;
+                        height: 5px;
+                        width: 5px;
+                        left: 4px;
+                        border-radius: 50%;
+                        top: 2.4px;
+                      }
+                    }
+                  }
+                }
+        
+                .progress-bar-two {
+                  color: #f9c74f;
+                  margin-top: 35px;
+                  .progress {
+                    background-color: #fff6e2;
+                    border-radius: 10px;
+                    height: 10px;
+                    .progress-bar {
+                      background-color: #f9c74f;
+                      border-radius: 10px;
+                      overflow: visible;
+                      position: relative;
+                      &:after {
+                        content: "";
+                        position: absolute;
+                        background: #fff;
+                        height: 1px;
+                        width: 85.7%;
+                        top: 2.3px;
+                        left: 13px;
+                      }
+                      &:before {
+                        content: "";
+                        position: absolute;
+                        background: #fff;
+                        height: 5px;
+                        width: 5px;
+                        left: 4px;
+                        border-radius: 50%;
+                        top: 2.4px;
+                      }
+                    }
+                  }
+                }
+
+                .label-main {
+                  margin-bottom: 7px;
+                  .label-left {
+                    float: left;
+                    color: #454c4e;
+                  }
+                  .label-right {
+                    float: right;
+                    font-size: 14px;
+                    font-family: "proxima_nova_rgbold";
+                  }
+                  &:after {
+                    content: "";
+                    display: block;
+                    clear: both;
+                  }
+                }
+              }
+              .report-right {
+                select {
+                  background: transparent;
+                  border: 0;
+                  cursor: pointer;
+                  font-size: 14px;
+                  font-family: "Proxima Nova";
+                  color: #454C4E;
+                }
+                select:focus {
+                  outline: none;
+                }
+                li {
+                  list-style: none;
+                  text-align: right;
+                  color: #43AA8B;
+                  font-family: "proxima_nova_rgbold";
+                  text-transform: uppercase;
+                  text-decoration: underline;
+                  font-size: 15px;
+                }
+                .report-child {
+                  background-color: #F7F9FF;
+                  border-radius: 10px;
+                  text-align: center;
+                  padding: 15px 0px;
+                  .icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #E2E8FF;
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 10px;
+                    margin: auto;
+                  }
+                  h5 {
+                    font-size: 24px;
+                    font-family: "proxima_nova_rgbold";
+                    color: #7D93F2;
+                    margin: 5px 0px;
+                    margin-top: 15px;
+                  }
+                  p {
+                    font-family: "Proxima Nova";
+                    color: #454C4E;
+                    font-size: 16px;
+                    margin: 0;
+                  }
+                }
+                .report-bottom {
+                  padding-left: 25px;
+                  padding-top: 25px;
+                }
+              }
+            }
+            .myanswer {
+              background-color: #fff;
+              padding: 30px 20px;
+              border-radius: 10px;
+              box-shadow: 0px 0px 5px rgb(0 0 0 / 5%);
+              margin: auto;
+              margin-top: 30px;
+              h3 {
+                font-family: "proxima_nova_rgbold";
+                color: #454C4E;
+                font-size: 28px;
+                text-transform: uppercase;
+              }
+              select {
+                background: transparent;
+                border: 0;
+                cursor: pointer;
+                font-size: 14px;
+                font-family: "Proxima Nova";
+                color: #454C4E;
+              }
+              select:focus {
+                outline: none;
+              }
+            }
           }
     }
 }
@@ -882,9 +1377,26 @@
         font-size: 16px !important;
       }
     }
+    .dashboard-main .row-main .dashboard-right .notification-menu {
+      top: 95px;
+      right: 26px;
+    }
   }
 
   @media only screen and (max-width: 575px) {
+    .brain-gym-popup {
+      width: 80% !important;
+      h4 {
+        font-size: 25px !important;
+        margin: 0 !important;
+      }
+      span {
+        font-size: 14px !important;
+      }
+    }
+    .dashboard-main .row-main .dashboard-right .brain-gym-main .text-center button.button-common {
+      margin-top: 20px !important;
+    }
     .dashboard-main .row-main .dashboard-right .dashboard-right-search {
       height: auto;
       background: transparent;
@@ -905,6 +1417,9 @@
     .dashboard-main .row-main .dashboard-right .dashboard-right-search .dash-right-search-common-one {
       justify-content: center !important;
       padding-left: 0px !important;
+      button {
+        width: 100%;
+      }
     }
     .dashboard-main .row-main .dashboard-right .dashboard-right-search .dash-right-search-common input {
       width: auto;
@@ -930,6 +1445,29 @@
     .dashboard-main .row-main .dashboard-right .next-class .next-perfomance h3, .dashboard-main .row-main .dashboard-right .brain-gym-main h3, .dashboard-main .row-main .dashboard-right .activity-main .act-left h3 {
       font-size: 17px;
       line-height: 1.5;
+    }
+    .dashboard-main .row-main .dashboard-right .notification-menu {
+      top: 283px;
+      right: 9.5%;
+      max-width: 80.5%;
+    }
+    .notification-menu  {
+      .notification-menu-right {
+        text-align: center !important;
+      }
+      .row {
+        background: #f5f5f5;
+        padding: 15px;
+        border-radius: 5px;
+        text-align: center;
+      }
+      h5 {
+        margin-top: 20px;
+      }
+      .icon {
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
   }
 
