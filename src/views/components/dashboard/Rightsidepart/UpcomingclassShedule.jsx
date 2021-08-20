@@ -1,33 +1,46 @@
 import React from 'react';
-import { display, clock } from '../../../../assets/icons/IconList';
+import {  string } from 'prop-types';
+import stopwatch from '../../../../assets/images/stopwatch.png';
 
 const UpcomingclassShedule = ({
-    color, bgcolor, title, desc, time,
-}) => {
-    const design = {
-        color,
-        backgroundColor: bgcolor,
-    };
+    displaygreen, displayorange, title, desc, time,
+}) => (
+    <div className="row upcoming-shedule">
+        <div className="col-md-2 col-sm-2 col-12">
+            <div className="icon">
+                {
+                    displaygreen && <img src={displaygreen} alt="display" />
+                }
 
-    return (
-        <div className="row upcoming-shedule">
-            <div className="col-md-2">
-                <div className="icon" style={design}>
-                    {display}
-                </div>
-            </div>
-            <div className="col-md-4">
-                <h5>{title}</h5>
-                <p>{desc}</p>
-            </div>
-            <div className="col-md-3">
-                <span>{clock} {time}</span>
-            </div>
-            <div className="col-md-3 upcoming-shedule-last">
-                <button type="button">join class</button>
+                {
+                    displayorange && <img src={displayorange} alt="display" />
+                }
+
             </div>
         </div>
-    );
-};
+        <div className="col-md-4 col-sm-4 col-12 shedule-title-desc">
+            <h5>{title}</h5>
+            <p>{desc}</p>
+        </div>
+        <div className="col-md-3 col-sm-3 col-12 shedule-clock">
 
+            <span><img src={stopwatch} alt="stopwatch" /> {time}</span>
+        </div>
+        <div className="col-md-3 col-sm-3 col-12 upcoming-shedule-last">
+            <button type="button">join class</button>
+        </div>
+    </div>
+);
+
+UpcomingclassShedule.propTypes = {
+    title: string.isRequired,
+    desc: string.isRequired,
+    time: string.isRequired,
+    displaygreen: string,
+    displayorange: string,
+};
+UpcomingclassShedule.defaultProps = {
+    displaygreen: '',
+    displayorange: '',
+};
 export default UpcomingclassShedule;

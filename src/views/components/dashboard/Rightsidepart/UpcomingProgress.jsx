@@ -1,26 +1,38 @@
 import React from 'react';
-import { display } from '../../../../assets/icons/IconList';
+import {  string } from 'prop-types';
 
 const UpcomingProgress = ({
-    color, bgcolor, title, desc,
-}) => {
-    const design = {
-        color,
-        backgroundColor: bgcolor,
-    };
-    return (
-        <div className="row upcoming-progress">
-            <div className="col-md-4">
-                <div className="icon" style={design}>
-                    {display}
-                </div>
-            </div>
-            <div className="col-md-8">
-                <h5 style={{ color }}>{title}</h5>
-                <p>{desc}</p>
+    noteorange, displaygreen, title, desc, color,
+}) => (
+    <div className="row upcoming-progress">
+        <div className="col-md-4 col-sm-4 col-12">
+            <div className="icon">
+                {
+                    displaygreen && <img src={displaygreen} alt="display" />
+                }
+
+                {
+                    noteorange && <img src={noteorange} alt="display" />
+                }
             </div>
         </div>
-    );
+        <div className="col-md-8 col-sm-8 col-12">
+            <h5 style={{ color }}>{title}</h5>
+            <p>{desc}</p>
+        </div>
+    </div>
+);
+
+UpcomingProgress.propTypes = {
+    title: string.isRequired,
+    desc: string.isRequired,
+    noteorange: string,
+    displaygreen: string,
+    color: string.isRequired,
+};
+UpcomingProgress.defaultProps = {
+    displaygreen: '',
+    noteorange: '',
 };
 
 export default UpcomingProgress;

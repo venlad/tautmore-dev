@@ -36,7 +36,7 @@ const Myanswers = () => (
                 </div>
             </div>
         </div>
-        <ResponsiveContainer width="100%" height={250}>
+        <ResponsiveContainer width="100%" height={300}>
             <BarChart data={Answer}>
                 <CartesianGrid stroke="#F8F5F5" />
                 <XAxis

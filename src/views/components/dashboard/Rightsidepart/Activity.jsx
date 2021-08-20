@@ -1,4 +1,7 @@
 import React from 'react';
+import dancing from '../../../../assets/images/dancing.png';
+import singing from '../../../../assets/images/singing.png';
+import craft from '../../../../assets/images/crafts.png';
 
 const Activity = () => (
     <div className="">
@@ -11,15 +14,25 @@ const Activity = () => (
 
                 <li>View all activities</li>
             </div>
+
             <div className="col-md-2 act-right">
-                <h5>Dancing</h5>
+                <div style={{ backgroundImage: `url(${dancing})` }} className="dancing">
+                    <h5>Dancing</h5>
+                </div>
+
             </div>
             <div className="col-md-2 act-right">
-                <h5>SINGING</h5>
+                <div style={{ backgroundImage: `url(${singing})` }} className="singing">
+                    <h5>SINGING</h5>
+                </div>
+
             </div>
             <div className="col-md-2 act-right">
-                <h5>CRAFTS</h5>
+                <div style={{ backgroundImage: `url(${craft})` }} className="craft">
+                    <h5>CRAFTS</h5>
+                </div>
             </div>
+
         </div>
     </div>
 );
