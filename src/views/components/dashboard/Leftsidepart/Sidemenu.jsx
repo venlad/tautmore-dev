@@ -1,11 +1,13 @@
 import React from 'react';
-import {  bool, func } from 'prop-types';
+import {  bool, func, string } from 'prop-types';
 import sidebarLogo from '../../../../assets/images/sidebarlogo.png';
 import Sidebarprofile from '../../../../assets/images/sidebar-profile.png';
 import sidebardata from '../mockData/dashboardsidebardata';
 import { menu } from '../../../../assets/icons/IconList';
 
-function Sidemenu({ open, setOpen, setView }) {
+function Sidemenu({
+    open, setOpen, setView, view,
+}) {
     const toggleTrueFalse = () => {
         setOpen(!open);
     };
@@ -44,7 +46,7 @@ function Sidemenu({ open, setOpen, setView }) {
                         <h5>{item.title}</h5>
                         <ul>
                             {item?.data?.map((data) => (
-                                <li key={data.title} onClick={() => changeValue(data.title)} aria-hidden="true">
+                                <li key={data.title} onClick={() => changeValue(data.title)} className={view === data.title ? 'active' : ''} aria-hidden="true">
                                     <img src={data.image} alt="dash_list_img" />
                                     {data.title}
                                 </li>
@@ -62,6 +64,7 @@ Sidemenu.propTypes = {
     open: bool.isRequired,
     setOpen: func.isRequired,
     setView: func.isRequired,
+    view: string.isRequired,
 };
 
 export default Sidemenu;

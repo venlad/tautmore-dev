@@ -20,7 +20,7 @@ const leaderboard = {
             accuracy: '100%',
             overalltime: '15:20min',
             answer: '96/100',
-            coins: '444',
+            coins: '100',
             smartscore: '347',
         },
         {

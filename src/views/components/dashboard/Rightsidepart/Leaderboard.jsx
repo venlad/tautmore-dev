@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import {  string } from 'prop-types';
 import leaderboard from '../mockData/leaderboarddata';
+// import goldmedal from '../../../../assets/images/goldmedal.png';
+// import silvermedal from '../../../../assets/images/silvermedal.png';
+// import bronzemedal from '../../../../assets/images/bronzemedal.png';
+import dashtablehead from '../../../../assets/images/dashtablehead.png';
 
 const Leaderboard = ({ title }) => {
     const [activebtn, setActivebtn] = useState('maths');
@@ -8,6 +12,9 @@ const Leaderboard = ({ title }) => {
     const handleSciencecolor = () => {
         setActivebtn('science');
     };
+
+    const generateLink = (idx) => `/assets/images/m_${idx}.png`;
+
     return (
         <div className="dashtable-main">
 
@@ -58,15 +65,23 @@ const Leaderboard = ({ title }) => {
 
                     <tbody>
 
-                        {leaderboard?.data?.map((data) => (
+                        {leaderboard?.data?.sort((a, b) => b.coins - a.coins)?.map((data, ind) => (
                             <tr key={data.key}>
-                                <td className="rank"><div>{data.rank}</div></td>
+                                <td className="rank"><div>{ind + 1}</div></td>
                                 <td className="name">
                                     <div className="name-main">
                                         <div className="name-image-div">
+                                            { ind === 0 && <img src={dashtablehead} alt="top_img" className="top-img" />}
                                             <img className="name-image" src={data.imageURL} alt={data.name} />
                                         </div>
                                         <div className="name-text">{data.name}</div>
+                                        {ind < 3 && (
+                                            <img
+                                                src={generateLink(ind)}
+                                                alt="medal"
+                                                className="medal"
+                                            />
+                                        )}
                                     </div>
                                 </td>
                                 <td className="accuracy">

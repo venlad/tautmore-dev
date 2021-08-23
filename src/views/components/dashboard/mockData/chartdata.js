@@ -1,38 +1,38 @@
 const Answer = [
     {
         day: 'Mon',
-        Correctanswers: '51',
-        Wronganswers: '49',
+        Correctanswers: 51,
+        Wronganswers: 49,
     },
     {
         day: 'Tue',
-        Correctanswers: '55',
-        Wronganswers: '45',
+        Wronganswers: 45,
+        Correctanswers: 55,
     },
     {
         day: 'Wed',
-        Correctanswers: '25',
-        Wronganswers: '75',
+        Wronganswers: 75,
+        Correctanswers: 25,
     },
     {
         day: 'Thur',
-        Correctanswers: '21',
-        Wronganswers: '79',
+        Wronganswers: 79,
+        Correctanswers: 21,
     },
     {
         day: 'Fri',
-        Correctanswers: '45',
-        Wronganswers: '55',
+        Wronganswers: 55,
+        Correctanswers: 45,
     },
     {
         day: 'Sat',
-        Correctanswers: '80',
-        Wronganswers: '20',
+        Wronganswers: 20,
+        Correctanswers: 80,
     },
     {
         day: 'Sun',
-        Correctanswers: '67',
-        Wronganswers: '33',
+        Wronganswers: 33,
+        Correctanswers: 67,
     },
 ];
 
