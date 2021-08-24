@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, func } from 'prop-types';
+import { string, func, object } from 'prop-types';
 import { checkIcon } from './icons';
 
 const AnswerOption = ({
@@ -42,9 +42,12 @@ const AnswerOption = ({
 };
 
 AnswerOption.propTypes = {
-    item: string.isRequired,
+    item: object.isRequired,
     selectAnswer: string.isRequired,
     handleSelectOption: func.isRequired,
     ansType: string.isRequired,
+};
+AnswerOption.defaultProps = {
+    selectAnswer: '',
 };
 export default AnswerOption;

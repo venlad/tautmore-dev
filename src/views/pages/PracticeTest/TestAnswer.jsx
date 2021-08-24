@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    shape, string, number, func,
+    string, func, array,
 } from 'prop-types';
 import AnswerOption from './AnswerOption';
 
@@ -21,13 +21,14 @@ const TestAnswer = ({
     )));
 
 TestAnswer.propTypes = {
-    ansData: shape({
-        id: string.isRequired,
-        value: number.isRequired,
-    }).isRequired,
+    ansData: array,
     selectedAnswer: string.isRequired,
     handleSelectOption: func.isRequired,
     ansType: string.isRequired,
+};
+
+TestAnswer.defaultProps = {
+    selectedAnswer: '',
 };
 
 export default TestAnswer;

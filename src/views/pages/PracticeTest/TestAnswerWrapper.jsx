@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    shape, string, number, func,
+    string, func, array,
 } from 'prop-types';
 import TestAnswer from './TestAnswer';
 
@@ -59,11 +59,8 @@ const TestAnswerWrapper = ({
 };
 
 TestAnswerWrapper.propTypes = {
-    ansData: shape({
-        id: string.isRequired,
-        value: number.isRequired,
-    }).isRequired,
-    selectedAnswer: string.isRequired,
+    ansData: array.isRequired,
+    selectedAnswer: array.isRequired,
     handleSelectOption: func.isRequired,
     ansType: string.isRequired,
     quesType: string.isRequired,

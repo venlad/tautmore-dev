@@ -45,7 +45,6 @@ const Myanswers = () => (
                     tick={{ color: '#454C4E' }}
                     axisLine={false}
                     tickLine={false}
-
                 />
                 <YAxis
                     tick={{ color: '#454C4E' }}
@@ -60,7 +59,6 @@ const Myanswers = () => (
                     fill="#7D93F2"
                     stackId="a"
                     barSize={80}
-
                 >
                     <LabelList dataKey="Correctanswers" position="middle" fill="#fff" />
                 </Bar>
@@ -70,7 +68,6 @@ const Myanswers = () => (
                     fill="#FCA834"
                     stackId="a"
                     barSize={80}
-
                 >
                     <LabelList dataKey="Wronganswers" position="middle" fill="#fff" />
                 </Bar>
@@ -79,5 +76,4 @@ const Myanswers = () => (
         </ResponsiveContainer>
     </div>
 );
-
 export default Myanswers;
