@@ -1,4 +1,5 @@
-import clock from '../../../../assets/images/stopwatch.png';
+import videoimg1 from '../../../../assets/images/videoimg1.png';
+import videoimg3 from '../../../../assets/images/videoimg3.png';
 
 export const syllabus = [
     {
@@ -20,17 +21,17 @@ export const video = [
         desc: '1.1 How to count to 3',
         data: [
             {
-                image: clock,
+                image: videoimg1,
                 title: 'Counting is easy',
                 time: '28 mins',
             },
             {
-                image: clock,
+                image: videoimg1,
                 title: "What is counting & why it's useful",
                 time: '15 mins',
             },
             {
-                image: clock,
+                image: videoimg3,
                 title: 'Counting in real life',
                 time: '7.8 mins',
             },

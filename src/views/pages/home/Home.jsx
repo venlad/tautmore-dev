@@ -13,12 +13,13 @@ import activityImg from '../../../assets/images/Group 14.png';
 import olympidImg from '../../../assets/images/Groupolm.png';
 import brainImg from '../../../assets/images/Group 20.png';
 import joyfulImg from '../../../assets/images/Group 27.png';
+import Layout from '../../../Layout/Layout';
 
 import './styles/home.scss';
 
 function Home() {
     return (
-        <div>
+        <Layout>
             <Subjectlist />
             <Banner />
             <Learningprogram />
@@ -96,7 +97,7 @@ function Home() {
             <Physicalclassroom />
             <Learningjourney />
             <Givegift />
-        </div>
+        </Layout>
     );
 }
 
