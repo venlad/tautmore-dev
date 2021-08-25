@@ -2,7 +2,7 @@ import React from 'react';
 import {
     string, func, array,
 } from 'prop-types';
-import TestAnswer from './TestAnswer';
+import AnswerOption from './AnswerOption';
 
 const TestAnswerWrapper = ({
     ansData,
@@ -14,9 +14,9 @@ const TestAnswerWrapper = ({
     const renderAnswer = () => {
         let answer = null;
         switch (quesType) {
-            case 'optionsType':
+            case 'inputType':
                 answer = (
-                    <TestAnswer
+                    <AnswerOption
                         ansData={ansData}
                         ansType={ansType}
                         selectAnswer={selectedAnswer}
@@ -24,20 +24,22 @@ const TestAnswerWrapper = ({
                     />
                 );
                 break;
-            case 'inputType':
+            case 'optionsType':
                 answer = (
-                    <TestAnswer
-                        ansData={ansData}
-                        ansType={ansType}
-                        selectAnswer={selectedAnswer}
-                        handleSelectOption={handleSelectOption}
-                    />
-                );
+                    ansData?.map((item) => (
+                        <AnswerOption
+                            key={item?.id}
+                            item={item}
+                            ansType={ansType}
+                            selectAnswer={selectedAnswer}
+                            handleSelectOption={handleSelectOption}
+                        />
+                    )));
                 break;
             default:
                 answer = (
-                    <TestAnswer
-                        ansData={ansData}
+                    <AnswerOption
+                        item={ansData}
                         ansType={ansType}
                         selectAnswer={selectedAnswer}
                         handleSelectOption={handleSelectOption}
