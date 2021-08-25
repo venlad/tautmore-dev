@@ -14,9 +14,9 @@ function Footer() {
             <div className="footer-main">
                 <div className="footer-top">
                     <div className="row">
-                        <div className="col-sm-5 footer-top-left">
+                        <div className="col-sm-12 col-md-5 footer-top-left">
                             <div className="row">
-                                <div className="col-sm-8">
+                                <div className="col-sm-12 col-md-8">
                                     <img src={Logo} alt="website_logo" />
                                     <p>
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -31,12 +31,12 @@ function Footer() {
                                         <li>{linkedIn}</li>
                                     </ul>
                                 </div>
-                                <div className="col-sm-4" />
+                                <div className="col-sm-12 col-md-4" />
                             </div>
                         </div>
-                        <div className="col-sm-7 footer-top-right">
+                        <div className="col-sm-12 col-md-7 footer-top-right">
                             <div className="row">
-                                <div className="col-sm-3">
+                                <div className="col-sm-3 col-md-3 col-6">
                                     <h4>Grades</h4>
                                     <ul>
                                         <li>Kindergarten</li>
@@ -46,7 +46,7 @@ function Footer() {
                                         <li>Grade 2</li>
                                     </ul>
                                 </div>
-                                <div className="col-sm-3">
+                                <div className="col-sm-3 col-md-3 col-6">
                                     <ul>
                                         <li>Grade 3</li>
                                         <li>Grade 4</li>
@@ -55,7 +55,7 @@ function Footer() {
                                         <li>Grade 7</li>
                                     </ul>
                                 </div>
-                                <div className="col-sm-3">
+                                <div className="col-sm-3 col-md-3 col-6">
                                     <ul>
                                         <li>Grade 8</li>
                                         <li>Grade 9</li>
@@ -64,7 +64,7 @@ function Footer() {
                                         <li>Grade 12</li>
                                     </ul>
                                 </div>
-                                <div className="col-sm-3">
+                                <div className="col-sm-3 col-md-3 col-6">
                                     <h4>Company</h4>
                                     <ul>
                                         <li>About us</li>
@@ -79,10 +79,10 @@ function Footer() {
                 </div>
                 <div className="footer-bottom">
                     <div className="row">
-                        <div className="col-sm-6 text-left">
+                        <div className="col-sm-7 col-12 text-left">
                             <p>© 2021 Ultimate Learning Corp. All rights reserved.</p>
                         </div>
-                        <div className="col-sm-6 text-right">
+                        <div className="col-sm-5 col-12 text-right">
                             <p>Privacy policy | Terms & Condition</p>
                         </div>
                     </div>

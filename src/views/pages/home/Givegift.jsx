@@ -13,14 +13,14 @@ function Givegift() {
                             content="Enrol your child"
                             className="gift-common-1"
                         />
-                        <span className="border-common" />
+                        <div className="border-common"><span /></div>
                         <GivegiftBlock
                             icon="2"
                             content="Select one of our programs"
                             className="gift-common-2"
                         />
 
-                        <span className="border-common border-common-2" />
+                        <div className="border-common border-common-2"><span /></div>
                         <GivegiftBlock
                             icon="3"
                             content="Lorem ipsum dolar sit"
@@ -28,17 +28,19 @@ function Givegift() {
                         />
                     </div>
                     <div className="col-md-6 gift-right">
-                        <h4>
-                            <span className="span-1">Give</span> the gift
-                            <span className="span-2"> of</span>
-                            <span className="span-3"> better</span>
-                            <br />
-                            learning in just 3
-                            <br />
-                            easy <span className="span-4">steps</span>.
-                        </h4>
+                        <div>
+                            <h4>
+                                <span className="span-1">Give</span> the gift
+                                <span className="span-2"> of</span>
+                                <span className="span-3"> better</span>
+                                <br />
+                                learning in just 3
+                                <br />
+                                easy <span className="span-4">steps</span>.
+                            </h4>
 
-                        <Buttoncommon content="Subscribe now" />
+                            <Buttoncommon content="Subscribe now" />
+                        </div>
                     </div>
                 </div>
             </div>

@@ -5,7 +5,7 @@ function Learningprogram() {
     return (
         <div className="learningprogram-main">
             <div className="row">
-                <div className="col-md-3 learning-progress-left">
+                <div className="col-md-3 col-sm-12 learning-progress-left">
                     <h4>
                         <span className="our">Our</span>
                         <span className="learn">learning</span>
@@ -20,7 +20,7 @@ function Learningprogram() {
                         beyond.
                     </p>
                 </div>
-                <div className="col-md-9 learning-progress-right">
+                <div className="col-md-9 col-sm-12 learning-progress-right">
                     <div className="row">
                         <LearningprogramBlock
                             title="Classroom"

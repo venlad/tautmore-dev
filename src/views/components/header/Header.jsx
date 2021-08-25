@@ -15,9 +15,8 @@ function Header() {
                     </div>
                     <div className="col-sm-10 header-right">
                         <ul>
-                            <Link to="/grades">
-                                <li>Grades</li>
-                            </Link>
+
+                            <li><Link to="/grades">Grades</Link></li>
 
                             <li>About us</li>
                             <button type="button" className="login-signin">Login/Signup</button>

@@ -6,7 +6,7 @@ function Banner() {
     return (
         <div className="banner-main">
             <div className="row">
-                <div className="col-md-6 banner-left">
+                <div className="col-md-6 col-sm-12 banner-left">
                     <h4>
                         Better <span>Learning.</span>
                     </h4>
@@ -22,7 +22,7 @@ function Banner() {
 
                     <div className="banner-left-bottom-icon" />
                 </div>
-                <div className="col-md-6 banner-right">
+                <div className="col-md-6 col-sm-12 banner-right">
                     <img src={Bannerimg} alt="banner_img" />
                 </div>
             </div>
