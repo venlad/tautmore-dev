@@ -1,3 +1,5 @@
+import { v4 as uuid } from 'uuid';
+
 const examlist = [
     {
         title: 'Exam list',
@@ -9,6 +11,7 @@ const examlist = [
                 accurancy: '90 %',
                 rightanswers: '27 out of 30',
                 timetaken: '10 : 00 (Minutes)',
+                key: uuid(),
             },
             {
                 grade2: 'Mathematics',
@@ -17,6 +20,7 @@ const examlist = [
                 accurancy: '90 %',
                 rightanswers: '27 out of 30',
                 timetaken: '10 : 00 (Minutes)',
+                key: uuid(),
             },
             {
                 grade2: 'Mathematics',
@@ -25,6 +29,7 @@ const examlist = [
                 accurancy: '90 %',
                 rightanswers: '27 out of 30',
                 timetaken: '10 : 00 (Minutes)',
+                key: uuid(),
             },
         ],
     },

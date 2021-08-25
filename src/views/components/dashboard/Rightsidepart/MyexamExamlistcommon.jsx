@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {  func } from 'prop-types';
+import {  object } from 'prop-types';
 import examlisthand from '../../../../assets/images/examlisthand.png';
 import examlisthandhover from '../../../../assets/images/examlisthover1.png';
 import examlistidea from '../../../../assets/images/examlistidea.png';
@@ -104,7 +104,7 @@ const MyexamExamlistcommon = ({ val }) => {
 };
 
 MyexamExamlistcommon.propTypes = {
-    val: func.isRequired,
+    val: object.isRequired,
 };
 
 export default MyexamExamlistcommon;

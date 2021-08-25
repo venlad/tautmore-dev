@@ -8,11 +8,11 @@ const MyexamCommon = ({
         <div className="col-md-12 ">
             <div className="row myexam-common">
                 <div className="row">
-                    <div className="col-md-5 col-sm-5 myexam-common-left">
+                    <div className="col-md-5 col-sm-5 col-12 myexam-common-left">
                         <h4>{subject}</h4>
 
                     </div>
-                    <div className="col-md-7 col-sm-7 myexam-common-right">
+                    <div className="col-md-7 col-sm-7 col-12 myexam-common-right">
                         <p className="p-one">
                             <span className="span-one">Due date</span>
                             <span className="span-two">{date}</span>
@@ -23,10 +23,10 @@ const MyexamCommon = ({
                 </div>
 
                 <div className="row">
-                    <div className="col-md-5 col-sm-5 myexam-common-left">
+                    <div className="col-md-5 col-sm-5 col-12 myexam-common-left">
                         <h5>Exam title</h5>
                     </div>
-                    <div className="col-md-7 col-sm-7 myexam-common-right">
+                    <div className="col-md-7 col-sm-7 col-12 myexam-common-right">
                         <p className="p-two"><span className="span-student">{student}</span> <span>Students completed</span></p>
                     </div>
                 </div>

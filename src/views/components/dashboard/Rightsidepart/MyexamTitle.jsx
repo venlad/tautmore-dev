@@ -4,11 +4,11 @@ import exam from '../../../../assets/images/exam.png';
 
 const MyexamTitle = ({ title, select }) => (
     <div className="row myexam-title">
-        <div className="col-sm-1 col-2 myexam-title-left">
+        {/* <div className="col-sm-1 col-2 myexam-title-left">
             <img src={exam} alt="exam" />
-        </div>
-        <div className="col-sm-7 col-10 myexam-title-center">
-            <h3>{title}</h3>
+        </div> */}
+        <div className="col-sm-8 col-10 myexam-title-center">
+            <span className="myexam-title-left"><img src={exam} alt="exam" /></span> <h3>{title}</h3>
         </div>
         { select
         && (
@@ -24,7 +24,11 @@ const MyexamTitle = ({ title, select }) => (
 
 MyexamTitle.propTypes = {
     title: string.isRequired,
-    select: bool.isRequired,
+    select: bool,
+};
+
+MyexamTitle.defaultProps = {
+    select: false,
 };
 
 export default MyexamTitle;

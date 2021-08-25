@@ -111,7 +111,7 @@
                   }
                 }
                 li.active {
-                  background: #141414;
+                  background: #2E2E2E;
                   border-radius: 5px;
                 }
               }
@@ -1927,6 +1927,10 @@
               .myexam-title {
                 margin: 30px 0px;
                 align-items: center;
+                .myexam-title-left {
+                  float: left;
+                  margin-right: 15px;
+                }
                 img {
                   width: 40px;
                   height: 50px;
@@ -1936,6 +1940,7 @@
                   color: #20282A;
                   font-family: "proxima_nova_rgbold";
                   margin-bottom: 0;
+                  margin-top: 10px;
                 }
                 .myexam-title-last {
                   text-align: right;
@@ -2087,6 +2092,7 @@
                   width: 100%;
                   padding: 12px 20px;
                   font-family: "proxima_nova_rgregular";
+                  font-size: 18px;
                 }
                 .mathbtn-act {
                   border-radius: 1.5625rem;
@@ -2437,6 +2443,9 @@
           font-size: 18px;
         }
       }
+    }
+    .dashboard-main .row-main .dashboard-right .myexam-main .myexam-tab .dtoggle-bar {
+      width: 100%;
     }
   }
 
@@ -2865,7 +2874,6 @@
       margin-top: 30px;
     }
     .dashboard-main .row-main .dashboard-right .myexam-main .myexam-title h3 {
-      margin-left: 15px;
       font-size: 25px !important;
     }
     .dashboard-main .row-main .dashboard-right .myexam-main .myexam-tab .myexam-tab-right {
@@ -3142,14 +3150,71 @@
         .myexam-title-center {
           width: 100%;
           h3 {
-            font-size: 28px !important;
+            font-size: 25px !important;
           }
         }
       }
      
     }
     .dashboard-main .row-main .dashboard-right .myexam-main .myexam-title h3 {
-      font-size: 28px !important;
+      font-size: 25px !important;
+    }
+    .dashboard-main .row-main .dashboard-right .myexam-main .myexam-common-top .myexam-common .myexam-common-right {
+      text-align: left !important;
+    }
+    .dashboard-main .row-main .dashboard-right .myexam-main .myexam-common-top .myexam-common button {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    .dashboard-main .row-main .dashboard-right .myexam-main .myexam-common-top .myexam-common .myexam-common-right p.p-one {
+      display: block !important;
+      span {
+        display: block;
+        margin: 15px 0px;
+        font-size: 16px ;
+      }
+    }
+    .dashboard-right .subscribe-for-more-exam button {
+      font-size: 15px !important;
+      span {
+        margin-top: 0px !important;
+      }
+    }
+    .dashboard-main .row-main .dashboard-right .myexam-main .myexam-tab .dtoggle-bar .toggle-maths-div {
+      width: 100% !important;
+      margin-bottom: 20px;
+    }
+    .dashboard-right .myexam-main .myexam-tab .dtoggle-bar {
+      display: block !important;
+      padding: 20px !important;
+      padding-bottom: 0 !important;
+    }
+    .dashboard-main .row-main .dashboard-right .myexam-main .myexam-totalscore-top .total-score-left-part .total-score-left {
+      height: 65px !important;
+      padding: 0px 10px !important;
+      width: 100%;
+    }
+    .dashboard-right .mysubject-top.myexam-totalscore-top .mysub-progressbar-round {
+      margin-bottom: 20px;
+    }
+    
+    .dashboard-main .row-main .dashboard-right .myexam-main .myexam-examlist .examlist-common .examlist-common-date-time {
+      text-align: left !important;
+    }
+    .dashboard-main .row-main .dashboard-right .myexam-main .myexam-examlist .examlist-common .examlist-common-bottom {
+      text-align: center !important;
+    }
+    .dashboard-main .row-main .dashboard-right .myexam-main .myexam-examlist .examlist-common .examlist-common-two p {
+      margin: 10px 0px;
+    }
+    .dashboard-main .row-main .dashboard-right .myexam-main .myexam-title .myexam-title-last select, .dashboard-main .row-main .dashboard-right .myexam-main .myexam-tab .myexam-tab-right select {
+      width: 100% !important;
+    }
+    .dashboard-main .row-main .dashboard-right .myexam-main .myexam-examlist .examlist-common .examlist-common-one p span.span-bold {
+      display: block;
+    }
+    .dashboard-main .row-main .dashboard-right .myexam-main .myexam-examlist .examlist-common .examlist-common-date-time, .dashboard-main .row-main .dashboard-right .myexam-main .myexam-examlist .examlist-common .examlist-last, .dashboard-main .row-main .dashboard-right .myexam-main .myexam-examlist .examlist-common {
+      text-align: center !important;
     }
   }
 
