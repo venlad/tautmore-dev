@@ -7,8 +7,9 @@ const AnswerOption = ({
     selectAnswer,
     handleSelectOption,
     ansType,
+
 }) => {
-    const optionClass = selectAnswer?.value === item?.value && ' select-answer';
+    const optionClass = selectAnswer?.value === item?.value && 'select-answer';
     // selectAnswer.filter((order) => order.value === item.value).length &&
     // " select-answer";
     let renderAnswer = null;
@@ -16,7 +17,7 @@ const AnswerOption = ({
     switch (ansType) {
         case 'selectBoxType':
             renderAnswer  = (
-                <div className={`${optionClass} option-wrapper-box-type d-flex align-items-center justify-content-center`}>
+                <div className={`${optionClass} ${item.selected ? 'correctAnswer' : ''} option-wrapper-box-type d-flex align-items-center justify-content-center`}>
                     <button type="button" onClick={() => handleSelectOption(item)}>
                         <span>{item?.value}</span>
                     </button>
@@ -33,6 +34,11 @@ const AnswerOption = ({
                         </div>
                     </button>
                 </div>
+            );
+            break;
+        case 'enterInput':
+            renderAnswer = (
+                <div><input placeholder="text" /></div>
             );
             break;
         default:
