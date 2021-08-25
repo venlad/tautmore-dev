@@ -4,6 +4,7 @@ import Subject from './views/pages/subject/Subject';
 import Grades from './views/pages/grades/Grades';
 import Chapters from './views/pages/Chapters';
 import PracticeTest from './views/pages/PracticeTest/PracticeTest';
+import Dashboard from './views/components/dashboard/Dashboard';
 
 const routes = [
     {
@@ -30,6 +31,11 @@ const routes = [
         key: 5,
         path: RouteEnum.PRACTICE_TEST,
         component: PracticeTest,
+    },
+    {
+        key: 6,
+        path: RouteEnum.DASHBOARD,
+        component: Dashboard,
     },
 ];
 
