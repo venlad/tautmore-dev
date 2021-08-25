@@ -6,7 +6,7 @@ import sidebardata from '../mockData/dashboardsidebardata';
 import { menu } from '../../../../assets/icons/IconList';
 
 function Sidemenu({
-    open, setOpen, setView, view,
+    open, setOpen, setView, view, setConcept,
 }) {
     const toggleTrueFalse = () => {
         setOpen(!open);
@@ -14,6 +14,7 @@ function Sidemenu({
 
     const changeValue = (value) => {
         setView(value);
+        setConcept('');
     };
 
     return (
@@ -65,6 +66,7 @@ Sidemenu.propTypes = {
     setOpen: func.isRequired,
     setView: func.isRequired,
     view: string.isRequired,
+    setConcept: func.isRequired,
 };
 
 export default Sidemenu;

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import {  bool, func } from 'prop-types';
 import error from '../../../../assets/images/error.png';
 import errowright from '../../../../assets/images/errowright.png';
 import clock from '../../../../assets/images/stopwatch.png';
@@ -6,14 +7,23 @@ import info from '../../../../assets/images/info.png';
 import downArrow from '../../../../assets/images/downarrow.png';
 import { chevRight } from '../../../../assets/icons/IconList';
 
-const MysubUpcomingclass = () => {
-    const [show, setShow] = useState(true);
-    const [hide, setHide] = useState(false);
+const MysubUpcomingclass = ({
+    show, setShow, hide, setHide, setConcept,
+}) => {
     const clickShow = () => {
         setShow(!show);
+        if (hide === true) {
+            setHide(!hide);
+        }
     };
     const clickHide = () => {
         setHide(!hide);
+        if (show === true) {
+            setShow(!show);
+        }
+    };
+    const clickPractice = () => {
+        setConcept('concept');
     };
     return (
         <div>
@@ -42,12 +52,20 @@ const MysubUpcomingclass = () => {
                         <option>Chapter 2</option>
                         <option>Chapter 3</option>
                     </select>
-                    <button type="button">Take practice test <span>{chevRight}</span></button>
+                    <button type="button" onClick={clickPractice}>Take practice test <span>{chevRight}</span></button>
                 </div>
             </div>
 
         </div>
     );
+};
+
+MysubUpcomingclass.propTypes = {
+    show: bool.isRequired,
+    setShow: func.isRequired,
+    hide: bool.isRequired,
+    setHide: func.isRequired,
+    setConcept: func.isRequired,
 };
 
 export default MysubUpcomingclass;
