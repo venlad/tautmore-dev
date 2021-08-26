@@ -2312,8 +2312,46 @@
                 }
               }
             }
+            .myexam-answer-main-top {
+              position: fixed;
+              width: 100%;
+              background: #fff;
+              top: 0;
+              left: 0;
+              padding: 35px;
+              height: 100vh;
+              z-index: 9999;
+              padding-top: 70px;
+              padding-right: 20px;
+              padding-bottom: 0;
+              .close-top{
+                height: 70px;
+                position: fixed;
+                width: 100%;
+                top: 0;
+                left: 0;
+                background: #fff;
+                text-align: right;
+                .close-btn {
+                  background-color: transparent;
+                  border: 0;
+                  position: absolute;
+                  right: 4%;
+                  top: 25%;
+                  img {
+                    height: 20px;
+                    width: 20px;
+                  }
+                }
+              }
+            }
             .myexam-answer-main {
-              margin-top: 30px;
+              width: 100%;
+              margin: auto;
+              overflow-y: scroll;
+              height: 100%;
+              padding-bottom: 30px;
+              padding-right: 20px;
               .myexam-answer-left {
                 padding: 50px 30px;
                 background: linear-gradient(#39C399, #00A070);
@@ -2372,6 +2410,93 @@
                   }
                 }
               }
+              .myexam-answer-right {
+                h3 {
+                  font-family: "proxima_nova_rgregular";
+                  font-size: 24px;
+                  color: #20282A;
+                  margin-bottom: 20px;
+                }
+                .exam-right-common {
+                  background-color: #F4F7FC;
+                  border-radius: 20px;
+                  padding: 15px;
+                  margin-bottom: 20px;
+                  .exam-right-left {
+                    img {
+                      width: 28px;
+                      height: 19px;
+                    }
+                  }
+                  .exam-right-center {
+                    h5 {
+                      font-family: "proxima_nova_rgregular";
+                      color: #20282A;
+                      font-size: 20px;
+                    }
+                    h5.answer {
+                      color: #43AA8B;
+                      font-family: "proxima_nova_rgbold";
+                      margin: 15px 0px;
+                    }
+                    .option-main {
+                      height: 0px;
+                    }
+                    .option-main.show {
+                      height: 100px;
+                    }
+                    .option-top {
+                      display: flex;
+                      div {
+                        width: 100px;
+                        height: auto;
+                       
+                        img {
+                          width: 56px;
+                          height: 56px;
+                        }
+                        span {
+                          width: 34px;
+                          height: 34px;
+                          border-radius: 50%;
+                          background-color: #A0A4A6;
+                          display: flex;
+                          align-items: center;
+                          justify-content: center;
+                          color: #fff;
+                          font-family: "proxima_nova_rgbold";
+                         
+                        }
+                      }
+                    }
+                    span.index {
+                      font-family: "proxima_nova_rgbold";
+                    }
+                  }
+                  .exam-right-right {
+                    button {
+                      cursor: pointer;
+                      background-color: transparent;
+                      border: 0;
+                    }
+                    img {
+                      height: 20px;
+                      width: 20px;
+                    }
+                  }
+                }
+              }
+            }
+
+            .myexam-answer-main::-webkit-scrollbar {
+              width: 6px;
+            }
+            .myexam-answer-main::-webkit-scrollbar-thumb {
+              background: #CBCDCD; 
+              border-radius: 3px;
+            }
+            .myexam-answer-main::-webkit-scrollbar-thumb:hover {
+              background: #CBCDCD; 
             }
           }
     }
@@ -2838,6 +2963,33 @@
       .myconcept-main .myconcept-right .video-bottom h5, .myconcept-main .myconcept-right .video-bottom p {
         font-size: 13px !important;
       }
+      .myexam-answer-main .myexam-answer-left  {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        text-align: center;
+        p {
+          margin: 10px 0px !important;
+          font-size: 16px !important;
+        }
+        h5 {
+          font-size: 16px !important;
+        }
+        .row {
+          margin-bottom: 30px !important;
+        }
+      }
+      .myexam-answer-main .myexam-answer-right {
+        h3 {
+          font-size: 22px !important;
+        }
+        h5 {
+          font-size: 16px !important;
+        }
+      }
+      .myexam-answer-main .myexam-answer-left .myexam-answer-sub-left, .myexam-answer-main .myexam-answer-left .myexam-answer-sub-right {
+        width: 100%;
+        padding: 0;
+      }
     }
   }
 
@@ -3057,6 +3209,12 @@
     }
     .dashboard-right .myconcept-main .myconcept-right .video-bottom h5, .dashboard-right .myconcept-main .myconcept-right .video-bottom p {
       font-size: 16px !important;
+    }
+    .dashboard-right .myexam-answer-main .myexam-answer-right {
+      margin-top: 50px;
+    }
+    .dashboard-main .row-main .dashboard-right .myexam-answer-main {
+      padding-right: 0px !important;
     }
   }
 
@@ -3322,7 +3480,23 @@
           }
         }
       }
-     
+      .myexam-answer-main .myexam-answer-right .exam-right-common .exam-right-left {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .myexam-answer-main .myexam-answer-right .exam-right-common .exam-right-right {
+        text-align: right;
+      }
+      .myexam-answer-main .myexam-answer-right {
+        h3 {
+          font-size: 18px !important;
+          line-height: 1.3;
+        }
+        h5 {
+          font-size: 15px !important;
+          line-height: 1.5;
+        }
+      }
     }
     .dashboard-main .row-main .dashboard-right .myexam-main .myexam-title h3 {
       font-size: 25px !important;
@@ -3383,6 +3557,12 @@
     }
     .dashboard-main .row-main .dashboard-right .myexam-main .myexam-examlist .examlist-common .examlist-common-date-time, .dashboard-main .row-main .dashboard-right .myexam-main .myexam-examlist .examlist-common .examlist-last, .dashboard-main .row-main .dashboard-right .myexam-main .myexam-examlist .examlist-common {
       text-align: center !important;
+    }
+    .dashboard-main .row-main .dashboard-right .myexam-answer-main-top {
+      padding: 15px !important;
+      .myexam-answer-left {
+        margin-top: 65px;
+      }
     }
   }
 

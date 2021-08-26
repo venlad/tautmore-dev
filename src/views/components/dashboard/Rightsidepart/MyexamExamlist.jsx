@@ -10,7 +10,7 @@ const MyexamExamlist = () => (
                     <h4>{data.title}</h4>
                 </div>
                 {data?.data?.map((val) => (
-                    <MyexamExamlistcommon val={val} key={val.key} />
+                    <MyexamExamlistcommon val={val} key={val.key}  />
                 ))}
             </div>
         ))}

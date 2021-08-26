@@ -12,6 +12,7 @@ const Mysubjects = ({ setConcept }) => (
 
 Mysubjects.propTypes = {
     setConcept: func.isRequired,
+
 };
 
 export default Mysubjects;

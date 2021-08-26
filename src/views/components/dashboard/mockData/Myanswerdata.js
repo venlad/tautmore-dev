@@ -4,8 +4,6 @@ import myexamans3 from '../../../../assets/images/myexamans3.png';
 import myexamans4 from '../../../../assets/images/myexamans4.png';
 import myexamans5 from '../../../../assets/images/myexamans5.png';
 import myexamans6 from '../../../../assets/images/myexamans6.png';
-import plane from '../../../../assets/images/travelling.png';
-import dog from '../../../../assets/images/dog.png';
 
 export const leftpart = [
     {
@@ -43,55 +41,11 @@ export const leftpart = [
 export const rightpart = [
     {
         title: 'Check your answers and evaluate yourself',
-        data: [
-            {
-                que: 'How many planes can you spot flying here?',
-                anstext: [
-                    1,
-                    2,
-                    3,
-                    4,
-                ],
-                ansimg: [
-                    plane,
-                    plane,
-                    plane,
-                    plane,
-                ],
-            },
-            {
-                que: 'Select the days of the week (select more than 1 option)',
-                anstext: [
-                    'Sunday & Friday',
-                    'Monday & Tuesday',
-                    'Wednesday & Thursday',
-                    'Friday & Saturday',
-                ],
-            },
-            {
-                que: 'Count the number of elephants and fill in the blanks',
-                anstext: [
-                    6,
-                    9,
-                    4,
-                    7,
-                ],
-            },
-            {
-                que: 'Which two are exactly the same animals?',
-                anstext: [
-                    6,
-                    9,
-                    4,
-                    7,
-                ],
-                ansimg: [
-                    dog,
-                    dog,
-                    dog,
-                    dog,
-                ],
-            },
+        que: [
+            'How many planes can you spot flying here?',
+            'Select the days of the week (select more than 1 option)',
+            'Count the number of elephants and fill in the blanks',
+            'Which two are exactly the same animals?',
         ],
     },
 ];

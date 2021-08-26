@@ -8,12 +8,14 @@ import examlistclipboard from '../../../../assets/images/examlistclipboard.png';
 import examlistclipboardhover from '../../../../assets/images/examlisthover3.png';
 import examlistglass from '../../../../assets/images/examlistglass.png';
 import examlistglasshover from '../../../../assets/images/examlisthover4.png';
+import MyexamAnswer from './MyexamAnswer';
 
 const MyexamExamlistcommon = ({ val }) => {
     const [handimg, setHandimg] = useState(examlisthand);
     const [ideaimg, setIdeaimg] = useState(examlistidea);
     const [clipboardimg, setClipboardimg] = useState(examlistclipboard);
     const [glassimg, setGlassimg] = useState(examlistglass);
+    const [exam, setExam] = useState(false);
     return (
         <div>
 
@@ -35,7 +37,8 @@ const MyexamExamlistcommon = ({ val }) => {
                         setGlassimg(examlistglass);
                     }
                 }
-
+                onClick={() => setExam(!exam)}
+                aria-hidden="true"
             >
                 <div className="row examlist-common-one">
                     <div className="col-md-3 col-sm-5">
@@ -98,6 +101,10 @@ const MyexamExamlistcommon = ({ val }) => {
                     </div>
                 </div>
             </div>
+
+            {
+                exam && <MyexamAnswer setExam={setExam} />
+            }
 
         </div>
     );

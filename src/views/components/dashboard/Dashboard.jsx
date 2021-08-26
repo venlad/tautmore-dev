@@ -6,12 +6,12 @@ import Home from './Rightsidepart/Home';
 import Mysubjects from './Rightsidepart/Mysubjects';
 import Myconcept from './Rightsidepart/Myconcept';
 import MyExam from './Rightsidepart/MyExam';
-// import MyexamAnswer from './Rightsidepart/MyexamAnswer';
 
 const Dashboard = () => {
     const [open, setOpen] = useState(false);
     const [view, setView] = useState('Dashboard');
     const [concept, setConcept] = useState('');
+    // const [exam, setExam] = useState('');
 
     return (
 
@@ -37,9 +37,7 @@ const Dashboard = () => {
                         <Myconcept />
                     ) : ''}
 
-                    {view === 'My exams' && <MyExam />}
-
-                    {/* {view === 'My exams' && <MyexamAnswer />} */}
+                    {view === 'My exams' && (<MyExam  />) }
 
                 </div>
             </div>
