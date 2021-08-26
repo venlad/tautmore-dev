@@ -1,25 +1,20 @@
 import React from 'react';
-import {  bool, func } from 'prop-types';
+import {  func } from 'prop-types';
 import Mysubjectcountcommon from './Mysubjectcountcommon';
 
 const Mysubjectcount = ({
-    show, setShow, hide, setHide,
+    setConcept,
 }) => (
     <div className="mysubject-count">
         <Mysubjectcountcommon
-            show={show}
-            setShow={setShow}
-            hide={hide}
-            setHide={setHide}
+            setConcept={setConcept}
         />
     </div>
 );
 
 Mysubjectcount.propTypes = {
-    show: bool.isRequired,
-    setShow: func.isRequired,
-    hide: bool.isRequired,
-    setHide: func.isRequired,
+
+    setConcept: func.isRequired,
 };
 
 export default Mysubjectcount;

@@ -3,13 +3,9 @@ import {  func } from 'prop-types';
 import count from '../mockData/Mysubjectcountdata';
 import Mysubjectprogressbar from './Mysubjectprogressbar';
 
-const Mysubjectcountcommon = ({ setHide, setShow }) => {
+const Mysubjectcountcommon = ({ setConcept }) => {
     const handleChange = () => {
-        setHide(true);
-        setShow(false);
-        // if (setHide === true) {
-
-        // }
+        setConcept('concept');
     };
 
     return (
@@ -63,8 +59,7 @@ const Mysubjectcountcommon = ({ setHide, setShow }) => {
     );
 };
 Mysubjectcountcommon.propTypes = {
-    setHide: func.isRequired,
-    setShow: func.isRequired,
+    setConcept: func.isRequired,
 };
 
 export default Mysubjectcountcommon;

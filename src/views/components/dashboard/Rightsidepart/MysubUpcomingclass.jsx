@@ -8,7 +8,7 @@ import downArrow from '../../../../assets/images/downarrow.png';
 import { chevRight } from '../../../../assets/icons/IconList';
 
 const MysubUpcomingclass = ({
-    show, setShow, hide, setHide, setConcept,
+    show, setShow, hide, setHide,
 }) => {
     const clickShow = () => {
         setShow(!show);
@@ -22,9 +22,7 @@ const MysubUpcomingclass = ({
             setShow(!show);
         }
     };
-    const clickPractice = () => {
-        setConcept('concept');
-    };
+
     return (
         <div>
             <div className={`mysub-upcoming ${show}`}>
@@ -52,7 +50,7 @@ const MysubUpcomingclass = ({
                         <option>Chapter 2</option>
                         <option>Chapter 3</option>
                     </select>
-                    <button type="button" onClick={clickPractice}>Take practice test <span>{chevRight}</span></button>
+                    <button type="button">Take practice test <span>{chevRight}</span></button>
                 </div>
             </div>
 
@@ -65,7 +63,7 @@ MysubUpcomingclass.propTypes = {
     setShow: func.isRequired,
     hide: bool.isRequired,
     setHide: func.isRequired,
-    setConcept: func.isRequired,
+
 };
 
 export default MysubUpcomingclass;

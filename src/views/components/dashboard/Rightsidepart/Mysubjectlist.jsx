@@ -25,6 +25,7 @@ const Mysubjectlist = ({ setConcept }) => {
                         setShow={setShow}
                         hide={hide}
                         setHide={setHide}
+                        setConcept={setConcept}
                     />
                 </div>
                 <div className="col-md-4 mysubject-count-right">

@@ -1138,6 +1138,9 @@
               }
               .recharts-responsive-container {
                 height: 330px !important;
+                .recharts-bar-rectangle {
+                  border: 2px solid red;
+                }
               }
               .progress-chart-top {
                 margin-bottom: 25px;
@@ -1816,6 +1819,18 @@
                         font-family: "proxima_nova_rgregular";
                         font-size: 18px;
                       }
+                      li.breadcrumb-item+.breadcrumb-item {
+                        &::before {
+                          content: url("../../../assets/images/pathrightsvg.svg");
+                          top: 2px;
+                          
+                          
+                          
+                          
+                          
+                          position: relative;
+                        }
+                      }
                     }
                   }
                   .myconcept-head-bottom {
@@ -2293,6 +2308,67 @@
                   background: linear-gradient(#39C399, #00A070) !important;
                   p, span, h5, li {
                     color: #fff !important;
+                  }
+                }
+              }
+            }
+            .myexam-answer-main {
+              margin-top: 30px;
+              .myexam-answer-left {
+                padding: 50px 30px;
+                background: linear-gradient(#39C399, #00A070);
+                border-radius: 0 100px 0 100px;
+                color: #FFFFFF;
+                .row {
+                  margin-bottom: 40px;
+                }
+                .row:last-child {
+                  margin-bottom: 0px;
+                }
+                p {
+                  
+                  font-family: "proxima_nova_rgregular";
+                  font-size: 20px;
+                  margin-bottom: 5px;
+                }
+                h5 {
+                  font-size: 19px;
+                  font-family: "proxima_nova_rgbold";
+                }
+                .Olympiad {
+                  img {
+                    width: 48px;
+                    height: 50px;
+                  }
+                }
+                .Total {
+                  img {
+                    width: 50px;
+                    height: 50px;
+                  }
+                }
+                .Date {
+                  img {
+                    width: 45px;
+                    height: 50px;
+                  }
+                }
+                .Time {
+                  img {
+                    width: 43px;
+                    height: 51px;
+                  }
+                }
+                .Accuracy {
+                  img {
+                    width: 47px;
+                    height: 50px;
+                  }
+                }
+                .Right {
+                  img {
+                    width: 36px;
+                    height: 50px;
                   }
                 }
               }
