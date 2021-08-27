@@ -44,7 +44,17 @@
 .question-box h2 {
   color: #20282a;
   font-size: 24px;
-  font-family: "proxima_nova_rgregular";
+  font-family: 'proxima_nova_rgregular';
+  margin-top: 15px;
+  span.span-one {
+    margin-right: 10px;
+    float: left;
+    svg {
+      height: 30px;
+      width: 30px;
+      color: #454c4e;
+    }
+  }
 }
 .question-box .image {
   height: 68px;
@@ -172,10 +182,10 @@
   margin-top: 15px;
   display: flex;
   margin-top: 24px;
-  display: grid;
-  grid-template-columns: repeat(2, 390px);
-  column-gap: 20px;
-  row-gap: 20px;
+  // display: grid;
+  // grid-template-columns: repeat(2, 390px);
+  // column-gap: 20px;
+  // row-gap: 20px;
 }
 .question-options-wrapper div input {
   box-sizing: border-box;
@@ -665,6 +675,12 @@
   }
   .answer-title {
     font-size: 17px;
+  }
+  .question-box h2 span.span-one svg {
+    height: 25px;
+    width: 25px;
+    color: #454c4e;
+    margin-top: -1px;
   }
 }
 

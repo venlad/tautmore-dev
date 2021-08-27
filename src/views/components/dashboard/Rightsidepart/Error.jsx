@@ -1,8 +1,11 @@
 import React from 'react';
+import error from '../../../../assets/images/error.png';
 
 const Error = () => (
     <div className="row error-part">
-        <div className="col-md-1 col-sm-1 col-3 text-right" />
+        <div className="col-md-1 col-sm-1 col-3 error-left">
+            <img src={error} alt="error" />
+        </div>
         <div className="col-md-8 col-9  col-sm-7">
             <h4>Your subscription is about to expire!</h4>
             <p>

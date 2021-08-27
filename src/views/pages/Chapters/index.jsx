@@ -6,6 +6,7 @@ import Subjectlist from '../home/Subjectlist';
 import Mathicon from '../../../assets/images/design-tool@1.5x.svg';
 import Chapterslink from './Chapterslink';
 import Topiclist from './Topiclist';
+import Layout from '../../../Layout/Layout';
 
 const Chapters = ({ match }) => {
     const [viewMoreTopic, setViewMoreTopic] = useState(['', '']);
@@ -26,7 +27,7 @@ const Chapters = ({ match }) => {
     }, [match.params.subject]);
 
     return (
-        <div>
+        <Layout>
             <Subjectlist subdata={subdata} setSubdata={setSubdata} />
             <div className="chapters-main-container">
                 <Chapterslink />
@@ -64,7 +65,7 @@ const Chapters = ({ match }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </Layout>
     );
 };
 

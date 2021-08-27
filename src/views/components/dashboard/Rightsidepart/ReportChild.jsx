@@ -1,12 +1,20 @@
 import React from 'react';
-import { display } from '../../../../assets/icons/IconList';
+import {  string } from 'prop-types';
 
-const ReportChild = ({ title, desc }) => (
+const ReportChild = ({
+    title, desc, noteblue, bagblue,
+}) => (
     <div className="row">
         <div className="col-md-12">
             <div className="report-child">
                 <div className="icon">
-                    {display}
+                    {
+                        noteblue && <img src={noteblue} alt="note" />
+                    }
+
+                    {
+                        bagblue && <img src={bagblue} alt="note" />
+                    }
                 </div>
                 <h5>{title}</h5>
                 <p>{desc}</p>
@@ -14,5 +22,17 @@ const ReportChild = ({ title, desc }) => (
         </div>
     </div>
 );
+
+ReportChild.propTypes = {
+    title: string.isRequired,
+    desc: string.isRequired,
+    noteblue: string,
+    bagblue: string,
+};
+
+ReportChild.defaultProps = {
+    bagblue: '',
+    noteblue: '',
+};
 
 export default ReportChild;

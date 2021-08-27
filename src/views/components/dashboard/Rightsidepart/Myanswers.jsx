@@ -8,6 +8,7 @@ import {
     Tooltip,
     Legend,
     ResponsiveContainer,
+    LabelList,
 
 } from 'recharts';
 import  Answer  from '../mockData/chartdata';
@@ -36,19 +37,17 @@ const Myanswers = () => (
                 </div>
             </div>
         </div>
-        <ResponsiveContainer width="100%" height={250}>
+        <ResponsiveContainer width="100%" height={300}>
             <BarChart data={Answer}>
                 <CartesianGrid stroke="#F8F5F5" />
                 <XAxis
                     dataKey="day"
-                    tick={{ stroke: '#454C4E', color: '#454C4E' }}
+                    tick={{ color: '#454C4E' }}
                     axisLine={false}
                     tickLine={false}
-
                 />
                 <YAxis
-                    dataKey="Correctanswers"
-                    tick={{ stroke: '#454C4E', color: '#454C4E' }}
+                    tick={{ color: '#454C4E' }}
                     axisLine={false}
                     tickLine={false}
                 />
@@ -60,18 +59,21 @@ const Myanswers = () => (
                     fill="#7D93F2"
                     stackId="a"
                     barSize={80}
+                >
+                    <LabelList dataKey="Correctanswers" position="middle" fill="#fff" />
+                </Bar>
 
-                />
                 <Bar
                     dataKey="Wronganswers"
                     fill="#FCA834"
                     stackId="a"
                     barSize={80}
+                >
+                    <LabelList dataKey="Wronganswers" position="middle" fill="#fff" />
+                </Bar>
 
-                />
             </BarChart>
         </ResponsiveContainer>
     </div>
 );
-
 export default Myanswers;

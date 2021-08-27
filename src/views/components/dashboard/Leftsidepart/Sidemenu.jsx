@@ -1,28 +1,31 @@
 import React from 'react';
-import {  bool, func } from 'prop-types';
-import Logo from '../../../../assets/images/Logo.png';
-import Profile from '../../../../assets/images/profileimage.jpeg';
+import {  bool, func, string } from 'prop-types';
+import sidebarLogo from '../../../../assets/images/sidebarlogo.png';
+import Sidebarprofile from '../../../../assets/images/sidebar-profile.png';
 import sidebardata from '../mockData/dashboardsidebardata';
 import { menu } from '../../../../assets/icons/IconList';
 
-function Sidemenu({ open, setOpen, setView }) {
+function Sidemenu({
+    open, setOpen, setView, view, setConcept,
+}) {
     const toggleTrueFalse = () => {
         setOpen(!open);
     };
 
     const changeValue = (value) => {
         setView(value);
+        setConcept('');
     };
 
     return (
         <div className=" dashboard-left col-sm-3">
             <div className="logo-profile">
-                <img src={Logo} alt="logo" className="dashboard-logo" />
+                <img src={sidebarLogo} alt="logo" className="dashboard-logo" />
             </div>
             <div className="dashboard-profile">
                 <div className="row">
                     <div className="col-sm-3 dashboard-profile-left text-center">
-                        <img src={Profile} alt="profile" />
+                        <img src={Sidebarprofile} alt="profile" />
                     </div>
                     <div className="col-sm-6 dashboard-profile-center">
                         <h5>Susan Richards</h5>
@@ -44,7 +47,7 @@ function Sidemenu({ open, setOpen, setView }) {
                         <h5>{item.title}</h5>
                         <ul>
                             {item?.data?.map((data) => (
-                                <li key={data.title} onClick={() => changeValue(data.title)} aria-hidden="true">
+                                <li key={data.title} onClick={() => changeValue(data.title)} className={view === data.title ? 'active' : ''} aria-hidden="true">
                                     <img src={data.image} alt="dash_list_img" />
                                     {data.title}
                                 </li>
@@ -61,6 +64,9 @@ function Sidemenu({ open, setOpen, setView }) {
 Sidemenu.propTypes = {
     open: bool.isRequired,
     setOpen: func.isRequired,
+    setView: func.isRequired,
+    view: string.isRequired,
+    setConcept: func.isRequired,
 };
 
 export default Sidemenu;
