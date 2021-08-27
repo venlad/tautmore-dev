@@ -37,11 +37,6 @@ const routes = [
         path: RouteEnum.DASHBOARD,
         component: Dashboard,
     },
-    {
-        key: 5,
-        path: RouteEnum.register,
-        component: Register,
-    },
 ];
 
 export default routes;
