@@ -17,6 +17,7 @@
       "mountWrapper": true,
       "wrapperStore": true
     },
+    
     "rules": {
       "camelcase": "off",
       "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
@@ -48,7 +49,7 @@
       "react/jsx-one-expression-per-line": ["off"],
       "react/no-did-update-set-state": ["off"],
       "react/prefer-es6-class": 1,
-      "react/prop-types": 1,
+      "react/prop-types": 2,
       "no-underscore-dangle": [
         "error",
         {

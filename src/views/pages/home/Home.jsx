@@ -6,24 +6,25 @@ import Counter from './Counter';
 import Physicalclassroom from './Physicalclassroom';
 import Learningjourney from './Learningjourney';
 import Givegift from './Givegift';
-import HomeUISlides from './HomeUISlides';
+import HomeUISlide from './HomeUISlide';
 import { Circle } from '../../../assets/icons/IconList';
 import classroomimg from '../../../assets/images/Group 17.png';
 import activityImg from '../../../assets/images/Group 14.png';
 import olympidImg from '../../../assets/images/Groupolm.png';
 import brainImg from '../../../assets/images/Group 20.png';
 import joyfulImg from '../../../assets/images/Group 27.png';
+import Layout from '../../../Layout/Layout';
 
 import './styles/home.scss';
 
 function Home() {
     return (
-        <div>
+        <Layout>
             <Subjectlist />
             <Banner />
             <Learningprogram />
             <Counter />
-            <HomeUISlides
+            <HomeUISlide
                 Circle={Circle}
                 img={classroomimg}
                 title="Class"
@@ -40,7 +41,7 @@ function Home() {
                 buttoncontent="Subscribe now"
             />
 
-            <HomeUISlides
+            <HomeUISlide
                 img={activityImg}
                 title="Ex"
                 span="tra"
@@ -49,12 +50,12 @@ function Home() {
         eiusmod tem por incididunt ut"
                 rightImg
                 classmain="activities-main"
-                classleft="col-md-4"
+                classleft="col-md-5"
                 classright="col-md-7 activity-right"
                 buttoncontent="Subscribe now"
             />
 
-            <HomeUISlides
+            <HomeUISlide
                 img={olympidImg}
                 title="Olymp"
                 span="iad"
@@ -63,10 +64,11 @@ function Home() {
                 leftImg
                 classmain="olympiad-main"
                 classleft="olympiad-left"
+                classright="olympiad-right"
                 buttoncontent="Take sample test"
             />
 
-            <HomeUISlides
+            <HomeUISlide
                 img={brainImg}
                 title="Brain - "
                 span="gym"
@@ -74,12 +76,12 @@ function Home() {
         eiusmod tem porincididunt ut"
                 rightImg
                 classmain="brain-main"
-                classleft="col-md-5"
+                classleft="col-md-6 brain-left"
                 classright="col-md-6 brain-right"
                 buttoncontent="Let's try brain-gym"
             />
 
-            <HomeUISlides
+            <HomeUISlide
                 img={joyfulImg}
                 title="Tautmore makes learning joyful"
                 desc="Brain gym is a unique activity created by our educators. It tests
@@ -89,12 +91,13 @@ function Home() {
                 leftImg
                 classmain="learningjoyful-main"
                 classleft="learningjoyful-left"
+                classright="learningjoyful-right"
                 buttoncontent="Let's try brain-gym"
             />
             <Physicalclassroom />
             <Learningjourney />
             <Givegift />
-        </div>
+        </Layout>
     );
 }
 

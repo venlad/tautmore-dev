@@ -6,7 +6,7 @@ function LearningprogramBlock({
     title, desc, className, second,
 }) {
     return (
-        <div className={`col-md-6 ${second}`}>
+        <div className={`col-md-6 col-sm-6 ${second}`}>
             <div className={`col-md-12 learning-block-main ${className}`}>
                 <div className="row">
                     <div className="col-md-3 learning-block-left">
