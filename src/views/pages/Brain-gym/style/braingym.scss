@@ -1,7 +1,9 @@
 .brain-gym-main {
     background-color: #F4F7FC;
+    padding-bottom: 50px;
     .brain-gym-head-main {
         padding: 30px 40px;
+        margin: auto;
         img {
             width: 220px;
         }
@@ -20,6 +22,160 @@
         }
         .head-right {
             text-align: right;
+        }
+    }
+    .brain-gym-bottom {
+        width: 86%;
+        margin: auto;
+        .stepper-top {
+            background-color: #fff;
+            border-radius: 36.5px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        .stepper-above {
+            display: inline-block;
+            width: 20%;
+            position: relative;
+            margin-top: -10px;
+            button {
+              width: 15px;
+              height: 15px;
+              border-radius: 50%;
+              background-color: #E8ECF5;
+              border: 0;
+              z-index: 9;
+              position: relative;
+              svg {
+                font-size: 13px;
+                position: relative;
+                top: -2px;
+                color: #fff;
+                left: -2px;
+              }
+            }
+        
+            span.name {
+              display: block;
+              font-family: "proxima_nova_rgregular";
+              font-size: 14px;
+              line-height: 15px;
+              margin-top: 12px;
+              color: #7B7B7B;
+              text-transform: uppercase;
+            }
+          }
+          .stepper-above.active {
+            button {
+              background-color: #f3722c !important;
+            }
+          }
+          .stepper-above.prev-step {
+            button {
+              background-color: #43aa8b !important;
+            }
+            span {
+              color: #43aa8b;
+            }
+            &:after {
+              background: #43aa8b;
+            }
+          }
+          .stepper-above:after {
+            content: "";
+            position: absolute;
+            background: #e8e8e8;
+            height: 1px;
+            width: 100%;
+            top: 18px;
+            left: 50%;
+          }
+          div.stepper-above:last-child:after {
+            content: none !important;
+          }
+        }
+        .stepperpart-top {
+            .brain-margin-row {
+                margin: auto;
+            }
+            .stepperpart-right {
+                img {
+                    width: 50px;
+                }
+                p {
+                    font-family: "proxima_nova_rgregular";  
+                    font-size: 15px;
+                    color: #454C4E;
+                    margin-bottom: 3px;
+                }
+                h5 {
+                    font-family: "proxima_nova_rgbold";
+                    font-size: 20px;
+                    color: #454C4E;
+                }
+                h5.coin {
+                    color: #43AA8B;
+                    span {
+                        margin-left: 10px;
+                        background: #FFF4E9;
+                        color: #FCA834;
+                        border-radius: 19.5px;
+                        display: inline-block;
+                        padding: 3px 15px;
+                      
+                    }
+                }
+                .timer-top {
+                    background-color: #fff;
+                    border-radius: 36.5px;
+                    height: 70px;
+                    display: block;
+                    padding: 7px 25px;
+                    .timer-top-last {
+                        display: flex;
+                        align-items: flex-end;
+                        
+                    }
+                }
+            }
+        }
+        .question-box {
+            border-radius: 20px;
+            margin-top: 30px;
+            p {
+                font-family: "proxima_nova_rgregular";
+                color: #20282A;
+                font-size: 24px;
+                line-height: 32px;
+            }
+        }
+        .question-options-wrapper {
+            .option-wrapper-tile-type.true {
+                background-color: #FCA834 !important;
+                span {
+                    color: #fff;
+                }
+                .icon--check-wrapper {
+                    background-color: #fff !important;
+                    svg {
+                        fill: #FCA834 !important;
+                    }
+                }
+            }
+        }
+        .submit-answer-button {
+            margin-top: 30px;
+        }
+        .submit-answer-button.active {
+            .button-wrapper {
+                background-color: #43aa8b;
+                box-shadow: 0 12px 10px 0 rgb(67 170 139 / 25%);
+                .icon-wrapper {
+                    background-color: #fca834;
+                    box-shadow: 0 3px 8px 0 rgb(0 0 0 / 24%);
+                }
+            }
         }
     }
 }

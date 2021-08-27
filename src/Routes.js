@@ -4,7 +4,6 @@ import Subject from './views/pages/subject/Subject';
 import Grades from './views/pages/grades/Grades';
 import Register from './views/components/auth/register/Index';
 import Chapters from './views/pages/Chapters';
-import Register from './views/components/auth/register/Index';
 import PracticeTest from './views/pages/PracticeTest/PracticeTest';
 import Dashboard from './views/components/dashboard/Dashboard';
 import Braingym from './views/pages/Brain-gym/Braingym';
@@ -32,8 +31,6 @@ const routes = [
     },
     {
         key: 5,
-        path: RouteEnum.register,
-        component: Register,
         path: RouteEnum.PRACTICE_TEST,
         component: PracticeTest,
     },
