@@ -3,6 +3,7 @@ import Home from './views/pages/home/Home';
 import Subject from './views/pages/subject/Subject';
 import Grades from './views/pages/grades/Grades';
 import Chapters from './views/pages/Chapters';
+import Register from './views/components/auth/register/Index';
 import PracticeTest from './views/pages/PracticeTest/PracticeTest';
 import Dashboard from './views/components/dashboard/Dashboard';
 
@@ -29,6 +30,8 @@ const routes = [
     },
     {
         key: 5,
+        path: RouteEnum.register,
+        component: Register,
         path: RouteEnum.PRACTICE_TEST,
         component: PracticeTest,
     },
