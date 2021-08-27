@@ -9,6 +9,7 @@ import TestSubmitButton from './TestSubmitButton';
 import SubscriberWidgets from './SubscriberWidgets';
 import ReattemptAnswerOption from './ReattemptAnswerOption';
 import NextQuestionButton from './NextQuestionButton';
+import Layout from '../../../Layout/Layout';
 
 const PracticeTest = () => {
     const ansStatus = {
@@ -56,39 +57,41 @@ const PracticeTest = () => {
     return quesStatus.isSubmitted && quesStatus.isTrue ? (
         <SubscriberWidgets />
     ) : (
-        <div className={`pt-4 pb-4 px-5 test-container ${backgroundClass}`}>
-            <TestHeader />
-            <TestQuestion quesData={quesData} APImage={APImage} />
-            <TestAnswerWrapper
-                ansData={ansData}
-                ansType="selectBoxType"
-                quesType="optionsType"
-                selectedAnswer={selectedAnswer}
-                handleSelectOption={handleClickAnswer}
-            />
-            {quesStatus.isSubmitted && !quesStatus.isFalse ? (
-                ''
-            ) : (
-                <TestSubmitButton
-                    isSubmitValid={isSubmitValid}
-                    handleSubmitAnswer={handleSubmitAnswer}
+        <Layout>
+            <div className={`pt-4 pb-4 px-5 test-container ${backgroundClass}`}>
+                <TestHeader />
+                <TestQuestion quesData={quesData} APImage={APImage} />
+                <TestAnswerWrapper
+                    ansData={ansData}
+                    ansType="selectBoxType"
+                    quesType="optionsType"
+                    selectedAnswer={selectedAnswer}
+                    handleSelectOption={handleClickAnswer}
                 />
-            )}
-            {console.log(color)}
-            {quesStatus.isSubmitted && !quesStatus.isFalse ? (
-                <>
-                    {' '}
-                    <ReattemptAnswerOption
-                        color={color}
-                        quesData={quesData}
-                        APImage={APImage}
-                    />{' '}
-                    <NextQuestionButton />
-                </>
-            ) : (
-                ''
-            )}
-        </div>
+                {quesStatus.isSubmitted && !quesStatus.isFalse ? (
+                    ''
+                ) : (
+                    <TestSubmitButton
+                        isSubmitValid={isSubmitValid}
+                        handleSubmitAnswer={handleSubmitAnswer}
+                    />
+                )}
+                {console.log(color)}
+                {quesStatus.isSubmitted && !quesStatus.isFalse ? (
+                    <>
+                        {' '}
+                        <ReattemptAnswerOption
+                            color={color}
+                            quesData={quesData}
+                            APImage={APImage}
+                        />{' '}
+                        <NextQuestionButton />
+                    </>
+                ) : (
+                    ''
+                )}
+            </div>
+        </Layout>
     );
 };
 

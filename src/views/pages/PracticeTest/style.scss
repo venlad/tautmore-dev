@@ -182,10 +182,10 @@
   margin-top: 15px;
   display: flex;
   margin-top: 24px;
-  display: grid;
-  grid-template-columns: repeat(2, 390px);
-  column-gap: 20px;
-  row-gap: 20px;
+  // display: grid;
+  // grid-template-columns: repeat(2, 390px);
+  // column-gap: 20px;
+  // row-gap: 20px;
 }
 .question-options-wrapper div input {
   box-sizing: border-box;

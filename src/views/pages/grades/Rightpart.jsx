@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { rightpartData } from './mockData/Data';
 
 function Rightpart() {
+    const linkUrl = (val) => `/chapters/${val}`;
     return (
         <div className="rectangle grade-right-part">
             <div className="pre-kindergarten-center">
@@ -20,7 +21,7 @@ function Rightpart() {
                             <ul className="row">
                                 {data?.data?.map((item) => (
                                     <li key={item.title} className="col-md-4 math">
-                                        <Link to="test">
+                                        <Link to={linkUrl(item.title)}>
                                             <img
                                                 className="myexams-icon"
                                                 src={item.image}
