@@ -1,20 +1,18 @@
-import React from "react";
-import { node } from "prop-types";
-import Header from "../views/components/header/Header";
-import Footer from "../views/components/footer/Footer";
+import React from 'react';
+import  { object } from 'prop-types';
+import Header from '../views/components/header/Header';
+import Footer from '../views/components/footer/Footer';
 
-const Layout = ({ children }) => {
-  return (
+const Layout = ({ children }) => (
     <>
-      <Header />
-      {children}
-      <Footer />
+        <Header />
+        {children}
+        <Footer />
     </>
-  );
-};
+);
 
-Layout.proptTypes = {
-  children: node.isRequired,
-};
+Layout.propTypes = {
+    children: object.isRequired,
 
+};
 export default Layout;
