@@ -56,15 +56,3 @@
     url("//db.onlinewebfonts.com/t/f14eee643541cf03a10f26c944cc29f5.svg#Proxima Nova")
       format("svg");
 }
-.button-common span svg {
-  margin-top: 0 !important;
-}
-.button-common:hover {
-  background-color: #fff !important;
-  color: #43aa8b !important;
-  border: 2px solid #43aa8b !important;
-}
-.button-common:hover span {
-  background-color: #43aa8b !important;
-  color: #fff !important;
-}
