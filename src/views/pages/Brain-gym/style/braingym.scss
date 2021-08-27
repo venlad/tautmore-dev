@@ -1,0 +1,25 @@
+.brain-gym-main {
+    background-color: #F4F7FC;
+    .brain-gym-head-main {
+        padding: 30px 40px;
+        img {
+            width: 220px;
+        }
+        h1 {
+            font-size: 40px;
+            font-family: "proxima_nova_rgbold";
+            color: #20282A;
+        }
+        button {
+            background-color: transparent;
+            border: 0;
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+        .head-right {
+            text-align: right;
+        }
+    }
+}

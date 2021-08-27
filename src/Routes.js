@@ -5,6 +5,7 @@ import Grades from './views/pages/grades/Grades';
 import Chapters from './views/pages/Chapters';
 import PracticeTest from './views/pages/PracticeTest/PracticeTest';
 import Dashboard from './views/components/dashboard/Dashboard';
+import Braingym from './views/pages/Brain-gym/Braingym';
 
 const routes = [
     {
@@ -36,6 +37,11 @@ const routes = [
         key: 6,
         path: RouteEnum.DASHBOARD,
         component: Dashboard,
+    },
+    {
+        key: 7,
+        path: RouteEnum.BRAINGYM,
+        component: Braingym,
     },
 ];
 
