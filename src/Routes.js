@@ -7,6 +7,7 @@ import Chapters from './views/pages/Chapters';
 import PracticeTest from './views/pages/PracticeTest/PracticeTest';
 import Dashboard from './views/components/dashboard/Dashboard';
 import Braingym from './views/pages/Brain-gym/Braingym';
+import Olympiad from './views/pages/Olympiad/Olympiad'
 
 const routes = [
     {
@@ -45,9 +46,14 @@ const routes = [
         component: Braingym,
     },
     {
-        key: 5,
-        path: RouteEnum.register,
+        key: 8,
+        path: RouteEnum.REGISTER,
         component: Register,
+    },
+    {
+        key: 9,
+        path: RouteEnum.OLYMPIAD,
+        component: Olympiad,
     },
 ];
 

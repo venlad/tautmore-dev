@@ -1,0 +1,85 @@
+.Olympiad-main {
+    background-color: #F4F7FC;
+    margin: auto;
+    padding: 20px 40px;
+    .olympiad-head {
+        margin-bottom: 30px;
+        img {
+            width: 220px;
+        }
+        h2 {
+            font-family: "Proxima Nova";
+            color: #20282A;
+            font-size: 40px;
+        }
+        .time {
+            img {
+                width: 40px;
+                height: 40px;
+            }
+            p {
+                font-family: "proxima_nova_rgregular";
+                color: #454C4E;
+                font-size: 16px;
+                margin-bottom: 3px;
+            }
+            h5 {
+                font-size: 20px;
+                color: #FCA834;
+                font-family: "proxima_nova_rgbold";
+            }
+        }
+        button {
+            background-color: #FCA834;
+            box-shadow: 0px 0px 5px rgba(67,170,139,0.25);
+            border-radius: 33.75px;
+            height: 51px;
+            width: 174px;
+            border: 0;
+            color: #FFFFFF;
+            font-family: "proxima_nova_rgbold";
+            font-size: 20px;
+        }
+    }
+    .olympiad-sidebar {
+        ul {
+            width: 220px;
+            background-color: #fff;
+            border-radius: 0px 40px 40px 0px;
+            li {
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: "proxima_nova_rgregular";
+                color: #6F797C;
+                cursor: pointer;
+                position: relative;
+            }
+            li:after {
+                content: '';
+                position: absolute;
+                height: 10px;
+                width: 10px;
+                background-color: #E3E7EA;
+                border-radius: 50%;
+                left: 16%;
+            }
+            li.active {
+                background-color: #E3FFF6;
+                color: #43AA8B;
+                font-family: "Proxima Nova";
+                border-left: 4px solid #43AA8B;
+            }
+            li.active:after {
+                background-color: #43AA8B;
+            }
+            li:first-child {
+                border-top-right-radius: 40px;
+            }
+            li:last-child {
+                border-bottom-right-radius: 40px;
+            }
+        }
+    }
+}
