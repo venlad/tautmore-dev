@@ -1,6 +1,9 @@
 .brain-gym-main {
     background-color: #F4F7FC;
     padding-bottom: 50px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: scroll;
     .brain-gym-head-main {
         padding: 30px 40px;
         margin: auto;
@@ -68,7 +71,11 @@
           }
           .stepper-above.active {
             button {
-              background-color: #f3722c !important;
+              background-color: #FCA631 !important;
+            }
+            span.name {
+                font-family: "proxima_nova_rgbold";
+                color: #FCA631;
             }
           }
           .stepper-above.prev-step {
@@ -164,6 +171,12 @@
                 }
             }
         }
+        .answer-title {
+            margin-top: 25px;
+        }
+        .question-options-wrapper {
+            margin-top: 15px;
+        }
         .submit-answer-button {
             margin-top: 30px;
         }
@@ -229,6 +242,8 @@
                 }
             }
             .unlock-data-part {
+                margin-left: auto;
+                margin-right: auto;
                 p {
                     color: #454C4E;
                     font-size: 16px;
@@ -244,6 +259,10 @@
                     width: 45px;
                     height: 50px;
                 }
+            }
+            .unlock-last-part {
+                margin-left: auto;
+                margin-right: auto;
             }
             h2 {
                 color: #20282A;
@@ -302,3 +321,152 @@
         display: block !important;
     }
 }
+
+@media only screen and (max-width: 1280px) {
+    .brain-gym-main .brain-gym-bottom {
+        .stepperpart-left, .stepperpart-right {
+            width: 100%;
+        }
+        .timer-left, .timer-right {
+            width: 50%;
+        }
+        .timer-right {
+            text-align: right;
+        }
+        .stepperpart-left {
+            margin-bottom: 30px;
+        }
+        .timer-sub-left {
+            width: 18%;
+        }
+        .timer-sub-left , .timer-sub-right {
+            text-align: left;
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .brain-gym-main .brain-gym-bottom .question-box p, .brain-gym-main .brain-gym-bottom .answer-title, .brain-gym-main .brain-gym-bottom .option-wrapper-tile-type span {
+        font-size: 17px;
+    }
+    .brain-gym-main .brain-gym-head-main img {
+        width: 150px;
+        margin-top: 7px;
+    }
+    .brain-gym-main .braingym-unlock-main .unlock-common h2 {
+        font-size: 30px;
+    }
+    .brain-gym-main .braingym-unlock-main .unlock-common p.coin-p {
+        font-size: 17px;
+    }
+    .brain-gym-main .braingym-unlock-main .unlock-common button {
+        font-size: 17px;
+        height: 50px;
+        span {
+            margin-top: 0;
+        }
+    }
+    .brain-gym-main .braingym-unlock-main .unlock-common .unlock-last-part {
+        .last-part-half {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+    .brain-gym-main .brain-gym-bottom .timer-sub-left {
+        width: 23%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .brain-gym-main .brain-gym-bottom .stepperpart-top .stepperpart-right .timer-top {
+        height: auto;
+        padding: 20px;
+        text-align: center;
+    }
+    .brain-gym-main .brain-gym-bottom .timer-left, .brain-gym-main .brain-gym-bottom {
+        .timer-left, .timer-right {
+            width: 100%;
+        }
+    }
+    .brain-gym-main .brain-gym-bottom .timer-sub-left {
+        width: 15%;
+    }
+    .brain-gym-main .brain-gym-bottom .timer-left {
+        margin-bottom: 30px;
+    }
+    .brain-gym-main .braingym-unlock-main .unlock-common {
+        width: 95%;
+    }
+    .brain-gym-main .braingym-unlock-main .close-top {
+        top: 20px;
+        right: 25px;
+    }
+    .brain-gym-main .braingym-unlock-main.active {
+        height: 100%;
+        overflow: scroll;
+        .unlock-common {
+            height: auto;
+            padding: 50px 0px;
+        }
+    }
+    .brain-gym-main .braingym-unlock-main .unlock-common .unlock-data-part h5 {
+        margin-bottom: 30px;
+    }
+    .brain-gym-main .brain-gym-bottom .submit-answer-button.active .button-wrapper {
+        height: 60px;
+        font-size: 17px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .brain-gym-main .brain-gym-head-main h1 {
+        position: relative;
+        left: 60px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .brain-gym-main .brain-gym-head-main {
+        .head-logo {
+            text-align: center;
+        }
+        h1 {
+            left: 0;
+            margin-top: 15px;
+            font-size: 32px;
+        }
+        button {
+            position: absolute;
+            top: 20px;
+        }
+    }
+    .brain-gym-main .brain-gym-bottom .timer-sub-left {
+        width: 100%;
+    }
+    .brain-gym-main {
+        .timer-sub-left, .timer-sub-right {
+            text-align: center !important;
+        }
+        .timer-top {
+            p {
+                margin: 10px 0px !important;
+            }
+        }
+    }
+    .brain-gym-main .brain-gym-bottom .question-box p, .brain-gym-main  .question-options-wrapper.selectTileType .option-wrapper-tile-type button span {
+        font-size: 15px;
+    }
+    .brain-gym-main .braingym-unlock-main .unlock-common {
+        border-radius: 20px !important;
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width: 481px) {
+    .brain-gym-main .brain-gym-bottom .submit-answer-button.active {
+        width: 100%;
+        .button-wrapper {
+            width: 100% !important;
+        }
+    }
+ }

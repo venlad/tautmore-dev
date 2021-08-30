@@ -20,6 +20,7 @@ const QuestionAns = ({setOpen, step, select, setSelect}) => {
                     <h4>Question - 1</h4>
                     <p>{data.question}</p>
                 </div>
+                <span className="answer-title">Select your answer</span>
                     <div className="question-options-wrapper selectTileType">
                         {data?.answer?.map((data, ind) => {
                             return (

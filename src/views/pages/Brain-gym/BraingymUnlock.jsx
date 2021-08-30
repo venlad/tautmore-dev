@@ -45,10 +45,10 @@ const BraingymUnlock = ({open, setOpen, message, step, setStep, setSelect}) => {
                                 </div>
                             </div>
                             <div className="row unlock-last-part">
-                                <div className="col-md-6">
+                                <div className="col-md-6 last-part-half">
                                     <a href="view">View answers</a>
                                 </div>
-                                <div className="col-md-6">
+                                <div className="col-md-6 last-part-half">
                                     <button type="button">Finish <span>{chevRight}</span></button>
                                 </div>
                             </div>
