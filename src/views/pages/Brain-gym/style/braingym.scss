@@ -178,4 +178,127 @@
             }
         }
     }
+    .braingym-unlock-main {
+        background-color: #E3FFF6;
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        z-index: 9;
+        top: 0;
+        left: 0;
+        padding: 50px 0px;
+        text-align: center;
+        font-family: "proxima_nova_rgbold";
+        display: none;
+        .close-top {
+            position: absolute;
+            width: 100%;
+            display: block;
+            text-align: right;
+            top: 40px;
+            right: 40px;
+            .close-btn {
+                background-color: transparent;
+                border: 0;
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+        .unlock-common {
+            height: 100%;
+            width: 70%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFFFFF;
+            border-radius: 0 140px 0 140px;
+            box-shadow: 0px 0px 5px rgb(101 101 101 / 14%);
+            .unlock-last-part {
+                display: flex;
+                align-items: center;
+                margin-top: 30px;
+                a {
+                    color: #43AA8B;
+                    font-family: "proxima_nova_rgbold";
+                    font-size: 20px;
+                    text-decoration: none;
+                }
+            }
+            .unlock-data-part {
+                p {
+                    color: #454C4E;
+                    font-size: 16px;
+                    font-family: "proxima_nova_rgregular";
+                    margin-bottom: 5px;
+                }
+                h5 {
+                    font-family: "proxima_nova_rgbold";
+                    color: #454C4E;
+                    font-size: 20px;
+                }
+                img {
+                    width: 45px;
+                    height: 50px;
+                }
+            }
+            h2 {
+                color: #20282A;
+                font-size: 50px;
+                line-height: 61px;
+            }
+            p.coin-p {
+                background-color: #FFF4E9;
+                border-radius: 19.5px;
+                padding: 5px 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+                color: #FCA834;
+                margin-bottom: 40px;
+                span {
+                    height: 24px;
+                    width: 24px;
+                    background-color: #FCA834;
+                    box-shadow: inset -2px -1px 3px 0 #FE9402;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+            }
+            button {
+                width: 273px;
+                background-color: #43aa8b;
+                border-radius: 33.75px;
+                color: #fff;
+                border: 0;
+                height: 66px;
+                font-weight: bold;
+                font-size: 20px;
+                font-family: "proxima_nova_rgbold";
+                text-align: left;
+                padding: 0px 25px;
+                box-shadow: 5px 5px 5px rgb(67 170 139 / 25%); 
+                span {
+                    float: right;
+                    height: 24px;
+                    width: 24px;
+                    background-color: #fca834;
+                    border-radius: 50%;
+                    padding: 0px 7px;
+                    margin-top: 4px;
+                    box-shadow: 5px 5px 5px rgb(0 0 0 / 24%) !important;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+    .braingym-unlock-main.active {
+        display: block !important;
+    }
 }

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import stepdata from './mockData/stepperData';
+import { number } from 'prop-types';
 
-const Stepper = () => {
-    const [step, setStep] = useState(1);
-    console.log(setStep);
+const Stepper = ({step}) => {
+    
     return (
         <div className="row brain-margin-row">
             <div className="col-md-12 stepper-top text-center">
@@ -24,4 +24,9 @@ const Stepper = () => {
         </div>
     );
 };
+
+Stepper.propTypes = {
+    step: number.isRequired,
+};
+
 export default Stepper;
