@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Subjectlist from './Subjectlist';
 import Banner from './Banner';
 import Learningprogram from './Learningprogram';
@@ -14,10 +14,18 @@ import olympidImg from '../../../assets/images/Groupolm.png';
 import brainImg from '../../../assets/images/Group 20.png';
 import joyfulImg from '../../../assets/images/Group 27.png';
 import Layout from '../../../Layout/Layout';
-
+import { connect ,useDispatch} from 'react-redux';
 import './styles/home.scss';
+import {getUsers} from '../../../stores/BrainGym/BrainGymAction'
 
-function Home() {
+function Home({users}) {
+   const dispatch = useDispatch();
+   useEffect(()=>{
+    dispatch(getUsers())
+        },[] )
+    useEffect(()=>{
+console.log('home page',users)
+    },[users])
     return (
         <Layout>
             <Subjectlist />
@@ -101,4 +109,10 @@ function Home() {
     );
 }
 
-export default Home;
+const mapStateToProps = state => ({
+    users: state.users
+  });
+  
+  export default connect(mapStateToProps)(Home);
+
+
