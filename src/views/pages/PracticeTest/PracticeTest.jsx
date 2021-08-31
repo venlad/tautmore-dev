@@ -63,7 +63,7 @@ const PracticeTest = () => {
                 <TestQuestion quesData={quesData} APImage={APImage} />
                 <TestAnswerWrapper
                     ansData={ansData}
-                    ansType="selectBoxType"
+                    ansType="selectTileType"
                     quesType="optionsType"
                     selectedAnswer={selectedAnswer}
                     handleSelectOption={handleClickAnswer}

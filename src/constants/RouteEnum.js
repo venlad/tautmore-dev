@@ -5,6 +5,8 @@ const RouteEnum = {
     CHAPTERS: '/chapters/:subject',
     PRACTICE_TEST: '/practice-test',
     DASHBOARD: '/dashboard',
+    BRAINGYM: '/brain-gym',
+    REGISTER: '/register',
 };
 
 export default RouteEnum;

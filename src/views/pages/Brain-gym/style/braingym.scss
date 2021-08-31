@@ -1,0 +1,472 @@
+.brain-gym-main {
+    background-color: #F4F7FC;
+    padding-bottom: 50px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: scroll;
+    .brain-gym-head-main {
+        padding: 30px 40px;
+        margin: auto;
+        img {
+            width: 220px;
+        }
+        h1 {
+            font-size: 40px;
+            font-family: "proxima_nova_rgbold";
+            color: #20282A;
+        }
+        button {
+            background-color: transparent;
+            border: 0;
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+        .head-right {
+            text-align: right;
+        }
+    }
+    .brain-gym-bottom {
+        width: 86%;
+        margin: auto;
+        .stepper-top {
+            background-color: #fff;
+            border-radius: 36.5px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        .stepper-above {
+            display: inline-block;
+            width: 20%;
+            position: relative;
+            margin-top: -10px;
+            button {
+              width: 15px;
+              height: 15px;
+              border-radius: 50%;
+              background-color: #E8ECF5;
+              border: 0;
+              z-index: 9;
+              position: relative;
+              svg {
+                font-size: 13px;
+                position: relative;
+                top: -2px;
+                color: #fff;
+                left: -2px;
+              }
+            }
+        
+            span.name {
+              display: block;
+              font-family: "proxima_nova_rgregular";
+              font-size: 14px;
+              line-height: 15px;
+              margin-top: 12px;
+              color: #7B7B7B;
+              text-transform: uppercase;
+            }
+          }
+          .stepper-above.active {
+            button {
+              background-color: #FCA631 !important;
+            }
+            span.name {
+                font-family: "proxima_nova_rgbold";
+                color: #FCA631;
+            }
+          }
+          .stepper-above.prev-step {
+            button {
+              background-color: #43aa8b !important;
+            }
+            span {
+              color: #43aa8b;
+            }
+            &:after {
+              background: #43aa8b;
+            }
+          }
+          .stepper-above:after {
+            content: "";
+            position: absolute;
+            background: #e8e8e8;
+            height: 1px;
+            width: 100%;
+            top: 18px;
+            left: 50%;
+          }
+          div.stepper-above:last-child:after {
+            content: none !important;
+          }
+        }
+        .stepperpart-top {
+            .brain-margin-row {
+                margin: auto;
+            }
+            .stepperpart-right {
+                img {
+                    width: 50px;
+                }
+                p {
+                    font-family: "proxima_nova_rgregular";  
+                    font-size: 15px;
+                    color: #454C4E;
+                    margin-bottom: 3px;
+                }
+                h5 {
+                    font-family: "proxima_nova_rgbold";
+                    font-size: 20px;
+                    color: #454C4E;
+                }
+                h5.coin {
+                    color: #43AA8B;
+                    span {
+                        margin-left: 10px;
+                        background: #FFF4E9;
+                        color: #FCA834;
+                        border-radius: 19.5px;
+                        display: inline-block;
+                        padding: 3px 15px;
+                      
+                    }
+                }
+                .timer-top {
+                    background-color: #fff;
+                    border-radius: 36.5px;
+                    height: 70px;
+                    display: block;
+                    padding: 7px 25px;
+                    .timer-top-last {
+                        display: flex;
+                        align-items: flex-end;
+                        
+                    }
+                }
+            }
+        }
+        .question-box {
+            border-radius: 20px;
+            margin-top: 30px;
+            p {
+                font-family: "proxima_nova_rgregular";
+                color: #20282A;
+                font-size: 24px;
+                line-height: 32px;
+            }
+        }
+        .question-options-wrapper {
+            .option-wrapper-tile-type.true {
+                background-color: #FCA834 !important;
+                span {
+                    color: #fff;
+                }
+                .icon--check-wrapper {
+                    background-color: #fff !important;
+                    svg {
+                        fill: #FCA834 !important;
+                    }
+                }
+            }
+        }
+        .answer-title {
+            margin-top: 25px;
+        }
+        .question-options-wrapper {
+            margin-top: 15px;
+        }
+        .submit-answer-button {
+            margin-top: 30px;
+        }
+        .submit-answer-button.active {
+            .button-wrapper {
+                background-color: #43aa8b;
+                box-shadow: 0 12px 10px 0 rgb(67 170 139 / 25%);
+                .icon-wrapper {
+                    background-color: #fca834;
+                    box-shadow: 0 3px 8px 0 rgb(0 0 0 / 24%);
+                }
+            }
+        }
+    }
+    .braingym-unlock-main {
+        background-color: #E3FFF6;
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        z-index: 9;
+        top: 0;
+        left: 0;
+        padding: 50px 0px;
+        text-align: center;
+        font-family: "proxima_nova_rgbold";
+        display: none;
+        .close-top {
+            position: absolute;
+            width: 100%;
+            display: block;
+            text-align: right;
+            top: 40px;
+            right: 40px;
+            .close-btn {
+                background-color: transparent;
+                border: 0;
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+        .unlock-common {
+            height: 100%;
+            width: 70%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFFFFF;
+            border-radius: 0 140px 0 140px;
+            box-shadow: 0px 0px 5px rgb(101 101 101 / 14%);
+            .unlock-last-part {
+                display: flex;
+                align-items: center;
+                margin-top: 30px;
+                a {
+                    color: #43AA8B;
+                    font-family: "proxima_nova_rgbold";
+                    font-size: 20px;
+                    text-decoration: none;
+                }
+            }
+            .unlock-data-part {
+                margin-left: auto;
+                margin-right: auto;
+                p {
+                    color: #454C4E;
+                    font-size: 16px;
+                    font-family: "proxima_nova_rgregular";
+                    margin-bottom: 5px;
+                }
+                h5 {
+                    font-family: "proxima_nova_rgbold";
+                    color: #454C4E;
+                    font-size: 20px;
+                }
+                img {
+                    width: 45px;
+                    height: 50px;
+                }
+            }
+            .unlock-last-part {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            h2 {
+                color: #20282A;
+                font-size: 50px;
+                line-height: 61px;
+            }
+            p.coin-p {
+                background-color: #FFF4E9;
+                border-radius: 19.5px;
+                padding: 5px 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+                color: #FCA834;
+                margin-bottom: 40px;
+                span {
+                    height: 24px;
+                    width: 24px;
+                    background-color: #FCA834;
+                    box-shadow: inset -2px -1px 3px 0 #FE9402;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+            }
+            button {
+                width: 273px;
+                background-color: #43aa8b;
+                border-radius: 33.75px;
+                color: #fff;
+                border: 0;
+                height: 66px;
+                font-weight: bold;
+                font-size: 20px;
+                font-family: "proxima_nova_rgbold";
+                text-align: left;
+                padding: 0px 25px;
+                box-shadow: 5px 5px 5px rgb(67 170 139 / 25%); 
+                span {
+                    float: right;
+                    height: 24px;
+                    width: 24px;
+                    background-color: #fca834;
+                    border-radius: 50%;
+                    padding: 0px 7px;
+                    margin-top: 4px;
+                    box-shadow: 5px 5px 5px rgb(0 0 0 / 24%) !important;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+    .braingym-unlock-main.active {
+        display: block !important;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    .brain-gym-main .brain-gym-bottom {
+        .stepperpart-left, .stepperpart-right {
+            width: 100%;
+        }
+        .timer-left, .timer-right {
+            width: 50%;
+        }
+        .timer-right {
+            text-align: right;
+        }
+        .stepperpart-left {
+            margin-bottom: 30px;
+        }
+        .timer-sub-left {
+            width: 18%;
+        }
+        .timer-sub-left , .timer-sub-right {
+            text-align: left;
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .brain-gym-main .brain-gym-bottom .question-box p, .brain-gym-main .brain-gym-bottom .answer-title, .brain-gym-main .brain-gym-bottom .option-wrapper-tile-type span {
+        font-size: 17px;
+    }
+    .brain-gym-main .brain-gym-head-main img {
+        width: 150px;
+        margin-top: 7px;
+    }
+    .brain-gym-main .braingym-unlock-main .unlock-common h2 {
+        font-size: 30px;
+    }
+    .brain-gym-main .braingym-unlock-main .unlock-common p.coin-p {
+        font-size: 17px;
+    }
+    .brain-gym-main .braingym-unlock-main .unlock-common button {
+        font-size: 17px;
+        height: 50px;
+        span {
+            margin-top: 0;
+        }
+    }
+    .brain-gym-main .braingym-unlock-main .unlock-common .unlock-last-part {
+        .last-part-half {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+    .brain-gym-main .brain-gym-bottom .timer-sub-left {
+        width: 23%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .brain-gym-main .brain-gym-bottom .stepperpart-top .stepperpart-right .timer-top {
+        height: auto;
+        padding: 20px;
+        text-align: center;
+    }
+    .brain-gym-main .brain-gym-bottom .timer-left, .brain-gym-main .brain-gym-bottom {
+        .timer-left, .timer-right {
+            width: 100%;
+        }
+    }
+    .brain-gym-main .brain-gym-bottom .timer-sub-left {
+        width: 15%;
+    }
+    .brain-gym-main .brain-gym-bottom .timer-left {
+        margin-bottom: 30px;
+    }
+    .brain-gym-main .braingym-unlock-main .unlock-common {
+        width: 95%;
+    }
+    .brain-gym-main .braingym-unlock-main .close-top {
+        top: 20px;
+        right: 25px;
+    }
+    .brain-gym-main .braingym-unlock-main.active {
+        height: 100%;
+        overflow: scroll;
+        .unlock-common {
+            height: auto;
+            padding: 50px 0px;
+        }
+    }
+    .brain-gym-main .braingym-unlock-main .unlock-common .unlock-data-part h5 {
+        margin-bottom: 30px;
+    }
+    .brain-gym-main .brain-gym-bottom .submit-answer-button.active .button-wrapper {
+        height: 60px;
+        font-size: 17px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .brain-gym-main .brain-gym-head-main h1 {
+        position: relative;
+        left: 60px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .brain-gym-main .brain-gym-head-main {
+        .head-logo {
+            text-align: center;
+        }
+        h1 {
+            left: 0;
+            margin-top: 15px;
+            font-size: 32px;
+        }
+        button {
+            position: absolute;
+            top: 20px;
+        }
+    }
+    .brain-gym-main .brain-gym-bottom .timer-sub-left {
+        width: 100%;
+    }
+    .brain-gym-main {
+        .timer-sub-left, .timer-sub-right {
+            text-align: center !important;
+        }
+        .timer-top {
+            p {
+                margin: 10px 0px !important;
+            }
+        }
+    }
+    .brain-gym-main .brain-gym-bottom .question-box p, .brain-gym-main  .question-options-wrapper.selectTileType .option-wrapper-tile-type button span {
+        font-size: 15px;
+    }
+    .brain-gym-main .braingym-unlock-main .unlock-common {
+        border-radius: 20px !important;
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width: 481px) {
+    .brain-gym-main .brain-gym-bottom .submit-answer-button.active {
+        width: 100%;
+        .button-wrapper {
+            width: 100% !important;
+        }
+    }
+ }
