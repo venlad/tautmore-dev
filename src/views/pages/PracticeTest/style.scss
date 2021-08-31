@@ -232,8 +232,8 @@
 }
 
 .right-answer-container .right-answer-modal-bg {
-  height: 479px;
-  width: 695px;
+  height: 500px;
+  width: 80%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -245,7 +245,7 @@
 
 .right-answer-container .right-answer-modal {
   height: 479px;
-  width: 675px;
+  width: 80%;
   background-color: #ffffff;
   z-index: 5;
   border-radius: 0 140px 0 140px;
@@ -280,12 +280,16 @@
 .subscriberscreen-one {
   overflow: none;
   background-color: #e3fff6;
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+  overflow-y: scroll;
 }
 .subscriberscreen-one .right-answer-modal h1 {
   height: 84px;
   width: 495px;
   color: #43aa8b;
-  font-family: "ProximaNovaBold";
+  font-family: "proxima_nova_rgbold";
   font-size: 69.3px;
   font-weight: bold;
   letter-spacing: 0;
@@ -294,7 +298,7 @@
 }
 
 .subscriberscreen-one .success-bonus p {
-  font-family: "ProximaNovaBold";
+  font-family: "proxima_nova_rgbold";
   font-size: 29.7px;
   letter-spacing: 0;
   line-height: 35px;
@@ -303,7 +307,7 @@
 
 .subscriberscreen-one .success-bonus p span {
   color: #fca834;
-  font-family: "ProximaNovaBold";
+  font-family: "proxima_nova_rgbold";
   font-weight: bold;
   margin-left: 10px;
   height: 35px;
@@ -323,8 +327,7 @@
   background-color: white;
 }
 .sub-screen-right-img {
-  height: 79px;
-  width: 312px;
+ 
   color: white;
   margin-bottom: 54px;
   text-align: center;
@@ -342,10 +345,8 @@
   margin-bottom: 52px;
 }
 .sub-screen-right-headtwo {
-  height: 26px;
-  width: 410px;
   color: #454c4e;
-  font-family: "ProximaNovaRegular";
+  font-family: "proxima_nova_rgregular";
   font-size: 24px;
   letter-spacing: 0;
   line-height: 26px;
@@ -427,7 +428,7 @@
   height: 22px;
   width: 168px;
   color: #78828a;
-  font-family: "ProximaNovaRegular";
+  font-family: "proxima_nova_rgregular";
   font-size: 20px;
   letter-spacing: 0;
   line-height: 22px;
@@ -612,9 +613,58 @@
   outline: none;
 }
 
+.subscriberscreen-one {
+  .subscriberscreen-row-main {
+    margin: auto;
+  }
+  .subscriberscreen-right {
+    padding-right: 0;
+    .sub-screen-right {
+      padding: 40px 20px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .subscriberscreen-one .right-answer-modal h1 {
+    font-size: 45px;
+    width: auto;
+    height: auto;
+  }
+  .subscriberscreen-one .success-bonus p {
+    font-size: 20px;
+  }
+  .sub-screen-right-heading {
+    width: auto;
+    height: auto;
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .subscriberscreen-one .subscriberscreen-right .sub-screen-right {
+    .sub-screen-right-img {
+      img {
+        width: 200px;
+      }
+    }
+  }
+  .subscriberscreen-one .subscriberscreen-right .sub-screen-right {
+    .button-common {
+      width: 200px !important;
+    }
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .question-options-wrapper.selectTileType {
     width: 100%;
+  }
+  .subscriberscreen-one {
+    padding: 50px 30px;
+  }
+  .subscriberscreen-one .subscriberscreen-right {
+    margin-top: 100px;
   }
 }
 @media only screen and (max-width: 480px) {
@@ -703,5 +753,46 @@
   }
   .test-header-right .mb-4 {
     margin-bottom: 0 !important;
+  }
+  .right-answer-container .right-answer-modal-bg {
+    display: none;
+  }
+  .right-answer-container .right-answer-modal {
+    height: auto;
+    width: 100%;
+    padding: 50px 0px;
+    border-radius: 20px;
+  }
+  .right-answer-modal .success-img {
+    height: 100px;
+    width: 100px;
+  }
+  .right-answer-container, .subscriberscreen-one .subscriberscreen-right .sub-screen-right {
+    height: auto;
+  }
+  .subscriberscreen-one .subscriberscreen-right {
+    margin-top: 50px;
+    .sub-screen-right {
+      border-radius: 20px;
+    }
+  }
+  .subscriberscreen-one {
+    padding: 50px 10px;
+  }
+  .subscriberscreen-one .right-answer-modal h1 {
+    font-size: 32px;
+  }
+  .right-answer-modal .success-bonus {
+    padding: 10px 20px;
+  }
+  .subscriberscreen-one .success-bonus p span {
+    font-size: 25px;
+  }
+  .sub-screen-right-heading {
+    font-size: 25px;
+    line-height: 40px;
+  }
+  .sub-screen-right-headtwo {
+    font-size: 19px;
   }
 }
