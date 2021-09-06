@@ -56,10 +56,17 @@ const Braingym = ({allgym, Masterbraingym, getAllgym, masterBraingymid, getQuest
                     setComplete(false);
                 }
                 if (allgym && Masterbraingym && completethree) {
-                    getQuestionbytag();
+
                     setCompletethree(false);
                 }
-        },[allgym, Masterbraingym]);
+        },[allgym]);
+
+        useEffect(() => {
+            console.log(Masterbraingym?.difficulty, 'dd')
+            if(Masterbraingym?.difficulty){
+                getQuestionbytag({difficulty: Masterbraingym?.difficulty });
+            }
+        }, [Masterbraingym])
 
     return (
         <div className="brain-gym-main braingym-page">
@@ -81,28 +88,16 @@ const Braingym = ({allgym, Masterbraingym, getAllgym, masterBraingymid, getQuest
     );
 };
 
-const mapStateToProps =(state)=> {
-    return {
+const mapStateToProps =(state)=> ({
         allgym: state.BrainGym.Allgym.gyms,
         Masterbraingym: state.BrainGym.Masterbraingymid.gym,
         Questionbytag: state.BrainGym.Questionbytag.questions
-    }
-}
+})
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getAllgym:function(){
-            dispatch(getAllgym());
-        },
-
-        masterBraingymid:function(){
-            dispatch(masterBraingymid());
-        },
-
-        getQuestionbytag:function(){
-            dispatch(getQuestionbytag());
-        }
-    }
-}
+const mapDispatchToProps = (dispatch) => ({
+        getAllgym: () =>  dispatch(getAllgym()),
+        masterBraingymid: () => dispatch(masterBraingymid()),
+        getQuestionbytag: (data) => dispatch(getQuestionbytag(data))
+})
   
 export default connect(mapStateToProps, mapDispatchToProps)(Braingym);

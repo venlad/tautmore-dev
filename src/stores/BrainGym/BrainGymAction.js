@@ -9,12 +9,15 @@ export function getAllgym() {
 export function masterBraingymid() {
   return {
     type: type.BRAIN_GYM_GETMASTERID,
+    actions: {}
   }
 }
 
-export function getQuestionbytag() {
+export function getQuestionbytag(data) {
+  console.log(data, 'action')
   return {
-    type: type.QUESTIONS_GET_QUESTION_BY_TAG,
+    type: type.GET_QUESTIONS_BY_TAG,
+    actions: {data}
   }
 }
  

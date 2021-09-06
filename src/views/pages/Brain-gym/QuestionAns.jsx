@@ -18,7 +18,7 @@ const QuestionAns = ({setOpen, step, select, setSelect, Questionbytag, counter, 
         };
         attempQue(detail);
         // getQuestionbytag();
-       
+      
         setCounter(counter + 1);
 
         let val= '';

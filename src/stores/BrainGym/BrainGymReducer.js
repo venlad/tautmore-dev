@@ -35,12 +35,7 @@ const initialState = {
           Masterbraingymid: action.braingym_masterbrainid
         }
 
-      case type.QUESTIONS_GET_QUESTION_BY_TAG:
-          return {
-            ...state,
-            loading: true,
-          }
-      case type.QUESTIONS_GET_QUESTION_BY_TAG_UPDATED:
+      case type.UPDATE_QUESTION_BY_TAG:
           return {
             ...state,
             loading: false,

@@ -33,10 +33,10 @@ function* getMasterbrainid() {
 
 const getquesttagurl = `http://localhost:3000/local/api/questions/getQuestionsByDifficultTag/`;
 
-function* getQuestionbytagApi() {
+function* workerGetQuestionbytag(data) {
     const masterbrainstate = yield select();
-    console.log(masterbrainstate, 'ss')
-    let difficulty =  masterbrainstate.BrainGym.attempQuestion.nextTag ? (masterbrainstate.BrainGym.attempQuestion.nextTag ) : (masterbrainstate.BrainGym.Masterbraingymid.gym.difficulty);  
+    console.log(data, 'ss')
+    let difficulty = data.actions.data.difficulty;
     let student_id = masterbrainstate.BrainGym.Masterbraingymid.gym.student;
     let chapter = masterbrainstate.BrainGym.Masterbraingymid.gym.chapter[0];
 
@@ -51,13 +51,13 @@ function* getQuestionbytagApi() {
         body: JSON.stringify({"difficulty":difficulty, "student_id":student_id, "chapter":chapter }),
     })
         const quedata = yield queresponse.json()
-        yield put({type: actionType.QUESTIONS_GET_QUESTION_BY_TAG_UPDATED, que_getquetag: quedata});
+        yield put({type: actionType.UPDATE_QUESTION_BY_TAG, que_getquetag: quedata});
 }
 
 const attemptqueurl = `http://localhost:3000/local/api/questions/attemptQuestion`;
 
 function* getAttemptquestion(data) {
-   
+    
     const state = yield select();
     const chestid = state.BrainGym.Masterbraingymid.gym.chest[0]._id;
     const studentid = state.BrainGym.Allgym.gyms[0].student;
@@ -74,7 +74,7 @@ function* getAttemptquestion(data) {
         body: JSON.stringify({"solution_index":solutionind, "time_to_solve":timetosolve, "question_id":questionid, "student_id":studentid, "chest_id":chestid }),
     })
         const attemptdata = yield attemptresponse.json()
-        yield put({ type: actionType.QUESTIONS_GET_QUESTION_BY_TAG})
+        yield getQuestionbytag()
         yield put({type: actionType.QUESTIONS_ATTEMPT_QUESTION_UPDATED, attempt_que: attemptdata});
 }
 
@@ -92,7 +92,7 @@ function* workerfetchUsers() {
 function* watcherUserSaga() {
    yield takeLatest(actionType.BRAIN_GYM_ALLGYM, workerfetchUsers);
    yield takeLatest(actionType.BRAIN_GYM_GETMASTERID, getMasterbrainid);
-   yield takeLatest(actionType.QUESTIONS_GET_QUESTION_BY_TAG, getQuestionbytagApi);
+   yield takeLatest(actionType.GET_QUESTIONS_BY_TAG, workerGetQuestionbytag);
    yield takeLatest(actionType.QUESTIONS_ATTEMPT_QUESTION, getAttemptquestion);
 }
 
