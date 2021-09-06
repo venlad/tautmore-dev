@@ -1,25 +1,68 @@
-import * as actionTypes from './BrainGymTypes'
-
+import * as actionTypes from "./BrainGymTypes";
 
 const initialState = {
-    braiGym: [],
-    loading: false,
-   
-  }
-  
-  const reducer =(state = initialState, action)=> {
-    switch (action.type) {
-      case actionTypes.SET_ALL_BRAIN_GYM:
-        return {
-          ...state,
-          braiGym: action.payload
-       
-        }
-      case actionTypes.SET_LOADING:
-        return{...state, loading: action.payload}
-      default:
-        return {...state}
-    }
-  }
+  Allgym: [],
+  Masterbraingymid: [],
+  Questionbytag: [],
+  attempQuestion: [],
+  loading: false,
+  error: null,
+};
 
-  export default reducer;
+export default function reducer(state = initialState, action) {
+  switch (action.type) {
+    case actionTypes.BRAIN_GYM_ALLGYM:
+      return {
+        ...state,
+        loading: true,
+      };
+    case actionTypes.BRAIN_GYM_ALLGYM_UPDATED:
+      return {
+        ...state,
+        loading: false,
+        Allgym: action.allgym,
+      };
+
+    case actionTypes.BRAIN_GYM_GETMASTERID:
+      return {
+        ...state,
+        loading: true,
+      };
+    case actionTypes.BRAIN_GYM_GETMASTERID_UPDATED:
+      return {
+        ...state,
+        loading: false,
+        Masterbraingymid: action.braingym_masterbrainid,
+      };
+
+    case actionTypes.UPDATE_QUESTION_BY_TAG:
+      return {
+        ...state,
+        loading: false,
+        Questionbytag: action.que_getquetag,
+      };
+
+    case actionTypes.QUESTIONS_ATTEMPT_QUESTION:
+      return {
+        ...state,
+        loading: true,
+      };
+    case actionTypes.QUESTIONS_ATTEMPT_QUESTION_UPDATED:
+      return {
+        ...state,
+        loading: false,
+        attempQuestion: action.attempt_que,
+      };
+
+    case actionTypes.GET_USERS_FAILED:
+      return {
+        ...state,
+        loading: false,
+        error: action.message,
+      };
+    case actionTypes.SET_LOADING:
+      return { ...state, loading: action.payload };
+    default:
+      return { ...state };
+  }
+}

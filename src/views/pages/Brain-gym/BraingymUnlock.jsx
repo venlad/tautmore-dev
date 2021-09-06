@@ -6,21 +6,27 @@ import { func, number, bool } from 'prop-types';
 import CompletedRecord from './CompletedRecord';
 
 
-const BraingymUnlock = ({open, setOpen, message, step, setStep, setSelect}) => {
+const BraingymUnlock = ({open, setOpen, message, step, setStep, select,  setSelect, counter, setCounter}) => {
 
     const removePopup = () => {
         setOpen(false);
         setStep((cur) => cur + 1);
-        setSelect('');
+        setCounter(counter + 1);
     }
     
+    const closePopup = () => {
+        setOpen(false);
+        // setSelect(select);
+        console.log(select , 'select from popup');
+    }
+
     return (
         <div>
         {
             step < 4 ? 
             (<div className={`braingym-unlock-main ${open === true && 'active'}`}>
             <div className="close-top">
-                <button type="button" className="close-btn" onClick={() => setOpen(false)}><img src={close} alt="close" /></button>
+                <button type="button" className="close-btn" onClick={closePopup}><img src={close} alt="close" /></button>
             </div>
                 <div className="unlock-common">
                             <h2>{message[step].title}</h2>

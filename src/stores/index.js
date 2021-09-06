@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import users from './BrainGym/BrainGymReducer'
+import BrainGym from './BrainGym/BrainGymReducer';
 
 const rootReducer = combineReducers({
-  users: users,
+  BrainGym: BrainGym,
 });
 
 export default rootReducer;
