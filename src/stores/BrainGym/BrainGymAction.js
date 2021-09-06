@@ -15,22 +15,21 @@ export function getAllgym() {
 
 export function masterBraingymid() {
   return {
-    type: actionTypes.BRAIN_GYM_GETMASTERID,
+    type: actionTypes.GET_MASTER_BRAIN_GYM_BY_ID,
     actions: {},
   };
 }
 
 export function getQuestionbytag(data) {
-  console.log(data, "action");
   return {
     type: actionTypes.GET_QUESTIONS_BY_TAG,
-    actions: { data },
+    actions: { ...data },
   };
 }
 
 export function attemptQuestion(data) {
   return {
-    type: actionTypes.QUESTIONS_ATTEMPT_QUESTION,
+    type: actionTypes.ATTEMPT_QUESTION,
     payload: data,
   };
 }

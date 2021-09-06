@@ -22,13 +22,8 @@ export default function reducer(state = initialState, action) {
         loading: false,
         Allgym: action.allgym,
       };
-
-    case actionTypes.BRAIN_GYM_GETMASTERID:
-      return {
-        ...state,
-        loading: true,
-      };
-    case actionTypes.BRAIN_GYM_GETMASTERID_UPDATED:
+    case actionTypes.UPDATE_MASTER_BRAIN_GYM_BY_ID:
+      console.log("action master");
       return {
         ...state,
         loading: false,
@@ -42,12 +37,7 @@ export default function reducer(state = initialState, action) {
         Questionbytag: action.que_getquetag,
       };
 
-    case actionTypes.QUESTIONS_ATTEMPT_QUESTION:
-      return {
-        ...state,
-        loading: true,
-      };
-    case actionTypes.QUESTIONS_ATTEMPT_QUESTION_UPDATED:
+    case actionTypes.UPDATE_ATTEMPT_QUESTION:
       return {
         ...state,
         loading: false,

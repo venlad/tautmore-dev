@@ -15,6 +15,7 @@ function completeChest(params) {
 }
 
 function getAllBrainGym() {
+  console.log("api call");
   return fetchWrapper.get(`${baseUrl}/local/api/brainGym/getAllBrainGym`);
 }
 
