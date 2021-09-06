@@ -1,8 +1,9 @@
-import * as type from './BrainGymTypes'
+import * as actionTypes from './BrainGymTypes'
 
-export function getUsers() {
+export const  getAllBrainGym =(data) => {
     return {
-      type: type.GET_USERS_REQUESTED,
+      type: actionTypes.GET_ALL_BRAIN_GYM,
+      payload : data
    
     }
 

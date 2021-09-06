@@ -1,32 +1,25 @@
-import * as type from './BrainGymTypes'
+import * as actionTypes from './BrainGymTypes'
 
 
 const initialState = {
-    users: [],
+    braiGym: [],
     loading: false,
-    error: null,
+   
   }
   
-  export default function users(state = initialState, action) {
+  const reducer =(state = initialState, action)=> {
     switch (action.type) {
-      case type.GET_USERS_REQUESTED:
+      case actionTypes.SET_ALL_BRAIN_GYM:
         return {
           ...state,
-          loading: true,
+          braiGym: action.payload
+       
         }
-      case type.GET_USERS_SUCCESS:
-        return {
-          ...state,
-          loading: false,
-          users: action.users
-        }
-      case type.GET_USERS_FAILED:
-        return {
-          ...state,
-          loading: false,
-          error: action.message,
-        }
+      case actionTypes.SET_LOADING:
+        return{...state, loading: action.payload}
       default:
-        return state
+        return {...state}
     }
   }
+
+  export default reducer;
