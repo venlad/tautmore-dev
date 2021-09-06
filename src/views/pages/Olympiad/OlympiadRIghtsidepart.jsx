@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { answerque, notanswerque } from './mockData/RightsidepartData';
-import PracticeTest from '../PracticeTest/PracticeTest'
+import OlympiadQueanspart from './OlympiadQueanspart';
 
 const OlympiadRIghtsidepart = () => {
 
@@ -80,7 +80,7 @@ const OlympiadRIghtsidepart = () => {
             </div>
 
             <div className="olympiad-practice-test">
-                <PracticeTest />
+                <OlympiadQueanspart />
             </div>
 
         </div>
