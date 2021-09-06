@@ -6,6 +6,7 @@ import { getQuestionbytag } from "./BrainGymAction";
 function* WorkerGetMasterBrainGymById() {
   const state = yield select();
   let braingym_masterbrainid = state.BrainGym.Allgym.gyms[0]._id;
+  yield put({type: actionTypes.SET_LOADING, payload: true})
   const response = yield brainGymServices.getMasterBrainGymById({
     chest_id: braingym_masterbrainid,
   });
@@ -13,6 +14,7 @@ function* WorkerGetMasterBrainGymById() {
     type: actionTypes.UPDATE_MASTER_BRAIN_GYM_BY_ID,
     braingym_masterbrainid: response,
   });
+  yield put({type: actionTypes.SET_LOADING, payload: false})
 }
 
 function* workerGetQuestionsByTag(data) {
@@ -27,7 +29,7 @@ function* workerGetQuestionsByTag(data) {
     student_id: student_id,
     chapter: chapter,
   };
-
+  yield put({type: actionTypes.SET_LOADING, payload: true})
   const response = yield questionsServices.getQuestionsByDifficultTag(reqData);
 
   console.log(response);
@@ -35,6 +37,7 @@ function* workerGetQuestionsByTag(data) {
     type: actionTypes.UPDATE_QUESTION_BY_TAG,
     que_getquetag: response,
   });
+  yield put({type: actionTypes.SET_LOADING, payload: false})
 }
 
 function* workerAttemptQuestion(gymData) {
@@ -51,6 +54,7 @@ function* workerAttemptQuestion(gymData) {
   };
 
   console.log(reqData, "attempt");
+  yield put({type: actionTypes.SET_LOADING, payload: true})
   const attemptresponse = yield questionsServices.attemptQuestion(reqData);
 
   if (attemptresponse) {
@@ -65,14 +69,18 @@ function* workerAttemptQuestion(gymData) {
     type: actionTypes.UPDATE_ATTEMPT_QUESTION,
     attempt_que: attemptresponse,
   });
+  yield put({type: actionTypes.SET_LOADING, payload: false})
 }
 
 function* workerGetAllBrainGym() {
   try {
+    yield put({type: actionTypes.SET_LOADING, payload: true})
     const allgym = yield brainGymServices.getAllBrainGym();
     yield put({ type: actionTypes.BRAIN_GYM_ALLGYM_UPDATED, allgym: allgym });
+    yield put({type: actionTypes.SET_LOADING, payload: false})
   } catch (e) {
     yield put({ type: actionTypes.GET_USERS_FAILED, message: e.message });
+    yield put({type: actionTypes.SET_LOADING, payload: false})
   }
 }
 

@@ -10,7 +10,8 @@ import {
   masterBraingymid,
   getQuestionbytag,
 } from "../../../stores/BrainGym/BrainGymAction";
-import loader from "../../../assets/images/Logo.png";
+//import loader from "../../../assets/images/Logo.png";
+import Spinner from 'react-bootstrap/Spinner'
 
 const Braingym = ({
   allgym,
@@ -19,6 +20,7 @@ const Braingym = ({
   masterBraingymid,
   getQuestionbytag,
   Questionbytag,
+  BrainGym
 }) => {
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState(0);
@@ -117,9 +119,11 @@ const Braingym = ({
           setCounter={setCounter}
         />
       </div>
-      {!Questionbytag && (
+      {BrainGym.loading && (
         <div className="loader-part">
-          <img src={loader} alt="loader" />
+            <Spinner animation="border" role="status" style={{color: "#FCA631"}}>
+                <span className="visually-hidden">Loading...</span>
+            </Spinner>
         </div>
       )}
     </div>
@@ -127,6 +131,7 @@ const Braingym = ({
 };
 
 const mapStateToProps = (state) => ({
+  BrainGym: state.BrainGym,
   allgym: state.BrainGym.Allgym?.gyms,
   Masterbraingym: state.BrainGym.Masterbraingymid?.gym,
   Questionbytag: state.BrainGym.Questionbytag?.questions,
