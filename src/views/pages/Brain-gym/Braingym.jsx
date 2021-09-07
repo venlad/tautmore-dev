@@ -10,8 +10,7 @@ import {
   masterBraingymid,
   getQuestionbytag,
 } from "../../../stores/BrainGym/BrainGymAction";
-//import loader from "../../../assets/images/Logo.png";
-import Spinner from 'react-bootstrap/Spinner'
+//import Spinner from 'react-bootstrap/Spinner'
 
 const Braingym = ({
   allgym,
@@ -34,6 +33,8 @@ const Braingym = ({
   const [timeOn, setTimeOn] = useState(true);
 
   const ques = Questionbytag?.[0];
+
+  const loading = BrainGym.loading;
 
   const message = [
     {
@@ -106,6 +107,7 @@ const Braingym = ({
           time={time}
           timeminutesecond={timeminutesecond}
           ques={ques}
+          loading={loading}
         />
         <BraingymUnlock
           open={open}
@@ -119,13 +121,13 @@ const Braingym = ({
           setCounter={setCounter}
         />
       </div>
-      {BrainGym.loading && (
+      {/* {BrainGym.loading && (
         <div className="loader-part">
             <Spinner animation="border" role="status" style={{color: "#FCA631"}}>
                 <span className="visually-hidden">Loading...</span>
             </Spinner>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

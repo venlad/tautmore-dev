@@ -69,7 +69,7 @@ function* workerAttemptQuestion(gymData) {
     type: actionTypes.UPDATE_ATTEMPT_QUESTION,
     attempt_que: attemptresponse,
   });
-  yield put({type: actionTypes.SET_LOADING, payload: false})
+  //yield put({type: actionTypes.SET_LOADING, payload: false})
 }
 
 function* workerGetAllBrainGym() {

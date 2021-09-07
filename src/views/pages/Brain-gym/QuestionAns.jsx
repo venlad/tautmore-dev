@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { attemptQuestion } from '../../../stores/BrainGym/BrainGymAction';
 import { getQuestionbytag } from '../../../stores/BrainGym/BrainGymAction';
 
-const QuestionAns = ({setOpen, step, select, setSelect, Questionbytag, counter, setCounter, attempQue, time, timeminutesecond, ques, getQuestionbytag}) => {
+const QuestionAns = ({setOpen, step, select, setSelect, Questionbytag, counter, setCounter, attempQue, time, timeminutesecond, ques, getQuestionbytag, loading}) => {
     
       
     const completeFromStep = () => {
@@ -42,12 +42,28 @@ const QuestionAns = ({setOpen, step, select, setSelect, Questionbytag, counter, 
         {
             step === 0 && 
             // (Questionbytag?.filter((item, index) => index === counter).map((data, ind) => (
+                
                 <div key={ques?.description}>
+                { 
+                loading ? (    
+                <div className="loading-skeleton">
+                    <h4></h4>
+                    <p></p>
+                </div>) : (
                 <div className="question-box">
                     <h4>Question - {counter}</h4>
                     <p>{ques?.description}</p>
                 </div>
-                <span className="answer-title">Select your answer</span>
+                )
+                }
+                {
+                    !loading && <span className="answer-title">Select your answer</span>
+                }
+                { 
+                loading ? (    
+                <div className="loading-skeleton question-options-wrapper selectTileType">
+                    <button></button><button></button><button></button><button></button>
+                </div>) : (
                     <div className="question-options-wrapper selectTileType">
                         {ques?.options?.map((data, ind) => {
                             return (
@@ -60,7 +76,10 @@ const QuestionAns = ({setOpen, step, select, setSelect, Questionbytag, counter, 
                                 />
                             );
                         })}
-                    </div>
+                    </div>)
+                }
+            
+                
                 </div>
             // )))
         }
