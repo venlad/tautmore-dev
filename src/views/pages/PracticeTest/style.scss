@@ -46,16 +46,19 @@
   font-size: 24px;
   font-family: 'proxima_nova_rgregular';
   margin-top: 15px;
-  span.span-one {
+
+  span img.span-one {
     margin-right: 10px;
-    float: left;
-    svg {
-      height: 30px;
-      width: 30px;
-      color: #454c4e;
-    }
-  }
+    margin-bottom: 3px; 
+    height: 30px;
+    width: 30px;
 }
+ button {
+  border: 0;
+  background-color: transparent;
+}
+}
+
 .question-box .image {
   height: 68px;
   width: 68px;
