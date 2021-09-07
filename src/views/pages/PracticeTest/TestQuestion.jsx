@@ -10,7 +10,7 @@ const TestQuestion = ({ quesData, APImage }) => (
             <div className="question-box">
                 <h4>Question - 1</h4>
                 <h2>
-                    <span><button type="button" onClick={() => startListening(quesData?.title)}> <img className="span-one" src={speaker} alt="qqqq" /></button></span>
+                    <span><button type="button" onClick={() => startListening(quesData?.title)}> <img className="span-one" src={speaker}  alt="speaker icon" /></button></span>
 
                     <span>{quesData?.title}</span>
                 </h2>
