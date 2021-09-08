@@ -44,7 +44,7 @@ const MyexamExamlistcommon = ({ val }) => {
                     <div className="col-md-3 col-sm-5">
                         <p><span>Grade 2</span> - <span className="span-bold">{val.grade2}</span></p>
                     </div>
-                    <div className="col-md-7 col-sm-7 examlist-common-date-time">
+                    <div className="col-md-7 col-sm-7 examlist-common-date-time ">
                         <p><span>Date & time</span> - <span className="span-bold">{val.datetime}</span></p>
                     </div>
                     <div className="col-md-2 col-sm-12 examlist-last">

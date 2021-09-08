@@ -2077,6 +2077,19 @@
                     }
                   }
 
+                  .myassignment-common-subject-left{
+                   h5 {
+                    //  height: 17px;
+                    // width: 205px;
+                    color: #454C4E;
+                    font-family: "Proxima Nova";
+                    font-size: 14px;
+                    font-weight: 600;
+                    letter-spacing: 0;
+                    line-height: 17px;
+                   }
+                  }
+
                   .myassignment-common-left {
                     h5{
                       height: 19px;
@@ -2102,6 +2115,8 @@
                       border-radius: 9.5px;
                       background-color: #FFEAF1;
                       display: inline-flex;
+                      margin-left: 80px;
+
 
                     }
                     span.span-one {
@@ -2116,6 +2131,35 @@
 
                     }
                   }
+                  .myassignment-assigned-left{
+                    p.p-one {
+                      color: #454C4E;
+                      font-family: "proxima_nova_rgregular";
+                      font-size: 14px;
+                    }
+                    span.span-three {
+                    margin-left: 10px;
+                
+                   }
+                    }
+
+                    .myassignment-common-day-left{
+                      p.p-one{
+                        height: 29px;
+                        width: 139px;
+                        border-radius: 14.5px;
+                        background-color: #FFF4E9;
+                      }
+                      span {
+
+                        color: #FCA834;
+                        font-family: "Proxima Nova";
+                        font-size: 16px;
+                        font-weight: 600;
+                        padding-left: 25px;
+                      }
+                 
+                    }
                   .myexam-common-right {
                     text-align: right;
                     p.p-one {
@@ -3247,6 +3291,8 @@
         margin: 15px 0px !important;
       }
     }
+  
+   
     .dashboard-right .myconcept-main .myconcept-right .video-bottom h5, .dashboard-right .myconcept-main .myconcept-right .video-bottom p {
       font-size: 16px !important;
     }
@@ -3614,3 +3660,15 @@
       margin-top: 15px !important;
     }
   }
+
+  .examlist-common-one .examlist-common-date-time .shape{
+    box-sizing: border-box;
+    height: 12.5px;
+    width: 12.5px;
+    border: 0.5px solid #FFFFFF;
+    background-color: #FFFFFF;
+    margin-left: 20px;
+    margin-right: 10px;
+  }
+
+  

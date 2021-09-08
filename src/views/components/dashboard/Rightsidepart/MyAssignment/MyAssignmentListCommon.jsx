@@ -4,13 +4,10 @@ import assignmentlistcalendar from '../../../../../assets/images/calendar.png';
 import assignmentlisttarget from '../../../../../assets/images/target.png';
 import assignmentlistidea from '../../../../../assets/images/idea.png';
 import assignmentlistflash from '../../../../../assets/images/flash.png';
-// import examlistclipboard from '../../../../assets/images/examlistclipboard.png';
-// import examlistclipboardhover from '../../../../assets/images/examlisthover3.png';
-// import examlistglass from '../../../../assets/images/examlistglass.png';
-// import examlistglasshover from '../../../../assets/images/examlisthover4.png';
-// import MyexamAnswer from './MyexamAnswer';
+import Time from '../../../../../assets/images/noun_Time.svg'
 
-const MyexamExamlistcommon = ({ val }) => {
+
+const MyAssignmentListCommon = ({ val }) => {
     const [calendar, setCalendar] = useState(assignmentlistcalendar);
     const [target, setTarget] = useState(assignmentlisttarget);
     const [idea, setIdea] = useState(assignmentlistidea);
@@ -41,14 +38,19 @@ const MyexamExamlistcommon = ({ val }) => {
                 aria-hidden="true"
             >
                 <div className="row examlist-common-one">
-                    <div className="col-md-3 col-sm-5">
+                    <div className="col-md-3 col-sm-2">
                         <p><span>Grade 2</span> - <span className="span-bold">{val.grade2}</span></p>
                     </div>
-                    <div className="col-md-3 col-sm-7 examlist-common-date-time">
-                        <p><span>Due date</span> - <span className="span-bold">{val.dueDate}</span></p>
+                    <div className="col-md-3 col-sm-4 examlist-common-date-time ">
+                        <p><span>Due date</span> - <span className="span-bold">{val.dueDate}</span>
+                        <img className = "shape" src={Time} alt="time icon"/>
+                        <span className="span-bold">{val.dueDateTime}</span></p>
                     </div>
-                    <div className="col-md-4 col-sm-7 examlist-common-date-time">
-                        <p><span>Submitted on</span> - <span className="span-bold">{val.submittedOn}</span></p>
+                    <div className="col-md-4 col-sm-6 examlist-common-date-time">
+                        <p><span>Submitted on</span> - <span className="span-bold">{val.submittedOnDate}</span>
+                        <img className = "shape" src={Time} alt="time icon"/>
+                        <span className="span-bold">{val.submittedOnTime}</span>
+                        </p>
                     </div>
                     <div className="col-md-2 col-sm-12 examlist-last">
                         <li>Try Again</li>
@@ -104,17 +106,13 @@ const MyexamExamlistcommon = ({ val }) => {
                     </div>
                 </div>
             </div>
-{/* 
-            {
-                exam && <MyexamAnswer setExam={setExam} />
-            } */}
 
         </div>
     );
 };
 
-MyexamExamlistcommon.propTypes = {
+MyAssignmentListCommon.propTypes = {
     val: object.isRequired,
 };
 
-export default MyexamExamlistcommon;
+export default MyAssignmentListCommon;
