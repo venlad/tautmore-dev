@@ -1,28 +1,71 @@
 import React from 'react';
 import AnswerOption from './AnswerOption';
-import {chestone, chesttwo, chestthree, chestfour, chestfive} from './mockData/queansData';
+//import {chestone, chesttwo, chestthree, chestfour, chestfive} from './mockData/queansData';
 import { func, number } from 'prop-types';
 import { chevRight } from '../../../assets/icons/IconList';
+import { connect } from 'react-redux';
+import { attemptQuestion } from '../../../stores/BrainGym/BrainGymAction';
+import { getQuestionbytag } from '../../../stores/BrainGym/BrainGymAction';
 
-const QuestionAns = ({setOpen, step, select, setSelect}) => {
+const QuestionAns = ({setOpen, step, select, setSelect, Questionbytag, counter, setCounter, attempQue, time, timeminutesecond, ques, getQuestionbytag, loading}) => {
     
-
+      
     const completeFromStep = () => {
-        setOpen(true);
+
+        const detail = {
+            time: timeminutesecond,
+            questiondetail: ques,
+        };
+        attempQue(detail);
+        // getQuestionbytag();
+      
+        setCounter(counter + 1);
+
+        let val= '';
+
+        for (let i = 0; i < 30; i+=5) {
+             val = i;
+             console.log(val, 'val');
+             if (counter === val){
+                setCounter(counter);
+                setOpen(true);
+             }
+             else {
+                setSelect('');
+            }
+        }
     };
+
+    
     return (
         <div>
         {
             step === 0 && 
-            (chestone.map((data) => (
-                <div key={data.question}>
+            // (Questionbytag?.filter((item, index) => index === counter).map((data, ind) => (
+                
+                <div key={ques?.description}>
+                { 
+                loading ? (    
+                <div className="loading-skeleton">
+                    <h4></h4>
+                    <p></p>
+                </div>) : (
                 <div className="question-box">
-                    <h4>Question - 1</h4>
-                    <p>{data.question}</p>
+                    <h4>Question - {counter}</h4>
+                    <p>{ques?.description}</p>
                 </div>
-                <span className="answer-title">Select your answer</span>
+                )
+                }
+                {
+                    !loading && <span className="answer-title">Select your answer</span>
+                }
+                { 
+                loading ? (    
+                <div className="loading-skeleton question-options-wrapper selectTileType">
+                    <button></button><button></button><button></button><button></button>
+                </div>) : (
                     <div className="question-options-wrapper selectTileType">
-                        {data?.answer?.map((data, ind) => {
+                        {ques?.options?.map((data, ind) => {
                             return (
                                 <AnswerOption
                                     data={data}
@@ -33,21 +76,25 @@ const QuestionAns = ({setOpen, step, select, setSelect}) => {
                                 />
                             );
                         })}
-                    </div>
+                    </div>)
+                }
+            
+                
                 </div>
-            )))
+            // )))
         }
 
         {
             step === 1 && 
-            (chesttwo.map((data) => (
-                <div key={data.question}>
+            (Questionbytag?.filter((item, index) => index === counter ).map((data, ind) => (
+                <div key={data._id}>
                 <div className="question-box">
-                    <h4>Question - 1</h4>
-                    <p>{data.question}</p>
+                    <h4>Question - {counter}</h4>
+                    <p>{data.description}</p>
                 </div>
+                <span className="answer-title">Select your answer</span>
                     <div className="question-options-wrapper selectTileType">
-                        {data?.answer?.map((data, ind) => {
+                        {data?.options?.map((data, ind) => {
                             return (
                                 <AnswerOption
                                     data={data}
@@ -65,14 +112,15 @@ const QuestionAns = ({setOpen, step, select, setSelect}) => {
 
         {
             step === 2 && 
-            (chestthree.map((data) => (
-                <div key={data.question}>
+            (Questionbytag?.filter((item, index) => index === counter).map((data, ind) => (
+                <div key={data._id}>
                 <div className="question-box">
-                    <h4>Question - 1</h4>
-                    <p>{data.question}</p>
+                    <h4>Question - {counter}</h4>
+                    <p>{data.description}</p>
                 </div>
+                <span className="answer-title">Select your answer</span>
                     <div className="question-options-wrapper selectTileType">
-                        {data?.answer?.map((data, ind) => {
+                        {data?.options?.map((data, ind) => {
                             return (
                                 <AnswerOption
                                     data={data}
@@ -90,14 +138,15 @@ const QuestionAns = ({setOpen, step, select, setSelect}) => {
 
         {
             step === 3 && 
-            (chestfour.map((data) => (
-                <div key={data.question}>
+            (Questionbytag?.filter((item, index) => index === counter).map((data, ind) => (
+                <div key={data._id}>
                 <div className="question-box">
-                    <h4>Question - 1</h4>
-                    <p>{data.question}</p>
+                    <h4>Question - {counter}</h4>
+                    <p>{data.description}</p>
                 </div>
+                <span className="answer-title">Select your answer</span>
                     <div className="question-options-wrapper selectTileType">
-                        {data?.answer?.map((data, ind) => {
+                        {data?.options?.map((data, ind) => {
                             return (
                                 <AnswerOption
                                     data={data}
@@ -115,14 +164,15 @@ const QuestionAns = ({setOpen, step, select, setSelect}) => {
 
         {
             step === 4 && 
-            (chestfive.map((data) => (
-                <div key={data.question}>
+            (Questionbytag?.filter((item, index) => index === counter).map((data, ind) => (
+                <div key={data._id}>
                 <div className="question-box">
-                    <h4>Question - 1</h4>
-                    <p>{data.question}</p>
+                    <h4>Question - {counter}</h4>
+                    <p>{data.description}</p>
                 </div>
+                <span className="answer-title">Select your answer</span>
                     <div className="question-options-wrapper selectTileType">
-                        {data?.answer?.map((data, ind) => {
+                        {data?.options?.map((data, ind) => {
                             return (
                                 <AnswerOption
                                     data={data}
@@ -148,4 +198,12 @@ QuestionAns.propTypes = {
     step: number.isRequired,
 };
 
-export default QuestionAns;
+
+const mapDispatchToProps = (dispatch) => ({
+    attempQue: (data) => dispatch(attemptQuestion(data)),
+    getQuestionbytag:function(){
+        dispatch(getQuestionbytag());
+    }
+});
+
+export default connect(null, mapDispatchToProps)(QuestionAns);

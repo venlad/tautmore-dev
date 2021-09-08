@@ -1,7 +1,25 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import clock from '../../../assets/images/stopwatch.png';
 
-const BraingymTime = () => (
+const BraingymTime = ({time, setTime, timeOn, setTimeOn, Questionbytag}) => {
+
+    useEffect(()=>{
+        let interval = null;
+
+        if(Questionbytag && timeOn){
+            interval = setInterval(() => {
+                setTime(prevTime => prevTime + 1000)
+            }, 1000 )
+        } else {
+            clearInterval(interval)
+        }
+        return () => clearInterval(interval)
+       
+    }, [timeOn, Questionbytag]);
+
+    
+
+    return (
     <div className="row brain-margin-row">
         <div className="col-md-12 timer-top">
             <div className="row">
@@ -12,7 +30,11 @@ const BraingymTime = () => (
                         </div>
                         <div className="col-md-8 col-12 col-sm-8 timer-sub-right">
                             <p>Time elapsed</p>
-                            <h5>10 : 00</h5>
+                            {/* <h5>10 : 00</h5> */}
+                            <h5> 
+                                <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
+                                <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}</span>
+                            </h5> 
                         </div>
                     </div>
                 </div>
@@ -31,7 +53,10 @@ const BraingymTime = () => (
                 </div> */}
             </div>
         </div>
+
+        
     </div>
 );
+};
 
 export default BraingymTime;
