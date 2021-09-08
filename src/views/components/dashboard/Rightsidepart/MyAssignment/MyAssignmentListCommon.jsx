@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
 import {  object } from 'prop-types';
 import assignmentlistcalendar from '../../../../../assets/images/calendar.png';
+import assignmetlistcalendernormal from '../../../../../assets/images/calendar_normal.png'
 import assignmentlisttarget from '../../../../../assets/images/target.png';
+import assignmentlisttargetnormal from '../../../../../assets/images/target_normal.png';
 import assignmentlistidea from '../../../../../assets/images/idea.png';
+import assignmentlistideanormal from '../../../../../assets/images/idea_normal.png';
 import assignmentlistflash from '../../../../../assets/images/flash.png';
+import assignmentlistflashnormal from '../../../../../assets/images/flash_normal.png';
 import Time from '../../../../../assets/images/noun_Time.svg'
 
 
 const MyAssignmentListCommon = ({ val }) => {
-    const [calendar, setCalendar] = useState(assignmentlistcalendar);
-    const [target, setTarget] = useState(assignmentlisttarget);
-    const [idea, setIdea] = useState(assignmentlistidea);
-    const [flash, setFlash] = useState(assignmentlistflash);
+    const [calendar, setCalendar] = useState(assignmetlistcalendernormal);
+    const [target, setTarget] = useState(assignmentlisttargetnormal);
+    const [idea, setIdea] = useState(assignmentlistideanormal);
+    const [flash, setFlash] = useState(assignmentlistflashnormal);
     const [exam, setExam] = useState(false);
     return (
         <div>
@@ -28,10 +32,10 @@ const MyAssignmentListCommon = ({ val }) => {
                 }
                 onMouseLeave={
                     () => {
-                        setCalendar(assignmentlistcalendar);
-                        setTarget(assignmentlisttarget);
-                        setIdea(assignmentlistidea);
-                        setFlash(assignmentlistflash);
+                        setCalendar(assignmetlistcalendernormal);
+                        setTarget(assignmentlisttargetnormal);
+                        setIdea(assignmentlistideanormal);
+                        setFlash(assignmentlistflashnormal);
                     }
                 }
                 onClick={() => setExam(!exam)}

@@ -1,6 +1,5 @@
 import React from 'react'
 import MyAssignmentTitle from '../MyexamTitle';
-
  import MyAssignmentCommon from './MyAssignmentCommon';
  import MyAssignmentList from './MyAssignmentList';
 
