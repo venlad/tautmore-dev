@@ -1,7 +1,7 @@
 import React from 'react';
 import { object, string } from 'prop-types';
 import { v4 as uuid } from 'uuid';
-import {startListening  } from "./startLearning";
+import { startListening  } from './startLearning';
 import speaker  from '../../../assets/images/speaker.png';
 
 const TestQuestion = ({ quesData, APImage }) => (
@@ -10,7 +10,7 @@ const TestQuestion = ({ quesData, APImage }) => (
             <div className="question-box">
                 <h4>Question - 1</h4>
                 <h2>
-                    <span><button type="button" onClick={() => startListening(quesData?.title)}> <img className="span-one" src={speaker}  alt="speaker icon" /></button></span>
+                    <span><button type="button" onClick={() => startListening(quesData?.title)}> <img className="span-one" src={speaker} alt="speaker icon" /></button></span>
 
                     <span>{quesData?.title}</span>
                 </h2>

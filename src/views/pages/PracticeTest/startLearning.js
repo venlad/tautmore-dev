@@ -4,4 +4,6 @@ export const startListening = (speech) => {
     msg.rate = 1;
     window.speechSynthesis.cancel();
     window.speechSynthesis.speak(msg);
-  };
+};
+
+export default {};

@@ -1,148 +1,127 @@
-import React, { useState, useEffect } from "react";
-import "./style/braingym.scss";
-import BraingymHead from "./BraingymHead";
-import Braingymstepperpart from "./Braingymstepperpart";
-import QuestionAns from "./QuestionAns";
-import BraingymUnlock from "./BraingymUnlock";
-import { connect } from "react-redux";
+import React, { useState, useEffect } from 'react';
+import './style/braingym.scss';
+import { connect } from 'react-redux';
+import { array, string, func } from 'prop-types';
+import BraingymHead from './BraingymHead';
+import Braingymstepperpart from './Braingymstepperpart';
+import QuestionAns from './QuestionAns';
+import BraingymUnlock from './BraingymUnlock';
+import chestMessage from './mockData/chestData';
 import {
-  getAllgym,
-  masterBraingymid,
-  getQuestionbytag,
-} from "../../../stores/BrainGym/BrainGymAction";
-//import Spinner from 'react-bootstrap/Spinner'
+    getAllgymAction,
+    masterBraingymidAction,
+    getQuestionbytagAction,
+} from '../../../stores/BrainGym/BrainGymAction';
 
 const Braingym = ({
-  allgym,
-  Masterbraingym,
-  getAllgym,
-  masterBraingymid,
-  getQuestionbytag,
-  Questionbytag,
-  BrainGym
+    allgym,
+    Masterbraingym,
+    getAllgym,
+    masterBraingymid,
+    getQuestionbytag,
+    Questionbytag,
+    BrainGym,
 }) => {
-  const [open, setOpen] = useState(false);
-  const [step, setStep] = useState(0);
-  const [select, setSelect] = useState("");
-  const [complete, setComplete] = useState(true);
-  const [completetwo, setCompletetwo] = useState(true);
-  const [completethree, setCompletethree] = useState(true);
-  const [counter, setCounter] = useState(1);
+    const [open, setOpen] = useState(false);
+    const [step, setStep] = useState(0);
+    const [select, setSelect] = useState('');
+    const [complete, setComplete] = useState(true);
+    const [completetwo, setCompletetwo] = useState(true);
+    const [completethree, setCompletethree] = useState(true);
+    const [counter, setCounter] = useState(1);
 
-  const [time, setTime] = useState(0);
-  const [timeOn, setTimeOn] = useState(true);
+    const [time, setTime] = useState(0);
+    const [timeOn, setTimeOn] = useState(true);
 
-  const ques = Questionbytag?.[0];
+    const ques = Questionbytag?.[0];
 
-  const loading = BrainGym.loading;
+    const loading = BrainGym.loading;
 
-  const message = [
-    {
-      title: "Chest 1 Unlocked !",
-      coin: "300 coins earned",
-      level: "Level 2",
-    },
-    {
-      title: "Chest 2 Unlocked !",
-      coin: "300 coins earned",
-      level: "Level 3",
-    },
-    {
-      title: "Chest 3 Unlocked !",
-      coin: "300 coins earned",
-      level: "Level 4",
-    },
-    {
-      title: "Chest 4 Unlocked !",
-      coin: "300 coins earned",
-      level: "Level 5",
-    },
-  ];
-  const timeminutesecond =
-    ("0" + Math.floor((time / 60000) % 60)).slice(-2) +
-    ":" +
-    ("0" + Math.floor((time / 1000) % 60)).slice(-2);
+    const timeminutesecond =    `${(`0${Math.floor((time / 60000) % 60)}`).slice(-2)
+    }:${
+        (`0${Math.floor((time / 1000) % 60)}`).slice(-2)}`;
 
-  useEffect(() => {
-    if (getAllgym && completetwo) {
-      getAllgym();
-      setCompletetwo(false);
-    }
-    if (allgym && complete) {
-      masterBraingymid();
-      setComplete(false);
-    }
-    if (allgym && Masterbraingym && completethree) {
-      setCompletethree(false);
-    }
-  }, [allgym]);
+    useEffect(() => {
+        if (getAllgym && completetwo) {
+            getAllgym();
+            setCompletetwo(false);
+        }
+        if (allgym && complete) {
+            masterBraingymid();
+            setComplete(false);
+        }
+        if (allgym && Masterbraingym && completethree) {
+            setCompletethree(false);
+        }
+    }, [Masterbraingym, masterBraingymid, complete, completetwo, completethree, getAllgym, allgym]);
 
-  useEffect(() => {
-    console.log(Masterbraingym?.difficulty, "dd");
-    if (Masterbraingym?.difficulty) {
-      getQuestionbytag({ difficulty: Masterbraingym?.difficulty });
-    }
-  }, [Masterbraingym]);
+    useEffect(() => {
+        if (Masterbraingym?.difficulty) {
+            getQuestionbytag({ difficulty: Masterbraingym?.difficulty });
+        }
+    }, [Masterbraingym, getQuestionbytag]);
 
-  return (
-    <div className="brain-gym-main braingym-page">
-      <BraingymHead />
-      <div className="brain-gym-bottom">
-        <Braingymstepperpart
-          step={step}
-          time={time}
-          setTime={setTime}
-          timeOn={timeOn}
-          setTimeOn={setTimeOn}
-          Questionbytag={Questionbytag}
-        />
-        <QuestionAns
-          setOpen={setOpen}
-          step={step}
-          select={select}
-          setSelect={setSelect}
-          Questionbytag={Questionbytag}
-          counter={counter}
-          setCounter={setCounter}
-          time={time}
-          timeminutesecond={timeminutesecond}
-          ques={ques}
-          loading={loading}
-        />
-        <BraingymUnlock
-          open={open}
-          setOpen={setOpen}
-          message={message}
-          step={step}
-          setStep={setStep}
-          select={select}
-          setSelect={setSelect}
-          counter={counter}
-          setCounter={setCounter}
-        />
-      </div>
-      {/* {BrainGym.loading && (
-        <div className="loader-part">
-            <Spinner animation="border" role="status" style={{color: "#FCA631"}}>
-                <span className="visually-hidden">Loading...</span>
-            </Spinner>
+    return (
+        <div className="brain-gym-main braingym-page">
+            <BraingymHead />
+            <div className="brain-gym-bottom">
+                <Braingymstepperpart
+                    step={step}
+                    time={time}
+                    setTime={setTime}
+                    timeOn={timeOn}
+                    setTimeOn={setTimeOn}
+                    Questionbytag={Questionbytag}
+                />
+                <QuestionAns
+                    setOpen={setOpen}
+                    step={step}
+                    select={select}
+                    setSelect={setSelect}
+                    Questionbytag={Questionbytag}
+                    counter={counter}
+                    setCounter={setCounter}
+                    time={time}
+                    timeminutesecond={timeminutesecond}
+                    ques={ques}
+                    loading={loading}
+                />
+                <BraingymUnlock
+                    open={open}
+                    setOpen={setOpen}
+                    message={chestMessage}
+                    step={step}
+                    setStep={setStep}
+                    select={select}
+                    setSelect={setSelect}
+                    counter={counter}
+                    setCounter={setCounter}
+                />
+            </div>
         </div>
-      )} */}
-    </div>
-  );
+    );
 };
 
 const mapStateToProps = (state) => ({
-  BrainGym: state.BrainGym,
-  allgym: state.BrainGym.Allgym?.gyms,
-  Masterbraingym: state.BrainGym.Masterbraingymid?.gym,
-  Questionbytag: state.BrainGym.Questionbytag?.questions,
+    BrainGym: state.BrainGym,
+    allgym: state.BrainGym.Allgym?.gyms,
+    Masterbraingym: state.BrainGym.Masterbraingymid?.gym,
+    Questionbytag: state.BrainGym.Questionbytag?.questions,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getAllgym: () => dispatch(getAllgym()),
-  masterBraingymid: () => dispatch(masterBraingymid()),
-  getQuestionbytag: (data) => dispatch(getQuestionbytag(data)),
+    getAllgym: () => dispatch(getAllgymAction()),
+    masterBraingymid: () => dispatch(masterBraingymidAction()),
+    getQuestionbytag: (data) => dispatch(getQuestionbytagAction(data)),
 });
 
+Braingym.propTypes = {
+    allgym: array.isRequired,
+    Masterbraingym: array.isRequired,
+    getAllgym: array.isRequired,
+    masterBraingymid: string.isRequired,
+    getQuestionbytag: func.isRequired,
+    Questionbytag: string.isRequired,
+    BrainGym: string.isRequired,
+};
 export default connect(mapStateToProps, mapDispatchToProps)(Braingym);
