@@ -2,7 +2,7 @@ import React from 'react';
 import {  string, number } from 'prop-types';
 
 const MyAssignmentCommon = ({
-    topic, date, time, student,
+    topic, student,
 }) => (
     <div className="row myexam-common-top">
         <div className="col-md-12 ">
@@ -41,9 +41,7 @@ const MyAssignmentCommon = ({
 );
 
 MyAssignmentCommon.propTypes = {
-    subject: string.isRequired,
-    date: string.isRequired,
-    time: string.isRequired,
+    topic: string.isRequired,
     student: number.isRequired,
 };
 

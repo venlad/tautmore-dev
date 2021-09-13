@@ -4,11 +4,6 @@ import assignmentlistcalendar from '../../../../../assets/images/calendar.png';
 import assignmentlisttarget from '../../../../../assets/images/target.png';
 import assignmentlistidea from '../../../../../assets/images/idea.png';
 import assignmentlistflash from '../../../../../assets/images/flash.png';
-// import examlistclipboard from '../../../../assets/images/examlistclipboard.png';
-// import examlistclipboardhover from '../../../../assets/images/examlisthover3.png';
-// import examlistglass from '../../../../assets/images/examlistglass.png';
-// import examlistglasshover from '../../../../assets/images/examlisthover4.png';
-// import MyexamAnswer from './MyexamAnswer';
 
 const MyexamExamlistcommon = ({ val }) => {
     const [calendar, setCalendar] = useState(assignmentlistcalendar);
@@ -87,7 +82,7 @@ const MyexamExamlistcommon = ({ val }) => {
                             </div>
                             <div className="col-md-9 col-sm-9">
                                 <p>Inteli Score</p>
-                              <h5>{val.inteliScore}</h5>
+                                <h5>{val.inteliScore}</h5>
                             </div>
                         </div>
                     </div>
@@ -104,11 +99,6 @@ const MyexamExamlistcommon = ({ val }) => {
                     </div>
                 </div>
             </div>
-{/* 
-            {
-                exam && <MyexamAnswer setExam={setExam} />
-            } */}
-
         </div>
     );
 };

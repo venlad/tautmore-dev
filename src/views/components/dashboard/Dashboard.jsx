@@ -41,9 +41,6 @@ const Dashboard = () => {
                     {view === 'My exams' && (<MyExam  />) }
 
                     {view === 'My assignments' && (<MyAssignment  />) }
-
-                    
-
                 </div>
             </div>
         </div>

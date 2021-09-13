@@ -7,7 +7,7 @@ import Chapters from './views/pages/Chapters';
 import PracticeTest from './views/pages/PracticeTest/PracticeTest';
 import Dashboard from './views/components/dashboard/Dashboard';
 import Braingym from './views/pages/Brain-gym/Braingym';
-import Olympiad from './views/pages/Olympiad/Olympiad'
+import Olympiad from './views/pages/Olympiad/Olympiad';
 
 const routes = [
     {

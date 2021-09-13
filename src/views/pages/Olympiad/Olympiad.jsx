@@ -3,13 +3,11 @@ import OlympiadHead from './OlympiadHead';
 import './style/olympiad.scss';
 import OlympiadPart from './OlympiadPart';
 
-const Olympiad = () => {
-    return (
-        <div className="Olympiad-main">
-            <OlympiadHead />
-            <OlympiadPart />
-        </div>
-    )
-}
+const Olympiad = () => (
+    <div className="Olympiad-main">
+        <OlympiadHead />
+        <OlympiadPart />
+    </div>
+);
 
-export default Olympiad
+export default Olympiad;
