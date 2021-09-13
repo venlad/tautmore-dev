@@ -1,7 +1,8 @@
 import React from 'react'
 import MyAssignmentTitle from '../MyexamTitle';
- import MyAssignmentCommon from './MyAssignmentCommon';
- import MyAssignmentList from './MyAssignmentList';
+import MyAssignmentCommon from './MyAssignmentCommon';
+import MyAssignmentList from './MyAssignmentList';
+import MyAssignmentTab  from '../MyexamTab'
 
 
 const MyAssignment = () => {
@@ -19,7 +20,11 @@ const MyAssignment = () => {
                 <MyAssignmentCommon topic="Algebra" date="27 Jul 2021" time=" 10:30 AM - 11:30 AM" student={15} />
             </div> 
         </div>
+        <MyAssignmentTitle title ="Completed assignments history" />
+        <MyAssignmentTab />
         <MyAssignmentList /> 
+
+     
         </div>
         
     )

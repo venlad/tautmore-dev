@@ -7,6 +7,9 @@ import Mysubjects from './Rightsidepart/Mysubjects';
 import Myconcept from './Rightsidepart/Myconcept';
 import MyExam from './Rightsidepart/MyExam';
 import MyAssignment from './Rightsidepart/MyAssignment/MyAssignment';
+import MyClasses from './Rightsidepart/MyClass/MyClasses';
+// import MySubscription from './Rightsidepart/MySubscription/MySubscription';
+
 
 const Dashboard = () => {
     const [open, setOpen] = useState(false);
@@ -41,6 +44,10 @@ const Dashboard = () => {
                     {view === 'My exams' && (<MyExam  />) }
 
                     {view === 'My assignments' && (<MyAssignment  />) }
+
+                    {view === 'My classes' && (<MyClasses  />) }
+
+                    {/* {view === 'My subscriptions' && (<MySubscription />)} */}
 
                     
 
