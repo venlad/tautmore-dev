@@ -3934,23 +3934,38 @@
     font-family: "proxima_nova_rgbold";
     // font-size: 32px;
     font-weight: bold;
-    margin-top: 30px;
+    // margin-top: 30px;
+    margin: 20px;
   }
 
   .subscription-history{
-    height: 428px;
-    width: 1050px;
+    // height: 428px;
+    // width: 1050px;
     border-radius: 10px;
     background-color: #FFFFFF;
     box-shadow: 0 12px 34px -10px rgba(0,0,0,0.05);
-    margin-top: 30px;
+     margin-top: 30px;
+    padding: 20px;
+
   
     .subscription-details{
       font-family: "proxima_nova_rgbold";
       font-size: 32px;
       font-weight: bold;
-      margin-left: 30px;
-      padding-top: 30px
+      // margin-left: 30px;
+      // padding-top: 30px;
+      float: left
+    }
+    .subscription-end{
+      text-align: right;
+      color: #F3332C;
+      font-family: "proxima_nova_rgregular";
+      font-size: 16px;
+      float: right;
+
+      img{
+        padding-right: 10px;
+      }
     }
   }
   .subscription-details-for-cocurri-rectangle {
@@ -4111,7 +4126,7 @@ display: flex;
     width: 428px;
     border-radius: 20px;
     background-color: #E3FFF6;
-    margin-left : 10px;
+     margin-right: 10px;
   
     .left-days {
       color: #F3332C;
@@ -4134,24 +4149,50 @@ display: flex;
   font-size: 14px;
   padding-left: 48px;
   padding-top: 15px;
+
+  img {
+    padding-right:  10px;
+  }
   }
 }
 .renew-button{
-  height: 56px;
-  width: 320px;
-  border-radius: 33.75px;
-  background-color: #43AA8B;
-  box-shadow: 0 12px 10px 0 rgba(67,170,139,0.25);
+  // height: 56px;
+  // width: 320px;
+  // border-radius: 33.75px;
+  // background-color: #43AA8B;
+  // box-shadow: 0 12px 10px 0 rgba(67,170,139,0.25);
+  // margin-top: 20px;
+  // margin-left: 54px;
+
+  button {
+    width: 320px;
+    height: 56px;
+    background-color: #43aa8b;
+    box-shadow: 0 12px 10px 0 rgba(67,170,139,0.25);
   margin-top: 20px;
   margin-left: 54px;
 
-  .renew-btn{
-    color: #FFFFFF;
-    font-family: "proxima_nova_rgbold";
-    font-size: 16px;
+    border-radius: 33.75px;
+    color: #fff;
+    border: 0;
     font-weight: bold;
-    padding-left: 24px;
-    padding-top: 15px;
+    font-size: 20px;
+    font-family: "proxima_nova_rgbold";
+    
+    
+
+    span {
+      float: right;
+      height: 24px;
+      width: 24px;
+      background-color: #fca834;
+      border-radius: 50%;
+      padding: 0px 4px;
+      margin-top: 4px;
+      box-shadow: 5px 5px 5px rgb(0 0 0 / 24%) !important;
+      display: flex;
+      align-items: center;
+    }
   }
 }
 
@@ -4274,8 +4315,34 @@ display: flex;
   // color: #20282A;
   font-family: "proxima_nova_rgregular";
   font-size: 20px;
+  
+ p{
+   margin-bottom: 0px;
+
+ }
+}
 
 }
+    }
+  }
+
+  .table {
+    padding: 20px 20px;
+    .table-hover th,td {
+border: 0px;
+
+p{
+  margin-bottom: 0px;
+  color: #454C4E;
+  font-family: "proxima_nova_rgregular";
+  font-size: 14px;
+}
+h5{
+  color: #20282A;
+  font-family: "proxima_nova_rgbold";
+  font-size: 16px;
+  font-weight: 600;
 }
     }
+   
   }

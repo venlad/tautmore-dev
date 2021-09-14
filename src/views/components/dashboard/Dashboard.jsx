@@ -8,7 +8,7 @@ import Myconcept from './Rightsidepart/Myconcept';
 import MyExam from './Rightsidepart/MyExam';
 import MyAssignment from './Rightsidepart/MyAssignment/MyAssignment';
 import MyClasses from './Rightsidepart/MyClass/MyClasses';
-// import MySubscription from './Rightsidepart/MySubscription/MySubscription';
+import MySubscription from './Rightsidepart/MySubscription/MySubscription';
 
 
 const Dashboard = () => {
@@ -47,7 +47,7 @@ const Dashboard = () => {
 
                     {view === 'My classes' && (<MyClasses  />) }
 
-                    {/* {view === 'My subscriptions' && (<MySubscription />)} */}
+                    {view === 'My subscriptions' && (<MySubscription />)}
 
                     
 
