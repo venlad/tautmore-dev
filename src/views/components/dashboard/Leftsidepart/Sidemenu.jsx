@@ -4,6 +4,8 @@ import sidebarLogo from '../../../../assets/images/sidebarlogo.png';
 import Sidebarprofile from '../../../../assets/images/sidebar-profile.png';
 import sidebardata from '../mockData/dashboardsidebardata';
 import { menu } from '../../../../assets/icons/IconList';
+import MyProfile from '../Rightsidepart/MyProfile/MyProfile';
+import {Link} from 'react-router-dom'
 
 function Sidemenu({
     open, setOpen, setView, view, setConcept,
@@ -17,17 +19,22 @@ function Sidemenu({
         setConcept('');
     };
 
+    const profileValue = (value) => {
+        setView(value);
+    };
+
     return (
         <div className=" dashboard-left col-sm-3">
             <div className="logo-profile">
                 <img src={sidebarLogo} alt="logo" className="dashboard-logo" />
             </div>
-            <div className="dashboard-profile">
+            <div className="dashboard-profile" onClick={() => profileValue('Myprofile')}>
                 <div className="row">
                     <div className="col-sm-3 dashboard-profile-left text-center">
                         <img src={Sidebarprofile} alt="profile" />
                     </div>
                     <div className="col-sm-6 dashboard-profile-center">
+                        
                         <h5>Susan Richards</h5>
                         <p>susan.9871245551</p>
                     </div>

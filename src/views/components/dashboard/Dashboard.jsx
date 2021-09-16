@@ -9,6 +9,7 @@ import MyExam from './Rightsidepart/MyExam';
 import MyAssignment from './Rightsidepart/MyAssignment/MyAssignment';
 import MyClasses from './Rightsidepart/MyClass/MyClasses';
 import MySubscription from './Rightsidepart/MySubscription/MySubscription';
+import MyProfile from './Rightsidepart/MyProfile/MyProfile';
 
 
 const Dashboard = () => {
@@ -49,7 +50,7 @@ const Dashboard = () => {
 
                     {view === 'My subscriptions' && (<MySubscription />)}
 
-                    
+                    {view === 'Myprofile' && (<MyProfile />)}
 
                 </div>
             </div>

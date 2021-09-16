@@ -4346,3 +4346,367 @@ h5{
     }
    
   }
+
+  // .myprofile-pic{
+  //   height: 100px;
+  //   width: 397px;
+  //   margin-left: 260px;
+  //   margin-top: 50px;
+  //   // padding: 50px;
+  //   .profile-name{
+  //     float: right;
+  //     margin-left: 40px;
+  //     text-align: right;
+  //     .name {
+  //   //     height: 29px;
+  //   // width: 165px;
+  //   color: #20282A;
+  //   font-family: "proxima_nova_rgbold";
+  //   font-size: 24px;
+  //   font-weight: 600;
+  //     }
+  //     .taut-id {
+  //       color: #43AA8B;
+  // font-family: "proxima_nova_rgregular";
+  // font-size: 18px;
+  // letter-spacing: 0;
+  //   .id-name{
+  //     color: #454C4E;
+  // font-family: "_proxima_nova_rgregular";
+  // font-size: 18px;
+  // letter-spacing: 0;
+  // padding-left: 10px;
+  //   }
+  //     }
+  //   }
+
+    
+  // }
+.myprofile {
+  margin-top: 50px;
+  .profile{
+    justify-content: center;
+
+    .common-name{
+          padding-left: 44px;
+      .name {
+        color: #20282A;
+      font-family: "Proxima Nova";
+      font-size: 24px;
+      font-weight: 600;
+      margin-top: 20px;
+      margin-bottom: 3px;
+ 
+      }
+      .taut-id{
+        color: #43AA8B;
+      font-family: "proxima_nova_rgregular";
+      font-size: 17px;
+      letter-spacing: 0;
+        margin-bottom: 4px;
+   
+      }
+    }
+  }
+
+}
+  .myprofile .profilepic{
+    float: right;
+    position: relative;
+    .pro-icon{
+      height: 106px;
+  width: 106px;
+    }
+.edit{
+   margin-top: 60px;
+   position: absolute;
+   bottom: 2px;
+   right: -34%;
+  
+}
+  }
+
+  
+ 
+  .id-name{
+    color: #454C4E;
+  font-family: "proxima_nova_rgregular";
+  font-size: 18px;
+ padding-left: 10px;
+  }
+  .myprofile-subscription{
+    height: 280px;
+  //  width: 1120px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  box-shadow: 0 12px 34px -10px rgba(0,0,0,0.05);
+ margin-top: 30px;
+ .mysubscription-name{
+  color: #454C4E;
+  font-family: "Proxima Nova";
+  font-size: 24px;
+  font-weight: bold;
+ }
+ .subscribed{
+  padding-left: 50px;
+  margin-top: 20px;
+  p{
+    color: #7D8283;
+  font-family: "proxima_nova_rgregular";
+  font-size: 18px;
+  font-weight: 600;
+  }
+  h5{
+    color: #20282A;
+  font-family: "Proxima Nova";
+  font-size: 20px;
+  font-weight: 600;
+  }
+  .pre-kind{
+    margin-bottom: 25px;
+  }
+  
+}
+
+.usd{
+  margin-top: 60px;
+  h5{
+    color: #20282A;
+  font-family: "Proxima Nova";
+  font-size: 24px;
+  font-weight: 600;
+  }
+  .usd-inside{
+    margin-top: 60px;
+  }
+}
+}
+   
+.mysubscription-name{
+  padding-left: 30px;
+  padding-top: 35px;
+}
+
+.account-details{
+  height: 174px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  box-shadow: 0 12px 34px -10px rgba(0,0,0,0.05);
+  margin-top: 50px;
+ 
+  .account-details-name{
+  
+  color: #454C4E;
+  font-family: "Proxima Nova";
+  font-size: 24px;
+  font-weight: bold;
+  padding-left: 30px;
+  padding-top: 30px;
+
+
+  }
+  .details{
+    margin-top: 30px;
+    padding-left: 30px;
+    .space{
+      margin-bottom: 30px;
+    }
+  }
+  
+  .tautid{
+    color: #7D8283;
+    font-family: "proxima_nova_rgregular";
+    font-size: 18px;
+    font-weight: 600;
+    padding-bottom: 0px;
+  }
+  .span-one{
+    color: #7D8283;
+    font-family: "proxima_nova_rgregular";
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+.myprofile .cred{
+  margin-top: 30px;
+  p {
+    color: #7D8283;
+    font-family: "Proxima Nova";
+    font-size: 18px;
+    font-weight: 600;
+  }
+  h5{
+    color: #20282A;
+    font-family: "Proxima Nova";
+    font-size: 30px;
+    font-weight: 600;
+    
+  }
+  
+  
+}
+.pass{
+  height: 49px;
+  width: 190px;
+  border-radius: 10px;
+  background-color: #43AA8B;
+  border: 0;
+  margin-top: 30px;
+  span{
+    color: #FFFFFF;
+  font-family: "proxima_nova_rgbold";
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+
+  }
+}
+.parent-details{
+
+ height: 344px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  box-shadow: 0 12px 34px -10px rgba(0,0,0,0.05);
+
+  .parent-details-name{
+    color: #454C4E;
+    font-family: "proxima_nova_rgregular";
+    font-size: 24px;
+    font-weight: bold;
+    padding-top: 30px;
+    padding-left: 30px;
+  }
+}
+.parent-details-block{
+  padding-left: 30px;
+  margin-top: 30px;
+
+  .parent p{
+    color: #7D8283;
+    font-family: "proxima_nova_rgregular";
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .number p{
+    color: #7D8283;
+    font-family: "proxima_nova_rgregular";
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .state p{
+    color: #7D8283;
+    font-family: "proxima_nova_rgregular";
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  h5{
+    color: #20282A;
+    font-family: "Proxima Nova";
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .number{
+    margin-top: 20px;
+  }
+  .state{
+    margin-top: 10px;
+  }
+}
+.email-right{
+  padding-top: 24px;
+  .email p{
+  
+    color: #7D8283;
+    font-family: "proxima_nova_rgregular";
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  h5{
+    color: #20282A;
+    font-family: "Proxima Nova";
+  font-size: 20px;
+  font-weight: 600;
+  }
+  .country{
+    margin-top: 30px;
+    p{
+      color: #7D8283;
+      font-family: "proxima_nova_rgregular";
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+
+}
+.myprofile-subscription{
+  .completed-rectangle{
+    height: 145px;
+  width: 500px;
+  border-radius: 20px;
+  background-color: #FFFCF5;
+  margin-top: 40px;
+  .rect-inside{
+    padding-top: 38px;
+    padding-left: 26px;
+  
+      .progressBar {
+        color: #f3722c;
+
+        .progress {
+          background-color: #ffe7d9;
+          border-radius: 10px;
+          height: 10px;
+          .progress-bar {
+            background-color: #f3722c;
+            border-radius: 10px;
+            overflow: visible;
+            position: relative;
+            
+     
+            &:after {
+              content: "";
+              position: absolute;
+              background: #fff;
+              height: 1px;
+              width: 85.7%;
+              top: 2.3px;
+              left: 13px;
+            }
+            &:before {
+              content: "";
+              position: absolute;
+              background: #fff;
+              height: 5px;
+              width: 5px;
+              left: 4px;
+              border-radius: 50%;
+              top: 2.4px;
+            }
+          }
+        }
+      }
+    
+  }
+  }
+
+  p{
+    color: #454C4E;
+  font-family: "proxima_nova_rgregular";
+  font-size: 20px;
+  font-weight: 600;
+ 
+  }
+  h3{
+    color: #F3332C;
+    font-family: "proxima_nova_rgbold";
+    font-size: 16px;
+    font-weight: bold;
+
+    .span-one{
+      padding-right: 12px;
+
+    }
+  }
+}
