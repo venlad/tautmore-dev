@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    func, string,
+    func, string, bool, number,
 } from 'prop-types';
 import { connect } from 'react-redux';
 import AnswerOption from './AnswerOption';
@@ -17,8 +17,45 @@ const QuestionAns = ({
     attempQue,
     timeminutesecond,
     ques,
+    setTimeOn,
+    step,
+    chestonecoin,
+    setchestoneCoin,
+    chesttwocoin,
+    setchesttwoCoin,
+    chestthreecoin,
+    setchestthreeCoin,
+    chestfourcoin,
+    setchestfourCoin,
+    chestfivecoin,
+    setchestfiveCoin,
 }) => {
     const completeFromStep = () => {
+        if (step === 0) {
+            if (ques.solutionIndex[0] === select) {
+                setchestoneCoin(chestonecoin + 1);
+            }
+        }
+        if (step === 1) {
+            if (ques.solutionIndex[0] === select) {
+                setchesttwoCoin(chesttwocoin + 1);
+            }
+        }
+        if (step === 2) {
+            if (ques.solutionIndex[0] === select) {
+                setchestthreeCoin(chestthreecoin + 1);
+            }
+        }
+        if (step === 3) {
+            if (ques.solutionIndex[0] === select) {
+                setchestfourCoin(chestfourcoin + 1);
+            }
+        }
+        if (step === 4) {
+            if (ques.solutionIndex[0] === select) {
+                setchestfiveCoin(chestfivecoin + 1);
+            }
+        }
         const detail = {
             time: timeminutesecond,
             questiondetail: ques,
@@ -34,6 +71,11 @@ const QuestionAns = ({
             } else {
                 setSelect('');
             }
+        }
+        if (step < 4) {
+            setTimeOn(true);
+        } else {
+            setTimeOn(false);
         }
     };
 
@@ -93,5 +135,17 @@ QuestionAns.propTypes = {
     attempQue: func.isRequired,
     timeminutesecond: string.isRequired,
     ques: string.isRequired,
+    setTimeOn: bool.isRequired,
+    step: number.isRequired,
+    chestonecoin: number.isRequired,
+    setchestoneCoin: number.isRequired,
+    chesttwocoin: number.isRequired,
+    setchesttwoCoin: number.isRequired,
+    chestthreecoin: number.isRequired,
+    setchestthreeCoin: number.isRequired,
+    chestfourcoin: number.isRequired,
+    setchestfourCoin: number.isRequired,
+    chestfivecoin: number.isRequired,
+    setchestfiveCoin: number.isRequired,
 };
 export default connect(null, mapDispatchToProps)(QuestionAns);

@@ -360,6 +360,9 @@
                     border-radius: 50%;
                     margin-right: 10px;
                 }
+                b {
+                    margin-left: 5px;
+                }
             }
             button {
                 width: 273px;
@@ -422,19 +425,21 @@
     .brain-gym-main .brain-gym-bottom .question-box p, .brain-gym-main .brain-gym-bottom .answer-title, .brain-gym-main .brain-gym-bottom .option-wrapper-tile-type span {
         font-size: 17px;
     }
-    .brain-gym-main .brain-gym-head-main img {
-        width: 150px;
-        margin-top: 7px;
+    .brain-gym-main .brain-gym-head-main  {
+        .head-logo img {
+            width: 150px;
+            margin-top: 7px;
+        }
     }
     .brain-gym-main .braingym-unlock-main .unlock-common h2 {
-        font-size: 30px;
+        font-size: 30px !important;
     }
     .brain-gym-main .braingym-unlock-main .unlock-common p.coin-p {
-        font-size: 17px;
+        font-size: 17px !important;
     }
     .brain-gym-main .braingym-unlock-main .unlock-common button {
-        font-size: 17px;
-        height: 50px;
+        font-size: 17px !important;
+        height: 50px !important;
         span {
             margin-top: 0;
         }
@@ -468,11 +473,11 @@
         margin-bottom: 30px;
     }
     .brain-gym-main .braingym-unlock-main .unlock-common {
-        width: 95%;
+        width: 95% !important;
     }
     .brain-gym-main .braingym-unlock-main .close-top {
-        top: 20px;
-        right: 25px;
+        top: 20px !important;
+        right: 25px !important;
     }
     .brain-gym-main .braingym-unlock-main.active {
         height: 100%;
@@ -498,7 +503,7 @@
     }
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 575px) {
     .brain-gym-main .brain-gym-head-main {
         .head-logo {
             text-align: center;
@@ -531,7 +536,7 @@
     }
     .brain-gym-main .braingym-unlock-main .unlock-common {
         border-radius: 20px !important;
-        margin-top: 30px;
+        margin-top: 30px !important;
     }
 }
 
@@ -540,6 +545,13 @@
         width: 100%;
         .button-wrapper {
             width: 100% !important;
+        }
+    }
+    .brain-gym-main.braingym-page .brain-gym-bottom .submit-answer-button {
+        width: 100%;
+        .button-wrapper {
+            height: 55px;
+            width: 100%;
         }
     }
  }

@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
-import { string, func } from 'prop-types';
+import {
+    string, func, array, number,
+} from 'prop-types';
 import clock from '../../../assets/images/stopwatch.png';
 
 const BraingymTime = ({
-    time, setTime, timeOn, Questionbytag,
+    time, setTime, timeOn, ques, totalcoin, step,
 }) => {
     useEffect(() => {
         let interval = null;
 
-        if (Questionbytag && timeOn) {
+        if (ques && timeOn) {
             interval = setInterval(() => {
                 setTime((prevTime) => prevTime + 1000);
             }, 1000);
@@ -16,7 +18,7 @@ const BraingymTime = ({
             clearInterval(interval);
         }
         return () => clearInterval(interval);
-    }, [timeOn, Questionbytag]);
+    }, [timeOn, ques]);
 
     return (
         <div className="row brain-margin-row">
@@ -42,8 +44,8 @@ const BraingymTime = ({
                                 <img src={clock} alt="clock" />
                             </div>
                             <div className="col-md-8 col-12 col-sm-8 timer-sub-right">
-                                <p>Chest 1 / 5</p>
-                                <h5 className="coin">10 coins <span>x1</span></h5>
+                                <p>Chest {step + 1} / 5</p>
+                                <h5 className="coin">{totalcoin} coins <span>x1</span></h5>
                             </div>
                         </div>
                     </div>
@@ -58,6 +60,8 @@ BraingymTime.propTypes = {
     time: string.isRequired,
     setTime: func.isRequired,
     timeOn: string.isRequired,
-    Questionbytag: string.isRequired,
+    ques: array.isRequired,
+    totalcoin: number.isRequired,
+    step: number.isRequired,
 };
 export default BraingymTime;

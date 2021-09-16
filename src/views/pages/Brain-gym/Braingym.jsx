@@ -29,9 +29,15 @@ const Braingym = ({
     const [completetwo, setCompletetwo] = useState(true);
     const [completethree, setCompletethree] = useState(true);
     const [counter, setCounter] = useState(1);
-
     const [time, setTime] = useState(0);
     const [timeOn, setTimeOn] = useState(true);
+    const [chestonecoin, setchestoneCoin] = useState(0);
+    const [chesttwocoin, setchesttwoCoin] = useState(0);
+    const [chestthreecoin, setchestthreeCoin] = useState(0);
+    const [chestfourcoin, setchestfourCoin] = useState(0);
+    const [chestfivecoin, setchestfiveCoin] = useState(0);
+
+    const totalcoin = chestonecoin + chesttwocoin + chestthreecoin + chestfourcoin + chestfivecoin;
 
     const ques = Questionbytag?.[0];
 
@@ -71,7 +77,8 @@ const Braingym = ({
                     setTime={setTime}
                     timeOn={timeOn}
                     setTimeOn={setTimeOn}
-                    Questionbytag={Questionbytag}
+                    ques={ques}
+                    totalcoin={totalcoin}
                 />
                 <QuestionAns
                     setOpen={setOpen}
@@ -85,6 +92,17 @@ const Braingym = ({
                     timeminutesecond={timeminutesecond}
                     ques={ques}
                     loading={loading}
+                    setTimeOn={setTimeOn}
+                    chestonecoin={chestonecoin}
+                    setchestoneCoin={setchestoneCoin}
+                    chesttwocoin={chesttwocoin}
+                    setchesttwoCoin={setchesttwoCoin}
+                    chestthreecoin={chestthreecoin}
+                    setchestthreeCoin={setchestthreeCoin}
+                    chestfourcoin={chestfourcoin}
+                    setchestfourCoin={setchestfourCoin}
+                    chestfivecoin={chestfivecoin}
+                    setchestfiveCoin={setchestfiveCoin}
                 />
                 <BraingymUnlock
                     open={open}
@@ -96,6 +114,12 @@ const Braingym = ({
                     setSelect={setSelect}
                     counter={counter}
                     setCounter={setCounter}
+                    timeminutesecond={timeminutesecond}
+                    chestonecoin={chestonecoin}
+                    chesttwocoin={chesttwocoin}
+                    chestthreecoin={chestthreecoin}
+                    chestfourcoin={chestfourcoin}
+                    chestfivecoin={chestfivecoin}
                 />
             </div>
         </div>
@@ -121,7 +145,7 @@ Braingym.propTypes = {
     getAllgym: array.isRequired,
     masterBraingymid: string.isRequired,
     getQuestionbytag: func.isRequired,
-    Questionbytag: string.isRequired,
+    Questionbytag: array.isRequired,
     BrainGym: string.isRequired,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Braingym);

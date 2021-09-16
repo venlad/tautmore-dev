@@ -8,7 +8,19 @@ import stopwatch from '../../../assets/images/stopwatch.png';
 import CompletedRecord from './CompletedRecord';
 
 const BraingymUnloc = ({
-    open, setOpen, message, step, setStep, counter, setCounter,
+    open,
+    setOpen,
+    message,
+    step,
+    setStep,
+    counter,
+    setCounter,
+    timeminutesecond,
+    chestonecoin,
+    chesttwocoin,
+    chestthreecoin,
+    chestfourcoin,
+    chestfivecoin,
 }) => {
     const removePopup = () => {
         setOpen(false);
@@ -31,7 +43,16 @@ const BraingymUnloc = ({
                             </div>
                             <div className="unlock-common">
                                 <h2>{message[step].title}</h2>
-                                <p className="coin-p"><span /> {message[step].coin}</p>
+                                <p className="coin-p"><span />
+
+                                    {step === 0 && chestonecoin}
+                                    {step === 1 && chesttwocoin }
+                                    {step === 2 && chestthreecoin }
+                                    {step === 3 && chestfourcoin }
+                                    {step === 4 && chestfivecoin }
+
+                                    <b>{message[step].coin}</b>
+                                </p>
                                 <button type="button" onClick={removePopup}>{message[step].level} <span>{chevRight}</span></button>
                             </div>
                         </div>
@@ -43,10 +64,10 @@ const BraingymUnloc = ({
                             </div>
                             <div className="unlock-common">
                                 <h2>Treasure hunt completed !</h2>
-                                <p className="coin-p"><span /> 1980 coins totally earned</p>
+                                <p className="coin-p"><span /> {chestonecoin + chesttwocoin + chestthreecoin + chestfourcoin + chestfivecoin} coins totally earned</p>
                                 <div className="row unlock-data-part">
                                     <div className="col-md-6">
-                                        <CompletedRecord title="Time taken" desc="00:12:56" image={stopwatch} />
+                                        <CompletedRecord title="Time taken" desc={timeminutesecond} image={stopwatch} />
                                     </div>
                                     <div className="col-md-6">
                                         <CompletedRecord title="Correct answers" desc="34 out of 50" image={stopwatch} />
@@ -77,7 +98,12 @@ BraingymUnloc.propTypes = {
     message: string.isRequired,
     counter: string.isRequired,
     setCounter: func.isRequired,
-
+    timeminutesecond: string.isRequired,
+    chestonecoin: number.isRequired,
+    chesttwocoin: number.isRequired,
+    chestthreecoin: number.isRequired,
+    chestfourcoin: number.isRequired,
+    chestfivecoin: number.isRequired,
 };
 
 export default BraingymUnloc;

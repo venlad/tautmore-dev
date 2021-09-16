@@ -8,6 +8,7 @@ import PracticeTest from './views/pages/PracticeTest/PracticeTest';
 import Dashboard from './views/components/dashboard/Dashboard';
 import Braingym from './views/pages/Brain-gym/Braingym';
 import Olympiad from './views/pages/Olympiad/Olympiad';
+import Login from './views/components/auth/login/Login';
 
 const routes = [
     {
@@ -54,6 +55,11 @@ const routes = [
         key: 9,
         path: RouteEnum.OLYMPIAD,
         component: Olympiad,
+    },
+    {
+        key: 10,
+        path: RouteEnum.LOGIN,
+        component: Login,
     },
 ];
 

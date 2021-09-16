@@ -1,10 +1,12 @@
 import React from 'react';
-import { number, func, string } from 'prop-types';
+import {
+    number, func, string, array,
+} from 'prop-types';
 import Stepper from './Stepper';
 import BraingymTime from './BraingymTime';
 
 const Braingymstepperpart = ({
-    step, time, setTime, timeOn, setTimeOn, Questionbytag,
+    step, time, setTime, timeOn, setTimeOn, ques, totalcoin,
 }) => (
     <div className="row stepperpart-top">
         <div className="col-md-7 stepperpart-left">
@@ -19,7 +21,9 @@ const Braingymstepperpart = ({
                     setTime={setTime}
                     timeOn={timeOn}
                     setTimeOn={setTimeOn}
-                    Questionbytag={Questionbytag}
+                    ques={ques}
+                    step={step}
+                    totalcoin={totalcoin}
                 />
             </div>
         </div>
@@ -32,7 +36,8 @@ Braingymstepperpart.propTypes = {
     setTime: func.isRequired,
     timeOn: string.isRequired,
     setTimeOn: func.isRequired,
-    Questionbytag: string.isRequired,
+    ques: array.isRequired,
+    totalcoin: number.isRequired,
 };
 
 export default Braingymstepperpart;

@@ -21,7 +21,7 @@ function* workerGetQuestionsByTag(data) {
     const masterbrainstate = yield select();
     const difficulty = data.actions.difficulty;
     const student_id = masterbrainstate.BrainGym.Masterbraingymid?.gym?.student;
-    const chapter = masterbrainstate.BrainGym.Masterbraingymid?.gym?.chapter[1];
+    const chapter = masterbrainstate.BrainGym.Masterbraingymid?.gym?.chapter[4];
 
     const reqData = {
         difficulty,
