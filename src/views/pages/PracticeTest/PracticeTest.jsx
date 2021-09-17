@@ -24,7 +24,6 @@ const PracticeTest = () => {
     const [color, setColor] = useState(1);
 
     const handleClickAnswer = (ans) => {
-        console.log(ans, 'item');
         // const filterAnswer = selectedAnswer.filter(
         //   (item) => item.value === ans.value
         // );
@@ -76,7 +75,6 @@ const PracticeTest = () => {
                         handleSubmitAnswer={handleSubmitAnswer}
                     />
                 )}
-                {console.log(color)}
                 {quesStatus.isSubmitted && !quesStatus.isFalse ? (
                     <>
                         {' '}

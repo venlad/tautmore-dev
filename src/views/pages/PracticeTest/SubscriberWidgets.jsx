@@ -5,8 +5,8 @@ import Logo from '../../../assets/images/Logo.png';
 
 const SubscriberScreenOne = () => (
     <div className="conatiner subscriberscreen-one">
-        <div className="row">
-            <div className="col-7">
+        <div className="row subscriberscreen-row-main">
+            <div className="col-12 col-md-7 subscriberscreen-left">
                 <div className="right-answer-container">
                     <div className="right-answer-modal-bg" />
                     <div className="right-answer-modal">
@@ -20,7 +20,7 @@ const SubscriberScreenOne = () => (
                     </div>
                 </div>
             </div>
-            <div className="col-5">
+            <div className="col-12 col-md-5 subscriberscreen-right">
                 <div className="sub-screen-right">
                     <div className="sub-screen-right-img">
                         <img src={Logo} alt="website_log" />

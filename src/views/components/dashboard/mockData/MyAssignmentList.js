@@ -2,7 +2,6 @@ import { v4 as uuid } from 'uuid';
 
 const assignmentList = [
     {
-     
         data: [
             {
                 grade2: 'Mathematics',

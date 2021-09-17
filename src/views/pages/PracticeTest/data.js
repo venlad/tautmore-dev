@@ -50,35 +50,3 @@ export const quesData1 = {
         },
     ],
 };
-
-const data = [
-    {
-        id: uuid(),
-        questionTitle: 'How many planes can you spot flying here',
-        questionData: [],
-        questionType: '', // select, options, input, multipleSelect
-        questionOptions: [
-            {
-                id: uuid(),
-                value: 4,
-                selected: false,
-            },
-            {
-                id: uuid(),
-                value: 7,
-                selected: false,
-            },
-            {
-                id: uuid(),
-                value: 9,
-                selected: false,
-            },
-            {
-                id: uuid(),
-                value: 6,
-                selected: false,
-            },
-        ],
-    },
-];
-console.log(data);
