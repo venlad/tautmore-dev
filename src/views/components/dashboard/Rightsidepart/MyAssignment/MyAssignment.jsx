@@ -1,12 +1,11 @@
 import React from 'react';
 import MyAssignmentTitle from '../MyexamTitle';
-
 import MyAssignmentList from './MyAssignmentList';
 import MyAssignmentTab  from '../MyexamTab';
 import MyAssignmentCommon from './MyAssignmentCommon';
 
-const MyAssignment = () => (
-    <div className="myexam-main">
+const MyAssignment = () =>  (
+    <div className="myexam-main myassignment-main">
         <MyAssignmentTitle title="My pending assignments - 3" select />
         <div className="row">
             <div className="col-md-4 myexam-main-common-left">

@@ -6,13 +6,13 @@ const MyAssignmentCommon = ({
     topic, date, time,
 }) => (
     <div className="row myexam-common-top">
-        <div className="col-md-12 ">
-            <div className="row myexam-common">
-                <div className="row">
-                    <div className="col-md-6 col-sm-5 col-12 myassignment-common-left">
+        <div className="myexam-common">
+            <div className="">
+                <div className="row myassignment-common-row">
+                    <div className="col-md-6 col-sm-5 col-5 myassignment-common-left">
                         <h5>{topic}</h5>
                     </div>
-                    <div className="col-md-6 col-sm-7 col-12 myassignment-common-right">
+                    <div className="col-md-6 col-sm-7 col-7 myassignment-common-right">
                         <p className="p-one">
                             <span className="span-one">PENDING</span>
                         </p>

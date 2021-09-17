@@ -594,30 +594,7 @@
                   justify-content: center;
                   border-right: 1px solid;
                   position: relative;
-                  // .dancing {
-                  //     position: absolute;
-                  //     height: 256px;
-                  //     width: 368px;
-                  //     background-size: cover;
-                  //     margin-top: 24px;
-                  //     margin-left: -96px;
-                  // }
-                  // .singing {
-                  //     position: absolute;
-                  //     height: 256px;
-                  //     width: 368px;
-                  //     background-size: cover;
-                  //     margin-top: 24px;
-                  //     margin-left: -96px;
-                  // }
-                  // .craft {
-                  //   position: absolute;
-                  //   height: 204px;
-                  //   width: 271px;
-                  //   background-size: cover;
-                  //   margin-top: 24px;
-                  //   margin-left: -96px;
-                  // }
+                  
                 }
             }
             .notification-menu {
@@ -2046,8 +2023,11 @@
                 margin: auto;
                 .myexam-common {
                   background-color: #fff;
-                  padding: 20px 10px;
+                  padding: 20px;
                   border-radius: 10px;
+                  .myassignment-common-row {
+                    align-items: baseline;
+                  }
                   button {
                     background-color: #E3FFF6;
                     border: 0;
@@ -2114,9 +2094,6 @@
                       border-radius: 9.5px;
                       background-color: #FFEAF1;
                       display: inline-flex;
-                      margin-left: 80px;
-
-
                     }
                     span.span-one {
                       height: 14px;
@@ -2136,10 +2113,7 @@
                       font-family: "proxima_nova_rgregular";
                       font-size: 14px;
                     }
-                    span.span-three {
-                    margin-left: 10px;
-                
-                   }
+                   
                     }
 
                     .myassignment-common-day-left{
@@ -2232,9 +2206,10 @@
                     border: 1px solid #454C4E;
                     border-radius: 10px;
                     background-color: #fff;
-                    width: 246px;
+                    max-width: 246px;
                     padding: 0px 10px;
                     cursor: pointer;
+                    width: 100%;
                   }
                   select:focus {
                     outline: none;
@@ -2959,7 +2934,6 @@
           }
     }
 }
-
 .dashboard-main.open {
     .dashboard-left {
       width: 6%;
@@ -3011,7 +2985,7 @@
     .dashboard-right {
       width: 93%;
     }
-  }
+}
 
   @media only screen and (max-width: 1285px) {
 
@@ -3040,7 +3014,7 @@
         }
       }
     }
-  }
+  } 
 
   @media only screen and (max-width: 1270px) {
     .dashboard-main .row-main .dashboard-right .dashboard-right-search .dash-right-search-common p {
@@ -3221,6 +3195,23 @@
         width: 20px !important;
       }
     }
+    .dashboard-main .row-main .dashboard-right .myexam-main.myassignment-main .myexam-examlist .examlist-common span {
+      font-size: 12px !important;
+    }
+    .dashboard-main .row-main .dashboard-right .myexam-main.myassignment-main .myexam-examlist .examlist-common .examlist-common-one p {
+      span.full-span {
+        display: block;
+      }
+    }
+    .dashboard-right .myassignment-main .examlist-common-one .examlist-common-date-time .shape {
+      margin-left: 0;
+    }
+    .dashboard-main .row-main .dashboard-right .myexam-main.myassignment-main .myexam-examlist .examlist-common {
+      p, h5 {
+        font-size: 14px !important;
+      }
+    }
+    
   }
 
   @media only screen and (max-width: 1120px) {
@@ -3719,8 +3710,28 @@
     }
     .dashboard-main .row-main .dashboard-right .renewsub-main .renew-right-main {
       margin-top: 40px;
+    .dashboard-main .dashboard-right .myassignment-main .examlist-common .examlist-common-one {
+      .exam-common-three {
+        text-align: left !important;
+      }
+      .exam-common-two, .exam-common-four.examlist-last {
+        text-align: right !important;
+      }
+      .exam-common-four.examlist-last {
+        margin: 0 !important;
+        li { 
+          text-align: right !important;
+        }
+      }
+    }
+    .dashboard-right .myexam-main.myassignment-main .myexam-examlist .examlist-common .examlist-common-one p span.full-span {
+      display: inline-block !important;
+    }
+    .dashboard-right .myexam-main.myassignment-main .myexam-examlist .examlist-common .examlist-common-one .examlist-common-date-time .shape {
+      margin-left: 10px;
     }
   }
+}
 
   @media only screen and (max-width: 575px) {
     .brain-gym-popup {
@@ -4092,8 +4103,15 @@
           }
         }
       }
+    .dashboard-main .dashboard-right .myassignment-main .examlist-common .examlist-common-one .exam-common-four.examlist-last li {
+      text-align: center !important;
+      margin-bottom: 20px;
+    }
+    .dashboard-right .myexam-main.myassignment-main .myexam-examlist .examlist-common .examlist-common-one p span.full-span {
+      display: block !important;
     }
   }
+}
 
   @media only screen and (max-width: 335px) { 
     .dashboard-right .next-class .performance .col-md-6 {
@@ -4106,10 +4124,6 @@
 
   .examlist-common-one .examlist-common-date-time .shape{
     box-sizing: border-box;
-    height: 12.5px;
-    width: 12.5px;
-    border: 0.5px solid #FFFFFF;
-    background-color: #FFFFFF;
     margin-left: 20px;
     margin-right: 10px;
   }
@@ -4133,19 +4147,6 @@
       font-weight: bold;
      }
     
-
-  //   p{
- 
-  // font-family: "proxima_nova_rgregular";
-  // font-size: 16px;
-  // font-weight: bold;
-  // margin-left: 20px;
-  // margin-top: 3px;
-  //   }
-
-    // .span-one {
-    //   color: #FCA834;
-    // }
   }
 
   .myexam-common-top .myclass-common-shift{
@@ -4172,116 +4173,18 @@
    text-align: right;
     }
     
-    // .mysubscription .mysubscription-title {
-    //   margin: 30px 0px;
-    //   align-items: center;
-    // }
-    // .mysubscription-details-left{
-    //   height: 668px;
-    //   width: 602px;
-    //   border-radius: 20px;
-    //   background-color: #FFFFFF;
-    //   box-shadow: 0 12px 34px -10px rgba(0,0,0,0.05);
-
-    //   .mysubscription-subscription-details{
-    //     height: 58px;
-    //     width: 542px;
-    //     border-radius: 10px;
-    //     background-color: #F9F9F9;
-    //     margin-top: 30px;
-    //     margin-left: 30px;
-
-    //      .subscription-details{
-    //       height: 31px;
-    //       width: 256px;
-    //       color: #20282A;
-    //       font-family: "Proxima Nova";
-    //       font-size: 20px;
-    //       font-weight: 600;
-    //       //  padding-left: 1px;
-    //        padding-top: 15px;
-    //       // padding-bottom: 12px;
-    //       // padding: auto;
-    //       // letter-spacing: 0;
-    //       // line-height: 31px;
-    //      }
-         
-    //   }
-    //   .mysubscription-subscribed-for{
-    //     // height: 18px;
-    //     // width: 103px;
-    //     color: #454C4E;
-    //     font-family: "proxima_nova_rgregular";
-    //     font-size: 16px;
-    //     // letter-spacing: 0;
-    //     // line-height: 18px;
-    //     margin-top: 20px;
-    //     padding-left: 30px;
-      
-    //    }
-    //    .mysubscription-prekindergarten{
-    //     height: 22px;
-    //     width: 158px;
-    //     color: #20282A;
-    //     font-family: "proxima_nova_rgregular";
-    //     font-size: 20px;
-    //     margin-top: 8px;
-    //     margin-left: 30px;
-    //    }
-    // }
-    // .mysubscription-grandtotal-right{
-    //   height: 565px;
-    //   width: 488px;
-    //   border-radius: 20px;
-    //   background-color: #FFFFFF;
-    //   box-shadow: 0 12px 34px -10px rgba(0,0,0,0.05);
-    //   float: right;
-    // }
-    
-    //   h3 {
-    //     font-size: 32px;
-    //     color: #20282A;
-    //     font-family: "proxima_nova_rgbold";
-    //     margin-bottom: 0;
-    //     margin-top: 10px;
-
-    //   }  
-  
-  // .myclass-reschedule-rectanle{
-  //   height: 242px;
-  //   width: 1120px;
-  //   border-radius: 20px;
-  //   background-color: #FFFFFF;
-  //   box-shadow: 0 12px 34px -10px rgba(0,0,0,0.05);
-  // }
-  // .myclass-reschedule-rectanle .myclass-inside-rectangle{
-  //     height: 182px;
-  //     width: 1060px;
-  // } 
-  // .myclass-reschedule-rectanle .myclass-reschedule {
-  // //   height: 82px;
-  // // width: 260px;
-  // color: #28B98D;
-  // font-family: "Proxima Nova";
-  // font-size: 32px;
-  // font-weight: bold;
-  // // letter-spacing: 0;
-  // // line-height: 41px;
-
   .mysubscription .subscription-details{
-    // height: 31px;
-    // width: 287px;
+    
     color: #20282A;
     font-family: "proxima_nova_rgbold";
-    // font-size: 32px;
+   
     font-weight: bold;
-    // margin-top: 30px;
+    
     margin: 20px;
   }
 
   .subscription-history{
-    // height: 428px;
-    // width: 1050px;
+   
     border-radius: 10px;
     background-color: #FFFFFF;
     box-shadow: 0 12px 34px -10px rgba(0,0,0,0.05);
@@ -4293,8 +4196,7 @@
       font-family: "proxima_nova_rgbold";
       font-size: 32px;
       font-weight: bold;
-      // margin-left: 30px;
-      // padding-top: 30px;
+     
       float: left
     }
     .subscription-end{
@@ -4360,9 +4262,7 @@ display: flex;
     color: #20282A;
     font-size: 16px;
      margin-top: 5PX;
-    //  margin-left: 30PX;
- 
- 
+   
   display: flex;
       justify-content: space-between;
   
@@ -4380,8 +4280,7 @@ display: flex;
   }
  
 .grand-total-right {
-  // margin-top:30px;
-  // margin-left: 30px;
+
   color: #20282A;
   font-family: "proxima_nova_rgbold";
   font-size: 32px;
@@ -4389,17 +4288,13 @@ display: flex;
   padding-left: 30px;
   padding-top: 30px;
 }
-
-
-  .left-olympiad{
+.left-olympiad{
 
     font-family: "proxima_nova_rgregular";
     color: #20282A;
     font-size: 16px;
      margin-top: 19PX;
-    //  margin-left: 30PX;
- 
- 
+  
   display: flex;
       justify-content: space-between;
   
@@ -4416,20 +4311,15 @@ display: flex;
       justify-content: space-between;
       margin-top: 1px;
      }
-    //  .classes {
-    //    margin-bottom: 0px;
-    //  }
-
-  }
-  .olympiad {
+    
+}
+.olympiad {
    
     font-family: "proxima_nova_rgregular";
     color: #20282A;
     font-size: 16px;
      margin-top: 5PX;
-    //  margin-left: 30PX;
- 
- 
+  
   display: flex;
       justify-content: space-between;
   
@@ -4445,14 +4335,9 @@ display: flex;
       justify-content: space-between;
       margin-top: 1px;
   }
-  // .line {
-  //   box-sizing: border-box;
-  //     height: 1px;
-  //     width: calc(100% + 7px);
-  //     border: 1px solid #20282A;
-  // }
+ 
 }
-  .grand-total {
+.grand-total {
     height: 565px;
   width: 488px;
   border-radius: 20px;
@@ -4476,7 +4361,7 @@ display: flex;
     font-weight: 600;
     padding-left: 154px;
     padding-top: 26px;
-    // text-align: right;
+   
     }
 .subs-end {
   height: 50px;
@@ -4497,14 +4382,7 @@ display: flex;
   }
 }
 .renew-button{
-  // height: 56px;
-  // width: 320px;
-  // border-radius: 33.75px;
-  // background-color: #43AA8B;
-  // box-shadow: 0 12px 10px 0 rgba(67,170,139,0.25);
-  // margin-top: 20px;
-  // margin-left: 54px;
-
+  
   button {
     width: 320px;
     height: 56px;
@@ -4542,8 +4420,8 @@ display: flex;
 
   
  
-  }
-  .subscription-details-for-rectangle {
+}
+.subscription-details-for-rectangle {
 
   border-radius: 10px;
   background-color: #F9F9F9;
@@ -4559,7 +4437,7 @@ display: flex;
   padding-top: 15px;
 
   }
-  }
+}
 .subscription-for-class{
  
   color: #20282A;
@@ -4579,7 +4457,7 @@ display: flex;
    padding: 20px 30px
   //  margin-right: 40px;
 }
-  .parent-class{
+.parent-class{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -4665,9 +4543,8 @@ display: flex;
 
 }
     }
-  }
-
-  .table {
+}
+.table {
     padding: 20px 20px;
     .table-hover th,td {
 border: 0px;
@@ -4686,43 +4563,7 @@ h5{
 }
     }
    
-  }
-
-  // .myprofile-pic{
-  //   height: 100px;
-  //   width: 397px;
-  //   margin-left: 260px;
-  //   margin-top: 50px;
-  //   // padding: 50px;
-  //   .profile-name{
-  //     float: right;
-  //     margin-left: 40px;
-  //     text-align: right;
-  //     .name {
-  //   //     height: 29px;
-  //   // width: 165px;
-  //   color: #20282A;
-  //   font-family: "proxima_nova_rgbold";
-  //   font-size: 24px;
-  //   font-weight: 600;
-  //     }
-  //     .taut-id {
-  //       color: #43AA8B;
-  // font-family: "proxima_nova_rgregular";
-  // font-size: 18px;
-  // letter-spacing: 0;
-  //   .id-name{
-  //     color: #454C4E;
-  // font-family: "_proxima_nova_rgregular";
-  // font-size: 18px;
-  // letter-spacing: 0;
-  // padding-left: 10px;
-  //   }
-  //     }
-  //   }
-
-    
-  // }
+}
 .myprofile {
   margin-top: 50px;
   .profile{
@@ -4751,7 +4592,7 @@ h5{
   }
 
 }
-  .myprofile .profilepic{
+.myprofile .profilepic{
     float: right;
     position: relative;
     .pro-icon{
@@ -4765,17 +4606,14 @@ h5{
    right: -34%;
   
 }
-  }
-
-  
- 
-  .id-name{
+}
+.id-name{
     color: #454C4E;
   font-family: "proxima_nova_rgregular";
   font-size: 18px;
  padding-left: 10px;
-  }
-  .myprofile-subscription{
+}
+.myprofile-subscription{
     height: 280px;
   //  width: 1120px;
   border-radius: 10px;
@@ -4822,12 +4660,10 @@ h5{
   }
 }
 }
-   
 .mysubscription-name{
   padding-left: 30px;
   padding-top: 35px;
 }
-
 .account-details{
   height: 174px;
   border-radius: 10px;
@@ -5051,3 +4887,5 @@ h5{
     }
   }
 }
+
+  
