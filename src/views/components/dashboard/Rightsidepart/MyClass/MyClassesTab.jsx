@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import {  bool } from 'prop-types';
 
-
-const MyClassesTAB = ({select}) => {
+const MyClassesTAB = () => {
     const [activebtn, setActivebtn] = useState('All subjects');
     const handleMathsColor = () => setActivebtn('maths');
     // const handleCocurriColor = () => setActivebtn('cocurri')
@@ -14,7 +12,7 @@ const MyClassesTAB = ({select}) => {
     };
     const handleCocurriColor = () => {
         setActivebtn('cocurri');
-    }
+    };
     return (
         <div className="row myexam-tab">
             <div className="col-md-10 col-sm-12">
@@ -66,12 +64,9 @@ const MyClassesTAB = ({select}) => {
                             Co-curricular
                         </button>
                     </div>
-
-
                 </div>
-                
             </div>
-            
+
             <div className=" col-sm-12 myexam-tab-right">
                 <select>
                     <option>All time</option>
@@ -80,7 +75,5 @@ const MyClassesTAB = ({select}) => {
         </div>
     );
 };
-
-
 
 export default MyClassesTAB;
