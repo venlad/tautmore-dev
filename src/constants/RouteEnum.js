@@ -7,6 +7,8 @@ const RouteEnum = {
     DASHBOARD: '/dashboard',
     BRAINGYM: '/brain-gym',
     REGISTER: '/register',
+    OLYMPIAD: '/olympiad',
+    LOGIN: '/login',
 };
 
 export default RouteEnum;

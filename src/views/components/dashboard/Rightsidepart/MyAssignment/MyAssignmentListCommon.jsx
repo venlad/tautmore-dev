@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import {  object } from 'prop-types';
 import assignmentlistcalendar from '../../../../../assets/images/calendar.png';
-import assignmetlistcalendernormal from '../../../../../assets/images/calendar_normal.png'
+import assignmetlistcalendernormal from '../../../../../assets/images/calendar_normal.png';
 import assignmentlisttarget from '../../../../../assets/images/target.png';
 import assignmentlisttargetnormal from '../../../../../assets/images/target_normal.png';
 import assignmentlistidea from '../../../../../assets/images/idea.png';
 import assignmentlistideanormal from '../../../../../assets/images/idea_normal.png';
 import assignmentlistflash from '../../../../../assets/images/flash.png';
 import assignmentlistflashnormal from '../../../../../assets/images/flash_normal.png';
-import Time from '../../../../../assets/images/noun_Time.svg'
-
+import Time from '../../../../../assets/images/noun_Time.svg';
 
 const MyAssignmentListCommon = ({ val }) => {
     const [calendar, setCalendar] = useState(assignmetlistcalendernormal);
@@ -47,13 +46,14 @@ const MyAssignmentListCommon = ({ val }) => {
                     </div>
                     <div className="col-md-3 col-sm-4 examlist-common-date-time ">
                         <p><span>Due date</span> - <span className="span-bold">{val.dueDate}</span>
-                        <img className = "shape" src={Time} alt="time icon"/>
-                        <span className="span-bold">{val.dueDateTime}</span></p>
+                            <img className="shape" src={Time} alt="time icon" />
+                            <span className="span-bold">{val.dueDateTime}</span>
+                        </p>
                     </div>
                     <div className="col-md-4 col-sm-6 examlist-common-date-time">
                         <p><span>Submitted on</span> - <span className="span-bold">{val.submittedOnDate}</span>
-                        <img className = "shape" src={Time} alt="time icon"/>
-                        <span className="span-bold">{val.submittedOnTime}</span>
+                            <img className="shape" src={Time} alt="time icon" />
+                            <span className="span-bold">{val.submittedOnTime}</span>
                         </p>
                     </div>
                     <div className="col-md-2 col-sm-12 examlist-last">
@@ -93,7 +93,7 @@ const MyAssignmentListCommon = ({ val }) => {
                             </div>
                             <div className="col-md-9 col-sm-9">
                                 <p>Inteli Score</p>
-                              <h5>{val.inteliScore}</h5>
+                                <h5>{val.inteliScore}</h5>
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,6 @@ const MyAssignmentListCommon = ({ val }) => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };

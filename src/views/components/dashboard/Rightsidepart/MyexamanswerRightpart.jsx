@@ -2,16 +2,13 @@ import React, { useState } from 'react';
 import Fade from 'react-bootstrap/Fade';
 import { rightpart } from '../mockData/Myanswerdata';
 import right from '../../../../assets/images/right.png';
-// import wrong from '../../../../assets/images/wrong.png';
 import minus from '../../../../assets/images/minus.png';
 import plus from '../../../../assets/images/plus.png';
 
 const MyexamanswerRightpart = () => {
-    // const [open, setOpen] = useState(false);
     const [toggle, setToggle] = useState('');
 
     const handleClick = (val) => {
-        // console.log(setOpen);
         if (toggle === val) {
             setToggle('');
         } else {

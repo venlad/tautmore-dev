@@ -1,9 +1,9 @@
 import React from 'react';
 import {  string, number } from 'prop-types';
-import Time from "../../../../../assets/images/noun_Time.svg";
+import Time from '../../../../../assets/images/noun_Time.svg';
 
 const MyAssignmentCommon = ({
-    topic, date, time
+    topic, date, time,
 }) => (
     <div className="row myexam-common-top">
         <div className="col-md-12 ">
@@ -26,23 +26,22 @@ const MyAssignmentCommon = ({
                     </div>
                 </div>
 
-                <div className = "row">
-                    <div className =" col-12 myassignment-assigned-left">
-                      <p className = "p-one">
-                          <span className="span-one">Assigned -</span>
-                          <span className ="span-two">{date}</span>
-                          <span className="span-three">{time}</span>
-                      </p>
+                <div className="row">
+                    <div className=" col-12 myassignment-assigned-left">
+                        <p className="p-one">
+                            <span className="span-one">Assigned -</span>
+                            <span className="span-two">{date}</span>
+                            <span className="span-three">{time}</span>
+                        </p>
                     </div>
                 </div>
 
                 <div className="row">
-                    <div className = "col-12 myassignment-common-day-left">
-                        <p className = "p-one">
-                            <span><img src={Time} alt="time icon"/> 2 days left</span>
-                        
-                        </p>
+                    <div className="col-12 myassignment-common-day-left">
+                        <p className="p-one">
+                            <span><img src={Time} alt="time icon" /> 2 days left</span>
 
+                        </p>
 
                     </div>
                 </div>
@@ -58,10 +57,9 @@ const MyAssignmentCommon = ({
 );
 
 MyAssignmentCommon.propTypes = {
-    subject: string.isRequired,
-    date: string.isRequired,
+    topic: string.isRequired,
+    date: number.isRequired,
     time: string.isRequired,
-    student: number.isRequired,
 };
 
 export default MyAssignmentCommon;
