@@ -44,7 +44,7 @@
   font-family: "Proxima Nova";
 }
 .links-list li button{
-  background-color: #fcfcfc;
+  background-color: transparent;
   border: none;
   width: 100%;
   padding-left:90px ;
@@ -108,9 +108,12 @@
 
 .chapter-name ul li ul li {
   font-size: 16px;
-  cursor: pointer;
   position: relative;
   line-height: 18px;
+  .sub-topic-div {
+    display: inline-block;
+    cursor: pointer;
+  }
 }
 
 .chapter-name ul li ul li.view-more {
@@ -195,10 +198,7 @@
   height: 100%;
   width: 100%;
 }
-div.chapter-name:nth-child(3n) .subtopic-desc {
-  right: 50%;
-  left: auto;
-}
+
 .subtopic-desc {
   position: absolute;
   top: 100%;
@@ -218,4 +218,167 @@ div.chapter-name:nth-child(3n) .subtopic-desc {
     box-shadow: 0 30px 74px -8px rgba(70,196,137,0.1);
     border: none;
   }
+}
+
+@media screen and (min-width: 1025px) {
+
+  div.chapter-name:nth-child(3n) .subtopic-desc {
+    right: 50%;
+    left: auto;
+  }
+  
+}
+
+@media screen and (max-width: 1024px) and (min-width: 576px) {
+  div.chapter-name:nth-child(3n) .subtopic-desc {
+    right: auto;
+    left: 0;
+  }
+  div.chapter-name:nth-child(2n) .subtopic-desc {
+    right: 50%;
+    left: auto;
+  }
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .chapters-main-container {
+    .chapters-links {
+      min-width: 250px;
+      h1 {
+        font-size: 17px;
+      }
+      .links-list {
+        li {
+          font-size: 17px;
+        }
+      }
+    }
+    .chapters-details {
+      h1 {
+        font-size: 35px;
+        img {
+          height: 35px;
+          width: 35px;
+        }
+      }
+      p {
+        font-size: 16px;
+      }
+      .chapters-container {
+        .chapter-name {
+          h2 {
+            font-size: 17px;
+          }
+          ul {
+            li {
+              font-size: 15px;
+            }
+          }
+        }
+        .subtopic-desc {
+          h1 {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    .subtopic-desc {
+      min-width: 450px;
+      button {
+        width: auto;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .chapters-main-container {
+    .chapters-details {
+      .chapters-container {
+        grid-template-columns: repeat(2, 1fr);
+        .subtopic-desc {
+          width: auto;
+          padding: 20px;
+          min-width: 400px;
+          button {
+            height: auto;
+            box-shadow: none;
+            .img-cont {
+              height: 60px;
+              width: 60px;
+            }
+          }
+          h1 {
+            text-align: left;
+            font-size: 18px;
+          }
+        }
+      }
+      p {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .chapters-main-container {
+    display: block;
+    .chapters-links {
+      min-width: 250px;
+      margin: auto;
+      background-color: #f5f5f5;
+      text-align: center;
+      h1 {
+        padding: 0;
+      }
+      ul {
+        li {
+          button {
+            text-align: center;
+            padding: 0;
+          }
+        }
+      }
+    }
+    .chapters-details {
+      margin-top: 50px;
+      width: 100%;
+      display: block;
+      h1, p {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .chapters-main-container {
+    .chapters-details {
+      padding: 20px;
+      h1 {
+        font-size: 30px;
+        img {
+          height: 25px;
+          width: 25px;
+          margin-right: 10px;
+        }
+      }
+      p {
+        font-size: 14px;
+      }
+      .chapters-container {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      .subtopic-desc {
+        min-width: 100% !important;
+        .img-cont {
+          height: 50px !important;
+          width: 50px !important;
+        }
+      }
+    }
+  }
+  
 }
