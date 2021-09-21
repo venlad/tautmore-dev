@@ -161,7 +161,6 @@ const Braingym = ({
                     setchestfourCoin={setchestfourCoin}
                     chestfivecoin={chestfivecoin}
                     setchestfiveCoin={setchestfiveCoin}
-
                 />
                 <BraingymUnlock
                     open={open}

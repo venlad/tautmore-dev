@@ -21,8 +21,9 @@ function* WorkerGetMasterBrainGymById() {
 function* workerGetQuestionsByTag(data) {
     const masterbrainstate = yield select();
     const difficulty = data.actions.difficulty;
-    const student_id = masterbrainstate.BrainGym.Masterbraingymid?.gym?.student;
-    const chapter = masterbrainstate.BrainGym.Masterbraingymid?.gym?.chapter[3];
+    // const student_id = masterbrainstate.BrainGym.Masterbraingymid?.gym?.student;
+    const student_id = '6148952cfbef0900086a6a10';
+    const chapter = masterbrainstate.BrainGym.Masterbraingymid?.gym?.chapter[0];
 
     const reqData = {
         difficulty,
@@ -35,6 +36,7 @@ function* workerGetQuestionsByTag(data) {
         que_getquetag: {},
     });
     const response = yield questionsServices.getQuestionsByDifficultTag(reqData);
+    console.log(response, 'response');
     yield put({
         type: actionTypes.UPDATE_QUESTION_BY_TAG,
         que_getquetag: response,
@@ -46,7 +48,6 @@ function* workerAttemptQuestion(gymData) {
     const state = yield select();
     const brainGym = state.BrainGym;
     const data = gymData.payload;
-
     const reqData = {
         solution_index: data?.questiondetail.solutionIndex[0],
         time_to_solve: 24,

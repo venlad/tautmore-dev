@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef }  from 'react';
 import {
     func, string, bool, number,
 } from 'prop-types';
@@ -7,6 +7,7 @@ import AnswerOption from './AnswerOption';
 import { chevRight } from '../../../assets/icons/IconList';
 import QuestionSkeleton from '../../components/skeleton/QuestionSkeleton';
 import { attemptQuestionAction, getQuestionbytagAction } from '../../../stores/BrainGym/BrainGymAction';
+import quedata from './mockData/randomqueData';
 
 const QuestionAns = ({
     setOpen,
@@ -31,6 +32,7 @@ const QuestionAns = ({
     setchestfiveCoin,
 
 }) => {
+    const titleRef = useRef();
     const completeFromStep = () => {
         if (step === 0) {
             if (question.solutionIndex[0] === select) {
@@ -60,6 +62,8 @@ const QuestionAns = ({
         const detail = {
             time: timeminutesecond,
             questiondetail: question,
+            newque: quedata,
+
         };
         attempQue(detail);
         setCounter(counter + 1);
@@ -121,6 +125,7 @@ const QuestionAns = ({
                                     selectedOption={select}
                                     onChange={setSelect}
                                     key={data}
+                                    titleRef={titleRef}
                                 />
                             ))}
                         </div>
@@ -128,7 +133,7 @@ const QuestionAns = ({
                 }
             </div>
 
-            <div className="col-12"><button type="button" onClick={completeFromStep} className={`submit-answer-button ${select !== '' ? 'active' : ''}`} disabled={select === ''}><div className="button-wrapper d-flex align-items-center justify-content-between"><span>Submit </span><div className="icon-wrapper d-flex align-items-center justify-content-center">{chevRight}</div></div></button></div>
+            <div className="col-12"><button type="button" ref={titleRef} onClick={completeFromStep} className={`submit-answer-button ${select !== '' ? 'active' : ''}`} disabled={select === ''}><div className="button-wrapper d-flex align-items-center justify-content-between"><span>Submit </span><div className="icon-wrapper d-flex align-items-center justify-content-center">{chevRight}</div></div></button></div>
         </div>
     );
 };

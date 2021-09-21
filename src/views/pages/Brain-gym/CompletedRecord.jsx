@@ -4,11 +4,11 @@ import { string } from 'prop-types';
 const CompletedRecord = ({ title, desc, image }) => (
     <div className="row">
         <div className="col-md-12">
-            <div className="row">
-                <div className="col-md-3">
+            <div className="common-record">
+                <div className="common-record-left">
                     <img src={image} alt={title} />
                 </div>
-                <div className="col-md-9">
+                <div className="common-record-right">
                     <p>{title}</p>
                     <h5>{desc}</h5>
                 </div>

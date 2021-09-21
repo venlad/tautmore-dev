@@ -4,8 +4,10 @@ import {
 } from 'prop-types';
 import { chevRight } from '../../../assets/icons/IconList';
 import close from '../../../assets/images/close.png';
-import stopwatch from '../../../assets/images/stopwatch.png';
 import CompletedRecord from './CompletedRecord';
+import chestopen from '../../../assets/images/Chestopen.svg';
+import clock from '../../../assets/images/clock.svg';
+import note from '../../../assets/images/exam.png';
 
 const BraingymUnloc = ({
     open,
@@ -42,6 +44,7 @@ const BraingymUnloc = ({
                                 <button type="button" className="close-btn" onClick={closePopup}><img src={close} alt="close" /></button>
                             </div>
                             <div className="unlock-common">
+                                <img src={chestopen} alt="chest_open" />
                                 <h2>{message[step].title}</h2>
                                 <p className="coin-p"><span />
 
@@ -65,12 +68,12 @@ const BraingymUnloc = ({
                             <div className="unlock-common">
                                 <h2>Treasure hunt completed !</h2>
                                 <p className="coin-p"><span /> {chestonecoin + chesttwocoin + chestthreecoin + chestfourcoin + chestfivecoin} coins totally earned</p>
-                                <div className="row unlock-data-part">
-                                    <div className="col-md-6">
-                                        <CompletedRecord title="Time taken" desc={timeminutesecond} image={stopwatch} />
+                                <div className="unlock-data-part">
+                                    <div className="unlock-data-part-sub">
+                                        <CompletedRecord title="Time taken" desc={timeminutesecond} image={clock} />
                                     </div>
-                                    <div className="col-md-6">
-                                        <CompletedRecord title="Correct answers" desc="34 out of 50" image={stopwatch} />
+                                    <div className="unlock-data-part-sub">
+                                        <CompletedRecord title="Correct answers" desc="34 out of 50" image={note} />
                                     </div>
                                 </div>
                                 <div className="row unlock-last-part">

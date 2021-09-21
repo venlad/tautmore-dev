@@ -36,6 +36,7 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 attempQuestion: action.attempt_que,
+
             };
 
         case actionTypes.GET_USERS_FAILED:
