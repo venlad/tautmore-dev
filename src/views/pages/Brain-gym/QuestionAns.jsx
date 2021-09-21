@@ -16,7 +16,7 @@ const QuestionAns = ({
     setCounter,
     attempQue,
     timeminutesecond,
-    ques,
+    question,
     setTimeOn,
     step,
     chestonecoin,
@@ -29,36 +29,37 @@ const QuestionAns = ({
     setchestfourCoin,
     chestfivecoin,
     setchestfiveCoin,
+
 }) => {
     const completeFromStep = () => {
         if (step === 0) {
-            if (ques.solutionIndex[0] === select) {
+            if (question.solutionIndex[0] === select) {
                 setchestoneCoin(chestonecoin + 1);
             }
         }
         if (step === 1) {
-            if (ques.solutionIndex[0] === select) {
+            if (question.solutionIndex[0] === select) {
                 setchesttwoCoin(chesttwocoin + 1);
             }
         }
         if (step === 2) {
-            if (ques.solutionIndex[0] === select) {
+            if (question.solutionIndex[0] === select) {
                 setchestthreeCoin(chestthreecoin + 1);
             }
         }
         if (step === 3) {
-            if (ques.solutionIndex[0] === select) {
+            if (question.solutionIndex[0] === select) {
                 setchestfourCoin(chestfourcoin + 1);
             }
         }
         if (step === 4) {
-            if (ques.solutionIndex[0] === select) {
+            if (question.solutionIndex[0] === select) {
                 setchestfiveCoin(chestfivecoin + 1);
             }
         }
         const detail = {
             time: timeminutesecond,
-            questiondetail: ques,
+            questiondetail: question,
         };
         attempQue(detail);
         setCounter(counter + 1);
@@ -77,30 +78,43 @@ const QuestionAns = ({
         } else {
             setTimeOn(false);
         }
+
+        const local = {
+            question,
+            step,
+            timeminutesecond,
+            counter,
+            chestonecoin,
+            chesttwocoin,
+            chestthreecoin,
+            chestfourcoin,
+            chestfivecoin,
+        };
+        localStorage.setItem('brain-gym-data', JSON.stringify(local));
     };
 
     return (
         <div>
-            <div key={ques?.description}>
+            <div key={question?.description}>
                 {
-                    !ques ? (
+                    !question ? (
                         <QuestionSkeleton />
                     ) : (
                         <div className="question-box">
                             <h4>Question - {counter}</h4>
-                            <p>{ques?.description}</p>
+                            <p>{question?.description}</p>
                         </div>
                     )
                 }
                 {
-                    ques?.options && <span className="answer-title">Select your answer</span>
+                    question?.options && <span className="answer-title">Select your answer</span>
                 }
                 {
-                    !ques?.options ? (
+                    !question?.options ? (
                         <div className="loading-skeleton question-options-wrapper selectTileType"><button type="button" className="">Test</button><button type="button" className="">Test</button><button type="button" className="">Test</button><button type="button" className="">Test</button></div>
                     ) : (
                         <div className="question-options-wrapper selectTileType">
-                            {ques?.options?.map((data, ind) => (
+                            {question?.options?.map((data, ind) => (
                                 <AnswerOption
                                     data={data}
                                     ind={ind}
@@ -134,7 +148,7 @@ QuestionAns.propTypes = {
     setCounter: func.isRequired,
     attempQue: func.isRequired,
     timeminutesecond: string.isRequired,
-    ques: string.isRequired,
+    question: string.isRequired,
     setTimeOn: bool.isRequired,
     step: number.isRequired,
     chestonecoin: number.isRequired,
@@ -147,5 +161,6 @@ QuestionAns.propTypes = {
     setchestfourCoin: number.isRequired,
     chestfivecoin: number.isRequired,
     setchestfiveCoin: number.isRequired,
+
 };
 export default connect(null, mapDispatchToProps)(QuestionAns);

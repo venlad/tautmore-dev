@@ -37,19 +37,76 @@ const Braingym = ({
     const [chestfourcoin, setchestfourCoin] = useState(0);
     const [chestfivecoin, setchestfiveCoin] = useState(0);
 
-    const totalcoin = chestonecoin + chesttwocoin + chestthreecoin + chestfourcoin + chestfivecoin;
+    const [local, setLocal] = useState(true);
 
-    const ques = Questionbytag?.[0];
+    const question = Questionbytag?.[0];
+
+    const totalcoin = chestonecoin + chesttwocoin + chestthreecoin + chestfourcoin + chestfivecoin;
 
     const loading = BrainGym.loading;
 
-    const timeminutesecond =    `${(`0${Math.floor((time / 60000) % 60)}`).slice(-2)
-    }:${
-        (`0${Math.floor((time / 1000) % 60)}`).slice(-2)}`;
+    useEffect(() => {
+        let interval = null;
+
+        if (question && timeOn) {
+            interval = setInterval(() => {
+                setTime((prevTime) => prevTime + 1000);
+            }, 1000);
+        } else {
+            clearInterval(interval);
+        }
+        return () => clearInterval(interval);
+    }, [timeOn, question]);
+
+    const [currenttime, setCurrenttime] = useState();
+
+    useEffect(() => {
+        setCurrenttime(`${(`0${Math.floor((time / 60000) % 60)}`).slice(-2)
+        }:${
+            (`0${Math.floor((time / 1000) % 60)}`).slice(-2)}`);
+        const localdata = localStorage.getItem('brain-gym-data');
+        const localvalue = JSON.parse(localdata);
+        const localtime = localvalue?.timeminutesecond;
+        if (localtime && local) {
+            setTime(localtime);
+            setLocal(false);
+        }
+    });
 
     useEffect(() => {
         if (getAllgym && completetwo) {
             getAllgym();
+            const localdata = localStorage.getItem('brain-gym-data');
+            const localvalue = JSON.parse(localdata);
+            const localstep = localvalue?.step;
+            if (localstep) {
+                setStep(localstep);
+            }
+            const chestonecoinval = localvalue?.chestonecoin;
+            if (chestonecoinval) {
+                setchestoneCoin(chestonecoinval);
+            }
+            const chesttwocoinval = localvalue?.chesttwocoin;
+            if (chestonecoinval) {
+                setchesttwoCoin(chesttwocoinval);
+            }
+            const chestthreecoinval = localvalue?.chestthreecoin;
+            if (chestthreecoinval) {
+                setchestthreeCoin(chestthreecoinval);
+            }
+            const chestfourcoinval = localvalue?.chestfourcoin;
+            if (chestfourcoinval) {
+                setchestfourCoin(chestfourcoinval);
+            }
+            const chestfivecoinval = localvalue?.chestfivecoin;
+            if (chestfivecoinval) {
+                setchestfiveCoin(chestfivecoinval);
+            }
+
+            const localcounter = localvalue?.counter;
+            if (localcounter) {
+                setCounter(localcounter);
+            }
             setCompletetwo(false);
         }
         if (allgym && complete) {
@@ -77,8 +134,9 @@ const Braingym = ({
                     setTime={setTime}
                     timeOn={timeOn}
                     setTimeOn={setTimeOn}
-                    ques={ques}
+                    question={question}
                     totalcoin={totalcoin}
+                    timeminutesecond={currenttime}
                 />
                 <QuestionAns
                     setOpen={setOpen}
@@ -89,8 +147,8 @@ const Braingym = ({
                     counter={counter}
                     setCounter={setCounter}
                     time={time}
-                    timeminutesecond={timeminutesecond}
-                    ques={ques}
+                    timeminutesecond={time}
+                    question={question}
                     loading={loading}
                     setTimeOn={setTimeOn}
                     chestonecoin={chestonecoin}
@@ -103,6 +161,7 @@ const Braingym = ({
                     setchestfourCoin={setchestfourCoin}
                     chestfivecoin={chestfivecoin}
                     setchestfiveCoin={setchestfiveCoin}
+
                 />
                 <BraingymUnlock
                     open={open}
@@ -114,14 +173,16 @@ const Braingym = ({
                     setSelect={setSelect}
                     counter={counter}
                     setCounter={setCounter}
-                    timeminutesecond={timeminutesecond}
+                    timeminutesecond={currenttime}
                     chestonecoin={chestonecoin}
                     chesttwocoin={chesttwocoin}
                     chestthreecoin={chestthreecoin}
                     chestfourcoin={chestfourcoin}
                     chestfivecoin={chestfivecoin}
                 />
+
             </div>
+
         </div>
     );
 };

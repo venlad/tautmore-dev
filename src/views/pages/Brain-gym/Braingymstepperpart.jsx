@@ -6,7 +6,7 @@ import Stepper from './Stepper';
 import BraingymTime from './BraingymTime';
 
 const Braingymstepperpart = ({
-    step, time, setTime, timeOn, setTimeOn, ques, totalcoin,
+    step, time, setTime, timeOn, setTimeOn, question, totalcoin, timeminutesecond,
 }) => (
     <div className="row stepperpart-top">
         <div className="col-md-7 stepperpart-left">
@@ -21,9 +21,10 @@ const Braingymstepperpart = ({
                     setTime={setTime}
                     timeOn={timeOn}
                     setTimeOn={setTimeOn}
-                    ques={ques}
+                    question={question}
                     step={step}
                     totalcoin={totalcoin}
+                    timeminutesecond={timeminutesecond}
                 />
             </div>
         </div>
@@ -36,8 +37,9 @@ Braingymstepperpart.propTypes = {
     setTime: func.isRequired,
     timeOn: string.isRequired,
     setTimeOn: func.isRequired,
-    ques: array.isRequired,
+    question: array.isRequired,
     totalcoin: number.isRequired,
+    timeminutesecond: string.isRequired,
 };
 
 export default Braingymstepperpart;

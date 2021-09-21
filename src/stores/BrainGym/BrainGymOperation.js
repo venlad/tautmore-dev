@@ -10,6 +10,7 @@ function* WorkerGetMasterBrainGymById() {
     const response = yield brainGymServices.getMasterBrainGymById({
         chest_id: braingym_masterbrainid,
     });
+
     yield put({
         type: actionTypes.UPDATE_MASTER_BRAIN_GYM_BY_ID,
         braingym_masterbrainid: response,
@@ -21,7 +22,7 @@ function* workerGetQuestionsByTag(data) {
     const masterbrainstate = yield select();
     const difficulty = data.actions.difficulty;
     const student_id = masterbrainstate.BrainGym.Masterbraingymid?.gym?.student;
-    const chapter = masterbrainstate.BrainGym.Masterbraingymid?.gym?.chapter[4];
+    const chapter = masterbrainstate.BrainGym.Masterbraingymid?.gym?.chapter[3];
 
     const reqData = {
         difficulty,
@@ -70,7 +71,6 @@ function* workerAttemptQuestion(gymData) {
         type: actionTypes.UPDATE_ATTEMPT_QUESTION,
         attempt_que: attemptresponse,
     });
-    // yield put({type: actionTypes.SET_LOADING, payload: false})
 }
 
 function* workerGetAllBrainGym() {
