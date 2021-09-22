@@ -6,7 +6,6 @@ import BraingymHead from './BraingymHead';
 import Braingymstepperpart from './Braingymstepperpart';
 import QuestionAns from './QuestionAns';
 import BraingymUnlock from './BraingymUnlock';
-import chestMessage from './mockData/chestData';
 import {
     masterBraingymidAction,
 } from '../../../stores/BrainGym/BrainGymAction';
@@ -16,8 +15,6 @@ const Braingym = ({
     questionByTag,
     masterBrainGym,
 }) => {
-    const [open, setOpen] = useState(false);
-    const [step, setStep] = useState(0);
     const [select, setSelect] = useState('');
     const [counter, setCounter] = useState(1);
     const [time, setTime] = useState(0);
@@ -87,7 +84,6 @@ const Braingym = ({
             <BraingymHead />
             <div className="brain-gym-bottom">
                 <Braingymstepperpart
-                    step={step}
                     time={time}
                     setTime={setTime}
                     timeOn={timeOn}
@@ -96,8 +92,6 @@ const Braingym = ({
                     timeminutesecond={currenttime}
                 />
                 <QuestionAns
-                    setOpen={setOpen}
-                    step={step}
                     select={select}
                     setSelect={setSelect}
                     Questionbytag={questionByTag}
@@ -111,18 +105,7 @@ const Braingym = ({
                     eachcurrenttime={eachcurrenttime}
                     setEachtime={setEachtime}
                 />
-                <BraingymUnlock
-                    open={open}
-                    setOpen={setOpen}
-                    message={chestMessage}
-                    step={step}
-                    setStep={setStep}
-                    select={select}
-                    setSelect={setSelect}
-                    counter={counter}
-                    setCounter={setCounter}
-                    timeminutesecond={currenttime}
-                />
+                <BraingymUnlock />
             </div>
         </div>
     );

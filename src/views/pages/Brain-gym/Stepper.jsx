@@ -8,7 +8,7 @@ const Stepper = ({ allChest, chestData }) => (
             {allChest && allChest.map((chest) => (
                 <div
                     key={chest.id}
-                    className={`stepper-above ${chest._id === chestData?._id ? 'active' : ''} ${
+                    className={`stepper-above ${chest._id === chestData?._id && chest.status !== 'finished' ? 'active' : ''} ${
                         chest.status === 'finished' ? 'prev-step' : ''
                     }`}
                 >

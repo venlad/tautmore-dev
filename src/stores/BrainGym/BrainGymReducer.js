@@ -3,7 +3,7 @@ import * as actionTypes from './BrainGymTypes';
 const initialState = {
     Allgym: [],
     queCounter: 0,
-    chestUnlockPopup: true,
+    chestUnlockPopup: false,
     chestData: [],
     masterBrainGym: [],
     questionByTag: [],

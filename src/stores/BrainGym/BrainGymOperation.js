@@ -5,7 +5,7 @@ import * as actionTypes from './BrainGymTypes';
 import { brainGymServices, questionsServices } from '../../services';
 
 const studentID = '6148952cfbef0900086a6a10';
-const brainGymId = '614af63c3557f40008861c07';
+const brainGymId = '614b0bd11efde4000867c917';
 
 function* workerCompleteChest(data) {
     try {
@@ -13,7 +13,13 @@ function* workerCompleteChest(data) {
             ...data.payload,
         };
         const response = yield brainGymServices.completeChest({ ...reqData });
-        console.log(response, 'c q');
+        if (response.status === 'success') {
+            yield put({
+                type: actionTypes.UPDATE_UNLOCK_CHEST,
+                payload: true,
+
+            });
+        }
     } catch (error) {
         console.log(error);
     }
@@ -24,6 +30,10 @@ function* workerUnlockChest(data) {
         yield put({
             type: actionTypes.UPDATE_UNLOCK_CHEST,
             payload: data,
+        });
+        yield put({
+            type: actionTypes.UPDATE_QUESTION_BY_TAG,
+            que_getquetag: {},
         });
     } catch (error) {
         console.log(error);

@@ -9,11 +9,9 @@ import QuestionSkeleton from '../../components/skeleton/QuestionSkeleton';
 import { attemptQuestionAction, getQuestionbytagAction } from '../../../stores/BrainGym/BrainGymAction';
 
 const QuestionAns = ({
-    setOpen,
     select,
     setSelect,
     counter,
-    setCounter,
     attempQue,
     timeminutesecond,
     questionByTag,
@@ -38,19 +36,9 @@ const QuestionAns = ({
             questiondetail: question,
             selectoption: select,
         };
-        attempQue(detail);
-        setCounter(counter + 1);
-        let val = '';
-        for (let i = 0; i < 30; i += 5) {
-            val = i;
-            if (counter === val) {
-                setCounter(counter);
-                setOpen(true);
-            } else {
-                setSelect('');
-            }
-        }
 
+        setSelect('');
+        attempQue(detail);
         setEachTimeOn(false);
         setEachtime(0);
 
@@ -123,11 +111,9 @@ const mapDispatchToProps = (dispatch) => ({
 QuestionAns.propTypes = {
     quesCounter: number.isRequired,
     chestData: object.isRequired,
-    setOpen: func.isRequired,
     select: string.isRequired,
     setSelect: func.isRequired,
     counter: string.isRequired,
-    setCounter: func.isRequired,
     attempQue: func.isRequired,
     timeminutesecond: string.isRequired,
     questionByTag: string.isRequired,
