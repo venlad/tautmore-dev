@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './style/braingym.scss';
 import { connect } from 'react-redux';
-import { array, string } from 'prop-types';
+import { array, func, object } from 'prop-types';
 import BraingymHead from './BraingymHead';
 import Braingymstepperpart from './Braingymstepperpart';
 import QuestionAns from './QuestionAns';
@@ -9,12 +9,12 @@ import BraingymUnlock from './BraingymUnlock';
 import chestMessage from './mockData/chestData';
 import {
     masterBraingymidAction,
-    getQuestionbytagAction,
 } from '../../../stores/BrainGym/BrainGymAction';
 
 const Braingym = ({
-    masterBraingymid,
+    getMasterBrainGym,
     questionByTag,
+    masterBrainGym,
 }) => {
     const [open, setOpen] = useState(false);
     const [step, setStep] = useState(0);
@@ -30,8 +30,10 @@ const Braingym = ({
     const question = questionByTag?.[0];
 
     useEffect(() => {
-        masterBraingymid();
-    }, [masterBraingymid]);
+        if (!masterBrainGym?._id) {
+            getMasterBrainGym();
+        }
+    });
 
     useEffect(() => {
         let interval = null;
@@ -77,9 +79,7 @@ const Braingym = ({
     const [eachcurrenttime, setEachcurrenttime] = useState();
 
     useEffect(() => {
-        setEachcurrenttime(`${(`0${Math.floor((eachtime / 60000) % 60)}`).slice(-2)
-        }:${
-            (`0${Math.floor((eachtime / 1000) % 60)}`).slice(-2)}`);
+        setEachcurrenttime(eachtime / 1000);
     });
 
     return (
@@ -129,17 +129,18 @@ const Braingym = ({
 };
 
 const mapStateToProps = (state) => ({
-    masterBrainGym: state.BrainGym.MasterBrainGym?.gym,
+    masterBrainGym: state.BrainGym.masterBrainGym,
     questionByTag: state.BrainGym.questionByTag,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    masterBraingymid: () => dispatch(masterBraingymidAction()),
-    getQuestionbytag: (data) => dispatch(getQuestionbytagAction(data)),
+    getMasterBrainGym: () => dispatch(masterBraingymidAction()),
 });
 
 Braingym.propTypes = {
-    masterBraingymid: string.isRequired,
+    getMasterBrainGym: func.isRequired,
     questionByTag: array.isRequired,
+    masterBrainGym: object.isRequired,
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(Braingym);

@@ -1,6 +1,6 @@
-import React, { useRef }  from 'react';
+import React, { useRef, useEffect }  from 'react';
 import {
-    func, string, bool, number,
+    func, string, bool, number, object,
 } from 'prop-types';
 import { connect } from 'react-redux';
 import AnswerOption from './AnswerOption';
@@ -16,17 +16,27 @@ const QuestionAns = ({
     setCounter,
     attempQue,
     timeminutesecond,
-    question,
+    questionByTag,
     setEachTimeOn,
     eachcurrenttime,
     setEachtime,
+    getQuestionbytag,
+    chestData,
+    quesCounter,
 }) => {
+    useEffect(() => {
+        if (chestData?._id) {
+            getQuestionbytag({ difficulty: chestData.difficulty });
+        }
+    }, [getQuestionbytag, chestData]);
+
+    const question = questionByTag?.[0];
     const titleRef = useRef();
     const completeFromStep = () => {
         const detail = {
             time: eachcurrenttime,
             questiondetail: question,
-
+            selectoption: select,
         };
         attempQue(detail);
         setCounter(counter + 1);
@@ -60,7 +70,7 @@ const QuestionAns = ({
                         <QuestionSkeleton />
                     ) : (
                         <div className="question-box">
-                            <h4>Question - {counter}</h4>
+                            <h4>Question - {quesCounter + 1}</h4>
                             <p>{question?.description}</p>
                         </div>
                     )
@@ -99,14 +109,20 @@ const QuestionAns = ({
     );
 };
 
+const mapStateToProps = (state) => ({
+    chestData: state.BrainGym.chestData,
+    quesCounter: state.BrainGym.queCounter,
+    questionByTag: state.BrainGym.questionByTag,
+});
+
 const mapDispatchToProps = (dispatch) => ({
     attempQue: (data) => dispatch(attemptQuestionAction(data)),
-    getQuestionbytag: () => {
-        dispatch(getQuestionbytagAction());
-    },
+    getQuestionbytag: (data) => dispatch(getQuestionbytagAction(data)),
 });
 
 QuestionAns.propTypes = {
+    quesCounter: number.isRequired,
+    chestData: object.isRequired,
     setOpen: func.isRequired,
     select: string.isRequired,
     setSelect: func.isRequired,
@@ -114,10 +130,11 @@ QuestionAns.propTypes = {
     setCounter: func.isRequired,
     attempQue: func.isRequired,
     timeminutesecond: string.isRequired,
-    question: string.isRequired,
+    questionByTag: string.isRequired,
+    getQuestionbytag: func.isRequired,
     setEachTimeOn: bool.isRequired,
     eachcurrenttime: string.isRequired,
     setEachtime: number.isRequired,
 };
 
-export default connect(null, mapDispatchToProps)(QuestionAns);
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionAns);

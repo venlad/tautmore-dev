@@ -5,27 +5,44 @@ import * as actionTypes from './BrainGymTypes';
 import { brainGymServices, questionsServices } from '../../services';
 
 const studentID = '6148952cfbef0900086a6a10';
-const chestID = '6149ddb045b85f00054ef763';
+const brainGymId = '6149ddb045b85f00054ef763';
 
-function* WorkerGetMasterBrainGymById() {
-    const reqData = { chest_id: chestID };
+function* workedCompleteChest(data) {
+    try {
+        const reqData = {
+            ...data.payload,
+        };
+        const response = yield brainGymServices.completeChest({ ...reqData });
+        console.log(response, 'c q');
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+function* workerGetMasterBrainGymById() {
+    const reqData = { chest_id: brainGymId };
     const response = yield brainGymServices.getMasterBrainGymById({ ...reqData });
     if (response.status === 'success') {
-        const filteredChest = response?.gym?.chest.find((item) => item?.status === 'started');
-
-        yield put({
-            type: actionTypes.SET_CHEST_DATA,
-            payload: filteredChest,
+        let currentChest = {};
+        let currentQueCounter = 0;
+        response?.gym?.chest.filter((item, i) => {
+            if (item?.status === 'started' || response?.gym?.chest?.[i - 1]?.status === 'finished') {
+                currentChest = item;
+            }
+            currentQueCounter += item?.questions.length;
+            return null;
         });
-
         yield put({
             type: actionTypes.UPDATE_MASTER_BRAIN_GYM_BY_ID,
             payload: response?.gym,
         });
-
         yield put({
-            type: actionTypes.GET_QUESTIONS_BY_TAG,
-            actions: { difficulty: filteredChest?.difficulty },
+            type: actionTypes.SET_CHEST_DATA,
+            payload: currentChest,
+        });
+        yield put({
+            type: actionTypes.SET_QUESTION_COUNTER,
+            payload: currentQueCounter,
         });
     }
 }
@@ -34,10 +51,11 @@ function* workerGetQuestionsByTag(data) {
     const state = yield select();
     const masterBrainGym = state.BrainGym.masterBrainGym;
     const reqData = {
-        difficulty: data.actions.difficulty,
+        difficulty: data.actions?.difficulty,
         student_id: studentID,
         chapter: masterBrainGym?.chest[0]?.chapter,
     };
+
     yield put({
         type: actionTypes.UPDATE_QUESTION_BY_TAG,
         que_getquetag: {},
@@ -58,21 +76,27 @@ function* workerAttemptQuestion(gymData) {
     const brainGym = state.BrainGym;
     const data = gymData.payload;
     const reqData = {
-        solution_index: data?.questiondetail.solutionIndex[0],
+        solution_index: data?.selectoption,
         time_to_solve: data?.time,
         question_id: data?.questiondetail._id,
         student_id: studentID,
         chest_id: brainGym.chestData?._id,
     };
 
+    yield put({
+        type: actionTypes.UPDATE_QUESTION_BY_TAG,
+        que_getquetag: {},
+    });
+
     const attemptresponse = yield questionsServices.attemptQuestion(reqData);
 
-    if (attemptresponse) {
+    if ((brainGym?.queCounter + 1) % 5 === 0) {
         yield put({
-            type: actionTypes.UPDATE_QUESTION_BY_TAG,
-            que_getquetag: {},
+            type: actionTypes.COMPLETE_CHEST,
+            payload: { chest_id: brainGym.chestData?._id },
         });
-
+    }
+    if (attemptresponse) {
         yield put({
             type: actionTypes.GET_QUESTIONS_BY_TAG,
             actions: { difficulty: attemptresponse?.nextTag },
@@ -90,9 +114,10 @@ function* workerAttemptQuestion(gymData) {
 }
 
 function* watcherBrainGym() {
-    yield takeLatest(actionTypes.GET_MASTER_BRAIN_GYM_BY_ID, WorkerGetMasterBrainGymById);
+    yield takeLatest(actionTypes.GET_MASTER_BRAIN_GYM_BY_ID, workerGetMasterBrainGymById);
     yield takeLatest(actionTypes.GET_QUESTIONS_BY_TAG, workerGetQuestionsByTag);
     yield takeLatest(actionTypes.ATTEMPT_QUESTION, workerAttemptQuestion);
+    yield takeLatest(actionTypes.COMPLETE_CHEST, workedCompleteChest);
 }
 
 function* fetchAll() {

@@ -2,8 +2,8 @@ import * as actionTypes from './BrainGymTypes';
 
 const initialState = {
     Allgym: [],
-    totalCoin: 0,
-    chestData: {},
+    queCounter: 0,
+    chestData: [],
     masterBrainGym: [],
     questionByTag: [],
     attempQuestion: [],
@@ -16,6 +16,13 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 chestData: action.payload,
             };
+
+        case actionTypes.SET_QUESTION_COUNTER:
+            return {
+                ...state,
+                queCounter: action.payload,
+            };
+
         case actionTypes.UPDATE_MASTER_BRAIN_GYM_BY_ID:
             return {
                 ...state,
