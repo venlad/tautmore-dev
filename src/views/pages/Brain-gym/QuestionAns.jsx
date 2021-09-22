@@ -7,7 +7,6 @@ import AnswerOption from './AnswerOption';
 import { chevRight } from '../../../assets/icons/IconList';
 import QuestionSkeleton from '../../components/skeleton/QuestionSkeleton';
 import { attemptQuestionAction, getQuestionbytagAction } from '../../../stores/BrainGym/BrainGymAction';
-import quedata from './mockData/randomqueData';
 
 const QuestionAns = ({
     setOpen,
@@ -18,51 +17,15 @@ const QuestionAns = ({
     attempQue,
     timeminutesecond,
     question,
-    setTimeOn,
-    step,
-    chestonecoin,
-    setchestoneCoin,
-    chesttwocoin,
-    setchesttwoCoin,
-    chestthreecoin,
-    setchestthreeCoin,
-    chestfourcoin,
-    setchestfourCoin,
-    chestfivecoin,
-    setchestfiveCoin,
-
+    setEachTimeOn,
+    eachcurrenttime,
+    setEachtime,
 }) => {
     const titleRef = useRef();
     const completeFromStep = () => {
-        if (step === 0) {
-            if (question.solutionIndex[0] === select) {
-                setchestoneCoin(chestonecoin + 1);
-            }
-        }
-        if (step === 1) {
-            if (question.solutionIndex[0] === select) {
-                setchesttwoCoin(chesttwocoin + 1);
-            }
-        }
-        if (step === 2) {
-            if (question.solutionIndex[0] === select) {
-                setchestthreeCoin(chestthreecoin + 1);
-            }
-        }
-        if (step === 3) {
-            if (question.solutionIndex[0] === select) {
-                setchestfourCoin(chestfourcoin + 1);
-            }
-        }
-        if (step === 4) {
-            if (question.solutionIndex[0] === select) {
-                setchestfiveCoin(chestfivecoin + 1);
-            }
-        }
         const detail = {
-            time: timeminutesecond,
+            time: eachcurrenttime,
             questiondetail: question,
-            newque: quedata,
 
         };
         attempQue(detail);
@@ -77,22 +40,14 @@ const QuestionAns = ({
                 setSelect('');
             }
         }
-        if (step < 4) {
-            setTimeOn(true);
-        } else {
-            setTimeOn(false);
-        }
+
+        setEachTimeOn(false);
+        setEachtime(0);
 
         const local = {
             question,
-            step,
             timeminutesecond,
             counter,
-            chestonecoin,
-            chesttwocoin,
-            chestthreecoin,
-            chestfourcoin,
-            chestfivecoin,
         };
         localStorage.setItem('brain-gym-data', JSON.stringify(local));
     };
@@ -132,15 +87,21 @@ const QuestionAns = ({
                     )
                 }
             </div>
-
-            <div className="col-12"><button type="button" ref={titleRef} onClick={completeFromStep} className={`submit-answer-button ${select !== '' ? 'active' : ''}`} disabled={select === ''}><div className="button-wrapper d-flex align-items-center justify-content-between"><span>Submit </span><div className="icon-wrapper d-flex align-items-center justify-content-center">{chevRight}</div></div></button></div>
+            <div className="col-12">
+                <button type="button" ref={titleRef} onClick={completeFromStep} className={`submit-answer-button ${select !== '' ? 'active' : ''}`} disabled={select === ''}>
+                    <div className="button-wrapper d-flex align-items-center justify-content-between">
+                        <span>Submit </span>
+                        <div className="icon-wrapper d-flex align-items-center justify-content-center">{chevRight}</div>
+                    </div>
+                </button>
+            </div>
         </div>
     );
 };
 
 const mapDispatchToProps = (dispatch) => ({
     attempQue: (data) => dispatch(attemptQuestionAction(data)),
-    getQuestionbytag() {
+    getQuestionbytag: () => {
         dispatch(getQuestionbytagAction());
     },
 });
@@ -154,18 +115,9 @@ QuestionAns.propTypes = {
     attempQue: func.isRequired,
     timeminutesecond: string.isRequired,
     question: string.isRequired,
-    setTimeOn: bool.isRequired,
-    step: number.isRequired,
-    chestonecoin: number.isRequired,
-    setchestoneCoin: number.isRequired,
-    chesttwocoin: number.isRequired,
-    setchesttwoCoin: number.isRequired,
-    chestthreecoin: number.isRequired,
-    setchestthreeCoin: number.isRequired,
-    chestfourcoin: number.isRequired,
-    setchestfourCoin: number.isRequired,
-    chestfivecoin: number.isRequired,
-    setchestfiveCoin: number.isRequired,
-
+    setEachTimeOn: bool.isRequired,
+    eachcurrenttime: string.isRequired,
+    setEachtime: number.isRequired,
 };
+
 export default connect(null, mapDispatchToProps)(QuestionAns);

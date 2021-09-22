@@ -4,44 +4,53 @@ import {
 import * as actionTypes from './BrainGymTypes';
 import { brainGymServices, questionsServices } from '../../services';
 
-function* WorkerGetMasterBrainGymById() {
-    const state = yield select();
-    const braingym_masterbrainid = state.BrainGym.Allgym.gyms[0]._id;
-    const response = yield brainGymServices.getMasterBrainGymById({
-        chest_id: braingym_masterbrainid,
-    });
+const studentID = '6148952cfbef0900086a6a10';
+const chestID = '6149ddb045b85f00054ef763';
 
-    yield put({
-        type: actionTypes.UPDATE_MASTER_BRAIN_GYM_BY_ID,
-        braingym_masterbrainid: response,
-    });
-    yield put({ type: actionTypes.SET_LOADING, payload: false });
+function* WorkerGetMasterBrainGymById() {
+    const reqData = { chest_id: chestID };
+    const response = yield brainGymServices.getMasterBrainGymById({ ...reqData });
+    if (response.status === 'success') {
+        const filteredChest = response?.gym?.chest.find((item) => item?.status === 'started');
+
+        yield put({
+            type: actionTypes.SET_CHEST_DATA,
+            payload: filteredChest,
+        });
+
+        yield put({
+            type: actionTypes.UPDATE_MASTER_BRAIN_GYM_BY_ID,
+            payload: response?.gym,
+        });
+
+        yield put({
+            type: actionTypes.GET_QUESTIONS_BY_TAG,
+            actions: { difficulty: filteredChest?.difficulty },
+        });
+    }
 }
 
 function* workerGetQuestionsByTag(data) {
-    const masterbrainstate = yield select();
-    const difficulty = data.actions.difficulty;
-    // const student_id = masterbrainstate.BrainGym.Masterbraingymid?.gym?.student;
-    const student_id = '6148952cfbef0900086a6a10';
-    const chapter = masterbrainstate.BrainGym.Masterbraingymid?.gym?.chapter[0];
-
+    const state = yield select();
+    const masterBrainGym = state.BrainGym.masterBrainGym;
     const reqData = {
-        difficulty,
-        student_id,
-        chapter,
+        difficulty: data.actions.difficulty,
+        student_id: studentID,
+        chapter: masterBrainGym?.chest[0]?.chapter,
     };
-
     yield put({
         type: actionTypes.UPDATE_QUESTION_BY_TAG,
         que_getquetag: {},
     });
+
     const response = yield questionsServices.getQuestionsByDifficultTag(reqData);
-    console.log(response, 'response');
-    yield put({
-        type: actionTypes.UPDATE_QUESTION_BY_TAG,
-        que_getquetag: response,
-    });
-    yield put({ type: actionTypes.SET_LOADING, payload: false });
+
+    if (response) {
+        yield put({
+            type: actionTypes.UPDATE_QUESTION_BY_TAG,
+            payload: response?.questions,
+        });
+    }
 }
 
 function* workerAttemptQuestion(gymData) {
@@ -50,22 +59,28 @@ function* workerAttemptQuestion(gymData) {
     const data = gymData.payload;
     const reqData = {
         solution_index: data?.questiondetail.solutionIndex[0],
-        time_to_solve: 24,
+        time_to_solve: data?.time,
         question_id: data?.questiondetail._id,
-        student_id: brainGym?.Allgym.gyms[0].student,
-        chest_id: brainGym?.Masterbraingymid.gym.chest[0]._id,
+        student_id: studentID,
+        chest_id: brainGym.chestData?._id,
     };
-    yield put({
-        type: actionTypes.UPDATE_QUESTION_BY_TAG,
-        que_getquetag: {},
-    });
-    yield put({ type: actionTypes.SET_LOADING, payload: true });
+
     const attemptresponse = yield questionsServices.attemptQuestion(reqData);
 
     if (attemptresponse) {
         yield put({
+            type: actionTypes.UPDATE_QUESTION_BY_TAG,
+            que_getquetag: {},
+        });
+
+        yield put({
             type: actionTypes.GET_QUESTIONS_BY_TAG,
             actions: { difficulty: attemptresponse?.nextTag },
+        });
+
+        yield put({
+            type: actionTypes.GET_MASTER_BRAIN_GYM_BY_ID,
+            actions: {},
         });
     }
     yield put({
@@ -74,24 +89,8 @@ function* workerAttemptQuestion(gymData) {
     });
 }
 
-function* workerGetAllBrainGym() {
-    try {
-        yield put({ type: actionTypes.SET_LOADING, payload: true });
-        const allgym = yield brainGymServices.getAllBrainGym();
-        yield put({ type: actionTypes.BRAIN_GYM_ALLGYM_UPDATED, allgym });
-        yield put({ type: actionTypes.SET_LOADING, payload: false });
-    } catch (e) {
-        yield put({ type: actionTypes.GET_USERS_FAILED, message: e.message });
-        yield put({ type: actionTypes.SET_LOADING, payload: false });
-    }
-}
-
 function* watcherBrainGym() {
-    yield takeLatest(actionTypes.GET_ALL_BRAIN_GYM, workerGetAllBrainGym);
-    yield takeLatest(
-        actionTypes.GET_MASTER_BRAIN_GYM_BY_ID,
-        WorkerGetMasterBrainGymById,
-    );
+    yield takeLatest(actionTypes.GET_MASTER_BRAIN_GYM_BY_ID, WorkerGetMasterBrainGymById);
     yield takeLatest(actionTypes.GET_QUESTIONS_BY_TAG, workerGetQuestionsByTag);
     yield takeLatest(actionTypes.ATTEMPT_QUESTION, workerAttemptQuestion);
 }
@@ -99,4 +98,5 @@ function* watcherBrainGym() {
 function* fetchAll() {
     yield fork(watcherBrainGym);
 }
+
 export default fetchAll();

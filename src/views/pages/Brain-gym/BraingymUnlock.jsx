@@ -45,9 +45,8 @@ const BraingymUnloc = ({
                             </div>
                             <div className="unlock-common">
                                 <img src={chestopen} alt="chest_open" />
-                                <h2>{message[step].title}</h2>
+                                <h2>{message[step + 1].title}</h2>
                                 <p className="coin-p"><span />
-
                                     {step === 0 && chestonecoin}
                                     {step === 1 && chesttwocoin }
                                     {step === 2 && chestthreecoin }

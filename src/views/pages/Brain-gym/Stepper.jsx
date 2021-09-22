@@ -1,29 +1,36 @@
 import React from 'react';
-import { number } from 'prop-types';
-import stepdata from './mockData/stepperData';
+import { object } from 'prop-types';
+import { connect } from 'react-redux';
 
-const Stepper = ({ step }) => (
-    <div className="row brain-margin-row">
-        <div className="col-md-12 stepper-top text-center">
-            {stepdata.map((data) => (
-                <div
-                    key={data.title}
-                    className={`stepper-above ${data.id === step ? 'active' : ''} ${
-                        data.id < step ? 'prev-step' : ''
-                    }`}
-                >
-                    <button type="button">
-                        <span className="round" />
-                    </button>
-                    <span className="name">{data.title}</span>
-                </div>
-            ))}
+const Stepper = ({ allChest }) => {
+    console.log(allChest, 'ss');
+    return (
+        <div className="row brain-margin-row">
+            <div className="col-md-12 stepper-top text-center">
+                {allChest && allChest.map((chest) => (
+                    <div
+                        key={chest.id}
+                        className={`stepper-above ${chest.status === 'started' ? 'active' : ''} ${
+                            chest.status === 'completed' ? 'prev-step' : ''
+                        }`}
+                    >
+                        <button type="button">
+                            <span className="round" />
+                        </button>
+                        <span className="name">{`Chest ${chest?.chestLevel}`}</span>
+                    </div>
+                ))}
+            </div>
         </div>
-    </div>
-);
-
-Stepper.propTypes = {
-    step: number.isRequired,
+    );
 };
 
-export default Stepper;
+Stepper.propTypes = {
+    allChest: object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+    allChest: state.BrainGym.masterBrainGym?.chest,
+});
+
+export default connect(mapStateToProps)(Stepper);
