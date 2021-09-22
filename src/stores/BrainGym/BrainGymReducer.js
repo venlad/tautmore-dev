@@ -3,6 +3,7 @@ import * as actionTypes from './BrainGymTypes';
 const initialState = {
     Allgym: [],
     queCounter: 0,
+    chestUnlockPopup: true,
     chestData: [],
     masterBrainGym: [],
     questionByTag: [],
@@ -15,6 +16,12 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 chestData: action.payload,
+            };
+
+        case actionTypes.UPDATE_UNLOCK_CHEST:
+            return {
+                ...state,
+                chestUnlockPopup: action.payload,
             };
 
         case actionTypes.SET_QUESTION_COUNTER:

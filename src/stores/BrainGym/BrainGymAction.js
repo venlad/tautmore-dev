@@ -31,3 +31,10 @@ export function attemptQuestionAction(data) {
         payload: data,
     };
 }
+
+export function unlockBrainGymAction(data) {
+    return {
+        type: actionTypes.SET_UNLOCK_CHEST,
+        payload: data,
+    };
+}

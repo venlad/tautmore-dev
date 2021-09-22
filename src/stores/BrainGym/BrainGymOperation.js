@@ -5,9 +5,9 @@ import * as actionTypes from './BrainGymTypes';
 import { brainGymServices, questionsServices } from '../../services';
 
 const studentID = '6148952cfbef0900086a6a10';
-const brainGymId = '6149ddb045b85f00054ef763';
+const brainGymId = '614af63c3557f40008861c07';
 
-function* workedCompleteChest(data) {
+function* workerCompleteChest(data) {
     try {
         const reqData = {
             ...data.payload,
@@ -19,11 +19,22 @@ function* workedCompleteChest(data) {
     }
 }
 
+function* workerUnlockChest(data) {
+    try {
+        yield put({
+            type: actionTypes.UPDATE_UNLOCK_CHEST,
+            payload: data,
+        });
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 function* workerGetMasterBrainGymById() {
     const reqData = { chest_id: brainGymId };
     const response = yield brainGymServices.getMasterBrainGymById({ ...reqData });
     if (response.status === 'success') {
-        let currentChest = {};
+        let currentChest = response?.gym?.chest?.[0];
         let currentQueCounter = 0;
         response?.gym?.chest.filter((item, i) => {
             if (item?.status === 'started' || response?.gym?.chest?.[i - 1]?.status === 'finished') {
@@ -117,7 +128,8 @@ function* watcherBrainGym() {
     yield takeLatest(actionTypes.GET_MASTER_BRAIN_GYM_BY_ID, workerGetMasterBrainGymById);
     yield takeLatest(actionTypes.GET_QUESTIONS_BY_TAG, workerGetQuestionsByTag);
     yield takeLatest(actionTypes.ATTEMPT_QUESTION, workerAttemptQuestion);
-    yield takeLatest(actionTypes.COMPLETE_CHEST, workedCompleteChest);
+    yield takeLatest(actionTypes.COMPLETE_CHEST, workerCompleteChest);
+    yield takeLatest(actionTypes.SET_UNLOCK_CHEST, workerUnlockChest);
 }
 
 function* fetchAll() {

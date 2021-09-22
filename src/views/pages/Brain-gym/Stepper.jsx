@@ -1,14 +1,14 @@
 import React from 'react';
-import { object } from 'prop-types';
+import { array, object } from 'prop-types';
 import { connect } from 'react-redux';
 
-const Stepper = ({ allChest }) => (
+const Stepper = ({ allChest, chestData }) => (
     <div className="row brain-margin-row">
         <div className="col-md-12 stepper-top text-center">
-            {allChest && allChest.map((chest, i) => (
+            {allChest && allChest.map((chest) => (
                 <div
                     key={chest.id}
-                    className={`stepper-above ${chest.status === 'started' || allChest[i - 1]?.status === 'finished' ? 'active' : ''} ${
+                    className={`stepper-above ${chest._id === chestData?._id ? 'active' : ''} ${
                         chest.status === 'finished' ? 'prev-step' : ''
                     }`}
                 >
@@ -23,10 +23,12 @@ const Stepper = ({ allChest }) => (
 );
 
 Stepper.propTypes = {
-    allChest: object.isRequired,
+    allChest: array.isRequired,
+    chestData: object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
+    chestData: state.BrainGym.chestData,
     allChest: state.BrainGym.masterBrainGym?.chest,
 });
 
