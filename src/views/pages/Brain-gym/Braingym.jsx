@@ -53,10 +53,17 @@ const Braingym = ({
             (`0${Math.floor((time / 1000) % 60)}`).slice(-2)}`);
         const localdata = localStorage.getItem('brain-gym-data');
         const localvalue = JSON.parse(localdata);
-        const localtime = localvalue?.timeminutesecond;
-        if (localtime && local) {
-            setTime(localtime);
-            setLocal(false);
+        const localBraingymid = localvalue?.braingym_id;
+        if (masterBrainGym?._id) {
+            if (localBraingymid === masterBrainGym._id) {
+                const localtime = localvalue?.timeminutesecond;
+                if (localtime && local) {
+                    setTime(localtime);
+                    setLocal(false);
+                }
+            } else {
+                localStorage.removeItem('brain-gym-data');
+            }
         }
     });
 

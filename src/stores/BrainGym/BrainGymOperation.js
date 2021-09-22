@@ -5,7 +5,7 @@ import * as actionTypes from './BrainGymTypes';
 import { brainGymServices, questionsServices } from '../../services';
 
 const studentID = '6148952cfbef0900086a6a10';
-const brainGymId = '614b0bd11efde4000867c917';
+const brainGymId = '614b110872cafc0008e0e28d';
 
 function* workerCompleteChest(data) {
     try {

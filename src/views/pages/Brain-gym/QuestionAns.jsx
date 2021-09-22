@@ -21,6 +21,7 @@ const QuestionAns = ({
     getQuestionbytag,
     chestData,
     quesCounter,
+    braingym_id,
 }) => {
     useEffect(() => {
         if (chestData?._id) {
@@ -46,6 +47,7 @@ const QuestionAns = ({
             question,
             timeminutesecond,
             counter,
+            braingym_id,
         };
         localStorage.setItem('brain-gym-data', JSON.stringify(local));
     };
@@ -99,6 +101,7 @@ const QuestionAns = ({
 
 const mapStateToProps = (state) => ({
     chestData: state.BrainGym.chestData,
+    braingym_id: state.BrainGym.masterBrainGym._id,
     quesCounter: state.BrainGym.queCounter,
     questionByTag: state.BrainGym.questionByTag,
 });
@@ -109,6 +112,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 QuestionAns.propTypes = {
+    braingym_id: string.isRequired,
     quesCounter: number.isRequired,
     chestData: object.isRequired,
     select: string.isRequired,
