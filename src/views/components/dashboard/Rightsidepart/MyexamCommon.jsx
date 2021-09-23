@@ -6,7 +6,7 @@ const MyexamCommon = ({
 }) => (
     <div className="row myexam-common-top">
         <div className="col-md-12 ">
-            <div className="row myexam-common">
+            <div className=" myexam-common">
                 <div className="row">
                     <div className="col-md-5 col-sm-5 col-12 myexam-common-left">
                         <h4>{subject}</h4>

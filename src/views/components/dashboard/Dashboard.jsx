@@ -5,8 +5,12 @@ import DashSearch from './Rightsidepart/DashSearch';
 import Home from './Rightsidepart/Home';
 import Mysubjects from './Rightsidepart/Mysubjects';
 import Myconcept from './Rightsidepart/Myconcept';
-import MyExam from './Rightsidepart/MyExam';
 import MyAssignment from './Rightsidepart/MyAssignment/MyAssignment';
+import MyExam from './Rightsidepart/MyExam';
+import MyClasses from './Rightsidepart/MyClass/MyClasses';
+import MySubscription from './Rightsidepart/MySubscription/MySubscription';
+import MyProfile from './Rightsidepart/MyProfile/MyProfile';
+
 import Renewsub from './Rightsidepart/RenewSubscription/Renewsub';
 
 const Dashboard = () => {
@@ -43,6 +47,11 @@ const Dashboard = () => {
 
                     {view === 'My assignments' && (<MyAssignment  />) }
 
+                    {view === 'My classes' && (<MyClasses  />) }
+
+                    {view === 'My subscriptions' && (<MySubscription />)}
+
+                    {view === 'Myprofile' && (<MyProfile />)}
                     {view === 'My subscriptions' && (<Renewsub  />) }
 
                 </div>
