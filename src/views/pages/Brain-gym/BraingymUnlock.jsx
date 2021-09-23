@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
-    func, bool, object, number, string,
+    func, bool, object, number,
 } from 'prop-types';
 import { connect } from 'react-redux';
 import {
@@ -20,8 +20,17 @@ const BraingymUnlock = ({
     chestData,
     masterBrainGym,
     quesCounter,
-    timeminutesecond,
 }) => {
+    const [timeTaken, setTimeTaken] = useState('');
+    useEffect(() => {
+        const localdata = localStorage.getItem('brain-gym-data');
+        const localvalue = JSON.parse(localdata);
+        const localtime = localvalue?.timeminutesecond;
+        setTimeTaken(`${(`0${Math.floor((localtime / 60000) % 60)}`).slice(-2)
+        }:${
+            (`0${Math.floor((localtime / 1000) % 60)}`).slice(-2)}`);
+    });
+
     const handleUnlockChest = () => {
         getMasterBrainGym();
         handlePopup(false);
@@ -54,7 +63,7 @@ const BraingymUnlock = ({
                             <p className="coin-p"><span />{masterBrainGym?.scoreObtained} coins totally earned</p>
                             <div className="unlock-data-part">
                                 <div className="unlock-data-part-sub">
-                                    <CompletedRecord title="Time taken" desc={timeminutesecond} image={clock} />
+                                    <CompletedRecord title="Time taken" desc={timeTaken} image={clock} />
                                 </div>
                                 <div className="unlock-data-part-sub">
                                     <CompletedRecord title="Correct answers" desc="34 out of 50" image={note} />
@@ -79,7 +88,6 @@ BraingymUnlock.propTypes = {
     chestData: object.isRequired,
     quesCounter: number.isRequired,
     showPopup: bool.isRequired,
-    timeminutesecond: string.isRequired,
     handlePopup: func.isRequired,
     getMasterBrainGym: func.isRequired,
     masterBrainGym: object.isRequired,

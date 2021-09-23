@@ -5,14 +5,11 @@ import * as actionTypes from './BrainGymTypes';
 import { brainGymServices, questionsServices } from '../../services';
 
 const studentID = '614b3f632a55d20009c65819';
-const brainGymId = '614b3faf2a55d20009c6581a';
+const brainGymId = '614c275696416d00097334a5';
 
 function* workerCompleteChest(data) {
     try {
-        const reqData = {
-            ...data.payload,
-        };
-        const response = yield brainGymServices.completeChest({ ...reqData });
+        const response = yield brainGymServices.completeChest({ ...data.payload });
         if (response.status === 'success') {
             yield put({
                 type: actionTypes.UPDATE_UNLOCK_CHEST,
@@ -122,11 +119,6 @@ function* workerAttemptQuestion(gymData) {
         yield put({
             type: actionTypes.GET_QUESTIONS_BY_TAG,
             actions: { difficulty: attemptresponse?.nextTag },
-        });
-
-        yield put({
-            type: actionTypes.UPDATE_ATTEMPT_QUESTION,
-            attempt_que: attemptresponse,
         });
     }
 }
