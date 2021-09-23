@@ -89,6 +89,7 @@ const Braingym = ({
             <div className="brain-gym-bottom">
                 <Braingymstepperpart
                     timeminutesecond={currenttime}
+                    question={question}
                 />
                 <QuestionAns
                     select={select}

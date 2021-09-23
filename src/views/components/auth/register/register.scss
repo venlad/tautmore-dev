@@ -528,7 +528,7 @@
     }
     .next-button {
       background-color: #43aa8b;
-      box-shadow: 5px 5px 5px rgb(67 170 139 / 25%) !important;
+      box-shadow: none;
       border-radius: 33.75px;
       color: #fff;
       border: 0;
@@ -538,6 +538,8 @@
       font-family: "proxima_nova_rgbold";
       text-align: left;
       padding: 0px 25px;
+      transition: 0.3s;
+      opacity: 0.8;
       span {
         float: right;
         height: 24px;
@@ -546,10 +548,17 @@
         border-radius: 50%;
         padding: 0px 7px;
         margin-top: 4px;
-        box-shadow: 5px 5px 5px rgb(0 0 0 / 24%) !important;
+        box-shadow: none;
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+    }
+    .next-button:hover {
+      box-shadow: 5px 5px 5px rgb(67 170 139 / 25%) !important;
+      opacity: 1;
+      span {
+        box-shadow: 5px 5px 5px rgb(0 0 0 / 24%) !important;
       }
     }
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import {  bool, func, string } from 'prop-types';
+import { Link } from 'react-router-dom';
 import sidebarLogo from '../../../../assets/images/sidebarlogo.png';
 import Sidebarprofile from '../../../../assets/images/sidebar-profile.png';
 import sidebardata from '../mockData/dashboardsidebardata';
@@ -24,7 +25,7 @@ function Sidemenu({
     return (
         <div className=" dashboard-left col-sm-3">
             <div className="logo-profile">
-                <img src={sidebarLogo} alt="logo" className="dashboard-logo" />
+                <Link to="/"><img src={sidebarLogo} alt="logo" className="dashboard-logo" /></Link>
             </div>
             <div className="dashboard-profile" aria-hidden="true" onClick={() => profileValue('Myprofile')}>
                 <div className="row">

@@ -5,21 +5,31 @@ import {
 import { connect } from 'react-redux';
 import Stepper from './Stepper';
 import BraingymTime from './BraingymTime';
+import TimeSkeleton from '../../components/skeleton/TimeSkeleton';
+import SteperSkeleton from '../../components/skeleton/SteperSkeleton';
 
 const Braingymstepperpart = ({
-    allChest, timeminutesecond,
+    allChest, timeminutesecond, question,
 }) => (
     <div className="row stepperpart-top">
         <div className="col-md-7 stepperpart-left">
             <div className="col-md-12">
-                <Stepper allChest={allChest} />
+                {!question ? (
+                    <>
+                        <SteperSkeleton />
+                    </>
+                ) : (<Stepper allChest={allChest} />)}
             </div>
         </div>
         <div className="col-md-5 stepperpart-right">
             <div className="col-md-12">
-                <BraingymTime
-                    timeminutesecond={timeminutesecond}
-                />
+                {!question ? (
+                    <TimeSkeleton />
+                ) : (
+                    <BraingymTime
+                        timeminutesecond={timeminutesecond}
+                    />
+                )}
             </div>
         </div>
     </div>
@@ -28,6 +38,7 @@ const Braingymstepperpart = ({
 Braingymstepperpart.propTypes = {
     allChest: array.isRequired,
     timeminutesecond: string.isRequired,
+    question: array.isRequired,
 };
 
 const mapStateToProps = (state) => ({

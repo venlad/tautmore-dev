@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Dropdown } from 'react-bootstrap';
+import { alltime } from '../mockData/MyexamExamlist';
 
 const MyexamTab = () => {
     const [activebtn, setActivebtn] = useState('All subjects');
@@ -8,6 +10,11 @@ const MyexamTab = () => {
     };
     const handleEnglishcolor = () => {
         setActivebtn('english');
+    };
+    const [timedata, setTimedata] = useState(alltime[0]);
+
+    const changeTime = (val) => {
+        setTimedata(val);
     };
 
     return (
@@ -52,9 +59,22 @@ const MyexamTab = () => {
                 </div>
             </div>
             <div className="col-md-4 col-sm-12 myexam-tab-right">
-                <select>
-                    <option>All time</option>
-                </select>
+
+                <Dropdown>
+
+                    <Dropdown.Toggle>
+                        {timedata}
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                        {alltime.map((data) => (
+                            <Dropdown.Item key={data} onClick={() => changeTime(data)}>
+                                {data}
+                            </Dropdown.Item>
+                        ))}
+                    </Dropdown.Menu>
+
+                </Dropdown>
             </div>
         </div>
     );

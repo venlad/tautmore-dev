@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid';
 
-const examlist = [
+export const examlist = [
     {
         title: 'Exam list',
         data: [
@@ -35,4 +35,11 @@ const examlist = [
     },
 ];
 
-export default examlist;
+export const allsubject = [
+    'All subject - 1',
+    'All subject - 2',
+];
+
+export const alltime = [
+    'All time',
+];

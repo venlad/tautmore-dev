@@ -127,7 +127,7 @@
             }
             .submit-btn {
                 background-color: #43aa8b;
-                box-shadow: 0 12px 10px 0 rgba(67,170,139,0.25);
+                box-shadow: none;
                 border-radius: 38px;
                 color: #fff;
                 border: 0;
@@ -139,6 +139,8 @@
                 padding: 0px 25px;
                 margin-bottom: 30px;
                 max-width: 100%;
+                transition: 0.3s;
+                opacity: 0.8;
                 span {
                     float: right;
                     height: 24px;
@@ -147,10 +149,17 @@
                     border-radius: 50%;
                     padding: 0px 7px;
                     margin-top: 6px;
-                    box-shadow: 5px 5px 5px rgb(0 0 0 / 24%) !important;
+                    box-shadow: none;
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                }
+            }
+            .submit-btn:hover {
+                box-shadow: 0 12px 10px 0 rgba(67,170,139,0.25);
+                opacity: 1;
+                span {
+                    box-shadow: 5px 5px 5px rgb(0 0 0 / 24%) !important;
                 }
             }
             p.error-msg {

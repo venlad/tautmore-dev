@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
+import { Dropdown } from 'react-bootstrap';
 import {  string } from 'prop-types';
 import leaderboard from '../mockData/leaderboarddata';
-// import goldmedal from '../../../../assets/images/goldmedal.png';
-// import silvermedal from '../../../../assets/images/silvermedal.png';
-// import bronzemedal from '../../../../assets/images/bronzemedal.png';
 import dashtablehead from '../../../../assets/images/dashtablehead.png';
+import { time } from '../mockData/reportData';
 
 const Leaderboard = ({ title }) => {
     const [activebtn, setActivebtn] = useState('maths');
@@ -14,6 +13,10 @@ const Leaderboard = ({ title }) => {
     };
 
     const generateLink = (idx) => `/assets/images/m_${idx}.png`;
+    const [timedata, setTimedata] = useState(time[0]);
+    const changeTime = (val) => {
+        setTimedata(val);
+    };
 
     return (
         <div className="dashtable-main">
@@ -21,11 +24,21 @@ const Leaderboard = ({ title }) => {
             <div className="dashtable-heading">
                 <h3>{title}</h3>
                 <span>
-                    <select className="dtable-select" name="dtableselect" id="days">
-                        <option value="lastweek">Last Week</option>
-                        <option value="lastmonth">Last Month</option>
-                        <option value="lastquarter ">Last Quarter</option>
-                    </select>
+                    <Dropdown>
+
+                        <Dropdown.Toggle>
+                            {timedata}
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            {time.map((data) => (
+                                <Dropdown.Item key={data} onClick={() => changeTime(data)}>
+                                    {data}
+                                </Dropdown.Item>
+                            ))}
+                        </Dropdown.Menu>
+
+                    </Dropdown>
                 </span>
             </div>
             <div className="dtoggle-bar">

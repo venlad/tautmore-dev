@@ -61,6 +61,7 @@ const sidebardata = [
                 title: 'Logout',
                 image: Logouticon,
             },
+
         ],
     },
 ];
