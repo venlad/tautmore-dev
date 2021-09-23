@@ -4,8 +4,8 @@ import {
 import * as actionTypes from './BrainGymTypes';
 import { brainGymServices, questionsServices } from '../../services';
 
-const studentID = '6148952cfbef0900086a6a10';
-const brainGymId = '614b110872cafc0008e0e28d';
+const studentID = '614b3f632a55d20009c65819';
+const brainGymId = '614b3faf2a55d20009c6581a';
 
 function* workerCompleteChest(data) {
     try {
@@ -70,11 +70,11 @@ function* workerGetMasterBrainGymById() {
 
 function* workerGetQuestionsByTag(data) {
     const state = yield select();
-    const masterBrainGym = state.BrainGym.masterBrainGym;
+    const brainGym = state.BrainGym;
     const reqData = {
         difficulty: data.actions?.difficulty,
         student_id: studentID,
-        chapter: masterBrainGym?.chest[0]?.chapter,
+        chapter: brainGym?.chestData.chapter,
     };
 
     yield put({
