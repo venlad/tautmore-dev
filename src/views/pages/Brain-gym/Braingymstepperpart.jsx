@@ -31,7 +31,6 @@ Braingymstepperpart.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-    chestData: state.BrainGym.chestData,
     allChest: state.BrainGym.masterBrainGym?.chest,
 });
 

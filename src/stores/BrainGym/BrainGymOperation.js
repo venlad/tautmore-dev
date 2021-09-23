@@ -5,7 +5,7 @@ import * as actionTypes from './BrainGymTypes';
 import { brainGymServices, questionsServices } from '../../services';
 
 const studentID = '614b3f632a55d20009c65819';
-const brainGymId = '614c275696416d00097334a5';
+const brainGymId = '614c46241d00e400092be147';
 
 function* workerCompleteChest(data) {
     try {
@@ -100,6 +100,11 @@ function* workerAttemptQuestion(gymData) {
         student_id: studentID,
         chest_id: brainGym.chestData?._id,
     };
+
+    yield put({
+        type: actionTypes.UPDATE_QUESTION_BY_TAG,
+        que_getquetag: {},
+    });
 
     const attemptresponse = yield questionsServices.attemptQuestion(reqData);
 

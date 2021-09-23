@@ -38,7 +38,7 @@ const BraingymUnlock = ({
 
     return (
         <div>
-            {quesCounter && quesCounter < 15 ? (
+            {quesCounter < 25 ? (
                 <div className={`braingym-unlock-main ${showPopup === true && 'active'}`}>
                     <div className="close-top">
                         <button type="button" className="close-btn" onClick={() => handlePopup(false)}><img src={close} alt="close" /></button>
@@ -53,10 +53,10 @@ const BraingymUnlock = ({
                     </div>
                 </div>
             )
-                :            (
-                    <div className={`braingym-unlock-main ${showPopup === true && 'active'}`}>
+                : (
+                    <div className="braingym-unlock-main active">
                         <div className="close-top">
-                            <button type="button" className="close-btn" onClick={() => handlePopup(false)}><img src={close} alt="close" /></button>
+                            <button type="button" className="close-btn" onClick={() => handlePopup()}><img src={close} alt="close" /></button>
                         </div>
                         <div className="unlock-common">
                             <h2>Treasure hunt completed !</h2>

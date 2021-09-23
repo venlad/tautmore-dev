@@ -11,7 +11,6 @@ import { attemptQuestionAction, getQuestionbytagAction } from '../../../stores/B
 const QuestionAns = ({
     select,
     setSelect,
-    counter,
     attempQue,
     timeminutesecond,
     questionByTag,
@@ -46,7 +45,6 @@ const QuestionAns = ({
         const local = {
             question,
             timeminutesecond,
-            counter,
             braingym_id,
         };
         localStorage.setItem('brain-gym-data', JSON.stringify(local));
@@ -117,7 +115,6 @@ QuestionAns.propTypes = {
     chestData: object.isRequired,
     select: string.isRequired,
     setSelect: func.isRequired,
-    counter: string.isRequired,
     attempQue: func.isRequired,
     timeminutesecond: string.isRequired,
     questionByTag: string.isRequired,
