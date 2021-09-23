@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    func, bool, object,
+    func, bool, object, number, string,
 } from 'prop-types';
 import { connect } from 'react-redux';
 import {
@@ -14,18 +14,22 @@ import clock from '../../../assets/images/clock.svg';
 import note from '../../../assets/images/exam.png';
 
 const BraingymUnlock = ({
-    handlePopup, showPopup, getMasterBrainGym, chestData, masterBrainGym,
+    handlePopup,
+    showPopup,
+    getMasterBrainGym,
+    chestData,
+    masterBrainGym,
+    quesCounter,
+    timeminutesecond,
 }) => {
     const handleUnlockChest = () => {
         getMasterBrainGym();
         handlePopup(false);
     };
 
-    const isAllChestCompleted = masterBrainGym?.chest?.filter((item) => item?.status !== 'finished');
-
     return (
         <div>
-            {isAllChestCompleted?.length ? (
+            {quesCounter && quesCounter < 15 ? (
                 <div className={`braingym-unlock-main ${showPopup === true && 'active'}`}>
                     <div className="close-top">
                         <button type="button" className="close-btn" onClick={() => handlePopup(false)}><img src={close} alt="close" /></button>
@@ -50,7 +54,7 @@ const BraingymUnlock = ({
                             <p className="coin-p"><span />{masterBrainGym?.scoreObtained} coins totally earned</p>
                             <div className="unlock-data-part">
                                 <div className="unlock-data-part-sub">
-                                    <CompletedRecord title="Time taken" desc="timeout" image={clock} />
+                                    <CompletedRecord title="Time taken" desc={timeminutesecond} image={clock} />
                                 </div>
                                 <div className="unlock-data-part-sub">
                                     <CompletedRecord title="Correct answers" desc="34 out of 50" image={note} />
@@ -67,22 +71,24 @@ const BraingymUnlock = ({
                         </div>
                     </div>
                 )}
-
         </div>
     );
 };
 
 BraingymUnlock.propTypes = {
     chestData: object.isRequired,
+    quesCounter: number.isRequired,
     showPopup: bool.isRequired,
+    timeminutesecond: string.isRequired,
     handlePopup: func.isRequired,
     getMasterBrainGym: func.isRequired,
     masterBrainGym: object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-    masterBrainGym: state.BrainGym.masterBrainGym,
     chestData: state.BrainGym.chestData,
+    quesCounter: state.BrainGym.queCounter,
+    masterBrainGym: state.BrainGym.masterBrainGym,
     showPopup: state.BrainGym.chestUnlockPopup,
 });
 

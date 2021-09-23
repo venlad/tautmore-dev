@@ -112,7 +112,7 @@ const Braingym = ({
                     eachcurrenttime={eachcurrenttime}
                     setEachtime={setEachtime}
                 />
-                <BraingymUnlock />
+                <BraingymUnlock timeminutesecond={currenttime} />
             </div>
         </div>
     );

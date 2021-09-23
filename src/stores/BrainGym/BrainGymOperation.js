@@ -104,34 +104,31 @@ function* workerAttemptQuestion(gymData) {
         chest_id: brainGym.chestData?._id,
     };
 
-    yield put({
-        type: actionTypes.UPDATE_QUESTION_BY_TAG,
-        que_getquetag: {},
-    });
-
     const attemptresponse = yield questionsServices.attemptQuestion(reqData);
 
-    if ((brainGym?.queCounter + 1) % 5 === 0) {
-        yield put({
-            type: actionTypes.COMPLETE_CHEST,
-            payload: { chest_id: brainGym.chestData?._id },
-        });
-    }
     if (attemptresponse) {
+        yield put({
+            type: actionTypes.GET_MASTER_BRAIN_GYM_BY_ID,
+            actions: {},
+        });
+
+        if ((brainGym?.queCounter + 1) % 5 === 0) {
+            yield put({
+                type: actionTypes.COMPLETE_CHEST,
+                payload: { chest_id: brainGym.chestData?._id },
+            });
+        }
+
         yield put({
             type: actionTypes.GET_QUESTIONS_BY_TAG,
             actions: { difficulty: attemptresponse?.nextTag },
         });
 
         yield put({
-            type: actionTypes.GET_MASTER_BRAIN_GYM_BY_ID,
-            actions: {},
+            type: actionTypes.UPDATE_ATTEMPT_QUESTION,
+            attempt_que: attemptresponse,
         });
     }
-    yield put({
-        type: actionTypes.UPDATE_ATTEMPT_QUESTION,
-        attempt_que: attemptresponse,
-    });
 }
 
 function* watcherBrainGym() {
