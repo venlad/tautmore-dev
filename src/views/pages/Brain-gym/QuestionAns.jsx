@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef, useEffect }  from 'react';
 import {
-    func, string, bool, number,
+    func, string, bool, number, object,
 } from 'prop-types';
 import { connect } from 'react-redux';
 import AnswerOption from './AnswerOption';
@@ -9,143 +9,122 @@ import QuestionSkeleton from '../../components/skeleton/QuestionSkeleton';
 import { attemptQuestionAction, getQuestionbytagAction } from '../../../stores/BrainGym/BrainGymAction';
 
 const QuestionAns = ({
-    setOpen,
     select,
     setSelect,
     counter,
-    setCounter,
     attempQue,
     timeminutesecond,
-    ques,
-    setTimeOn,
-    step,
-    chestonecoin,
-    setchestoneCoin,
-    chesttwocoin,
-    setchesttwoCoin,
-    chestthreecoin,
-    setchestthreeCoin,
-    chestfourcoin,
-    setchestfourCoin,
-    chestfivecoin,
-    setchestfiveCoin,
+    questionByTag,
+    setEachTimeOn,
+    eachcurrenttime,
+    setEachtime,
+    getQuestionbytag,
+    chestData,
+    quesCounter,
+    braingym_id,
 }) => {
+    useEffect(() => {
+        if (chestData?._id) {
+            getQuestionbytag({ difficulty: chestData.difficulty });
+        }
+    }, [getQuestionbytag, chestData]);
+
+    const question = questionByTag?.[0];
+    const titleRef = useRef();
     const completeFromStep = () => {
-        if (step === 0) {
-            if (ques.solutionIndex[0] === select) {
-                setchestoneCoin(chestonecoin + 1);
-            }
-        }
-        if (step === 1) {
-            if (ques.solutionIndex[0] === select) {
-                setchesttwoCoin(chesttwocoin + 1);
-            }
-        }
-        if (step === 2) {
-            if (ques.solutionIndex[0] === select) {
-                setchestthreeCoin(chestthreecoin + 1);
-            }
-        }
-        if (step === 3) {
-            if (ques.solutionIndex[0] === select) {
-                setchestfourCoin(chestfourcoin + 1);
-            }
-        }
-        if (step === 4) {
-            if (ques.solutionIndex[0] === select) {
-                setchestfiveCoin(chestfivecoin + 1);
-            }
-        }
         const detail = {
-            time: timeminutesecond,
-            questiondetail: ques,
+            time: eachcurrenttime,
+            questiondetail: question,
+            selectoption: select,
         };
+
+        setSelect('');
         attempQue(detail);
-        setCounter(counter + 1);
-        let val = '';
-        for (let i = 0; i < 30; i += 5) {
-            val = i;
-            if (counter === val) {
-                setCounter(counter);
-                setOpen(true);
-            } else {
-                setSelect('');
-            }
-        }
-        if (step < 4) {
-            setTimeOn(true);
-        } else {
-            setTimeOn(false);
-        }
+        setEachTimeOn(false);
+        setEachtime(0);
+
+        const local = {
+            question,
+            timeminutesecond,
+            counter,
+            braingym_id,
+        };
+        localStorage.setItem('brain-gym-data', JSON.stringify(local));
     };
 
     return (
         <div>
-            <div key={ques?.description}>
+            <div key={question?.description}>
                 {
-                    !ques ? (
+                    !question ? (
                         <QuestionSkeleton />
                     ) : (
                         <div className="question-box">
-                            <h4>Question - {counter}</h4>
-                            <p>{ques?.description}</p>
+                            <h4>Question - {quesCounter + 1}</h4>
+                            <p>{question?.description}</p>
                         </div>
                     )
                 }
                 {
-                    ques?.options && <span className="answer-title">Select your answer</span>
+                    question?.options && <span className="answer-title">Select your answer</span>
                 }
                 {
-                    !ques?.options ? (
+                    !question?.options ? (
                         <div className="loading-skeleton question-options-wrapper selectTileType"><button type="button" className="">Test</button><button type="button" className="">Test</button><button type="button" className="">Test</button><button type="button" className="">Test</button></div>
                     ) : (
                         <div className="question-options-wrapper selectTileType">
-                            {ques?.options?.map((data, ind) => (
+                            {question?.options?.map((data, ind) => (
                                 <AnswerOption
                                     data={data}
                                     ind={ind}
                                     selectedOption={select}
                                     onChange={setSelect}
                                     key={data}
+                                    titleRef={titleRef}
                                 />
                             ))}
                         </div>
                     )
                 }
             </div>
-
-            <div className="col-12"><button type="button" onClick={completeFromStep} className={`submit-answer-button ${select !== '' ? 'active' : ''}`} disabled={select === ''}><div className="button-wrapper d-flex align-items-center justify-content-between"><span>Submit </span><div className="icon-wrapper d-flex align-items-center justify-content-center">{chevRight}</div></div></button></div>
+            <div className="col-12">
+                <button type="button" ref={titleRef} onClick={completeFromStep} className={`submit-answer-button ${select !== '' ? 'active' : ''}`} disabled={select === ''}>
+                    <div className="button-wrapper d-flex align-items-center justify-content-between">
+                        <span>Submit </span>
+                        <div className="icon-wrapper d-flex align-items-center justify-content-center">{chevRight}</div>
+                    </div>
+                </button>
+            </div>
         </div>
     );
 };
 
+const mapStateToProps = (state) => ({
+    chestData: state.BrainGym.chestData,
+    braingym_id: state.BrainGym.masterBrainGym._id,
+    quesCounter: state.BrainGym.queCounter,
+    questionByTag: state.BrainGym.questionByTag,
+});
+
 const mapDispatchToProps = (dispatch) => ({
     attempQue: (data) => dispatch(attemptQuestionAction(data)),
-    getQuestionbytag() {
-        dispatch(getQuestionbytagAction());
-    },
+    getQuestionbytag: (data) => dispatch(getQuestionbytagAction(data)),
 });
 
 QuestionAns.propTypes = {
-    setOpen: func.isRequired,
+    braingym_id: string.isRequired,
+    quesCounter: number.isRequired,
+    chestData: object.isRequired,
     select: string.isRequired,
     setSelect: func.isRequired,
     counter: string.isRequired,
-    setCounter: func.isRequired,
     attempQue: func.isRequired,
     timeminutesecond: string.isRequired,
-    ques: string.isRequired,
-    setTimeOn: bool.isRequired,
-    step: number.isRequired,
-    chestonecoin: number.isRequired,
-    setchestoneCoin: number.isRequired,
-    chesttwocoin: number.isRequired,
-    setchesttwoCoin: number.isRequired,
-    chestthreecoin: number.isRequired,
-    setchestthreeCoin: number.isRequired,
-    chestfourcoin: number.isRequired,
-    setchestfourCoin: number.isRequired,
-    chestfivecoin: number.isRequired,
-    setchestfiveCoin: number.isRequired,
+    questionByTag: string.isRequired,
+    getQuestionbytag: func.isRequired,
+    setEachTimeOn: bool.isRequired,
+    eachcurrenttime: string.isRequired,
+    setEachtime: number.isRequired,
 };
-export default connect(null, mapDispatchToProps)(QuestionAns);
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionAns);

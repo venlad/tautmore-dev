@@ -4,98 +4,146 @@ import {
 import * as actionTypes from './BrainGymTypes';
 import { brainGymServices, questionsServices } from '../../services';
 
-function* WorkerGetMasterBrainGymById() {
-    const state = yield select();
-    const braingym_masterbrainid = state.BrainGym.Allgym.gyms[0]._id;
-    const response = yield brainGymServices.getMasterBrainGymById({
-        chest_id: braingym_masterbrainid,
-    });
-    yield put({
-        type: actionTypes.UPDATE_MASTER_BRAIN_GYM_BY_ID,
-        braingym_masterbrainid: response,
-    });
-    yield put({ type: actionTypes.SET_LOADING, payload: false });
+const studentID = '614b3f632a55d20009c65819';
+const brainGymId = '614b3faf2a55d20009c6581a';
+
+function* workerCompleteChest(data) {
+    try {
+        const reqData = {
+            ...data.payload,
+        };
+        const response = yield brainGymServices.completeChest({ ...reqData });
+        if (response.status === 'success') {
+            yield put({
+                type: actionTypes.UPDATE_UNLOCK_CHEST,
+                payload: true,
+
+            });
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+function* workerUnlockChest(data) {
+    try {
+        yield put({
+            type: actionTypes.UPDATE_UNLOCK_CHEST,
+            payload: data,
+        });
+        yield put({
+            type: actionTypes.UPDATE_QUESTION_BY_TAG,
+            que_getquetag: {},
+        });
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+function* workerGetMasterBrainGymById() {
+    const reqData = { chest_id: brainGymId };
+    const response = yield brainGymServices.getMasterBrainGymById({ ...reqData });
+    if (response.status === 'success') {
+        let currentChest = response?.gym?.chest?.[0];
+        let currentQueCounter = 0;
+        response?.gym?.chest.filter((item, i) => {
+            if (item?.status === 'started' || response?.gym?.chest?.[i - 1]?.status === 'finished') {
+                currentChest = item;
+            }
+            currentQueCounter += item?.questions.length;
+            return null;
+        });
+        yield put({
+            type: actionTypes.UPDATE_MASTER_BRAIN_GYM_BY_ID,
+            payload: response?.gym,
+        });
+        yield put({
+            type: actionTypes.SET_CHEST_DATA,
+            payload: currentChest,
+        });
+        yield put({
+            type: actionTypes.SET_QUESTION_COUNTER,
+            payload: currentQueCounter,
+        });
+    }
 }
 
 function* workerGetQuestionsByTag(data) {
-    const masterbrainstate = yield select();
-    const difficulty = data.actions.difficulty;
-    const student_id = masterbrainstate.BrainGym.Masterbraingymid?.gym?.student;
-    const chapter = masterbrainstate.BrainGym.Masterbraingymid?.gym?.chapter[4];
-
+    const state = yield select();
+    const brainGym = state.BrainGym;
     const reqData = {
-        difficulty,
-        student_id,
-        chapter,
+        difficulty: data.actions?.difficulty,
+        student_id: studentID,
+        chapter: brainGym?.chestData.chapter,
     };
 
     yield put({
         type: actionTypes.UPDATE_QUESTION_BY_TAG,
         que_getquetag: {},
     });
+
     const response = yield questionsServices.getQuestionsByDifficultTag(reqData);
-    yield put({
-        type: actionTypes.UPDATE_QUESTION_BY_TAG,
-        que_getquetag: response,
-    });
-    yield put({ type: actionTypes.SET_LOADING, payload: false });
+
+    if (response) {
+        yield put({
+            type: actionTypes.UPDATE_QUESTION_BY_TAG,
+            payload: response?.questions,
+        });
+    }
 }
 
 function* workerAttemptQuestion(gymData) {
     const state = yield select();
     const brainGym = state.BrainGym;
     const data = gymData.payload;
-
     const reqData = {
-        solution_index: data?.questiondetail.solutionIndex[0],
-        time_to_solve: 24,
+        solution_index: data?.selectoption,
+        time_to_solve: data?.time,
         question_id: data?.questiondetail._id,
-        student_id: brainGym?.Allgym.gyms[0].student,
-        chest_id: brainGym?.Masterbraingymid.gym.chest[0]._id,
+        student_id: studentID,
+        chest_id: brainGym.chestData?._id,
     };
+
     yield put({
         type: actionTypes.UPDATE_QUESTION_BY_TAG,
         que_getquetag: {},
     });
-    yield put({ type: actionTypes.SET_LOADING, payload: true });
+
     const attemptresponse = yield questionsServices.attemptQuestion(reqData);
 
+    if ((brainGym?.queCounter + 1) % 5 === 0) {
+        yield put({
+            type: actionTypes.COMPLETE_CHEST,
+            payload: { chest_id: brainGym.chestData?._id },
+        });
+    }
     if (attemptresponse) {
         yield put({
             type: actionTypes.GET_QUESTIONS_BY_TAG,
             actions: { difficulty: attemptresponse?.nextTag },
+        });
+
+        yield put({
+            type: actionTypes.GET_MASTER_BRAIN_GYM_BY_ID,
+            actions: {},
         });
     }
     yield put({
         type: actionTypes.UPDATE_ATTEMPT_QUESTION,
         attempt_que: attemptresponse,
     });
-    // yield put({type: actionTypes.SET_LOADING, payload: false})
-}
-
-function* workerGetAllBrainGym() {
-    try {
-        yield put({ type: actionTypes.SET_LOADING, payload: true });
-        const allgym = yield brainGymServices.getAllBrainGym();
-        yield put({ type: actionTypes.BRAIN_GYM_ALLGYM_UPDATED, allgym });
-        yield put({ type: actionTypes.SET_LOADING, payload: false });
-    } catch (e) {
-        yield put({ type: actionTypes.GET_USERS_FAILED, message: e.message });
-        yield put({ type: actionTypes.SET_LOADING, payload: false });
-    }
 }
 
 function* watcherBrainGym() {
-    yield takeLatest(actionTypes.GET_ALL_BRAIN_GYM, workerGetAllBrainGym);
-    yield takeLatest(
-        actionTypes.GET_MASTER_BRAIN_GYM_BY_ID,
-        WorkerGetMasterBrainGymById,
-    );
+    yield takeLatest(actionTypes.GET_MASTER_BRAIN_GYM_BY_ID, workerGetMasterBrainGymById);
     yield takeLatest(actionTypes.GET_QUESTIONS_BY_TAG, workerGetQuestionsByTag);
     yield takeLatest(actionTypes.ATTEMPT_QUESTION, workerAttemptQuestion);
+    yield takeLatest(actionTypes.COMPLETE_CHEST, workerCompleteChest);
+    yield takeLatest(actionTypes.SET_UNLOCK_CHEST, workerUnlockChest);
 }
 
 function* fetchAll() {
     yield fork(watcherBrainGym);
 }
+
 export default fetchAll();

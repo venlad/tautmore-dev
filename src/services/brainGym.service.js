@@ -4,37 +4,37 @@ import { fetchWrapper } from '../helpers/fetch-wrapper';
 const baseUrl = `${config.apiBaseUrl}`;
 
 function addBrainGym(params) {
-    return fetchWrapper.post(`${baseUrl}/local/api/brainGym/addBrainGym`, params);
+    return fetchWrapper.post(`${baseUrl}/brainGym/addBrainGym`, params);
 }
 
 function completeChest(params) {
     return fetchWrapper.post(
-        `${baseUrl}/local/api/brainGym/completeChest`,
+        `${baseUrl}/brainGym/completeChest`,
         params,
     );
 }
 
 function getAllBrainGym() {
-    return fetchWrapper.get(`${baseUrl}/local/api/brainGym/getAllBrainGym`);
+    return fetchWrapper.get(`${baseUrl}/brainGym/getAllBrainGym`);
 }
 
 function getMasterBrainGymById(params) {
     return fetchWrapper.post(
-        `${baseUrl}/local/api/brainGym/getMasterBrainGymById`,
+        `${baseUrl}/brainGym/getMasterBrainGymById`,
         params,
     );
 }
 
 function getBrainGymById(params) {
     return fetchWrapper.post(
-        `${baseUrl}/local/api/brainGym/getBrainGymById`,
+        `${baseUrl}/brainGym/getBrainGymById`,
         params,
     );
 }
 
 function getBrainGymAndCheckForDelay(params) {
     return fetchWrapper.post(
-        `${baseUrl}/local/api/brainGym/getBrainGymAndCheckForDelay`,
+        `${baseUrl}/brainGym/getBrainGymAndCheckForDelay`,
         params,
     );
 }

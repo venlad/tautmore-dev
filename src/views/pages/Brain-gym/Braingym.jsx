@@ -1,151 +1,136 @@
 import React, { useState, useEffect } from 'react';
 import './style/braingym.scss';
 import { connect } from 'react-redux';
-import { array, string, func } from 'prop-types';
+import { array, func, object } from 'prop-types';
 import BraingymHead from './BraingymHead';
 import Braingymstepperpart from './Braingymstepperpart';
 import QuestionAns from './QuestionAns';
 import BraingymUnlock from './BraingymUnlock';
-import chestMessage from './mockData/chestData';
 import {
-    getAllgymAction,
     masterBraingymidAction,
-    getQuestionbytagAction,
 } from '../../../stores/BrainGym/BrainGymAction';
 
 const Braingym = ({
-    allgym,
-    Masterbraingym,
-    getAllgym,
-    masterBraingymid,
-    getQuestionbytag,
-    Questionbytag,
-    BrainGym,
+    getMasterBrainGym,
+    questionByTag,
+    masterBrainGym,
 }) => {
-    const [open, setOpen] = useState(false);
-    const [step, setStep] = useState(0);
     const [select, setSelect] = useState('');
-    const [complete, setComplete] = useState(true);
-    const [completetwo, setCompletetwo] = useState(true);
-    const [completethree, setCompletethree] = useState(true);
     const [counter, setCounter] = useState(1);
     const [time, setTime] = useState(0);
     const [timeOn, setTimeOn] = useState(true);
-    const [chestonecoin, setchestoneCoin] = useState(0);
-    const [chesttwocoin, setchesttwoCoin] = useState(0);
-    const [chestthreecoin, setchestthreeCoin] = useState(0);
-    const [chestfourcoin, setchestfourCoin] = useState(0);
-    const [chestfivecoin, setchestfiveCoin] = useState(0);
 
-    const totalcoin = chestonecoin + chesttwocoin + chestthreecoin + chestfourcoin + chestfivecoin;
+    const [eachtime, setEachtime] = useState(0);
+    const [eachtimeOn, setEachTimeOn] = useState(true);
 
-    const ques = Questionbytag?.[0];
-
-    const loading = BrainGym.loading;
-
-    const timeminutesecond =    `${(`0${Math.floor((time / 60000) % 60)}`).slice(-2)
-    }:${
-        (`0${Math.floor((time / 1000) % 60)}`).slice(-2)}`;
+    const [local, setLocal] = useState(true);
+    const question = questionByTag?.[0];
 
     useEffect(() => {
-        if (getAllgym && completetwo) {
-            getAllgym();
-            setCompletetwo(false);
+        if (!masterBrainGym?._id) {
+            getMasterBrainGym();
         }
-        if (allgym && complete) {
-            masterBraingymid();
-            setComplete(false);
-        }
-        if (allgym && Masterbraingym && completethree) {
-            setCompletethree(false);
-        }
-    }, [Masterbraingym, masterBraingymid, complete, completetwo, completethree, getAllgym, allgym]);
+    });
 
     useEffect(() => {
-        if (Masterbraingym?.difficulty) {
-            getQuestionbytag({ difficulty: Masterbraingym?.difficulty });
+        let interval = null;
+
+        if (question && timeOn) {
+            interval = setInterval(() => {
+                setTime((prevTime) => prevTime + 1000);
+            }, 1000);
+        } else {
+            clearInterval(interval);
         }
-    }, [Masterbraingym, getQuestionbytag]);
+        return () => clearInterval(interval);
+    }, [timeOn, question]);
+
+    const [currenttime, setCurrenttime] = useState();
+
+    useEffect(() => {
+        setCurrenttime(`${(`0${Math.floor((time / 60000) % 60)}`).slice(-2)
+        }:${
+            (`0${Math.floor((time / 1000) % 60)}`).slice(-2)}`);
+        const localdata = localStorage.getItem('brain-gym-data');
+        const localvalue = JSON.parse(localdata);
+        const localBraingymid = localvalue?.braingym_id;
+        if (masterBrainGym?._id) {
+            if (localBraingymid === masterBrainGym._id) {
+                const localtime = localvalue?.timeminutesecond;
+                if (localtime && local) {
+                    setTime(localtime);
+                    setLocal(false);
+                }
+            } else {
+                localStorage.removeItem('brain-gym-data');
+            }
+        }
+    });
+
+    useEffect(() => {
+        let intervalEach = null;
+        setEachTimeOn(true);
+        if (question && eachtimeOn) {
+            intervalEach = setInterval(() => {
+                setEachtime((prevTimeEach) => prevTimeEach + 1000);
+            }, 1000);
+        } else {
+            clearInterval(intervalEach);
+        }
+        return () => clearInterval(intervalEach);
+    }, [eachtimeOn, question]);
+
+    const [eachcurrenttime, setEachcurrenttime] = useState();
+
+    useEffect(() => {
+        setEachcurrenttime(eachtime / 1000);
+    });
 
     return (
         <div className="brain-gym-main braingym-page">
             <BraingymHead />
             <div className="brain-gym-bottom">
                 <Braingymstepperpart
-                    step={step}
                     time={time}
                     setTime={setTime}
                     timeOn={timeOn}
                     setTimeOn={setTimeOn}
-                    ques={ques}
-                    totalcoin={totalcoin}
+                    question={question}
+                    timeminutesecond={currenttime}
                 />
                 <QuestionAns
-                    setOpen={setOpen}
-                    step={step}
                     select={select}
                     setSelect={setSelect}
-                    Questionbytag={Questionbytag}
+                    Questionbytag={questionByTag}
                     counter={counter}
                     setCounter={setCounter}
                     time={time}
-                    timeminutesecond={timeminutesecond}
-                    ques={ques}
-                    loading={loading}
+                    timeminutesecond={time}
+                    question={question}
                     setTimeOn={setTimeOn}
-                    chestonecoin={chestonecoin}
-                    setchestoneCoin={setchestoneCoin}
-                    chesttwocoin={chesttwocoin}
-                    setchesttwoCoin={setchesttwoCoin}
-                    chestthreecoin={chestthreecoin}
-                    setchestthreeCoin={setchestthreeCoin}
-                    chestfourcoin={chestfourcoin}
-                    setchestfourCoin={setchestfourCoin}
-                    chestfivecoin={chestfivecoin}
-                    setchestfiveCoin={setchestfiveCoin}
+                    setEachTimeOn={setEachTimeOn}
+                    eachcurrenttime={eachcurrenttime}
+                    setEachtime={setEachtime}
                 />
-                <BraingymUnlock
-                    open={open}
-                    setOpen={setOpen}
-                    message={chestMessage}
-                    step={step}
-                    setStep={setStep}
-                    select={select}
-                    setSelect={setSelect}
-                    counter={counter}
-                    setCounter={setCounter}
-                    timeminutesecond={timeminutesecond}
-                    chestonecoin={chestonecoin}
-                    chesttwocoin={chesttwocoin}
-                    chestthreecoin={chestthreecoin}
-                    chestfourcoin={chestfourcoin}
-                    chestfivecoin={chestfivecoin}
-                />
+                <BraingymUnlock />
             </div>
         </div>
     );
 };
 
 const mapStateToProps = (state) => ({
-    BrainGym: state.BrainGym,
-    allgym: state.BrainGym.Allgym?.gyms,
-    Masterbraingym: state.BrainGym.Masterbraingymid?.gym,
-    Questionbytag: state.BrainGym.Questionbytag?.questions,
+    masterBrainGym: state.BrainGym.masterBrainGym,
+    questionByTag: state.BrainGym.questionByTag,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    getAllgym: () => dispatch(getAllgymAction()),
-    masterBraingymid: () => dispatch(masterBraingymidAction()),
-    getQuestionbytag: (data) => dispatch(getQuestionbytagAction(data)),
+    getMasterBrainGym: () => dispatch(masterBraingymidAction()),
 });
 
 Braingym.propTypes = {
-    allgym: array.isRequired,
-    Masterbraingym: array.isRequired,
-    getAllgym: array.isRequired,
-    masterBraingymid: string.isRequired,
-    getQuestionbytag: func.isRequired,
-    Questionbytag: array.isRequired,
-    BrainGym: string.isRequired,
+    getMasterBrainGym: func.isRequired,
+    questionByTag: array.isRequired,
+    masterBrainGym: object.isRequired,
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(Braingym);

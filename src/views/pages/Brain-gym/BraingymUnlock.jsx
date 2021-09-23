@@ -1,109 +1,94 @@
 import React from 'react';
 import {
-    func, number, bool, string,
+    func, bool, object,
 } from 'prop-types';
+import { connect } from 'react-redux';
+import {
+    unlockBrainGymAction, masterBraingymidAction,
+} from '../../../stores/BrainGym/BrainGymAction';
 import { chevRight } from '../../../assets/icons/IconList';
 import close from '../../../assets/images/close.png';
-import stopwatch from '../../../assets/images/stopwatch.png';
 import CompletedRecord from './CompletedRecord';
+import chestopen from '../../../assets/images/Chestopen.svg';
+import clock from '../../../assets/images/clock.svg';
+import note from '../../../assets/images/exam.png';
 
-const BraingymUnloc = ({
-    open,
-    setOpen,
-    message,
-    step,
-    setStep,
-    counter,
-    setCounter,
-    timeminutesecond,
-    chestonecoin,
-    chesttwocoin,
-    chestthreecoin,
-    chestfourcoin,
-    chestfivecoin,
+const BraingymUnlock = ({
+    handlePopup, showPopup, getMasterBrainGym, chestData, masterBrainGym,
 }) => {
-    const removePopup = () => {
-        setOpen(false);
-        setStep((cur) => cur + 1);
-        setCounter(counter + 1);
+    const handleUnlockChest = () => {
+        getMasterBrainGym();
+        handlePopup(false);
     };
 
-    const closePopup = () => {
-        setOpen(false);
-    };
+    const isAllChestCompleted = masterBrainGym?.chest?.filter((item) => item?.status !== 'finished');
 
     return (
         <div>
-            {
-                step < 4
-                    ? (
-                        <div className={`braingym-unlock-main ${open === true && 'active'}`}>
-                            <div className="close-top">
-                                <button type="button" className="close-btn" onClick={closePopup}><img src={close} alt="close" /></button>
-                            </div>
-                            <div className="unlock-common">
-                                <h2>{message[step].title}</h2>
-                                <p className="coin-p"><span />
-
-                                    {step === 0 && chestonecoin}
-                                    {step === 1 && chesttwocoin }
-                                    {step === 2 && chestthreecoin }
-                                    {step === 3 && chestfourcoin }
-                                    {step === 4 && chestfivecoin }
-
-                                    <b>{message[step].coin}</b>
-                                </p>
-                                <button type="button" onClick={removePopup}>{message[step].level} <span>{chevRight}</span></button>
-                            </div>
+            {isAllChestCompleted?.length ? (
+                <div className={`braingym-unlock-main ${showPopup === true && 'active'}`}>
+                    <div className="close-top">
+                        <button type="button" className="close-btn" onClick={() => handlePopup(false)}><img src={close} alt="close" /></button>
+                    </div>
+                    <div className="unlock-common">
+                        <img src={chestopen} alt="chest_open" />
+                        <h2>{`Chest ${chestData?.chestLevel && chestData?.chestLevel} unlocked`}</h2>
+                        <p className="coin-p"><span />
+                            {chestData?.scoreObtained && chestData?.scoreObtained} coins earned
+                        </p>
+                        <button type="button" onClick={handleUnlockChest}>Level {chestData?.chestLevel + 1} <span>{chevRight}</span></button>
+                    </div>
+                </div>
+            )
+                :            (
+                    <div className={`braingym-unlock-main ${showPopup === true && 'active'}`}>
+                        <div className="close-top">
+                            <button type="button" className="close-btn" onClick={() => handlePopup(false)}><img src={close} alt="close" /></button>
                         </div>
-                    )
-                    :            (
-                        <div className={`braingym-unlock-main ${open === true && 'active'}`}>
-                            <div className="close-top">
-                                <button type="button" className="close-btn" onClick={() => setOpen(false)}><img src={close} alt="close" /></button>
-                            </div>
-                            <div className="unlock-common">
-                                <h2>Treasure hunt completed !</h2>
-                                <p className="coin-p"><span /> {chestonecoin + chesttwocoin + chestthreecoin + chestfourcoin + chestfivecoin} coins totally earned</p>
-                                <div className="row unlock-data-part">
-                                    <div className="col-md-6">
-                                        <CompletedRecord title="Time taken" desc={timeminutesecond} image={stopwatch} />
-                                    </div>
-                                    <div className="col-md-6">
-                                        <CompletedRecord title="Correct answers" desc="34 out of 50" image={stopwatch} />
-                                    </div>
+                        <div className="unlock-common">
+                            <h2>Treasure hunt completed !</h2>
+                            <p className="coin-p"><span />{masterBrainGym?.scoreObtained} coins totally earned</p>
+                            <div className="unlock-data-part">
+                                <div className="unlock-data-part-sub">
+                                    <CompletedRecord title="Time taken" desc="timeout" image={clock} />
                                 </div>
-                                <div className="row unlock-last-part">
-                                    <div className="col-md-6 last-part-half">
-                                        <a href="view">View answers</a>
-                                    </div>
-                                    <div className="col-md-6 last-part-half">
-                                        <button type="button">Finish <span>{chevRight}</span></button>
-                                    </div>
+                                <div className="unlock-data-part-sub">
+                                    <CompletedRecord title="Correct answers" desc="34 out of 50" image={note} />
+                                </div>
+                            </div>
+                            <div className="row unlock-last-part">
+                                <div className="col-md-6 last-part-half">
+                                    <a href="view">View answers</a>
+                                </div>
+                                <div className="col-md-6 last-part-half">
+                                    <button type="button">Finish <span>{chevRight}</span></button>
                                 </div>
                             </div>
                         </div>
-                    )
-            }
+                    </div>
+                )}
 
         </div>
     );
 };
 
-BraingymUnloc.propTypes = {
-    open: bool.isRequired,
-    setOpen: func.isRequired,
-    step: number.isRequired,
-    setStep: func.isRequired,
-    message: string.isRequired,
-    counter: string.isRequired,
-    setCounter: func.isRequired,
-    timeminutesecond: string.isRequired,
-    chestonecoin: number.isRequired,
-    chesttwocoin: number.isRequired,
-    chestthreecoin: number.isRequired,
-    chestfourcoin: number.isRequired,
-    chestfivecoin: number.isRequired,
+BraingymUnlock.propTypes = {
+    chestData: object.isRequired,
+    showPopup: bool.isRequired,
+    handlePopup: func.isRequired,
+    getMasterBrainGym: func.isRequired,
+    masterBrainGym: object.isRequired,
 };
 
-export default BraingymUnloc;
+const mapStateToProps = (state) => ({
+    masterBrainGym: state.BrainGym.masterBrainGym,
+    chestData: state.BrainGym.chestData,
+    showPopup: state.BrainGym.chestUnlockPopup,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    getMasterBrainGym: () => dispatch(masterBraingymidAction()),
+    handlePopup: (data) => dispatch(unlockBrainGymAction(data)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(BraingymUnlock);

@@ -2,40 +2,51 @@ import * as actionTypes from './BrainGymTypes';
 
 const initialState = {
     Allgym: [],
-    Masterbraingymid: [],
-    Questionbytag: [],
+    queCounter: 0,
+    chestUnlockPopup: false,
+    chestData: [],
+    masterBrainGym: [],
+    questionByTag: [],
     attempQuestion: [],
-    loading: false,
-    error: null,
 };
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-        case actionTypes.BRAIN_GYM_ALLGYM:
+        case actionTypes.SET_CHEST_DATA:
             return {
                 ...state,
+                chestData: action.payload,
             };
-        case actionTypes.BRAIN_GYM_ALLGYM_UPDATED:
+
+        case actionTypes.UPDATE_UNLOCK_CHEST:
             return {
                 ...state,
-                Allgym: action.allgym,
+                chestUnlockPopup: action.payload,
             };
+
+        case actionTypes.SET_QUESTION_COUNTER:
+            return {
+                ...state,
+                queCounter: action.payload,
+            };
+
         case actionTypes.UPDATE_MASTER_BRAIN_GYM_BY_ID:
             return {
                 ...state,
-                Masterbraingymid: action.braingym_masterbrainid,
+                masterBrainGym: action.payload,
             };
 
         case actionTypes.UPDATE_QUESTION_BY_TAG:
             return {
                 ...state,
-                Questionbytag: action.que_getquetag,
+                questionByTag: action.payload,
             };
 
         case actionTypes.UPDATE_ATTEMPT_QUESTION:
             return {
                 ...state,
                 attempQuestion: action.attempt_que,
+
             };
 
         case actionTypes.GET_USERS_FAILED:

@@ -1,21 +1,21 @@
 import React from 'react';
-import { number } from 'prop-types';
-import stepdata from './mockData/stepperData';
+import { array, object } from 'prop-types';
+import { connect } from 'react-redux';
 
-const Stepper = ({ step }) => (
+const Stepper = ({ allChest, chestData }) => (
     <div className="row brain-margin-row">
         <div className="col-md-12 stepper-top text-center">
-            {stepdata.map((data) => (
+            {allChest && allChest.map((chest) => (
                 <div
-                    key={data.title}
-                    className={`stepper-above ${data.id === step ? 'active' : ''} ${
-                        data.id < step ? 'prev-step' : ''
+                    key={chest.id}
+                    className={`stepper-above ${chest._id === chestData?._id && chest.status !== 'finished' ? 'active' : ''} ${
+                        chest.status === 'finished' ? 'prev-step' : ''
                     }`}
                 >
                     <button type="button">
                         <span className="round" />
                     </button>
-                    <span className="name">{data.title}</span>
+                    <span className="name">{`Chest ${chest?.chestLevel}`}</span>
                 </div>
             ))}
         </div>
@@ -23,7 +23,13 @@ const Stepper = ({ step }) => (
 );
 
 Stepper.propTypes = {
-    step: number.isRequired,
+    allChest: array.isRequired,
+    chestData: object.isRequired,
 };
 
-export default Stepper;
+const mapStateToProps = (state) => ({
+    chestData: state.BrainGym.chestData,
+    allChest: state.BrainGym.masterBrainGym?.chest,
+});
+
+export default connect(mapStateToProps)(Stepper);

@@ -84,7 +84,11 @@
           }
           .stepper-above.active {
             button {
-              background-color: #FCA631 !important;
+              background-color: transparent !important;
+              background-image: url('../../../../../src/assets/images/treasure.svg');
+              height: 21px;
+              width: 25px;
+              border-radius: 0;
             }
             span.name {
                 font-family: "proxima_nova_rgbold";
@@ -93,23 +97,24 @@
           }
           .stepper-above.prev-step {
             button {
-              background-color: #43aa8b !important;
+              background-image: url('../../../../../src/assets/images/Tick green.svg');
             }
             span {
               color: #43aa8b;
             }
             &:after {
-              background: #43aa8b;
+                background-image: url('../../../../../src/assets/images/Dash Green line.svg');
             }
           }
           .stepper-above:after {
             content: "";
             position: absolute;
-            background: #e8e8e8;
-            height: 1px;
+            background-position: top;
             width: 100%;
             top: 18px;
             left: 50%;
+            background-image: url('../../../../../src/assets/images/Dash Gray line.svg');
+            height: 3px;
           }
           div.stepper-above:last-child:after {
             content: none !important;
@@ -155,7 +160,10 @@
                     .timer-top-last {
                         display: flex;
                         align-items: flex-end;
-                        
+                    }
+                    .timer-sub-left {
+                        float: left;
+                        margin-right: 10px;
                     }
                 }
             }
@@ -216,16 +224,7 @@
                 border: 0;
             }
            
-            // img {
-            //   filter: grayscale(100) contrast(0%) brightness(1.8);
-            // }
-            // h1, h2, h3, h4, h5, h6,
-            // p, li,
-            // .btn,
-            // label,
-            // .form-control {
-            //   @extend %loading-skeleton;
-            // }
+          
           }
           .loading-skeleton.question-options-wrapper {
             padding-bottom: 0 !important;
@@ -293,7 +292,7 @@
             }
         }
         .unlock-common {
-            height: 100%;
+            height: auto;
             width: 70%;
             margin: auto;
             display: flex;
@@ -303,6 +302,12 @@
             background-color: #FFFFFF;
             border-radius: 0 140px 0 140px;
             box-shadow: 0px 0px 5px rgb(101 101 101 / 14%);
+            padding: 50px 0px;
+            img {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 30px;
+            }
             .unlock-last-part {
                 display: flex;
                 align-items: center;
@@ -317,6 +322,12 @@
             .unlock-data-part {
                 margin-left: auto;
                 margin-right: auto;
+                .unlock-data-part-sub {
+                    float: left;
+                }
+                div.unlock-data-part-sub:first-child {
+                    margin-right: 40px;
+                }
                 p {
                     color: #454C4E;
                     font-size: 16px;
@@ -331,6 +342,13 @@
                 img {
                     width: 45px;
                     height: 50px;
+                }
+                .common-record-left , .common-record-right {
+                    float: left;
+                    text-align: left;
+                }
+                .common-record-left {
+                    margin-right: 10px;
                 }
             }
             .unlock-last-part {
@@ -395,6 +413,7 @@
     }
     .braingym-unlock-main.active {
         display: block !important;
+        overflow: scroll;
     }
 }
 
@@ -412,9 +431,9 @@
         .stepperpart-left {
             margin-bottom: 30px;
         }
-        .timer-sub-left {
-            width: 18%;
-        }
+        // .timer-sub-left {
+        //     width: 18%;
+        // }
         .timer-sub-left , .timer-sub-right {
             text-align: left;
         }
@@ -450,9 +469,7 @@
             margin-bottom: 20px;
         }
     }
-    .brain-gym-main .brain-gym-bottom .timer-sub-left {
-        width: 23%;
-    }
+   
 }
 
 @media only screen and (max-width: 767px) {
@@ -466,9 +483,7 @@
             width: 100%;
         }
     }
-    .brain-gym-main .brain-gym-bottom .timer-sub-left {
-        width: 15%;
-    }
+   
     .brain-gym-main .brain-gym-bottom .timer-left {
         margin-bottom: 30px;
     }
@@ -485,6 +500,10 @@
         .unlock-common {
             height: auto;
             padding: 50px 0px;
+            img {
+                height: 100px;
+                width: 100px;
+            }
         }
     }
     .brain-gym-main .braingym-unlock-main .unlock-common .unlock-data-part h5 {
@@ -537,6 +556,9 @@
     .brain-gym-main .braingym-unlock-main .unlock-common {
         border-radius: 20px !important;
         margin-top: 30px !important;
+    }
+    .brain-gym-main.braingym-page .brain-gym-bottom .stepperpart-top .stepperpart-right img {
+        margin-bottom: 15px;
     }
 }
 
