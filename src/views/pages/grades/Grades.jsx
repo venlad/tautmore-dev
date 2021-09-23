@@ -1,6 +1,6 @@
 import React from 'react';
 import Rightpart from './Rightpart';
-import './sidebar.scss';
+import './style.scss';
 import Chapterslink from '../Chapters/Chapterslink';
 import Layout from '../../../Layout/Layout';
 

@@ -113,17 +113,7 @@ ul {
   letter-spacing: 0;
   line-height: 24px;
 }
-/* .classroom-subject {
-  
-    color: #20282a;
-    font-family: "Proxima Nova";
-    font-size: 20px;
-    font-weight: bold;
-    letter-spacing: 0;
-    line-height: 24px;
-    height: 94px;
-    width: 693px;
-  } */
+
 .subjects ul {
   padding: 0;
   margin: 0;
@@ -202,9 +192,6 @@ ul {
   line-height: 24px;
   margin-bottom: 60px;
 }
-/* .space {
-    margin-top: 5px;
-  } */
 
 .idivide {
   height: 28.2px;
@@ -252,16 +239,14 @@ ul {
   bottom: -39px;
 }
 .pre-kindergarten-center h1 {
-  height: 120px;
-  width: 795px;
+  
   color: #fff6ed;
   font-family: "proxima_nova_rgbold";
   font-size: 100px;
   font-weight: 900;
   letter-spacing: 0;
   line-height: 120px;
-  /* margin-left: 30%;
-    margin-top: 10%; */
+ 
   position: relative;
   left: -50px;
 }
@@ -286,4 +271,104 @@ ul {
 .grade-right-part {
   width: 80%;
   padding: 10px 45px;
+}
+
+@media only screen and (max-width: 1210px) {
+  .grade-container {
+    .grade-right-part {
+      .pre-kindergarten-center {
+        h1 {
+          font-size: 60px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .grade-container {
+    .chapters-links {
+      min-width: 250px;
+      h1 {
+        font-size: 17px;
+      }
+      .links-list {
+        li {
+          font-size: 17px;
+        }
+      }
+    }
+    .grade-right-part {
+      .pre-kindergarten-center {
+        h1 {
+          font-size: 50px;
+        }
+      }
+      .classroom-subject {
+        .subject-list-main {
+          .subjects {
+            li.math {
+              width: 50%;
+              a {
+                font-size: 16px;
+              }
+              img.myexams-icon {
+                height: 25px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .grade-container {
+    display: block;
+    .chapters-links {
+      min-width: 250px;
+      margin: auto;
+      background-color: #f5f5f5;
+      text-align: center;
+      h1 {
+        padding: 0;
+      }
+      ul {
+        li {
+          button {
+            text-align: center;
+            padding: 0;
+          }
+        }
+      }
+    }
+    .grade-right-part {
+      width: 100%;
+      display: block;
+      .pre-kindergarten-center {
+        h1 {
+          left: 0;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .grade-container .grade-right-part .classroom-subject .subject-list-main .subjects li.math {
+    width: 100%;
+  }
+  .grade-container {
+    .grade-right-part {
+      padding: 10px 25px;
+      .pre-kindergarten-center {
+        h1 {
+          font-size: 45px;
+          line-height: 1.4;
+          margin: 30px 0px;
+        }
+      }
+    }
+  }
 }
