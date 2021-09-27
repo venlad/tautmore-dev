@@ -2,7 +2,7 @@ import React from 'react';
 
 const SteperSkeleton = () => (
     <div
-        className="row brain-marginpt-0 strap_radius"
+        className="brain-marginpt-0 strap_radius"
         style={{  borderRadius: '34px' }}
     >
         <div className="loading-skeleton xxx">

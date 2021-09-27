@@ -9,6 +9,7 @@ const RouteEnum = {
     REGISTER: '/register',
     OLYMPIAD: '/olympiad',
     LOGIN: '/login',
+    HOMESKELETON: '/home-skeleton',
 };
 
 export default RouteEnum;

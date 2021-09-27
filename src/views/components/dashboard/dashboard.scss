@@ -73,6 +73,7 @@
               position: relative;
               padding-bottom: 200px !important;
               height: 100vh;
+              width: 99%;
               div:nth-child(2) {
                 margin-top: 40px;
               }
@@ -592,6 +593,9 @@
                   border-top-left-radius: 10px;
                   border-bottom-left-radius: 10px;
                   color: #fff;
+                  display: inline-block;
+                  width: 40%;
+                  vertical-align: top;
                   h3 {
                     font-family: "proxima_nova_rgbold";
                     font-size: 28px;
@@ -614,11 +618,23 @@
                   }
                 }
                 .act-right {
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  border-right: 1px solid;
-                  position: relative;                 
+                  display: inline-block;
+                  width: 60%;
+                  background-image: url('../../../assets/images/activities.png'); 
+                  height: 209px;
+                  background-size: cover;
+                  background-color: #FCA834;     
+                  vertical-align: top;
+                  .row {
+                    height: 100%;
+                  }
+                  .act-right-common {
+                    height: 100%;
+                    align-items: center;
+                    display: flex;
+                    justify-content: center;
+                    color: #fff;
+                  }
                 }
             }
             .notification-menu {

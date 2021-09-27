@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import {  string } from 'prop-types';
-import leaderboard from '../mockData/leaderboarddata';
 import dashtablehead from '../../../../assets/images/dashtablehead.png';
 import { time } from '../mockData/reportData';
+import { leaderboard, leaderboard2 } from '../mockData/leaderboarddata';
 
 const Leaderboard = ({ title }) => {
     const [activebtn, setActivebtn] = useState('maths');
-    const handleMathsColor = () => setActivebtn('maths');
+    const [sub, setSub] = useState(leaderboard);
+    const handleMathsColor = () => {
+        setActivebtn('maths');
+        setSub(leaderboard);
+    };
     const handleSciencecolor = () => {
         setActivebtn('science');
+        setSub(leaderboard2);
     };
 
     const generateLink = (idx) => `/assets/images/m_${idx}.png`;
@@ -78,7 +83,7 @@ const Leaderboard = ({ title }) => {
 
                     <tbody>
 
-                        {leaderboard?.data?.sort((a, b) => b.coins - a.coins)?.map((data, ind) => (
+                        {sub?.data?.sort((a, b) => b.coins - a.coins)?.map((data, ind) => (
                             <tr key={data.key}>
                                 <td className="rank"><div>{ind + 1}</div></td>
                                 <td className="name">
