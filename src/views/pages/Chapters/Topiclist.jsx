@@ -29,6 +29,7 @@ const Topiclist = ({
             setDesktop(false);
         }
     });
+
     return (
         <li>
             <span>
@@ -41,10 +42,14 @@ const Topiclist = ({
                         <div
                             role="button"
                             tabIndex={0}
-                            onMouseEnter={() => (desktop ? setDescriptionAnchor([idx, topicIdx, subIdx]) : '')}
-                            onMouseLeave={() => (desktop ? setDescriptionAnchor([idx, topicIdx, subIdx]) : '')}
-                            onClick={() => (!desktop ? setDescriptionAnchor([idx, topicIdx, subIdx]) : '')}
-                            onKeyDown={() => (!desktop ? setDescriptionAnchor([idx, topicIdx, subIdx]) : '')}
+                            onMouseEnter={() => (desktop
+                                ? setDescriptionAnchor([idx, topicIdx, subIdx]) : '')}
+                            onMouseLeave={() => (desktop
+                                ? setDescriptionAnchor([idx, topicIdx, subIdx]) : '')}
+                            onClick={() => (!desktop
+                                ? setDescriptionAnchor([idx, topicIdx, subIdx]) : '')}
+                            onKeyDown={() => (!desktop
+                                ? setDescriptionAnchor([idx, topicIdx, subIdx]) : '')}
                             className="sub-topic-div"
                         >
                             {`${String.fromCharCode(65 + topicIdx)}.${subIdx + 1}`}

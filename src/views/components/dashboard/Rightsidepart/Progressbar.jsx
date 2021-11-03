@@ -20,7 +20,7 @@ const Progressbar = ({
         </div>
         {
             perone
-        && <ProgressBar now={peronevalue} />
+        && <ProgressBar now={peronevalue}  />
         }
         {
             pertwo
@@ -28,7 +28,6 @@ const Progressbar = ({
         }
     </div>
 );
-
 Progressbar.propTypes = {
     className: string.isRequired,
     title: string.isRequired,
@@ -36,7 +35,6 @@ Progressbar.propTypes = {
     pertwo: bool,
     peronevalue: number,
     pertwovalue: number,
-
 };
 
 Progressbar.defaultProps = {

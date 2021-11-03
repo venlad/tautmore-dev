@@ -29,7 +29,7 @@
               background-color: #01031D;
               padding: 10px;
               margin: 20px 0px;
-      
+              cursor: pointer;
               .dashboard-profile-left {
                 img {
                   height: 44px;
@@ -2175,6 +2175,13 @@
               .myexam-common-top {
                 margin: auto;
                 .myexam-common {
+                  .test-audio-video {
+                    color: #454C4E;
+                    font-family: "proxima_nova_rgregular";
+                    font-size: 14px;
+                    text-align: center;
+                    margin-top: 7px;
+                  }
                   background-color: #fff;
                   padding: 20px;
                   border-radius: 10px;
@@ -2476,6 +2483,21 @@
                   margin-bottom: 30px;
                   padding: 25px 20px;
                   cursor: pointer;
+                  .examlist-common-bottom {
+                    display: flex;
+                    align-items: center;
+                  }
+                  .left-icon {
+                    margin-right: 15px;
+                  }
+                  .left-icon, .right-content {
+                    float: left;
+                  }
+                  .right-content {
+                    h5 {
+                      margin-bottom: 0;
+                    }
+                  }
                   .examlist-common-one, .examlist-common-two {
                     margin: auto;
                     --bs-gutter-x: 0;
@@ -2543,6 +2565,13 @@
                   p, span, h5, li {
                     color: #fff !important;
                   }
+                }
+              }
+            }
+            .myclasses-main {
+              .myexam-tab {
+                .dtoggle-bar {
+                  width: 100%;
                 }
               }
             }
@@ -2733,57 +2762,64 @@
               background: #CBCDCD; 
             }
             .myclass-reschedule-rectanle {
-              height: 242px;
-              width: 1120px;
+              
               border-radius: 20px;
-               background-color: #FFFFFF;
-                box-shadow: 0 12px 34px -10px rgba(0,0,0,0.05);
-                margin-top: 20px;
+              background-color: #FFFFFF;
+              box-shadow: 0 12px 34px -10px rgba(0,0,0,0.05);
+              margin-top: 20px;
+              padding: 30px;
+
+            
 
             .myclass-bell{
              margin-left: 30px;
              margin-top: 60px;
             }
                 .myclass-inside-rectangle{
-                  height: 182px;
-                  width: 1060px;
-
+                  .bell-part {
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    img {
+                      float: left;
+                      margin-top: -15px;
+                      margin-right: 20px;
+                    }
+                  }
                   .myclass-reschedule{
                     color: #28B98D;
                     font-family: "proxima_nova_rgbold";
                     font-size: 32px;
                     font-weight: bold;
-                    margin-top: 50px;
-                    margin-left: 20px;
-                    // margin-right: 140px;
+                    
+                    
                   }
                   .myclass-subject {
-                    height: 182px;
-                    width: 565px;
                     border-radius: 20px;
                     background-color: #E3FFF6;
                     box-shadow: 0 1px 34px -6px rgba(154,154,154,0.1);
-                    margin-top: 30px;
-                    
+                    padding: 30px;
                     .myclass-inside-rectangle{
                      
                        .shape{
                         height: 82px;
                         width: 82px;
                         border-radius: 15px;
-                        background-color: #FFFFFF;
-                        margin-top: 10px;
-                        margin-left: 30px;
+                        background-color: #FFFFFF;                     
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
                         float: left;
+                        margin-right: 20px;
                        }
                        .subject {
-                         margin-left: 150px;
-                      margin-top: 10px;
+                         float: left;
+                       
                       .algebra {
                         color: #000000;
                         font-family: "Proxima Nova";
-                       margin-top: 27px;
-                       
+                     
+                       margin-bottom: 0;
                       }
                       .math {
                         color: #000000;
@@ -2792,8 +2828,7 @@
                         margin-bottom: 8px;
                       }
                       .previous {
-                        height: 30px;
-                         width: 373px;
+                      
                           border-radius: 8px;
                           background-color: #FFF5E6;
                             .span-one{
@@ -2805,16 +2840,17 @@
                           .span-two {
                             color: #FCA834;
                             font-family: "proxima_nova_rgbold";
-                            font-size: 16px;
+                            font-size: 14px;
                             font-weight: 600;
                             margin-left: 16px;
+                            margin-right: 16px;
                           }
                       }
                       .reschedule {
-                        height: 30px;
-                      width: 373px;
+                       
                        border-radius: 8px;
                        background-color: #FFFFFF;
+                       margin-bottom: 0;
                        .span-one {
                         color: #454C4E;
                          font-family: "proxima_nova_rgregular";
@@ -2824,12 +2860,17 @@
                        .span-two {
                         color: #28B98D;
                         font-family: "proxima_nova_rgbold";
-                        font-size: 16px;
+                        font-size: 14px;
                         margin-left: 16px;
                        }
                       }
                        }
 
+                    }
+                    .myclass-inside-rectangle::after{
+                      content: '';
+                      display: block;
+                      clear: both;
                     }
                   }
                 }
@@ -3228,6 +3269,36 @@
     }
   }
 
+  @media only screen and (max-width: 1235px) {
+    .myclasses-main {
+      .reshedule-left, .reshedule-right {
+        width: 100%;
+      }
+      .reshedule-left {
+        margin-bottom: 30px;
+        img {
+          margin-top: 0 !important;
+        }
+      }
+      .reshedule-right {
+        .myclass-subject {
+          max-width: 550px;
+          margin: auto;
+        }
+      }
+      .myexam-tab {
+        .myexam-tab-left {
+          width: 100%;
+        }
+        .myexam-tab-right {
+          width: 100%;
+          text-align: center;
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+
   @media only screen and (max-width: 1200px) {
     .dashboard-main .row-main .dashboard-right .next-class .next-chapter .nex-chapter-span {
       padding-top: 35px;
@@ -3287,6 +3358,9 @@
         h5, p.p-two {
           margin-top: 20px;
         }
+        .profile {
+          float: none;
+        }
       }
 
     }
@@ -3296,6 +3370,29 @@
       }
       span {
         font-size: 14px !important;
+      }
+    }
+    .mysubscription-dashboard {
+      .grand-total {
+        .subs-end {
+          text-align: center;
+          width: 100%;
+          h6 {
+            img {
+              display: block;
+              margin: auto;
+              margin-bottom: 10px;
+              padding-right: 0;
+            }
+          }
+          
+        }
+        .renew-button {
+          button {
+            width: 100% !important;
+            font-size: 15px !important;
+          }
+        }
       }
     }
   }
@@ -3414,6 +3511,17 @@
           h3 {
             text-align: center !important;
           }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1100px) {
+    .myprofile {
+      .account-details {
+        .pass-left, .pass-right {
+          width: 100%;
+          text-align: center !important;
         }
       }
     }
@@ -3667,6 +3775,16 @@
         margin-top: 0;
       }
     }
+    .myprofile {
+      .myprofile-subscription {
+        .subscription-left, .subscription-right {
+          width: 100%;
+        }
+        .subscription-right {
+          margin-top: 30px;
+        }
+      }
+    }
   }
 
   @media only screen and (max-width: 991px) {
@@ -3742,6 +3860,39 @@
       .brain-gym-main .span.span-background {
         width: 80px !important;
         height: 80px !important; 
+      }
+      .mysubscription-dashboard {
+        .col-7, .col-5 {
+          width: 100%;
+        }
+        .col-5 {
+          margin-top: 30px;
+          .grand-total {
+            .renew {
+              .subs-end {
+                width: auto;
+              }
+              .renew-button {
+                button {
+                  width: 250px !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .subscription-history {
+      .subscription-details {
+        width: 100%;
+      }
+      .subscription-end {
+        float: none !important;
+        margin-top: 15px;
+        display: inline-block;
       }
     }
   }
@@ -3909,7 +4060,7 @@
         margin: 0 !important;
         li { 
           text-align: right !important;
-        }
+        } 
       }
     }
     .dashboard-right .myexam-main.myassignment-main .myexam-examlist .examlist-common .examlist-common-one p span.full-span {
@@ -3918,8 +4069,98 @@
     .dashboard-right .myexam-main.myassignment-main .myexam-examlist .examlist-common .examlist-common-one .examlist-common-date-time .shape {
       margin-left: 10px;
     }
+    
   }
 }
+
+@media only screen and (max-width: 767px) {
+  .myprofile {
+    .subscription-left {
+      .row {
+        background-color: #f5f5f5;
+        margin: auto;
+        padding: 15px;
+        .text-right {
+          text-align: left !important;
+          h5 {
+            margin-top: 15px;
+          }
+        }
+      }
+    }
+    .parent-details {
+      .row {
+        margin-bottom: 0;
+        .col-md-6 {
+          background-color: #f5f5f5;
+          padding: 15px;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 576px) {
+  .dashboard-main .row-main .dashboard-right .myexam-main .myexam-examlist .examlist-common .examlist-common-one {
+    .exam-common-two {
+      text-align: right !important;
+    }
+    .exam-common-three {
+      text-align: left !important;
+    }
+    .exam-common-four {
+      text-align: right !important;
+      margin: 0 !important;
+    }
+    span.full-span {
+      display: inline-block !important;
+      img.shape {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+  @media only screen and (max-width: 630px) {
+    .myclasses-main {
+      .myclass-inside-rectangle {
+        .reshedule-right {
+          .shape {
+            float: none !important;
+            margin: auto !important;
+            margin-bottom: 20px !important;
+          }
+          .subject {
+            float: none !important;
+            display: block;
+            width: 100%;
+            text-align: center;
+          }
+        }
+        .reshedule-left {
+          .bell-part {
+            img {
+              width: 55px;
+            }
+            .myclass-reschedule {
+              font-size: 24px !important;
+            }
+          }
+        }
+      }
+      .myexam-tab-left {
+        .dtoggle-bar {
+          display: block !important;
+          padding: 15px !important;
+          .toggle-maths-div {
+            width: 100% !important;
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
 
   @media only screen and (max-width: 575px) {
     .brain-gym-popup {
@@ -4016,6 +4257,8 @@
       }
     }
     .dashboard-right {
+      padding-left: 15px !important;
+      padding-right: 15px !important;
       .error-part {
         height: auto !important;
         .col-3 {
@@ -4248,6 +4491,7 @@
     }
     .dashboard-main .row-main .dashboard-right .myexam-main .myexam-examlist .examlist-common .examlist-common-bottom {
       text-align: center !important;
+      display: block;
     }
     .dashboard-main .row-main .dashboard-right .myexam-main .myexam-examlist .examlist-common .examlist-common-two p {
       margin: 10px 0px;
@@ -4297,6 +4541,198 @@
     }
     .dashboard-right .myexam-main.myassignment-main .myexam-examlist .examlist-common .examlist-common-one p span.full-span {
       display: block !important;
+    }
+    .mysubscription-dashboard {
+      .subscription-details-left {
+        .common-left-subject{
+          display: block !important;
+        }
+      }
+     .amount, .left-olympiad, .olympiad, .classes {
+        display: block !important;
+        background-color: #f5f5f5;
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        p {
+          font-size: 15px !important;
+          margin-bottom: 5px !important;
+          padding: 0 !important;
+        }
+      }
+      .class-payment {
+        background-color: #f5f5f5;
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        p {
+          font-size: 15px !important;
+          margin-bottom: 5px !important;
+        }
+      }
+      .amount {
+        margin-top: 15px;
+      }
+      .subscription-for-class, .subscription-details-for-rectangle, .subscription-for-exam, .subscription-details-for-cocurri {
+        padding: 0 !important;
+        background-color: transparent;
+        font-size: 15px !important;
+        
+      }
+      .subscription-details {
+        font-size: 21px !important;
+      }
+      .subscription-details-left, .grand-total, .subscription-history {
+        padding: 20px 15px !important;
+      }
+      .col-5 .grand-total{
+        .renew .renew-button button {
+          max-width: 250px !important;
+          width: 100% !important;
+          font-size: 13px !important;
+        }
+      }
+      .subscription-history .subscription-end {
+        text-align: center !important;
+        img {
+          display: block;
+          margin: auto;
+          margin-bottom: 10px;
+          padding: 0 !important;
+        }
+      }
+      .subscription-history {
+        .subscription-details {
+          float: none;
+        }
+        .subscription-end {
+          display: block;
+        }
+      }
+    }
+    .myclasses-main {
+      .myclass-reschedule-rectanle {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+      }
+      .examlist-common {
+        .examlist-common-bottom {
+          display: block !important;
+          .left-icon, .right-content {
+            float: none !important;
+          }
+          .left-icon {
+            margin-right: 0 !important;
+          }
+        }
+        
+      }
+      .myexam-common {
+        .profile {
+          float: none;
+          text-align: center;
+        }
+        
+        .myclasses-common-day-left {
+          height: auto;
+          text-align: center;
+          padding: 10px;
+          p {
+            margin-bottom: 0;
+            span {
+              margin: 0;
+              display: block;
+            }
+          }
+        }
+        
+      }
+      .reshedule-left {
+        .bell-part {
+          display: block !important;
+          text-align: center;
+          img {
+            float: none !important;
+            margin-right: 0;
+            margin-bottom: 15px;
+          }
+        }
+      }
+      .reshedule-right {
+        .myclass-subject {
+          padding-left: 10px !important;
+          padding-right: 10px !important;
+          .subject {
+            .previous, .reschedule {
+              padding: 10px;
+              span {
+                display: block;
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+    .myprofile {
+      .profile {
+        .common-name .name {
+          font-size: 19px;
+          
+        }
+        .taut-id {
+          font-size: 15px;
+          .id-name {
+            font-size: 15px;
+          }
+        }
+        .pro-icon {
+          height: 70px !important;
+          width: 70px !important;
+        }
+        .profilepic .edit {
+          bottom: -10px;
+        }
+      }
+      .myprofile-subscription {
+        padding: 15px;
+        .subscription-left {
+          h5 {
+            font-size: 15px;
+          }
+        }
+        .subscription-right {
+          .completed-rectangle {
+            h3 {
+              font-size: 12px;
+            }
+            padding: 15px;
+            .text-right {
+              text-align: left !important;
+              margin: 15px 0px;
+            }
+          }
+        }
+      }
+      .account-details {
+        padding: 15px;
+        .details {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+      }
+      .parent-details {
+        padding: 15px;
+        h5 {
+          font-size: 16px;
+        }
+        .row {
+          margin: auto;
+        }
+      }
+      .mysubscription-name, .account-details-name, .parent-details-name {
+        font-size: 19px;
+      }
     }
   }
 }
@@ -4360,15 +4796,15 @@
    .myexam-title .status{
    text-align: right;
     }
+  
+ .mysubscription-dashboard {
     
-  .mysubscription .subscription-details{
-    
+  .subscription-details{
     color: #20282A;
     font-family: "proxima_nova_rgbold";
-   
     font-weight: bold;
-    
-    margin: 20px;
+    margin: 20px 0px;
+    font-size: 26px;
   }
 
   .subscription-history{
@@ -4376,46 +4812,63 @@
     border-radius: 10px;
     background-color: #FFFFFF;
     box-shadow: 0 12px 34px -10px rgba(0,0,0,0.05);
-     margin-top: 30px;
-    padding: 20px;
-
-  
+    margin-top: 30px;
+    padding: 30px;
     .subscription-details{
       font-family: "proxima_nova_rgbold";
-      font-size: 32px;
+      font-size: 26px;
       font-weight: bold;
-     
+      margin: 0;
       float: left
     }
     .subscription-end{
       text-align: right;
       color: #F3332C;
       font-family: "proxima_nova_rgregular";
-      font-size: 16px;
+      font-size: 15px;
       float: right;
-
       img{
         padding-right: 10px;
+        margin-top: -4px;
+      }
+    }
+    .subscription-table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 100%;
+      overflow-x: auto;
+    }
+    table {
+      margin-top: 50px;
+      margin-bottom: 0;
+      
+      tr {
+        cursor: pointer;
+      }
+      th {
+        border: 0;
+        font-family: "Proxima Nova";
+      }
+      p {
+        margin-bottom: 5px;
+      }
+      h5 {
+        font-size: 14px;
       }
     }
   }
   .subscription-details-for-cocurri-rectangle {
-    height: 58px;
-  width: 542px;
   border-radius: 10px;
   background-color: #F9F9F9;
   margin-left: 4px;
   margin-top: 3px;
   .subscription-details-for-cocurri {
     color: #20282A;
-  font-family: "proxima_nova_rgregular";
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 0;
-  line-height: 31px;
-  padding-left: 20px;
-  padding-top: 15px;
-
+    font-family: "proxima_nova_rgregular";
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0;
+    padding: 15px 0px 15px 20px;
   }
   }
   .line {
@@ -4423,48 +4876,49 @@
     height: 1px;
     width: calc(100% + 7px);
     border: 1px solid #20282A;
-    margin-top: 17px;
+    margin: 15px 0px;
   }
   .amount {
     color: #20282A;
-font-family: "Proxima Nova";
-font-size: 18px;
-font-weight: 600;
-
-line-height: 29px;
-display: flex;
+    font-family: "Proxima Nova";
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 29px;
+    display: flex;
     justify-content: space-between;
-
-  
-     width: 100%;
-
-.total-amount {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 6px;
-}
+    width: 100%;
+    p {
+      font-size: 19px;
+    }
+    .total-amount {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   .classes {
     font-family: "proxima_nova_rgregular";
     color: #20282A;
     font-size: 16px;
-     margin-top: 5PX;
-   
-  display: flex;
-      justify-content: space-between;
-  
-    
-       width: 100%;
-
-
+    margin-top: 5PX;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     font-size: 20px;
- .claasses-month{
-  display: flex;
-  justify-content: space-between;
-  margin-top: 6px;
- }
-
+    p {
+      font-size: 17px;
+      margin-bottom: 0;
+    }
+    .claasses-month{
+      display: flex;
+      justify-content: space-between;
+    }
+    .dollar {
+      p {
+        font-size: 19px;
+        font-family: "Proxima Nova";
+      }
+    }
   }
  
 .grand-total-right {
@@ -4473,129 +4927,101 @@ display: flex;
   font-family: "proxima_nova_rgbold";
   font-size: 32px;
   font-weight: bold;
-  padding-left: 30px;
-  padding-top: 30px;
 }
 .left-olympiad{
-
     font-family: "proxima_nova_rgregular";
     color: #20282A;
     font-size: 16px;
-     margin-top: 19PX;
-  
-  display: flex;
-      justify-content: space-between;
-  
-    
-       width: 100%;
-
-
-    font-size: 20px;
-
- 
-   
+    margin-top: 19PX;
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
      .half-yearly-olympiad{
       display: flex;
       justify-content: space-between;
       margin-top: 1px;
      }
-    
+    p {
+      font-size: 17px;
+      font-family: "proxima_nova_rgregular";
+      margin: 0;
+    }
 }
 .olympiad {
    
     font-family: "proxima_nova_rgregular";
     color: #20282A;
     font-size: 16px;
-     margin-top: 5PX;
-  
-  display: flex;
-      justify-content: space-between;
-  
-    
-       width: 100%;
-
-
+    margin-top: 5PX;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     font-size: 20px;
-
-
-     .annual-olympiad{
-      display: flex;
-      justify-content: space-between;
-      margin-top: 1px;
-  }
+    height: auto;
+    p {
+      font-size: 17px;
+      font-family: "proxima_nova_rgregular";
+      font-weight: normal;
+    }
  
 }
 .grand-total {
-    height: 565px;
-  width: 488px;
+   
   border-radius: 20px;
   background-color: #FFFFFF;
   box-shadow: 0 12px 34px -10px rgba(0,0,0,0.05);
-  padding-left: 30px;
-  padding-right: 30px;
- 
-
+  padding: 30px;
   .renew {
-    height: 229px;
-    width: 428px;
     border-radius: 20px;
     background-color: #E3FFF6;
-     margin-right: 10px;
-  
+    text-align: center;
+    padding: 20px;
     .left-days {
-      color: #F3332C;
+    color: #F3332C;
     font-family: "proxima_nova_rgbold";
     font-size: 24px;
     font-weight: 600;
-    padding-left: 154px;
-    padding-top: 26px;
-   
     }
-.subs-end {
-  height: 50px;
-  width: 320px;
-  border-radius: 10px;
-  background-color: #FFF4E9;
-  margin-left: 54px;
-  .subscription{
-    color: #F3332C;
-  font-family: "proxima_nova_rgregular";
-  font-size: 14px;
-  padding-left: 48px;
-  padding-top: 15px;
-
-  img {
-    padding-right:  10px;
-  }
-  }
+    .subs-end {
+      border-radius: 10px;
+      background-color: #FFF4E9;
+      margin: 15px 0px;
+      display: inline-flex;
+      align-items: center;
+      .subscription{
+      color: #F3332C;
+      font-family: "proxima_nova_rgregular";
+      font-size: 14px;
+      padding: 10px 20px;
+      margin: 0;
+      img {
+        padding-right:  10px;
+      }
+      }
 }
 .renew-button{
   
   button {
-    width: 320px;
-    height: 56px;
     background-color: #43aa8b;
     box-shadow: 0 12px 10px 0 rgba(67,170,139,0.25);
-  margin-top: 20px;
-  margin-left: 54px;
-
     border-radius: 33.75px;
     color: #fff;
     border: 0;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 17px;
     font-family: "proxima_nova_rgbold";
-    
-    
-
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 20px;
+    width: 250px;
+    justify-content: space-between;
     span {
       float: right;
-      height: 24px;
-      width: 24px;
+      height: 20px;
+      width: 20px;
       background-color: #fca834;
       border-radius: 50%;
       padding: 0px 4px;
-      margin-top: 4px;
       box-shadow: 5px 5px 5px rgb(0 0 0 / 24%) !important;
       display: flex;
       align-items: center;
@@ -4616,26 +5042,22 @@ display: flex;
 
   .subscription-for-exam {
     color: #20282A;
-  font-family: "proxima_nova_rgregular";
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 0;
-  line-height: 31px;
-  padding-left: 20px;
-  padding-top: 15px;
-
+    font-family: "proxima_nova_rgregular";
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0;
+    padding: 15px 0px 15px 20px;
+    margin: 0;
   }
 }
 .subscription-for-class{
- 
   color: #20282A;
   font-family: "proxima_nova_rgregular";
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
   letter-spacing: 0;
-  line-height: 31px;
-  padding-left: 20px;
-  padding-top: 15px;
+  padding: 15px 0px 15px 20px;
+  margin: 0;
 }
 .subscription-details-left{
   border-radius: 20px;
@@ -4675,7 +5097,6 @@ display: flex;
   .total-amount {
     display: flex;
     justify-content: space-between;
-    margin-top: 6px;
   }
     }
 
@@ -4685,20 +5106,23 @@ display: flex;
       justify-content: space-between;
       // align-items: center;
       flex-direction: column;
+      margin-top: 10px;
        width: 100%;
        .subject {
-        height: 18px;
-        width: 61px;
         color: #454C4E;
         font-family: "proxima_nova_rgregular";
+        margin: 0;
+        font-size: 14px;
        }
        .subscribed-for {
-       
-  color: #454C4E;
-  font-family: "proxima_nova_rgregular";
-  font-size: 16px;
-  margin-top: 20px;
-  
+        color: #454C4E;
+        font-family: "proxima_nova_rgregular";
+        font-size: 16px;
+        margin-top: 20px;
+        p {
+          margin-bottom: 0;
+          font-size: 14px;
+        }
  
        }
 
@@ -4716,6 +5140,11 @@ display: flex;
   font-size: 20px;
   letter-spacing: 0;
   line-height: 22px;
+  p {
+    margin-bottom: 0;
+    font-family: "proxima_nova_rgregular";
+    font-size: 17px;
+  }
  }
  .prekindergarten{
  
@@ -4725,13 +5154,14 @@ display: flex;
   
  p{
    margin-bottom: 0px;
-
+  font-size: 17px;
  }
 }
 
 }
     }
 }
+ }
 .table {
     padding: 20px 20px;
     .table-hover th,td {
@@ -4745,7 +5175,7 @@ p{
 }
 h5{
   color: #20282A;
-  font-family: "proxima_nova_rgbold";
+  font-family: "Proxima Nova";
   font-size: 16px;
   font-weight: 600;
 }
@@ -4756,72 +5186,88 @@ h5{
   margin-top: 50px;
   .profile{
     justify-content: center;
-
+    display: flex;
+    align-items: center;
     .common-name{
-          padding-left: 44px;
+          padding-left: 20px;
       .name {
         color: #20282A;
-      font-family: "Proxima Nova";
-      font-size: 24px;
-      font-weight: 600;
-      margin-top: 20px;
-      margin-bottom: 3px;
- 
+        font-family: "Proxima Nova";
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 0px;
       }
       .taut-id{
         color: #43AA8B;
-      font-family: "proxima_nova_rgregular";
-      font-size: 17px;
-      letter-spacing: 0;
+        font-family: "proxima_nova_rgregular";
+        font-size: 17px;
+        letter-spacing: 0;
         margin-bottom: 4px;
-   
       }
     }
   }
 
 }
 .myprofile .profilepic{
-    float: right;
     position: relative;
     .pro-icon{
-      height: 106px;
-  width: 106px;
+      height: 85px;
+      width: 85px;
     }
 .edit{
-   margin-top: 60px;
    position: absolute;
-   bottom: 2px;
-   right: -34%;
-  
+   bottom: -6px;
+   right: -2%;
 }
 }
 .id-name{
     color: #454C4E;
-  font-family: "proxima_nova_rgregular";
-  font-size: 18px;
- padding-left: 10px;
+    font-family: "proxima_nova_rgregular";
+    font-size: 18px;
+    padding-left: 10px;
 }
 .myprofile-subscription{
-    height: 280px;
-  //  width: 1120px;
   border-radius: 10px;
   background-color: #FFFFFF;
   box-shadow: 0 12px 34px -10px rgba(0,0,0,0.05);
- margin-top: 30px;
+  margin-top: 30px;
+  padding: 30px;
  .mysubscription-name{
   color: #454C4E;
   font-family: "Proxima Nova";
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
+  margin-bottom: 30px;
+ }
+ .subscription-left {
+   h5 {
+    font-size: 18px;
+   }
+   .row {
+    align-items: flex-end;
+    margin-bottom: 25px;
+    .text-right {
+      text-align: right;
+    }
+   }
+   .row:last-child {
+     margin-bottom: 0;
+   }
+   p {
+     margin-bottom: 5px;
+     color: #7D8283;
+   }
+   h5 {
+     margin-bottom: 0;
+   }
  }
  .subscribed{
-  padding-left: 50px;
-  margin-top: 20px;
   p{
     color: #7D8283;
-  font-family: "proxima_nova_rgregular";
-  font-size: 18px;
-  font-weight: 600;
+    font-family: "proxima_nova_rgregular";
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
   }
   h5{
     color: #20282A;
@@ -4849,41 +5295,32 @@ h5{
 }
 }
 .mysubscription-name{
-  padding-left: 30px;
-  padding-top: 35px;
+ 
 }
 .account-details{
-  height: 174px;
   border-radius: 10px;
   background-color: #FFFFFF;
   box-shadow: 0 12px 34px -10px rgba(0,0,0,0.05);
-  margin-top: 50px;
- 
+  margin: 30px 0px;
+  padding: 30px;
+  .text-right {
+    text-align: right;
+  }
   .account-details-name{
-  
-  color: #454C4E;
-  font-family: "Proxima Nova";
-  font-size: 24px;
-  font-weight: bold;
-  padding-left: 30px;
-  padding-top: 30px;
-
-
+    text-transform: uppercase;
+    color: #454C4E;
+    font-family: "Proxima Nova";
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
   }
-  .details{
-    margin-top: 30px;
-    padding-left: 30px;
-    .space{
-      margin-bottom: 30px;
-    }
-  }
-  
   .tautid{
     color: #7D8283;
     font-family: "proxima_nova_rgregular";
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     padding-bottom: 0px;
+    margin-bottom: 5px;
   }
   .span-one{
     color: #7D8283;
@@ -4893,59 +5330,68 @@ h5{
   }
 }
 .myprofile .cred{
-  margin-top: 30px;
   p {
     color: #7D8283;
-    font-family: "Proxima Nova";
-    font-size: 18px;
+    font-family: "proxima_nova_rgregular";
+    font-size: 16px;
     font-weight: 600;
+    margin-bottom: 5px;
   }
   h5{
     color: #20282A;
     font-family: "Proxima Nova";
     font-size: 30px;
     font-weight: 600;
-    
   }
-  
-  
 }
 .pass{
-  height: 49px;
-  width: 190px;
-  border-radius: 10px;
-  background-color: #43AA8B;
-  border: 0;
-  margin-top: 30px;
+    height: 43px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #43AA8B;
+    border: 0;
+    max-width: 175px;
   span{
     color: #FFFFFF;
-  font-family: "proxima_nova_rgbold";
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-
+    font-family: "proxima_nova_rgbold";
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
   }
 }
 .parent-details{
-
- height: 344px;
   border-radius: 10px;
   background-color: #FFFFFF;
   box-shadow: 0 12px 34px -10px rgba(0,0,0,0.05);
-
+  padding: 30px;
+  .row {
+    margin-bottom: 20px;
+  }
+  .row:last-child {
+    margin-bottom: 0;
+  }
   .parent-details-name{
     color: #454C4E;
     font-family: "proxima_nova_rgregular";
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
-    padding-top: 30px;
-    padding-left: 30px;
+    margin-bottom: 30px;
+  }
+  p{
+    color: #7D8283;
+    font-family: "proxima_nova_rgregular";
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  h5{
+    color: #20282A;
+    font-family: "Proxima Nova";
+    font-size: 20px;
+    font-weight: 600;
   }
 }
 .parent-details-block{
-  padding-left: 30px;
-  margin-top: 30px;
-
   .parent p{
     color: #7D8283;
     font-family: "proxima_nova_rgregular";
@@ -5007,18 +5453,58 @@ h5{
 }
 .myprofile-subscription{
   .completed-rectangle{
-    height: 145px;
-  width: 500px;
-  border-radius: 20px;
-  background-color: #FFFCF5;
-  margin-top: 40px;
+    border-radius: 20px;
+    background-color: #FFFCF5;
+    padding: 25px;
   .rect-inside{
-    padding-top: 38px;
-    padding-left: 26px;
-  
+    .progress {
+      background-color: #ffe7d9;
+      border-radius: 10px;
+      height: 10px;
+      .progress-bar {
+        background-color: #f3722c;
+        border-radius: 10px;
+        overflow: visible;
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          background: #fff;
+          height: 5px;
+          width: 5px;
+          left: 4px;
+          border-radius: 50%;
+          top: 2.4px;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          background: #fff;
+          height: 1px;
+          width: 60%;
+          top: 2.3px;
+          left: 13px;
+        }
+      }
+    }
+    .text-right {
+      text-align: right;
+      p {
+        color: #F3722C;
+        font-size: 15px;
+      }
+    }
+    p {
+      margin-bottom: 0;
+      font-size: 18px;
+    }
+    h3 {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+    }
       .progressBar {
         color: #f3722c;
-
         .progress {
           background-color: #ffe7d9;
           border-radius: 10px;
@@ -5058,10 +5544,9 @@ h5{
 
   p{
     color: #454C4E;
-  font-family: "proxima_nova_rgregular";
-  font-size: 20px;
-  font-weight: 600;
- 
+    font-family: "proxima_nova_rgregular";
+    font-size: 16px;
+    font-weight: 600;
   }
   h3{
     color: #F3332C;

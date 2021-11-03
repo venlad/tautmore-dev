@@ -19,7 +19,7 @@ const MyexamTab = () => {
 
     return (
         <div className="row myexam-tab">
-            <div className="col-md-8 col-sm-12">
+            <div className="col-md-8 col-sm-12 ">
                 <div className="dtoggle-bar">
                     <div className="toggle-maths-div">
                         <button

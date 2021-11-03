@@ -17,7 +17,7 @@ const Dashboard = () => {
     const [open, setOpen] = useState(false);
     const [view, setView] = useState('Dashboard');
     const [concept, setConcept] = useState('');
-    // const [exam, setExam] = useState('');
+    const [renewSub, setRenewSub] = useState('');
 
     return (
 
@@ -29,6 +29,7 @@ const Dashboard = () => {
                     setView={setView}
                     view={view}
                     setConcept={setConcept}
+                    setRenewSub={setRenewSub}
                 />
                 <div className="col-sm-9 dashboard-right">
                     <DashSearch />
@@ -49,10 +50,12 @@ const Dashboard = () => {
 
                     {view === 'My classes' && (<MyClasses  />) }
 
-                    {view === 'My subscriptions' && (<MySubscription />)}
+                    {view === 'My subscriptions' && renewSub === '' ? (<MySubscription setRenewSub={setRenewSub} />) : ''}
 
                     {view === 'Myprofile' && (<MyProfile />)}
-                    {view === 'My subscriptions' && (<Renewsub  />) }
+                    {view === 'My subscriptions' && renewSub === 'Renew subscriptions'
+                        ? (<Renewsub  />)
+                        : ''}
 
                 </div>
             </div>

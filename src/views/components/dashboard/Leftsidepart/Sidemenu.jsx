@@ -7,7 +7,7 @@ import sidebardata from '../mockData/dashboardsidebardata';
 import { menu } from '../../../../assets/icons/IconList';
 
 function Sidemenu({
-    open, setOpen, setView, view, setConcept,
+    open, setOpen, setView, view, setConcept, setRenewSub,
 }) {
     const toggleTrueFalse = () => {
         setOpen(!open);
@@ -16,6 +16,7 @@ function Sidemenu({
     const changeValue = (value) => {
         setView(value);
         setConcept('');
+        setRenewSub('');
     };
 
     const profileValue = (value) => {
@@ -27,12 +28,20 @@ function Sidemenu({
             <div className="logo-profile">
                 <Link to="/"><img src={sidebarLogo} alt="logo" className="dashboard-logo" /></Link>
             </div>
-            <div className="dashboard-profile" aria-hidden="true" onClick={() => profileValue('Myprofile')}>
+            <div className="dashboard-profile">
                 <div className="row">
-                    <div className="col-sm-3 dashboard-profile-left text-center">
+                    <div
+                        className="col-sm-3 dashboard-profile-left text-center"
+                        onClick={() => profileValue('Myprofile')}
+                        aria-hidden="true"
+                    >
                         <img src={Sidebarprofile} alt="profile" />
                     </div>
-                    <div className="col-sm-6 dashboard-profile-center">
+                    <div
+                        className="col-sm-6 dashboard-profile-center"
+                        onClick={() => profileValue('Myprofile')}
+                        aria-hidden="true"
+                    >
 
                         <h5>Susan Richards</h5>
                         <p>susan.9871245551</p>
@@ -73,6 +82,7 @@ Sidemenu.propTypes = {
     setView: func.isRequired,
     view: string.isRequired,
     setConcept: func.isRequired,
+    setRenewSub: func.isRequired,
 };
 
 export default Sidemenu;

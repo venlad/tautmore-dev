@@ -5,10 +5,14 @@ import MySubscriptionListCommon from './MySubscriptionListCommon';
 const MySubscriptionList = () => (
     <div className="myexam-examlist">
         {subscriptionList.map((data) => (
-            <div>
-                {data?.data?.map((val) => (
-                    <MySubscriptionListCommon val={val} key={val.key}  />
-                ))}
+            <div className="subscription-table">
+                <table className="table table-hover responsive-table">
+                    <tbody>
+                        {data?.data?.map((val, index) => (
+                            <MySubscriptionListCommon val={val} key={val.key} index={index} />
+                        ))}
+                    </tbody>
+                </table>
             </div>
         ))}
     </div>
