@@ -25,6 +25,25 @@
         }
       }
     }
+    .option-part {
+      padding: 30px 40px 15px;
+      .option-common {
+        display: inline-block;
+        height: 137px;
+        width: 157px;
+        border-radius: 10px;
+        background-color: #fff;
+        cursor: pointer;
+        box-shadow: rgba(140,140,140,0.1);
+        margin-right: 20px;
+        svg {
+          margin-top: 20px;
+        }
+        p {
+          margin-top: 20px;
+        }
+      }
+    }
     .stepper-above {
       display: inline-block;
       width: 15%;

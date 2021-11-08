@@ -1,57 +1,45 @@
 import React, { useState } from 'react';
 import './login.scss';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { func, string } from 'prop-types';
 import Logo from '../../../../assets/images/Logo.png';
 import { eye, noteye, chevRight } from '../../../../assets/icons/IconList';
+import { login } from '../../../../stores/Auth/AuthAction';
 
-const Login = () => {
-    const history = useHistory();
-    const [email, setEmail] = useState('');
+const Login = ({ loginAction, loginMessage }) => {
+    const [emailval, setEmailval] = useState('');
     const [emailError, setEmailError] = useState('');
-    const [password, setPassword] = useState('');
+    const [passwordval, setPasswordval] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [showpass, setShowpass] = useState(false);
-    // const [successMsg, setSuccessMsg] = useState('');
 
     const handleEmailChange = (e) => {
-        // setSuccessMsg('');
         setEmailError('');
-        setEmail(e.target.value);
+        setEmailval(e.target.value);
     };
 
     const handlePasswordChange = (e) => {
-        // setSuccessMsg('');
         setPasswordError('');
-        setPassword(e.target.value);
+        setPasswordval(e.target.value);
     };
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-        const passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
-        if (email !== '') {
-            if (emailRegex.test(email)) {
-                setEmailError('');
-            } else {
-                setEmailError('Invalid Email');
-            }
-        } else {
+        if (emailval === '') {
             setEmailError('Please enter your email / username`');
         }
 
-        if (password !== '') {
-            if (passRegex.test(password)) {
-                setPasswordError('');
-            } else {
-                setPasswordError('Invalid password');
-            }
-        } else {
+        if (passwordval === '') {
             setPasswordError('Please enter your password');
         }
 
-        if (emailRegex.test(email) && passRegex.test(password)) {
-            // setSuccessMsg('login success');
-            history.push('/dashboard');
+        if (emailval !== '' && passwordval !== '') {
+            const data = {
+                userName: emailval,
+                password: passwordval,
+            };
+            loginAction(data);
         }
     };
 
@@ -62,14 +50,15 @@ const Login = () => {
                 <div className="login-head text-center">
                     <img src={Logo} alt="logo" />
                     <h3>Login</h3>
+                    <p>{loginMessage}</p>
                 </div>
                 <form onSubmit={handleFormSubmit}>
                     <label htmlFor="email">Email or username*
-                        <input type="text" onChange={handleEmailChange} value={email} className={`${emailError && 'error'}`} />
+                        <input type="text" onChange={handleEmailChange} value={emailval} className={`${emailError && 'error'}`} />
                     </label>
                     {emailError && <p className="error-msg"><span><b>!</b></span>{emailError}</p>}
                     <label htmlFor="email" className="password-label">Password*
-                        <input type={`${showpass ? 'text' : 'password'}`} onChange={handlePasswordChange} value={password} className={`${emailError && 'error'}`} />
+                        <input type={`${showpass ? 'text' : 'password'}`} onChange={handlePasswordChange} value={passwordval} className={`${emailError && 'error'}`} />
                         <button type="button" onClick={() => setShowpass(!showpass)}>{ showpass ? noteye : eye}</button>
                     </label>
                     {passwordError && <p className="error-msg"><span><b>!</b></span>{passwordError}</p>}
@@ -95,4 +84,21 @@ const Login = () => {
     );
 };
 
-export default Login;
+const mapStateToProps = (state) => ({
+    loginMessage: state.Auth.Login.message,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    loginAction: (data) => dispatch(login(data)),
+});
+
+Login.defaultProps = {
+    loginMessage: '',
+};
+
+Login.propTypes = {
+    loginAction: func.isRequired,
+    loginMessage: string,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

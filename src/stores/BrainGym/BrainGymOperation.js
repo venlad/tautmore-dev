@@ -14,7 +14,6 @@ function* workerCompleteChest(data) {
             yield put({
                 type: actionTypes.UPDATE_UNLOCK_CHEST,
                 payload: true,
-
             });
         }
     } catch (error) {
