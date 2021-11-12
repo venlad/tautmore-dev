@@ -24,9 +24,53 @@ function* workerRegister(data) {
     }
 }
 
+function* workerCoCurricularActivities() {
+    const response = yield authServices.coCurricularActivities();
+    if (response) {
+        yield put({
+            type: actionTypes.UPDATE_CO_CURRICULAR_ACTIVITIES,
+            payload: response,
+        });
+    }
+}
+
+function* workerSendOtp(data) {
+    const response = yield authServices.sendOtp(data.payload);
+    if (response) {
+        yield put({
+            type: actionTypes.UPDATE_SEND_OTP,
+            payload: response,
+        });
+    }
+}
+
+function* workerGetAllGrades() {
+    const response = yield authServices.getAllGrades();
+    if (response) {
+        yield put({
+            type: actionTypes.UPDATE_GET_ALL_GRADES,
+            payload: response,
+        });
+    }
+}
+
+function* workerGetUniqueSubjects() {
+    const response = yield authServices.getUniqueSubjects();
+    if (response) {
+        yield put({
+            type: actionTypes.UPDATE_GET_UNIQUE_SUBJECTS,
+            payload: response,
+        });
+    }
+}
+
 function* watcherAuth() {
     yield takeLatest(actionTypes.LOGIN, workerLogin);
     yield takeLatest(actionTypes.REGISTER, workerRegister);
+    yield takeLatest(actionTypes.CO_CURRICULAR_ACTIVITIES, workerCoCurricularActivities);
+    yield takeLatest(actionTypes.SEND_OTP, workerSendOtp);
+    yield takeLatest(actionTypes.GET_ALL_GRADES, workerGetAllGrades);
+    yield takeLatest(actionTypes.GET_UNIQUE_SUBJECTS, workerGetUniqueSubjects);
 }
 
 function* fetchAll() {

@@ -11,6 +11,11 @@
       .step-btn-part {
         margin-top: 50px;
       }
+      span.error-msg {
+        font-size: 13px;
+        color: red;
+        margin-top: 10px;
+      }
     }
     .register-top {
       padding: 30px 40px 15px;
@@ -174,7 +179,7 @@
         }
       }
       .course-detail-select {
-        label {
+        label, div.label-div {
           display: block;
           color: #7d8283;
           font-family: "Proxima Nova";
@@ -182,6 +187,33 @@
           line-height: 22px;
           margin-bottom: 5px;
           margin-top: 30px;
+        }
+        div.css-1s2u09g-control, .css-1pahdxg-control {
+          width: 100%;
+          border: 1px solid #e0e0e0;
+          border-radius: 10px;
+          height: 66px;
+          background-color: #fff;
+          padding: 0px 20px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          position: relative;
+          box-shadow: none;
+          .css-319lph-ValueContainer {
+            padding: 0;
+          }
+          .css-1hb7zxy-IndicatorsContainer {
+            span {
+              width: 0;
+            }
+            .css-tlfecz-indicatorContainer {
+              padding: 0;
+              svg {
+                fill: #212529;
+              }
+            }
+          }
         }
         div.select {
           width: 100%;
@@ -384,6 +416,57 @@
           }
         }
       }
+      
+      .mydetail-input {
+        .mydetail-input-part {
+          position: relative;
+        }
+        button {
+          display: inline-block;
+          position: absolute;
+          right: 7%;
+          bottom: 16%;
+          background: transparent;
+          border: 0;
+          color: #f3722c;
+          font-family: "proxima_nova_rgbold";
+        }
+      }
+      h3.text-center {
+        font-family: "proxima_nova_rgbold";
+        color: #454c4e;
+        font-size: 24px;
+        line-height: 29px;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+        span {
+          color: #f3722c;
+        }
+      }
+      label {
+        display: block;
+        color: #7d8283;
+        font-family: "Proxima Nova";
+        font-size: 18px;
+        line-height: 22px;
+        
+        margin-top: 30px;
+      }
+      input {
+        width: 100%;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        height: 66px;
+        background-color: #fff;
+        padding: 0px 20px;
+        margin-top: 5px;
+      }
+      input:focus {
+        outline: 0 !important;
+      }
+    }
+
+    .pay-fees-main {
       .payment-main {
         font-family: "Proxima Nova";
   
@@ -425,52 +508,6 @@
           margin-bottom: 0;
           color: #43aa8b;
         }
-      }
-      .mydetail-input {
-        .mydetail-input-part {
-          position: relative;
-        }
-        button {
-          display: inline-block;
-          position: absolute;
-          right: 7%;
-          bottom: 16%;
-          background: transparent;
-          border: 0;
-          color: #f3722c;
-          font-family: "proxima_nova_rgbold";
-        }
-      }
-      h3.text-center {
-        font-family: "proxima_nova_rgbold";
-        color: #454c4e;
-        font-size: 24px;
-        line-height: 29px;
-        text-transform: uppercase;
-        margin-bottom: 40px;
-        span {
-          color: #f3722c;
-        }
-      }
-      label {
-        display: block;
-        color: #7d8283;
-        font-family: "Proxima Nova";
-        font-size: 18px;
-        line-height: 22px;
-        margin-bottom: 5px;
-        margin-top: 30px;
-      }
-      input {
-        width: 100%;
-        border: 1px solid #e0e0e0;
-        border-radius: 10px;
-        height: 66px;
-        background-color: #fff;
-        padding: 0px 20px;
-      }
-      input:focus {
-        outline: 0 !important;
       }
     }
     .create-student-main {
@@ -650,7 +687,7 @@
     }
   }
   @media only screen and (max-width: 1052px) {
-    .register-main .mydetails-main .total-data h4, .register-main .mydetails-main .total-data h3 {
+    .register-main .pay-fees-main .total-data h4, .register-main .pay-fees-main .total-data h3 {
       font-size: 17px;
     }
   }
@@ -677,13 +714,13 @@
       bottom: 22%;
       font-size: 13px;
     }
-    .register-main .mydetails-main .payment-main h4 {
+    .register-main .pay-fees-main .payment-main h4 {
       font-size: 18px;
     }
-    .register-main .mydetails-main .payment-main p {
+    .register-main .pay-fees-main .payment-main p {
       font-size: 18px;
     }
-    .register-main .mydetails-main .payment-main label {
+    .register-main .pay-fees-main .payment-main label {
       font-size: 15px;
     }
   }
@@ -696,7 +733,7 @@
       height: 50px;
       font-size: 16px;
     }
-    .register-main .mydetails-main .total-data {
+    .register-main .pay-fees-main .total-data {
       width: 100%;
       padding: 0;
     }
@@ -726,7 +763,7 @@
       font-size: 17px !important;
       margin-bottom: 5px !important;
     }
-    .register-main .coursedetails-main .course-detail-select label, .register-main .mydetails-main label, .register-main .mydetails-main .payment-main p, .register-main .mydetails-main .payment-main h4,.register-main .mydetails-main .total-data h4, .register-main .mydetails-main .total-data h3, .register-main .create-student-main label {
+    .register-main .coursedetails-main .course-detail-select label, .register-main .mydetails-main label, .register-main .pay-fees-main .payment-main p, .register-main .pay-fees-main .payment-main h4,.register-main .pay-fees-main .total-data h4, .register-main .pay-fees-main .total-data h3, .register-main .create-student-main label {
       font-size: 15px;
     }
     .register-main .create-student-main h4 {
@@ -745,7 +782,7 @@
       margin-top: 25px;
       font-size: 25px;
     }
-    .register-main .mydetails-main .total-data {
+    .register-main .pay-fees-main .total-data {
       text-align: center;
     }
     .register-main {

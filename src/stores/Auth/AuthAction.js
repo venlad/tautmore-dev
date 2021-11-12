@@ -12,3 +12,24 @@ export function register(data) {
         payload: data,
     };
 }
+export function coCurricularActivitiesAction() {
+    return {
+        type: actionTypes.CO_CURRICULAR_ACTIVITIES,
+    };
+}
+export function sendOtpAction(data) {
+    return {
+        type: actionTypes.SEND_OTP,
+        payload: data,
+    };
+}
+export function getAllGradesAction() {
+    return {
+        type: actionTypes.GET_ALL_GRADES,
+    };
+}
+export function getUniqueSubjectsAction() {
+    return {
+        type: actionTypes.GET_UNIQUE_SUBJECTS,
+    };
+}
