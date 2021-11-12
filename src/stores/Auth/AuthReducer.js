@@ -4,7 +4,8 @@ const initialState = {
     Login: [],
     Register: [],
     CoCurricularActivities: [],
-    Otp: [],
+    otp: [],
+    verifyOtp: {},
     AllGrades: [],
     Subjects: [],
 };
@@ -29,7 +30,13 @@ export default function reducer(state = initialState, action) {
         case actionTypes.UPDATE_SEND_OTP:
             return {
                 ...state,
-                Otp: action.payload,
+                otp: action.payload,
+                verifyOtp: {},
+            };
+        case actionTypes.UPDATE_VERIFY_OTP:
+            return {
+                ...state,
+                verifyOtp: action.payload,
             };
         case actionTypes.UPDATE_GET_ALL_GRADES:
             return {

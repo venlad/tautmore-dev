@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { func } from 'prop-types';
+import { func, object } from 'prop-types';
 import Logo from '../../../../assets/images/Logo.png';
 import './register.scss';
 import  stepdata  from './mockData/Stepperdata';
@@ -16,7 +16,7 @@ import { register } from '../../../../stores/Auth/AuthAction';
 import RegisterOption from './RegisterOption';
 import PayFees from './PayFees';
 
-const Register = ({ registerAction }) => {
+const Register = ({ registerAction, isOtpVerified }) => {
     const [step, setStep] = useState(0);
     const [userType, setUserType] = useState('');
     const [coActivity, setCoActivity] = useState();
@@ -160,7 +160,7 @@ const Register = ({ registerAction }) => {
                         <RegisterOption icon={student} title="Student" setUserType={setUserType} userType={userType} />
                         <RegisterOption icon={parents} title="Parent" setUserType={setUserType} userType={userType} />
                         <h5 className="already-account">Already have an account? <Link to="/login">Login here</Link></h5>
-                        <button type="button" onClick={selectForm}>Next {errowRight}</button>
+                        <button type="button" disabled={userType === ''} onClick={selectForm}>Next {errowRight}</button>
                     </div>
                 </div>
             )}
@@ -226,7 +226,7 @@ const Register = ({ registerAction }) => {
                     <div className="text-center step-btn-part">
                         {step > 1 && step < 5 && <button type="button" onClick={backStep}>Back</button>}
                         {step < 6 && (
-                            <button type="button" className="next-button" onClick={completeFromStep}>
+                            <button type="button" disabled={!isOtpVerified.status} className="next-button" onClick={completeFromStep}>
                                 {step === 1 && 'Next'}
                                 {step === 2 && 'Proceed to payment'}
                                 {step === 3 && 'Next'}
@@ -244,12 +244,16 @@ const Register = ({ registerAction }) => {
     );
 };
 
+Register.propTypes = {
+    isOtpVerified: object.isRequired,
+    registerAction: func.isRequired,
+};
+const mapStateToProps = (state) => ({
+    isOtpVerified: state.Auth.verifyOtp,
+});
+
 const mapDispatchToProps = (dispatch) => ({
     registerAction: (data) => dispatch(register(data)),
 });
 
-Register.propTypes = {
-    registerAction: func.isRequired,
-};
-
-export default connect(null, mapDispatchToProps)(Register);
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

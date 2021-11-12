@@ -23,6 +23,14 @@ export function sendOtpAction(data) {
         payload: data,
     };
 }
+
+export function verifyOtpAction(data) {
+    return {
+        type: actionTypes.VERIFY_OTP,
+        payload: data,
+    };
+}
+
 export function getAllGradesAction() {
     return {
         type: actionTypes.GET_ALL_GRADES,

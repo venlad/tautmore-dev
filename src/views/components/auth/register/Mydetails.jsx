@@ -1,11 +1,11 @@
 import React from 'react';
 import  {
-    string, func, object, number,
+    string, func, object, number, shape,
 } from 'prop-types';
 import { connect } from 'react-redux';
 import Mydetailsinput from './Mydetailsinput';
 import Mydetailotpinput from './Mydetailotpinput';
-import { sendOtpAction } from '../../../../stores/Auth/AuthAction';
+import { sendOtpAction, verifyOtpAction } from '../../../../stores/Auth/AuthAction';
 
 const Mydetails = ({
     setFullnameVal,
@@ -16,6 +16,8 @@ const Mydetails = ({
     phoneNumVal,
     setPhoneNumVal,
     sendOtp,
+    verifyOtp,
+    otp,
     otpVal,
     setOtpVal,
 }) => {
@@ -54,9 +56,10 @@ const Mydetails = ({
                                 <button type="button" onClick={otpClick}>Send OTP</button>
                             </label>
                         </div>
+                        {otp.status === 'success' && <span className="success-msg">Otp sent</span>}
                         {validation.phoneNumber && <span className="error-msg">Phone number is required.</span>}
                     </div>
-                    <Mydetailotpinput label="Enter OTP" resendotp="Resend OTP" otpVal={otpVal} setOtpVal={setOtpVal} />
+                    <Mydetailotpinput label="Enter OTP" verifyOtp={verifyOtp} resendotp="Resend OTP" otpVal={otpVal} setOtpVal={setOtpVal} />
                 </div>
             </div>
         </div>
@@ -73,14 +76,19 @@ Mydetails.propTypes = {
     setPhoneNumVal: object.isRequired,
     otpVal: string.isRequired,
     setOtpVal: object.isRequired,
+    otp: shape({
+        status: string.isRequired,
+    }).isRequired,
+    sendOtp: func.isRequired,
+    verifyOtp: func.isRequired,
 };
 
+const mapStateToProps = (state) => ({
+    otp: state.Auth.otp,
+});
 const mapDispatchToProps = (dispatch) => ({
     sendOtp: (data) => dispatch(sendOtpAction(data)),
+    verifyOtp: (data) => dispatch(verifyOtpAction(data)),
 });
 
-Mydetails.propTypes = {
-    sendOtp: func.isRequired,
-};
-
-export default connect(null, mapDispatchToProps)(Mydetails);
+export default connect(mapStateToProps, mapDispatchToProps)(Mydetails);

@@ -24,6 +24,14 @@ function sendOtp(params) {
         params,
     );
 }
+
+function verifyOtp(params) {
+    return fetchWrapper.post(
+        `${baseUrl}/api/students/verify-otp`,
+        params,
+    );
+}
+
 function getAllGrades() {
     return fetchWrapper.get(`${baseUrl}/class/all-grades`);
 }
@@ -36,6 +44,7 @@ export const authServices = {
     register,
     coCurricularActivities,
     sendOtp,
+    verifyOtp,
     getAllGrades,
     getUniqueSubjects,
 };

@@ -44,6 +44,16 @@ function* workerSendOtp(data) {
     }
 }
 
+function* workerVerifyOtp(data) {
+    const response = yield authServices.verifyOtp(data.payload);
+    if (response) {
+        yield put({
+            type: actionTypes.UPDATE_VERIFY_OTP,
+            payload: response,
+        });
+    }
+}
+
 function* workerGetAllGrades() {
     const response = yield authServices.getAllGrades();
     if (response) {
@@ -67,6 +77,7 @@ function* workerGetUniqueSubjects() {
 function* watcherAuth() {
     yield takeLatest(actionTypes.LOGIN, workerLogin);
     yield takeLatest(actionTypes.REGISTER, workerRegister);
+    yield takeLatest(actionTypes.VERIFY_OTP, workerVerifyOtp);
     yield takeLatest(actionTypes.CO_CURRICULAR_ACTIVITIES, workerCoCurricularActivities);
     yield takeLatest(actionTypes.SEND_OTP, workerSendOtp);
     yield takeLatest(actionTypes.GET_ALL_GRADES, workerGetAllGrades);
