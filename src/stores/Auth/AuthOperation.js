@@ -5,17 +5,28 @@ import * as actionTypes from './AuthTypes';
 import { authServices } from '../../services/auth.services';
 
 function* workerLogin(data) {
+    yield put({
+        type: actionTypes.SET_LOGIN_LOADING,
+        payload: true,
+    });
     const response = yield authServices.login(data.payload);
+
     if (response) {
+        localStorage.setItem('taut-student', JSON.stringify(response));
         yield put({
             type: actionTypes.UPDATE_LOGIN,
             payload: response,
+        });
+        yield put({
+            type: actionTypes.SET_LOGIN_LOADING,
+            payload: false,
         });
     }
 }
 
 function* workerRegister(data) {
     const response = yield authServices.register(data.payload);
+
     if (response) {
         yield put({
             type: actionTypes.UPDATE_REGISTER,
@@ -35,6 +46,10 @@ function* workerCoCurricularActivities() {
 }
 
 function* workerSendOtp(data) {
+    yield put({
+        type: actionTypes.UPDATE_VERIFY_OTP,
+        payload: true,
+    });
     const response = yield authServices.sendOtp(data.payload);
     if (response) {
         yield put({

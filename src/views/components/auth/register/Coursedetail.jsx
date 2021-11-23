@@ -84,8 +84,7 @@ const Coursedetail = ({
     };
 
     const examChange = (selected) => {
-        const edata = selected.map((val) => (val.label));
-        setExamVal(edata);
+        setExamVal(selected.value);
     };
 
     const activityChange = (selected) => {
@@ -147,11 +146,12 @@ const Coursedetail = ({
                         validation={validation}
                     />
 
-                    <div className="col-md-6 course-detail-select mutiple-dropdown-part">
+                    <div className="col-md-6 course-detail-select">
                         <div className="label-div">Select exam(s)</div>
-                        <ReactMultiSelectCheckboxes
+                        <Select
+                            id="exam"
+                            name="exam"
                             options={exam}
-                            placeholderButtonLabel="Select..."
                             onChange={examChange}
                         />
                     </div>

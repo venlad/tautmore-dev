@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,  useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { func, object } from 'prop-types';
 import Logo from '../../../../assets/images/Logo.png';
@@ -17,6 +17,7 @@ import RegisterOption from './RegisterOption';
 import PayFees from './PayFees';
 
 const Register = ({ registerAction, isOtpVerified }) => {
+    const history = useHistory();
     const [step, setStep] = useState(0);
     const [userType, setUserType] = useState('');
     const [coActivity, setCoActivity] = useState();
@@ -41,7 +42,8 @@ const Register = ({ registerAction, isOtpVerified }) => {
         subjects: false,
     });
 
-    const completeFromStep = () => {
+    const handleRegister = () => {
+        console.log(subjectVal, 'val');
         const data = {
             studentName: fullnameVal,
             userName: 'mithun.9535778823',
@@ -56,10 +58,13 @@ const Register = ({ registerAction, isOtpVerified }) => {
             ],
             onBoardThrough: 'web',
         };
-        if (step === 5) {
-            registerAction(data);
-        }
+        registerAction(data);
+        setStep((cur) => cur + 1);
+    };
+    const completeFromStep = () => {
         const emailRegex = /\S+@\S+\.\S+/;
+
+        console.log(step, 'step');
 
         if (step === 1) {
             if (fullnameVal === '') {
@@ -118,6 +123,9 @@ const Register = ({ registerAction, isOtpVerified }) => {
             } else {
                 setStep((cur) => cur + 1);
             }
+        }
+        if (step === 3) {
+            setStep((cur) => cur + 1);
         }
     };
 
@@ -180,7 +188,6 @@ const Register = ({ registerAction, isOtpVerified }) => {
                             </div>
                         ))}
                     </div>
-
                 </div>
             )}
 
@@ -225,18 +232,12 @@ const Register = ({ registerAction, isOtpVerified }) => {
 
                     <div className="text-center step-btn-part">
                         {step > 1 && step < 5 && <button type="button" onClick={backStep}>Back</button>}
-                        {step < 6 && (
-                            <button type="button" disabled={!isOtpVerified.status} className="next-button" onClick={completeFromStep}>
-                                {step === 1 && 'Next'}
-                                {step === 2 && 'Proceed to payment'}
-                                {step === 3 && 'Next'}
-                                {step === 4 && 'Submit'}
-                                {step === 5 && 'Login to account'}
-                                <span>{chevRight}</span>
-                            </button>
-                        )}
+                        {step === 1 &&  <button type="button" disabled={!isOtpVerified.status} className="next-button" onClick={completeFromStep}>Next <span>{chevRight}</span> </button>}
+                        {step === 2 &&  <button type="button" disabled={!isOtpVerified.status} className="next-button" onClick={completeFromStep}>Next  <span>{chevRight}</span> </button>}
+                        {step === 3 &&  <button type="button" className="next-button" onClick={completeFromStep}>Next  <span>{chevRight}</span> </button>}
+                        {step === 4 &&  <button type="button" className="next-button" onClick={handleRegister}>Submit <span>{chevRight}</span> </button>}
+                        {step === 5 &&  <button type="button" className="next-button" onClick={() => history.push('/login')}>Login To Account  <span>{chevRight}</span> </button>}
                     </div>
-
                 </div>
             )}
 

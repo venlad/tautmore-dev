@@ -6,6 +6,14 @@ export function login(data) {
         payload: data,
     };
 }
+
+export function clearLoginAction() {
+    return {
+        type: actionTypes.CLEAR_LOGIN,
+        payload: {},
+    };
+}
+
 export function register(data) {
     return {
         type: actionTypes.REGISTER,

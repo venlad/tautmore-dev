@@ -679,6 +679,12 @@
         box-shadow: 5px 5px 5px rgb(0 0 0 / 24%) !important;
       }
     }
+    .next-button:disabled {
+      opacity: 0.4;
+      span {
+        box-shadow: 5px 5px 5px rgb(0 0 0 / 24%) !important;
+      }
+    }
   }
   .register-main.success {
     padding-top: 50px;

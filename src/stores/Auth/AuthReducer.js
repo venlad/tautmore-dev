@@ -1,10 +1,13 @@
 import * as actionTypes from './AuthTypes';
 
+const studentData = localStorage.getItem('taut-student');
 const initialState = {
-    Login: [],
+    Login: JSON.parse(studentData) || {},
+    isLoginLoading: false,
     Register: [],
     CoCurricularActivities: [],
     otp: [],
+    isSendingOtp: false,
     verifyOtp: {},
     AllGrades: [],
     Subjects: [],
@@ -17,6 +20,17 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 Login: action.payload,
             };
+        case actionTypes.CLEAR_LOGIN:
+            return {
+                ...state,
+                Login: action.payload,
+            };
+
+        case actionTypes.SET_LOGIN_LOADING:
+            return {
+                ...state,
+                isLoginLoading: action.payload,
+            };
         case actionTypes.UPDATE_REGISTER:
             return {
                 ...state,
@@ -26,6 +40,11 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 CoCurricularActivities: action.payload,
+            };
+        case actionTypes.IS_SENDING_OTP:
+            return {
+                ...state,
+                isSendingOtp: action.payload,
             };
         case actionTypes.UPDATE_SEND_OTP:
             return {

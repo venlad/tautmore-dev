@@ -32,7 +32,7 @@ const Mydetails = ({
     return (
         <div>
             <div className="mydetails-main">
-                <h3 className="text-center">my details</h3>
+                <h3 className="text-center">My details</h3>
                 <div className="row">
                     <div className="col-md-6 mydetail-input">
                         <Mydetailsinput label="Full name*" type="text" name="full_name" id="full-name" value={fullnameVal} setValue={setFullnameVal} />

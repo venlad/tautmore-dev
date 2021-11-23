@@ -1,18 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './login.scss';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { func, string } from 'prop-types';
+import {
+    func, string, bool, object,
+} from 'prop-types';
+import Spinner from 'react-bootstrap/Spinner';
+
 import Logo from '../../../../assets/images/Logo.png';
 import { eye, noteye, chevRight } from '../../../../assets/icons/IconList';
 import { login } from '../../../../stores/Auth/AuthAction';
 
-const Login = ({ loginAction, loginMessage }) => {
+const Login = ({
+    loginAction, loginMessage, isLoginLoading, userData,
+}) => {
     const [emailval, setEmailval] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordval, setPasswordval] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [showpass, setShowpass] = useState(false);
+
+    const history = useHistory();
+
+    useEffect(() => {
+        if (userData?.status === 'success') {
+            history.push('/dashboard');
+        }
+    }, [userData]);
 
     const handleEmailChange = (e) => {
         setEmailError('');
@@ -74,7 +88,10 @@ const Login = ({ loginAction, loginMessage }) => {
                         </div>
                     </div>
                     <div className="text-center">
-                        <button type="submit" value="Login" className="submit-btn">Login <span>{chevRight}</span></button>
+                        <button type="submit" value="Login" className="submit-btn"> {isLoginLoading ? (
+                            <Spinner animation="border" variant="light" />
+                        ) : 'Login'}  <span>{chevRight}</span>
+                        </button>
                         <p className="not-register">Not registered yet?<Link to="/register" className="green"> Create an account</Link></p>
                     </div>
                 </form>
@@ -86,6 +103,8 @@ const Login = ({ loginAction, loginMessage }) => {
 
 const mapStateToProps = (state) => ({
     loginMessage: state.Auth.Login.message,
+    userData: state.Auth.Login,
+    isLoginLoading: state.Auth.isLoginLoading,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -99,6 +118,8 @@ Login.defaultProps = {
 Login.propTypes = {
     loginAction: func.isRequired,
     loginMessage: string,
+    isLoginLoading: bool.isRequired,
+    userData: object.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
