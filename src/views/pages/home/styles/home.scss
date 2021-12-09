@@ -118,7 +118,9 @@
       font-family: "proxima_nova_rgbold";
       text-align: left;
       padding: 0px 25px;
-      box-shadow: 5px 5px 5px rgba(67, 170, 139, 0.25) !important;
+      box-shadow: none;
+      transition: 0.3s;
+      opacity: 0.8;
       span {
         float: right;
         height: 24px;
@@ -127,7 +129,7 @@
         border-radius: 50%;
         padding: 0px 7px;
         margin-top: 4px;
-        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+        box-shadow: none;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -220,6 +222,8 @@
       justify-content: center;
       align-items: center;
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.07) !important;
+      transition: 0.5s;
+      cursor: pointer;
       .icon {
         height: 70px;
         width: 70px;
@@ -425,6 +429,8 @@
       font-family: "proxima_nova_rgbold";
       line-height: 24px;
       margin-top: 40px;
+      transition: 0.3s;
+      opacity: 0.8;
       span {
         float: right;
         height: 24px;
@@ -433,7 +439,7 @@
         border-radius: 50%;
         padding: 0px 7px;
         margin-top: 0px;
-        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+        box-shadow: none;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -489,7 +495,7 @@
     width: 303px;
     border-radius: 33.75px;
     background-color: #43aa8b;
-    box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
+    box-shadow: none;
     border: 0;
     text-align: left;
     padding: 0px 20px;
@@ -506,7 +512,7 @@
       border-radius: 50%;
       padding: 0px 7px;
       margin-top: 0px;
-      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+      box-shadow: none;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -563,7 +569,7 @@
     width: 303px;
     border-radius: 33.75px;
     background-color: #43aa8b;
-    box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
+    box-shadow: none;
     border: 0;
     text-align: left;
     padding: 0px 20px;
@@ -580,7 +586,7 @@
       border-radius: 50%;
       padding: 0px 7px;
       margin-top: 0px;
-      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+      box-shadow: none;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -637,7 +643,7 @@
     width: 303px;
     border-radius: 33.75px;
     background-color: #43aa8b;
-    box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
+    box-shadow: none;
     border: 0;
     text-align: left;
     padding: 0px 20px;
@@ -654,7 +660,7 @@
       border-radius: 50%;
       padding: 0px 7px;
       margin-top: 0px;
-      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+      box-shadow: none;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -693,7 +699,7 @@
     width: 303px;
     border-radius: 33.75px;
     background-color: #43aa8b;
-    box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
+    box-shadow: none;
     border: 0;
     text-align: left;
     padding: 0px 20px;
@@ -710,7 +716,7 @@
       border-radius: 50%;
       padding: 0px 7px;
       margin-top: 0px;
-      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+      box-shadow: none;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -844,7 +850,7 @@
     width: 303px;
     border-radius: 33.75px;
     background-color: #43aa8b;
-    box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
+    box-shadow: none;
     border: 0;
     text-align: left;
     padding: 0px 20px;
@@ -861,7 +867,7 @@
       border-radius: 50%;
       padding: 0px 7px;
       margin-top: 0px;
-      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+      box-shadow: none;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1045,7 +1051,6 @@
       width: 303px;
       border-radius: 33.75px;
       background-color: #43aa8b;
-      box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
       border: 0;
       text-align: left;
       padding: 0px 20px;
@@ -1055,6 +1060,8 @@
       line-height: 24px;
       margin-top: 40px;
       position: relative;
+      transition: 0.3s;
+      opacity: 0.8;
       span {
         float: right;
         height: 24px;
@@ -1063,7 +1070,7 @@
         border-radius: 50%;
         padding: 0px 7px;
         margin-top: 0px;
-        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+        box-shadow: none;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1100,13 +1107,11 @@
   margin-top: 0 !important;
 }
 .button-common:hover {
-  background-color: #fff !important;
-  color: #43aa8b !important;
-  border: 2px solid #43aa8b !important;
-}
-.button-common:hover span {
-  background-color: #43aa8b !important;
-  color: #fff !important;
+  box-shadow: 5px 5px 5px rgba(67, 170, 139, 0.25) !important;
+  opacity: 1;
+  span {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+  }
 }
 
 .learningjoyful-main .learningjoyful-right div, .olympiad-right div, .classroom-right div {

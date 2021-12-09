@@ -1,56 +1,94 @@
 import React from 'react';
+import  {
+    string, func, object, number, shape,
+} from 'prop-types';
+import { connect } from 'react-redux';
 import Mydetailsinput from './Mydetailsinput';
 import Mydetailotpinput from './Mydetailotpinput';
-import  payment  from './mockData/Mydetailsdata';
+import { sendOtpAction, verifyOtpAction } from '../../../../stores/Auth/AuthAction';
 
-const Mydetails = () => (
-    <div>
-        <div className="mydetails-main">
-            <h3 className="text-center">my details</h3>
-            <div className="row">
-                <Mydetailsinput label="Full name*" type="text" />
-                <Mydetailsinput label="Email ID*" type="email" />
-                <Mydetailsinput
-                    label="Phone number*"
-                    type="number"
-                    btncontent="Send OTP"
-                />
-                <Mydetailotpinput label="Enter OTP" resendotp="Resend OTP" />
-            </div>
-            <div className="row">
-                <div className="col-md-2" />
-                <div className="col-md-8">
-                    {payment.map((pay) => (
-                        <div className="payment-main" key={pay.name}>
-                            <h3 className="text-center">{pay.name}</h3>
-
-                            {pay.data.map((data) => (
-                                <div className="row payment-data" key={data.title}>
-                                    <div className="col-md-8 col-sm-8 col-12">
-                                        <label htmlFor="payment-label">{data.title}</label>
-                                        <h4>{data.type}</h4>
-                                    </div>
-                                    <div className="col-md-4 col-sm-4 col-12">
-                                        <p>{data.price}</p>
-                                    </div>
-                                </div>
-                            ))}
+const Mydetails = ({
+    setFullnameVal,
+    fullnameVal,
+    validation,
+    setEmailVal,
+    emailVal,
+    phoneNumVal,
+    setPhoneNumVal,
+    sendOtp,
+    verifyOtp,
+    otp,
+    otpVal,
+    setOtpVal,
+}) => {
+    const otpClick = () => {
+        const data = {
+            parentName: fullnameVal,
+            email: emailVal,
+            phone: phoneNumVal,
+        };
+        sendOtp(data);
+    };
+    return (
+        <div>
+            <div className="mydetails-main">
+                <h3 className="text-center">My details</h3>
+                <div className="row">
+                    <div className="col-md-6 mydetail-input">
+                        <Mydetailsinput label="Full name*" type="text" name="full_name" id="full-name" value={fullnameVal} setValue={setFullnameVal} />
+                        {validation.fullName && <span className="error-msg">Full name is required.</span>}
+                    </div>
+                    <div className="col-md-6 mydetail-input">
+                        <Mydetailsinput
+                            label="Email ID*"
+                            type="email"
+                            name="email_id"
+                            id="email"
+                            value={emailVal}
+                            setValue={setEmailVal}
+                        />
+                        {validation.emailId && <span className="error-msg">email is required.</span>}
+                    </div>
+                    <div className="col-md-6 mydetail-input">
+                        <div className="mydetail-input-part">
+                            <label htmlFor="detail-label">Phone number*
+                                <input type="number" name="phone_number" id="phone" value={phoneNumVal} onChange={(e) => setPhoneNumVal(e.target.value)} />
+                                <button type="button" onClick={otpClick}>Send OTP</button>
+                            </label>
                         </div>
-                    ))}
-                </div>
-                <div className="col-md-2" />
-            </div>
-
-            <div className="row total-data">
-                <div className="col-md-8 col-sm-8 col-12">
-                    <h4>Grand total</h4>
-                </div>
-                <div className="col-md-4 col-sm-4 col-12">
-                    <h3>USD 111.00</h3>
+                        {otp.status === 'success' && <span className="success-msg">Otp sent</span>}
+                        {validation.phoneNumber && <span className="error-msg">Phone number is required.</span>}
+                    </div>
+                    <Mydetailotpinput label="Enter OTP" verifyOtp={verifyOtp} resendotp="Resend OTP" otpVal={otpVal} setOtpVal={setOtpVal} />
                 </div>
             </div>
         </div>
-    </div>
-);
+    );
+};
 
-export default Mydetails;
+Mydetails.propTypes = {
+    fullnameVal: string.isRequired,
+    setFullnameVal: func.isRequired,
+    validation: object.isRequired,
+    setEmailVal: object.isRequired,
+    emailVal: string.isRequired,
+    phoneNumVal: number.isRequired,
+    setPhoneNumVal: object.isRequired,
+    otpVal: string.isRequired,
+    setOtpVal: object.isRequired,
+    otp: shape({
+        status: string.isRequired,
+    }).isRequired,
+    sendOtp: func.isRequired,
+    verifyOtp: func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+    otp: state.Auth.otp,
+});
+const mapDispatchToProps = (dispatch) => ({
+    sendOtp: (data) => dispatch(sendOtpAction(data)),
+    verifyOtp: (data) => dispatch(verifyOtpAction(data)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Mydetails);

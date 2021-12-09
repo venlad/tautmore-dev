@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
-    func, bool, object,
+    func, bool, object, number,
 } from 'prop-types';
 import { connect } from 'react-redux';
 import {
@@ -14,18 +14,31 @@ import clock from '../../../assets/images/clock.svg';
 import note from '../../../assets/images/exam.png';
 
 const BraingymUnlock = ({
-    handlePopup, showPopup, getMasterBrainGym, chestData, masterBrainGym,
+    handlePopup,
+    showPopup,
+    getMasterBrainGym,
+    chestData,
+    masterBrainGym,
+    quesCounter,
 }) => {
+    const [timeTaken, setTimeTaken] = useState('');
+    useEffect(() => {
+        const localdata = localStorage.getItem('brain-gym-data');
+        const localvalue = JSON.parse(localdata);
+        const localtime = localvalue?.timeminutesecond;
+        setTimeTaken(`${(`0${Math.floor((localtime / 60000) % 60)}`).slice(-2)
+        }:${
+            (`0${Math.floor((localtime / 1000) % 60)}`).slice(-2)}`);
+    });
+
     const handleUnlockChest = () => {
         getMasterBrainGym();
         handlePopup(false);
     };
 
-    const isAllChestCompleted = masterBrainGym?.chest?.filter((item) => item?.status !== 'finished');
-
     return (
         <div>
-            {isAllChestCompleted?.length ? (
+            {quesCounter < 25 ? (
                 <div className={`braingym-unlock-main ${showPopup === true && 'active'}`}>
                     <div className="close-top">
                         <button type="button" className="close-btn" onClick={() => handlePopup(false)}><img src={close} alt="close" /></button>
@@ -40,17 +53,17 @@ const BraingymUnlock = ({
                     </div>
                 </div>
             )
-                :            (
-                    <div className={`braingym-unlock-main ${showPopup === true && 'active'}`}>
+                : (
+                    <div className="braingym-unlock-main active">
                         <div className="close-top">
-                            <button type="button" className="close-btn" onClick={() => handlePopup(false)}><img src={close} alt="close" /></button>
+                            <button type="button" className="close-btn" onClick={() => handlePopup()}><img src={close} alt="close" /></button>
                         </div>
                         <div className="unlock-common">
                             <h2>Treasure hunt completed !</h2>
                             <p className="coin-p"><span />{masterBrainGym?.scoreObtained} coins totally earned</p>
                             <div className="unlock-data-part">
                                 <div className="unlock-data-part-sub">
-                                    <CompletedRecord title="Time taken" desc="timeout" image={clock} />
+                                    <CompletedRecord title="Time taken" desc={timeTaken} image={clock} />
                                 </div>
                                 <div className="unlock-data-part-sub">
                                     <CompletedRecord title="Correct answers" desc="34 out of 50" image={note} />
@@ -67,13 +80,13 @@ const BraingymUnlock = ({
                         </div>
                     </div>
                 )}
-
         </div>
     );
 };
 
 BraingymUnlock.propTypes = {
     chestData: object.isRequired,
+    quesCounter: number.isRequired,
     showPopup: bool.isRequired,
     handlePopup: func.isRequired,
     getMasterBrainGym: func.isRequired,
@@ -81,8 +94,9 @@ BraingymUnlock.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-    masterBrainGym: state.BrainGym.masterBrainGym,
     chestData: state.BrainGym.chestData,
+    quesCounter: state.BrainGym.queCounter,
+    masterBrainGym: state.BrainGym.masterBrainGym,
     showPopup: state.BrainGym.chestUnlockPopup,
 });
 

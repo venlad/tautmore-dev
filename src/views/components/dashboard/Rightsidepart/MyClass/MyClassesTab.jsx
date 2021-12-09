@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { object } from 'prop-types';
+import { Dropdown } from 'react-bootstrap';
 
-const MyClassesTAB = () => {
+const MyClassesTAB = ({ dropdown }) => {
     const [activebtn, setActivebtn] = useState('All subjects');
+    const [timedata, setTimedata] = useState('All time');
     const handleMathsColor = () => setActivebtn('maths');
-    // const handleCocurriColor = () => setActivebtn('cocurri')
     const handleAllsubcolor = () => {
         setActivebtn('All subjects');
     };
@@ -15,7 +17,7 @@ const MyClassesTAB = () => {
     };
     return (
         <div className="row myexam-tab">
-            <div className="col-md-10 col-sm-12">
+            <div className="col-md-9 col-sm-12 myexam-tab-left">
                 <div className="dtoggle-bar">
                     <div className="toggle-maths-div">
                         <button
@@ -66,14 +68,27 @@ const MyClassesTAB = () => {
                     </div>
                 </div>
             </div>
-
-            <div className=" col-sm-12 myexam-tab-right">
-                <select>
-                    <option>All time</option>
-                </select>
-            </div>
+            {dropdown
+            && (
+                <div className="col-md-3 col-sm-12 myexam-tab-right">
+                    <Dropdown>
+                        <Dropdown.Toggle>
+                            {timedata}
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item onClick={() => setTimedata('Part time')}>
+                                Part time
+                            </Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </div>
+            )}
         </div>
     );
+};
+
+MyClassesTAB.propTypes = {
+    dropdown: object.isRequired,
 };
 
 export default MyClassesTAB;

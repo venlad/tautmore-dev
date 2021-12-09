@@ -145,9 +145,21 @@
   border-radius: 33px;
   padding: 0px 36px;
   background-color: #43aa8b;
-  box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
+  box-shadow: none;
   font-family: "proxima_nova_rgbold";
   font-size: 20px;
+  transition: 0.3s;
+  opacity: 0.8;
+  div.icon-wrapper {
+    box-shadow: none;
+  }
+}
+.button-wrapper-active:hover {
+  box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
+  opacity: 1;
+  div.icon-wrapper {
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.24);
+  }
 }
 
 .button-wrapper .icon-wrapper {
@@ -361,7 +373,6 @@
   width: 303px;
   border-radius: 33.75px;
   background-color: #43aa8b;
-  box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
   border: 0;
   text-align: left;
   padding: 0px 20px;
@@ -371,6 +382,8 @@
   line-height: 24px;
   margin-top: 68px;
   position: relative;
+  transition: 0.3s;
+  opacity: 0.8;
 }
 .button-common span {
   float: right;
@@ -380,45 +393,45 @@
   border-radius: 50%;
   padding: 0px 7px;
   margin-top: 0px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+  box-shadow: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: none;
 }
-.button-common:before {
-  content: "";
-  position: absolute;
-  height: 25px;
-  width: 27px;
-  border-radius: 10px 0 10px 10px;
-  background-color: #e3e5ff;
-  top: 40px;
-  z-index: -1;
-  right: -50px;
-}
-.button-common:after {
-  content: "";
-  position: absolute;
-  height: 30px;
-  width: 35px;
-  border-radius: 10px 0 10px 10px;
-  background-color: #fbe8ff;
-  top: 115px;
-  z-index: -1;
-  left: 20%;
-}
+// .button-common:before {
+//   content: "";
+//   position: absolute;
+//   height: 25px;
+//   width: 27px;
+//   border-radius: 10px 0 10px 10px;
+//   background-color: #e3e5ff;
+//   top: 40px;
+//   z-index: -1;
+//   right: -50px;
+// }
+// .button-common:after {
+//   content: "";
+//   position: absolute;
+//   height: 30px;
+//   width: 35px;
+//   border-radius: 10px 0 10px 10px;
+//   background-color: #fbe8ff;
+//   top: 115px;
+//   z-index: -1;
+//   left: 20%;
+// }
 .button-common span svg {
   margin-top: 0 !important;
 }
 .button-common:hover {
-  background-color: #fff !important;
-  color: #43aa8b !important;
-  border: 2px solid #43aa8b !important;
+  box-shadow: 5px 5px 5px rgba(67, 170, 139, 0.25) !important;
+  opacity: 1 !important;
+  span {
+    box-shadow: 5px 5px 5px rgba(56, 38, 38, 0.24) !important;
+  }
 }
-.button-common:hover span {
-  background-color: #43aa8b !important;
-  color: #fff !important;
-}
+
 /* SubscriberScreenOne end */
 .reattemp-wrapper {
   height: 224px;

@@ -1,5 +1,5 @@
 import React from 'react';
-import examlist from '../mockData/MyexamExamlist';
+import { examlist } from '../mockData/MyexamExamlist';
 import MyexamExamlistcommon from './MyexamExamlistcommon';
 
 const MyexamExamlist = () => (

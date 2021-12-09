@@ -1,11 +1,11 @@
 const stepdata = [
     {
         id: 1,
-        title: 'Select course',
+        title: 'My details',
     },
     {
         id: 2,
-        title: 'My details',
+        title: 'Select course',
     },
     {
         id: 3,

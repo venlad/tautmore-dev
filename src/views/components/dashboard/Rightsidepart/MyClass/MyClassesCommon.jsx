@@ -1,8 +1,10 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { string, object } from 'prop-types';
 import profile from '../../../../../assets/images/Bitmap.png';
 
-const MyClassesCommon = ({ date, time, topic }) => (
+const MyClassesCommon = ({
+    date, time, topic, startin, join, test_audio_video,
+}) => (
     <div className="row myexam-common-top">
         <div className="myexam-common ">
             <div className="profile">
@@ -30,24 +32,33 @@ const MyClassesCommon = ({ date, time, topic }) => (
                     </div>
                 </div>
             </div>
-            <div>
-                <div className="col-12 myclasses-common-day-left">
-                    <p>
-                        <span className="span-one">Starts in</span>{' '}
-                        <span className="span-two">2 days 23:45 hours</span>
-                    </p>
+            { startin
+            && (
+                <div>
+                    <div className="col-12 myclasses-common-day-left">
+
+                        <p>
+                            <span className="span-one">Starts in </span>
+                            <span className="span-two">{startin}</span>
+                        </p>
+                    </div>
                 </div>
-            </div>
+            )}
+            {join
+                && <button type="button">join live session</button>}
+
+            {test_audio_video && <div className="test-audio-video">Test audio & video</div>}
         </div>
     </div>
 );
 
 MyClassesCommon.propTypes = {
-    //  subject: string.isRequired,
     date: string.isRequired,
     time: string.isRequired,
     topic: string.isRequired,
-    // student: number.isRequired,
+    startin: string.isRequired,
+    join: object.isRequired,
+    test_audio_video: object.isRequired,
 };
 
 export default MyClassesCommon;

@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
-import  { array, string } from 'prop-types';
+import  { array, string, object } from 'prop-types';
 
-const Coursedetailsubjects = ({ label, data }) => {
+const Coursedetailsubjects = ({
+    label, data, setSubjectVal, subjectVal, validation,
+}) => {
     const [checked, setChecked] = useState([]);
-    const handleClick = (value) => {
-        if (checked.indexOf(value) > -1) {
-            const filteredValues = checked.filter((val) => val !== value);
+    const handleClick = (value, ind) => {
+        if (checked.indexOf(ind) > -1) {
+            const filteredValues = checked.filter((val) => val !== ind);
             setChecked([...filteredValues]);
         } else {
-            setChecked([...checked, value]);
+            setChecked([...checked, ind]);
+        }
+
+        if (subjectVal.indexOf(value) > -1) {
+            const filteredsubjects = subjectVal.filter((val) => val !== value);
+            setSubjectVal([...filteredsubjects]);
+        } else {
+            setSubjectVal([...subjectVal, value]);
         }
     };
 
@@ -18,20 +27,21 @@ const Coursedetailsubjects = ({ label, data }) => {
             <div>
                 {data.map((val, ind) => (
                     <div
-                        key={val.title}
+                        key={val.value}
                         className={`subject-list ${
                             checked.indexOf(ind) > -1 ? 'active' : ''
                         }`}
                     >
 
                         <label htmlFor={val.label} className="round">
-                            <input type="checkbox" id={val.label} onClick={() => handleClick(ind)} />
+                            <input type="checkbox" id={val.label} onClick={() => handleClick(val.value, ind)} />
                             <span className="checkmark"  />
                         </label>
-                        {val.title}
+                        {val.value}
                     </div>
                 ))}
             </div>
+            {validation.subjects && <span className="error-msg">subject is required.</span>}
         </div>
     );
 };
@@ -39,6 +49,9 @@ const Coursedetailsubjects = ({ label, data }) => {
 Coursedetailsubjects.propTypes = {
     data: array.isRequired,
     label: string.isRequired,
+    setSubjectVal: object.isRequired,
+    subjectVal: array.isRequired,
+    validation: object.isRequired,
 };
 
 export default Coursedetailsubjects;

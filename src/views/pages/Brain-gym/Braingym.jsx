@@ -16,10 +16,7 @@ const Braingym = ({
     masterBrainGym,
 }) => {
     const [select, setSelect] = useState('');
-    const [counter, setCounter] = useState(1);
     const [time, setTime] = useState(0);
-    const [timeOn, setTimeOn] = useState(true);
-
     const [eachtime, setEachtime] = useState(0);
     const [eachtimeOn, setEachTimeOn] = useState(true);
 
@@ -35,7 +32,7 @@ const Braingym = ({
     useEffect(() => {
         let interval = null;
 
-        if (question && timeOn) {
+        if (question) {
             interval = setInterval(() => {
                 setTime((prevTime) => prevTime + 1000);
             }, 1000);
@@ -43,7 +40,7 @@ const Braingym = ({
             clearInterval(interval);
         }
         return () => clearInterval(interval);
-    }, [timeOn, question]);
+    }, [question]);
 
     const [currenttime, setCurrenttime] = useState();
 
@@ -91,28 +88,18 @@ const Braingym = ({
             <BraingymHead />
             <div className="brain-gym-bottom">
                 <Braingymstepperpart
-                    time={time}
-                    setTime={setTime}
-                    timeOn={timeOn}
-                    setTimeOn={setTimeOn}
-                    question={question}
                     timeminutesecond={currenttime}
+                    question={question}
                 />
                 <QuestionAns
                     select={select}
                     setSelect={setSelect}
-                    Questionbytag={questionByTag}
-                    counter={counter}
-                    setCounter={setCounter}
-                    time={time}
                     timeminutesecond={time}
-                    question={question}
-                    setTimeOn={setTimeOn}
                     setEachTimeOn={setEachTimeOn}
                     eachcurrenttime={eachcurrenttime}
                     setEachtime={setEachtime}
                 />
-                <BraingymUnlock />
+                <BraingymUnlock timeminutesecond={currenttime} />
             </div>
         </div>
     );

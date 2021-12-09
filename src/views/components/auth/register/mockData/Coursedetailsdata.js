@@ -66,30 +66,19 @@ export const subject = [
 
 export const exam = [
     {
-        label: 'Daily',
+        label: '',
         value: 1,
     },
     {
-        label: 'Weekly',
+        label: 'brain-gym',
         value: 2,
     },
     {
-        label: 'Monthly',
+        label: 'exam',
         value: 3,
     },
-];
-
-export const activities = [
     {
-        label: 'Singing',
-        value: 1,
-    },
-    {
-        label: 'Dancing',
-        value: 2,
-    },
-    {
-        label: 'Painting',
-        value: 3,
+        label: 'assignment',
+        value: 4,
     },
 ];

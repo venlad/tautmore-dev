@@ -19,7 +19,7 @@ function Header() {
                             <li><Link to="/grades">Grades</Link></li>
 
                             <li>About us</li>
-                            <button type="button" className="login-signin">Login/Signup</button>
+                            <Link to="/login"><button type="button" className="login-signin">Login/Signup</button></Link>
                         </ul>
                     </div>
                 </div>
