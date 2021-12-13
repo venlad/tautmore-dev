@@ -7,6 +7,7 @@ import Referfriendicon from '../../../../assets/images/refericon.png';
 import Settingicon from '../../../../assets/images/settingicon.png';
 import Helpdeskicon from '../../../../assets/images/helpdeskicon.png';
 // import Logouticon from '../../../../assets/images/logouticon.png';
+import BrainGymicon from '../../../../assets/images/braingym-icon.png';
 
 export const sidebardata =     {
     title: 'OVERVIEW',
@@ -22,6 +23,10 @@ export const sidebardata =     {
         {
             title: 'My exams',
             image: Myexamicon,
+        },
+        {
+            title: 'Brain gym',
+            image: BrainGymicon,
         },
         {
             title: 'My assignments',

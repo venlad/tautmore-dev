@@ -1,0 +1,2018 @@
+.braingym-main {
+  margin-top: 30px;
+
+  .braingym-head {
+    height: 166px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 12px 34px -10px rgba(0, 0, 0, 0.05);
+
+    .row {
+      justify-content: space-around;
+    }
+
+    //   margin: 110px 30px 0 290px;
+    .braingym-img {
+      height: 96px;
+      width: 95px;
+      margin: 35px 0px 35px 30px;
+    }
+
+    .braingym-text {
+      width: 322px;
+      margin: 30px 0px 30px 20px;
+
+      h5 {
+        height: 34px;
+        width: 129px;
+        color: #454C4E;
+        font-family: "proxima_nova_rgbold";
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 34px;
+      }
+
+      p {
+        //  height: 56px;
+        width: 311px;
+        color: #454C4E;
+        font-family: "proxima_nova_rgregular";
+        font-size: 18px;
+        font-weight: 100;
+        letter-spacing: 0;
+        line-height: 28px;
+      }
+    }
+
+    .braingym-right {
+      height: 106px;
+      width: 532px;
+      margin: 30px 30px 30px 0px;
+      position: relative;
+      z-index: 5;
+      float: right;
+
+      .braingym-orgline {
+        box-sizing: border-box;
+        height: 4px;
+        width: 100%;
+        position: absolute;
+        margin-top: inherit;
+        z-index: -1;
+
+        .orgline {
+          box-sizing: border-box;
+          height: 4px;
+          width: 50%;
+          background-color: #FCA834;
+          // border: 2px solid #ECF1F9;
+        }
+
+        .grayline {
+          box-sizing: border-box;
+          height: 4px;
+          width: 100%;
+          background-color: #ecf1f9;
+          // border: 2px solid #ECF1F9;
+        }
+      }
+
+      .braingym-day {
+        height: 106px;
+        width: 78px;
+        margin: 0 7px 0 20px;
+
+        .day {
+          margin: auto;
+          height: 22px;
+          width: 35px;
+          color: #4A5153;
+          font-family: "proxima_nova_rgregular";
+          font-size: 18px;
+          letter-spacing: 0;
+          line-height: 22px;
+          text-align: center;
+          margin-left: 14px;
+          margin-top: 14px;
+        }
+
+        .braingym-bar {
+          margin-top: -10px;
+          width: 68px;
+          position: absolute;
+
+          img {
+            position: absolute;
+            // height: 20px;
+            // width: 68px;
+            border-radius: 2px;
+            background-color: #FCA834;
+          }
+
+          div {
+            margin: auto;
+            position: relative;
+            height: 21px;
+            // width: 20px;
+            color: #FFFFFF;
+            font-family: "Proxima Nova";
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  .braingym-sublisttab {
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+
+    .dtoggle-bar {
+      display: flex;
+      padding: 2px;
+      width: 75%;
+      background-color: #fff5e6;
+      border-radius: 1.5625rem;
+      font-weight: bold;
+
+      .toggle-maths-div {
+        width: 33%;
+      }
+    }
+
+    .toggle-maths-btn {
+      border: none;
+      color: #fca834;
+      width: 100%;
+      padding: 12px 20px;
+      font-family: "proxima_nova_rgregular";
+      font-size: 18px;
+    }
+
+    .mathbtn-act {
+      border-radius: 1.5625rem;
+      background: white;
+      box-shadow: 0px 5px 5px rgb(170 114 67 / 24%);
+      font-family: "Proxima Nova";
+    }
+
+    .mathbtn-un {
+      border-top-left-radius: 1.5625rem;
+      border-bottom-left-radius: 1.5625rem;
+      border-top-right-radius: none;
+      border-bottom-right-radius: none;
+      background-color: #fff5e6;
+    }
+
+    .toggle-science-btn {
+      border: none;
+      color: #fca834;
+      height: 3.125rem;
+      width: 19.25vw;
+    }
+  }
+
+  .braingym-starttoday {
+    height: 207px;
+    // width: 1021px;
+    border-radius: 10px;
+    background-color: #E3FFF6;
+    box-shadow: 0 12px 34px -10px rgba(0, 0, 0, 0.05);
+
+    .braingym-starttoday-left {
+      width: 35%;
+      h3 {
+        height: 39px;
+        width: 365px;
+        color: #1B1B1B;
+        position: relative;
+        font-family: "proxima_nova_rgbold";
+        font-size: 32px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 39px;
+        margin: 30px 59px 0px 30px;
+      }
+
+      .starttoday-div {
+        height: 56px;
+        width: 340px;
+        color: #454C4E;
+        font-family: "proxima_nova_rgregular";
+        font-size: 20px;
+        letter-spacing: 0;
+        line-height: 28px;
+        margin: 20px 50px 18px 30px;
+      }
+
+      span {
+        height: 22px;
+        width: 145px;
+        color: #454C4E;
+        font-family: "proxima_nova_rgbold";
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 22px;
+        margin: 0px 50px 30px 30px;
+      }
+
+      .line1 {
+        box-sizing: border-box;
+        height: 54.96px;
+        width: 217.96px;
+        position: absolute;
+        margin: 34px 38px 0px 261px;
+      }
+    }
+
+    .braingym-starttoday-right {
+      .shell {
+        height: 111px;
+        width: 12%;
+        margin: 30px 0px 69px 56px;
+
+        img {
+          height: 76px;
+          width: 76px;
+          position: relative;
+        }
+
+        span {
+          margin: 0 !important;
+          height: auto !important;
+          width: auto !important;
+          margin-top: 20px !important;
+          margin-left: 15px !important;
+          color: #805333;
+          font-family: "proxima_nova_rgbold";
+          font-size: 16px;
+          font-weight: bold;
+          letter-spacing: 0;
+          line-height: 20px;
+          text-align: center;
+          display: block;
+          margin-left: 15px;
+          margin-right: 0;
+        }
+      }
+
+      .line2 {
+        position: absolute;
+        box-sizing: border-box;
+        height: 155.96px;
+        width: 54.96px;
+        margin: 35px 0 0 106px;
+      }
+
+      .line3 {
+        margin: 51px 0 0 61px;
+      }
+
+      .des {
+        height: 31px;
+        width: 69px;
+        background-color: #F5FFFC;
+      }
+      .button{
+        width: 50%;
+      .btn {
+        height: 66px;
+        width: 303px;
+        border-radius: 33.75px;
+        background-color: #43AA8B;
+        box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
+        margin: 52px 0 11px 11px;
+      }
+
+      .btn-span {
+        height: 24px;
+        width: 132px;
+        color: #FFFFFF;
+        font-family: "Proxima Nova";
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 24px;
+      }
+    
+      .img {
+        height: 26px;
+        width: 26px;
+        margin: 0 0 7px 71px;
+      }
+
+      .img-span {
+        height: 22px;
+        width: 151px;
+        color: #43AA8B;
+        font-family: "Proxima Nova";
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 22px;
+        text-align: center;
+        text-decoration: underline;
+        margin-left: 8px;
+      }
+    }
+    }
+  }
+
+  .braingym-score-main {
+    height: 557px;
+    // width: 1120px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 12px 34px -10px rgba(0, 0, 0, 0.05);
+    margin-top: 30px;
+
+    .braingym-score-head {
+      transform: scaleY(1);
+      border-radius: 10px 10px 0 0;
+      background: linear-gradient(146.79deg, #7C92F9 0%, #526BDE 100%);
+      padding: 7px 0px;
+      .braingym-score {
+        .scoreimg {
+          .scoreimg-left{
+            text-align: right;
+            img {
+              width: 80%;
+            }
+            img.star-img {
+              width: 80%;
+              max-width: 75px;
+            }
+          }
+          .scoreimg-right {
+            img.score-img {
+              width: 100%;
+              max-width: 152px;
+            }
+          }
+        }
+      }
+    }
+
+    .braingym-score {
+      .score-last {
+        div.w-line {
+          width: 1px;
+          height: 26px;
+          background-color: #FFFFFF;
+          margin: auto;
+        }
+      }
+      .row {
+        align-items: center;
+      }
+      .score-avg {
+       
+        color: #FFFFFF;
+        font-family: "Proxima Nova";
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 29px;
+        p {
+          margin: 0;
+        }
+      }
+
+      .score-total {
+        display: flex;
+        position: relative;
+        img {
+          height: 46px;
+          width: 46px;
+          margin-right: 10px;
+        }
+
+        .score-top {
+        
+          .span1 {
+         
+            color: #FFFFFF;
+            font-family: "proxima_nova_rgregular";
+            font-size: 16px;
+            letter-spacing: 0;
+            line-height: 20px;
+          }
+
+          span {
+            display: flex;
+          
+            color: #FFFFFF;
+            font-family: "Proxima Nova";
+            font-size: 18px;
+            letter-spacing: 0;
+            line-height: 20px;
+          }
+        }
+        
+
+        .score-line {
+          box-sizing: border-box;
+          height: 26px;
+          width: 1px;
+          border: 1px solid #FFFFFF;
+          margin: 9px 40px 32px 23px;
+        }
+      }
+      
+
+      .score-streak {
+      
+        display: flex;
+        .streak-img {
+          width: 28px;
+          height: 46px;
+          margin-right: 10px;
+        }
+        .score-streak-div {
+          
+          .span1 {
+            display: flex;
+            color: #FFFFFF;
+            font-family: "proxima_nova_rgregular";
+            font-size: 16px;
+            letter-spacing: 0;
+            line-height: 20px;
+          }
+
+          span {
+            display: flex;
+            height: 20px;
+            width: 104px;
+            color: #FFFFFF;
+            font-family: "Proxima Nova";
+            font-size: 18px;
+            letter-spacing: 0;
+            line-height: 20px;
+          }
+        }
+      }
+     
+      .last-star {
+        padding: 0;
+        img {
+          height: 100%;
+          width: 70%;
+          height: 80px;
+          width: 65px;
+          top: -18px;
+          right: 9px;
+          position: absolute;
+        }
+      }
+    }
+  }
+
+  .summery {
+    margin: 30px 0px 70px 0px;
+    text-align: center;
+
+    .btn {
+      height: 66px;
+      width: 303px;
+      border-radius: 33.75px;
+      background-color: #43AA8B;
+      box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
+    }
+
+    .btn-summery {
+      height: 24px;
+      width: 134px;
+      margin: auto;
+      color: #FFFFFF;
+      font-family: "Proxima Nova";
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 0;
+      line-height: 24px;
+    }
+  }
+
+  @media only screen and (max-width: 1345px) {
+    .braingym-head {
+      .braingym-img {
+        height: 96px;
+        width: 77px;
+      }
+
+      .braingym-text {
+        width: 270px;
+
+        h5 {
+          height: 34px;
+          width: 130px;
+        }
+
+        p {
+          height: 56px;
+          width: 240px;
+        }
+      }
+
+      .braingym-right {
+        height: 106px;
+        width: 532px;
+      
+        .braingym-orgline {
+          .orgline {
+            height: 4px;
+          }
+
+          .grayline {
+            width: 91% !important;
+          }
+        }
+
+        .braingym-day {
+          height: 106px;
+          width: 66px;
+
+          .braingym-bar {
+            margin-top: -10px;
+          width: 68px;
+          position: absolute;
+          }
+        }
+      }
+    }
+
+    .braingym-score-main {
+      .braingym-score {}
+      height: 557px;
+      .braingym-score {
+        .score-avg {
+          font-size: 18px;
+        }
+        .score-total {
+          .score-top {
+            .span1 {
+              font-size: 14px;
+            }
+            span {
+              font-size: 14px;
+            }
+          }
+        }
+        .score-streak {
+          .score-streak-div {
+            .span1 {
+              font-size: 14px;
+            }
+            span {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1285px) {
+    .braingym-head {
+      .braingym-img {
+        height: 96px;
+        width: 77px;
+      }
+
+      .braingym-text {
+        width: 230px;
+        float: left;
+
+        h5 {
+          height: 34px;
+          width: 129px;
+          font-size: 24px;
+        }
+
+        p {
+          height: 56px;
+          width: 270px;
+          font-size: 16px;
+        }
+      }
+
+      .braingym-right {
+        height: 106px;
+        width: 495px;
+        padding-left: 40px;
+        .braingym-orgline {
+          .orgline {
+            height: 4px;
+            width: 50% !important;
+          }
+
+          .grayline {
+            width: 96% !important;
+          }
+        }
+      }
+    }
+
+    .braingym-starttoday {
+     
+      .braingym-starttoday-right {
+        .shell{
+          width: 10%;
+        }
+
+        .button{
+        .btn {
+          height: 66px;
+          width: 240px;
+        }
+
+        .btn-span {
+          height: 24px;
+          width: 132px;
+        }
+      
+        .img {
+          height: 26px;
+          width: 26px;
+          margin: 0 0 7px 20px;
+        }
+
+        .img-span {
+          height: 22px;
+          width: 151px;
+          font-size: 16px;
+        }
+      }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1155px) {
+    .braingym-head {
+      .braingym-img {
+        height: 96px;
+        width: 77px;
+      }
+
+      .braingym-text {
+        width: 160px;
+
+        h5 {
+          height: 34px;
+          width: 129px;
+          font-size: 24px;
+        }
+
+        p {
+          height: 56px;
+          width: 170px;
+          font-size: 14px;
+        }
+      }
+
+      .braingym-right {
+        height: 106px;
+        width: 400px;
+        padding-left: 40px;
+
+        .braingym-orgline {
+          .orgline {
+            height: 4px;
+            width: 50% !important;
+          }
+
+          .grayline {
+            width: 95% !important;
+          }
+        }
+
+        .braingym-day {
+          height: 106px;
+          width: 53px;
+          margin-left: 10px;
+
+          img {
+            width: 55px;
+          }
+          .braingym-bar{
+            width: 55px;
+            height: 18px;
+          }
+        }
+      }
+    }
+
+    .braingym-starttoday {
+      .braingym-starttoday-left {
+        h3 {
+          height: 39px;
+          // width: 200px;
+          font-size: 24px;
+        }
+
+        .starttoday-div {
+          height: 56px;
+          width: 200px;
+          font-size: 16px;
+          line-height: 20px;
+        }
+
+        span {
+          height: 22px;
+          width: 100px;
+          font-size: 14px;
+        }
+
+        .line1 {
+          // height: 54.96px;
+          // width: 116.96px;
+          // position: absolute;
+          margin: 43px 68px 0px 215px;
+
+          img {
+            width: 156px;
+          }
+        }
+      }
+
+      .braingym-starttoday-right {
+        .shell {
+               width: 10%;
+          // height: 111px;
+          // width: 80px;
+          img {
+            height: 76px;
+            width: 65px;
+            position: relative;
+          }
+
+          span {
+            height: 20px;
+            width: 59px;
+            font-size: 16px;
+            margin-left: 0 !important;
+          }
+        }
+
+        .line2 {
+          img {
+            // width: 20.96px;
+            position: absolute;
+          }
+        }
+
+        .line3 {
+          img {
+            position: absolute;
+          }
+
+        }
+
+        .line4 {
+          img {
+            position: absolute;
+          }
+        }
+      .button{
+        width: 45%;
+        .btn {
+          height: 66px;
+          width: 180px;
+          position: relative;
+          right: 100px;
+        }
+
+        .img {
+          height: 26px;
+          width: 26px;
+          margin: 0 0 7px 20px;
+          position: relative;
+          right: 100px;
+        }
+      
+        .img-span {
+          height: 22px;
+          width: 151px;
+          font-size: 14px;
+          position: relative;
+          right: 100px;
+        }
+      }
+      }
+    }
+
+    .braingym-score-main {
+      // height: 557px;
+
+      // .braingym-score-head {
+        // height: 90px;
+      // }
+
+      .braingym-score {
+        .scoreimg {
+          // height: 59.4px;
+          width: 20%;
+          margin-left: 10px;
+        }
+        .score-avg{
+          width: 36%;
+        }
+       
+      }
+    }
+
+    .summery {
+      .btn {
+        height: 66px;
+        width: 250px;
+      }
+
+      .btn-summery {
+        height: 24px;
+        width: 134px;
+        font-size: 18px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1140px) {
+    .braingym-starttoday-right {
+      .shell {
+        width: 25% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        span {
+          display: block;
+        }
+      }
+      .line2, .line3, .line4 {
+        display: none;
+      }
+      .col-md-5.button {
+        width: 60%;
+        button, img, span {
+          right: 0 !important;
+        }
+        button {
+        
+          display: block;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1140px) {
+    .braingym-starttoday {
+      height: auto !important;
+      .col-md-5.button {
+        width: 100%;
+        text-align: center;
+        button {
+          margin-top: 20px !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+          height: 50px !important;
+        }
+        margin-bottom: 30px;
+        img.img {
+          margin-left: 0;
+        }
+      }
+      .shell {
+        margin-bottom: 20px !important;
+        width: 100% !important;
+        text-align: center;
+        img {
+          display: block;
+          text-align: center;
+          margin: auto;
+        }
+        span {
+          text-align: center !important;
+          display: inline-block !important;
+          margin-right: 0 !important;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1040px) {
+    .braingym-score-main {
+      .braingym-score-head {
+        .braingym-score {
+          .scoreimg {
+            width: 30%;
+          }
+          .score-avg {
+            width: 67%;
+          }
+          .col-md-5.score-last {
+            width: 100%;
+            margin-bottom: 10px;
+            margin-top: 15px;
+            .score-total {
+              justify-content: flex-end;
+            }
+            .score-total, .score-streak {
+              width: 41%;
+            }
+            .last-star {
+              display: none;
+            }
+            
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 875px) {
+    .braingym-head {
+      height: 325px;
+
+      .braingym-img {
+        height: 96px;
+        width: 150px;
+        margin-left: 132px;
+      }
+
+      .braingym-text {
+        width: 370px;
+        float: left;
+
+        h5 {
+          height: 34px;
+          width: 200px;
+          font-size: 34px;
+        }
+
+        p {
+          height: 56px;
+          width: 280px;
+          font-size: 20px;
+        }
+      }
+
+      .braingym-right {
+        height: 106px;
+        width: 532px;
+
+        .braingym-orgline {
+          .orgline {
+            height: 4px;
+            // border: 2px solid #ECF1F9;
+          }
+
+          .grayline {
+            width: 95% !important
+          }
+        }
+
+        .braingym-day {
+          height: 106px;
+          width: 73px;
+          margin-left: 20px;
+
+          img {
+            width: 66px;
+          }
+          .braingym-bar{
+            width: 66px;
+            height: 18px;
+          }
+        }
+      }
+    }
+
+    .braingym-starttoday {
+         
+      
+      .braingym-starttoday-right {
+        .shell {
+
+          img {
+            height: 76px;
+            width: 65px;
+            position: relative;
+          }
+
+          span {
+            position: relative;
+            height: 20px;
+            width: 59px;
+            font-size: 16px;
+          }
+        }
+
+      .button{
+        .btn {
+          height: 66px;
+          width: 180px;
+          position: relative;
+          right: 50px;
+        }
+
+        .btn-span {
+          height: 24px;
+          width: 100px;
+          font-weight: bold;
+        } 
+      
+
+        .img {
+          height: 26px;
+          width: 26px;
+          margin: 0 0 7px 20px;
+          position: relative;
+          right: 50px;
+        }
+
+        .img-span {
+          height: 22px;
+          width: 151px;
+          font-size: 14px;
+          position: relative;
+          right: 50px;
+        }
+      }
+      }
+    }
+
+    .braingym-score-main {
+      height: 557px;
+
+      
+
+      .braingym-score {
+        .scoreimg {
+          // height: 59.4px;
+          width: 20%;
+          margin-left: 5px;
+        }
+
+        .score-avg {
+          // height: 58px;
+          width: 32%;
+          font-size: 14px;
+          // margin-right: 0;
+        }
+        .score-total{
+          width: 16%;
+        }
+      }
+    }
+
+    // .summery {
+    //   .btn {
+    //     height: 66px;
+    //     width: 303px;
+    //   }
+
+    //   .btn-summery {
+    //     height: 24px;
+    //     width: 134px;
+    //     font-size: 20px;
+    //   }
+    // }
+  }
+
+  @media only screen and (max-width: 799px) {
+    .braingym-starttoday {
+     
+      .braingym-starttoday-left {
+     
+        h3 {
+          position: relative;
+          height: 39px;
+       
+          font-size: 24px;
+        }
+
+        .starttoday-div {
+          position: relative;
+          height: 56px;
+          width: 240px;
+          font-size: 18px;
+          line-height: 20px;
+        }
+
+        span {
+          height: 22px;
+          width: 120px;
+          font-size: 16px;
+        }
+
+        .line1 {
+          margin: 43px 68px 0px 215px;
+
+          img {
+            width: 156px;
+            position: absolute;
+          }
+        }
+      }
+
+      .braingym-starttoday-right {
+        .shell {
+        
+          img {
+            height: 76px;
+            width: 76px;
+            position: relative;
+          }
+
+          span {
+            position: relative;
+            height: 20px;
+            width: 80px;
+            font-size: 14px;
+          }
+        }
+
+        .line3 {
+          display: none;
+         
+
+        }
+
+        .line4 {
+         display: none;
+        }
+        .button{
+        
+        .btn {
+          height: 66px;
+          width: 180px;
+          position: relative;
+          // left: 10px;
+        }
+
+        .btn-span {
+          height: 24px;
+          width: 100px;
+          font-weight: bold;
+        }
+
+        .img {
+          height: 26px;
+          width: 26px;
+          margin: 0 0 7px 20px;
+          position: relative;
+          // left: 10px;
+        }
+
+        
+      }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    .braingym-starttoday {
+      .braingym-starttoday-left {
+        width: 100% !important;
+        h3 {
+          width: auto;
+        }
+        .starttoday-div {
+          width: auto;
+          height: auto;
+        }
+      }
+    }
+    .braingym-score-head {
+      .scoreimg, .score-avg, .score-last {
+        width: 100% !important;
+        height: auto !important;
+      }
+      .scoreimg-right, .score-avg {
+        text-align: center !important;
+      }
+      .scoreimg-left {
+        display: none;
+      }
+      .score-total, .score-streak {
+        width: 100% !important;
+        justify-content: center !important;
+        height: auto !important;
+      }
+      .line-part {
+        display: none;
+      }
+      .score-streak {
+        margin-top: 20px;
+        img {
+          margin-right: 75px !important;
+          position: relative;
+          left: 55px;
+        }
+      }
+      .scoreimg-right {
+        margin: 20px 0px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 735px) {
+    .braingym-head {
+      height: 375px;
+
+      .braingym-img {
+        height: 96px;
+        width: 60px;
+        margin: 30px 30px;
+      }
+
+      .braingym-text {
+        width: 230px;
+        float: left;
+
+        h5 {
+          height: 34px;
+          width: 150px;
+          font-size: 26px;
+        }
+
+        p {
+          height: 56px;
+          width: 180px;
+          font-size: 16px;
+        }
+      }
+
+      .braingym-right {
+        height: 106px;
+        width: 480px;
+
+        .braingym-orgline {
+          .orgline {
+            height: 4px;
+          }
+
+          .grayline {
+            width: 95% !important
+          }
+        }
+
+        .braingym-day {
+          height: 106px;
+          width: 60px;
+          margin-left: 20px;
+
+          img {
+            width: 55px;
+          }
+          .braingym-bar{
+            width: 55px;
+            height: 18px;
+          }
+        }
+      }
+    }
+
+    .braingym-starttoday {
+
+      .braingym-starttoday-right {
+        .shell {
+    
+          img {
+            height: 76px;
+            width: 65px;
+            position: relative;
+          }
+
+          span {
+            position: relative;
+            height: 20px;
+            width: 59px;
+            font-size: 16px;
+          }
+        }
+
+        .btn {
+          height: 66px;
+          width: 180px;
+          position: relative;
+          right: 50px;
+        }
+
+        .btn-span {
+          height: 24px;
+          width: 100px;
+          font-weight: bold;
+        }
+
+        .img {
+          height: 26px;
+          width: 26px;
+          margin: 0 0 7px 20px;
+          position: relative;
+          right: 50px;
+        }
+
+        .img-span {
+          height: 22px;
+          width: 151px;
+          font-size: 14px;
+          position: relative;
+          right: 50px;
+        }
+      }
+    }
+
+    .braingym-score-main {
+      // height: 557px;
+
+      // .braingym-score-head {
+        // height: 90px;
+      // }
+
+      .braingym-score {
+
+        .score-avg{
+          width: 34%;
+        }
+        .score-total {
+          // height: 48px;
+          width: 9%;
+
+          img {
+            height: 46px;
+            width: 36px;
+          }
+
+          .score-top {
+           
+            margin: 2px 0 0 8px;
+
+            .span1 {
+              height: 20px;
+              width: 52px;
+              font-size: 10px;
+            }
+
+            span {
+              height: 20px;
+              width: 40px;
+              font-size: 12px;
+            }
+          }
+
+          .score-line {
+            height: 26px;
+            width: 1px;
+          }
+        }
+
+        .score-streak {
+          height: 48px;
+          width: 8%;
+
+          img {
+            height: 41px;
+            width: 18.9px;
+          }
+
+          .score-streak-div {
+         
+            span {
+             
+              font-size: 11px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 670px) {
+    .braingym-score-main {
+      height: 557px;
+
+    
+      .braingym-score {
+        .scoreimg {
+          height: 39.4px;
+          width: 30%;
+        }
+
+        .score-avg {
+          height: 30px;
+          width: 60%;
+          font-size: 18px;
+        }
+
+        .score-total {
+          height: 80px;
+          width: 25%;
+     
+          img {
+            height: 46px;
+            width: 46px;
+          }
+
+          .score-top {
+            height: 48px;
+            width: 100px;
+
+            .span1 {
+              height: 20px;
+              width: 82px;
+              font-size: 18px;
+            }
+
+            span {
+              height: 20px;
+              width: 40px;
+              font-size: 14px;
+            }
+          }
+
+          // .score-line {
+            // height: 26px;
+            // width: 1px;
+          // }
+        }
+
+        .score-streak {
+          height: 48px;
+          width: 25%;
+          margin: 0;
+
+          img {
+            height: 41px;
+            width: 38.9px;
+          }
+
+          .score-streak-div {
+        
+            .span1{
+              font-size: 16px;
+            }
+            span {
+          
+              font-size: 14px;
+            }
+          }
+        }
+      }
+      .braingym-score-head {
+        .score-streak {
+          margin-top: 20px !important;
+          img {
+            margin-right: 45px !important;
+            position: relative;
+            left: 13px;
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 575px) {
+    .braingym-head {
+      height: 350px;
+
+      .braingym-img {
+        height: 96px;
+        width: 60px;
+        margin: 30px 30px;
+      }
+
+      .braingym-right {
+        height: 106px;
+        width: 400px;
+
+        .braingym-orgline {
+          .orgline {
+            height: 4px;
+            // border: 2px solid #ECF1F9;
+          }
+
+          .grayline {
+            width: 95% !important
+          }
+        }
+
+        .braingym-day {
+          height: 106px;
+          width: 50px;
+          margin-left: 15px;
+
+          img {
+            width: 55px;
+          }
+          .braingym-bar{
+            width: 40px;
+            height: 14px;
+          }
+        }
+      }
+    }
+
+    .braingym-sublisttab .dtoggle-bar {
+      display: block !important;
+      padding: 10px !important;
+      margin: auto;
+
+      .toggle-maths-div {
+        width: 100% !important;
+        margin-bottom: 15px;
+      }
+    }
+
+    .braingym-starttoday {
+    
+      .braingym-starttoday-left {
+        width: 100%;
+        h3 {
+          height: 39px;
+          width: 300px;
+        }
+
+        .starttoday-div {
+          width: 310px;
+        }
+
+        span {
+          width: 120px;
+        }
+
+        .line1 {
+          display: none;
+        }
+      }
+
+      .braingym-starttoday-right {
+        .shell {
+        
+          img {
+            height: 76px;
+            width: 76px;
+            position: relative;
+          }
+
+          span {
+            position: relative;
+            height: 20px;
+            width: 80px;
+            font-size: 14px;
+          }
+        }
+
+        .line2 {
+          display: none;
+        }
+
+        .line3 {
+          display: none;
+        }
+
+        .line4 {
+          display: none;
+        }
+        .button{
+          width: 100%;
+          margin:auto;
+          text-align: center;
+          margin-bottom: 20px;
+         .btn {
+          height: 56px;
+          width: 180px;
+          position: relative;
+          left: 0;
+          }
+
+          .btn-span {
+          height: 24px;
+          width: 100px;
+          font-weight: bold;
+          }
+
+         
+        }
+      }
+    }
+
+    .braingym-score-main {
+      height: 557px;
+
+     
+
+      .braingym-score {
+        .scoreimg {
+          height: 39.4px;
+          width: 30%;
+        }
+
+        .score-avg {
+          height: 30px;
+          width: 60%;
+          font-size: 16px;
+        }
+
+        .score-total {
+          height: 80px;
+          width: 30%;
+         
+        }
+      }
+    }
+
+    .summery {
+      .btn {
+        height: 56px;
+        width: 203px;
+        left: 10px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 485px) {
+    .braingym-head {
+
+      height: 457px;
+
+      .braingym-img {
+        height: 96px;
+        width: 145px;
+        margin: 30px 30px;
+      }
+
+      .braingym-text {
+        height: 97px;
+        width: 310px;
+      }
+
+      .braingym-right {
+        height: 106px;
+        width: 300px;
+        margin-right: 90px;
+
+        .braingym-orgline {
+          .orgline {
+            height: 4px;
+            // border: 2px solid #ECF1F9;
+          }
+
+          .grayline {
+            width: 91% !important;
+            margin-top: -12px;
+            margin-left: 16px;
+          }
+        }
+
+        .braingym-day {
+          height: 106px;
+          width: 22px;
+          margin-left: 22px;
+
+          img {
+            width: 40px;
+          }
+
+
+          .braingym-bar {
+            margin-top: -10px;
+
+            img {
+              // height: 20px;
+              width: 40px;
+            }
+
+            div {
+              font-size: 10px;
+            }
+          }
+
+          .day {
+            font-size: 15px;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+
+    .braingym-sublisttab .dtoggle-bar {
+      display: block !important;
+      padding: 10px !important;
+      margin: auto;
+
+      .toggle-maths-div {
+        width: 100% !important;
+        margin-bottom: 15px;
+      }
+    }
+
+    .braingym-starttoday {
+      height: 400px;
+
+      .braingym-starttoday-left {
+        width: 100%;
+        h3 {
+          height: 39px;
+          width: 250px;
+          font-size: 20px;
+        }
+
+        .starttoday-div {
+          width: 200px;
+          font-size: 16px;
+        }
+
+        span {
+          width: 120px;
+        }
+
+        .line1 {
+          display: none;
+        }
+      }
+
+      .braingym-starttoday-right {
+        .shell {
+
+         
+          width: 30%;
+          left: 0px;
+        }
+
+        .line2 {
+          display: none;
+        }
+
+        .line3 {
+          display: none;
+        }
+
+        .line4 {
+          display: none;
+        }
+          
+        .button{
+        .btn {
+          width: 180px;
+          left: 0px;
+          margin-bottom: 20px;
+        }
+
+        .btn-span {
+          height: 24px;
+          width: 10px;
+          font-weight: bold;
+        }
+
+      
+      }
+      }
+    }
+
+    .braingym-score-main {
+      height: auto;
+
+      .braingym-score-head {
+        height: auto;
+      }
+
+      .braingym-score {
+        .scoreimg {
+          height: auto;
+          width: 100%;
+          text-align: center;
+        }
+
+        .score-avg {
+          height: auto;
+          width: 100%;
+          font-size: 18px;
+          margin: auto;
+          text-align: center;
+          margin-bottom: 20px;
+          p {
+            margin: 0px 10px;
+          }
+        }
+
+        .score-total {
+          height: auto;
+          width: 50%;
+          margin: auto;
+          justify-content: center;
+          // margin-left: 126px;
+
+          // .score-top {
+            // width: 52px;
+          // }
+        }
+
+        .score-streak {
+          // margin-left: 93px;
+          width: 70%;
+          margin: auto;
+          justify-content: center;
+          height: auto;
+          img {
+            margin-left: 0;
+          }
+        }
+
+        .score-line {
+          display: none;
+        }
+      }
+    }
+
+    .summery {
+      .btn {
+        height: 56px;
+        width: 180px;
+        left: 10px;
+      }
+    }
+
+  }
+
+  @media only screen and (max-width: 355px) {
+    .braingym-head {
+      height: 475px;
+
+      .braingym-img {
+        height: 96px;
+        width: 129px;
+      }
+
+      .braingym-right {
+        height: 106px;
+        width: 260px;
+        margin-right: 64px;
+       
+        .braingym-orgline {
+          .orgline {
+            height: 4px;
+            // border: 2px solid #ECF1F9;
+          }
+
+          .grayline {
+            width: 96% !important;
+            margin-top: -12px;
+            margin-left: 0;
+          }
+        }
+
+        .braingym-day {
+          height: 106px;
+          width: 22px;
+          margin-left: 9px;
+
+          img {
+            width: 35px;
+          }
+
+
+          .braingym-bar {
+            margin-top: -10px;
+            width: 36px;
+            height: 12px;
+            img {
+              // height: 20px;
+              width: 35px;
+            }
+
+            div {
+              font-size: 8px;
+            }
+          }
+
+          .day {
+            font-size: 15px;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+
+    .braingym-sublisttab .dtoggle-bar {
+      display: block !important;
+      padding: 10px !important;
+      margin: auto;
+
+      .toggle-maths-div {
+        width: 100% !important;
+        margin-bottom: 15px;
+      }
+    }
+
+    .braingym-starttoday {
+      height: 450px;
+
+      .braingym-starttoday-left {
+        width: 100%;
+        margin: auto;
+        text-align: center;
+        h3 {
+          height: 39px;
+          width: 200px;
+          font-size: 18px;
+        }
+
+        .starttoday-div {
+          width: 221px;
+        }
+
+        span {
+          width: 120px;
+        }
+
+        .line1 {
+          display: none;
+        }
+      }
+
+      .braingym-starttoday-right {
+        .shell {
+          width: 50%;
+          left: 0px;
+          height: auto;
+        }
+
+        .line2 {
+          display: none;
+        }
+
+        .line3 {
+          display: none;
+        }
+
+        .line4 {
+          display: none;
+        }
+      .button{
+        width: 100%;
+        margin: auto;
+        text-align: center;
+        margin-bottom: 20px;
+        .btn-span {
+          height: 24px;
+          width: 10px;
+          font-weight: bold;
+        }
+
+        
+       
+      }
+      }
+    }
+
+    .braingym-score-main {
+     
+      
+
+      .braingym-score {
+        .scoreimg {
+       
+          width:100%;
+          margin-left: 0;
+          margin: auto;
+          text-align: center;
+          margin-top: 20px;
+        }
+
+        .score-avg {
+       
+          width: 100%;
+          margin: auto;
+          text-align: center;
+          font-size: 16px;
+          margin: 15px 0px;
+        }
+
+        .score-total {
+     
+          width: 50%;
+          margin: auto;
+          text-align: center;
+
+          
+        }
+
+        .score-streak {
+          width: 70%;
+          margin: auto;
+          text-align: center;
+        }
+
+        .score-line {
+          display: none;
+        }
+      }
+    }
+
+
+  }
+
+}
