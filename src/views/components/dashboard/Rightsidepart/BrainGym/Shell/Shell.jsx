@@ -1,4 +1,5 @@
 import React from 'react';
+import {  func } from 'prop-types';
 import Banner from './Banner';
 import ShellList from './ShellList';
 import PointsIcon from '../../../../../../assets/images/Points.svg';
@@ -6,7 +7,7 @@ import Close from '../../../../../../assets/images/Close-shell.svg';
 import Calender from '../../../../../../assets/images/Calender-shell.svg';
 import './style/shell.scss';
 
-const Shell = () => (
+const Shell = ({ setView }) => (
     <div className="shell-main">
         <div className="container-background">
             <div className="image-background">
@@ -15,9 +16,9 @@ const Shell = () => (
                         <img id="icon-small" src={PointsIcon} alt="No Imag" />
                         <p>112 Total Points</p>
                     </div>
-                    <div>
+                    <button type="button" className="close-btn" onClick={() => setView('home')}>
                         <img src={Close} alt="No Imag" />
-                    </div>
+                    </button>
                 </div>
                 <Banner />
                 <div className="heading-brain-gym">
@@ -47,5 +48,9 @@ const Shell = () => (
         </div>
     </div>
 );
+
+Shell.propTypes = {
+    setView: func.isRequired,
+};
 
 export default Shell;
