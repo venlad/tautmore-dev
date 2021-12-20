@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Left Copy</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="My-Classes" transform="translate(-1389.000000, -631.000000)">
+            <g id="Left-Copy" transform="translate(1409.000000, 651.000000) scale(-1, 1) translate(-1409.000000, -651.000000) translate(1389.000000, 631.000000)">
+                <circle id="Oval" fill="#454C4E" cx="20" cy="20" r="20"></circle>
+                <g id="down-arrow-(1)" transform="translate(18.949020, 20.439216) rotate(90.000000) translate(-18.949020, -20.439216) translate(8.549020, 14.839216)" fill="#FFFFFF" fill-rule="nonzero">
+                    <path d="M20.1433088,0.262150735 C19.8114982,-0.0696599265 19.2734957,-0.0696599265 18.941685,0.262150735 L10.1960784,9.00771752 L1.45047181,0.262150735 C1.11866115,-0.0696599265 0.580658701,-0.0696599265 0.248848039,0.262150735 C-0.0829626225,0.593961397 -0.0829626225,1.13196385 0.248848039,1.46377451 L9.59526654,10.810193 C9.92707721,11.1420037 10.4650797,11.1420037 10.7968903,10.810193 L20.1433088,1.46377451 C20.4751195,1.13192402 20.4751195,0.593961397 20.1433088,0.262150735 Z" id="Path"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

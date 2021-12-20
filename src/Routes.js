@@ -10,6 +10,7 @@ import Braingym from './views/pages/Brain-gym/Braingym';
 import Olympiad from './views/pages/Olympiad/Olympiad';
 import Login from './views/components/auth/login/Login';
 import Homepage from './views/components/skeleton/Homepage/Homepage';
+import Teachers from './views/pages/Teachers/Teachers';
 
 const routes = [
     {
@@ -66,6 +67,11 @@ const routes = [
         key: 11,
         path: RouteEnum.HOMESKELETON,
         component: Homepage,
+    },
+    {
+        key: 12,
+        path: RouteEnum.TEACHERS,
+        component: Teachers,
     },
 ];
 

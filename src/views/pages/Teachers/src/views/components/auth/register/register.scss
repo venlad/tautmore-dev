@@ -1,0 +1,826 @@
+.register-main {
+    background-color: #f4f7fc;
+    padding-bottom: 50px;
+    .step-body {
+      padding: 40px;
+      background-color: #fff;
+      max-width: 80%;
+      margin: 50px auto;
+      border-radius: 40px;
+      box-shadow: 5px 5px 5px rgba(189, 189, 189, 0.07) !important;
+      .step-btn-part {
+        margin-top: 50px;
+      }
+      span.error-msg {
+        font-size: 13px;
+        color: red;
+        margin-top: 10px;
+      }
+    }
+    .register-top {
+      padding: 30px 40px 15px;
+      h2 {
+        font-size: 40px;
+        line-height: 48px;
+        color: #20282a;
+        font-family: "Proxima Nova";
+        margin-top: 10px;
+        span {
+          color: #43aa8b;
+        }
+      }
+    }
+    .option-part {
+      padding: 30px 40px 15px;
+      .option-part-head {
+        margin-bottom: 30px;
+        h3 {
+          font-size: 32px;
+          font-family: "Proxima Nova";
+        }
+        p {
+          font-family: "proxima_nova_rgregular";
+          font-size: 24px;
+        }
+      }
+      .option-common {
+        display: inline-block;
+        height: 137px;
+        width: 157px;
+        border-radius: 10px;
+        background-color: #fff;
+        cursor: pointer;
+        box-shadow: rgba(140,140,140,0.1);
+        margin-right: 20px;
+        svg {
+          margin-top: 20px;
+        }
+        p {
+          margin-top: 20px;
+          font-family: "proxima_nova_rgbold";
+          font-size: 18px;
+        }
+        &:hover {
+          background-color: #43AA8B;
+          svg {
+            fill: #fff !important;
+          }
+          p {
+            color: #fff !important;
+          }
+        }
+      }
+      .option-common.active {
+        background-color: #43AA8B;
+        svg {
+          fill: #fff !important;
+        }
+        p {
+          color: #fff !important;
+        }
+      }
+      div.option-common:last-child {
+        margin-right: 0;
+      }
+      h5.already-account {
+        margin-top: 100px;
+        font-size: 18px;
+        font-family: "Proxima Nova";
+        color: #20282A;
+        a {
+          color: #43AA8B;
+          text-decoration: none;
+        }
+      }
+      button {
+        max-width: 335px;
+        width: 100%;
+        height: 50px;
+        border-radius: 25px;
+        border: 0;
+        background-color: #40A486;
+        color: #fff;
+        margin-top: 30px;
+        font-family: "Proxima Nova";
+        font-size: 18px;
+        svg {
+          margin-left: 10px;
+        }
+      }
+    }
+    .stepper-above {
+      display: inline-block;
+      width: 15%;
+      position: relative;
+      button {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: #e8e8e8;
+        border: 0;
+        z-index: 9;
+        position: relative;
+        svg {
+          font-size: 13px;
+          position: relative;
+          top: -2px;
+          color: #fff;
+          left: -2px;
+        }
+      }
+  
+      span {
+        display: block;
+        font-family: "proxima_nova_rgregular";
+        font-size: 18px;
+        line-height: 20px;
+        margin-top: 12px;
+        color: #4a5052;
+      }
+    }
+    .stepper-above.active {
+      button {
+        background-color: #f3722c !important;
+      }
+    }
+    .stepper-above.prev-step {
+      button {
+        background-color: #43aa8b !important;
+      }
+      span {
+        color: #43aa8b;
+      }
+      &:after {
+        background: #43aa8b;
+      }
+    }
+    .stepper-above:after {
+      content: "";
+      position: absolute;
+      background: #e8e8e8;
+      height: 1px;
+      width: 100%;
+      top: 11px;
+      left: 50%;
+    }
+    div.stepper-above:last-child:after {
+      content: none !important;
+    }
+    .coursedetails-main {
+      h3.text-center {
+        font-family: "proxima_nova_rgbold";
+        color: #454c4e;
+        font-size: 24px;
+        line-height: 29px;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+        span {
+          color: #f3722c;
+        }
+      }
+      .course-detail-select {
+        label, div.label-div {
+          display: block;
+          color: #7d8283;
+          font-family: "Proxima Nova";
+          font-size: 18px;
+          line-height: 22px;
+          margin-bottom: 5px;
+          margin-top: 30px;
+        }
+        div.css-1s2u09g-control, .css-1pahdxg-control {
+          width: 100%;
+          border: 1px solid #e0e0e0;
+          border-radius: 10px;
+          height: 66px;
+          background-color: #fff;
+          padding: 0px 20px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          position: relative;
+          box-shadow: none;
+          .css-319lph-ValueContainer {
+            padding: 0;
+          }
+          .css-1hb7zxy-IndicatorsContainer {
+            span {
+              width: 0;
+            }
+            .css-tlfecz-indicatorContainer {
+              padding: 0;
+              svg {
+                fill: #212529;
+              }
+            }
+          }
+        }
+        div.select {
+          width: 100%;
+          border: 1px solid #e0e0e0;
+          border-radius: 10px;
+          height: 66px;
+          background-color: #fff;
+          padding: 0px 20px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          position: relative;
+          svg {
+            position: absolute;
+            right: 20px;
+          }
+        }
+        button {
+          width: 100%;
+          border: 1px solid #e0e0e0;
+          border-radius: 10px;
+          height: 66px;
+          background-color: #fff;
+          padding: 0px 20px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          position: relative;
+          box-shadow: none;
+        }
+        select:focus {
+          outline: 0 !important;
+        }
+        .dropdown.false {
+          display: none;
+        }
+        .dropdown.true {
+          display: block;
+          border: 1px solid #e0e0e0;
+          border-radius: 10px;
+          margin-top: 5px;
+          div {
+            cursor: pointer;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+          }
+          div:hover {
+            background-color: #e3fff6;
+            color: #43aa8b;
+            border-radius: 10px 10px 0 0;
+          }
+        }
+        .dropdown-main {
+          position: relative;
+          .dropdown {
+            position: absolute;
+            width: 100%;
+            background-color: #fff;
+            z-index: 9;
+          }
+        }
+      }
+      .mutiple-dropdown-part {
+        div {
+          width: 100%;
+          .css-1jllj6i-control {
+            display: none;
+          }
+          span.css-1v99tuv {
+            color: #20282a;
+            font-size: 16px;
+          }
+          .css-1vr111p-option,
+          .css-1qprcsu-option {
+            cursor: pointer;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            input {
+              right: 20px;
+              position: absolute;
+            }
+          }
+          .css-1qprcsu-option {
+            background-color: #e3fff6 !important;
+            color: #43aa8b !important;
+          }
+          div.css-1vr111p-option:hover {
+            background-color: #e3fff6;
+            color: #43aa8b;
+            border-radius: 10px 10px 0 0;
+          }
+        }
+        .css-1pcexqc-container {
+          display: block;
+          border: 1px solid #e0e0e0;
+          border-radius: 10px;
+          margin-top: 5px;
+        }
+      }
+      .subject-list-main {
+        label.label {
+          display: block;
+          color: #7d8283;
+          font-family: "Proxima Nova";
+          font-size: 18px;
+          line-height: 22px;
+          margin-bottom: 5px;
+          margin-top: 30px;
+        }
+        .subject-list {
+          border: 1px solid #e0e0e0;
+          display: inline-block;
+          padding: 15px;
+          width: 175px;
+          border-radius: 33px;
+          margin-right: 10px;
+          margin-bottom: 15px;
+          color: #000;
+          background-color: #f4f7fc;
+          .round {
+            position: relative;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 35px;
+            input {
+              border-radius: 50%;
+              margin-right: 10px;
+              position: absolute;
+              opacity: 0;
+              cursor: pointer;
+              height: 0;
+              width: 0;
+            }
+            input:checked ~ .checkmark {
+              background-color: #43aa8b;
+            }
+            .checkmark {
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 25px;
+              width: 25px;
+              background-color: #fff;
+              border: 1px solid #e0e0e0;
+              border-radius: 50%;
+            }
+            .checkmark:after {
+              content: "";
+              position: absolute;
+              display: none;
+            }
+            input:checked ~ .checkmark:after {
+              display: block;
+            }
+            .checkmark:after {
+              left: 9px;
+              top: 5px;
+              width: 5px;
+              height: 10px;
+              border: solid white;
+              border-width: 0 3px 3px 0;
+              -webkit-transform: rotate(45deg);
+              -ms-transform: rotate(45deg);
+              transform: rotate(45deg);
+            }
+          }
+        }
+        .subject-list.active {
+          border: 1px solid #43aa8b;
+          background-color: #fff;
+          color: #43aa8b;
+        }
+      }
+    }
+    .mydetails-main {
+      .otp-block {
+        input {
+          width: 100% !important;
+        }
+        span {
+          margin-right: 10px;
+        }
+        p {
+          color: #43aa8b;
+          font-family: "proxima_nova_rgbold";
+          margin-top: 7px;
+          text-align: right;
+          span {
+            margin-right: 0;
+            cursor: pointer;
+          }
+        }
+      }
+      
+      .mydetail-input {
+        .mydetail-input-part {
+          position: relative;
+        }
+        button {
+          display: inline-block;
+          position: absolute;
+          right: 7%;
+          bottom: 16%;
+          background: transparent;
+          border: 0;
+          color: #f3722c;
+          font-family: "proxima_nova_rgbold";
+        }
+        .success-msg {
+          color: green;
+        }
+      }
+      h3.text-center {
+        font-family: "proxima_nova_rgbold";
+        color: #454c4e;
+        font-size: 24px;
+        line-height: 29px;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+        span {
+          color: #f3722c;
+        }
+      }
+      label {
+        display: block;
+        color: #7d8283;
+        font-family: "Proxima Nova";
+        font-size: 18px;
+        line-height: 22px;
+        
+        margin-top: 30px;
+      }
+      input {
+        width: 100%;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        height: 66px;
+        background-color: #fff;
+        padding: 0px 20px;
+        margin-top: 5px;
+      }
+      input:focus {
+        outline: 0 !important;
+      }
+    }
+
+    .pay-fees-main {
+      .payment-main {
+        font-family: "Proxima Nova";
+  
+        label {
+          margin-top: 0;
+          font-size: 18px;
+        }
+        h4 {
+          font-size: 22px;
+          color: #454c4e;
+        }
+        p {
+          color: #454c4e;
+          font-size: 22px;
+          margin-bottom: 0;
+          margin-top: 25px;
+        }
+        .payment-data {
+          margin-bottom: 25px;
+        }
+      }
+      .total-data {
+        background-color: #e3fff6;
+        border-radius: 0 0 10px 10px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        padding: 0px 30px;
+        width: 75%;
+        margin: auto;
+        font-family: "Proxima Nova";
+        h4 {
+          color: #43aa8b;
+          font-size: 24px;
+          margin-bottom: 0;
+        }
+        h3 {
+          font-size: 30px;
+          margin-bottom: 0;
+          color: #43aa8b;
+        }
+      }
+    }
+    .create-student-main {
+      h3.text-center {
+        font-family: "proxima_nova_rgbold";
+        color: #454c4e;
+        font-size: 24px;
+        line-height: 29px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      h4 {
+        color: #f3722c;
+        font-size: 24px;
+        font-family: "proxima_nova_rgbold";
+        line-height: 29px;
+        margin-bottom: 5px;
+      }
+      h4.title-last {
+        position: relative;
+        top: 32px;
+      }
+      label {
+        display: block;
+        color: #7d8283;
+        font-family: "Proxima Nova";
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 5px;
+        margin-top: 30px;
+      }
+      input {
+        width: 100%;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        height: 66px;
+        background-color: #fff;
+        padding: 0px 20px;
+      }
+      input:focus {
+        outline: 0 !important;
+      }
+      // .create-student-main {
+      //   .col-md-6 {
+      //     margin-bottom: 40px;
+      //   }
+      // }
+      .student-last {
+        position: relative;
+        top: 32px;
+      }
+      .addparent-above {
+        left: -41px;
+        position: relative;
+        width: calc(100% + 81px);
+        height: 50px;
+        background-color: #fff;
+        /* margin-bottom: 18px; */
+        top: 32px;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        z-index: 9;
+        margin-bottom: 3px;
+      }
+      .addparent-above-below {
+        left: -41px;
+        position: relative;
+        width: calc(100% + 99px);
+        height: 40px;
+        background-color: #f4f7fc;
+        top: 2px;
+      }
+      .addparent-top {
+        left: -41px;
+        position: relative;
+        width: calc(100% + 90px);
+        height: 50px;
+        background-color: #f4f7fc;
+        margin-bottom: 18px;
+      }
+      .addparent-bottom {
+        left: -40px;
+        position: relative;
+        width: calc(100% + 80px);
+        height: 50px;
+        background-color: #fff;
+        border-top-left-radius: 40px;
+        top: -50px;
+        border-top-right-radius: 40px;
+      }
+      .parent-title {
+        margin-top: -50px;
+      }
+      // .parent-title {
+      //   left: -42px;
+      //   position: relative;
+      //   width: calc(100% + 90px);
+      //   top: 0px;
+      //   &::before {
+      //     content: "";
+      //     position: absolute;
+      //     left: 1px;
+      //     top: -3px;
+      //     width: 30px;
+      //     height: 32px;
+      //     background: #f4f7fc;
+      //   }
+      //   &::after {
+      //     content: "";
+      //     position: absolute;
+      //     width: 50px;
+      //     height: 50px;
+      //     background: #fff;
+      //     left: 2px;
+      //     border-top-left-radius: 40px;
+      //     top: -1px;
+      //   }
+      // }
+    }
+    .success-part {
+      h1 {
+        color: #43aa8b;
+        font-size: 50px;
+        font-family: "proxima_nova_rgbold";
+        margin: 30px 0px;
+      }
+      p {
+        font-family: "proxima_nova_rgregular";
+        font-size: 30px;
+        color: #4a5052;
+        line-height: 34px;
+      }
+    }
+    .next-button {
+      background-color: #43aa8b;
+      box-shadow: none;
+      border-radius: 33.75px;
+      color: #fff;
+      border: 0;
+      width: 273px;
+      height: 66px;
+      font-size: 20px;
+      font-family: "proxima_nova_rgbold";
+      text-align: left;
+      padding: 0px 25px;
+      transition: 0.3s;
+      opacity: 0.8;
+      span {
+        float: right;
+        height: 24px;
+        width: 24px;
+        background-color: #fca834;
+        border-radius: 50%;
+        padding: 0px 7px;
+        margin-top: 4px;
+        box-shadow: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    .next-button:hover {
+      box-shadow: 5px 5px 5px rgb(67 170 139 / 25%) !important;
+      opacity: 1;
+      span {
+        box-shadow: 5px 5px 5px rgb(0 0 0 / 24%) !important;
+      }
+    }
+    .next-button:disabled {
+      opacity: 0.4;
+      span {
+        box-shadow: 5px 5px 5px rgb(0 0 0 / 24%) !important;
+      }
+    }
+  }
+  .register-main.success {
+    padding-top: 50px;
+  }
+  
+  @media only screen and (max-width: 1230px) {
+    .register-main .stepper-above span {
+      font-size: 15px;
+    }
+  }
+  @media only screen and (max-width: 1052px) {
+    .register-main .pay-fees-main .total-data h4, .register-main .pay-fees-main .total-data h3 {
+      font-size: 17px;
+    }
+  }
+  @media only screen and (max-width: 1024px) {
+    .register-main .stepper-above span {
+      font-size: 13px;
+    }
+    .register-main .register-top h2 {
+      font-size: 30px;
+    }
+    .register-top img {
+      width: 200px;
+    }
+  }
+  @media only screen and (max-width: 860px) {
+    .register-main .mydetails-main .otp-block span {
+      margin-right: 5px;
+    }
+    .register-main .mydetails-main input {
+      padding: 5px;
+    }
+    .register-main .mydetails-main .mydetail-input button {
+      right: 3%;
+      bottom: 22%;
+      font-size: 13px;
+    }
+    .register-main .pay-fees-main .payment-main h4 {
+      font-size: 18px;
+    }
+    .register-main .pay-fees-main .payment-main p {
+      font-size: 18px;
+    }
+    .register-main .pay-fees-main .payment-main label {
+      font-size: 15px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .register-top {
+      text-align: center;
+    }
+    .register-main .next-button {
+      width: 250px;
+      height: 50px;
+      font-size: 16px;
+    }
+    .register-main .pay-fees-main .total-data {
+      width: 100%;
+      padding: 0;
+    }
+    .register-main .next-button span {
+      margin-top: 0;
+    }
+    .register-main .coursedetails-main .course-detail-select button, .register-main .coursedetails-main .course-detail-select div.select, .register-main .coursedetails-main .course-detail-select .dropdown.true div, .register-main .mydetails-main input, .register-main .create-student-main input {
+      height: 50px;
+    }
+    .register-main .coursedetails-main .subject-list-main .subject-list {
+      padding: 10px;
+    }
+    .register-main .success-part h1 {
+      font-size: 35px;
+    }
+    .register-main .success-part p {
+      font-size: 20px;
+    }
+  }
+
+  @media only screen and (max-width: 575px) {
+    .register-main .step-body {
+      padding: 20px;
+      max-width: 95%;
+    }
+    .register-main h3.text-center {
+      font-size: 17px !important;
+      margin-bottom: 5px !important;
+    }
+    .register-main .coursedetails-main .course-detail-select label, .register-main .mydetails-main label, .register-main .pay-fees-main .payment-main p, .register-main .pay-fees-main .payment-main h4,.register-main .pay-fees-main .total-data h4, .register-main .pay-fees-main .total-data h3, .register-main .create-student-main label {
+      font-size: 15px;
+    }
+    .register-main .create-student-main h4 {
+      font-size: 18px;
+    }
+    .register-main .create-student-main .addparent-bottom, .register-main .create-student-main .addparent-above, .register-main .create-student-main .addparent-above-below {
+      left: -21px;
+      width: calc(100% + 41px);
+    }
+    .register-main .create-student-main .addparent-top {
+      left: -21px;
+      width: calc(100% + 48px);
+    }
+    .register-main .register-top h2 {
+      line-height: 30px;
+      margin-top: 25px;
+      font-size: 25px;
+    }
+    .register-main .pay-fees-main .total-data {
+      text-align: center;
+    }
+    .register-main {
+      .register-top, .option-part {
+        padding: 15px;
+      }
+    }
+    .register-main {
+      .option-part {
+        .option-part-head {
+          h3 {
+            font-size: 26px;
+          }
+          p {
+            font-size: 18px;
+          }
+        }
+        .option-common {
+          margin: auto;
+          margin-bottom: 30px;
+          display: block;
+        }
+        h5.already-account {
+          font-size: 16px;
+        }
+        button {
+          height: 40px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
