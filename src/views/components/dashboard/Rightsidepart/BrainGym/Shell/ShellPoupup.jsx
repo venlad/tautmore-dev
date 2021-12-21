@@ -1,4 +1,5 @@
 import React from 'react';
+import {  func } from 'prop-types';
 import Close from '../../../../../../assets/images/shell-pop-Close.svg';
 import ActiveLevelIcon from '../../../../../../assets/images/shell-pop-OvalOrange.svg';
 import FadedLevelIcon from '../../../../../../assets/images/shell-pop-OvalFaded.svg';
@@ -11,13 +12,13 @@ import BlackGradientIcon from '../../../../../../assets/images/shell-pop-Black.s
 import TotalPlays from '../../../../../../assets/images/shell-pop-TotalPlay.svg';
 import './style/popup.scss';
 
-const ShellPoupup = () => (
+const ShellPoupup = ({ setView }) => (
     <div className="shell-popup-main">
         <div className="svg-background-container">
             <div className="flex-items-details">
                 <h2>Shell 1</h2>
                 <h3>Topic: Count to 10  </h3>
-                <button type="button" className="close-btn">
+                <button type="button" className="close-btn" onClick={() => setView('home')}>
                     <img className="floating-cross" src={Close} alt="No Imag" />
                 </button>
                 <div className="current-level-and-icons">
@@ -53,5 +54,9 @@ const ShellPoupup = () => (
         </div>
     </div>
 );
+
+ShellPoupup.propTypes = {
+    setView: func.isRequired,
+};
 
 export default ShellPoupup;

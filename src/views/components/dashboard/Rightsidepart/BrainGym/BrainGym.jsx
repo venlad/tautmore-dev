@@ -5,10 +5,11 @@ import BrainGymSublist from './BrainGymSublist';
 import BrainGymStartToday from './BrainGymStartToday';
 import BrainGymScore from './BrainGymScore';
 import Shell from './Shell/Shell';
+import ShellPoupup from './Shell/ShellPoupup';
 // import IncorrectAns from './IncorrectAns/IncorrectAns';
-// import ShellPoupup from './Shell/ShellPoupup';
 // import BrainGymResult from './BrainGymResult/BrainGymResult';
 // import Popup from './CompletedPopup/Popup';
+import Report from './Report/Report';
 
 const BrainGym = () => {
     const [view, setView] = useState('home');
@@ -25,6 +26,9 @@ const BrainGym = () => {
             )}
             { view === 'workout'
                 && <Shell setView={setView} />}
+            { view === 'shell'
+                && <ShellPoupup setView={setView} />}
+            <Report />
             {/* <IncorrectAns /> */}
             {/* <ShellPoupup /> */}
             {/* <BrainGymResult /> */}

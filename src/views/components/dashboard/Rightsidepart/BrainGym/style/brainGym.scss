@@ -256,9 +256,12 @@
           letter-spacing: 0;
           line-height: 20px;
           text-align: center;
-          display: block;
           margin-left: 15px;
           margin-right: 0;
+          display: inline-block;
+          cursor: pointer;
+          position: relative;
+          z-index: 9;
         }
       }
 

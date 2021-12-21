@@ -30,7 +30,7 @@ function BrainGymStartToday({ setView }) {
                     <div className="row">
                         <div className="col-md-3 col-sm-5 col-12 shell">
                             <img src={Shell} alt="" />
-                            <span>Shell1</span>
+                            <span onClick={() => setView('shell')} aria-hidden="true">Shell1</span>
                         </div>
                         <div className="col-md-1 col-sm-1 col-12 line2">
                             <img src={Line2} alt="" />
