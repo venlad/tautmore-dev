@@ -10,7 +10,7 @@ import Mydetails from './Mydetails';
 import Createstudentaccount from './Createstudentaccount';
 import Success from './Success';
 import {
-    chevRight, select, student, parents, errowRight,
+    chevRight, select, student, parents, teachers, errowRight,
 } from '../../../../assets/icons/IconList';
 import { register } from '../../../../stores/Auth/AuthAction';
 import RegisterOption from './RegisterOption';
@@ -43,6 +43,10 @@ const Register = ({ registerAction, isOtpVerified }) => {
     });
 
     const handleRegister = () => {
+        console.log(userType);
+        if (userType === 'Teacher') {
+            console.log(userType);
+        }
         console.log(subjectVal, 'val');
         const data = {
             studentName: fullnameVal,
@@ -165,28 +169,52 @@ const Register = ({ registerAction, isOtpVerified }) => {
                         <p>Join our platform as one of the above</p>
                     </div>
                     <div className="text-center">
-                        <RegisterOption icon={student} title="Student" setUserType={setUserType} userType={userType} />
-                        <RegisterOption icon={parents} title="Parent" setUserType={setUserType} userType={userType} />
+                        <RegisterOption icon={student} title="Student" setUserType={() => setUserType('Student')} userType={userType} />
+                        <RegisterOption icon={parents} title="Parent" setUserType={() => setUserType('Parent')} userType={userType} />
+                        <RegisterOption icon={teachers} title="Teacher" setUserType={() => setUserType('Teacher')} userType={userType} />
                         <h5 className="already-account">Already have an account? <Link to="/login">Login here</Link></h5>
                         <button type="button" disabled={userType === ''} onClick={selectForm}>Next {errowRight}</button>
                     </div>
                 </div>
             )}
 
-            {step > 0 && step < 5 && userType !== ''  && (
+            {step > 0 && step < 5 && userType !== '' && userType === 'Student'  && (
                 <div>
                     <div className="stepper-top text-center">
-                        {stepdata.map((data) => (
-                            <div
-                                key={data.title}
-                                className={`stepper-above ${data.id === step ? 'active' : ''} ${
-                                    data.id < step ? 'prev-step' : ''
-                                }`}
-                            >
-                                <button type="button">{select}</button>
-                                <span> {data.title}</span>
-                            </div>
-                        ))}
+                        {
+
+                            stepdata.stepdataStudent.map((data) => (
+                                <div
+                                    key={data.title}
+                                    className={`stepper-above ${data.id === step ? 'active' : ''} ${
+                                        data.id < step ? 'prev-step' : ''
+                                    }`}
+                                >
+                                    <button type="button">{select}</button>
+                                    <span> {data.title}</span>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            )}
+            {step > 0 && step < 5 && userType !== '' && userType === 'Teacher'  && (
+                <div>
+                    <div className="stepper-top text-center">
+                        {
+
+                            stepdata.stepdataTeacher.map((data) => (
+                                <div
+                                    key={data.title}
+                                    className={`stepper-above ${data.id === step ? 'active' : ''} ${
+                                        data.id < step ? 'prev-step' : ''
+                                    }`}
+                                >
+                                    <button type="button">{select}</button>
+                                    <span> {data.title}</span>
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
             )}
@@ -198,13 +226,18 @@ const Register = ({ registerAction, isOtpVerified }) => {
                         <Mydetails
                             setFullnameVal={setFullnameVal}
                             fullnameVal={fullnameVal}
+                            countryVal={countryVal}
                             validation={validation}
+                            setCountryVal={setCountryVal}
+                            stateVal={stateVal}
+                            setStateVal={setStateVal}
                             setEmailVal={setEmailVal}
                             emailVal={emailVal}
                             phoneNumVal={phoneNumVal}
                             setPhoneNumVal={setPhoneNumVal}
                             setOtpVal={setOtpVal}
                             otpVal={otpVal}
+                            userType={userType}
                         />
                     )}
                     {step === 2 && (
@@ -219,6 +252,7 @@ const Register = ({ registerAction, isOtpVerified }) => {
                             validation={validation}
                             subjectVal={subjectVal}
                             setSubjectVal={setSubjectVal}
+
                         />
                     )}
 
@@ -231,7 +265,7 @@ const Register = ({ registerAction, isOtpVerified }) => {
                     {step === 5 && <Success />}
 
                     <div className="text-center step-btn-part">
-                        {step > 1 && step < 5 && <button type="button" onClick={backStep}>Back</button>}
+                        {step > 1 && step < 5 && <button type="button" className="back-button" onClick={backStep}>Back</button>}
                         {step === 1 &&  <button type="button" disabled={!isOtpVerified.status} className="next-button" onClick={completeFromStep}>Next <span>{chevRight}</span> </button>}
                         {step === 2 &&  <button type="button" disabled={!isOtpVerified.status} className="next-button" onClick={completeFromStep}>Next  <span>{chevRight}</span> </button>}
                         {step === 3 &&  <button type="button" className="next-button" onClick={completeFromStep}>Next  <span>{chevRight}</span> </button>}

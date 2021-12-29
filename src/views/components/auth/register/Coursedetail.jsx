@@ -31,6 +31,7 @@ const Coursedetail = ({
     validation,
     setSubjectVal,
     subjectVal,
+    userType,
 }) => {
     const countries = csc.getAllCountries();
     const updatedCountries = countries.map((country) => ({
@@ -97,8 +98,11 @@ const Coursedetail = ({
     return (
         <div>
             <div className="coursedetails-main">
-                <h3 className="text-center">
+                <h3 className="text-center" style={{ display: ((userType === 'Student') ? 'block' : 'none') }}>
                     Course details - <span>Student 1</span>
+                </h3>
+                <h3 className="text-center" style={{ display: ((userType === 'Teacher') ? 'block' : 'none') }}>
+                    MY EDUCATION <span />
                 </h3>
                 <div className="row">
                     <div className="col-md-6 course-detail-select">
@@ -199,6 +203,7 @@ Coursedetail.propTypes = {
     validation: object.isRequired,
     setSubjectVal: object.isRequired,
     subjectVal: array.isRequired,
+    userType: string.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Coursedetail);

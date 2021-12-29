@@ -3,6 +3,8 @@ import  {
     string, func, object, number, shape,
 } from 'prop-types';
 import { connect } from 'react-redux';
+import Select from 'react-select';
+import csc from 'country-state-city';
 import Mydetailsinput from './Mydetailsinput';
 import Mydetailotpinput from './Mydetailotpinput';
 import { sendOtpAction, verifyOtpAction } from '../../../../stores/Auth/AuthAction';
@@ -10,8 +12,12 @@ import { sendOtpAction, verifyOtpAction } from '../../../../stores/Auth/AuthActi
 const Mydetails = ({
     setFullnameVal,
     fullnameVal,
+    countryVal,
     validation,
     setEmailVal,
+    setCountryVal,
+    stateVal,
+    setStateVal,
     emailVal,
     phoneNumVal,
     setPhoneNumVal,
@@ -20,7 +26,19 @@ const Mydetails = ({
     otp,
     otpVal,
     setOtpVal,
+    userType,
+
 }) => {
+    const countries = csc.getAllCountries();
+    const updatedCountries = countries.map((country) => ({
+        label: country.name,
+        value: country.id,
+        ...country,
+    }));
+    const updatedStates = (countryId) => csc
+        .getStatesOfCountry(countryId)
+        .map((state) => ({ label: state.name, value: state.id, ...state }));
+
     const otpClick = () => {
         const data = {
             parentName: fullnameVal,
@@ -29,11 +47,40 @@ const Mydetails = ({
         };
         sendOtp(data);
     };
+
     return (
         <div>
             <div className="mydetails-main">
-                <h3 className="text-center">My details</h3>
+                <h3 className="text-center" style={{ display: ((userType === 'Student') ? 'block' : 'none') }}>My details</h3>
+                <h3 className="text-center" style={{ display: ((userType === 'Teacher') ? 'block' : 'none') }}>PERSONAL DETAILS</h3>
                 <div className="row">
+                    <div className="col-md-6 course-detail-select" style={{ display: ((userType === 'Teacher') ? 'block' : 'none')  }}>
+                        <div className="label-div">Country*</div>
+                        <Select
+                            id="country"
+                            name="country"
+                            label="country"
+                            options={updatedCountries}
+                            value={countryVal}
+                            onChange={(value) => {
+                                setCountryVal(value);
+                            }}
+                        />
+                        {validation.country && <span className="error-msg">country is required.</span>}
+                    </div>
+                    <div className="col-md-6 course-detail-select" style={{ display: ((userType === 'Teacher') ? 'block' : 'none') }}>
+                        <div className="label-div">State*</div>
+                        <Select
+                            id="state"
+                            name="state"
+                            options={updatedStates(countryVal ? countryVal.value : null)}
+                            value={stateVal}
+                            onChange={(value) => {
+                                setStateVal(value);
+                            }}
+                        />
+                        {validation.state && <span className="error-msg">state is required.</span>}
+                    </div>
                     <div className="col-md-6 mydetail-input">
                         <Mydetailsinput label="Full name*" type="text" name="full_name" id="full-name" value={fullnameVal} setValue={setFullnameVal} />
                         {validation.fullName && <span className="error-msg">Full name is required.</span>}
@@ -81,6 +128,11 @@ Mydetails.propTypes = {
     }).isRequired,
     sendOtp: func.isRequired,
     verifyOtp: func.isRequired,
+    userType: string.isRequired,
+    countryVal: string.isRequired,
+    setCountryVal: string.isRequired,
+    stateVal: string.isRequired,
+    setStateVal: string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
