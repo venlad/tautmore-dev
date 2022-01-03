@@ -34,6 +34,7 @@
       padding: 30px 40px 15px;
       .option-part-head {
         margin-bottom: 30px;
+        text-align: center;
         h3 {
           font-size: 32px;
           font-family: "Proxima Nova";
@@ -671,6 +672,23 @@
         align-items: center;
         justify-content: center;
       }
+    }
+    .back-button
+    {
+      background-color: #43aa8b;
+      box-shadow: none;
+      border-radius: 33.75px;
+      color: #fff;
+      border: 0;
+      width: 100px;
+      margin-right: 10px;
+      height: 66px;
+      font-size: 20px;
+      font-family: "proxima_nova_rgbold";
+      text-align: left;
+      padding: 0px 25px;
+      transition: 0.3s;
+      opacity: 0.8;
     }
     .next-button:hover {
       box-shadow: 5px 5px 5px rgb(67 170 139 / 25%) !important;

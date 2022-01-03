@@ -1,0 +1,308 @@
+.slick-slide {
+    .sliderBox {
+        border-radius: 20px;
+        background-color: #FFFFFF !important;
+        box-shadow: 0 12px 34px -10px rgba(0, 0, 0, 0.05) !important;
+        padding: 30px;
+    }
+
+
+    .subname {
+        color: #000000;
+        font-family: "Proxima Nova";
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 24px;
+        margin-bottom: 0px;
+    }
+
+    p {
+        margin-bottom: 0px;
+    }
+
+    // .floatleft {
+    //     float: left;
+    // }
+
+    .gradesection {
+        padding-top: 10px;
+    }
+
+    .viewdetailsbutton {
+        border-radius: 10px;
+        background-color: #E3FFF6;
+        border: none;
+        width: 100%;
+        padding: 10px;
+        color: #43AA8B;
+        font-weight: bold;
+    }
+
+    .viewdetailsbutton a {
+        color: #43AA8B;
+        font-family: "Proxima Nova";
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 19px;
+        text-align: center;
+    }
+
+    .buttondiv {
+        padding-top: 10px;
+        float: left;
+        width: 100%;
+    }
+
+
+}
+
+.slick-slider {
+    .slick-prev:before {
+        content: url('../../../assets/images/sliderlefticon.svg') !important;
+
+    }
+}
+
+.slick-slider {
+    .slick-next:before {
+        content: url('../../../assets/images/sliderlefticon.svg') !important;
+    }
+
+    .slick-prev {
+        left: -17px;
+        z-index: 1;
+        top: 45%;
+    }
+
+    .slick-next {
+        right: 0px;
+        top: 45%;
+    }
+}
+
+.modal-content {
+    height: 650px;
+    overflow: scroll;
+
+    .modal-header {
+        border-bottom: 0px solid #dee2e6;
+        padding-top: 30px;
+        padding-left: 30px;
+    }
+
+    .model-title br span {
+        color: #454C4E;
+        font-family: "Proxima Nova";
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 22px;
+    }
+
+    .modelsecdiv {
+        padding-left: 30px;
+        padding-top: 10px;
+    }
+
+    .Clockicon {
+        padding-right: 5px;
+    }
+
+    // .floatleft {
+    //     float: left;
+    // }
+
+    .tabheadtext {
+        color: #20282A;
+        font-family: "Proxima Nova";
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 29px;
+    }
+
+    .tabsubhead {
+        color: #454C4E;
+        font-family: "Proxima Nova";
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 22px;
+    }
+
+    .tabcontent {
+        color: #20282A;
+        font-family: "Proxima Nova";
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 24px;
+        padding-top: 30px;
+        padding-right: 20px;
+    }
+
+    .tabsection {
+        padding-top: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .firsttabcontent {
+        padding: 40px;
+    }
+
+    .secondtabcontent {
+        padding-top: 20px;
+    }
+
+    .buttondiv {
+        margin-top: 10px;
+        float: left;
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #E3FFF6;
+        border: none;
+
+    }
+
+    .buttondiv a {
+        color: #43AA8B;
+        font-family: "Proxima Nova";
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 19px;
+        text-align: center;
+    }
+
+
+    .modal-title {
+        color: #20282A;
+        font-family: "Proxima Nova";
+        font-size: 32px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 31px;
+    }
+
+    .nav-tabs .nav-link {
+        border-top-left-radius: 0rem;
+        border-top-right-radius: 0rem;
+        color: #454C4E;
+        font-family: "Proxima Nova";
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 22px;
+    }
+
+    .nav-tabs .nav-link.active {
+
+        color: #43AA8B;
+        border-color: #fff #fff #eee;
+        border-bottom: 6px solid #43AA8B !important;
+    }
+
+    .subtopic {
+        color: #454C4E;
+        font-family: "Proxima Nova";
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 22px;
+    }
+
+    .studentlistdiv {
+        border-radius: 10px;
+        background-color: #F4F7FC;
+        padding: 15px 15px;
+    }
+
+    .studentname {
+        color: #20282A;
+        font-family: "Proxima Nova";
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 19px;
+        text-align: left;
+    }
+
+    .studentgrade {
+        color: #454C4E;
+        font-family: "Proxima Nova";
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 15px;
+        text-align: left;
+    }
+
+    .label-main {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // .progressbarsection {
+    //     padding-top: 10px;
+    // }
+
+    .divpadd {
+        padding-left: 15px;
+        padding-top: 15px;
+    }
+
+    // .close ::before {
+    //     content: 'X';
+    //     visibility: visible;
+    //     color: "black";
+    //     font-weight: bold;
+    // }
+
+    // .sr-only::before {
+    //     visibility: hidden;
+    // }
+
+    // .close {
+    //     /*background-color: red; */
+    //     visibility: hidden;
+    //     position: absolute;
+    //     right: 32px;
+    //     top: 10px;
+    //     width: 20px;
+    //     height: 20px;
+    //     background-color: rgb(247, 12, 12, 0.5);
+    // }
+
+    // .thirdtabcontent {
+    //     padding-top: 20px;
+    // }
+    .assignstudlistdiv {
+        padding-top: 20px;
+    }
+
+    .atteddiv {
+        border-radius: 9.5px;
+        background-color: #E3FFF6;
+        color: #43AA8B;
+        font-family: "Proxima Nova";
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 14px;
+        text-align: center;
+        padding: 5px;
+    }
+
+    .label-left {
+        color: #454C4E;
+        font-family: "Proxima Nova";
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 14px;
+        padding-top: 8px;
+    }
+
+
+}
