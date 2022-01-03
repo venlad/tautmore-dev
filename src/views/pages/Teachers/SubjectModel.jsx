@@ -11,45 +11,9 @@ import Studentimg from '../../../assets/images/studentimg.png';
 import Calendericon from '../../../assets/images/calendaricon.svg';
 import Progressbar from '../../components/dashboard/Rightsidepart/Progressbar';
 import './teachers.scss';
-
-const assignment = [
-    {
-        id: 1,  name: 'Susan Richards', grade: 4, attendance: 'Present', progress: 34,
-    },
-    {
-        id: 2,  name: 'Suresh raina', grade: 5, attendance: 'Absent', progress: 54,
-    },
-    {
-        id: 3, name: 'Ramesh power', grade: 7, attendance: 'Present', progress: 74,
-    },
-    {
-        id: 4, name: 'balaji', grade: 5, attendance: 'Absent', progress: 44,
-    },
-    {
-        id: 5, name: 'ramanna', grade: 5, attendance: 'Present', progress: 24,
-    },
-];
-
-const students = [
-    {
-        id: 1,  name: 'Lokesh', grade: 4, progress: 87,
-        //  img: 'https://navrathan.com/wp-content/uploads/2020/09/Navrathan-logo.png',
-    },
-    {
-        id: 2,  name: 'Ramesh', grade: 5, progress: 76,
-        //  img: 'https://navrathan.com/wp-content/uploads/2020/09/Navrathan-logo.png',
-    },
-    {
-        id: 3, name: 'Umesh', grade: 7, progress: 56,
-    },
-    {
-        id: 4, name: 'Rakesh', grade: 5, progress: 56,
-    },
-    {
-        id: 5, name: 'Mallesh', grade: 5, progress: 54,
-    },
-
-];
+import {
+    assignment, students,
+} from './mockData/SubjectModel';
 
 function SubjectModel({ handleSubjectModel, showSubjectModel }) {
     return (
@@ -115,7 +79,7 @@ function SubjectModel({ handleSubjectModel, showSubjectModel }) {
                             <div className="col-sm-12 secondtabcontent floatleft">
                                 <div className="row">
                                     {students.map((item) => (
-                                        <div className="col-sm-6 divpadd floatleft">
+                                        <div className="col-sm-6 divpadd floatleft" key={item.id}>
 
                                             <div className="col-sm-12 floatleft studentlistdiv">
                                                 <div className="row">
@@ -143,7 +107,7 @@ function SubjectModel({ handleSubjectModel, showSubjectModel }) {
                             <div className="col-sm-12 assignstudlistdiv">
                                 <div className="row">
                                     {assignment.map((item) => (
-                                        <div className="col-sm-6 divpadd floatleft">
+                                        <div className="col-sm-6 divpadd floatleft" key={item.id}>
 
                                             <div className="col-sm-12 floatleft studentlistdiv">
                                                 <div className="row">

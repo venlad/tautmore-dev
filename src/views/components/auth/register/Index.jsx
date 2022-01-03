@@ -29,6 +29,7 @@ const Register = ({ registerAction, isOtpVerified }) => {
     const [phoneNumVal, setPhoneNumVal] = useState('');
     const [gradeVal, setGradeVal] = useState('');
     const [examVal, setExamVal] = useState('');
+    const [qualificationVal, setQualificationVal] = useState('');
     const [subjectVal, setSubjectVal] = useState([]);
     const [otpVal, setOtpVal] = useState('');
 
@@ -62,7 +63,16 @@ const Register = ({ registerAction, isOtpVerified }) => {
             ],
             onBoardThrough: 'web',
         };
-        registerAction(data);
+        const teacherRegisterData = { qualification: qualificationVal };
+
+        if (userType === 'Student') {
+            console.log(userType);
+            registerAction(data);
+        } 
+        if (userType === 'Teacher')
+            registerAction(teacherRegisterData);
+        }
+
         setStep((cur) => cur + 1);
     };
     const completeFromStep = () => {
@@ -249,9 +259,11 @@ const Register = ({ registerAction, isOtpVerified }) => {
                             setStateVal={setStateVal}
                             setGradeVal={setGradeVal}
                             setExamVal={setExamVal}
+                            setQualificationVal={setQualificationVal}
                             validation={validation}
                             subjectVal={subjectVal}
                             setSubjectVal={setSubjectVal}
+                            userType={userType}
 
                         />
                     )}

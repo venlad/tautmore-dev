@@ -82,3 +82,22 @@ export const exam = [
         value: 4,
     },
 ];
+
+export const qualification = [
+    {
+        label: '',
+        value: 1,
+    },
+    {
+        label: 'qualification1',
+        value: 2,
+    },
+    {
+        label: 'qualification2',
+        value: 3,
+    },
+    {
+        label: 'qualification3',
+        value: 4,
+    },
+];

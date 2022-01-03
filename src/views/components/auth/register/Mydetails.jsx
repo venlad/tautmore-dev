@@ -48,11 +48,27 @@ const Mydetails = ({
         sendOtp(data);
     };
 
+    const renderHeader = (type) => {
+        switch (type) {
+            case 'Student':
+                return (
+                    <h3 className="text-center">My details</h3>
+                );
+            case 'Teacher':
+                return (
+                    <h3 className="text-center"> PERSONAL DETAILS</h3>
+                );
+            default:
+                return (
+                    <h3 className="text-center">No User Type|Error</h3>
+                );
+        }
+    };
     return (
         <div>
             <div className="mydetails-main">
-                <h3 className="text-center" style={{ display: ((userType === 'Student') ? 'block' : 'none') }}>My details</h3>
-                <h3 className="text-center" style={{ display: ((userType === 'Teacher') ? 'block' : 'none') }}>PERSONAL DETAILS</h3>
+                {renderHeader(userType)}
+
                 <div className="row">
                     <div className="col-md-6 course-detail-select" style={{ display: ((userType === 'Teacher') ? 'block' : 'none')  }}>
                         <div className="label-div">Country*</div>
@@ -68,7 +84,7 @@ const Mydetails = ({
                         />
                         {validation.country && <span className="error-msg">country is required.</span>}
                     </div>
-                    <div className="col-md-6 course-detail-select" style={{ display: ((userType === 'Teacher') ? 'block' : 'none') }}>
+                    <div className="col-md-6 course-detail-select" style={{ display: ((userType === 'Teacher') ? 'block' : 'none')  }}>
                         <div className="label-div">State*</div>
                         <Select
                             id="state"
@@ -100,7 +116,7 @@ const Mydetails = ({
                         <div className="mydetail-input-part">
                             <label htmlFor="detail-label">Phone number*
                                 <input type="number" name="phone_number" id="phone" value={phoneNumVal} onChange={(e) => setPhoneNumVal(e.target.value)} />
-                                <button type="button" onClick={otpClick}>Send OTP</button>
+                                <button type="button" onClick={otpClick} style={{ display: ((phoneNumVal.length >= 10) ? 'block' : 'none') }}>Send OTP</button>
                             </label>
                         </div>
                         {otp.status === 'success' && <span className="success-msg">Otp sent</span>}

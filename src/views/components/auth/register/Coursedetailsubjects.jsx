@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import  { array, string, object } from 'prop-types';
 
 const Coursedetailsubjects = ({
-    label, data, setSubjectVal, subjectVal, validation,
+    label, data, setSubjectVal, subjectVal, validation, userType,
 }) => {
     const [checked, setChecked] = useState([]);
     const handleClick = (value, ind) => {
@@ -22,7 +22,7 @@ const Coursedetailsubjects = ({
     };
 
     return (
-        <div className="col-md-6 subject-list-main">
+        <div className="col-md-6 subject-list-main" style={{ display: (userType === 'Student' ? 'block' : 'none')  }}>
             <label className="label" htmlFor="sublist">{label}</label>
             <div>
                 {data.map((val, ind) => (
@@ -52,6 +52,8 @@ Coursedetailsubjects.propTypes = {
     setSubjectVal: object.isRequired,
     subjectVal: array.isRequired,
     validation: object.isRequired,
+    userType: string.isRequired,
+
 };
 
 export default Coursedetailsubjects;

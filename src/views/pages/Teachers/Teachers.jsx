@@ -12,7 +12,7 @@ import './teachers.scss';
 // import MyClassesCommon from '../../components/dashboard/Rightsidepart/MyClass/MyClassesCommon';
 import OnlineClassalert from './OnlineClassalert';
 
-const TEACHERS = () => {
+const Teachers = () => {
     const [open, setOpen] = useState(false);
     const [view, setView] = useState('Dashboard');
     const [setConcept] = useState('');
@@ -58,4 +58,4 @@ const TEACHERS = () => {
     );
 };
 
-export default TEACHERS;
+export default Teachers;
