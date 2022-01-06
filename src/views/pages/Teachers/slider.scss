@@ -109,7 +109,10 @@
     .Clockicon {
         padding-right: 5px;
     }
-
+.padd0
+{
+    padding: 0px;
+}
     // .floatleft {
     //     float: left;
     // }
@@ -215,9 +218,28 @@
     }
 
     .studentlistdiv {
-        border-radius: 10px;
+        border-radius: 10px 10px 0px 0px;
         background-color: #F4F7FC;
         padding: 15px 15px;
+    }
+    .viewassign
+    {
+    background-color: #79A2E7;
+    border-radius: 0px 0px 10px 10px;
+    text-align: center;
+    padding: 5px;
+    }
+
+    .viewassign a
+    {
+    color: #F4F7FC;
+  font-family: "Proxima Nova";
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 17px;
+  padding-right: 5px;
+ 
     }
 
     .studentname {
@@ -253,48 +275,79 @@
         padding-top: 15px;
     }
 
-    // .close ::before {
-    //     content: 'X';
-    //     visibility: visible;
-    //     color: "black";
-    //     font-weight: bold;
-    // }
+    .close :before {
+        content: url('../../../assets/images/modelclose.svg') !important;
+        visibility: visible;
+        color: "black";
+        font-weight: bold;
+    }
 
-    // .sr-only::before {
-    //     visibility: hidden;
-    // }
+    .sr-only::before {
+        visibility: hidden;
+    }
 
-    // .close {
-    //     /*background-color: red; */
-    //     visibility: hidden;
-    //     position: absolute;
-    //     right: 32px;
-    //     top: 10px;
-    //     width: 20px;
-    //     height: 20px;
-    //     background-color: rgb(247, 12, 12, 0.5);
-    // }
+    .close {
+        visibility: hidden;
+        position: absolute;
+        right: 32px;
+        top: 10px;
+        width: 20px;
+        height: 20px;
+        background-color: rgb(247, 12, 12, 0.5);
+    }
 
-    // .thirdtabcontent {
-    //     padding-top: 20px;
-    // }
+    .thirdtabcontent {
+        padding-top: 20px;
+    }
     .assignstudlistdiv {
         padding-top: 20px;
     }
 
-    .atteddiv {
-        border-radius: 9.5px;
-        background-color: #E3FFF6;
+    .atteddiv .attendance {
         color: #43AA8B;
         font-family: "Proxima Nova";
+        height: 19px;
+        width: 97px;
+        border-radius: 9.5px;
+        background-color: #E3FFF6;
         font-size: 12px;
         font-weight: 600;
         letter-spacing: 0;
         line-height: 14px;
         text-align: center;
-        padding: 5px;
+        padding: 8px 15px 8px 15px;
     }
-
+    .atteddiv .attendanceAbsent {
+        color: #FD2A5B;
+        font-family: "Proxima Nova";
+        height: 19px;
+        width: 97px;
+        border-radius: 9.5px;
+        background-color: #FFEAF1;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 14px;
+        text-align: center;
+        padding: 8px 15px 8px 15px;
+    }
+    .notsubmitted
+    {
+        color: #F4F7FC;
+        font-family: "Proxima Nova";
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 17px;
+        text-align: center;
+    }
+    viewassignnotsubmitted
+    {
+        background-color: #F4F7FC;
+    border-radius: 0px 0px 10px 10px;
+    text-align: center;
+    padding: 5px;
+    }
     .label-left {
         color: #454C4E;
         font-family: "Proxima Nova";

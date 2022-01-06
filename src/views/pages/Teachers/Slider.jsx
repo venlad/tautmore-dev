@@ -23,7 +23,7 @@ const SimpleSlider = ({ handleSubjectModel }) =>  {
     return (
 
         <Slider {...settings}>
-            <div className="col-sm-6 col-md-6 sliderBox">
+            <div className=" sliderBox">
                 <div className="">
                     <h3 className="subname">Mathematics</h3>
                     <p>Trigonometry - Topic 2</p>
@@ -44,7 +44,7 @@ const SimpleSlider = ({ handleSubjectModel }) =>  {
                     <Button className="viewdetailsbutton" onClick={() => handleSubjectModel(true)}>VIEW DETAILS</Button>
                 </div>
             </div>
-            <div className="col-sm-6 col-md-6 sliderBox">
+            <div className=" sliderBox">
                 <div className="row">
                     <h3 className="subname">Mathematics</h3>
                     <p>Trigonometry - Topic 2</p>

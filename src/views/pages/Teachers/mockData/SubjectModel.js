@@ -4,20 +4,21 @@ export const assignment = [
         id: 1,
         name: 'Susan Richards',
         grade: 4,
-        attendance: 'Present',
+        attendance: 'true',
         progress: 34,
+        submission: 'true',
     },
     {
-        id: 2,  name: 'Suresh raina', grade: 5, attendance: 'Absent', progress: 54,
+        id: 2,  name: 'Suresh raina', grade: 5, attendance: 'false', progress: 54, submission: 'true',
     },
     {
-        id: 3, name: 'Ramesh power', grade: 7, attendance: 'Present', progress: 74,
+        id: 3, name: 'Ramesh power', grade: 7, attendance: 'false', progress: 74, submission: 'false',
     },
     {
-        id: 4, name: 'balaji', grade: 5, attendance: 'Absent', progress: 44,
+        id: 4, name: 'balaji', grade: 5, attendance: 'true', progress: 44, submission: 'true',
     },
     {
-        id: 5, name: 'ramanna', grade: 5, attendance: 'Present', progress: 24,
+        id: 5, name: 'kaif', grade: 5, attendance: 'true', progress: 24, submission: 'false',
     },
 ];
 
