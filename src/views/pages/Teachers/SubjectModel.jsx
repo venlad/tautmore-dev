@@ -9,6 +9,8 @@ import Studenticon from '../../../assets/images/students.svg';
 import Clockicon from '../../../assets/images/Shape.svg';
 import Studentimg from '../../../assets/images/studentimg.png';
 import Calendericon from '../../../assets/images/calendaricon.svg';
+import Viewassignmenticon from '../../../assets/images/viewassignment.svg';
+
 import Progressbar from '../../components/dashboard/Rightsidepart/Progressbar';
 import './teachers.scss';
 import {
@@ -39,7 +41,7 @@ function SubjectModel({ handleSubjectModel, showSubjectModel }) {
                             <img className="Clockicon" src={Gradeicon} alt="clock" />
                             <span>Grade 4</span>
                         </div>
-                        <div className="col-sm-2 floatleft">
+                        <div className="col-sm-2 padd0">
                             <img className="Clockicon" src={Studenticon} alt="clock" />
                             <span>27 students</span>
                         </div>
@@ -107,25 +109,29 @@ function SubjectModel({ handleSubjectModel, showSubjectModel }) {
                             <div className="col-sm-12 assignstudlistdiv">
                                 <div className="row">
                                     {assignment.map((item) => (
-                                        <div className="col-sm-6 divpadd floatleft" key={item.id}>
+                                        <div className="col-sm-6 divpadd " key={item.id}>
 
-                                            <div className="col-sm-12 floatleft studentlistdiv">
+                                            <div className="col-sm-12  studentlistdiv">
                                                 <div className="row">
-                                                    <div className="col-sm-2 floatleft">
+                                                    <div className="col-sm-2 ">
                                                         <img className="Clockicon" src={Studentimg} alt="studentimg" />
                                                     </div>
-                                                    <div className="col-sm-7 progressbarsection floatleft">
+                                                    <div className="col-sm-7 progressbarsection ">
                                                         <div className="studentname">{item.name} </div>
                                                         <div className="studentgrade">Grade {item.grade}</div>
                                                     </div>
-                                                    <div className="col-sm-3 progressbarsection floatleft">
-                                                        <div className="atteddiv"><span className="attendance"> {item.attendance}</span><br /></div>
+                                                    <div className="col-sm-3 progressbarsection ">
+                                                        <div className="atteddiv">{item.attendance === 'true' ? <span className="attendance"> Present</span> : <span className="attendanceAbsent">Absent</span> }<br /></div>
 
                                                     </div>
                                                 </div>
-                                                <div className="col-sm-12 floatleft">
+                                                <div className="col-sm-12 ">
                                                     <Progressbar className="progress-bar-one" peronevalue={item.progress} perone title="Subject completion" />
                                                 </div>
+                                            </div>
+                                            <div className="col-sm-12 viewassign">
+                                                {item.submission === 'true' ? <><a href="/">View assignment</a><img src={Viewassignmenticon} alt="assignment" /> </> : <span className="notsubmitted">Assignment not submitted</span>}
+
                                             </div>
 
                                         </div>
