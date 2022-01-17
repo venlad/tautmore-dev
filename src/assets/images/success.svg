@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="170px" height="170px" viewBox="0 0 170 170" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>success</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Register-(Teacher)-Success" transform="translate(-636.000000, -163.000000)" fill-rule="nonzero">
+            <g id="Course-details" transform="translate(115.000000, 103.000000)">
+                <g id="success" transform="translate(521.000000, 60.000000)">
+                    <g id="Group">
+                        <polygon id="Path" fill="#186A81" points="170 68.2400586 170 81.0913281 85 144.423633 84.9634766 144.449863 0 81.0913281 0 68.2400586 23.5244141 50.1981445 146.475586 50.1981445"></polygon>
+                        <polygon id="Path" fill="#00465F" points="170 68.2400586 170 81.0913281 85 144.423633 85 50.1981445 146.475586 50.1981445"></polygon>
+                        <polygon id="Path" fill="#EAF4F4" points="148.417969 0 148.417969 99.2172461 85.0398438 141.024961 85 140.998398 21.5820312 99.2042969 21.5820312 3.77475828e-14"></polygon>
+                        <polygon id="Path" fill="#CAE8EA" points="148.417969 0 148.417969 99.2172461 85.0398438 141.024961 85 140.998398 85 1.88737914e-14"></polygon>
+                        <polygon id="Path" fill="#FCA834" points="170 91.0227148 170 170 0 170 0 81.0913281 84.9634766 134.518809 85.0398438 134.568281"></polygon>
+                        <polygon id="Path" fill="#F8931F" points="170 81.0913281 170 170 84.9634766 170 84.9634766 134.518809 85.0398438 134.568281"></polygon>
+                    </g>
+                    <circle id="Oval" fill="#00DC7B" cx="85" cy="64.7992188" r="42.0285156"></circle>
+                    <path d="M127.028516,64.7992187 C127.028516,87.975 108.175781,106.827734 85,106.827734 L85,22.7707031 C108.175781,22.7707031 127.028516,41.6234375 127.028516,64.7992187 Z" id="Path" fill="#00AA8E"></path>
+                    <polygon id="Path" fill="#FFFFFF" points="103.826172 57.4082031 80.6736328 80.5607422 66.1738281 66.0609375 73.2162109 59.0185547 80.6736328 66.4759766 85 62.1496094 96.7837891 50.3658203"></polygon>
+                    <polygon id="Path" fill="#EAF4F4" points="103.826172 57.4082031 85 76.234375 85 62.1496094 96.7837891 50.3658203"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -49,3 +49,10 @@ export function getUniqueSubjectsAction() {
         type: actionTypes.GET_UNIQUE_SUBJECTS,
     };
 }
+
+export function registerTeacher(data) {
+    return {
+        type: actionTypes.REGISTER_TEACHER,
+        payload: data,
+    };
+}

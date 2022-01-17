@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { FileUploader } from 'react-drag-drop-files';
+
+// import Dropzone from 'react-dropzone';
+
 import {
     func, object, array, string,
 } from 'prop-types';
 import Select from 'react-select';
 import csc from 'country-state-city';
 import ReactMultiSelectCheckboxes from 'react-multiselect-checkboxes';
+import UploadingIcon from '../../../../assets/images/upload.svg';
 import {
-    exam, qualification,
+    exam, degrees, universities,
 } from './mockData/Coursedetailsdata';
 // import Coursedetaildropdown from './Coursedetaildropdown';
 import Coursedetailsubjects from './Coursedetailsubjects';
 // import CoursedetailMultipledropdown from './CoursedetailMultipledropdown';
 import { coCurricularActivitiesAction, getAllGradesAction, getUniqueSubjectsAction } from '../../../../stores/Auth/AuthAction';
+import { dropdownSingleValueStyles } from './customCssDef';
+import close from '../../../../assets/images/close.png';
 
 const Coursedetail = ({
     coCurricularActivities,
@@ -27,6 +34,9 @@ const Coursedetail = ({
     setGradeVal,
     setExamVal,
     setQualificationVal,
+    qualification,
+    setUniversity,
+    university,
     getUniqueSubjects,
     allSubjects,
     validation,
@@ -34,6 +44,21 @@ const Coursedetail = ({
     subjectVal,
     userType,
 }) => {
+    // DropZone Code
+
+    const fileTypes = ['JPG', 'PNG', 'GIF', 'docx'];
+    const [file, setFile] = useState(null);
+    const handleChange = (value) => {
+        setFile(value);
+        console.log(value);
+    };
+
+    //
+
+    // console.log(coCurricularActivities(), 'Cocurricular from my details ');
+
+    console.log(coCurricular, 'CoCurricular');
+
     const countries = csc.getAllCountries();
     const updatedCountries = countries.map((country) => ({
         label: country.name,
@@ -47,6 +72,7 @@ const Coursedetail = ({
     const [coActivityValue, setcoActivityValue] = useState([{ value: 1, label: '' }]);
     const [gradeValue, setGradeValue] = useState({ value: 1, label: '' });
     const [subjectValue, setSubjectValue] = useState([]);
+    // console.log(subjectValue);
 
     useEffect(() => {
         if (!coCurricular?.data) {
@@ -89,8 +115,8 @@ const Coursedetail = ({
         setExamVal(selected.value);
     };
 
-    const qualificationChange = (selected) => {
-        setQualificationVal(selected.value);
+    const universityChange = (selected) => {
+        setUniversity(selected.value);
     };
 
     const activityChange = (selected) => {
@@ -98,7 +124,7 @@ const Coursedetail = ({
         setCoActivity(adata);
     };
 
-    console.log(allSubjects, 'allSubjects');
+    // console.log(allSubjects, 'allSubjects');
 
     const renderHeader = (type) => {
         switch (type) {
@@ -115,6 +141,15 @@ const Coursedetail = ({
                     <h3 className="text-center">No User Type|Error</h3>
                 );
         }
+    };
+
+    // console.log(qualification);
+    console.log(university, 'UNIV');
+
+    const changeQua = (data) => {
+        console.log('yes change');
+        console.log(data, 'data change');
+        setQualificationVal(data);
     };
 
     return (
@@ -135,6 +170,8 @@ const Coursedetail = ({
                                 onChange={(value) => {
                                     setCountryVal(value);
                                 }}
+                                styles={dropdownSingleValueStyles}
+
                             />
                             {validation.country && <span className="error-msg">country is required.</span>}
                         </div>
@@ -148,6 +185,7 @@ const Coursedetail = ({
                                 onChange={(value) => {
                                     setStateVal(value);
                                 }}
+                                styles={dropdownSingleValueStyles}
                             />
                             {validation.state && <span className="error-msg">state is required.</span>}
                         </div>
@@ -158,6 +196,7 @@ const Coursedetail = ({
                                 name="grade"
                                 options={gradeValue}
                                 onChange={gradeChange}
+                                styles={dropdownSingleValueStyles}
                             />
                             {validation.grade && <span className="error-msg">grade is required.</span>}
                         </div>
@@ -178,6 +217,7 @@ const Coursedetail = ({
                                 name="exam"
                                 options={exam}
                                 onChange={examChange}
+                                styles={dropdownSingleValueStyles}
                             />
                         </div>
 
@@ -194,17 +234,82 @@ const Coursedetail = ({
                 ) }
                 {userType === 'Teacher'
                 && (
-                    <div className="col-md-6 course-detail-select mutiple-dropdown-part">
-                        <div className="label-div">Qualification*</div>
-                        <Select
-                            label="Qualification*"
-                            id="exam"
-                            name="exam"
-                            options={qualification}
-                            onChange={qualificationChange}
-                        />
+                    <div className="coursedetails-main">
+
+                        <div className="heading-and-dropdown">
+
+                            <div className="dropdowns">
+                                <div className="col-md-6 course-detail-select">
+                                    <div className="label-div">Qualification*</div>
+                                    <Select
+                                        className="dropdown-class"
+                                        options={degrees}
+                                        onChange={(val) => changeQua(val)}
+                                        // onChange={(value) =>  setQualificationVal(value)}
+                                        value={qualification}
+                                        styles={dropdownSingleValueStyles}
+                                    />
+                                    {validation.qualificationTeacher && <span className="error-msg">Qualification is required.</span>}
+
+                                </div>
+
+                                <div className="col-md-6 course-detail-select">
+                                    <div className="label-div">University*</div>
+                                    <Select
+                                        className="dropdown-class"
+                                        options={universities}
+                                        onChange={(e) => universityChange(e)}
+                                        value={university}
+                                        styles={dropdownSingleValueStyles}
+                                    />
+                                    {validation.universityTeacher && <span className="error-msg">University is required.</span>}
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div className="upload-container">
+                            <p className="">Upload</p>
+                            <div className="dashed-border">
+
+                                <p className="upload-text1"> Upload your education certificate <span className="orange">here</span></p>
+                                <div className="file-uploader">
+                                    <FileUploader
+                                        label=" "
+                                        className="AA"
+                                        handleChange={handleChange}
+                                        name="file"
+                                        types={fileTypes}
+
+                                    />
+                                </div>
+
+                                <p className="max-size">Maximum file size : 15MB</p>
+
+                            </div>
+
+                            {/* <div className="upload-notif">
+                                <div>
+                                    <img className="upload-image"
+                                    src={UploadingIcon} alt="Upload" />
+
+                                    <p> {file ? `Uploading${file.name}` : 'no files uploaded yet'}
+                                    </p>
+                                </div>
+
+                            </div> */}
+
+                            <p className="upload-notif"><img className="upload-image" src={UploadingIcon} alt="Upload" />
+
+                                {file ? `Uploading${file.name}` : 'no files uploaded yet'}
+
+                                <img className="close" src={close} alt="Upload" />
+                            </p>
+
+                        </div>
 
                     </div>
+
                 )}
             </div>
         </div>
@@ -236,12 +341,16 @@ Coursedetail.propTypes = {
     setGradeVal: object.isRequired,
     setExamVal: object.isRequired,
     setQualificationVal: object.isRequired,
+    setUniversity: object.isRequired,
     getUniqueSubjects: func.isRequired,
     allSubjects: array.isRequired,
     validation: object.isRequired,
     setSubjectVal: object.isRequired,
     subjectVal: array.isRequired,
     userType: string.isRequired,
+    qualification: string.isRequired,
+    university: string.isRequired,
+
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Coursedetail);

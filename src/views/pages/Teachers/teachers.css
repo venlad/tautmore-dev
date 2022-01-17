@@ -1,0 +1,182 @@
+.main1 {
+  padding-top: 30px;
+}
+
+.main1 .main2 .onlineclassmain {
+  background-color: #2e2e2e;
+  border-radius: 20px 20px 0px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px 30px 20px 30px;
+}
+
+.main1 .main2 .onlineHeading {
+  color: #FAFAFA;
+  font-family: "Proxima Nova";
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 22px;
+  margin-bottom: 0px;
+}
+
+.main1 .main2 .onlineTime {
+  color: #FAFAFA;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 19px;
+  margin-bottom: 0px;
+}
+
+.main1 .main2 .subdivmain {
+  padding-top: 2%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main1 .main2 .onlineclasssubject {
+  border-radius: 0 0 20px 20px;
+  background-color: #FFF4E9;
+  width: 100%;
+  float: left;
+  padding: 20px 0px 20px 20px;
+  margin-bottom: 30px;
+}
+
+.main1 .main2 .onlineSubTitle {
+  color: #20282A;
+  font-family: "Proxima Nova";
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 29px;
+  margin-bottom: 0px;
+}
+
+.main1 .main2 .onlineTopic {
+  color: #454C4E;
+  font-family: "Proxima Nova";
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 22px;
+  margin-bottom: 0px;
+}
+
+.main1 .main2 .onlineTopiclink {
+  color: #43AA8B;
+  font-family: "Proxima Nova";
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 17px;
+}
+
+.main1 .main2 .subtopicsec {
+  padding-left: 10px;
+}
+
+.main1 .main2 .testicon {
+  padding-right: 10px;
+}
+
+.main1 .main2 .modelsecdiv {
+  padding-left: 20px;
+}
+
+.main1 .main2 .middlediv {
+  border-radius: 8px;
+  background-color: #FFDFBE;
+  margin-top: 8%;
+  padding: 5px;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.main1 .main2 .tabheadtext {
+  color: #20282A;
+  font-family: "Proxima Nova";
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 29px;
+}
+
+.main1 .main2 .tabsubhead {
+  color: #454C4E;
+  font-family: "Proxima Nova";
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+.main1 .main2 .tabcontent {
+  color: #20282A;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 24px;
+  padding-top: 30px;
+}
+
+.main1 .main2 .Clockicon {
+  padding-right: 5px;
+}
+
+.main1 .main2 .rawnimg {
+  padding-right: 15px;
+}
+
+.main1 .main2 .jionlink {
+  text-align: center;
+  padding-top: 9%;
+}
+
+.main1 .main2 .jionlink button {
+  width: 190px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #f3722c;
+  border: 0;
+  color: #fff;
+  margin: 0;
+  font-family: "proxima_nova_rgbold";
+  font-size: 19px;
+}
+
+.main1 .main2 .jionlink button a {
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.main1 .main2 .audioLinkdiv {
+  text-align: center;
+  padding-top: 4%;
+  padding-bottom: 2%;
+}
+
+.main1 .main2 .audioLink {
+  color: #F3722C;
+  font-family: "Proxima Nova";
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 17px;
+}
+
+.main1 .main2 .sliderBox {
+  border-radius: 20px;
+  background-color: #FFFFFF !important;
+  -webkit-box-shadow: 0 12px 34px -10px rgba(0, 0, 0, 0.05) !important;
+          box-shadow: 0 12px 34px -10px rgba(0, 0, 0, 0.05) !important;
+}
+/*# sourceMappingURL=teachers.css.map */

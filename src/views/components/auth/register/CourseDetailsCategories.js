@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import  { array, string, object } from 'prop-types';
 
-const Coursedetailsubjects = ({
-    label, data, setSubjectVal, subjectVal, validation, userType,
+const CourseDetailsCategories = ({
+    label, data, setCategoryVal, categoryVal, validation, userType,
 }) => {
-    // console.log(subjectVal);
     const [checked, setChecked] = useState([]);
-    const handleClick = (value, ind) => {
+
+    const handleClick2 = (value, ind) => {
         if (checked.indexOf(ind) > -1) {
             const filteredValues = checked.filter((val) => val !== ind);
             setChecked([...filteredValues]);
@@ -14,11 +14,11 @@ const Coursedetailsubjects = ({
             setChecked([...checked, ind]);
         }
 
-        if (subjectVal.indexOf(value) > -1) {
-            const filteredsubjects = subjectVal.filter((val) => val !== value);
-            setSubjectVal([...filteredsubjects]);
+        if (categoryVal.indexOf(value) > -1) {
+            const filteredsubjects = categoryVal.filter((val) => val !== value);
+            setCategoryVal([...filteredsubjects]);
         } else {
-            setSubjectVal([...subjectVal, value]);
+            setCategoryVal([...categoryVal, value]);
         }
     };
 
@@ -35,26 +35,26 @@ const Coursedetailsubjects = ({
                     >
 
                         <label htmlFor={val.label} className="round">
-                            <input type="checkbox" id={val.label} onClick={() => handleClick(val.value, ind)} />
+                            <input type="checkbox" id={val.label} onClick={() => handleClick2(val.value, ind)} />
                             <span className="checkmark"  />
                         </label>
                         {val.value}
                     </div>
                 ))}
             </div>
-            {validation.subjects && <span className="error-msg">subject is required.</span>}
+            {validation.category && <span className="error-msg">category is required.</span>}
         </div>
     );
 };
 
-Coursedetailsubjects.propTypes = {
+CourseDetailsCategories.propTypes = {
     data: array.isRequired,
     label: string.isRequired,
-    setSubjectVal: object.isRequired,
-    subjectVal: array.isRequired,
+    setCategoryVal: object.isRequired,
+    categoryVal: array.isRequired,
     validation: object.isRequired,
     userType: string.isRequired,
 
 };
 
-export default Coursedetailsubjects;
+export default CourseDetailsCategories;

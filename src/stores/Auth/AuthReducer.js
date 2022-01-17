@@ -11,6 +11,7 @@ const initialState = {
     verifyOtp: {},
     AllGrades: [],
     Subjects: [],
+    teacherData: [{}],
 };
 
 export default function reducer(state = initialState, action) {
@@ -66,6 +67,12 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 Subjects: action.payload,
+            };
+
+        case actionTypes.UPDATE_REGISTER_TEACHER:
+            return {
+                ...state,
+                teacherData: action.payload,
             };
         default:
             return { ...state };

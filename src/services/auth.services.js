@@ -39,6 +39,10 @@ function getUniqueSubjects() {
     return fetchWrapper.get(`${baseUrl}/syllabus/unique-subjects`);
 }
 
+function registerTeacher() {
+    return fetchWrapper.post(`${baseUrl}/teacher/`);
+}
+
 export const authServices = {
     login,
     register,
@@ -47,6 +51,7 @@ export const authServices = {
     verifyOtp,
     getAllGrades,
     getUniqueSubjects,
+    registerTeacher,
 };
 
 export default {};

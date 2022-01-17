@@ -37,6 +37,7 @@ function* workerRegister(data) {
 
 function* workerCoCurricularActivities() {
     const response = yield authServices.coCurricularActivities();
+    console.log(response);
     if (response) {
         yield put({
             type: actionTypes.UPDATE_CO_CURRICULAR_ACTIVITIES,
@@ -89,6 +90,17 @@ function* workerGetUniqueSubjects() {
     }
 }
 
+function* workerRegisterTeacher() {
+    const response = yield authServices.registerTeacher();
+    //    console.log()
+    if (response) {
+        yield put({
+            type: actionTypes.UPDATE_REGISTER_TEACHER,
+            payload: response,
+        });
+    }
+}
+
 function* watcherAuth() {
     yield takeLatest(actionTypes.LOGIN, workerLogin);
     yield takeLatest(actionTypes.REGISTER, workerRegister);
@@ -97,6 +109,7 @@ function* watcherAuth() {
     yield takeLatest(actionTypes.SEND_OTP, workerSendOtp);
     yield takeLatest(actionTypes.GET_ALL_GRADES, workerGetAllGrades);
     yield takeLatest(actionTypes.GET_UNIQUE_SUBJECTS, workerGetUniqueSubjects);
+    yield takeLatest(actionTypes.UPDATE_REGISTER_TEACHER, workerRegisterTeacher);
 }
 
 function* fetchAll() {
