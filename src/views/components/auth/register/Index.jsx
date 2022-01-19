@@ -33,6 +33,9 @@ const Register = ({ registerAction, isOtpVerified }) => {
     const [subjectVal, setSubjectVal] = useState([]);
     const [otpVal, setOtpVal] = useState('');
 
+    const [stuFullname, setStuFullname] = useState('');
+    const [stuUsername, setStuUsername] = useState('');
+
     const [validation, setValidation] = useState({
         fullName: false,
         emailId: false,
@@ -264,7 +267,10 @@ const Register = ({ registerAction, isOtpVerified }) => {
                             subjectVal={subjectVal}
                             setSubjectVal={setSubjectVal}
                             userType={userType}
-
+                            stuFullname={stuFullname}
+                            setStuFullname={setStuFullname}
+                            stuUsername={stuUsername}
+                            setStuUsername={setStuUsername}
                         />
                     )}
 

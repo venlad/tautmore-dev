@@ -168,6 +168,66 @@
       content: none !important;
     }
     .coursedetails-main {
+      button.add-subject {
+        background-color: transparent;
+        border: 0;
+        margin-top: 50px;
+        text-transform: uppercase;
+        font-family: "proxima_nova_rgbold";
+        color: #43AA8B;
+        font-size: 20px;
+        img {
+          margin-right: 10px;
+          margin-top: -3px;
+        }
+      }
+      .choose-subject {
+        .counter, .input-box {
+          display: inline-block;
+        }
+        .counter {
+          height: 66px;
+          width: 66px;
+          display: inline-block;
+          vertical-align: top;
+          img {
+            width: 100%;
+          }
+        }
+        .input-box {
+          width: 90px;
+          height: 66px;
+          display: inline-block;
+          margin: 0px 10px;
+          vertical-align: top;
+          background-color: #F3F3F3;
+          border-radius: 10px;
+          input {
+            width: 100%;
+            border: 0;
+            height: 100%;
+            background-color: #F3F3F3;
+            border-radius: 10px;
+            text-align: center;
+          }
+          input:focus {
+            outline: none;
+          }
+        }
+        .remove-part {
+          display: inline-block;
+          margin-left: 50px;
+          margin-top: 20px;
+          cursor: pointer;
+          font-family: "proxima_nova_rgbold";
+          color: #FD2A5B;
+          img {
+            height: 24px;
+            width: 24px;
+            margin-top: -3px;
+          }
+        }
+      }
       h3.text-center {
         font-family: "proxima_nova_rgbold";
         color: #454c4e;
@@ -178,6 +238,16 @@
         span {
           color: #f3722c;
         }
+      }
+      h3.bottom-title {
+        margin-bottom: 10px;
+        margin-top: 70px;
+      }
+      p.bottom-desc {
+        color: #7D8283;
+        font-family: "Proxima Nova";
+        font-size: 15px;
+        margin-bottom: 40px;
       }
       .course-detail-select {
         label, div.label-div {
@@ -278,10 +348,25 @@
             z-index: 9;
           }
         }
+        .coursedetail-input-part {
+          input {
+            width: 100%;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            height: 66px;
+            background-color: #fff;
+            padding: 0px 20px;
+            margin-top: 5px;
+          }
+          input:focus {
+            outline: none;
+          }
+        }
+        
       }
       .mutiple-dropdown-part {
         div {
-          width: 100%;
+         
           .css-1jllj6i-control {
             display: none;
           }
@@ -316,6 +401,50 @@
           border: 1px solid #e0e0e0;
           border-radius: 10px;
           margin-top: 5px;
+        }
+        .css-g1d714-ValueContainer {
+          position: absolute;
+          top: 100%;
+          margin-top: 10px;
+          left: 0;
+          .css-1rhbuit-multiValue {
+            border-radius: 20px;
+            border: 1px solid blue;
+            background-color: transparent;
+            padding: 5px;
+            min-width: 150px;
+            margin-right: 10px;
+            .css-12jo7m5 {
+              width: 85%;
+              color: blue;
+            }
+            div.css-xb97g8 {
+              svg {
+                fill: blue !important;
+                height: 25px;
+                width: 25px;
+              }
+            }
+            div.css-xb97g8:hover {
+              background-color: transparent;
+            }
+          }
+        }
+        // .css-g1d714-ValueContainer::after{
+        //   content: 'Select';
+        //   position: absolute;
+        //   top: 50%;
+        // }
+        .css-1hb7zxy-IndicatorsContainer {
+          div:first-child {
+            position: absolute;
+            right: 50px;
+          }
+          div:last-child {
+            position: absolute;
+            right: 20px;
+          }
+       
         }
       }
       .subject-list-main {

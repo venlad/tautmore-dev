@@ -5,7 +5,7 @@ import {
 } from 'prop-types';
 import Select from 'react-select';
 import csc from 'country-state-city';
-import ReactMultiSelectCheckboxes from 'react-multiselect-checkboxes';
+// import ReactMultiSelectCheckboxes from 'react-multiselect-checkboxes';
 import {
     exam, qualification,
 } from './mockData/Coursedetailsdata';
@@ -13,6 +13,9 @@ import {
 import Coursedetailsubjects from './Coursedetailsubjects';
 // import CoursedetailMultipledropdown from './CoursedetailMultipledropdown';
 import { coCurricularActivitiesAction, getAllGradesAction, getUniqueSubjectsAction } from '../../../../stores/Auth/AuthAction';
+import CoursedetailInput from './CoursedetailInput';
+import CoursedetailChoosesub from './CoursedetailChoosesub';
+import CoursedetailActivity from './CoursedetailActivity';
 
 const Coursedetail = ({
     coCurricularActivities,
@@ -33,6 +36,10 @@ const Coursedetail = ({
     setSubjectVal,
     subjectVal,
     userType,
+    stuFullname,
+    setStuFullname,
+    stuUsername,
+    setStuUsername,
 }) => {
     const countries = csc.getAllCountries();
     const updatedCountries = countries.map((country) => ({
@@ -123,74 +130,107 @@ const Coursedetail = ({
                 {renderHeader(userType)}
                 {userType === 'Student'
                 && (
-                    <div className="row">
-                        <div className="col-md-6 course-detail-select">
-                            <div className="label-div">Country*</div>
-                            <Select
-                                id="country"
-                                name="country"
-                                label="country"
-                                options={updatedCountries}
-                                value={countryVal}
-                                onChange={(value) => {
-                                    setCountryVal(value);
-                                }}
-                            />
-                            {validation.country && <span className="error-msg">country is required.</span>}
-                        </div>
-                        <div className="col-md-6 course-detail-select">
-                            <div className="label-div">State*</div>
-                            <Select
-                                id="state"
-                                name="state"
-                                options={updatedStates(countryVal ? countryVal.value : null)}
-                                value={stateVal}
-                                onChange={(value) => {
-                                    setStateVal(value);
-                                }}
-                            />
-                            {validation.state && <span className="error-msg">state is required.</span>}
-                        </div>
-                        <div className="col-md-6 course-detail-select">
-                            <div className="label-div">Select grade*</div>
-                            <Select
-                                id="grade"
-                                name="grade"
-                                options={gradeValue}
-                                onChange={gradeChange}
-                            />
-                            {validation.grade && <span className="error-msg">grade is required.</span>}
-                        </div>
+                    <>
+                        <div className="row">
+                            <div className="col-md-6 course-detail-select">
+                                <CoursedetailInput
+                                    label="Full name*"
+                                    type="text"
+                                    name=""
+                                    id="full-name"
+                                    value={stuFullname}
+                                    setValue={setStuFullname}
+                                />
+                            </div>
 
-                        <Coursedetailsubjects
-                            label="Select subject(s)*"
-                            data={subjectValue}
-                            setSubjectVal={setSubjectVal}
-                            subjectVal={subjectVal}
-                            validation={validation}
-                            userType={userType}
-                        />
+                            <div className="col-md-6 course-detail-select">
+                                <CoursedetailInput
+                                    label="Username*"
+                                    type="text"
+                                    name=""
+                                    id="user-name"
+                                    value={stuUsername}
+                                    setValue={setStuUsername}
+                                />
+                            </div>
 
-                        <div className="col-md-6 course-detail-select">
-                            <div className="label-div">Select exam(s)</div>
-                            <Select
-                                id="exam"
-                                name="exam"
-                                options={exam}
-                                onChange={examChange}
+                            <div className="col-md-6 course-detail-select">
+                                <div className="label-div">Country*</div>
+                                <Select
+                                    id="country"
+                                    name="country"
+                                    label="country"
+                                    options={updatedCountries}
+                                    value={countryVal}
+                                    onChange={(value) => {
+                                        setCountryVal(value);
+                                    }}
+                                />
+                                {validation.country && <span className="error-msg">country is required.</span>}
+                            </div>
+                            <div className="col-md-6 course-detail-select">
+                                <div className="label-div">State*</div>
+                                <Select
+                                    id="state"
+                                    name="state"
+                                    options={updatedStates(countryVal ? countryVal.value : null)}
+                                    value={stateVal}
+                                    onChange={(value) => {
+                                        setStateVal(value);
+                                    }}
+                                />
+                                {validation.state && <span className="error-msg">state is required.</span>}
+                            </div>
+                            <div className="col-md-6 course-detail-select">
+                                <div className="label-div">Select grade*</div>
+                                <Select
+                                    id="grade"
+                                    name="grade"
+                                    options={gradeValue}
+                                    onChange={gradeChange}
+                                />
+                                {validation.grade && <span className="error-msg">grade is required.</span>}
+                            </div>
+
+                            <Coursedetailsubjects
+                                label="Select subject(s)*"
+                                data={subjectValue}
+                                setSubjectVal={setSubjectVal}
+                                subjectVal={subjectVal}
+                                validation={validation}
+                                userType={userType}
                             />
-                        </div>
 
-                        <div className="col-md-6 course-detail-select mutiple-dropdown-part">
-                            <div className="label-div">Select co-curricular activities</div>
-                            <ReactMultiSelectCheckboxes
-                                options={coActivityValue}
-                                placeholderButtonLabel="Select..."
-                                onChange={activityChange}
-                            />
-                        </div>
+                            <div className="col-md-6 course-detail-select" style={{ display: 'none' }}>
+                                <div className="label-div">Select exam(s)</div>
+                                <Select
+                                    id="exam"
+                                    name="exam"
+                                    options={exam}
+                                    onChange={examChange}
+                                />
+                            </div>
 
-                    </div>
+                            <h3 className="text-center bottom-title">olympaid subscription</h3>
+                            <p className="text-center bottom-desc">Select the type of subscription and the
+                                type of exams you want to take
+                            </p>
+                            <div className="col-md-6 course-detail-select">
+                                <div className="label-div">Olympaid Subscription*</div>
+                                <Select
+                                    name="olympaid-subscription"
+                                />
+                            </div>
+                            <div className="col-md-6 course-detail-select">
+                                <div className="label-div">Olympaid Subscription*</div>
+                                <Select
+                                    name="olympaid-exam"
+                                />
+                            </div>
+                        </div>
+                        <CoursedetailChoosesub />
+                        <CoursedetailActivity options={coActivityValue} onChange={activityChange} />
+                    </>
                 ) }
                 {userType === 'Teacher'
                 && (
@@ -242,6 +282,10 @@ Coursedetail.propTypes = {
     setSubjectVal: object.isRequired,
     subjectVal: array.isRequired,
     userType: string.isRequired,
+    stuFullname: string.isRequired,
+    setStuFullname: object.isRequired,
+    stuUsername: string.isRequired,
+    setStuUsername: object.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Coursedetail);
