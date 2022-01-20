@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
+import  { array, string, func } from 'prop-types';
 import minus from '../../../../assets/images/minus-button.png';
 import plus from '../../../../assets/images/plus-button.png';
 import remove from '../../../../assets/images/remove-red.svg';
 import add from '../../../../assets/images/plus-green.svg';
+import { examTypesOptions } from './mockData/Coursedetailsdata';
 
-const CoursedetailChoosesub = () => {
+const CoursedetailChoosesub = ({ subjectValue, setSubjectVal, subjectVal }) => {
     const [part, setPart] = useState(['']);
     const [counter, setCounter] = useState(0);
 
@@ -29,12 +31,16 @@ const CoursedetailChoosesub = () => {
                 <div className="row choose-subject">
                     <div className="col-md-6 course-detail-select">
                         <div className="label-div">Select subject*</div>
-                        <Select />
+                        <Select
+                            options={subjectValue}
+                            value={subjectVal}
+                            onChange={(e) => setSubjectVal(e)}
+                        />
                     </div>
                     <div className="col-md-6 course-detail-select">
                         <div className="row">
                             <div className="col-md-12">
-                                <div className="label-div">Select classes*</div>
+                                <div className="label-div">Select classes* <span className="info-icon">i</span></div>
                                 <div className="counter" onClick={minusCounter} aria-hidden="true"><img src={minus} alt="minus" /></div>
                                 <div className="input-box"><input type="text" value={counter} /></div>
                                 <div className="counter" onClick={plusCounter} aria-hidden="true"><img src={plus} alt="plus" /></div>
@@ -42,9 +48,9 @@ const CoursedetailChoosesub = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-6 course-detail-select">
+                    <div className="col-md-6 course-detail-select mutiple-dropdown-part activity-dropdown">
                         <div className="label-div">Select exam(s)*</div>
-                        <Select />
+                        <Select options={examTypesOptions} isMulti />
                     </div>
                     <div className="col-md-6 course-detail-select" />
                 </div>
@@ -57,6 +63,12 @@ const CoursedetailChoosesub = () => {
             </div>
         </div>
     );
+};
+
+CoursedetailChoosesub.propTypes = {
+    subjectValue: array.isRequired,
+    subjectVal: string.isRequired,
+    setSubjectVal: func.isRequired,
 };
 
 export default CoursedetailChoosesub;

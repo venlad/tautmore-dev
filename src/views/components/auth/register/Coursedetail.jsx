@@ -7,7 +7,7 @@ import Select from 'react-select';
 import csc from 'country-state-city';
 // import ReactMultiSelectCheckboxes from 'react-multiselect-checkboxes';
 import {
-    exam, qualification,
+    exam, qualification, olympiadSubscriptionOptions, examTypesOptions,
 } from './mockData/Coursedetailsdata';
 // import Coursedetaildropdown from './Coursedetaildropdown';
 import Coursedetailsubjects from './Coursedetailsubjects';
@@ -42,8 +42,9 @@ const Coursedetail = ({
     setStuUsername,
 }) => {
     const countries = csc.getAllCountries();
+    console.log(countries, 'countries from all');
     const updatedCountries = countries.map((country) => ({
-        label: country.name,
+        label: <div><img src={`https://flagcdn.com/16x12/${country.sortname.toLowerCase()}.png`} alt="..." />  {country.name}</div>,
         value: country.id,
         ...country,
     }));
@@ -82,8 +83,8 @@ const Coursedetail = ({
             getUniqueSubjects();
         }
         if (allSubjects?.response?.length > 0) {
-            const gdata = allSubjects?.response.map((data, index) => (
-                { value: data, label: index }));
+            const gdata = allSubjects?.response.map((data) => (
+                { value: data, label: data }));
             setSubjectValue(gdata);
         }
     }, [allSubjects]);
@@ -105,13 +106,11 @@ const Coursedetail = ({
         setCoActivity(adata);
     };
 
-    console.log(allSubjects, 'allSubjects');
-
     const renderHeader = (type) => {
         switch (type) {
             case 'Student':
                 return (
-                    <h3 className="text-center">My details</h3>
+                    <h3 className="text-center">student<br /> details</h3>
                 );
             case 'Teacher':
                 return (
@@ -219,16 +218,23 @@ const Coursedetail = ({
                                 <div className="label-div">Olympaid Subscription*</div>
                                 <Select
                                     name="olympaid-subscription"
+                                    options={olympiadSubscriptionOptions}
                                 />
                             </div>
-                            <div className="col-md-6 course-detail-select">
-                                <div className="label-div">Olympaid Subscription*</div>
+                            <div className="col-md-6 course-detail-select mutiple-dropdown-part">
+                                <div className="label-div">Select type of exam(s)*</div>
                                 <Select
                                     name="olympaid-exam"
+                                    options={examTypesOptions}
+                                    isMulti
                                 />
                             </div>
                         </div>
-                        <CoursedetailChoosesub />
+                        <CoursedetailChoosesub
+                            subjectValue={subjectValue}
+                            setSubjectVal={setSubjectVal}
+                            subjectVal={subjectVal}
+                        />
                         <CoursedetailActivity options={coActivityValue} onChange={activityChange} />
                     </>
                 ) }

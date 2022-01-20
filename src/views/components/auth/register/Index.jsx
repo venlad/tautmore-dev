@@ -80,9 +80,6 @@ const Register = ({ registerAction, isOtpVerified }) => {
     };
     const completeFromStep = () => {
         const emailRegex = /\S+@\S+\.\S+/;
-
-        console.log(step, 'step');
-
         if (step === 1) {
             if (fullnameVal === '') {
                 setValidation((prevPerson) => ({ ...prevPerson, fullName: true }));

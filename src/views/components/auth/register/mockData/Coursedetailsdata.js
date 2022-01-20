@@ -101,3 +101,45 @@ export const qualification = [
         value: 4,
     },
 ];
+
+export const olympiadSubscriptionOptions = [
+    {
+        label: 'Quarterly',
+        value: 'quarterly',
+    },
+    {
+        label: 'Half-yearly',
+        value: 'half-yearly',
+    },
+    {
+        label: 'Annually',
+        value: 'annually',
+    },
+];
+
+export const examTypesOptions = [
+    {
+        label: 'Daily',
+        value: 'daily',
+    },
+    {
+        label: 'Weekly',
+        value: 'weekly',
+    },
+    {
+        label: 'Monthly',
+        value: 'monthly',
+    },
+    {
+        label: 'Quarterly',
+        value: 'quarterly',
+    },
+    {
+        label: 'Half-yearly',
+        value: 'half-yearly',
+    },
+    {
+        label: 'Annually',
+        value: 'annually',
+    },
+];
