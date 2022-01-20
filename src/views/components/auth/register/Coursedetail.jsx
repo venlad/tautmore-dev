@@ -20,6 +20,7 @@ import CoursedetailActivity from './CoursedetailActivity';
 const Coursedetail = ({
     coCurricularActivities,
     coCurricular,
+    coActivity,
     setCoActivity,
     countryVal,
     setCountryVal,
@@ -40,6 +41,10 @@ const Coursedetail = ({
     setStuFullname,
     stuUsername,
     setStuUsername,
+    olympiadSubscriptionVal,
+    setOlympiadSubscriptionVal,
+    olympiadExamVal,
+    setOlympiadExamVal,
 }) => {
     const countries = csc.getAllCountries();
     console.log(countries, 'countries from all');
@@ -140,6 +145,7 @@ const Coursedetail = ({
                                     value={stuFullname}
                                     setValue={setStuFullname}
                                 />
+                                {validation.stuFullname && <span className="error-msg">Full name is required.</span>}
                             </div>
 
                             <div className="col-md-6 course-detail-select">
@@ -151,6 +157,7 @@ const Coursedetail = ({
                                     value={stuUsername}
                                     setValue={setStuUsername}
                                 />
+                                {validation.stuUsername && <span className="error-msg">Username is required.</span>}
                             </div>
 
                             <div className="col-md-6 course-detail-select">
@@ -219,15 +226,21 @@ const Coursedetail = ({
                                 <Select
                                     name="olympaid-subscription"
                                     options={olympiadSubscriptionOptions}
+                                    value={olympiadSubscriptionVal.value}
+                                    onChange={(e) => setOlympiadSubscriptionVal(e.value)}
                                 />
+                                {validation.olympiadSubscription && <span className="error-msg">Olympiad Subscription is required.</span>}
                             </div>
                             <div className="col-md-6 course-detail-select mutiple-dropdown-part">
                                 <div className="label-div">Select type of exam(s)*</div>
                                 <Select
                                     name="olympaid-exam"
                                     options={examTypesOptions}
+                                    value={olympiadExamVal}
+                                    onChange={(e) => setOlympiadExamVal(e)}
                                     isMulti
                                 />
+                                {validation.olympiadExam && <span className="error-msg">Olympiad Exam is required.</span>}
                             </div>
                         </div>
                         <CoursedetailChoosesub
@@ -235,7 +248,12 @@ const Coursedetail = ({
                             setSubjectVal={setSubjectVal}
                             subjectVal={subjectVal}
                         />
-                        <CoursedetailActivity options={coActivityValue} onChange={activityChange} />
+                        <CoursedetailActivity
+                            options={coActivityValue}
+                            onChange={activityChange}
+                            value={coActivity}
+                        />
+                        {validation.cocurricularActivity && <span className="error-msg">co-curricular Activity is required.</span>}
                     </>
                 ) }
                 {userType === 'Teacher'
@@ -292,6 +310,11 @@ Coursedetail.propTypes = {
     setStuFullname: object.isRequired,
     stuUsername: string.isRequired,
     setStuUsername: object.isRequired,
+    olympiadSubscriptionVal: string.isRequired,
+    setOlympiadSubscriptionVal: func.isRequired,
+    olympiadExamVal: array.isRequired,
+    setOlympiadExamVal: func.isRequired,
+    coActivity: array.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Coursedetail);

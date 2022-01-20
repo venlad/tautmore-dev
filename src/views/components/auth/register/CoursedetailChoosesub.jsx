@@ -20,7 +20,9 @@ const CoursedetailChoosesub = ({ subjectValue, setSubjectVal, subjectVal }) => {
     };
 
     const minusCounter = () => {
-        setCounter(counter - 1);
+        if (counter > 0) {
+            setCounter(counter - 1);
+        }
     };
 
     return (

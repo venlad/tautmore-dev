@@ -20,7 +20,7 @@ const Register = ({ registerAction, isOtpVerified }) => {
     const history = useHistory();
     const [step, setStep] = useState(0);
     const [userType, setUserType] = useState('');
-    const [coActivity, setCoActivity] = useState();
+    const [coActivity, setCoActivity] = useState([]);
 
     const [countryVal, setCountryVal] = useState('');
     const [stateVal, setStateVal] = useState('');
@@ -44,7 +44,22 @@ const Register = ({ registerAction, isOtpVerified }) => {
         state: false,
         grade: false,
         subjects: false,
+        stuFullname: false,
+        stuUsername: false,
+        olympiadSubscription: false,
+        olympiadExam: false,
+        cocurricularActivity: false,
     });
+    const [olympiadSubscriptionVal, setOlympiadSubscriptionVal] = useState('');
+    const [olympiadExamVal, setOlympiadExamVal] = useState([]);
+
+    console.log(examVal);
+
+    const olympiadExamList = olympiadExamVal.map((data) =>  data?.value);
+
+    console.log(stateVal, 'stateVal');
+
+    console.log(countryVal, 'countryVal');
 
     const handleRegister = () => {
         console.log(userType);
@@ -53,14 +68,16 @@ const Register = ({ registerAction, isOtpVerified }) => {
         }
         console.log(subjectVal, 'val');
         const data = {
-            studentName: fullnameVal,
-            userName: 'mithun.9535778823',
+            studentName: stuFullname,
+            userName: stuUsername,
             email: emailVal,
             state: stateVal?.label,
-            city: countryVal?.label,
+            country: countryVal?.name,
             grade: gradeVal,
             cocurricularActivity: coActivity,
-            examType: examVal,
+            // examType: examVal,
+            olympiadSubscriptionType: olympiadSubscriptionVal,
+            olympiadExamType: olympiadExamList,
             subjectsEnrolled: [
                 { subject: '6108f7f6068b133284e28cc8', classCount: 70 },
             ],
@@ -107,6 +124,30 @@ const Register = ({ registerAction, isOtpVerified }) => {
         }
 
         if (step === 2) {
+            if (stuFullname === '') {
+                setValidation((prevPerson) => ({ ...prevPerson, stuFullname: true }));
+            } else {
+                setValidation((prevPerson) => ({ ...prevPerson, stuFullname: false }));
+            }
+
+            if (stuUsername === '') {
+                setValidation((prevPerson) => ({ ...prevPerson, stuUsername: true }));
+            } else {
+                setValidation((prevPerson) => ({ ...prevPerson, stuUsername: false }));
+            }
+
+            if (olympiadSubscriptionVal === '') {
+                setValidation((prevPerson) => ({ ...prevPerson, olympiadSubscription: true }));
+            } else {
+                setValidation((prevPerson) => ({ ...prevPerson, olympiadSubscription: false }));
+            }
+
+            if (olympiadExamVal.length === 0) {
+                setValidation((prevPerson) => ({ ...prevPerson, olympiadExam: true }));
+            } else {
+                setValidation((prevPerson) => ({ ...prevPerson, olympiadExam: false }));
+            }
+
             if (countryVal === '') {
                 setValidation((prevPerson) => ({ ...prevPerson, country: true }));
             } else {
@@ -125,14 +166,20 @@ const Register = ({ registerAction, isOtpVerified }) => {
                 setValidation((prevPerson) => ({ ...prevPerson, grade: false }));
             }
 
-            if (subjectVal.length === 0) {
-                console.log('yes 0');
-                setValidation((prevPerson) => ({ ...prevPerson, subjects: true }));
+            if (coActivity.length === 0) {
+                setValidation((prevPerson) => ({ ...prevPerson, cocurricularActivity: true }));
             } else {
-                setValidation((prevPerson) => ({ ...prevPerson, subjects: false }));
+                setValidation((prevPerson) => ({ ...prevPerson, cocurricularActivity: false }));
             }
 
-            if (countryVal === '' || stateVal === '' || gradeVal === '' || subjectVal.length === 0) {
+            // if (subjectVal.length === 0) {
+            //     console.log('yes 0');
+            //     setValidation((prevPerson) => ({ ...prevPerson, subjects: true }));
+            // } else {
+            //     setValidation((prevPerson) => ({ ...prevPerson, subjects: false }));
+            // }
+
+            if (stuFullname === '' || stuUsername === '' || olympiadSubscriptionVal === '' || olympiadExamVal.length === 0 || countryVal === '' || stateVal === '' || gradeVal === '') {
                 setStep(step);
             } else {
                 setStep((cur) => cur + 1);
@@ -252,6 +299,7 @@ const Register = ({ registerAction, isOtpVerified }) => {
                     )}
                     {step === 2 && (
                         <Coursedetail
+                            coActivity={coActivity}
                             setCoActivity={setCoActivity}
                             countryVal={countryVal}
                             setCountryVal={setCountryVal}
@@ -268,6 +316,10 @@ const Register = ({ registerAction, isOtpVerified }) => {
                             setStuFullname={setStuFullname}
                             stuUsername={stuUsername}
                             setStuUsername={setStuUsername}
+                            olympiadSubscriptionVal={olympiadSubscriptionVal}
+                            setOlympiadSubscriptionVal={setOlympiadSubscriptionVal}
+                            olympiadExamVal={olympiadExamVal}
+                            setOlympiadExamVal={setOlympiadExamVal}
                         />
                     )}
 
