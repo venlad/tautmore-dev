@@ -431,7 +431,7 @@
               width: 85%;
               color: blue;
             }
-            div.css-xb97g8 { 
+            div.css-xb97g8 {
               svg {
                 fill: blue !important;
                 height: 25px;
@@ -457,7 +457,22 @@
             position: absolute;
             right: 20px;
           }
-       
+          
+        }
+        .selected-top {
+          margin-top: 27px;
+          visibility: hidden;
+          .selected-common {
+            height: 38px;
+            width: 135px;
+            display: inline-block;
+          }
+        }
+      }
+      .mutiple-dropdown-part.mutiple-dropdown-part-right {
+        .selected-top {
+          margin-top: 61px;
+          margin-left: -15px;
         }
       }
       .mutiple-dropdown-part.activity-dropdown {

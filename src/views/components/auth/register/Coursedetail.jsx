@@ -106,11 +106,6 @@ const Coursedetail = ({
         setQualificationVal(selected.value);
     };
 
-    const activityChange = (selected) => {
-        const adata = selected.map((val) => (val.value));
-        setCoActivity(adata);
-    };
-
     const renderHeader = (type) => {
         switch (type) {
             case 'Student':
@@ -241,6 +236,13 @@ const Coursedetail = ({
                                     isMulti
                                 />
                                 {validation.olympiadExam && <span className="error-msg">Olympiad Exam is required.</span>}
+                                <div className="selected-top">
+                                    {olympiadExamVal.length > 0 && olympiadExamVal.map((data) => (
+                                        <div className="selected-common">
+                                            {data?.label}
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                         <CoursedetailChoosesub
@@ -250,8 +252,8 @@ const Coursedetail = ({
                         />
                         <CoursedetailActivity
                             options={coActivityValue}
-                            onChange={activityChange}
                             value={coActivity}
+                            setValue={setCoActivity}
                         />
                         {validation.cocurricularActivity && <span className="error-msg">co-curricular Activity is required.</span>}
                     </>
