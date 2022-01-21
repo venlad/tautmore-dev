@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="108px" height="108px" viewBox="0 0 108 108" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>25C85EB9-9F77-44A6-8320-3F006EABEC13@1.5x</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="40" height="40" rx="5"></rect>
+        <filter x="-150.0%" y="-112.5%" width="385.0%" height="385.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="-3" dy="12" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="17" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0539226399 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="BrainGym-New-(As-per-Mobile)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Brain-gym-page---Updated-3" transform="translate(-903.000000, -195.000000)">
+            <g id="Group-32" transform="translate(460.000000, 213.000000)">
+                <g id="Close" transform="translate(480.000000, 4.000000)">
+                    <g id="Rectangle">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <g id="close-(1)" transform="translate(10.000000, 10.000000)" fill="#454C4E" fill-rule="nonzero">
+                        <path d="M1.02789462,19.9409054 C0.765224359,19.9409054 0.502554103,19.8409956 0.302984744,19.6399238 C-0.0976562821,19.2392828 -0.0976562821,18.5897436 0.302984744,18.1891026 L18.1916065,0.300480769 C18.5922476,-0.100160256 19.2417869,-0.100160256 19.6424279,0.300480769 C20.0430689,0.701121795 20.0430689,1.35066103 19.6424279,1.7515525 L1.75405647,19.6399238 C1.55298474,19.8397436 1.29031449,19.9409054 1.02789462,19.9409054 L1.02789462,19.9409054 Z" id="Path"></path>
+                        <path d="M18.9177685,19.9409054 C18.6550981,19.9409054 18.3926783,19.8409956 18.1928586,19.6399238 L0.302984744,1.7515525 C-0.0976562821,1.35066103 -0.0976562821,0.701121795 0.302984744,0.300480769 C0.703625769,-0.100160256 1.35316506,-0.100160256 1.75405647,0.300480769 L19.6424279,18.1891026 C20.0430689,18.5897436 20.0430689,19.2392828 19.6424279,19.6399238 C19.4413562,19.8397436 19.1789363,19.9409054 18.9177685,19.9409054 Z" id="Path"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

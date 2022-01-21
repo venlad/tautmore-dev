@@ -10,8 +10,8 @@ import MyExam from './Rightsidepart/MyExam';
 import MyClasses from './Rightsidepart/MyClass/MyClasses';
 import MySubscription from './Rightsidepart/MySubscription/MySubscription';
 import MyProfile from './Rightsidepart/MyProfile/MyProfile';
-
 import Renewsub from './Rightsidepart/RenewSubscription/Renewsub';
+import BrainGym from './Rightsidepart/BrainGym/BrainGym';
 
 const Dashboard = () => {
     const [open, setOpen] = useState(false);
@@ -45,6 +45,8 @@ const Dashboard = () => {
                     ) : ''}
 
                     {view === 'My exams' && (<MyExam  />) }
+
+                    {view === 'Brain gym' && (<BrainGym />)}
 
                     {view === 'My assignments' && (<MyAssignment  />) }
 

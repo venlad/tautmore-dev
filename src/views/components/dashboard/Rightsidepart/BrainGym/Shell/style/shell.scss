@@ -1,0 +1,414 @@
+
+.shell-main {
+    img[id="icon-small"]  {
+      height: 38px;
+      width: 38px;
+      margin-right: 5px;
+      margin-left:-10px;
+      }
+
+      p[id="date-title"] {
+        margin-bottom: 2px;
+        font-size: 18px;
+        text-align: left;
+        color: #454c4e;
+    }
+    
+    p[id="date"] {
+        font-weight: 800;
+        font-size: 18px;
+        color: #454c4e;
+    }
+
+    img[id="icon-large"] {
+      margin-top: -15px;
+      margin-left: -5px;
+      height: 75.21px;
+      width: 87px;
+      }
+
+.container-background{
+ 
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    overflow-y: scroll;
+    z-index: 9999;
+    padding: 2.7rem;
+    background-color: #E3FFF6;
+
+  .image-background{
+    background:url('../../../../../../../assets/images/Background-shell.svg');
+    background-position: 240px -60px;
+    background-repeat: no-repeat;
+    background-size: 70% 100% ;
+    height:90vh;
+  }
+ 
+
+
+      .total-points{
+      color: #f89000;
+      display: flex;
+      justify-content: space-between;
+      margin-left: 0.938rem;
+      font-size: 1.25rem;
+
+      .total-points-and-icon{
+        display: flex;
+        padding-bottom:30px;
+      }
+      .close-btn {
+        background-color: transparent;
+        border: 0;
+        padding: 0;
+        width: 20px;
+        height: 20px;
+      }
+
+      p{
+        padding-top : 8px;
+        padding-left:7px;
+        font-weight: 800;
+        font-family:"Proxima Nova"
+      }
+
+    }
+
+    .banner{
+    width: 100%;  
+    text-align: center;
+    border: 2px dashed #43aa8b;
+    font-size: 24px;
+    color: #43aa8b;
+    margin: 0 auto;
+    background-color: #F5FFFC;
+    font-family: "Proxima Nova";
+    border-radius: 20px;
+    font-style: bold;
+    font-weight: 600;
+    display:flex;
+    justify-content: center;
+    padding: 20px;
+
+        p {
+          margin-bottom: 0;
+        }
+        img{
+         
+            padding-right: 7px;
+        }
+
+    }
+
+    .heading-brain-gym{
+    color: #43aa8b;
+    text-align: center;
+    padding: 20px;
+    width:100%;
+
+     .heading-and-subject{
+       width:100%;
+       align-items:center;
+       margin-top: 15px;
+     }
+
+        h2{
+            font-size: 52px;
+            font-weight: bold;
+            font-family:"proxima_nova_rgbold"
+        }
+
+        .subject-name{
+            margin-top: -10px;
+            margin-bottom: 100px;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 34px;
+            font-family:"Proxima Nova"
+        }
+        .flex-items-calender-date {
+        
+            display: flex;
+            margin-top: 15px;
+            justify-content: flex-end;
+            
+        }
+
+        .Calender {
+            height: 45px;
+            margin-right: 20px;
+            margin-top:2px
+        }
+
+  }
+
+  .shells-and-dashed-borders {
+    border: 1px dashed #fca834;
+    width: 80%;
+    margin: 0 auto;
+    height: 10px;
+    border-radius: 3px;
+    background-color: white;
+    font-family:"proxima_nova_rgbold";
+
+
+        .start-now1 {
+        color: #fc9607 !important ;
+        }
+
+        .Oyster-and-title > p {
+        font-size: 18px;
+        font-weight: bold;
+        text-align: left;
+        color: #535868;
+        margin-bottom: -3px;
+        margin-top:10px;
+        cursor: pointer;
+        }
+    
+        .Oyster-and-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top:-15px;
+
+        .adjusted-image1,.adjusted-para1,.adjusted{
+          margin-left:-20px;
+        }
+
+        .adjusted-image2,.adjusted-para2{
+          margin-right:-20px;
+        }
+
+
+        }
+
+        .flex-items {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        }
+
+  }
+
+    }
+}
+.container-background::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 10px;
+}
+.container-background::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+.container-background::-webkit-scrollbar-thumb {
+    background: #ddd; 
+}
+.container-background::-webkit-scrollbar-thumb:hover {
+    background: #ddd; 
+}
+    //ONLY FOR BACKGROUND ADJUSTMENT
+
+    @media only screen and (min-device-width: 1700px) and (max-device-width: 1800px){
+    .shell-main{
+      .container-background{
+          
+        .image-background{
+         
+          background-position: 240px -42px;
+
+        }}
+        }
+    }
+
+    @media only screen and (min-device-width: 900px) and (max-device-width: 1500px){
+    .shell-main{
+      .container-background{
+          
+        .image-background{
+         
+          background-position: 180px -7px;
+          background-repeat: no-repeat;
+          background-size: 70% 120% ;
+          height:90vh;
+        }}
+
+    }
+    }
+
+    //TABLET
+
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
+     
+    .shell-main{
+    .container-background{
+
+      .image-background{
+         
+        background-position: 62px 90px;
+        background-repeat: no-repeat;
+        background-size: 107% 97% ;
+      }
+
+         .banner{
+            p{
+              padding-top:0px;
+            }
+
+            img{
+            display:none;
+            }
+          }
+
+          .total-points 
+        {
+          color: #f89000;
+          display: flex;
+          justify-content: space-between;
+          margin-left: 0.938rem;
+          font-size: 1rem; 
+
+            .total-points-and-icon{
+
+              p{
+                margin-top : 15px;
+                font-size:20px; }
+  
+                img{
+                  margin-top : 10px;
+                  height : 50px;
+                  width:50px;
+                }
+            } 
+              
+        }
+
+        .heading-brain-gym{
+          .flex-items-calender-date
+        {
+          top:200px;
+          right:60px;
+        }
+        }
+        }
+
+            }
+        }
+      
+      /* Phone */
+      
+      @media only screen and (min-device-width: 320px) and (max-device-width: 767px){
+        .shell-main{
+        .container-background{
+
+          .banner{
+            font-size:20px;
+            height: auto;
+           
+            p{
+              padding-top:0px;
+            }
+
+            img{
+              display:none;
+            } }
+
+            .heading-brain-gym{
+
+              .heading-and-subject{
+                h2{
+                  font-size: 50px;
+                
+                }
+  
+                .subject-name{
+                  margin-left:0px;
+                }
+              }
+   
+             
+
+              .subject-name{
+                margin-left:-56px;
+                margin-bottom: 40px;
+              }
+
+              .subject-name h2{
+                margin-left:0px;
+               }
+
+               .flex-items-calender-date{
+                margin-left:30px;
+               }
+          }
+
+
+  
+    .shells-and-dashed-borders {
+      margin-top: 50px;
+      width: 100%;
+
+      .flex-items .Oyster-and-title p{
+        font-size:13px;
+       }
+
+  
+      img[id="icon-large"] {
+        margin-top:-10px;
+        margin-left: -5px;
+        height: 40px;
+        width: 40px;
+      }
+    }
+}
+  }
+}
+@media only screen and (max-width: 850px) {
+  .shell-main {
+    .banner {
+      p {
+        font-size: 16px;
+      }
+    }
+    .heading-brain-gym {
+      .heading-and-subject {
+        h2 {
+          font-size: 35px !important;
+        }
+        p.subject-name {
+          font-size: 18px;
+        }
+        .flex-items-calender-date {
+          margin-top: 7px;
+          img.Calender {
+            width: 40px;
+            margin-right: 15px;
+          }
+          .title-and-date {
+            p {
+              font-size: 15px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}       
+@media only screen and (max-width: 767px) {
+  .shell-main {
+    .heading-brain-gym {
+      .heading-and-subject {
+        .col-12 {
+          width: 100% !important;
+        }
+        .flex-items-calender-date {
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+        
+  
