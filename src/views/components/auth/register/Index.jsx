@@ -56,10 +56,6 @@ const Register = ({ registerAction, isOtpVerified }) => {
 
     const olympiadExamList = olympiadExamVal.map((data) =>  data?.value);
 
-    console.log(stateVal, 'stateVal');
-
-    console.log(countryVal, 'countryVal');
-
     const handleRegister = () => {
         console.log(userType);
         if (userType === 'Teacher') {
