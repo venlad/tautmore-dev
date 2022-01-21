@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link,  useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { func, object } from 'prop-types';
+import { v4 as uuid } from 'uuid';
 import Logo from '../../../../assets/images/Logo.png';
 import './register.scss';
 import  stepdata  from './mockData/Stepperdata';
@@ -9,6 +10,7 @@ import Coursedetail from './Coursedetail';
 import Mydetails from './Mydetails';
 import Createstudentaccount from './Createstudentaccount';
 import Success from './Success';
+
 import {
     chevRight, select, student, parents, teachers, errowRight,
 } from '../../../../assets/icons/IconList';
@@ -20,7 +22,7 @@ const Register = ({ registerAction, isOtpVerified }) => {
     const history = useHistory();
     const [step, setStep] = useState(0);
     const [userType, setUserType] = useState('');
-    const [coActivity, setCoActivity] = useState();
+    const [coActivity, setCoActivity] = useState([]);
 
     const [countryVal, setCountryVal] = useState('');
     const [stateVal, setStateVal] = useState('');
@@ -29,9 +31,17 @@ const Register = ({ registerAction, isOtpVerified }) => {
     const [phoneNumVal, setPhoneNumVal] = useState('');
     const [gradeVal, setGradeVal] = useState('');
     const [examVal, setExamVal] = useState('');
-    // const [qualificationVal, setQualificationVal] = useState('');
-    const [subjectVal, setSubjectVal] = useState([]);
+    const [subjects, setSubjects] = useState([{
+        id: uuid(),
+        subject: {},
+        classCount: 4,
+        examTypes: [],
+    }]);
     const [otpVal, setOtpVal] = useState('');
+
+    const [stuFullname, setStuFullname] = useState('');
+
+    const [stuUsername, setStuUsername] = useState('');
 
     const [validation, setValidation] = useState({
         fullName: false,
@@ -41,26 +51,44 @@ const Register = ({ registerAction, isOtpVerified }) => {
         state: false,
         grade: false,
         subjects: false,
+        stuFullname: false,
+        stuUsername: false,
+        olympiadSubscription: false,
+        olympiadExam: false,
+        cocurricularActivity: false,
     });
+    const [olympiadSubscriptionVal, setOlympiadSubscriptionVal] = useState('');
+    const [olympiadExamVal, setOlympiadExamVal] = useState([]);
+
+    const [subjectEnrolled, setSubjectEnrolled] = useState([
+        {
+            subject: '',
+            classCount: '',
+            examType: [],
+        },
+    ]);
+
+    console.log(examVal);
+
+    const olympiadExamList = olympiadExamVal.map((data) =>  data?.value);
 
     const handleRegister = () => {
         console.log(userType);
         if (userType === 'Teacher') {
             console.log(userType);
         }
-        console.log(subjectVal, 'val');
         const data = {
-            studentName: fullnameVal,
-            userName: 'mithun.9535778823',
+            studentName: stuFullname,
+            userName: stuUsername,
             email: emailVal,
             state: stateVal?.label,
-            city: countryVal?.label,
+            country: countryVal?.name,
             grade: gradeVal,
             cocurricularActivity: coActivity,
-            examType: examVal,
-            subjectsEnrolled: [
-                { subject: '6108f7f6068b133284e28cc8', classCount: 70 },
-            ],
+            // examType: examVal,
+            olympiadSubscriptionType: olympiadSubscriptionVal,
+            olympiadExamType: olympiadExamList,
+            subjectsEnrolled: subjectEnrolled,
             onBoardThrough: 'web',
         };
         // const teacherRegisterData = { qualification: qualificationVal };
@@ -77,9 +105,6 @@ const Register = ({ registerAction, isOtpVerified }) => {
     };
     const completeFromStep = () => {
         const emailRegex = /\S+@\S+\.\S+/;
-
-        console.log(step, 'step');
-
         if (step === 1) {
             if (fullnameVal === '') {
                 setValidation((prevPerson) => ({ ...prevPerson, fullName: true }));
@@ -107,6 +132,30 @@ const Register = ({ registerAction, isOtpVerified }) => {
         }
 
         if (step === 2) {
+            if (stuFullname === '') {
+                setValidation((prevPerson) => ({ ...prevPerson, stuFullname: true }));
+            } else {
+                setValidation((prevPerson) => ({ ...prevPerson, stuFullname: false }));
+            }
+
+            if (stuUsername === '') {
+                setValidation((prevPerson) => ({ ...prevPerson, stuUsername: true }));
+            } else {
+                setValidation((prevPerson) => ({ ...prevPerson, stuUsername: false }));
+            }
+
+            if (olympiadSubscriptionVal === '') {
+                setValidation((prevPerson) => ({ ...prevPerson, olympiadSubscription: true }));
+            } else {
+                setValidation((prevPerson) => ({ ...prevPerson, olympiadSubscription: false }));
+            }
+
+            if (olympiadExamVal.length === 0) {
+                setValidation((prevPerson) => ({ ...prevPerson, olympiadExam: true }));
+            } else {
+                setValidation((prevPerson) => ({ ...prevPerson, olympiadExam: false }));
+            }
+
             if (countryVal === '') {
                 setValidation((prevPerson) => ({ ...prevPerson, country: true }));
             } else {
@@ -125,14 +174,12 @@ const Register = ({ registerAction, isOtpVerified }) => {
                 setValidation((prevPerson) => ({ ...prevPerson, grade: false }));
             }
 
-            if (subjectVal.length === 0) {
-                console.log('yes 0');
-                setValidation((prevPerson) => ({ ...prevPerson, subjects: true }));
+            if (coActivity.length === 0) {
+                setValidation((prevPerson) => ({ ...prevPerson, cocurricularActivity: true }));
             } else {
-                setValidation((prevPerson) => ({ ...prevPerson, subjects: false }));
+                setValidation((prevPerson) => ({ ...prevPerson, cocurricularActivity: false }));
             }
-
-            if (countryVal === '' || stateVal === '' || gradeVal === '' || subjectVal.length === 0) {
+            if (stuFullname === '' || stuUsername === '' || olympiadSubscriptionVal === '' || olympiadExamVal.length === 0 || countryVal === '' || stateVal === '' || gradeVal === '') {
                 setStep(step);
             } else {
                 setStep((cur) => cur + 1);
@@ -152,6 +199,15 @@ const Register = ({ registerAction, isOtpVerified }) => {
             setStep(1);
         }
     };
+
+    useEffect(() => {
+        const sdata = subjects.length > 0 && subjects?.map((data) => ({
+            subject: data?.subject?.value,
+            classCount: data?.classCount,
+            examType: data?.exams?.map((val) => val.value),
+        }));
+        setSubjectEnrolled(sdata);
+    }, [subjects]);
 
     return (
         <div className={`register-main ${step === 5 && 'success'}`}>
@@ -248,10 +304,13 @@ const Register = ({ registerAction, isOtpVerified }) => {
                             setOtpVal={setOtpVal}
                             otpVal={otpVal}
                             userType={userType}
+                            stuFullname={stuFullname}
+                            setStuUsername={setStuUsername}
                         />
                     )}
                     {step === 2 && (
                         <Coursedetail
+                            coActivity={coActivity}
                             setCoActivity={setCoActivity}
                             countryVal={countryVal}
                             setCountryVal={setCountryVal}
@@ -261,10 +320,18 @@ const Register = ({ registerAction, isOtpVerified }) => {
                             setExamVal={setExamVal}
                             // setQualificationVal={setQualificationVal}
                             validation={validation}
-                            subjectVal={subjectVal}
-                            setSubjectVal={setSubjectVal}
+                            subjects={subjects}
+                            setSubjects={setSubjects}
                             userType={userType}
-
+                            stuFullname={stuFullname}
+                            setStuFullname={setStuFullname}
+                            stuUsername={stuUsername}
+                            setStuUsername={setStuUsername}
+                            olympiadSubscriptionVal={olympiadSubscriptionVal}
+                            setOlympiadSubscriptionVal={setOlympiadSubscriptionVal}
+                            olympiadExamVal={olympiadExamVal}
+                            setOlympiadExamVal={setOlympiadExamVal}
+                            phoneNumVal={phoneNumVal}
                         />
                     )}
 
