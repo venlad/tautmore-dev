@@ -29,7 +29,6 @@ const Register = ({ registerAction, isOtpVerified }) => {
     const [phoneNumVal, setPhoneNumVal] = useState('');
     const [gradeVal, setGradeVal] = useState('');
     const [examVal, setExamVal] = useState('');
-    // const [qualificationVal, setQualificationVal] = useState('');
     const [subjectVal, setSubjectVal] = useState([]);
     const [otpVal, setOtpVal] = useState('');
 

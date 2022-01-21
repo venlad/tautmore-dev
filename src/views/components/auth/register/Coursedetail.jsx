@@ -14,7 +14,7 @@ import Coursedetailsubjects from './Coursedetailsubjects';
 // import CoursedetailMultipledropdown from './CoursedetailMultipledropdown';
 import { coCurricularActivitiesAction, getAllGradesAction, getUniqueSubjectsAction } from '../../../../stores/Auth/AuthAction';
 import CoursedetailInput from './CoursedetailInput';
-import CoursedetailChoosesub from './CoursedetailChoosesub';
+import Subject from './Subject/Subject';
 import CoursedetailActivity from './CoursedetailActivity';
 
 const Coursedetail = ({
@@ -243,7 +243,7 @@ const Coursedetail = ({
                                 {validation.olympiadExam && <span className="error-msg">Olympiad Exam is required.</span>}
                             </div>
                         </div>
-                        <CoursedetailChoosesub
+                        <Subject
                             subjectValue={subjectValue}
                             setSubjectVal={setSubjectVal}
                             subjectVal={subjectVal}
