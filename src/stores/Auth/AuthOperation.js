@@ -89,6 +89,17 @@ function* workerGetUniqueSubjects() {
     }
 }
 
+function* workerGetSubjectsByclass(data) {
+    const response = yield authServices.getSubjectsByclass(data.payload);
+
+    if (response) {
+        yield put({
+            type: actionTypes.UPDATE_GET_SUBJECTS_BY_CLASS,
+            payload: response,
+        });
+    }
+}
+
 function* watcherAuth() {
     yield takeLatest(actionTypes.LOGIN, workerLogin);
     yield takeLatest(actionTypes.REGISTER, workerRegister);
@@ -97,6 +108,7 @@ function* watcherAuth() {
     yield takeLatest(actionTypes.SEND_OTP, workerSendOtp);
     yield takeLatest(actionTypes.GET_ALL_GRADES, workerGetAllGrades);
     yield takeLatest(actionTypes.GET_UNIQUE_SUBJECTS, workerGetUniqueSubjects);
+    yield takeLatest(actionTypes.GET_SUBJECTS_BY_CLASS, workerGetSubjectsByclass);
 }
 
 function* fetchAll() {

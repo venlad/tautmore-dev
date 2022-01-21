@@ -5,14 +5,15 @@ import {
 } from 'prop-types';
 import Select from 'react-select';
 import csc from 'country-state-city';
-// import ReactMultiSelectCheckboxes from 'react-multiselect-checkboxes';
 import {
     exam, qualification, olympiadSubscriptionOptions, examTypesOptions,
 } from './mockData/Coursedetailsdata';
-// import Coursedetaildropdown from './Coursedetaildropdown';
 import Coursedetailsubjects from './Coursedetailsubjects';
-// import CoursedetailMultipledropdown from './CoursedetailMultipledropdown';
-import { coCurricularActivitiesAction, getAllGradesAction, getUniqueSubjectsAction } from '../../../../stores/Auth/AuthAction';
+import {
+    coCurricularActivitiesAction,
+    getAllGradesAction,
+    getSubjectsByclassAction,
+} from '../../../../stores/Auth/AuthAction';
 import CoursedetailInput from './CoursedetailInput';
 import Subject from './Subject/Subject';
 import CoursedetailActivity from './CoursedetailActivity';
@@ -31,8 +32,6 @@ const Coursedetail = ({
     setGradeVal,
     setExamVal,
     setQualificationVal,
-    getUniqueSubjects,
-    allSubjects,
     validation,
     setSubjects,
     subjects,
@@ -45,6 +44,9 @@ const Coursedetail = ({
     setOlympiadSubscriptionVal,
     olympiadExamVal,
     setOlympiadExamVal,
+    phoneNumVal,
+    getSubjectsByclass,
+    subjectsByclass,
 }) => {
     const countries = csc.getAllCountries();
     console.log(countries, 'countries from all');
@@ -84,18 +86,16 @@ const Coursedetail = ({
     }, [allGrades]);
 
     useEffect(() => {
-        if (!allSubjects?.response) {
-            getUniqueSubjects();
-        }
-        if (allSubjects?.response?.length > 0) {
-            const gdata = allSubjects?.response.map((data) => (
-                { value: data, label: data }));
+        if (subjectsByclass?.data?.length > 0) {
+            const gdata = subjectsByclass?.data.map((data) => (
+                { value: data._id, label: data.name }));
             setSubjectValue(gdata);
         }
-    }, [allSubjects]);
+    }, [subjectsByclass]);
 
     const gradeChange = (selected) => {
         setGradeVal(selected.value);
+        getSubjectsByclass({ classId: selected.value });
     };
 
     const examChange = (selected) => {
@@ -104,6 +104,15 @@ const Coursedetail = ({
 
     const qualificationChange = (selected) => {
         setQualificationVal(selected.value);
+    };
+
+    const changeFullname = (e) => {
+        setStuFullname(e.target.value);
+        if (e.target.value !== '' && phoneNumVal !== '') {
+            setStuUsername(`${e.target.value.split(' ')[0]}.${phoneNumVal}`);
+        } else {
+            setStuUsername('');
+        }
     };
 
     const renderHeader = (type) => {
@@ -132,14 +141,10 @@ const Coursedetail = ({
                     <>
                         <div className="row">
                             <div className="col-md-6 course-detail-select">
-                                <CoursedetailInput
-                                    label="Full name*"
-                                    type="text"
-                                    name=""
-                                    id="full-name"
-                                    value={stuFullname}
-                                    setValue={setStuFullname}
-                                />
+                                <div className="coursedetail-input-part">
+                                    <div className="label-div">Full name*</div>
+                                    <input type="text" id="full-name" value={stuFullname} onChange={(e) => changeFullname(e)} />
+                                </div>
                                 {validation.stuFullname && <span className="error-msg">Full name is required.</span>}
                             </div>
 
@@ -280,13 +285,13 @@ const Coursedetail = ({
 const mapStateToProps = (state) => ({
     coCurricular: state.Auth.CoCurricularActivities,
     allGrades: state.Auth.AllGrades,
-    allSubjects: state.Auth.Subjects,
+    subjectsByclass: state.Auth.SubjectsByclass,
 });
 
 const mapDispatchToProps = (dispatch) => ({
     coCurricularActivities: () => dispatch(coCurricularActivitiesAction()),
     getAllGrades: () => dispatch(getAllGradesAction()),
-    getUniqueSubjects: () => dispatch(getUniqueSubjectsAction()),
+    getSubjectsByclass: (data) => dispatch(getSubjectsByclassAction(data)),
 });
 
 Coursedetail.propTypes = {
@@ -302,8 +307,6 @@ Coursedetail.propTypes = {
     setGradeVal: object.isRequired,
     setExamVal: object.isRequired,
     setQualificationVal: object.isRequired,
-    getUniqueSubjects: func.isRequired,
-    allSubjects: array.isRequired,
     validation: object.isRequired,
     subjects: array.isRequired,
     setSubjects: array.isRequired,
@@ -317,6 +320,9 @@ Coursedetail.propTypes = {
     olympiadExamVal: array.isRequired,
     setOlympiadExamVal: func.isRequired,
     coActivity: array.isRequired,
+    phoneNumVal: string.isRequired,
+    getSubjectsByclass: func.isRequired,
+    subjectsByclass: array.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Coursedetail);

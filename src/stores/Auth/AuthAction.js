@@ -49,3 +49,10 @@ export function getUniqueSubjectsAction() {
         type: actionTypes.GET_UNIQUE_SUBJECTS,
     };
 }
+
+export function getSubjectsByclassAction(data) {
+    return {
+        type: actionTypes.GET_SUBJECTS_BY_CLASS,
+        payload: data,
+    };
+}

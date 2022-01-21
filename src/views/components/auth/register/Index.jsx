@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link,  useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { func, object } from 'prop-types';
@@ -40,6 +40,7 @@ const Register = ({ registerAction, isOtpVerified }) => {
     const [otpVal, setOtpVal] = useState('');
 
     const [stuFullname, setStuFullname] = useState('');
+
     const [stuUsername, setStuUsername] = useState('');
 
     const [validation, setValidation] = useState({
@@ -58,6 +59,14 @@ const Register = ({ registerAction, isOtpVerified }) => {
     });
     const [olympiadSubscriptionVal, setOlympiadSubscriptionVal] = useState('');
     const [olympiadExamVal, setOlympiadExamVal] = useState([]);
+
+    const [subjectEnrolled, setSubjectEnrolled] = useState([
+        {
+            subject: '',
+            classCount: '',
+            examType: [],
+        },
+    ]);
 
     console.log(examVal);
 
@@ -79,9 +88,7 @@ const Register = ({ registerAction, isOtpVerified }) => {
             // examType: examVal,
             olympiadSubscriptionType: olympiadSubscriptionVal,
             olympiadExamType: olympiadExamList,
-            subjectsEnrolled: [
-                { subject: '6108f7f6068b133284e28cc8', classCount: 70 },
-            ],
+            subjectsEnrolled: subjectEnrolled,
             onBoardThrough: 'web',
         };
         // const teacherRegisterData = { qualification: qualificationVal };
@@ -172,14 +179,6 @@ const Register = ({ registerAction, isOtpVerified }) => {
             } else {
                 setValidation((prevPerson) => ({ ...prevPerson, cocurricularActivity: false }));
             }
-
-            // if (subjectVal.length === 0) {
-            //     console.log('yes 0');
-            //     setValidation((prevPerson) => ({ ...prevPerson, subjects: true }));
-            // } else {
-            //     setValidation((prevPerson) => ({ ...prevPerson, subjects: false }));
-            // }
-
             if (stuFullname === '' || stuUsername === '' || olympiadSubscriptionVal === '' || olympiadExamVal.length === 0 || countryVal === '' || stateVal === '' || gradeVal === '') {
                 setStep(step);
             } else {
@@ -200,6 +199,15 @@ const Register = ({ registerAction, isOtpVerified }) => {
             setStep(1);
         }
     };
+
+    useEffect(() => {
+        const sdata = subjects.length > 0 && subjects?.map((data) => ({
+            subject: data?.subject?.value,
+            classCount: data?.classCount,
+            examType: data?.exams?.map((val) => val.value),
+        }));
+        setSubjectEnrolled(sdata);
+    }, [subjects]);
 
     return (
         <div className={`register-main ${step === 5 && 'success'}`}>
@@ -296,6 +304,8 @@ const Register = ({ registerAction, isOtpVerified }) => {
                             setOtpVal={setOtpVal}
                             otpVal={otpVal}
                             userType={userType}
+                            stuFullname={stuFullname}
+                            setStuUsername={setStuUsername}
                         />
                     )}
                     {step === 2 && (
@@ -321,6 +331,7 @@ const Register = ({ registerAction, isOtpVerified }) => {
                             setOlympiadSubscriptionVal={setOlympiadSubscriptionVal}
                             olympiadExamVal={olympiadExamVal}
                             setOlympiadExamVal={setOlympiadExamVal}
+                            phoneNumVal={phoneNumVal}
                         />
                     )}
 

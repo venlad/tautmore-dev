@@ -27,7 +27,8 @@ const Mydetails = ({
     otpVal,
     setOtpVal,
     userType,
-
+    stuFullname,
+    setStuUsername,
 }) => {
     const countries = csc.getAllCountries();
     const updatedCountries = countries.map((country) => ({
@@ -46,6 +47,15 @@ const Mydetails = ({
             phone: phoneNumVal,
         };
         sendOtp(data);
+    };
+
+    const phoneChange = (e) => {
+        setPhoneNumVal(e.target.value);
+        if (stuFullname !== '' && e.target.value !== '') {
+            setStuUsername(`${stuFullname.split(' ')[0]}.${e.target.value}`);
+        } else {
+            setStuUsername('');
+        }
     };
 
     const renderHeader = (type) => {
@@ -115,7 +125,7 @@ const Mydetails = ({
                     <div className="col-md-6 mydetail-input">
                         <div className="mydetail-input-part">
                             <label htmlFor="detail-label">Phone number*
-                                <input type="number" name="phone_number" id="phone" value={phoneNumVal} onChange={(e) => setPhoneNumVal(e.target.value)} />
+                                <input type="number" name="phone_number" id="phone" value={phoneNumVal} onChange={(e) => phoneChange(e)} />
                                 <button type="button" onClick={otpClick} style={{ display: ((phoneNumVal.length >= 10) ? 'block' : 'none') }}>Send OTP</button>
                             </label>
                         </div>
@@ -149,6 +159,8 @@ Mydetails.propTypes = {
     setCountryVal: string.isRequired,
     stateVal: string.isRequired,
     setStateVal: string.isRequired,
+    stuFullname: string.isRequired,
+    setStuUsername: func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

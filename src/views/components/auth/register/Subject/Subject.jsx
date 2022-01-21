@@ -50,7 +50,6 @@ const Subject = ({ subjectValue, subjects, setSubjects }) => {
     };
 
     const handleSelectSubject = (id, value) => {
-        console.log(id, value);
         const updatedSubject = subjects?.map((item) => {
             if (item?.id === id) {
                 return { ...item, subject: value };
