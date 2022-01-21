@@ -9,7 +9,7 @@ import ShellPoupup from './Shell/ShellPoupup';
 // import IncorrectAns from './IncorrectAns/IncorrectAns';
 // import BrainGymResult from './BrainGymResult/BrainGymResult';
 // import Popup from './CompletedPopup/Popup';
-import Report from './Report/Report';
+// import Report from './Report/Report';
 
 const BrainGym = () => {
     const [view, setView] = useState('home');
@@ -28,7 +28,7 @@ const BrainGym = () => {
                 && <Shell setView={setView} />}
             { view === 'shell'
                 && <ShellPoupup setView={setView} />}
-            <Report />
+            {/* <Report /> */}
             {/* <IncorrectAns /> */}
             {/* <ShellPoupup /> */}
             {/* <BrainGymResult /> */}
