@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link,  useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { func, object } from 'prop-types';
+import { v4 as uuid } from 'uuid';
 import Logo from '../../../../assets/images/Logo.png';
 import './register.scss';
 import  stepdata  from './mockData/Stepperdata';
@@ -9,6 +10,7 @@ import Coursedetail from './Coursedetail';
 import Mydetails from './Mydetails';
 import Createstudentaccount from './Createstudentaccount';
 import Success from './Success';
+
 import {
     chevRight, select, student, parents, teachers, errowRight,
 } from '../../../../assets/icons/IconList';
@@ -29,7 +31,12 @@ const Register = ({ registerAction, isOtpVerified }) => {
     const [phoneNumVal, setPhoneNumVal] = useState('');
     const [gradeVal, setGradeVal] = useState('');
     const [examVal, setExamVal] = useState('');
-    const [subjectVal, setSubjectVal] = useState([]);
+    const [subjects, setSubjects] = useState([{
+        id: uuid(),
+        subject: '',
+        classCount: 4,
+        examTypes: [],
+    }]);
     const [otpVal, setOtpVal] = useState('');
 
     const [stuFullname, setStuFullname] = useState('');
@@ -61,7 +68,6 @@ const Register = ({ registerAction, isOtpVerified }) => {
         if (userType === 'Teacher') {
             console.log(userType);
         }
-        console.log(subjectVal, 'val');
         const data = {
             studentName: stuFullname,
             userName: stuUsername,
@@ -304,8 +310,8 @@ const Register = ({ registerAction, isOtpVerified }) => {
                             setExamVal={setExamVal}
                             // setQualificationVal={setQualificationVal}
                             validation={validation}
-                            subjectVal={subjectVal}
-                            setSubjectVal={setSubjectVal}
+                            subjects={subjects}
+                            setSubjects={setSubjects}
                             userType={userType}
                             stuFullname={stuFullname}
                             setStuFullname={setStuFullname}

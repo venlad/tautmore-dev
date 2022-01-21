@@ -7,7 +7,13 @@ import remove from '../../../../../assets/images/remove-red.svg';
 import { examTypesOptions } from '../mockData/Coursedetailsdata';
 
 const SubjectItem = ({
-    subjectItem, subjectOptions, setSubjectVal, subjectVal, removeSubject, handleClassCount,
+    subjectItem,
+    subjectOptions,
+    handleSelectSubject,
+    subjectVal,
+    removeSubject,
+    handleClassCount,
+    handleSelectExams,
 }) => (
     <div className="row choose-subject">
         <div className="col-md-6 course-detail-select">
@@ -15,7 +21,7 @@ const SubjectItem = ({
             <Select
                 options={subjectOptions}
                 value={subjectVal}
-                onChange={(e) => setSubjectVal(e)}
+                onChange={(e) => handleSelectSubject(e)}
             />
         </div>
         <div className="col-md-6 course-detail-select">
@@ -31,7 +37,11 @@ const SubjectItem = ({
         </div>
         <div className="col-md-6 course-detail-select mutiple-dropdown-part activity-dropdown">
             <div className="label-div">Select exam(s)*</div>
-            <Select options={examTypesOptions} isMulti />
+            <Select
+                options={examTypesOptions}
+                isMulti
+                onChange={(e) => handleSelectExams(e)}
+            />
         </div>
         <div className="col-md-6 course-detail-select" />
     </div>
@@ -43,7 +53,8 @@ SubjectItem.propTypes = {
     handleClassCount: array.isRequired,
     subjectOptions: array.isRequired,
     subjectVal: string.isRequired,
-    setSubjectVal: func.isRequired,
+    handleSelectSubject: func.isRequired,
+    handleSelectExams: func.isRequired,
 };
 
 export default SubjectItem;

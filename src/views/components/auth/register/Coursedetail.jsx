@@ -34,8 +34,8 @@ const Coursedetail = ({
     getUniqueSubjects,
     allSubjects,
     validation,
-    setSubjectVal,
-    subjectVal,
+    setSubjects,
+    subjects,
     userType,
     stuFullname,
     setStuFullname,
@@ -196,8 +196,8 @@ const Coursedetail = ({
                             <Coursedetailsubjects
                                 label="Select subject(s)*"
                                 data={subjectValue}
-                                setSubjectVal={setSubjectVal}
-                                subjectVal={subjectVal}
+                                subjects={subjects}
+                                setSubjects={setSubjects}
                                 validation={validation}
                                 userType={userType}
                             />
@@ -247,8 +247,8 @@ const Coursedetail = ({
                         </div>
                         <Subject
                             subjectValue={subjectValue}
-                            setSubjectVal={setSubjectVal}
-                            subjectVal={subjectVal}
+                            setSubjects={setSubjects}
+                            subjects={subjects}
                         />
                         <CoursedetailActivity
                             options={coActivityValue}
@@ -305,8 +305,8 @@ Coursedetail.propTypes = {
     getUniqueSubjects: func.isRequired,
     allSubjects: array.isRequired,
     validation: object.isRequired,
-    setSubjectVal: object.isRequired,
-    subjectVal: array.isRequired,
+    subjects: array.isRequired,
+    setSubjects: array.isRequired,
     userType: string.isRequired,
     stuFullname: string.isRequired,
     setStuFullname: object.isRequired,

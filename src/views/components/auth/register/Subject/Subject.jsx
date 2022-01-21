@@ -1,16 +1,9 @@
-import React, { useState } from 'react';
-import  { array, string, func } from 'prop-types';
+import React from 'react';
+import  { array, object, func } from 'prop-types';
 import { v4 as uuid } from 'uuid';
 import SubjectWrapper from './SubjectWrapper';
 
-const Subject = ({ subjectValue, setSubjectVal, subjectVal }) => {
-    const [subjects, setSubjects] = useState([{
-        id: uuid(),
-        subject: '',
-        classCount: 4,
-        examTypes: [],
-    }]);
-
+const Subject = ({ subjectValue, subjects, setSubjects }) => {
     const addSubject = () => {
         const subjectObject = {
             id: uuid(),
@@ -27,7 +20,7 @@ const Subject = ({ subjectValue, setSubjectVal, subjectVal }) => {
     };
 
     const handleClassCount = (id, val, countType) => {
-        const filterSubject = subjects?.map((item) => {
+        const updatedSubject = subjects?.map((item) => {
             const adder = parseInt(val, 10);
             if (item?.id === id) {
                 let number = 10;
@@ -53,17 +46,38 @@ const Subject = ({ subjectValue, setSubjectVal, subjectVal }) => {
             return item;
         });
 
-        setSubjects(filterSubject);
+        setSubjects(updatedSubject);
     };
 
-    console.log(subjectValue, subjectVal, subjects);
+    const handleSelectSubject = (id, value) => {
+        const updatedSubject = subjects?.map((item) => {
+            if (item?.id === id) {
+                return { ...item, subject: value };
+            }
+            return item;
+        });
+        setSubjects(updatedSubject);
+    };
+
+    const handleSelectExams = (id, value) => {
+        const updatedSubject = subjects?.map((item) => {
+            if (item?.id === id) {
+                return { ...item, exams: value };
+            }
+            return item;
+        });
+        setSubjects(updatedSubject);
+    };
+
+    console.log(subjectValue, subjects);
 
     return (
         <SubjectWrapper
             addSubject={addSubject}
             removeSubject={removeSubject}
             handleClassCount={handleClassCount}
-            v={setSubjectVal}
+            handleSelectSubject={handleSelectSubject}
+            handleSelectExams={handleSelectExams}
             subjects={subjects}
             setSubjects={setSubjects}
             subjectOptions={subjectValue}
@@ -73,8 +87,8 @@ const Subject = ({ subjectValue, setSubjectVal, subjectVal }) => {
 
 Subject.propTypes = {
     subjectValue: array.isRequired,
-    subjectVal: string.isRequired,
-    setSubjectVal: func.isRequired,
+    subjects: object.isRequired,
+    setSubjects: func.isRequired,
 };
 
 export default Subject;

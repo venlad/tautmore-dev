@@ -4,7 +4,13 @@ import add from '../../../../../assets/images/plus-green.svg';
 import SubjectItem from './SubjectItem';
 
 const Subject = ({
-    subjects, removeSubject, handleClassCount, subjectOptions, addSubject,
+    subjects,
+    removeSubject,
+    handleClassCount,
+    subjectOptions,
+    addSubject,
+    handleSelectSubject,
+    handleSelectExams,
 }) => (
     <div>
         <h3 className="text-center bottom-title">choose subjects</h3>
@@ -15,6 +21,8 @@ const Subject = ({
                 subjectOptions={subjectOptions}
                 subjectItem={subjectItem}
                 handleClassCount={handleClassCount}
+                handleSelectSubject={handleSelectSubject}
+                handleSelectExams={handleSelectExams}
             />
         ))}
         <div className="col-md-6 course-detail-select" />
@@ -32,6 +40,8 @@ Subject.propTypes = {
     handleClassCount: func.isRequired,
     subjects: array.isRequired,
     subjectOptions: array.isRequired,
+    handleSelectSubject: func.isRequired,
+    handleSelectExams: func.isRequired,
 };
 
 export default Subject;
