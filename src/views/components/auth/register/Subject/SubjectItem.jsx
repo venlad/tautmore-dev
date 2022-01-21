@@ -21,7 +21,7 @@ const SubjectItem = ({
             <Select
                 options={subjectOptions}
                 value={subjectVal}
-                onChange={(e) => handleSelectSubject(e)}
+                onChange={(e) => handleSelectSubject(subjectItem?.id, e)}
             />
         </div>
         <div className="col-md-6 course-detail-select">
@@ -40,7 +40,7 @@ const SubjectItem = ({
             <Select
                 options={examTypesOptions}
                 isMulti
-                onChange={(e) => handleSelectExams(e)}
+                onChange={(e) => handleSelectExams(subjectItem?.id, e)}
             />
         </div>
         <div className="col-md-6 course-detail-select" />

@@ -7,7 +7,7 @@ const Subject = ({ subjectValue, subjects, setSubjects }) => {
     const addSubject = () => {
         const subjectObject = {
             id: uuid(),
-            subject: '',
+            subject: {},
             classCount: 4,
             examTypes: [],
         };
@@ -50,6 +50,7 @@ const Subject = ({ subjectValue, subjects, setSubjects }) => {
     };
 
     const handleSelectSubject = (id, value) => {
+        console.log(id, value);
         const updatedSubject = subjects?.map((item) => {
             if (item?.id === id) {
                 return { ...item, subject: value };

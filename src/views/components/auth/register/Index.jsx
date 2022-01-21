@@ -33,7 +33,7 @@ const Register = ({ registerAction, isOtpVerified }) => {
     const [examVal, setExamVal] = useState('');
     const [subjects, setSubjects] = useState([{
         id: uuid(),
-        subject: '',
+        subject: {},
         classCount: 4,
         examTypes: [],
     }]);
