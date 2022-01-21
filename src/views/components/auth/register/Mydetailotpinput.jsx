@@ -5,14 +5,14 @@ import  { string, object, func } from 'prop-types';
 import { verifyOtpAction } from '../../../../stores/Auth/AuthAction';
 
 const Mydetailotpinput = ({
-    label, resendotp, setOtpVal, otpVal, verifyOtp,
+    label, resendotp, setOtpVal, otpVal, verifyOtp, phoneNumVal,
 }) => {
     const handeInput = (data) => {
         console.log(data);
         const str = data.toString();
         if (str.length === 6) {
             const reqData = {
-                phone: '7015497010',
+                phone: phoneNumVal,
                 otp: data,
             };
             verifyOtp(reqData);
@@ -41,6 +41,7 @@ Mydetailotpinput.propTypes = {
     otpVal: string.isRequired,
     setOtpVal: object.isRequired,
     verifyOtp: func.isRequired,
+    phoneNumVal: string.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
