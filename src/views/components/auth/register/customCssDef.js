@@ -5,7 +5,7 @@ export const  dropdownSingleValueStyles =  {
         color: state.isSelected ? '#43AA8B' : '#20282A',
         backgroundColor: state.isSelected ? '#E3FFF6' : 'white',
         padding: '25px 15px',
-        fontSize: 19,
+        fontSize: 20,
         marginTop: -5,
         ':hover': {
             backgroundColor: '#E0E0E0',
@@ -13,15 +13,11 @@ export const  dropdownSingleValueStyles =  {
 
     }),
 
-    // container: (provided, state) => ({
-    //     ...provided,
-    //     border: state.isSelected ? '1px solid green' : '1px solid white',
-    //     ':hover': {
-    //         border: '1px solid #43AA8B',
-    //         borderRadius: 10,
-    //     },
+    input: (provided) => ({
+        ...provided,
+        fontSize: 20,
 
-    // }),
+    }),
 
     menu: (provided) => ({
         ...provided,

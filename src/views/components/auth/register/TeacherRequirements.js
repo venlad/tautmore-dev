@@ -4,40 +4,68 @@ import Select from 'react-select';
 import {
     object, array, string, func,
 } from 'prop-types';
-// import ReactMultiSelectCheckboxes from 'react-multiselect-checkboxes';
 import { connect } from 'react-redux';
 import {
     categories,
 } from './mockData/Coursedetailsdata';
+
 import Coursedetailsubjects from './Coursedetailsubjects';
 import CourseDetailsCategories from './CourseDetailsCategories';
 import { dropdownSingleValueStyles, dropdownMultiValueStyles } from './customCssDef';
-import { coCurricularActivitiesAction, getAllGradesAction } from '../../../../stores/Auth/AuthAction';
+import {
+    coCurricularActivitiesAction, getAllGradesAction, getAllTimeslots, getAllSubjects,
+} from '../../../../stores/Auth/AuthAction';
 import TimeSlots from './TimeSlots';
-// import plusIcon from '../../../../assets/images/plus.png';
+import close from '../../../../assets/images/close.png';
 
 const TeacherRequirements = ({
     setSubjectVal, subjectVal, validation, setGradeVal,
     coCurricularActivities, setCoCurricularActivities, pastExperience, setPastExperience,
     setExperienceField, setTimeSlotMonday, setTimeSlotTuesday, setTimeSlotWednesday,
     setTimeSlotThursday, setTimeSlotFriday, setTimeSlotSaturday, timeSlotMonday, gradeVal,
-    fetchCoCurricularActivities, coCurricular, getAllGrades, allGrades,
+    fetchCoCurricularActivities, coCurricular, getAllGrades, allGrades, getAllTimeSlots, timeSlots,
+    subjectsList, getSubjectsAction,
 }) => {
-    const [subjectValue, setSubjectValue] = useState([]);
-    const [coCurricularActivities1, setCoCurricularActivities1] = useState([]);
     const [showSubject, setShowSubject] = useState(false);
     const [showCategories, setShowCategories] = useState(false);
     const [showAddNewGrade, setShowAddNewGrade] = useState(false);
 
-    console.log(gradeVal?.value);
     console.log(timeSlotMonday);
 
+    const mondayLabels = (abc) => {
+        const array1 = abc.map((item) => item.value);
+
+        return array1;
+    };
+
+    const timeSlotValueonly = mondayLabels(timeSlotMonday);
+
+    console.log(timeSlotValueonly.toString());
+
     const userType = 'Student';
-    // console.log(fetchCoCurricularActivities(), 'cocurricular');
 
     const experience = [
         { value: 'Yes', label: 8 },
         { value: 'No', label: 9 }];
+
+    // Fetch Subjects
+
+    const [subjects, setSubjects] = useState([{ value: 1, label: '' }]);
+
+    useEffect(() => {
+        if (!subjectsList?.data) {
+            getSubjectsAction();
+        }
+        if (subjectsList?.data?.length > 0) {
+            const cdata = subjectsList?.data.map((data) => (
+                { value: data.label, label: data.label }));
+            setSubjects(cdata);
+        }
+    }, [subjectsList]);
+
+    // console.log(subjects, 'Fetched', subjectsList);
+
+    // Fetch Co-curricular
 
     const [coActivityValue, setcoActivityValue] = useState([{ value: 1, label: '' }]);
 
@@ -52,7 +80,7 @@ const TeacherRequirements = ({
         }
     }, [coCurricular]);
 
-    console.log(coActivityValue, 'Co-Activity-Value');
+    // Fetch gradeValue
 
     const [gradeValue, setGradeValue] = useState({ value: 1, label: '' });
 
@@ -67,25 +95,22 @@ const TeacherRequirements = ({
         }
     }, [allGrades]);
 
-    console.log(allGrades);
+    // Fetch timeslots
 
-    // console.log(coCurricular, 'CoCurricular', coCurricular.data);
+    const [timeslots, setTimeslots] = useState({ value: 1, label: '' });
 
     useEffect(() => {
-        setSubjectValue([
-            { value: 'Chemistry', label: 0 },
-            { value: 'English', label: 1 },
-            { value: 'Mathematics', label: 2 },
+        if (!timeSlots?.data) {
+            getAllTimeSlots();
+        }
+        if (timeSlots?.data?.length > 0) {
+            const gdata = timeSlots?.data.map((data) => (
+                { value: data.value, label: data.label }));
+            setTimeslots(gdata);
+        }
+    }, [timeSlots]);
 
-        ]);
-
-        setCoCurricularActivities1([
-            { value: 'Singing', label: 4 },
-            { value: 'Dancing', label: 5 },
-            { value: 'Music', label: 6 },
-
-        ]);
-    }, []);
+    // console.log(timeslots);
 
     let arrayOnly = [];
 
@@ -95,6 +120,9 @@ const TeacherRequirements = ({
         if (arrayOnly.includes('subjects') && arrayOnly.includes('co-curricular')) {
             setShowSubject(true);
             setShowCategories(true);
+        } else if (arrayOnly.includes('subjects') && !arrayOnly.includes('co-curricular')) {
+            setShowSubject(true);
+            setShowCategories(false);
         } else if (arrayOnly.includes('subjects')) {
             setShowSubject(true);
         } else if (arrayOnly.includes('co-curricular')) {
@@ -125,62 +153,60 @@ const TeacherRequirements = ({
         console.log(e, 'On experience click');
     };
 
-    console.log(gradeValue);
-
     return (
+        <div className="outermost-div">
 
-        <div>
-            <div className="coursedetails-main">
-
-                <div className="heading-and-dropdown">
-                    <div className="heading">
-                        <h2>TAUTMORE REQUIREMENTS</h2>
-                        <p>Please select what you would like to teach at Tautmore</p>
-                    </div>
-
-                    <div className="dropdowns">
-                        <div className="col-md-6 course-detail-select">
-                            <div className="label-div">Select a grade you wish to teach*
-
-                            </div>
-                            <Select
-                                className="dropdown-class"
-                                label="Select grade*"
-                                id="grade"
-                                name="grade"
-                                options={gradeValue}
-                                onChange={(value) => gradeHandler(value)}
-                                styles={dropdownSingleValueStyles}
-
-                            />
-
-                            {validation.gradeValTeacher && <span className="error-msg">Grade is required.</span>}
-
+            <div className="step-body">
+                <div className="coursedetails-main">
+                    <div className="heading-and-dropdown">
+                        <div className="heading">
+                            <h2>TAUTMORE REQUIREMENTS</h2>
+                            <p>Please select what you would like to teach at Tautmore</p>
                         </div>
 
-                        <div className="col-md-6 course-detail-select">
+                        <div className="dropdowns">
+                            <div className="col-md-6 course-detail-select">
+                                <div className="label-div">Select a grade you wish to teach*
 
-                            <div className="label-div">Select category*</div>
+                                </div>
+                                <Select
+                                    className="dropdown-class"
+                                    label="Select grade*"
+                                    id="grade"
+                                    name="grade"
+                                    options={gradeValue}
+                                    onChange={(value) => gradeHandler(value)}
+                                    styles={dropdownSingleValueStyles}
 
-                            <Select
-                                className="dropdown-class"
-                                options={categories}
-                                placeholderButtonLabel="Select..."
-                                isMulti
-                                styles={dropdownMultiValueStyles}
-                                onChange={(value) => { setCategoryHandler(value); }}
-                            />
+                                />
 
-                            {validation.subjectValTeacher && <span className="error-msg">Subjects are required.</span>}
+                                {validation.gradeValTeacher && <span className="error-msg">Grade is required.</span>}
 
-                            <div className="col-md-6 course-detail-select mutiple-dropdown-part">
+                            </div>
 
-                                <div className="flex-column">
-                                    { showSubject
+                            <div className="col-md-6 course-detail-select">
+
+                                <div className="label-div">Select category*</div>
+
+                                <Select
+                                    className="dropdown-class"
+                                    options={categories}
+                                    placeholderButtonLabel="Select..."
+                                    isMulti
+                                    styles={dropdownMultiValueStyles}
+                                    onChange={(value) => { setCategoryHandler(value); }}
+                                />
+
+                                {validation.subjectValTeacher && <span className="error-msg">Subjects are required.</span>}
+
+                                <div className="col-md-6 course-detail-select mutiple-dropdown-part">
+
+                                    <div className="flex-column">
+                                        { showSubject
                              && (
                                  <Coursedetailsubjects
                                      label={`Select subject(s) for ${gradeVal?.label?.toUpperCase()}th grade*`}
-                                     data={subjectValue}
+                                     data={subjects}
                                      setSubjectVal={setSubjectVal}
                                      subjectVal={subjectVal}
                                      validation={validation}
@@ -189,53 +215,69 @@ const TeacherRequirements = ({
                                  />
                              ) }
 
-                                    {showCategories && (
+                                        {showCategories && (
+                                            <CourseDetailsCategories
+                                                label="Select Co-curricular activitie(s)*"
+                                                data={coActivityValue}
+                                                setCategoryVal={setCoCurricularActivities}
+                                                categoryVal={coCurricularActivities}
+                                                validation={validation}
+                                                userType={userType}
+                                            />
+                                        )}
+
                                         <CourseDetailsCategories
-                                            label="Select Co-curricular activitie(s)*"
-                                            data={coCurricularActivities1}
-                                            setCategoryVal={setCoCurricularActivities}
-                                            categoryVal={coCurricularActivities}
+                                            label="Do you have past teaching experience? If yes, please specify"
+                                            data={experience}
+                                            setCategoryVal={setPastExperience}
+                                            categoryVal={pastExperience}
                                             validation={validation}
                                             userType={userType}
+                                            onChange={(e) => onExperienceClick(e)}
+                                        />
+                                    </div>
+
+                                    { pastExperience.includes('Yes') && (
+                                        <input
+                                            className="experience-field"
+                                            onChange={(e) => setExperienceField(e.target.value)}
+                                            type="text"
                                         />
                                     )}
 
-                                    <CourseDetailsCategories
-                                        label="Do you have past teaching experience? If yes, please specify"
-                                        data={experience}
-                                        setCategoryVal={setPastExperience}
-                                        categoryVal={pastExperience}
-                                        validation={validation}
-                                        userType={userType}
-                                        onChange={(e) => onExperienceClick(e)}
-                                    />
                                 </div>
-
-                                <input className="experience-field" onChange={(e) => setExperienceField(e.target.value)} type="text" />
-
                             </div>
                         </div>
-                    </div>
-
-                    <div className="invisible-part">
-
-                        <button
-                            onClick={() => setShowAddNewGrade(!showAddNewGrade)}
-                            type="submit"
-                            className="add-grade"
-                            style={{
-                                background: 'none',
-                                border: 'none',
-                                margin: '10px auto',
-                            }}
-                        >
-                            ADD GRADE
-                        </button>
 
                     </div>
+                </div>
+            </div>
 
-                    {showAddNewGrade && (
-                        <div>
+            <div className="invisible-part">
+                <button
+                    onClick={() => setShowAddNewGrade(!showAddNewGrade)}
+                    type="submit"
+                    className="add-grade"
+                    style={{
+                        background: 'none',
+                        border: 'none',
+                        margin: '10px auto',
+                    }}
+                >ADD GRADE
+                </button>
+
+            </div>
+            {showAddNewGrade && (
+                <div className="step-body">
+
+                    <div className="coursedetails-main">
+
+                        <div className="heading-and-dropdown">
+                            <div className="close-icon-container">
+                                <button type="button" className="close-grade" onClick={() => setShowAddNewGrade(false)}>
+                                    <img className="close-icon2" src={close} alt="close" />
+                                </button>
+                            </div>
 
                             <div className="dropdowns">
                                 <div className="col-md-6 course-detail-select">
@@ -274,7 +316,7 @@ const TeacherRequirements = ({
                              && (
                                  <Coursedetailsubjects
                                      label={`Select subject(s) for ${gradeVal?.label?.toUpperCase()}*`}
-                                     data={subjectValue}
+                                     data={subjects}
                                      setSubjectVal={setSubjectVal}
                                      subjectVal={subjectVal}
                                      validation={validation}
@@ -304,50 +346,47 @@ const TeacherRequirements = ({
                                             />
 
                                         </div>
-                                        <input
-                                            className="experience-field"
-                                            onChange={(e) => setExperienceField(e.target.value)}
-                                            type="text"
-                                        />
+                                        { pastExperience.includes('Yes') && (
+                                            <input
+                                                className="experience-field"
+                                                onChange={(e) => setExperienceField(e.target.value)}
+                                                type="text"
+                                            />
+                                        )}
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="invisible-part">
-                                <button
-                                    onClick={() => setShowAddNewGrade(!showAddNewGrade)}
-                                    type="submit"
-                                    className="add-grade"
-                                    style={{
-                                        background: 'none',
-                                        border: 'none',
-                                        margin: '10px auto',
-                                    }}
-                                >ADD GRADE
-                                </button>
+                        </div>
+                    </div>
 
-                            </div>
+                </div>
 
+            )}
+
+            <div className="step-body">
+                <div className="coursedetails-main">
+                    <div className="heading-and-dropdown">
+
+                        <div>
+                            <TimeSlots
+                                setTimeSlotMonday={setTimeSlotMonday}
+                                setTimeSlotTuesday={setTimeSlotTuesday}
+                                setTimeSlotWednesday={setTimeSlotWednesday}
+                                setTimeSlotThursday={setTimeSlotThursday}
+                                setTimeSlotFriday={setTimeSlotFriday}
+                                setTimeSlotSaturday={setTimeSlotSaturday}
+                                validation={validation}
+                                timeslots={timeslots}
+                                timeSlotValueonly={timeSlotValueonly}
+                            />
                         </div>
 
-                    )}
+                    </div>
 
                 </div>
 
             </div>
-
-            <div>
-                <TimeSlots
-                    setTimeSlotMonday={setTimeSlotMonday}
-                    setTimeSlotTuesday={setTimeSlotTuesday}
-                    setTimeSlotWednesday={setTimeSlotWednesday}
-                    setTimeSlotThursday={setTimeSlotThursday}
-                    setTimeSlotFriday={setTimeSlotFriday}
-                    setTimeSlotSaturday={setTimeSlotSaturday}
-                    validation={validation}
-                />
-            </div>
-
         </div>
 
     );
@@ -376,17 +415,25 @@ TeacherRequirements.propTypes = {
     coCurricular: object.isRequired,
     getAllGrades: func.isRequired,
     allGrades: object.isRequired,
+    getAllTimeSlots: func.isRequired,
+    timeSlots: object.isRequired,
+    subjectsList: array.isRequired,
+    getSubjectsAction: func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
     coCurricular: state.Auth.CoCurricularActivities,
     allGrades: state.Auth.AllGrades,
     allSubjects: state.Auth.Subjects,
+    timeSlots: state.Auth.timeSlots,
+    subjectsList: state.Auth.subjects,
 });
 
 const mapDispatchToProps = (dispatch) => ({
     fetchCoCurricularActivities: () => dispatch(coCurricularActivitiesAction()),
     getAllGrades: () => dispatch(getAllGradesAction()),
+    getAllTimeSlots: () => dispatch(getAllTimeslots()),
+    getSubjectsAction: () => dispatch(getAllSubjects()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeacherRequirements);

@@ -1,19 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import  {
-    string, func, object, number,
+    string, func, object, number, array,
 } from 'prop-types';
+import ReactFlagsSelect from 'react-flags-select';
+
 import { connect } from 'react-redux';
 import Select from 'react-select';
-import csc from 'country-state-city';
 import PhoneInput from 'react-phone-input-2';
 import './phoneStyle.css';
-
-// import ReactFlagsSelect from 'react-flags-select';
-
-// import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import Mydetailsinput from './Mydetailsinput';
 import Mydetailotpinput from './Mydetailotpinput';
-import { sendOtpAction, verifyOtpAction } from '../../../../stores/Auth/AuthAction';
+import {
+    sendOtpAction, verifyOtpAction, getAllCountries, getAllStates,
+} from '../../../../stores/Auth/AuthAction';
 import { dropdownSingleValueStyles } from './customCssDef';
 
 const Mydetails = ({
@@ -34,22 +33,62 @@ const Mydetails = ({
     otpVal,
     setOtpVal,
     userType,
+    countryList,
+    getAllCountriesAction,
+    statesList,
+    getAllStatesAction,
 
 }) => {
-    const countries = csc.getAllCountries();
-    // console.log(phoneNumVal, 'PHONE NUMBER', phoneNumVal.length);
+    const [countries2, setCountries2] = useState([{
+        value: 1, label: '', flagUrl: '', countryCode: '',
+    }]);
 
-    const updatedCountries = countries.map((country) => ({
-        label: country.name,
-        value: country.id,
-        ...country,
-    }));
+    useEffect(() => {
+        if (!countryList?.data) {
+            getAllCountriesAction();
+        }
+        if (countryList?.data?.length > 0) {
+            const cdata = countryList?.data.map((data) => (
+                {
+                    value: data.country_label,
+                    label: data.country_label,
+                    flagUrl: data.flag,
+                    countryCode: data.country_code,
+                }));
+            setCountries2(cdata);
+        }
+    }, [countryList]);
 
-    const updatedStates = (countryId) => csc
-        .getStatesOfCountry(countryId)
-        .map((state) => ({ label: state.name, value: state.id, ...state }));
+    console.log(countries2);
+
+    console.log(countryVal.countryCode);
+
+    const [states, setStates] = useState([{ value: 1, label: '' }]);
+    const [selected, setSelected] = useState('');
+    console.log(setSelected);
+
+    useEffect(() => {
+        if (!statesList?.data) {
+            getAllStatesAction(selected);
+        }
+        if (statesList?.data?.length > 0) {
+            const cdata = statesList?.data.map((data) => (
+                {
+                    value: data.state_label,
+                    label: data.state_label,
+                    state_code: data.state_code,
+                }));
+            setStates(cdata);
+        }
+    }, [statesList, selected]);
+
+    console.log(states, 'STATES');
+    console.log(statesList.data, 'From Redux');
+
+    const [showResend, setShowResend] = useState(false);
 
     const otpClick = () => {
+        setShowResend(true);
         const data = {
             parentName: fullnameVal,
             email: emailVal,
@@ -75,41 +114,11 @@ const Mydetails = ({
         }
     };
 
-    // console.log(stateVal);
-
-    // const [value1, setValue1] = useState('');
-    // console.log(value1, 'PHONE NUMBER');
-
-    // // const phoneValChange = ()
-    // const [selected, setSelected] = useState('');
-    // console.log(selected);
-
-    // console.log(countryVal);
-
-    // const [selectCountry, setSelectCountry] = useState('');
-    // console.log(selectCountry);
-    // const [selectRegion, setSelectRegion] = useState('');
-    // console.log(selectRegion);
+    console.log(setCountryVal);
+    console.log(selected, 'SeLECTED FROM COUNTRY');
 
     return (
         <div>
-
-            {/* <div>
-                <CountryDropdown
-                    value={selectCountry}
-                    onChange={(val) => setSelectCountry(val)}
-                />
-                <RegionDropdown
-                    country={selectCountry}
-                    value={selectRegion}
-                    onChange={(val) => setSelectRegion(val)}
-                />
-            </div> */}
-            {/* <PhoneInput
-                onChange={(value) => setValue1(value)}
-                countrySelectProps={{ unicodeFlags: true  }}
-
-            /> */}
 
             <div className="mydetails-main">
                 {renderHeader(userType)}
@@ -117,53 +126,36 @@ const Mydetails = ({
                 <div className="row">
                     <div className="col-md-6 course-detail-select" style={{ display: ((userType === 'Teacher') ? 'block' : 'none')  }}>
                         <div className="label-div">Country*</div>
-                        {/* <div className="flag-select">
-                            <ReactFlagsSelect
-                                selected={selected}
-                                onSelect={(code) => setSelected(code)}
-                                placeholder="Select..."
-                                id="country"
-                                value={countryVal}
-                                name="country"
-                                label="country"
-                                onChange={(value) => {
-                                    setCountryVal(value);
-                                }}
-                                options={updatedCountries}
-                            />
-                        </div> */}
-
-                        {/* <CountryDropdown
-                            value={selectCountry}
-                            onChange={(val) => setSelectCountry(val)}
-                        /> */}
-                        <Select
+                        <ReactFlagsSelect
+                            selected={selected}
+                            onSelect={(code) => setSelected(code)}
+                            placeholder="Select"
+                            className="menu-flags"
+                            searchable
+                            selectButtonClassName="select-button"
+                        />
+                        {/* <Select
                             id="country"
                             name="country"
                             label="country"
-                            options={updatedCountries}
+                            options={countries2}
                             value={countryVal}
                             onChange={(value) => {
                                 setCountryVal(value);
                             }}
                             styles={dropdownSingleValueStyles}
 
-                        />
+                        /> */}
                         {validation.country && <span className="error-msg">Country is required.</span>}
                     </div>
                     <div className="col-md-6 course-detail-select" style={{ display: ((userType === 'Teacher') ? 'block' : 'none')  }}>
                         <div className="label-div">State*</div>
 
-                        {/* <RegionDropdown
-                            country={selectCountry}
-                            value={selectRegion}
-                            onChange={(val) => setSelectRegion(val)}
-                        /> */}
-
                         <Select
                             id="state"
                             name="state"
-                            options={updatedStates(countryVal ? countryVal.value : null)}
+                            options={states}
+                            // options={statesMapped}
                             value={stateVal}
                             onChange={(value) => {
                                 setStateVal(value);
@@ -216,13 +208,14 @@ const Mydetails = ({
                                 </div>
 
                                 <button type="button" onClick={otpClick} style={{ display: ((phoneNumVal.length >= 10) ? 'block' : 'none') }}>Send OTP</button>
+
                             </label>
                         </div>
                         {otp.status === 'success' && <span className="success-msg">Otp sent</span>}
                         {validation.phoneNumber && <span className="error-msg">Phone number is required.</span>}
                     </div>
 
-                    <Mydetailotpinput label="Enter OTP" verifyOtp={verifyOtp} resendotp="Resend OTP" otpVal={otpVal} setOtpVal={setOtpVal} />
+                    <Mydetailotpinput label="Enter OTP" verifyOtp={verifyOtp} showResendOtp={showResend} resendotp="Resend OTP" otpVal={otpVal} setOtpVal={setOtpVal} />
                 </div>
             </div>
         </div>
@@ -247,14 +240,22 @@ Mydetails.propTypes = {
     setCountryVal: string.isRequired,
     stateVal: string.isRequired,
     setStateVal: func.isRequired,
+    countryList: array.isRequired,
+    getAllCountriesAction: func.isRequired,
+    statesList: array.isRequired,
+    getAllStatesAction: func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
     otp: state.Auth.otp,
+    countryList: state.Auth.countryList,
+    statesList: state.Auth.statesList,
 });
 const mapDispatchToProps = (dispatch) => ({
     sendOtp: (data) => dispatch(sendOtpAction(data)),
     verifyOtp: (data) => dispatch(verifyOtpAction(data)),
+    getAllCountriesAction: () => dispatch(getAllCountries()),
+    getAllStatesAction: (data) => dispatch(getAllStates(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Mydetails);

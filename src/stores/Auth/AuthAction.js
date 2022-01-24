@@ -50,6 +50,43 @@ export function getUniqueSubjectsAction() {
     };
 }
 
+export function getAllTimeslots() {
+    return {
+        type: actionTypes.GET_TIMESLOTS,
+    };
+}
+
+export function getAllSubjects() {
+    return {
+        type: actionTypes.GET_SUBJECTS,
+    };
+}
+
+export function getAllUniversities() {
+    return {
+        type: actionTypes.GET_UNIVERSITIES,
+    };
+}
+
+export function getAllQualifications() {
+    return {
+        type: actionTypes.GET_QUALIFICATIONS,
+    };
+}
+
+export function getAllCountries() {
+    return {
+        type: actionTypes.GET_COUNTRY_LIST,
+    };
+}
+
+export function getAllStates(data) {
+    return {
+        type: actionTypes.GET_STATE_LIST,
+        payload: data,
+    };
+}
+
 export function registerTeacher(data) {
     return {
         type: actionTypes.REGISTER_TEACHER,

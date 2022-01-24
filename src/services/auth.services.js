@@ -39,6 +39,33 @@ function getUniqueSubjects() {
     return fetchWrapper.get(`${baseUrl}/syllabus/unique-subjects`);
 }
 
+function getTimeSlots() {
+    return fetchWrapper.get('https://lbbhqlqib3.execute-api.us-east-1.amazonaws.com/development/api/teachers/timeslot');
+}
+
+function getUniversities() {
+    return fetchWrapper.get('https://lbbhqlqib3.execute-api.us-east-1.amazonaws.com/development/api/admin/universities-list');
+}
+
+function getQualifications() {
+    return fetchWrapper.get('https://lbbhqlqib3.execute-api.us-east-1.amazonaws.com/development/api/admin/qualification-list');
+}
+
+function getAllSubjects() {
+    return fetchWrapper.get('https://lbbhqlqib3.execute-api.us-east-1.amazonaws.com/development/api/syllabus/unique-subjects-dropdown');
+}
+
+function getCountryList() {
+    return fetchWrapper.get('https://lbbhqlqib3.execute-api.us-east-1.amazonaws.com/development/api/admin/countries-list');
+}
+
+function getStateList(countryCode) {
+    return fetchWrapper.get(
+        `https://lbbhqlqib3.execute-api.us-east-1.amazonaws.com/development/api/admin/state-list?country_code=${countryCode}`,
+
+    );
+}
+
 function registerTeacher() {
     return fetchWrapper.post(`${baseUrl}/teacher/`);
 }
@@ -52,6 +79,13 @@ export const authServices = {
     getAllGrades,
     getUniqueSubjects,
     registerTeacher,
+    getTimeSlots,
+    getUniversities,
+    getQualifications,
+    getCountryList,
+    getStateList,
+    getAllSubjects,
+
 };
 
 export default {};

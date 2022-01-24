@@ -33,11 +33,9 @@ const Register = ({
 
     const history = useHistory();
     const [step, setStep] = useState(0);
-    console.log(step, 'STEPP');
     const [userType, setUserType] = useState('');
     const [coActivity, setCoActivity] = useState();
     const [countryVal, setCountryVal] = useState('');
-    console.log(countryVal);
     const [stateVal, setStateVal] = useState('');
     const [fullnameVal, setFullnameVal] = useState('');
     const [emailVal, setEmailVal] = useState('');
@@ -62,7 +60,6 @@ const Register = ({
     const [timeSlotSaturday, setTimeSlotSaturday] = useState([]);
 
     const mondayTimeSlots = [];
-    console.log(gradeVal);
 
     timeSlotMonday.forEach((item) => {
         mondayTimeSlots.push(item.value);
@@ -174,7 +171,6 @@ const Register = ({
         };
 
         if (userType === 'Student') {
-            console.log(userType);
             registerAction(data);
         }
         if (userType === 'Teacher') {
@@ -236,10 +232,8 @@ const Register = ({
 
         if (step === 3 && userType === 'Teacher') {
             if (gradeVal === '') {
-                // console.log('Invalid Grade');
                 setValidation((prevPerson) => ({ ...prevPerson, gradeValTeacher: true }));
             } else {
-                // console.log('Valid Grade');
                 setValidation((prevPerson) => ({ ...prevPerson, gradeValTeacher: false }));
             }
 
@@ -289,10 +283,8 @@ const Register = ({
             || timeSlotTuesday.length === 0 || timeSlotWednesday.length === 0
             || timeSlotThursday.length === 0 || timeSlotFriday.length === 0
             || timeSlotSaturday.length === 0) {
-                console.log('Something is not right');
                 setStep(step);
             } else {
-                console.log('All good');
                 setStep((cur) => cur + 1);
             }
         }
@@ -329,10 +321,6 @@ const Register = ({
                 setStep((cur) => cur + 1);
             }
         }
-
-        // if (step === 3) {
-        //     setStep((cur) => cur + 1);
-        // }
     };
 
     const backStep = () => {
@@ -433,9 +421,10 @@ const Register = ({
                 )}
 
                 {step > 0 && step < 6 && userType !== '' && (
-                    <div className="step-body">
+                    <div className={`${step === 3 && userType === 'Teacher' ? '' : 'step-body'}`}>
 
                         {step === 1 && (
+
                             <Mydetails
                                 setFullnameVal={setFullnameVal}
                                 fullnameVal={fullnameVal}
@@ -454,6 +443,7 @@ const Register = ({
                             />
                         )}
                         {step === 2 && (
+
                             <Coursedetail
                                 setCoActivity={setCoActivity}
                                 countryVal={countryVal}
@@ -472,9 +462,11 @@ const Register = ({
                                 userType={userType}
 
                             />
+
                         )}
 
                         {step === 3 && userType === 'Teacher' && (
+
                             <TeacherRequirements
                                 setSubjectVal={setSubjectVal}
                                 subjectVal={subjectVal}
@@ -509,7 +501,7 @@ const Register = ({
                         {step === 5 && userType === 'Student' && <Success />}
 
                         <div className="text-center step-btn-part">
-                            {step > 1 && step < 5 && <button type="button" className="next-button" onClick={backStep}>Back</button>}
+                            {step > 1 && step < 5  && <button type="button" className="next-button" onClick={backStep}>Back</button>}
                             {step === 1 &&  <button type="button" disabled={!isOtpVerified.status} className="next-button" onClick={completeFromStep}>Next <span>{chevRight}</span> </button>}
                             {step === 2 &&  <button type="button" className="next-button" onClick={completeFromStep}>Next <span>{chevRight}</span> </button>}
                             {step === 3 &&  <button type="button" className="next-button" onClick={completeFromStep}>Next  <span>{chevRight}</span> </button>}

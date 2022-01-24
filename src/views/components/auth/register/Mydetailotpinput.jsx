@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import OtpInput from 'react-otp-input';
-import  { string, object, func } from 'prop-types';
+import  {
+    string, object, func, bool,
+} from 'prop-types';
+import Countdown from 'react-countdown';
 import { verifyOtpAction } from '../../../../stores/Auth/AuthAction';
 
 const Mydetailotpinput = ({
-    label, resendotp, setOtpVal, otpVal, verifyOtp,
+    label, resendotp, setOtpVal, otpVal, verifyOtp, showResendOtp,
 }) => {
     const handeInput = (data) => {
         console.log(data);
@@ -26,35 +29,14 @@ const Mydetailotpinput = ({
         setShowTimer(!showTimer);
     };
 
-    // Timer Stuff
-
-    // let timeLeft = 30;
-    // const elem = document.getElementById('some_div');
-    // function doSomething() {
-    //     alert('Hi');
-    // }
-
-    // const timerId = setInterval(countdown, 1000);
-
-    // const countdown = () =>  {
-    //     if (timeLeft === -1) {
-    //         clearTimeout(timerId);
-    //         doSomething();
-    //     } else {
-    //         elem.innerHTML = `${timeLeft} seconds remaining`;
-    //         timeLeft -= 1;
-    //     }
-    // };
-
-    // const showCount = () => {
-    //     let count = 30;
-    //     if (count === 30) {
-    //         return count--;
-    //     }
-    //     return count--;
-    // };
-
-    //
+    const renderer = ({  seconds, completed }) => {
+        if (completed) {
+            // Render a completed state
+            setShowTimer(false);
+        }
+        // Render a countdown
+        return <span>{seconds}</span>;
+    };
 
     return (
         <div className="col-md-6 otp-block">
@@ -66,7 +48,17 @@ const Mydetailotpinput = ({
                 separator={<span> </span>}
             />
             <p>
-                <button type="submit" onClick={handleTimer}> <span>{showTimer ? '30 sec' : resendotp}</span> </button>
+
+                {showResendOtp && (
+                    <button type="submit" onClick={handleTimer}>{showTimer ? (
+                        <Countdown
+                            renderer={renderer}
+                            date={Date.now() + 30000}
+                        />
+                    ) : resendotp}
+
+                    </button>
+                )}
 
             </p>
         </div>
@@ -76,9 +68,11 @@ const Mydetailotpinput = ({
 Mydetailotpinput.propTypes = {
     label: string.isRequired,
     resendotp: string.isRequired,
+    showResendOtp: bool.isRequired,
     otpVal: string.isRequired,
     setOtpVal: object.isRequired,
     verifyOtp: func.isRequired,
+
 };
 
 const mapDispatchToProps = (dispatch) => ({

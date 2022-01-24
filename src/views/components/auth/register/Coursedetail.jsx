@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { FileUploader } from 'react-drag-drop-files';
 
-// import Dropzone from 'react-dropzone';
-
 import {
     func, object, array, string,
 } from 'prop-types';
@@ -12,14 +10,15 @@ import csc from 'country-state-city';
 import ReactMultiSelectCheckboxes from 'react-multiselect-checkboxes';
 import UploadingIcon from '../../../../assets/images/upload.svg';
 import {
-    exam, degrees, universities,
+    exam,
 } from './mockData/Coursedetailsdata';
-// import Coursedetaildropdown from './Coursedetaildropdown';
 import Coursedetailsubjects from './Coursedetailsubjects';
-// import CoursedetailMultipledropdown from './CoursedetailMultipledropdown';
-import { coCurricularActivitiesAction, getAllGradesAction, getUniqueSubjectsAction } from '../../../../stores/Auth/AuthAction';
+import {
+    coCurricularActivitiesAction, getAllGradesAction, getUniqueSubjectsAction, getAllUniversities,
+    getAllQualifications,
+} from '../../../../stores/Auth/AuthAction';
 import { dropdownSingleValueStyles } from './customCssDef';
-import close from '../../../../assets/images/close.png';
+// import close from '../../../../assets/images/close.png';
 
 const Coursedetail = ({
     coCurricularActivities,
@@ -43,36 +42,49 @@ const Coursedetail = ({
     setSubjectVal,
     subjectVal,
     userType,
+    getUniversities,
+    universitiesList,
+    getAllQualificationsAction,
+    qualificationsList,
+
 }) => {
-    // DropZone Code
+    // Universities
 
-    const fileTypes = ['JPG', 'PNG', 'GIF', 'docx'];
-    const [file, setFile] = useState(null);
-    const handleChange = (value) => {
-        setFile(value);
-        console.log(value);
-    };
+    const [universities, setUniversities] = useState([{ value: 1, label: '' }]);
 
-    //
+    useEffect(() => {
+        if (!universitiesList?.data) {
+            getUniversities();
+        }
+        if (universitiesList?.data?.length > 0) {
+            const cdata = universitiesList?.data.map((data) => (
+                { value: data.universityName, label: data.universityName }));
+            setUniversities(cdata);
+        }
+    }, [universitiesList]);
 
-    // console.log(coCurricularActivities(), 'Cocurricular from my details ');
+    console.log(universities);
 
-    console.log(coCurricular, 'CoCurricular');
+    // Qualifications
 
-    const countries = csc.getAllCountries();
-    const updatedCountries = countries.map((country) => ({
-        label: country.name,
-        value: country.id,
-        ...country,
-    }));
-    const updatedStates = (countryId) => csc
-        .getStatesOfCountry(countryId)
-        .map((state) => ({ label: state.name, value: state.id, ...state }));
+    const [qualification1, setQualification1] = useState([{ value: 1, label: '' }]);
+
+    useEffect(() => {
+        if (!qualificationsList?.data) {
+            getAllQualificationsAction();
+        }
+        if (qualificationsList?.data?.length > 0) {
+            const cdata = qualificationsList?.data.map((data) => (
+                { value: data.qualificationName, label: data.qualificationName }));
+            setQualification1(cdata);
+        }
+    }, [qualificationsList]);
+
+    console.log(qualification1);
+
+    // coCurricularActivities
 
     const [coActivityValue, setcoActivityValue] = useState([{ value: 1, label: '' }]);
-    const [gradeValue, setGradeValue] = useState({ value: 1, label: '' });
-    const [subjectValue, setSubjectValue] = useState([]);
-    // console.log(subjectValue);
 
     useEffect(() => {
         if (!coCurricular?.data) {
@@ -85,6 +97,10 @@ const Coursedetail = ({
         }
     }, [coCurricular]);
 
+    // getAllGrades
+
+    const [gradeValue, setGradeValue] = useState({ value: 1, label: '' });
+
     useEffect(() => {
         if (!allGrades?.data) {
             getAllGrades();
@@ -95,6 +111,10 @@ const Coursedetail = ({
             setGradeValue(gdata);
         }
     }, [allGrades]);
+
+    // getUniqueSubjects
+
+    const [subjectValue, setSubjectValue] = useState([]);
 
     useEffect(() => {
         if (!allSubjects?.response) {
@@ -107,6 +127,65 @@ const Coursedetail = ({
         }
     }, [allSubjects]);
 
+    // DropZone Code
+
+    const fileTypes = ['JPG', 'PNG', 'GIF', 'docx'];
+    const [documents, setDocuments] = useState([]);
+    const [fileNames, setFileNames] = useState([]);
+
+    console.log(documents);
+    console.log(fileNames);
+
+    const handleChange = (event) => {
+        const images = [];
+        console.log(event);
+        setFileNames([...fileNames, event.name]);
+
+        const file = event;
+
+        const reader = new FileReader();
+
+        reader.onloadend =  () => {
+            const reqData = {
+                file_name: new Date().getTime().toString(36),
+                base64_file: reader.result,
+            };
+            fetch(
+                'https://y1z2gzytv3.execute-api.us-east-2.amazonaws.com/development/api/image/upload',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(reqData),
+                },
+            )
+                .then((response) => response.json())
+                .then((imgRes) => {
+                    console.log(imgRes);
+                    images.push(imgRes.response);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        };
+        reader.readAsDataURL(file);
+
+        setDocuments([...documents, images]);
+    };
+
+    //
+
+    const countries = csc.getAllCountries();
+    const updatedCountries = countries.map((country) => ({
+        label: country.name,
+        value: country.id,
+        ...country,
+    }));
+    const updatedStates = (countryId) => csc
+        .getStatesOfCountry(countryId)
+        .map((state) => ({ label: state.name, value: state.id, ...state }));
+
     const gradeChange = (selected) => {
         setGradeVal(selected.value);
     };
@@ -116,15 +195,13 @@ const Coursedetail = ({
     };
 
     const universityChange = (selected) => {
-        setUniversity(selected.value);
+        setUniversity(selected);
     };
 
     const activityChange = (selected) => {
         const adata = selected.map((val) => (val.value));
         setCoActivity(adata);
     };
-
-    // console.log(allSubjects, 'allSubjects');
 
     const renderHeader = (type) => {
         switch (type) {
@@ -143,13 +220,16 @@ const Coursedetail = ({
         }
     };
 
-    // console.log(qualification);
     console.log(university, 'UNIV');
 
     const changeQua = (data) => {
-        console.log('yes change');
-        console.log(data, 'data change');
         setQualificationVal(data);
+    };
+
+    const removeAttachment = (item) => {
+        setDocuments(documents.filter((item1) => item1 !== item));
+        console.log(documents);
+        setFileNames(fileNames?.filter((item2) => item2 !== item));
     };
 
     return (
@@ -173,7 +253,7 @@ const Coursedetail = ({
                                 styles={dropdownSingleValueStyles}
 
                             />
-                            {validation.country && <span className="error-msg">country is required.</span>}
+                            {validation.country && <span className="error-msg">Country is required.</span>}
                         </div>
                         <div className="col-md-6 course-detail-select">
                             <div className="label-div">State*</div>
@@ -187,7 +267,7 @@ const Coursedetail = ({
                                 }}
                                 styles={dropdownSingleValueStyles}
                             />
-                            {validation.state && <span className="error-msg">state is required.</span>}
+                            {validation.state && <span className="error-msg">State is required.</span>}
                         </div>
                         <div className="col-md-6 course-detail-select">
                             <div className="label-div">Select grade*</div>
@@ -198,7 +278,7 @@ const Coursedetail = ({
                                 onChange={gradeChange}
                                 styles={dropdownSingleValueStyles}
                             />
-                            {validation.grade && <span className="error-msg">grade is required.</span>}
+                            {validation.grade && <span className="error-msg">Grade is required.</span>}
                         </div>
 
                         <Coursedetailsubjects
@@ -243,9 +323,8 @@ const Coursedetail = ({
                                     <div className="label-div">Qualification*</div>
                                     <Select
                                         className="dropdown-class"
-                                        options={degrees}
+                                        options={qualification1}
                                         onChange={(val) => changeQua(val)}
-                                        // onChange={(value) =>  setQualificationVal(value)}
                                         value={qualification}
                                         styles={dropdownSingleValueStyles}
                                     />
@@ -288,29 +367,24 @@ const Coursedetail = ({
 
                             </div>
 
-                            {/* <div className="upload-notif">
-                                <div>
-                                    <img className="upload-image"
-                                    src={UploadingIcon} alt="Upload" />
+                            {documents?.length > 0 && documents.map((item, i) => (
 
-                                    <p> {file ? `Uploading${file.name}` : 'no files uploaded yet'}
-                                    </p>
-                                </div>
+                                <p className="upload-notif">
+                                    <img className="upload-image" src={UploadingIcon} alt="Upload" />
 
-                            </div> */}
+                                    {fileNames[i]}
 
-                            <p className="upload-notif"><img className="upload-image" src={UploadingIcon} alt="Upload" />
+                                    <button className="remove-file" type="button" onClick={() => removeAttachment(item)}>Delete File</button>
 
-                                {file ? `Uploading${file.name}` : 'no files uploaded yet'}
+                                </p>
 
-                                <img className="close" src={close} alt="Upload" />
-                            </p>
+                            ))}
 
                         </div>
 
                     </div>
 
-                )}
+                ) }
             </div>
         </div>
     );
@@ -320,12 +394,18 @@ const mapStateToProps = (state) => ({
     coCurricular: state.Auth.CoCurricularActivities,
     allGrades: state.Auth.AllGrades,
     allSubjects: state.Auth.Subjects,
+    universitiesList: state.Auth.universities,
+    qualificationsList: state.Auth.qualifications,
+
 });
 
 const mapDispatchToProps = (dispatch) => ({
     coCurricularActivities: () => dispatch(coCurricularActivitiesAction()),
     getAllGrades: () => dispatch(getAllGradesAction()),
     getUniqueSubjects: () => dispatch(getUniqueSubjectsAction()),
+    getUniversities: () => dispatch(getAllUniversities()),
+    getAllQualificationsAction: () => dispatch(getAllQualifications()),
+
 });
 
 Coursedetail.propTypes = {
@@ -348,8 +428,12 @@ Coursedetail.propTypes = {
     setSubjectVal: object.isRequired,
     subjectVal: array.isRequired,
     userType: string.isRequired,
-    qualification: string.isRequired,
+    qualification: object.isRequired,
     university: string.isRequired,
+    getUniversities: func.isRequired,
+    universitiesList: array.isRequired,
+    getAllQualificationsAction: func.isRequired,
+    qualificationsList: array.isRequired,
 
 };
 

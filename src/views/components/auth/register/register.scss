@@ -1,11 +1,54 @@
 .PhoneInputCountrySelect {display:none}
 
+.outermost-div{
 
+  
+  .invisible-part{
+      
+    height:50px;
+   
+    margin-top: 40px;
+    border-top-left-radius: -9px;
+    display: flex;
+    justify-content: space-between;
+    padding:10px;
+    
+    .plus-icon{
+      width:24px;
+      height:24px;
+      display:flex;
+      justify-content:center;
+      align-items: center;
+          
+    }
+
+    .add-grade{
+      
+      display:flex;
+      justify-content:center;
+      align-items: center;
+      color: #43AA8B;
+      font-family: "proxima_nova_rgbold";
+      font-size: 24px;
+      font-weight: bold;
+      
+      
+      
+      line-height: 24px;
+
+
+    }
+  }
+
+
+
+}
   
 .register-main {
     background-color: #f4f7fc;
     padding-bottom: 50px;
-    height:auto;
+    min-height:100vh;
+    max-height:220vh;
     box-shadow: 0 22px 24px -10px rgba(189,189,189,0.07);
 
 
@@ -13,12 +56,14 @@
       width:95%
     }
     .step-body {
-      padding: 50px;
+      padding: 40px 50px;
       background-color: #fff;
-      max-width: 95%;
+      max-width: 100%;
       margin: 20px auto;
       border-radius: 40px;
       box-shadow: 0 22px 24px -10px rgba(189,189,189,0.07);
+
+   
     
       .step-btn-part {
         margin-top: 50px;
@@ -37,6 +82,13 @@
         display:flex;
         justify-content: space-between;
         margin-left:-40px;
+
+        .flex-row{
+          display: flex;
+          width:100%;
+        }
+
+
 
         .inline-cross{
           
@@ -59,8 +111,8 @@
       }
 
       .logo{
-        height: 56.32px;
-  width: 220px;
+        height: 63.32px;
+  width: 241px;
       }
       h2 {
         font-size: 40px;
@@ -76,38 +128,51 @@
       }
     }
     .option-part {
-      padding: 30px 40px 15px;
+      padding: 90px 40px 15px;
+      background-color: #fff;
+      height: 323px;
+      margin:108px 10px;
+      width: 1250px;
+      border-radius: 40px;
+      box-shadow: 0 22px 24px -10px rgba(189,189,189,0.07);
       .option-part-head {
         margin-bottom: 30px;
         text-align: center;
         h3 {
-          font-size: 32px;
+          font-size: 50px;
           font-family: "Proxima Nova";
+          margin-top:-267px;
         }
         p {
-          font-family: "proxima_nova_rgregular";
-          font-size: 24px;
+          font-family: "Proxima Nova";
+          font-size: 30px;
+          width:100%;
+          margin-bottom: 68px;
         }
       }
       .option-common {
         display: inline-block;
         padding-top:14px;
-        height: 167px;
-        width: 199px;
+        height: 207px;
+        width: 250px;
         border-radius: 10px;
         background-color: #fff;
         box-shadow: 0 5px 18px 0 rgba(140,140,140,0.1);
+        margin-left:72px;
+        margin-bottom:5rem;
+        margin-top:50px;
+        margin-right:53px;
 
         cursor: pointer;
         box-shadow: rgba(140,140,140,0.1);
         margin-right: 20px;
         svg {
-          margin-top: 20px;
+          margin-top: 50px;
         }
         p {
           margin-top: 20px;
           font-family: "proxima_nova_rgbold";
-          font-size: 21px;
+          font-size: 25px;
         }
         &:hover {
           background-color: #43AA8B;
@@ -133,7 +198,7 @@
       }
       h5.already-account {
         margin-top: 100px;
-        font-size: 20px;
+        font-size: 30px;
         font-family: "Proxima Nova";
         color: #20282A;
         a {
@@ -144,7 +209,7 @@
       button {
         max-width: 335px;
         width: 100%;
-        height: 50px;
+        height: 55px;
         border-radius: 25px;
         border: 0;
         background-color: #40A486;
@@ -216,7 +281,35 @@
       content: none !important;
     }
 
+    // .coursedetails-main2{
+    //   background-color: #fff ;
+    //   border-radius:20px;
+
+    //   .dropdown-class{
+    //     margin-left:20px;
+    //   }
+
+    //   .label-div{
+    //     margin-left:20px
+    //   }
+      
+    //   .coursedetails-main{
+    //     .course-detail-select{
+        
+    //       .div.css-1s2u09g-control,.css-1pahdxg-control{
+    //       display:none;
+    //     }}
+    //   }
+      
+
+      
+      
+    // }
+
+
     .coursedetails-main {
+
+
 
       .upload-container{
         margin-top: 50px;;
@@ -240,10 +333,35 @@
             justify-content: center;
             align-items: center;
             .iciELI{
-              border:none
+              border:none;
+              width:500px;
             }
+
+            .kCudqJ span{
+              font-size:20px;
+              color:black;
+            }
+
+            .kCudqJ{
+              font-size:18px;
+
+            }
+
+            .ebdQkY > span{
+              font-size:15px;
+
+
+            }
+
+            .iciELI {
+              margin-top:-10px;
+            }
+
+            
          
           }
+
+         
 
           .upload-text1{
 
@@ -251,7 +369,7 @@
 
            text-align: center;
            padding-top:50px;
-           font-size: 18px;
+           font-size: 20px;
            font-weight: 600;
            letter-spacing: 0;
            line-height: 22px;
@@ -271,7 +389,7 @@
 
           .max-size{
             text-align: center;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
             letter-spacing: 0;
             line-height: 17px;
@@ -294,7 +412,7 @@
         }
 
         .upload-notif{
-          margin-top: 60px;;
+          margin-top: 35px;;
           border:#E0E0E0 solid 2px;
           width:100%;
           height: 66px;
@@ -305,11 +423,26 @@
           align-items: center;
           font-style:'proxima_nova_rgregular';
           padding-left: 50px;
+          border-radius:15px;
+
+          .remove-file{
+            border:none;
+            font-style:'proxima_nova_rgregular';
+            background-color: #fff;
+            margin-right:50px;
+
+          }
+
+          .preview-image{
+            height:40px;
+            width:40px;
+          }
+
           .close{
       
             width:20px;
             height:20px;
-            margin-right:10px;
+            margin-right:20px;
     
           }
 
@@ -365,8 +498,7 @@
       .invisible-part{
       
         height:100px;
-        background-color: #F4F7FC;
-        width:56vw;
+        width:60vw;
         margin-left:-80px;
         margin-top: 40px;
         border-top-left-radius: -9px;
@@ -374,16 +506,13 @@
         justify-content: space-between;
         padding:10px;
         
-
-
         .plus-icon{
           width:24px;
           height:24px;
           display:flex;
           justify-content:center;
           align-items: center;
-          
-          
+              
         }
 
         .add-grade{
@@ -421,9 +550,32 @@
       .heading-and-dropdown{
         width:100%;
         height:auto;
+
+        .close-icon-container{
+        width:100%;
+          height:40px;
+          display:flex;
+          flex-direction: row-reverse;
+          margin-top:-80px;
+        }
+
+
+
+        .close-grade{
+          border:none;
+          background-color: #fff;
+          width:20px;
+          height:20px;
+
+        
+        }
+        .close-icon2{
+          width:30px;
+          height:30px;
+        }
     
         .heading{
-            padding-top:40px;
+            padding-top:30px;
             width:100%;
             
             h2{
@@ -439,7 +591,7 @@
             p{
                 color: #7D8283;
                 font-family: "Proxima Nova";
-                font-size: 18px;
+                font-size: 19px;
                 font-weight: 600;
                 letter-spacing: 0;
                 line-height: 22px;
@@ -490,7 +642,7 @@
                 font-size: 20px;
                 font-weight: 600;
                 letter-spacing: 0;
-                line-height: 22px;
+                line-height: 25px;
 
                 .bold-weekday{
                   color: #454C4E
@@ -531,6 +683,21 @@
 
 
       .course-detail-select {
+
+        .ReactFlagsSelect-module_selectBtn__19wW7{
+
+          border-radius: 10px;
+    height: 66px;
+    border: 1px solid #e0e0e0;
+    width: 100%;
+
+        }
+
+
+
+        .css-6j8wv5-Input{
+          font-size:20px;
+        }
 
        
 
@@ -662,7 +829,7 @@
           }
         }
         button {
-          width: 120%;
+          width: 92%;
           border: 1px solid #e0e0e0;
           border-radius: 10px;
           height: 66px;
@@ -820,8 +987,14 @@
           
          
           span.css-1v99tuv {
-            color: #20282a;
-            font-size: 16px;
+            color: #7D8283;
+            font-family: "Proxima Nova";
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0;
+            line-height: 22px;
+            
+
           }
           .css-1vr111p-option,
           .css-1qprcsu-option {
@@ -944,31 +1117,45 @@
         padding-bottom: 10px;
         color: #7d8283;
 
-         .flag-select{
-           
-           
+        .course-detail-select{
+            .element-style{
+              font-size: 20px;;
+            }
 
-.ReactFlagsSelect-module_selectBtn__19wW7{
-  box-sizing: border-box;
-  height: 66px;
-  
-  color: #20282A;
-  font-family: "Proxima Nova";
-  font-weight: 600;
-  border: 1px solid #E0E0E0;
-  border-radius: 10px;
-  background-color: #FFFFFF;
+            .select-button{
+              font-size: 40px;;
+
+            }
+
+            .menu-flags{
+              font-size: 40px;;
+            }
 
 
-}
+          .ReactFlagsSelect-module_selectBtn__19wW7{
+            border-radius: 10px;
+            height: 66px;
+            border: 1px solid #e0e0e0;
+            width: 100%;
+            font-size: 20px;
 
-.ReactFlagsSelect-module_selectOption__3pcgW{
-margin:15px 13px;
-font-size:18px;
-}
-           
-          
+            
+          }
+
+          .ReactFlagsSelect-module_fullWidthOptions__1XeR6{
+            height:350px;
+          }
+
+          .ReactFlagsSelect-module_selectOptionValue__vS99-{
+            font-size: 20px;
+            padding:20px 10px;
+          }
+
         }
+
+
+
+
 
         
         .ABC{
@@ -1100,7 +1287,7 @@ font-size:18px;
         font-family: "Proxima Nova";
         font-size: 20px;
         line-height: 22px;
-        margin-top: 30px;
+        margin-top: 38px;
 
        
       }
@@ -1408,9 +1595,15 @@ font-size:18px;
       font-size: 15px;
     }
   }
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 769px) {
     .register-top {
       text-align: center;
+      
+      h2{
+        font-size:20px;
+        margin-top:440px;
+      }
+
     }
     .register-main .next-button {
       width: 250px;
