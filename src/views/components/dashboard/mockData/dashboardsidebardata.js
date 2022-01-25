@@ -8,6 +8,7 @@ import Settingicon from '../../../../assets/images/settingicon.png';
 import Helpdeskicon from '../../../../assets/images/helpdeskicon.png';
 // import Logouticon from '../../../../assets/images/logouticon.png';
 import BrainGymicon from '../../../../assets/images/braingym-icon.png';
+import { viewTypeData } from './dashboardViewData';
 
 export const sidebardata =     {
     title: 'OVERVIEW',
@@ -20,32 +21,32 @@ export const sidebardata =     {
         {
             title: 'My subjects',
             image: Mysubjecticon,
-            to: 'My-subjects',
+            to: viewTypeData?.SUBJECT,
         },
         {
             title: 'My exams',
             image: Myexamicon,
-            to: 'My-exams',
+            to: viewTypeData?.EXAMS,
         },
         {
             title: 'Brain gym',
             image: BrainGymicon,
-            to: 'Brain-gym',
+            to: viewTypeData?.BRAIN_GYM,
         },
         {
             title: 'My assignments',
             image: Myassignmenticon,
-            to: 'My-assignments',
+            to: viewTypeData?.ASSIGNMENTS,
         },
         {
             title: 'My classes',
             image: Dashboardicon,
-            to: 'My-classes',
+            to: viewTypeData?.CLASSES,
         },
         {
             title: 'My subscriptions',
             image: Dashboardicon,
-            to: 'My-subscriptions',
+            to: viewTypeData?.SUBSCRIPTIONS,
         },
     ],
 };

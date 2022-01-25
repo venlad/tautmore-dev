@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {  string } from 'prop-types';
+import {  object } from 'prop-types';
 import './dashboard.scss';
 import Sidemenu from './Leftsidepart/Sidemenu';
 import DashSearch from './Rightsidepart/DashSearch';
@@ -13,6 +13,7 @@ import MySubscription from './Rightsidepart/MySubscription/MySubscription';
 import MyProfile from './Rightsidepart/MyProfile/MyProfile';
 import Renewsub from './Rightsidepart/RenewSubscription/Renewsub';
 import BrainGym from './Rightsidepart/BrainGym/BrainGym';
+import { viewTypeData } from './mockData/dashboardViewData';
 
 const Dashboard = ({ match }) => {
     const viewType = match.params.viewtype ? match.params.viewtype : '';
@@ -21,6 +22,45 @@ const Dashboard = ({ match }) => {
     // const [concept, setConcept] = useState('');
     // const [renewSub, setRenewSub] = useState('');
 
+    const renderLayouts = () => {
+        let view = <Home />;
+        switch (viewType) {
+            case '':
+                view = <Home />;
+                break;
+            case viewTypeData?.SUBJECT:
+                view = <Mysubjects />;
+                break;
+            case viewTypeData?.CONCEPT:
+                view = <Myconcept />;
+                break;
+            case viewTypeData?.EXAMS:
+                view = <MyExam  />;
+                break;
+            case viewTypeData?.BRAIN_GYM:
+                view = <BrainGym />;
+                break;
+            case viewTypeData?.ASSIGNMENTS:
+                view = <MyAssignment  />;
+                break;
+            case viewTypeData?.CLASSES:
+                view = <MyClasses  />;
+                break;
+            case viewTypeData?.SUBSCRIPTIONS:
+                view = <MySubscription />;
+                break;
+            case viewTypeData?.PROFILE:
+                view = <MyProfile />;
+                break;
+            case viewTypeData?.RENEW_SUBSCRIPTION:
+                view = <Renewsub  />;
+                break;
+            default:
+                view = <Home />;
+                break;
+        }
+        return view;
+    };
     return (
 
         <div className={`dashboard-main ${open ? 'open' : 'close'}`}>
@@ -29,33 +69,10 @@ const Dashboard = ({ match }) => {
                     open={open}
                     setOpen={setOpen}
                     viewType={viewType}
-                    // setView={setView}
-                    // view={view}
-                    // setConcept={setConcept}
-                    // setRenewSub={setRenewSub}
                 />
                 <div className="col-sm-9 dashboard-right">
                     <DashSearch />
-                    { viewType === ''
-                    && <Home /> }
-                    { viewType === 'My-subjects'
-                        && <Mysubjects />}
-                    { viewType === 'My-concept'
-                    && <Myconcept /> }
-                    { viewType === 'My-exams'
-                    && <MyExam  /> }
-                    { viewType === 'Brain-gym'
-                    && <BrainGym /> }
-                    { viewType === 'My-assignments'
-                    && <MyAssignment  />}
-                    { viewType === 'My-classes'
-                    && <MyClasses  /> }
-                    { viewType === 'My-subscriptions'
-                    && <MySubscription /> }
-                    { viewType === 'My-profile'
-                    && <MyProfile />}
-                    { viewType === 'Renew-subscription'
-                    && <Renewsub  />}
+                    {renderLayouts()}
                 </div>
             </div>
         </div>
@@ -63,7 +80,7 @@ const Dashboard = ({ match }) => {
 };
 
 Dashboard.propTypes = {
-    match: string.isRequired,
+    match: object.isRequired,
 };
 
 export default Dashboard;
