@@ -8,7 +8,7 @@ import QuestionAns from './QuestionAns';
 import BraingymUnlock from './BraingymUnlock';
 import {
     masterBraingymidAction,
-} from '../../../stores/BrainGym/BrainGymAction';
+} from '../../../stores/BrainGymOld/BrainGymAction';
 
 const Braingym = ({
     getMasterBrainGym,

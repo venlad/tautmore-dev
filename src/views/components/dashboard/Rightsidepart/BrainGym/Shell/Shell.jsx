@@ -7,7 +7,7 @@ import Close from '../../../../../../assets/images/Close-shell.svg';
 import Calender from '../../../../../../assets/images/Calender-shell.svg';
 import './style/shell.scss';
 
-const Shell = ({ setView }) => (
+const Shell = ({ setViewBrain }) => (
     <div className="shell-main">
         <div className="container-background">
             <div className="image-background">
@@ -16,7 +16,7 @@ const Shell = ({ setView }) => (
                         <img id="icon-small" src={PointsIcon} alt="No Imag" />
                         <p>112 Total Points</p>
                     </div>
-                    <button type="button" className="close-btn" onClick={() => setView('home')}>
+                    <button type="button" className="close-btn" onClick={() => setViewBrain('home')}>
                         <img src={Close} alt="No Imag" />
                     </button>
                 </div>
@@ -50,7 +50,7 @@ const Shell = ({ setView }) => (
 );
 
 Shell.propTypes = {
-    setView: func.isRequired,
+    setViewBrain: func.isRequired,
 };
 
 export default Shell;

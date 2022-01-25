@@ -12,13 +12,13 @@ import BlackGradientIcon from '../../../../../../assets/images/shell-pop-Black.s
 import TotalPlays from '../../../../../../assets/images/shell-pop-TotalPlay.svg';
 import './style/popup.scss';
 
-const ShellPoupup = ({ setView }) => (
+const ShellPoupup = ({ setViewBrain }) => (
     <div className="shell-popup-main">
         <div className="svg-background-container">
             <div className="flex-items-details">
                 <h2>Shell 1</h2>
                 <h3>Topic: Count to 10  </h3>
-                <button type="button" className="close-btn" onClick={() => setView('home')}>
+                <button type="button" className="close-btn" onClick={() => setViewBrain('home')}>
                     <img className="floating-cross" src={Close} alt="No Imag" />
                 </button>
                 <div className="current-level-and-icons">
@@ -56,7 +56,7 @@ const ShellPoupup = ({ setView }) => (
 );
 
 ShellPoupup.propTypes = {
-    setView: func.isRequired,
+    setViewBrain: func.isRequired,
 };
 
 export default ShellPoupup;

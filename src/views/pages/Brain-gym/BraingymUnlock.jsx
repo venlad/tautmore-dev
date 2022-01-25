@@ -5,7 +5,7 @@ import {
 import { connect } from 'react-redux';
 import {
     unlockBrainGymAction, masterBraingymidAction,
-} from '../../../stores/BrainGym/BrainGymAction';
+} from '../../../stores/BrainGymOld/BrainGymAction';
 import { chevRight } from '../../../assets/icons/IconList';
 import close from '../../../assets/images/close.png';
 import CompletedRecord from './CompletedRecord';

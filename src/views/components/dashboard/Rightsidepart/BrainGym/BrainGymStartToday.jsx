@@ -9,7 +9,7 @@ import Edit from '../../../../../assets/images/edit.png';
 
 // import Edit from '../../../../src/views/pages/BrainGym';
 
-function BrainGymStartToday({ setView }) {
+function BrainGymStartToday({ setViewBrain }) {
     return (
         <div className="braingym-starttoday">
             <div className="row">
@@ -30,7 +30,7 @@ function BrainGymStartToday({ setView }) {
                     <div className="row">
                         <div className="col-md-3 col-sm-5 col-12 shell">
                             <img src={Shell} alt="" />
-                            <span onClick={() => setView('shell')} aria-hidden="true">Shell1</span>
+                            <span onClick={() => setViewBrain('shell')} aria-hidden="true">Shell1</span>
                         </div>
                         <div className="col-md-1 col-sm-1 col-12 line2">
                             <img src={Line2} alt="" />
@@ -44,7 +44,7 @@ function BrainGymStartToday({ setView }) {
 
                         <div className="col-md-5 col-sm-5 col-12 button">
                             <div>
-                                <button type="button" className="btn" onClick={() => setView('workout')}><span className="btn-span">Begin workout</span>
+                                <button type="button" className="btn" onClick={() => setViewBrain('workout')}><span className="btn-span">Begin workout</span>
                                 </button>
                                 <div>
                                     <img className="img" src={Edit} alt="" /><span className="img-span">Set brain gym time </span>
@@ -60,7 +60,7 @@ function BrainGymStartToday({ setView }) {
 }
 
 BrainGymStartToday.propTypes = {
-    setView: func.isRequired,
+    setViewBrain: func.isRequired,
 };
 
 export default BrainGymStartToday;

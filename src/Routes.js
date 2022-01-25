@@ -6,7 +6,6 @@ import Register from './views/components/auth/register/Index';
 import Chapters from './views/pages/Chapters';
 import PracticeTest from './views/pages/PracticeTest/PracticeTest';
 import Dashboard from './views/components/dashboard/Dashboard';
-import Braingym from './views/pages/Brain-gym/Braingym';
 import Olympiad from './views/pages/Olympiad/Olympiad';
 import Login from './views/components/auth/login/Login';
 import Homepage from './views/components/skeleton/Homepage/Homepage';
@@ -40,13 +39,13 @@ const routes = [
     },
     {
         key: 6,
-        path: RouteEnum.DASHBOARD,
+        path: RouteEnum.DASHBOARDHOME,
         component: Dashboard,
     },
     {
         key: 7,
-        path: RouteEnum.BRAINGYM,
-        component: Braingym,
+        path: RouteEnum.DASHBOARD,
+        component: Dashboard,
     },
     {
         key: 8,

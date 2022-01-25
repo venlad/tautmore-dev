@@ -3,49 +3,57 @@ import { fetchWrapper } from '../helpers/fetch-wrapper';
 
 const baseUrl = `${config.apiBaseUrl}`;
 
-function addBrainGym(params) {
-    return fetchWrapper.post(`${baseUrl}/brainGym/addBrainGym`, params);
+function startTest(params) {
+    return fetchWrapper.post(`${baseUrl}/brain-gym/start-test`, params);
+}
+
+function chestInfo(params) {
+    return fetchWrapper.post(`${baseUrl}/brainGym/chest-info`, params);
+}
+
+function getQuestionInChest(params) {
+    return fetchWrapper.post(`${baseUrl}/brainGym/question-in-chest`, params);
+}
+
+function attemptQuestion(params) {
+    return fetchWrapper.post(`${baseUrl}/brainGym/attempt-question`, params);
 }
 
 function completeChest(params) {
-    return fetchWrapper.post(
-        `${baseUrl}/brainGym/completeChest`,
-        params,
-    );
+    return fetchWrapper.post(`${baseUrl}/brainGym/complete-chest`, params);
 }
 
-function getAllBrainGym() {
-    return fetchWrapper.get(`${baseUrl}/brainGym/getAllBrainGym`);
+function masterDetails(params) {
+    return fetchWrapper.post(`${baseUrl}/brainGym/master-details`, params);
 }
 
-function getMasterBrainGymById(params) {
-    return fetchWrapper.post(
-        `${baseUrl}/brainGym/getMasterBrainGymById`,
-        params,
-    );
+function lastFiveAttempts(params) {
+    return fetchWrapper.post(`${baseUrl}/brainGym/last-5-attempts`, params);
 }
 
-function getBrainGymById(params) {
-    return fetchWrapper.post(
-        `${baseUrl}/brainGym/getBrainGymById`,
-        params,
-    );
+function incorrectAnswer(params) {
+    return fetchWrapper.post(`${baseUrl}/brainGym/review-incorrect-answers`, params);
 }
 
-function getBrainGymAndCheckForDelay(params) {
-    return fetchWrapper.post(
-        `${baseUrl}/brainGym/getBrainGymAndCheckForDelay`,
-        params,
-    );
+function longestStreak(params) {
+    return fetchWrapper.post(`${baseUrl}/brainGym/longest-streak`, params);
+}
+
+function updateRemainingTime(params) {
+    return fetchWrapper.post(`${baseUrl}/brainGym/update-remaining-time`, params);
 }
 
 export const brainGymServices = {
-    addBrainGym,
+    startTest,
+    chestInfo,
+    getQuestionInChest,
+    attemptQuestion,
     completeChest,
-    getAllBrainGym,
-    getMasterBrainGymById,
-    getBrainGymById,
-    getBrainGymAndCheckForDelay,
+    masterDetails,
+    lastFiveAttempts,
+    incorrectAnswer,
+    longestStreak,
+    updateRemainingTime,
 };
 
 export default {};

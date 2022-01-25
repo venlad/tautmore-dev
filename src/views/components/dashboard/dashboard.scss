@@ -53,6 +53,10 @@
                   margin-bottom: 0;
                   color: #d9d9d9;
                 }
+                a {
+                  text-decoration: none;
+                  color: #fff;
+                }
               }
               .dashboard-profile-right {
                 svg {
@@ -114,6 +118,11 @@
                     margin-right: 10px;
                     height: 24px;
                     width: 24px;
+                  }
+                  a {
+                    text-decoration: none;
+                    color: #fff;
+                    display: block;
                   }
                 }
                 li.active {

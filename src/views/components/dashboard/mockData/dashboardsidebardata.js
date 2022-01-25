@@ -15,30 +15,37 @@ export const sidebardata =     {
         {
             title: 'Dashboard',
             image: Dashboardicon,
+            to: '',
         },
         {
             title: 'My subjects',
             image: Mysubjecticon,
+            to: 'My-subjects',
         },
         {
             title: 'My exams',
             image: Myexamicon,
+            to: 'My-exams',
         },
         {
             title: 'Brain gym',
             image: BrainGymicon,
+            to: 'Brain-gym',
         },
         {
             title: 'My assignments',
             image: Myassignmenticon,
+            to: 'My-assignments',
         },
         {
             title: 'My classes',
             image: Dashboardicon,
+            to: 'My-classes',
         },
         {
             title: 'My subscriptions',
             image: Dashboardicon,
+            to: 'My-subscriptions',
         },
     ],
 };

@@ -12,22 +12,22 @@ import ShellPoupup from './Shell/ShellPoupup';
 // import Report from './Report/Report';
 
 const BrainGym = () => {
-    const [view, setView] = useState('home');
+    const [viewBrain, setViewBrain] = useState('home');
     return (
         <div>
-            { view === 'home'
+            { viewBrain === 'home'
             && (
                 <div className="braingym-main">
                     <BrainGymHead />
                     <BrainGymSublist />
-                    <BrainGymStartToday setView={setView} />
+                    <BrainGymStartToday setViewBrain={setViewBrain} />
                     <BrainGymScore />
                 </div>
             )}
-            { view === 'workout'
-                && <Shell setView={setView} />}
-            { view === 'shell'
-                && <ShellPoupup setView={setView} />}
+            { viewBrain === 'workout'
+                && <Shell setViewBrain={setViewBrain} />}
+            { viewBrain === 'shell'
+                && <ShellPoupup setViewBrain={setViewBrain} />}
             {/* <Report /> */}
             {/* <IncorrectAns /> */}
             {/* <ShellPoupup /> */}
