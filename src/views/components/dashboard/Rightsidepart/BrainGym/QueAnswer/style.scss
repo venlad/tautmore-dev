@@ -1,0 +1,25 @@
+.brain-que-ans-main {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: #F4F7FC;
+    .brain-gym-main.braingym-page {
+        margin: 0 !important;
+        padding: 0 !important;
+        background-color: #F4F7FC !important;
+        .brain-gym-head-main {
+            .head-logo {
+                img {
+                    width: 220px;
+                }
+            }
+            .head-right {
+                img {
+                    width: 20px;
+                }
+            }
+        }
+    }
+}

@@ -28,12 +28,10 @@ const ShellList = ({ startChest }) => (
             <div className="Oyster-and-title">
                 <img id="icon-large" className="adjusted-image2" src={OysterClosed} alt="No Imag" />
                 <p className="adjusted-para2">SHELL 5</p>
-
             </div>
         </div>
     </div>
 );
-
 ShellList.propTypes = {
     startChest: func.isRequired,
 };
@@ -41,4 +39,5 @@ ShellList.propTypes = {
 const mapDispatchToProps = (dispatch) => ({
     startChest: () => dispatch(startChestAction()),
 });
+
 export default connect(null, mapDispatchToProps)(ShellList);

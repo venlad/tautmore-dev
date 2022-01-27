@@ -18,6 +18,8 @@ import { viewTypeData } from './mockData/dashboardViewData';
 const Dashboard = ({ match }) => {
     const viewType = match.params.viewtype ? match.params.viewtype : '';
     const [open, setOpen] = useState(false);
+    const [showShell, setShowShell] = useState(false);
+
     // const [view, setView] = useState('Dashboard');
     // const [concept, setConcept] = useState('');
     // const [renewSub, setRenewSub] = useState('');
@@ -38,7 +40,7 @@ const Dashboard = ({ match }) => {
                 view = <MyExam  />;
                 break;
             case viewTypeData?.BRAIN_GYM:
-                view = <BrainGym />;
+                view = <BrainGym setShowShell={setShowShell} showShell={showShell} />;
                 break;
             case viewTypeData?.ASSIGNMENTS:
                 view = <MyAssignment  />;
@@ -64,7 +66,7 @@ const Dashboard = ({ match }) => {
     return (
 
         <div className={`dashboard-main ${open ? 'open' : 'close'}`}>
-            <div className="row row-main">
+            <div className={`row row-main dashboard-main-row ${showShell ? 'active' : ''}`}>
                 <Sidemenu
                     open={open}
                     setOpen={setOpen}

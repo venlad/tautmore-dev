@@ -22,9 +22,6 @@ const Sidemenu = ({
     const toggleTrueFalse = () => {
         setOpen(!open);
     };
-
-   
-
     return (
         <div className=" dashboard-left col-sm-3">
             <div className="logo-profile">

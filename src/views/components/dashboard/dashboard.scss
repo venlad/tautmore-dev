@@ -1,5 +1,10 @@
 .dashboard-main {
     background-color: #f7f7f7;
+    .dashboard-main-row.active {
+      .dashboard-left{
+        display: none !important;
+      }
+    }
     .row-main {
         margin-left: 0;
         margin-right: 0;

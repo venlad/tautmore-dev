@@ -22,8 +22,34 @@ function* workerStartChest() {
     }
 }
 
+function* workerGetQuestionInChest(data) {
+    const value =  data?.payload;
+    const response = yield brainGymServices.getQuestionInChest(value);
+
+    if (response) {
+        yield put({
+            type: actionTypes.UPDATE_GET_QUESTION_IN_CHEST,
+            payload: response?.data,
+        });
+    }
+}
+
+function* workerAttemptQuestion(data) {
+    const value = data?.payload;
+    const response = yield brainGymServices.attemptQuestion(value);
+
+    if (response) {
+        yield put({
+            type: actionTypes.UPDATE_ATTEMPT_QUESTION,
+            payload: response,
+        });
+    }
+}
+
 function* watcherBrainGym() {
     yield takeLatest(actionTypes.START_CHEST, workerStartChest);
+    yield takeLatest(actionTypes.GET_QUESTION_IN_CHEST, workerGetQuestionInChest);
+    yield takeLatest(actionTypes.ATTEMPT_QUESTION, workerAttemptQuestion);
 }
 
 function* fetchAll() {

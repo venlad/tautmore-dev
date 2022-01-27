@@ -5,4 +5,14 @@ export const startChestAction = () => ({
     payload: {},
 });
 
+export const getQuestionInChestAction = (data) => ({
+    type: actionTypes.GET_QUESTION_IN_CHEST,
+    payload: data,
+});
+
+export const attemptQuestionAction = (data) => ({
+    type: actionTypes.ATTEMPT_QUESTION,
+    payload: data,
+});
+
 export default {};
