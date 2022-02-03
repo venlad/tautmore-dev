@@ -11,8 +11,14 @@ import Olympiad from './views/pages/Olympiad/Olympiad';
 import Login from './views/components/auth/login/Login';
 import Homepage from './views/components/skeleton/Homepage/Homepage';
 import Teachers from './views/pages/Teachers/Teachers';
+import ExamDetails from './views/pages/Teachers/ExamDetails';
 
 const routes = [
+    {
+        key: 13,
+        path: RouteEnum.EXAMDETAILS,
+        component: ExamDetails,
+    },
     {
         key: 1,
         path: RouteEnum.HOME,
@@ -73,6 +79,7 @@ const routes = [
         path: RouteEnum.TEACHERS,
         component: Teachers,
     },
+
 ];
 
 export default routes;

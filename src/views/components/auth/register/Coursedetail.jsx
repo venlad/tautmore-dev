@@ -26,6 +26,7 @@ const Coursedetail = ({
     allGrades,
     setGradeVal,
     setExamVal,
+    // qualificationVal,
     setQualificationVal,
     getUniqueSubjects,
     allSubjects,
@@ -89,8 +90,9 @@ const Coursedetail = ({
         setExamVal(selected.value);
     };
 
-    const qualificationChange = (selected) => {
-        setQualificationVal(selected.value);
+    const qualChange = (selected) => {
+        console.log(selected.value);
+        setQualificationVal(selected);
     };
 
     const activityChange = (selected) => {
@@ -198,10 +200,11 @@ const Coursedetail = ({
                         <div className="label-div">Qualification*</div>
                         <Select
                             label="Qualification*"
-                            id="exam"
-                            name="exam"
+                            id="qualification"
+                            name="qualification"
                             options={qualification}
-                            onChange={qualificationChange}
+                            onChange={qualChange}
+                            // value={{ value: 'qualification1', label: 'qualification1' }}
                         />
 
                     </div>
@@ -236,6 +239,7 @@ Coursedetail.propTypes = {
     setGradeVal: object.isRequired,
     setExamVal: object.isRequired,
     setQualificationVal: object.isRequired,
+    // qualificationVal: object.isRequired,
     getUniqueSubjects: func.isRequired,
     allSubjects: array.isRequired,
     validation: object.isRequired,

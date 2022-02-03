@@ -90,14 +90,14 @@ export const qualification = [
     },
     {
         label: 'qualification1',
-        value: 2,
+        value: 'qualification1',
     },
     {
         label: 'qualification2',
-        value: 3,
+        value: 'qualification2',
     },
     {
         label: 'qualification3',
-        value: 4,
+        value: 'qualification3',
     },
 ];

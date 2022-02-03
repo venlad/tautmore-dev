@@ -7,7 +7,10 @@ import MyClassesTAB from '../../components/dashboard/Rightsidepart/MyClass/MyCla
 import MyClassesList from '../../components/dashboard/Rightsidepart/MyClass/MyClassesList';
 import SimpleSlider from './Slider';
 import SubjectModel from './SubjectModel';
+import MySubjects from './Mysubjects/MySubjects';
+// import ExamDetails from './ExamDetails';
 import './teachers.scss';
+// import OnlineClassCompleted from './OnlineClassCompleted';
 
 // import MyClassesCommon from '../../components/dashboard/Rightsidepart/MyClass/MyClassesCommon';
 import OnlineClassalert from './OnlineClassalert';
@@ -51,6 +54,9 @@ const Teachers = () => {
                         <MyClassesTAB />
 
                         <MyClassesList />
+                        {/* <ExamDetails /> */}
+                        <MySubjects />
+
                     </div>
                 </div>
             </div>
