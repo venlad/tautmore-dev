@@ -15,7 +15,7 @@ const MysubProgressbar = ({
         styleValue.push(`${time} min`);
     }
     return (
-        <div className="mysub-progressbar-round col-md-4 col-sm-4 col-12">
+        <div className="mysub-progressbar-round col-md-9 col-sm-9 col-12">
             <div className="row">
                 <div className="col-md-5 col-sm-12 col-12 mysub-progressbar-round-left-top">
                     <div className="mysub-progressbar-round-left">

@@ -1,9 +1,9 @@
 import React from 'react';
 import {  bool, func } from 'prop-types';
 import errowright from '../../../../assets/images/errowright.png';
-import clock from '../../../../assets/images/stopwatch.png';
-import info from '../../../../assets/images/info.png';
-import MysubProgressbar from './Mysubjectprogressbar';
+// import clock from '../../../../assets/images/stopwatch.png';
+// import info from '../../../../assets/images/info.png';
+import MysubProgressbar from './MysubProgressbar';
 import downArrow from '../../../../assets/images/downarrow.png';
 import { chevRight } from '../../../../assets/icons/IconList';
 import error from '../../../../assets/images/error.png';
@@ -31,20 +31,19 @@ const MysubUpcomingclass = ({
                     <h4>SUBJECT PROGRESS  <span>{ !show ? (<img src={errowright} alt="errow_right" />) : (<img src={downArrow} alt="errow_down" />)}</span></h4>
                 </div>
                 <div className="mysub-upcoming-sub text-center">
-                    <h5>Mathematics</h5>
+                    {/* <h5>Mathematics</h5>
                     <p className="chapter-p">Chapter 8: Trignometry</p>
                     <p className="img-p"><img src={clock} alt="clock" />Starts in 00:23:24</p>
                     <button type="button">Join class now <span>{chevRight}</span></button>
                     <p className="img-p audio-video"><img src={info} alt="audio&video" />
                         Test audio & video
-                    </p>
+                    </p> */}
+                    <MysubProgressbar title="Overall completion" maxval={27} value={12} color="#4B56AE" /><br />
+                    <MysubProgressbar title="Concepts cleared" maxval={100} value={90} color="#F3722C" /><br />
+                    <MysubProgressbar title="Classes completed" maxval={34} value={12} color="##43AA8B" />
+
                 </div>
-                <MysubProgressbar
-                    title="Classes completed"
-                    maxval={34}
-                    value={12}
-                    color="#43AA8B"
-                />
+
             </div>
 
             <div className={`mysub-upcoming practice-test ${hide}`}>
