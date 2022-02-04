@@ -1,26 +1,39 @@
 import React, { useState } from 'react';
+import { object } from 'prop-types';
 import '../../components/dashboard/dashboard.scss';
-import Sidemenu from '../../components/dashboard/Leftsidepart/Sidemenu';
+import Sidemenu from './Sidemenu';
 import DashSearch from '../../components/dashboard/Rightsidepart/DashSearch';
-import MyClassesTitle from '../../components/dashboard/Rightsidepart/MyexamTitle';
-import MyClassesTAB from '../../components/dashboard/Rightsidepart/MyClass/MyClassesTab';
-import MyClassesList from '../../components/dashboard/Rightsidepart/MyClass/MyClassesList';
-import SimpleSlider from './Slider';
-import SubjectModel from './SubjectModel';
-import MySubjects from './Mysubjects/MySubjects';
 // import ExamDetails from './ExamDetails';
 import './teachers.scss';
 // import OnlineClassCompleted from './OnlineClassCompleted';
 
 // import MyClassesCommon from '../../components/dashboard/Rightsidepart/MyClass/MyClassesCommon';
-import OnlineClassalert from './OnlineClassalert';
 
-const Teachers = () => {
+import Home from './Rightsidepart/Home/Home';
+import Calendar from './Rightsidepart/Calendar/Calendar';
+import { viewTypeData } from './mockData/DashboardViewData';
+
+const Teachers = ({ match }) => {
     const [open, setOpen] = useState(false);
-    const [view, setView] = useState('Dashboard');
-    const [setConcept] = useState('');
     const [lgShow, setLgShow] = useState(false);
     // const [exam, setExam] = useState('');
+    const viewType = match.params.viewtype ? match.params.viewtype : '';
+
+    const renderLayouts = () => {
+        let view = <Home lgShow={lgShow} setLgShow={setLgShow} />;
+        switch (viewType) {
+            case 'home':
+                view = <Home lgShow={lgShow} setLgShow={setLgShow} />;
+                break;
+            case viewTypeData?.CALENDAR:
+                view = <Calendar />;
+                break;
+            default:
+                view = <Home lgShow={lgShow} setLgShow={setLgShow} />;
+                break;
+        }
+        return view;
+    };
 
     return (
 
@@ -29,39 +42,19 @@ const Teachers = () => {
                 <Sidemenu
                     open={open}
                     setOpen={setOpen}
-                    setView={setView}
-                    view={view}
-                    setConcept={setConcept}
+                    viewType={viewType}
                 />
                 <div className="col-sm-9 dashboard-right">
                     <DashSearch />
-                    <OnlineClassalert />
-                    <div className="myexam-main">
-                        <MyClassesTitle title="My upcoming classes - 3"  />
-                        <MyClassesTAB />
-                        <div className="row">
-                            <div className="col-md-12 col-sm-12">
-                                <SimpleSlider handleSubjectModel={setLgShow} />
-                            </div>
-                        </div>
-                        <div>
-                            <SubjectModel
-                                showSubjectModel={lgShow}
-                                handleSubjectModel={setLgShow}
-                            />
-                        </div>
-                        <MyClassesTitle title="Completed classes history" />
-                        <MyClassesTAB />
-
-                        <MyClassesList />
-                        {/* <ExamDetails /> */}
-                        <MySubjects />
-
-                    </div>
+                    {renderLayouts()}
                 </div>
             </div>
         </div>
     );
+};
+
+Teachers.propTypes = {
+    match: object.isRequired,
 };
 
 export default Teachers;

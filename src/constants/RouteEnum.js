@@ -11,7 +11,8 @@ const RouteEnum = {
     OLYMPIAD: '/olympiad',
     LOGIN: '/login',
     HOMESKELETON: '/home-skeleton',
-    // TEACHERS: '/teacher',
+    TEACHERSHOME: '/teacher/',
+    TEACHERS: '/teacher/:viewtype',
     EXAMDETAILS: '/exam-details',
 
 };

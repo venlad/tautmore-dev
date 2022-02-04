@@ -74,6 +74,11 @@ const routes = [
         component: Homepage,
     },
     {
+        key: 6,
+        path: RouteEnum.TEACHERSHOME,
+        component: Teachers,
+    },
+    {
         key: 12,
         path: RouteEnum.TEACHERS,
         component: Teachers,
