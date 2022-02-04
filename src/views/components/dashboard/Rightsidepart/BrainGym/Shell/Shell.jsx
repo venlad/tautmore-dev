@@ -11,62 +11,74 @@ import './style/shell.scss';
 import ShellPoupup from './ShellPoupup';
 
 const Shell = ({
-    setViewBrain, setShowShell, showShell, chestId,
-}) => (
-    <div className={`shell-main-top ${showShell ? 'active' : ''}`}>
-        <div className="shell-main">
-            <div className="container-background">
-                <div className="image-background">
-                    <div className="total-points">
-                        <div className="total-points-and-icon">
-                            <img id="icon-small" src={PointsIcon} alt="No Imag" />
-                            <p>112 Total Points</p>
+    setViewBrain, setShowShell, showShell, chestId, subjectId, setSubjectId,
+}) => {
+    const closePopup = () => {
+        setViewBrain('home');
+        setSubjectId('');
+    };
+    return (
+        <div className={`shell-main-top ${showShell ? 'active' : ''}`}>
+            <div className="shell-main">
+                <div className="container-background">
+                    <div className="image-background">
+                        <div className="total-points">
+                            <div className="total-points-and-icon">
+                                <img id="icon-small" src={PointsIcon} alt="No Imag" />
+                                <p>112 Total Points</p>
+                            </div>
+                            <button type="button" className="close-btn" onClick={closePopup}>
+                                <img src={Close} alt="No Imag" />
+                            </button>
                         </div>
-                        <button type="button" className="close-btn" onClick={() => setViewBrain('home')}>
-                            <img src={Close} alt="No Imag" />
-                        </button>
-                    </div>
-                    <Banner />
-                    <div className="heading-brain-gym">
-                        <div className="heading-and-subject">
-                            <div className="row">
-                                <div className="col-sm-3" />
-                                <div className="col-12 col-sm-6">
-                                    <h2>Brain gym</h2>
-                                    <p className="subject-name">Mathematics</p>
-                                </div>
-                                <div className="col-12 col-sm-3">
-                                    <div className="flex-items-calender-date">
-                                        <img className="Calender" src={Calender} alt="No Imag" />
-                                        <div className="title-and-date">
-                                            <p id="date-title">Date</p>
-                                            <p id="date">16th Aug</p>
+                        <Banner />
+                        <div className="heading-brain-gym">
+                            <div className="heading-and-subject">
+                                <div className="row">
+                                    <div className="col-sm-3" />
+                                    <div className="col-12 col-sm-6">
+                                        <h2>Brain gym</h2>
+                                        <p className="subject-name">Mathematics</p>
+                                    </div>
+                                    <div className="col-12 col-sm-3">
+                                        <div className="flex-items-calender-date">
+                                            <img className="Calender" src={Calender} alt="No Imag" />
+                                            <div className="title-and-date">
+                                                <p id="date-title">Date</p>
+                                                <p id="date">16th Aug</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
 
                         </div>
-
+                        <ShellList
+                            setViewBrain={setViewBrain}
+                            setShowShell={setShowShell}
+                            subjectId={subjectId}
+                        />
                     </div>
-                    <ShellList setViewBrain={setViewBrain} setShowShell={setShowShell} />
                 </div>
             </div>
-        </div>
 
-        <ShellPoupup
-            setShowShell={setShowShell}
-            chestId={chestId}
-            setViewBrain={setViewBrain}
-        />
-    </div>
-);
+            <ShellPoupup
+                setShowShell={setShowShell}
+                chestId={chestId}
+                setViewBrain={setViewBrain}
+            />
+        </div>
+    );
+};
 
 Shell.propTypes = {
     setViewBrain: func.isRequired,
     setShowShell: func.isRequired,
     showShell: bool.isRequired,
     chestId: string.isRequired,
+    subjectId: string.isRequired,
+    setSubjectId: string.isRequired,
 };
 
 export default Shell;

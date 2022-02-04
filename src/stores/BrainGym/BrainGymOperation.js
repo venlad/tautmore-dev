@@ -4,12 +4,12 @@ import {
 import * as actionTypes from './BrainGymTypes';
 import { brainGymServices } from '../../services';
 
-function* workerStartChest() {
+function* workerStartChest(data) {
     const state = yield select();
     const auth = state.Auth;
     const reqData = {
         studentId: auth?.Login?.data?._id,
-        subjectId: auth?.Login?.data?.subjectsEnrolled[0]?.subject?._id,
+        subjectId: data?.payload,
         // studentId: '61f236b54df66400096feec0',
         // subjectId: '61cc72e3c32134a3653b3147',
     };

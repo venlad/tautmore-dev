@@ -1,8 +1,8 @@
 import * as actionTypes from './BrainGymTypes';
 
-export const startChestAction = () => ({
+export const startChestAction = (data) => ({
     type: actionTypes.START_CHEST,
-    payload: {},
+    payload: data,
 });
 
 export const getQuestionInChestAction = (data) => ({

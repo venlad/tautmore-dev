@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { func } from 'prop-types';
+import { func, string } from 'prop-types';
 import OysterOpen from '../../../../../../assets/images/OysterOpen.svg';
 import OysterClosed from '../../../../../../assets/images/OysterClosed.svg';
 import { startChestAction } from '../../../../../../stores/BrainGym/BrainGymAction';
 
-const ShellList = ({ startChest, setShowShell }) => {
+const ShellList = ({ startChest, setShowShell, subjectId }) => {
     const startNow = () => {
-        startChest();
+        startChest(subjectId);
         setShowShell(true);
     };
 
@@ -42,10 +42,11 @@ const ShellList = ({ startChest, setShowShell }) => {
 ShellList.propTypes = {
     startChest: func.isRequired,
     setShowShell: func.isRequired,
+    subjectId: string.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    startChest: () => dispatch(startChestAction()),
+    startChest: (data) => dispatch(startChestAction(data)),
 });
 
 export default connect(null, mapDispatchToProps)(ShellList);

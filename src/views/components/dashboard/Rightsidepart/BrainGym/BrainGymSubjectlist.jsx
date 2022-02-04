@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { object } from 'prop-types';
 
-const BrainGymSubjectlist = ({ subjectList })  => {
-    const [activebtn, setActivebtn] = useState('maths');
+const BrainGymSubjectlist = ({ subjectList, setSubjectId })  => {
+    const [activebtn, setActivebtn] = useState('');
     const handleSciColor = () => setActivebtn('science');
-    const handleMathsColor = () => {
+    const handleMathsColor = (id) => {
         setActivebtn('maths');
+        setSubjectId(id);
     };
     const handleEnglishcolor = () => {
         setActivebtn('english');
     };
+
+    console.log(subjectList, 'subjectList from brain-gym');
 
     return (
         <div className="row braingym-sublisttab">
@@ -20,7 +23,7 @@ const BrainGymSubjectlist = ({ subjectList })  => {
                       <button
                           className={`toggle-maths-btn ${activebtn === 'maths' ? 'mathbtn-act' : 'mathbtn-un'}`}
                           type="button"
-                          onClick={() => handleMathsColor()}
+                          onClick={() => handleMathsColor(item?.subject?._id)}
                       >
                           {item?.subject.name}
                       </button>

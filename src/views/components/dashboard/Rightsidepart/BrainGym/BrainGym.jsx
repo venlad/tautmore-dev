@@ -22,6 +22,7 @@ const BrainGym = ({
 }) => {
     const [viewBrain, setViewBrain] = useState('home');
     const [chestId, setChestId] = useState('');
+    const [subjectId, setSubjectId] = useState('');
     const [select, setSelect] = useState('');
     const [time, setTime] = useState(180000);
     const [currenttime, setCurrenttime] = useState();
@@ -90,8 +91,14 @@ const BrainGym = ({
                 && (
                     <div className="braingym-main">
                         <BrainGymHead />
-                        <BrainGymSubjectlist subjectList={subjectList} />
-                        <BrainGymStartToday setViewBrain={setViewBrain} />
+                        <BrainGymSubjectlist
+                            subjectList={subjectList}
+                            setSubjectId={setSubjectId}
+                        />
+                        <BrainGymStartToday
+                            setViewBrain={setViewBrain}
+                            subjectId={subjectId}
+                        />
                         <BrainGymScore />
                     </div>
                 )}
@@ -102,6 +109,8 @@ const BrainGym = ({
                         setShowShell={setShowShell}
                         showShell={showShell}
                         chestId={chestId}
+                        subjectId={subjectId}
+                        setSubjectId={setSubjectId}
                     />
                 )}
             { viewBrain === 'question'
