@@ -1,4 +1,4 @@
 const config = {
-    apiBaseUrl: 'https://y1z2gzytv3.execute-api.us-east-2.amazonaws.com/development/api',
+    apiBaseUrl: 'https://lbbhqlqib3.execute-api.us-east-1.amazonaws.com/development/api',
 };
 export default config;

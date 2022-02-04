@@ -11,6 +11,7 @@ const initialState = {
     verifyOtp: {},
     AllGrades: [],
     Subjects: [],
+    SubjectsByclass: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -66,6 +67,11 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 Subjects: action.payload,
+            };
+        case actionTypes.UPDATE_GET_SUBJECTS_BY_CLASS:
+            return {
+                ...state,
+                SubjectsByclass: action.payload,
             };
         default:
             return { ...state };

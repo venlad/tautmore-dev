@@ -22,7 +22,7 @@ const Coursedetailsubjects = ({
     };
 
     return (
-        <div className="col-md-6 subject-list-main" style={{ display: (userType === 'Student' ? 'block' : 'none')  }}>
+        <div className="col-md-6 subject-list-main" style={{ display: (userType === 'Student' ? 'none' : 'none')  }}>
             <label className="label" htmlFor="sublist">{label}</label>
             <div>
                 {data.map((val, ind) => (
