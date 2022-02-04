@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="38px" height="38px" viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>B45B67B4-408A-493E-866A-D940C87E191E@1.5x</title>
+    <defs>
+        <linearGradient x1="4.23098288%" y1="-15.7295185%" x2="79.9942341%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#7C92F9" offset="0%"></stop>
+            <stop stop-color="#526BDE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="BrainGym-New-(As-per-Mobile)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Brain-gym-page---Updated-9" transform="translate(-65.000000, -129.000000)" fill="url(#linearGradient-1)">
+            <g id="Group-2" transform="translate(50.000000, 108.000000)">
+                <g id="noun_tick_2075814" transform="translate(15.000000, 21.000000)">
+                    <path d="M8.29342369,0 L29.7065763,0 C34.2705823,0 38,3.72941767 38,8.29342369 L38,29.7065763 C38,34.2705823 34.2705823,38 29.7065763,38 L8.29342369,38 C3.72941767,38 0,34.2705823 0,29.7065763 L0,8.29342369 C0,3.72941767 3.72941767,0 8.29342369,0 Z M5.20783133,18.2178715 L13.5155622,29.6588855 L32.7921687,8.34111446 L13.5155622,22.7628012 L5.20783133,18.2178715 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

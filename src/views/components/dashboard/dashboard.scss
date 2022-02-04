@@ -1,5 +1,10 @@
 .dashboard-main {
     background-color: #f7f7f7;
+    .dashboard-main-row.active {
+      .dashboard-left{
+        display: none !important;
+      }
+    }
     .row-main {
         margin-left: 0;
         margin-right: 0;
@@ -52,6 +57,10 @@
                   font-size: 12px;
                   margin-bottom: 0;
                   color: #d9d9d9;
+                }
+                a {
+                  text-decoration: none;
+                  color: #fff;
                 }
               }
               .dashboard-profile-right {
@@ -114,6 +123,11 @@
                     margin-right: 10px;
                     height: 24px;
                     width: 24px;
+                  }
+                  a {
+                    text-decoration: none;
+                    color: #fff;
+                    display: block;
                   }
                 }
                 li.active {

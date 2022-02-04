@@ -87,9 +87,9 @@ const Register = ({ registerAction, isOtpVerified }) => {
             country: countryVal?.name,
             grade: gradeVal,
             cocurricularActivity: coActivity,
-            // examType: examVal,
             olympiadSubscriptionType: olympiadSubscriptionVal,
             olympiadExamType: olympiadExamList,
+            // olympiadExamType: 'weekly',
             subjectsEnrolled: subjectEnrolled,
             onBoardThrough: 'web',
         };

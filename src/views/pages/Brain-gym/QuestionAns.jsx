@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import AnswerOption from './AnswerOption';
 import { chevRight } from '../../../assets/icons/IconList';
 import QuestionSkeleton from '../../components/skeleton/QuestionSkeleton';
-import { attemptQuestionAction, getQuestionbytagAction } from '../../../stores/BrainGym/BrainGymAction';
+import { attemptQuestionAction, getQuestionbytagAction } from '../../../stores/BrainGymOld/BrainGymAction';
 
 const QuestionAns = ({
     select,

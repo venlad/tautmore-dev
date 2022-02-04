@@ -1,40 +1,23 @@
 import * as actionTypes from './BrainGymTypes';
 
-export const getAllBrainGymAction = (data) => ({
-    type: actionTypes.GET_ALL_BRAIN_GYM,
+export const startChestAction = (data) => ({
+    type: actionTypes.START_CHEST,
     payload: data,
 });
 
-export function getAllgymAction() {
-    return {
-        type: actionTypes.BRAIN_GYM_ALLGYM,
-    };
-}
+export const getQuestionInChestAction = (data) => ({
+    type: actionTypes.GET_QUESTION_IN_CHEST,
+    payload: data,
+});
 
-export function masterBraingymidAction() {
-    return {
-        type: actionTypes.GET_MASTER_BRAIN_GYM_BY_ID,
-        actions: {},
-    };
-}
+export const attemptQuestionAction = (data) => ({
+    type: actionTypes.ATTEMPT_QUESTION,
+    payload: data,
+});
 
-export function getQuestionbytagAction(data) {
-    return {
-        type: actionTypes.GET_QUESTIONS_BY_TAG,
-        actions: { ...data },
-    };
-}
+export const completeChestAction = (data) => ({
+    type: actionTypes.COMPLETE_CHEST,
+    payload: data,
+});
 
-export function attemptQuestionAction(data) {
-    return {
-        type: actionTypes.ATTEMPT_QUESTION,
-        payload: data,
-    };
-}
-
-export function unlockBrainGymAction(data) {
-    return {
-        type: actionTypes.SET_UNLOCK_CHEST,
-        payload: data,
-    };
-}
+export default {};

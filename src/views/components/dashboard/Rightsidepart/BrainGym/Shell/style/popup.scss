@@ -1,0 +1,195 @@
+.shell-popup-main {    
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    background-color: transparent;
+    display: none;
+    .svg-background-container{
+        margin:auto;
+        width:510px;
+        height:518px;
+        background:url('../../../../../../../../src/assets/images/shell-pop-BackgroundNotePad.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        
+        .flex-items-details{
+            display : flex;
+            text-align: left;
+            padding-top:90px;
+            padding-left:60px;
+            flex-direction: column;
+
+            .floating-clam{
+                position: absolute;
+                height: 48px;
+                width: 48px;
+                right: 75px;
+            }
+            .close-btn{
+                position: absolute;
+                right: -11px;
+                top: -11px;
+                height: 120px;
+                width: 120px;
+                background: transparent;
+                border: 0;
+                img {
+                    height: 120px;
+                    width: 120px;
+                }
+            }
+            h2{
+                color: #2C2F38;
+                font-family: "Proxima Nova";
+                font-size: 32px;
+                font-weight: 600;
+                line-height: 39px;
+            }
+
+            h3{
+                color: #454C4E;
+                font-family: "proxima_nova_rgregular";
+                font-size: 22px;
+            }
+
+            .current-level-and-icons{
+                font-family: "proxima_nova_rgregular";
+                display:flex;
+                flex-direction: row;
+                text-align: left;
+                margin-bottom:35px;
+                height: 32px;
+               
+                .adjusted-para{
+                    height: 20px;
+                    width: 6.67px;
+                    color:  #FFFFFF;
+                    font-family: "Proxima Nova";
+                    font-size: 14px;
+                    font-weight: 600;
+                    letter-spacing: 0;
+                    line-height: 20px;
+                    margin-right:-20px;
+                    z-index:2;
+                }
+                p{
+                    margin-top:6px;
+                    padding-right:10px;
+                    color: #F89000;
+                    font-family: "Proxima Nova";
+                    font-size: 18px;
+                    letter-spacing: 0;
+                    margin-right:10px;
+                }
+                img{
+                    padding-right:5px;
+                    z-index: 1;
+                    margin-right:14px;
+                    height: 30px;
+                    width: 32px;
+                }
+            }
+
+            .gradient-container{
+                display:flex;
+                
+                img{ height: 70px;
+                    width: 80px;}
+
+            }
+
+            .buttons-container{
+              width:80%;
+                .text-below-gradient{
+                    margin-top:10px;
+                    margin-bottom: 25px;
+                    width:80%;
+                    text-align: center;
+                    font-size: 16px;
+                    height: 22px;
+                    width: 377px;
+                    font-family:"proxima_nova_rgregular";
+                    color: #2C2F38;
+                    font-weight: 600;
+                }
+                
+                button{
+                    height:50px;
+                    width:290px;
+                    border-radius:30px;
+                    background: #43AA8B;
+                    color:  #FFFFFF;
+                    border:none;
+                    display:flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin:auto;
+                }
+
+                .total-play-and-score{
+
+                    display:flex;
+
+                    .total-plays{
+                        height: 20px;
+                        width: 100%;
+                        color: #43AA8B;
+                        font-family: "Proxima Nova";
+                        font-size: 16px;
+                        font-weight: 600;
+                        letter-spacing: 0;
+                        line-height: 20px;
+                        text-align: center;
+                        margin-top:10px;
+                    }
+
+                    .highlighted-score{
+                        margin-left:-130px;
+                        margin-bottom:10px;
+                        margin-top:5px;
+                    }
+
+                }
+
+                
+
+
+            }
+
+           
+        }
+
+    }
+
+}   
+.shell-popup-main.answer {
+    display: block !important;
+    .flex-items-details {
+        padding-left: 0;
+        .wrong-right {
+            text-align: center;
+            margin: 30px 0px;
+            img {
+                margin-bottom: 30px;
+            }
+            h5 {
+                font-size: 32px;
+                color: #2C2F38;
+                font-family: "Proxima Nova";
+            }
+            p {
+                color: #454C4E;
+                font-size: 22px;
+                font-family: "Proxima Nova";
+            }
+        }
+        .buttons-container {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,405 @@
+.report-main {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    overflow-y: scroll;
+    .report-container{
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        font-size:16px;
+    
+        .subject-name{
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            h2{ 
+                color: #20282A;
+                font-family: "proxima_nova_rgbold";
+                font-size: 2rem;
+                font-weight: bold;
+            }
+    
+            img{
+                margin-bottom: 0.988rem;
+                margin-right:0.3125rem;
+            }
+            button {
+                padding: 0;
+                background: transparent;
+                border: 0;
+            }
+        }
+        .banner{ 
+            
+            width: 100%;  
+            height: auto;
+            border: 2px dashed #5A72E3;
+            font-size: 1.5rem;
+            color: #536CDF ;
+            margin: 0 auto;
+            background-color: #DEE4FF;
+            font-family: "Proxima Nova";
+            border-radius: 1.25rem;
+            font-style: bold;
+            font-weight: 600;
+            display:flex;
+            justify-content: flex-start;
+            align-items: center;
+    
+            img{
+                padding:1.25rem;
+            }
+            p {
+                margin-bottom: 0;
+            }
+        }
+        .heavy-details{
+            margin-top:1.5rem;
+            width: 100%;
+            border-radius: 1.25rem;
+            background: linear-gradient(146.79deg, #7C92F9 0%, #526BDE 100%);
+            display:flex;
+            flex-direction: column;
+    
+            .stats{
+    
+                display:flex;
+                justify-content: space-between;
+                padding:30px;
+    
+                .stats-individual{
+                    display:flex;
+    
+                    img{
+                        height: 2.5rem;
+                        width: 2.7612rem;
+                        margin:0.625rem;
+                    }
+    
+                    .stat-name-and-values{
+                      
+                        color: #FFFFFF;
+                        font-family: "proxima_nova_rgregular";
+                        font-size: 1.125rem;
+    
+                        .stat-name{
+                            padding-top:0.3125rem;
+                        }
+                        
+                        .bold{
+    
+                            font-family: "proxima_nova_rgregular";
+                            font-size: 1.125rem;
+                            font-weight: 600;
+                            margin-top:-0.9375rem;
+    
+                        }
+    
+                    }
+                }
+                
+            }
+    
+        }
+    
+        button.review-incorrect-button {
+            padding: 10px 50px;
+            border-radius: 1.5625rem;
+            background-color: #FFFFFF;
+            border:none;
+            margin-right:auto;
+            margin-left:auto;
+            margin-top:-0.9375rem;
+            color: #536CDF;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: "proxima_nova_rgregular";
+            margin-bottom: 30px;
+        }
+    
+        .shell-title-and-stats{
+            display:flex;
+            justify-content: space-between;
+            margin-top:2rem;
+            width:100%;
+            flex-wrap: wrap;
+           
+            .title-individual{
+                margin-right: 15px;;
+                flex-grow: 1;
+                border-radius: 1.25rem;
+                background-color: #FFFFFF;
+                box-shadow: 0 0.75rem 3.9rem 1.625rem rgba(0,0,0,0.05);
+                padding:1.25rem;
+    
+                .shell-number{
+                    height: 80px;
+                    width: 80px;
+                    border-radius: 0.625rem;
+                    background-color: #FFF6E9;
+                    margin:auto;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    
+                    p{ 
+                        color: #2C2F38;
+                        font-family: "proxima_nova_rgregular";
+                        font-size: 0.9625rem;
+                        font-weight:550;
+                        margin-bottom:9px;
+                        line-height: 17px;
+                        text-align: center;          
+                        font-size: 14px; 
+                    }
+                    
+                    img{
+                        margin:  auto;
+                        width: 39px;
+                        height: 33px;
+                    }
+    
+                }
+    
+                .flex-items-points{
+                    display:flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin:  1.4rem 0;
+    
+                    .points{
+                        color: #FC9D16;
+                        font-family: "proxima_nova_rgregular";
+                        font-size: 1.225rem;
+                        font-weight: 600;
+                        letter-spacing: 0;
+                        line-height: 1.375rem;
+                        padding-left:0.5rem;
+                        margin-bottom: 0;
+                    }
+                    
+                }
+    
+                .shell-title{
+                    color: #20282A;
+                    font-family: "proxima_nova_rgregular";
+                    font-size: 16px;
+                    font-weight: 600;
+                    letter-spacing: 0;
+                    line-height: 1.25rem;
+                    text-align: center;
+                    margin-bottom:-5px;
+                }
+    
+                .level-and-correct-count{
+                   display:flex;
+                   justify-content: center;
+                   align-items: center;
+                   padding-top:10px;
+    
+                   .green-level-label{   
+                    color: #43AA8B;
+                    font-family: "proxima_nova_rgregular";
+                    font-size: 0.85rem;
+                    letter-spacing: 0;
+                    text-align: center;
+                    margin-top:auto;
+                    margin-bottom: auto;
+                    padding-top:1px;
+                   }
+    
+                   .green-background{
+                    height: 1.325rem;
+                    width: 3.75rem;
+                    border-radius: 0.5625rem;
+                    background-color: #E3FFF6;
+                    
+                   }
+    
+                   .correct-count{
+                    color: #697B81;
+                    font-family: "proxima_nova_rgregular";
+                    font-size: 14px;
+                    font-weight: 600;
+                    letter-spacing: 0;
+                    line-height: 1.0625rem;
+                   }
+    
+                   .mid-border{
+                       color:#C5D0E1;
+                       font-size:1.2rem;
+                       padding-right:2.5px;
+                       padding-left:5px;
+                   }
+                   p {
+                       margin-top: 0;
+                       margin-bottom: 0;
+                   }
+                }
+    
+            }
+    
+            }
+            
+        }
+
+        @media only screen and (max-width: 1100px) {
+            .shell-title-and-stats {
+                display: block !important;
+                text-align: center;
+                .title-individual {
+                    width: 30%;
+                    display: inline-block;
+                    margin-bottom: 30px !important;
+                    margin-right: 30px !important;
+                }
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            .shell-title-and-stats {
+                .title-individual {
+                    width: 100%;
+                }
+            }
+        }
+    
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
+                .report-container{
+                    padding-right:2.5rem;
+                    padding-left:2.5rem;
+                    padding-top:1rem;
+                    padding-bottom:1rem;
+    
+                    .subject-name{
+                       h2{font-size:1.9rem;} 
+                       img{margin-bottom:10px;margin-right:10px;}
+                    }
+    
+                    .banner{font-size:1.3rem;
+    
+                    }
+    
+                    .heavy-details{
+                        height: 14.3125rem;
+    
+                        .stats{
+                            padding:1.2rem;
+                            .stats-individual{
+    
+                                flex-direction: column;
+                                align-items: center;
+                                
+                                .stat-name-and-values{
+    
+                                    text-align: center;
+    
+                                }
+                            }
+    
+                        }
+                    }
+    
+                    .shell-title-and-stats{
+                        margin-top:1rem;
+                        flex-wrap:nowrap;
+                    
+                        .flex-items-points{
+                            flex-direction: column;
+                           
+                            .points{
+                                margin-top:0.3125rem;
+                            }
+                        }
+                        .level-and-correct-count{
+                            flex-direction: column;
+                            padding-top:0rem;    
+                            .mid-border{
+                                display:none
+                            }
+                        }
+    
+                        .title-individual {
+                            height:auto;
+                            padding:10px;
+                            
+    
+                            .shell-title{
+                                margin-bottom:10px;
+                                
+                            }
+    
+                            .level-and-correct-count{
+                                margin-top:-0.625rem;
+    
+                                .green-background{
+                                    margin-bottom:10px;
+                                }
+                            }
+    
+                            
+                        }
+    
+                    }
+    
+                   
+                }
+        }
+        @media only screen and (min-device-width: 320px) and (max-device-width: 767px){
+      
+            .report-container{
+                padding:2rem;
+                .subject-name{
+    
+                    h2{
+                        font-size: 1.8rem;
+                    }
+                }
+                .banner{
+                    height:auto;
+                    font-size: 1rem;                  
+                }
+                .heavy-details{
+                    height:auto;
+    
+                    .stats{
+                        flex-direction: column;
+    
+                        .stats-individual{
+                            margin-bottom: 10px;;
+                        }
+                    }
+                   
+                }
+                .shell-title-and-stats{
+                    justify-content: center;
+                    align-items: center;
+                    .title-individual{
+                        margin-right: 0;
+                        margin-bottom: 10px;;
+                    } 
+                }
+            }  
+        }
+}
+.report-main::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 5px;
+}
+.report-main::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 5px;
+}
+.report-main::-webkit-scrollbar-thumb {
+    background: #ddd; 
+    border-radius: 5px;
+}
+.report-main::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
