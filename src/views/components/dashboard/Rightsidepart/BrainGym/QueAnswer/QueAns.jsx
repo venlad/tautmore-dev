@@ -19,6 +19,7 @@ const QueAns = ({
     attemptQuestion,
     chestId,
     setViewBrain,
+    setEachtime,
 }) => {
     const submitQuestion = () => {
         setEachTimeOn(false);
@@ -31,6 +32,7 @@ const QueAns = ({
         };
         attemptQuestion(val);
         setViewBrain('true_false');
+        setEachtime(0);
     };
 
     console.log(questionInChest, 'questionInChest from QueAns');
@@ -86,6 +88,7 @@ QueAns.propTypes = {
     setEachTimeOn: func.isRequired,
     eachcurrenttime: string.isRequired,
     questionInChest: object.isRequired,
+    setEachtime: func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

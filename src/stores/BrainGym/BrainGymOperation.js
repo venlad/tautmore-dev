@@ -1,17 +1,17 @@
 import {
-    fork, put, takeLatest,
+    fork, put, takeLatest, select,
 } from 'redux-saga/effects';
 import * as actionTypes from './BrainGymTypes';
 import { brainGymServices } from '../../services';
 
 function* workerStartChest() {
-    // const state = yield select();
-    // const auth = state.Auth;
+    const state = yield select();
+    const auth = state.Auth;
     const reqData = {
-        // studentId: auth?.Login?.data?._id,
-        // subjectId: auth?.Login?.data?.subjectsEnrolled[0]?.subject?._id,
-        studentId: '61f236b54df66400096feec0',
-        subjectId: '61cc72e3c32134a3653b3147',
+        studentId: auth?.Login?.data?._id,
+        subjectId: auth?.Login?.data?.subjectsEnrolled[0]?.subject?._id,
+        // studentId: '61f236b54df66400096feec0',
+        // subjectId: '61cc72e3c32134a3653b3147',
     };
 
     const response = yield brainGymServices.startTest(reqData);
