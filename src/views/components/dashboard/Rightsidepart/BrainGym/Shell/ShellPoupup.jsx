@@ -15,17 +15,22 @@ import './style/popup.scss';
 import { getQuestionInChestAction } from '../../../../../../stores/BrainGym/BrainGymAction';
 
 const ShellPoupup = ({
-    setShowShell, getQuestionInChest, questionInChest, chestId, setViewBrain,
+    setShowShell,
+    getQuestionInChest,
+    questionInChest,
+    chestId,
+    setViewBrain,
 }) => {
     const startNow = () => {
         getQuestionInChest({
             chestId,
         });
+
         setViewBrain('question');
     };
 
     useEffect(() => {
-        if (questionInChest.length > 0) {
+        if (questionInChest?.data?.length > 0) {
             setShowShell(false);
         }
     }, [questionInChest]);

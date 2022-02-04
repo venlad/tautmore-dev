@@ -62,8 +62,8 @@ const Sidemenu = ({
                         {sidebardata?.data?.map((data) => (
                             <li key={data?.title}  aria-hidden="true" className={`${viewType === data?.to ? 'active' : ''}`}>
                                 <Link to={`/dashboard/${data?.to}`}>
-                                    <img src={data.image} alt="dash_list_img" />
-                                    {data.title}
+                                    <img src={data?.image} alt="dash_list_img" />
+                                    {data?.title}
                                 </Link>
                             </li>
                         ))}

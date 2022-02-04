@@ -15,4 +15,9 @@ export const attemptQuestionAction = (data) => ({
     payload: data,
 });
 
+export const completeChestAction = (data) => ({
+    type: actionTypes.COMPLETE_CHEST,
+    payload: data,
+});
+
 export default {};

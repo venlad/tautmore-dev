@@ -5,35 +5,43 @@ import OysterOpen from '../../../../../../assets/images/OysterOpen.svg';
 import OysterClosed from '../../../../../../assets/images/OysterClosed.svg';
 import { startChestAction } from '../../../../../../stores/BrainGym/BrainGymAction';
 
-const ShellList = ({ startChest }) => (
-    <div className="shells-and-dashed-borders">
-        <div className="flex-items">
-            <div className="Oyster-and-title">
-                <img id="icon-large" className="adjusted-image1" src={OysterOpen} alt="No Imag" />
-                <p className="adjusted-para1">SHELL 1</p>
-                <p className="start-now1 adjusted" aria-hidden="true" onClick={() => startChest()}>Start now</p>
-            </div>
-            <div className="Oyster-and-title">
-                <img id="icon-large" src={OysterClosed} alt="No Imag" />
-                <p>SHELL 2</p>
-            </div>
-            <div className="Oyster-and-title">
-                <img id="icon-large" src={OysterClosed} alt="No Imag" />
-                <p>SHELL 3</p>
-            </div>
-            <div className="Oyster-and-title">
-                <img id="icon-large" src={OysterClosed} alt="No Imag" />
-                <p>SHELL 4</p>
-            </div>
-            <div className="Oyster-and-title">
-                <img id="icon-large" className="adjusted-image2" src={OysterClosed} alt="No Imag" />
-                <p className="adjusted-para2">SHELL 5</p>
+const ShellList = ({ startChest, setShowShell }) => {
+    const startNow = () => {
+        startChest();
+        setShowShell(true);
+    };
+
+    return (
+        <div className="shells-and-dashed-borders">
+            <div className="flex-items">
+                <div className="Oyster-and-title">
+                    <img id="icon-large" className="adjusted-image1" src={OysterOpen} alt="No Imag" />
+                    <p className="adjusted-para1">SHELL 1</p>
+                    <p className="start-now1 adjusted" aria-hidden="true" onClick={startNow}>Start now</p>
+                </div>
+                <div className="Oyster-and-title">
+                    <img id="icon-large" src={OysterClosed} alt="No Imag" />
+                    <p>SHELL 2</p>
+                </div>
+                <div className="Oyster-and-title">
+                    <img id="icon-large" src={OysterClosed} alt="No Imag" />
+                    <p>SHELL 3</p>
+                </div>
+                <div className="Oyster-and-title">
+                    <img id="icon-large" src={OysterClosed} alt="No Imag" />
+                    <p>SHELL 4</p>
+                </div>
+                <div className="Oyster-and-title">
+                    <img id="icon-large" className="adjusted-image2" src={OysterClosed} alt="No Imag" />
+                    <p className="adjusted-para2">SHELL 5</p>
+                </div>
             </div>
         </div>
-    </div>
-);
+    );
+};
 ShellList.propTypes = {
     startChest: func.isRequired,
+    setShowShell: func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
