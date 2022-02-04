@@ -16,6 +16,7 @@ export const renderText = (text) => {
         } else {
             textType = 'math';
         }
+        return null;
     });
 
     loop(texttype);

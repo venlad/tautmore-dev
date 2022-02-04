@@ -1,5 +1,5 @@
 import {
-    fork, put, takeLatest, select,
+    fork, put, takeLatest,
 } from 'redux-saga/effects';
 import * as actionTypes from './BrainGymTypes';
 import { brainGymServices } from '../../services';

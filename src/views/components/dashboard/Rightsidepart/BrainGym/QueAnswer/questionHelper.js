@@ -18,7 +18,7 @@ export const structurQuestionData = (data, si) => {
     return structuredData;
 };
 
-export const destructureQuestionData = (data) => data?.map((item, i) => ({
+export const destructureQuestionData = (data) => data?.map((item) => ({
     index: item.index,
     image: item?.image,
     text: item.text,
@@ -26,8 +26,9 @@ export const destructureQuestionData = (data) => data?.map((item, i) => ({
 
 export const destructureStatementData = (data, questiontype) => {
     if (questiontype === 'drag-and-drop') {
-        return data?.map((item, i) => item?.value);
+        return data?.map((item) => item?.value);
     }
+    return null;
 };
 
 export const findSolutionIndex = (data) => {
@@ -91,25 +92,26 @@ export const destructureDragAndDrop = (dragData) => {
 
     const array = [];
 
-    for (let i = 0; i < dragData.length; i++) {
+    for (let i = 0; i < dragData.length; i += 1) {
         array.push(i);
     }
 
     function shuffle(arr) {
-        for (let i = arr.length - 1; i > 0; i--) {
+        const newArray = [...arr];
+        for (let i = newArray.length - 1; i > 0; i -= 1) {
             const j = Math.floor(Math.random() * (i + 1));
-            const temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
+            const temp = newArray[i];
+            newArray[i] = newArray[j];
+            newArray[j] = temp;
         }
-        return arr;
+        return newArray;
     }
 
     const solution = shuffle(array);
 
     const options = [];
 
-    for (let i = 0; i < solution.length; i++) {
+    for (let i = 0; i < solution.length; i += 1) {
         options[solution[i]] = {
             image: dragData[i].statementImage,
             text: dragData[i].statementText,
@@ -124,7 +126,7 @@ export const structureDragAndDrop = (statement, optiondata, solutionIdx) => {
 
     // solutionIdx.sort();
 
-    for (let i = 0; i < statement?.length; i++) {
+    for (let i = 0; i < statement?.length; i += 1) {
         const j = solutionIdx?.length > 0 && solutionIdx?.[i];
         const option = {
             id: uuid(),
