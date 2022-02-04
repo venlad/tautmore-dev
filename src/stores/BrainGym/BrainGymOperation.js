@@ -4,12 +4,14 @@ import {
 import * as actionTypes from './BrainGymTypes';
 import { brainGymServices } from '../../services';
 
-function* workerStartChest() {
+function* workerStartChest(data) {
     const state = yield select();
     const auth = state.Auth;
     const reqData = {
         studentId: auth?.Login?.data?._id,
-        subjectId: auth?.Login?.data?.subjectsEnrolled[0]?.subject?._id,
+        subjectId: data?.payload,
+        // studentId: '61f236b54df66400096feec0',
+        // subjectId: '61cc72e3c32134a3653b3147',
     };
 
     const response = yield brainGymServices.startTest(reqData);
@@ -29,7 +31,7 @@ function* workerGetQuestionInChest(data) {
     if (response) {
         yield put({
             type: actionTypes.UPDATE_GET_QUESTION_IN_CHEST,
-            payload: response?.data,
+            payload: response,
         });
     }
 }
@@ -46,10 +48,23 @@ function* workerAttemptQuestion(data) {
     }
 }
 
+function* workerCompleteChest(data) {
+    const value = data?.payload;
+    const response = yield brainGymServices.completeChest(value);
+
+    if (response) {
+        yield put({
+            type: actionTypes.UPDATE_COMPLETE_CHEST,
+            payload: response,
+        });
+    }
+}
+
 function* watcherBrainGym() {
     yield takeLatest(actionTypes.START_CHEST, workerStartChest);
     yield takeLatest(actionTypes.GET_QUESTION_IN_CHEST, workerGetQuestionInChest);
     yield takeLatest(actionTypes.ATTEMPT_QUESTION, workerAttemptQuestion);
+    yield takeLatest(actionTypes.COMPLETE_CHEST, workerCompleteChest);
 }
 
 function* fetchAll() {

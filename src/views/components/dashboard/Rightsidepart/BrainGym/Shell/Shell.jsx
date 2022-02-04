@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
-    func, array, bool, string,
+    func, bool, string,
 } from 'prop-types';
-import { connect } from 'react-redux';
 import Banner from './Banner';
 import ShellList from './ShellList';
 import PointsIcon from '../../../../../../assets/images/Points.svg';
@@ -12,13 +11,12 @@ import './style/shell.scss';
 import ShellPoupup from './ShellPoupup';
 
 const Shell = ({
-    setViewBrain, chests, setShowShell, showShell, chestId,
+    setViewBrain, setShowShell, showShell, chestId, subjectId, setSubjectId,
 }) => {
-    useEffect(() => {
-        if (chests?.length > 0) {
-            setShowShell(true);
-        }
-    }, [chests]);
+    const closePopup = () => {
+        setViewBrain('home');
+        setSubjectId('');
+    };
     return (
         <div className={`shell-main-top ${showShell ? 'active' : ''}`}>
             <div className="shell-main">
@@ -29,7 +27,7 @@ const Shell = ({
                                 <img id="icon-small" src={PointsIcon} alt="No Imag" />
                                 <p>112 Total Points</p>
                             </div>
-                            <button type="button" className="close-btn" onClick={() => setViewBrain('home')}>
+                            <button type="button" className="close-btn" onClick={closePopup}>
                                 <img src={Close} alt="No Imag" />
                             </button>
                         </div>
@@ -56,7 +54,11 @@ const Shell = ({
                             </div>
 
                         </div>
-                        <ShellList setViewBrain={setViewBrain} />
+                        <ShellList
+                            setViewBrain={setViewBrain}
+                            setShowShell={setShowShell}
+                            subjectId={subjectId}
+                        />
                     </div>
                 </div>
             </div>
@@ -72,14 +74,11 @@ const Shell = ({
 
 Shell.propTypes = {
     setViewBrain: func.isRequired,
-    chests: array.isRequired,
     setShowShell: func.isRequired,
     showShell: bool.isRequired,
     chestId: string.isRequired,
+    subjectId: string.isRequired,
+    setSubjectId: string.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-    chests: state.BrainGym.chests.chests,
-});
-
-export default connect(mapStateToProps, null)(Shell);
+export default Shell;

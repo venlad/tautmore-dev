@@ -1,5 +1,5 @@
 import React from 'react';
-import {  func } from 'prop-types';
+import {  func, string } from 'prop-types';
 import Line1 from '../../../../../assets/images/Line1.png';
 import Line2 from '../../../../../assets/images/Line2.png';
 import Line3 from '../../../../../assets/images/Line 3.png';
@@ -9,7 +9,8 @@ import Edit from '../../../../../assets/images/edit.png';
 
 // import Edit from '../../../../src/views/pages/BrainGym';
 
-function BrainGymStartToday({ setViewBrain }) {
+function BrainGymStartToday({ setViewBrain, subjectId }) {
+    console.log(subjectId, 'subjectId toady');
     return (
         <div className="braingym-starttoday">
             <div className="row">
@@ -44,7 +45,7 @@ function BrainGymStartToday({ setViewBrain }) {
 
                         <div className="col-md-5 col-sm-5 col-12 button">
                             <div>
-                                <button type="button" className="btn" onClick={() => setViewBrain('workout')}><span className="btn-span">Begin workout</span>
+                                <button type="button" className="btn" onClick={() => setViewBrain('workout')} disabled={!subjectId}><span className="btn-span">Begin workout</span>
                                 </button>
                                 <div>
                                     <img className="img" src={Edit} alt="" /><span className="img-span">Set brain gym time </span>
@@ -61,6 +62,7 @@ function BrainGymStartToday({ setViewBrain }) {
 
 BrainGymStartToday.propTypes = {
     setViewBrain: func.isRequired,
+    subjectId: string.isRequired,
 };
 
 export default BrainGymStartToday;

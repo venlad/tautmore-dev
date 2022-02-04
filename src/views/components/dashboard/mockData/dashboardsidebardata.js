@@ -16,7 +16,7 @@ export const sidebardata =     {
         {
             title: 'Dashboard',
             image: Dashboardicon,
-            to: '',
+            to: '/',
         },
         {
             title: 'My subjects',
