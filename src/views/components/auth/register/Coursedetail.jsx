@@ -31,6 +31,7 @@ const Coursedetail = ({
     allGrades,
     setGradeVal,
     setExamVal,
+    // qualificationVal,
     setQualificationVal,
     validation,
     setSubjects,
@@ -102,8 +103,9 @@ const Coursedetail = ({
         setExamVal(selected.value);
     };
 
-    const qualificationChange = (selected) => {
-        setQualificationVal(selected.value);
+    const qualChange = (selected) => {
+        console.log(selected.value);
+        setQualificationVal(selected);
     };
 
     const changeFullname = (e) => {
@@ -269,10 +271,11 @@ const Coursedetail = ({
                         <div className="label-div">Qualification*</div>
                         <Select
                             label="Qualification*"
-                            id="exam"
-                            name="exam"
+                            id="qualification"
+                            name="qualification"
                             options={qualification}
-                            onChange={qualificationChange}
+                            onChange={qualChange}
+                            // value={{ value: 'qualification1', label: 'qualification1' }}
                         />
 
                     </div>

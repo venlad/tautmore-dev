@@ -186,6 +186,54 @@
 }
 
 
+.examHeading
+{
+    color: #20282A;
+    font-family: "Proxima Nova";
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: 34px;
+}
+.examsidediv
+{
+    border-radius: 0 100px 0 100px;
+  background: linear-gradient(143.67deg, #39C399 0%, #00A070 100%);
+  
+}
+.cupicon
+{
+    width: 80%;
+}
+.aasigngradediv p
+{
+margin-bottom: 5px;
+}
+.assinon
+{
+    color: #FFFFFF;
+    font-family: "Proxima Nova";
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 22px;
+}
+.gradename
+{
+    color: #FFFFFF;
+  font-family: "Proxima Nova";
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+.cupicondiv
+{
+    text-align: right;
+}
+.rowpadding
+{
+    padding-top: 30px;
+    padding-bottom: 25px;
+}
 // .dashboard-main
 // { 
 //     .row-main {
@@ -194,3 +242,331 @@
 //                 .myexam-title{
 //                     margin: 0px;
 //                 } }}}}
+
+
+.completeddiv
+{
+    border-radius: 10px;
+  background-color: #F4F7FC;
+  width: 100%;
+  float: left;
+  padding: 30px;
+  margin-top: 20px;
+  .row{
+    padding-bottom: 20px;
+  }
+}
+
+
+.chapttitle
+{
+    color: #6F797B;
+    font-family: "Proxima Nova";
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 17px;
+    margin-bottom: 5px;
+}
+.subtitle
+{
+    color: #454C4E;
+    font-family: "Proxima Nova";
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 24px;
+    margin-bottom: 5px;
+}
+
+.myexam-answer-right {
+    h3 {
+      font-family: "proxima_nova_rgregular";
+      font-size: 24px;
+      color: #20282A;
+      margin-bottom: 20px;
+    }
+    .exam-right-common {
+      background-color: #F4F7FC;
+      border-radius: 20px;
+      padding: 15px;
+      margin-bottom: 20px;
+      .exam-right-left {
+        img {
+          width: 28px;
+          height: 19px;
+        }
+      }
+      .exam-right-center {
+        h5 {
+          font-family: "proxima_nova_rgregular";
+          color: #20282A;
+          font-size: 20px;
+        }
+        h5.answer {
+          color: #43AA8B;
+          font-family: "proxima_nova_rgbold";
+          margin: 15px 0px;
+        }
+        .option-main {
+          height: 0px;
+        }
+        .option-main.show {
+          height: 100px;
+        }
+        .option-top {
+          display: flex;
+          div {
+            width: 100px;
+            height: auto;
+           
+            img {
+              width: 56px;
+              height: 56px;
+            }
+            span {
+              width: 34px;
+              height: 34px;
+              border-radius: 50%;
+              background-color: #A0A4A6;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: #fff;
+              font-family: "proxima_nova_rgbold";
+             
+            }
+          }
+        }
+        span.index {
+          font-family: "proxima_nova_rgbold";
+        }
+      }
+      .exam-right-right {
+        button {
+          cursor: pointer;
+          background-color: transparent;
+          border: 0;
+        }
+        img {
+          height: 20px;
+          width: 20px;
+        }
+      }
+    }
+  }
+
+
+
+  .dashboard-main .row-main .dashboard-right .myexam-answer-main-top {
+    padding: 15px !important;
+    .myexam-answer-left {
+      margin-top: 65px;
+    }
+  }
+  .dashboard-main .row-main .dashboard-right .renewsub-main .renew-right-main button.payment-process {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .myexam-answer-main-top {
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    top: 0;
+    left: 0;
+    padding: 35px;
+    height: 100vh;
+    z-index: 9999;
+    padding-top: 70px;
+    padding-right: 20px;
+    padding-bottom: 0;
+  }
+  .close-top{
+    height: 70px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #fff;
+    text-align: right;
+    .close-btn {
+      background-color: transparent;
+      border: 0;
+      position: absolute;
+      right: 4%;
+      top: 25%;
+      img {
+        height: 20px;
+        width: 20px;
+      }
+    }
+}
+
+.myexam-answer-main {
+    width: 100%;
+    margin: auto;
+    overflow-y: scroll;
+    height: 100%;
+    padding-bottom: 30px;
+    padding-right: 20px;
+    .myexam-answer-left {
+      padding: 50px 30px;
+      background: linear-gradient(#39C399, #00A070);
+      border-radius: 0 100px 0 100px;
+      color: #FFFFFF;
+      .row {
+        margin-bottom: 40px;
+      }
+      .row:last-child {
+        margin-bottom: 0px;
+      }
+      p {
+        
+        font-family: "proxima_nova_rgregular";
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+      h5 {
+        font-size: 19px;
+        font-family: "proxima_nova_rgbold";
+      }
+      .Olympiad {
+        img {
+          width: 48px;
+          height: 50px;
+        }
+      }
+      .Total {
+        img {
+          width: 50px;
+          height: 50px;
+        }
+      }
+      .Date {
+        img {
+          width: 45px;
+          height: 50px;
+        }
+      }
+      .Time {
+        img {
+          width: 43px;
+          height: 51px;
+        }
+      }
+      .Accuracy {
+        img {
+          width: 47px;
+          height: 50px;
+        }
+      }
+      .Right {
+        img {
+          width: 36px;
+          height: 50px;
+        }
+      }
+    }
+    .myexam-answer-right {
+      h3 {
+        font-family: "proxima_nova_rgregular";
+        font-size: 24px;
+        color: #20282A;
+        margin-bottom: 20px;
+      }
+      .exam-right-common {
+        background-color: #F4F7FC;
+        border-radius: 20px;
+        padding: 15px;
+        margin-bottom: 20px;
+        .exam-right-left {
+          img {
+            width: 28px;
+            height: 19px;
+          }
+        }
+        .exam-right-center {
+          h5 {
+            font-family: "proxima_nova_rgregular";
+            color: #20282A;
+            font-size: 20px;
+          }
+          h5.answer {
+            color: #43AA8B;
+            font-family: "proxima_nova_rgbold";
+            margin: 15px 0px;
+          }
+          .option-main {
+            height: 0px;
+          }
+          .option-main.show {
+            height: 100px;
+          }
+          .option-top {
+            display: flex;
+            div {
+              width: 100px;
+              height: auto;
+             
+              img {
+                width: 56px;
+                height: 56px;
+              }
+              span {
+                width: 34px;
+                height: 34px;
+                border-radius: 50%;
+                background-color: #A0A4A6;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-family: "proxima_nova_rgbold";
+               
+              }
+            }
+          }
+          span.index {
+            font-family: "proxima_nova_rgbold";
+          }
+        }
+        .exam-right-right {
+          button {
+            cursor: pointer;
+            background-color: transparent;
+            border: 0;
+          }
+          img {
+            height: 20px;
+            width: 20px;
+          }
+        }
+      }
+    }
+  }
+
+
+  .assignbutdiv
+  {
+      text-align: center;
+  }
+  .classcompleted
+  {
+    color: #43AA8B;
+    font-family: "Proxima Nova";
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 29px;
+  }
+  .sendassignment
+  {
+    color: #454C4E;
+  font-family: "Proxima Nova";
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 22px;
+  }
+  

@@ -138,6 +138,53 @@ function SubjectModel({ handleSubjectModel, showSubjectModel }) {
                                     ))}
                                 </div>
                             </div>
+
+                            <div className="col-sm-12">
+
+                                <div className="completeddiv">
+                                    <div className="row">
+                                        <div className="col-sm-2">
+                                            <p>img</p>
+                                        </div>
+                                        <div className="col-sm-10">
+                                            <span className="classcompleted">Online class completed!</span><br />
+                                            <span className="sendassignment">Please send the assignments to the
+                                                students now
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-sm-4">
+                                            <p className="chapttitle">Chapter</p>
+                                            <p className="subtitle">Trigonometry</p>
+                                        </div>
+                                        <div className="col-sm-4">
+                                            <p className="chapttitle">Topic</p>
+                                            <p className="subtitle">Topic 2.1</p>
+                                        </div>
+                                        <div className="col-sm-4">
+                                            <p className="chapttitle">Submission date</p>
+                                            <p className="subtitle">Tue Aug 27th</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="assignbutdiv">
+                                    <button type="button" className="button-common">Assign
+                                        <span>
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16"
+                                                height="16"
+                                                fill="currentColor"
+                                                className="bi bi-chevron-right"
+                                                viewBox="0 0 16 16"
+                                            >
+                                                <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
                         </Tab>
                     </Tabs>
                 </div>
