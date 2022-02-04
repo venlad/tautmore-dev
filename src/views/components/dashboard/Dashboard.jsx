@@ -27,7 +27,7 @@ const Dashboard = ({ match }) => {
     const renderLayouts = () => {
         let view = <Home />;
         switch (viewType) {
-            case '':
+            case 'home':
                 view = <Home />;
                 break;
             case viewTypeData?.SUBJECT:

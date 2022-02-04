@@ -50,6 +50,7 @@ const BrainGymHead = () => (
                 <div className="row">
                     {Attendance.map((days) => (
                         <BrainGymDailyStatus
+                            key={days.day}
                             barValue={days.presenty}
                             day={days.day}
                             attendance={days.attendace}

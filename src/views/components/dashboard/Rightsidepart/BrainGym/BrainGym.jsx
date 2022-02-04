@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import {  func, bool, array } from 'prop-types';
+import {
+    func, bool, array, object,
+} from 'prop-types';
 import './style/brainGym.scss';
 import BrainGymHead from './BrainGymHead';
-import BrainGymSublist from './BrainGymSublist';
+import BrainGymSubjectlist from './BrainGymSubjectlist';
 import BrainGymStartToday from './BrainGymStartToday';
 import BrainGymScore from './BrainGymScore';
 import Shell from './Shell/Shell';
@@ -16,7 +18,7 @@ import { completeChestAction } from '../../../../../stores/BrainGym/BrainGymActi
 // import Report from './Report/Report';
 
 const BrainGym = ({
-    setShowShell, showShell, chests, questionInChest, completeChest,
+    setShowShell, showShell, chests, questionInChest, completeChest, subjectList,
 }) => {
     const [viewBrain, setViewBrain] = useState('home');
     const [chestId, setChestId] = useState('');
@@ -88,7 +90,7 @@ const BrainGym = ({
                 && (
                     <div className="braingym-main">
                         <BrainGymHead />
-                        <BrainGymSublist />
+                        <BrainGymSubjectlist subjectList={subjectList} />
                         <BrainGymStartToday setViewBrain={setViewBrain} />
                         <BrainGymScore />
                     </div>
@@ -143,9 +145,11 @@ BrainGym.propTypes = {
     // attemptQuestion: array.isRequired,
     chests: array.isRequired,
     completeChest: func.isRequired,
+    subjectList: object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
+    subjectList: state.Auth.Login?.data?.subjectsEnrolled,
     questionInChest: state.BrainGym.questionInChest,
     attemptQuestion: state.BrainGym.attemptQuestion,
     chests: state.BrainGym.chests,
