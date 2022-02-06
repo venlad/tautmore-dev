@@ -8,6 +8,7 @@ import MyClassesList from '../../components/dashboard/Rightsidepart/MyClass/MyCl
 import SimpleSlider from './Slider';
 import SubjectModel from './SubjectModel';
 import MySubjects from './Mysubjects/MySubjects';
+import MyPayments from './MyPayments';
 // import ExamDetails from './ExamDetails';
 import './teachers.scss';
 // import OnlineClassCompleted from './OnlineClassCompleted';
@@ -56,6 +57,7 @@ const Teachers = () => {
                         <MyClassesList />
                         {/* <ExamDetails /> */}
                         <MySubjects />
+                        <MyPayments />
 
                     </div>
                 </div>

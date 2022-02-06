@@ -570,3 +570,132 @@ margin-bottom: 5px;
   line-height: 22px;
   }
   
+
+
+
+  //mypayments styles
+  .divbg
+  {
+  border-radius: 10px;
+  background: linear-gradient(270deg, #1C1C1C 0%, #373737 100%);
+  box-shadow: 0 1px 34px -6px rgba(154,154,154,0.1);
+  padding: 20px;
+  }
+  .paymentid
+  {
+    color: #FFFFFF;
+    font-family: "Proxima Nova";
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 15px; 
+    margin-bottom: 10px;
+  }
+  .payeename
+  {
+    color: #FFFFFF;
+    font-family: "Proxima Nova";
+    font-size: 26px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 31px;
+  }
+
+
+
+  table {
+    border-collapse: separate;
+    border-spacing: 20px 0;
+    width: 100%;
+  }
+  th {
+    // background-color: #4287f5;
+    color: white;
+    text-align: center !important;
+    color: #6F797B;
+    font-family: "Proxima Nova";
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 17px;
+  }
+  th,
+  td {
+    width: 150px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+    
+  }
+  .tablerow{
+    border-radius: 10px;
+   background-color: #FFFFFF;
+  box-shadow: 0 22px 24px -10px rgba(189,189,189,0.07);
+  border-collapse: separate;
+  border-spacing: 0 1em;
+  }
+  .gfg {
+    border-collapse:separate;
+    border-spacing:0 15px;
+}
+.pending
+{
+  color: #FCA834;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+.processed
+{
+  color: #43AA8B;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: #FCA834;
+  border-radius: 50%;
+ 
+}
+.viewdetails
+{
+  color: #F3722C;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 19px;
+  text-decoration: underline; 
+}
+.paymentsection
+{
+  padding-top: 40px;
+}
+.tabledatastyle
+{
+  color: #20282A;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+.topdivpad
+{
+  padding-top: 30px;
+}
+.tableheadings
+{
+  color: #6F797B;
+  font-family: "Proxima Nova";
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 17px;
+}
