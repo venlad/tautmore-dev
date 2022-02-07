@@ -1,0 +1,1759 @@
+.sub-list-main {
+  padding: 15px 40px;
+  margin: 0 auto !important;
+  display: block;
+}
+
+.sub-list-main div {
+  display: inline-block;
+  width: 14.4%;
+  margin-right: 30px;
+  /* border: 1px solid; */
+  padding: 10px 15px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.sub-list-main div.active {
+  background: #e3fff6;
+  position: relative;
+  padding: 25px 15px;
+  border-radius: 0;
+  border-bottom: 2px solid #43aa8b;
+  margin-top: -15px;
+}
+
+.sub-list-main div.active a {
+  display: block;
+}
+
+.sub-list-main div:last-child {
+  margin-right: 0;
+  background: transparent;
+  text-align: right;
+  color: #43aa8b;
+  padding-right: 0;
+  font-size: 20px;
+  font-family: "proxima_nova_rgbold";
+  line-height: 24px;
+}
+
+.sub-list-main div:last-child span {
+  cursor: pointer;
+}
+
+.sub-list-main div:last-child svg {
+  margin-right: 0;
+  position: relative;
+  top: -1px;
+}
+
+.sub-list-main img {
+  height: 25px;
+  width: 25px !important;
+  margin-right: 10px;
+  display: inline-block;
+  margin-top: -8px;
+}
+
+.sub-list-main h5 {
+  margin-bottom: 0;
+  color: #454c4e;
+  font-size: 16px;
+  line-height: 22px;
+  font-family: "Proxima Nova";
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -7px;
+}
+
+.sub-list-main.mainactive div {
+  text-align: center;
+}
+
+.sub-list-main.mainactive div:last-child {
+  text-align: right;
+}
+
+.banner-main {
+  padding: 50px;
+  padding-top: 160px;
+}
+
+.banner-main .banner-left {
+  color: #20282a;
+  position: relative;
+}
+
+.banner-main .banner-left h4 {
+  font-family: "proxima_nova_rgbold";
+  font-size: 60px;
+  line-height: 64px;
+  margin: 0;
+  position: relative;
+  z-index: 9;
+}
+
+.banner-main .banner-left h4 span {
+  position: relative;
+  z-index: 9;
+}
+
+.banner-main .banner-left h4 span:after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 260px;
+  border-radius: 90px 0px 90px 90px;
+  background-color: #fff6e9;
+  top: -57px;
+  z-index: -1;
+  right: -15%;
+}
+
+.banner-main .banner-left p {
+  font-family: "proxima_nova_rgregular";
+  font-size: 20px;
+  line-height: 28px;
+  margin: 45px 0px 55px;
+  position: relative;
+  z-index: 9;
+}
+
+.banner-main .banner-left button {
+  width: 303px;
+  background-color: #43aa8b;
+  border-radius: 33.75px;
+  color: #fff;
+  border: 0;
+  height: 66px;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "proxima_nova_rgbold";
+  text-align: left;
+  padding: 0px 25px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0.8;
+}
+
+.banner-main .banner-left button span {
+  float: right;
+  height: 24px;
+  width: 24px;
+  background-color: #fca834;
+  border-radius: 50%;
+  padding: 0px 7px;
+  margin-top: 4px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.banner-main .banner-left .banner-left-bottom-icon {
+  width: 65px;
+  height: 56px;
+  border-radius: 17px 0px 17px 17px;
+  background-color: #e3fff6;
+  display: inline-block;
+  margin-left: 60px;
+  position: relative;
+  top: 25px;
+}
+
+.banner-main .banner-right img {
+  margin-top: -115px;
+  width: 100%;
+}
+
+.learningprogram-main {
+  background-color: #e3fff6;
+  border-radius: 90px 0px 90px 0px;
+  padding: 120px 60px 50px 40px;
+}
+
+.learningprogram-main .learning-progress-left h4 {
+  margin: 0;
+  font-family: "proxima_nova_rgbold";
+  color: #20282a;
+  font-size: 40px;
+  line-height: 48px;
+  position: relative;
+  z-index: 9;
+}
+
+.learningprogram-main .learning-progress-left h4 span.our {
+  position: relative;
+  z-index: 9;
+}
+
+.learningprogram-main .learning-progress-left h4 span.our:after {
+  content: "";
+  position: absolute;
+  width: 91px;
+  height: 78px;
+  border-radius: 0px 31px 31px 31px;
+  background-color: #fff6e9;
+  top: -18px;
+  z-index: -1;
+  right: -15%;
+}
+
+.learningprogram-main .learning-progress-left h4 span.learn {
+  position: relative;
+  z-index: 9;
+}
+
+.learningprogram-main .learning-progress-left h4 span.learn:after {
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 30px;
+  border-radius: 10px 0px 10px 10px;
+  background-color: #e3e5ff;
+  top: -45px;
+  z-index: -1;
+  right: 5%;
+}
+
+.learningprogram-main .learning-progress-left p {
+  margin-top: 25px;
+  font-family: "proxima_nova_rgregular";
+  font-size: 20px;
+  line-height: 24px;
+  color: #20282a;
+}
+
+.learningprogram-main .learning-progress-right {
+  position: relative;
+  z-index: 9;
+}
+
+.learningprogram-main .learning-progress-right .secondtop {
+  position: relative;
+}
+
+.learningprogram-main .learning-progress-right .learning-block-main {
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 15px 10px;
+  border-radius: 80px 0 80px 80px;
+  height: 160px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.07) !important;
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.07) !important;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.learningprogram-main .learning-progress-right .learning-block-main .icon {
+  height: 70px;
+  width: 70px;
+  background-color: #d3fff1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10px;
+  margin-left: 20px;
+  font-size: 30px;
+}
+
+.learningprogram-main .learning-progress-right .learning-block-main h5 {
+  margin: 0;
+  color: #277da1;
+  font-family: "proxima_nova_rgbold";
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.learningprogram-main .learning-progress-right .learning-block-main p {
+  font-family: "proxima_nova_rgregular";
+  font-size: 16px;
+  line-height: 24px;
+  color: #20282a;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.learningprogram-main .learning-progress-right .learning-block-main .learning-right-icon svg {
+  color: #d9d9d9;
+  width: 19px;
+  height: 16px;
+}
+
+.learningprogram-main .learning-progress-right .learning-block-main:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#1ee9ba), to(#43aa8b));
+  background: linear-gradient(#1ee9ba, #43aa8b);
+}
+
+.learningprogram-main .learning-progress-right .learning-block-main:hover h5,
+.learningprogram-main .learning-progress-right .learning-block-main:hover p {
+  color: #fff !important;
+}
+
+.learningprogram-main .learning-progress-right .learning-block-main:hover .icon {
+  background-color: #358e74 !important;
+  color: #fff !important;
+}
+
+.learningprogram-main .learning-progress-right .learning-block-main:hover .learning-right-icon svg {
+  color: #fff !important;
+  width: 39px !important;
+  height: 16px !important;
+}
+
+.learningprogram-main .learning-progress-right .learning-block-main.first {
+  position: relative;
+}
+
+.learningprogram-main .learning-progress-right .learning-block-main.first .icon {
+  background-color: #d3fff1;
+  color: #52b194;
+}
+
+.learningprogram-main .learning-progress-right .learning-block-main.first:after {
+  content: "";
+  position: absolute;
+  width: 62px;
+  height: 53px;
+  border-radius: 22px 0 22px 22px;
+  background-color: #c9fcbc;
+  top: -75px;
+  right: -3%;
+}
+
+.learningprogram-main .learning-progress-right .learning-six-second {
+  position: relative;
+  z-index: 9;
+}
+
+.learningprogram-main .learning-progress-right .learning-six-second .learning-block-main.second .icon {
+  background-color: #358e74;
+  color: #fff;
+}
+
+.learningprogram-main .learning-progress-right .learning-block-main.second::after {
+  content: "";
+  position: absolute;
+  width: 143px;
+  height: 123px;
+  border-radius: 47px 0 47px 47px;
+  background-color: #c5f7e7;
+  z-index: -1;
+  top: -47px;
+  right: -6%;
+}
+
+.learningprogram-main .learning-progress-right .learning-block-main.third {
+  position: relative;
+}
+
+.learningprogram-main .learning-progress-right .learning-block-main.third .icon {
+  background-color: #fff9da;
+  color: #fdca79;
+}
+
+.learningprogram-main .learning-progress-right .learning-block-main.third:after {
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 30px;
+  border-radius: 10px 0 10px 10px;
+  background-color: #ffe6c1;
+  bottom: -15px;
+  right: -3%;
+}
+
+.learningprogram-main .learning-progress-right .learning-block-main.fourth .icon {
+  background-color: #f9e7fd;
+  color: #dc50fa;
+}
+
+.counter-main {
+  padding: 100px 40px;
+}
+
+.counter-main .counter-common {
+  height: 152px;
+  border-radius: 0 76px 76px 76px;
+  background: -webkit-gradient(linear, left top, right top, from(#f1f1ff), to(#ddddff));
+  background: linear-gradient(to right, #f1f1ff, #ddddff);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0px 25px;
+}
+
+.counter-main .counter-common h4 {
+  color: #fca834;
+  font-size: 30px;
+  line-height: 50px;
+  font-family: "proxima_nova_rgbold";
+  margin: 0;
+}
+
+.counter-main .counter-common p {
+  font-family: "proxima_nova_rgregular";
+  color: #20282a;
+  font-size: 20px;
+  line-height: 22px;
+  margin: 0;
+}
+
+.classroom-main {
+  padding: 50px 40px;
+}
+
+.classroom-main ul {
+  padding: 0;
+  margin: 0;
+}
+
+.classroom-main ul li {
+  list-style: none;
+}
+
+.classroom-main .classroom-left img {
+  width: 100%;
+}
+
+.classroom-main .classroom-right {
+  color: #20282a;
+  font-family: "proxima_nova_rgregular";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.classroom-main .classroom-right h4 {
+  font-size: 45px;
+  font-family: "proxima_nova_rgbold";
+  line-height: 64px;
+}
+
+.classroom-main .classroom-right h4 span {
+  position: relative;
+  z-index: 9;
+}
+
+.classroom-main .classroom-right h4 span:after {
+  content: "";
+  position: absolute;
+  height: 66px;
+  width: 85px;
+  border-radius: 25px 0 25px 25px;
+  background-color: #fff6e9;
+  top: -10px;
+  z-index: -1;
+  right: -15%;
+}
+
+.classroom-main .classroom-right p {
+  font-size: 22px;
+  line-height: 32px;
+  margin: 30px 0px;
+}
+
+.classroom-main .classroom-right li {
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: 36px;
+}
+
+.classroom-main .classroom-right li svg {
+  height: 14px;
+  width: 14px;
+  margin-right: 5px;
+  color: #fca834;
+}
+
+.classroom-main .classroom-right button {
+  height: 66px;
+  width: 303px;
+  border-radius: 33.75px;
+  background-color: #43aa8b;
+  -webkit-box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
+          box-shadow: 0 12px 10px 0 rgba(67, 170, 139, 0.25);
+  border: 0;
+  text-align: left;
+  padding: 0px 20px;
+  color: #fff;
+  font-size: 20px;
+  font-family: "proxima_nova_rgbold";
+  line-height: 24px;
+  margin-top: 40px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0.8;
+}
+
+.classroom-main .classroom-right button span {
+  float: right;
+  height: 24px;
+  width: 24px;
+  background-color: #fca834;
+  border-radius: 50%;
+  padding: 0px 7px;
+  margin-top: 0px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.classroom-main .classroom-right button span svg {
+  margin-top: 2px;
+}
+
+.activities-main {
+  padding: 50px 40px;
+  padding-top: 0;
+}
+
+.activities-main .col-md-5 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.activities-main .activity-right img {
+  width: 100%;
+}
+
+.activities-main h4 {
+  font-size: 45px;
+  font-family: "proxima_nova_rgbold";
+  line-height: 64px;
+  position: relative;
+  z-index: 9;
+}
+
+.activities-main h4 span {
+  position: relative;
+}
+
+.activities-main h4 span:after {
+  content: "";
+  position: absolute;
+  height: 76px;
+  width: 85px;
+  border-radius: 25px 0 25px 25px;
+  background-color: #e3fff6;
+  top: -10px;
+  z-index: -1;
+  right: -60%;
+}
+
+.activities-main p {
+  font-size: 22px;
+  line-height: 32px;
+  margin: 30px 0px;
+  margin-bottom: 15px;
+}
+
+.activities-main button {
+  height: 66px;
+  width: 303px;
+  border-radius: 33.75px;
+  background-color: #43aa8b;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 0;
+  text-align: left;
+  padding: 0px 20px;
+  color: #fff;
+  font-size: 20px;
+  font-family: "proxima_nova_rgbold";
+  line-height: 24px;
+  margin-top: 40px;
+}
+
+.activities-main button span {
+  float: right;
+  height: 24px;
+  width: 24px;
+  background-color: #fca834;
+  border-radius: 50%;
+  padding: 0px 7px;
+  margin-top: 0px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.activities-main button span svg {
+  margin-top: 2px;
+}
+
+.olympiad-main {
+  padding: 50px 40px;
+  padding-top: 0;
+}
+
+.olympiad-main .olympiad-left img {
+  width: 100%;
+}
+
+.olympiad-main .olympiad-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.olympiad-main h4 {
+  font-size: 45px;
+  font-family: "proxima_nova_rgbold";
+  line-height: 64px;
+  position: relative;
+  z-index: 9;
+}
+
+.olympiad-main h4 span {
+  position: relative;
+}
+
+.olympiad-main h4 span:after {
+  content: "";
+  position: absolute;
+  height: 76px;
+  width: 85px;
+  border-radius: 25px 0 25px 25px;
+  background-color: #fff6e9;
+  top: -10px;
+  z-index: -1;
+  right: -16%;
+}
+
+.olympiad-main p {
+  font-size: 22px;
+  line-height: 32px;
+  margin: 30px 0px;
+  margin-bottom: 15px;
+}
+
+.olympiad-main button {
+  height: 66px;
+  width: 303px;
+  border-radius: 33.75px;
+  background-color: #43aa8b;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 0;
+  text-align: left;
+  padding: 0px 20px;
+  color: #fff;
+  font-size: 20px;
+  font-family: "proxima_nova_rgbold";
+  line-height: 24px;
+  margin-top: 40px;
+}
+
+.olympiad-main button span {
+  float: right;
+  height: 24px;
+  width: 24px;
+  background-color: #fca834;
+  border-radius: 50%;
+  padding: 0px 7px;
+  margin-top: 0px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.olympiad-main button span svg {
+  margin-top: 2px;
+}
+
+.brain-main {
+  padding: 50px 40px;
+}
+
+.brain-main .brain-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.brain-main .brain-left div {
+  width: 85%;
+}
+
+.brain-main .brain-right img {
+  width: 100%;
+}
+
+.brain-main h4 {
+  font-size: 45px;
+  font-family: "proxima_nova_rgbold";
+  line-height: 64px;
+  position: relative;
+  z-index: 9;
+}
+
+.brain-main h4 span {
+  position: relative;
+}
+
+.brain-main h4 span:after {
+  content: "";
+  position: absolute;
+  height: 76px;
+  width: 85px;
+  border-radius: 25px 0 25px 25px;
+  background-color: #fff6e9;
+  top: -10px;
+  z-index: -1;
+  right: 20px;
+}
+
+.brain-main p {
+  font-size: 22px;
+  line-height: 32px;
+  margin: 30px 0px;
+  margin-bottom: 15px;
+}
+
+.brain-main button {
+  height: 66px;
+  width: 303px;
+  border-radius: 33.75px;
+  background-color: #43aa8b;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 0;
+  text-align: left;
+  padding: 0px 20px;
+  color: #fff;
+  font-size: 20px;
+  font-family: "proxima_nova_rgbold";
+  line-height: 24px;
+  margin-top: 40px;
+}
+
+.brain-main button span {
+  float: right;
+  height: 24px;
+  width: 24px;
+  background-color: #fca834;
+  border-radius: 50%;
+  padding: 0px 7px;
+  margin-top: 0px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.brain-main button span svg {
+  margin-top: 2px;
+}
+
+.learningjoyful-main {
+  padding: 50px 40px;
+}
+
+.learningjoyful-main .learningjoyful-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.learningjoyful-main .learningjoyful-right div {
+  width: 85%;
+}
+
+.learningjoyful-main h4 {
+  font-size: 45px;
+  font-family: "proxima_nova_rgbold";
+  line-height: 64px;
+  position: relative;
+  z-index: 9;
+}
+
+.learningjoyful-main p {
+  font-size: 22px;
+  line-height: 32px;
+  margin: 30px 0px;
+  margin-bottom: 15px;
+}
+
+.learningjoyful-main button {
+  height: 66px;
+  width: 303px;
+  border-radius: 33.75px;
+  background-color: #43aa8b;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 0;
+  text-align: left;
+  padding: 0px 20px;
+  color: #fff;
+  font-size: 20px;
+  font-family: "proxima_nova_rgbold";
+  line-height: 24px;
+  margin-top: 40px;
+}
+
+.learningjoyful-main button span {
+  float: right;
+  height: 24px;
+  width: 24px;
+  background-color: #fca834;
+  border-radius: 50%;
+  padding: 0px 7px;
+  margin-top: 0px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.learningjoyful-main button span svg {
+  margin-top: 2px;
+}
+
+.physical-classroom-main {
+  padding: 50px 40px;
+}
+
+.physical-classroom-main h4 {
+  font-size: 45px;
+  font-family: "proxima_nova_rgbold";
+  line-height: 64px;
+  position: relative;
+  z-index: 9;
+  text-align: center;
+}
+
+.physical-classroom-main h4 span {
+  position: relative;
+}
+
+.physical-classroom-main h4 span:after {
+  content: "";
+  position: absolute;
+  height: 56px;
+  width: 65px;
+  border-radius: 17px 0 17px 17px;
+  background-color: #fae3ff;
+  top: -4px;
+  z-index: -1;
+  right: 34px;
+}
+
+.physical-classroom-main p.main-p {
+  font-size: 22px;
+  line-height: 32px;
+  width: 70%;
+  margin: 30px auto;
+  margin-bottom: 15px;
+  text-align: center;
+  font-family: "proxima_nova_rgregular";
+  margin-bottom: 40px;
+}
+
+.physical-classroom-main .common-div {
+  border-radius: 80px 0 80px 80px;
+  padding: 40px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 306px;
+}
+
+.physical-classroom-main .common-div svg {
+  height: 70px;
+  width: 70px;
+  color: #f9b53d;
+}
+
+.physical-classroom-main .common-div h5 {
+  margin: 30px 0px 20px;
+  color: #277da1;
+  font-size: 20px;
+  line-height: 24px;
+  font-family: "proxima_nova_rgbold";
+}
+
+.physical-classroom-main .common-div p {
+  color: #20282a;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "proxima_nova_rgregular";
+}
+
+.physical-classroom-main .common-div-1 {
+  position: relative;
+}
+
+.physical-classroom-main .common-div-1:after {
+  content: "";
+  position: absolute;
+}
+
+.learning-journey-main {
+  padding: 80px 60px 70px 80px;
+  background: #e9ffef;
+  border-radius: 180px 0 180px 0;
+}
+
+.learning-journey-main .learning-journey-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.learning-journey-main .learning-journey-right img {
+  width: 100%;
+}
+
+.learning-journey-main h4 {
+  font-size: 45px;
+  font-family: "proxima_nova_rgbold";
+  line-height: 64px;
+  position: relative;
+  z-index: 9;
+}
+
+.learning-journey-main h4 span {
+  position: relative;
+}
+
+.learning-journey-main h4 span:after {
+  content: "";
+  position: absolute;
+  height: 78px;
+  width: 91px;
+  border-radius: 0px 31px 31px 31px;
+  background-color: #fff6e9;
+  top: -15px;
+  z-index: -1;
+  right: -52px;
+}
+
+.learning-journey-main button {
+  height: 66px;
+  width: 303px;
+  border-radius: 33.75px;
+  background-color: #43aa8b;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 0;
+  text-align: left;
+  padding: 0px 20px;
+  color: #fff;
+  font-size: 20px;
+  font-family: "proxima_nova_rgbold";
+  line-height: 24px;
+  margin-top: 40px;
+}
+
+.learning-journey-main button span {
+  float: right;
+  height: 24px;
+  width: 24px;
+  background-color: #fca834;
+  border-radius: 50%;
+  padding: 0px 7px;
+  margin-top: 0px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.learning-journey-main button span svg {
+  margin-top: 2px;
+}
+
+.give-gift-main {
+  padding: 120px 40px;
+}
+
+.give-gift-main .border-common {
+  position: relative;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 587px;
+  width: 100%;
+  border-radius: 0 100px 68px 68px;
+  margin-left: -13px;
+}
+
+.give-gift-main .border-common span {
+  border-left: 2px dotted #f9844a;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  width: 1px;
+  height: 100%;
+  left: 50%;
+}
+
+.give-gift-main .border-common span:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #f9844a;
+  left: -11px;
+  top: 40%;
+}
+
+.give-gift-main .border-common-2 span {
+  border-left: 2px dotted #f9c74f;
+}
+
+.give-gift-main .border-common-2 span:after {
+  border-top: 10px solid #f9c74f;
+}
+
+.give-gift-main .gift-common {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 0 100px 68px 68px;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  height: 106px;
+  max-width: 587px;
+  width: 100%;
+  padding-left: 30px;
+  font-family: "proxima_nova_rgbold";
+}
+
+.give-gift-main .gift-common .icon {
+  height: 43px;
+  width: 43px;
+  border-radius: 50%;
+  background: #f9844a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+  font-size: 24px;
+}
+
+.give-gift-main .gift-common h5 {
+  margin-bottom: 0;
+  padding-left: 25px;
+  font-family: "Proxima Nova";
+  font-size: 30px;
+  line-height: 36px;
+  color: #f9844a;
+}
+
+.give-gift-main .gift-common-2 .icon {
+  background: #f9c74f;
+}
+
+.give-gift-main .gift-common-2 h5 {
+  color: #f9c74f;
+}
+
+.give-gift-main .gift-common-3 .icon {
+  background: #43aa8b;
+}
+
+.give-gift-main .gift-common-3 h5 {
+  color: #43aa8b;
+}
+
+.give-gift-main .gift-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.give-gift-main .gift-right h4 {
+  font-size: 52px;
+  font-family: "proxima_nova_rgbold";
+  line-height: 64px;
+  position: relative;
+  z-index: 9;
+  margin-bottom: 25px;
+  margin-top: 50px;
+}
+
+.give-gift-main .gift-right h4 span.span-1 {
+  position: relative;
+}
+
+.give-gift-main .gift-right h4 span.span-1:after {
+  content: "";
+  position: absolute;
+  height: 30px;
+  width: 35px;
+  border-radius: 10px 0 10px 10px;
+  background-color: #e3e5ff;
+  top: -45px;
+  z-index: -1;
+  right: 8px;
+}
+
+.give-gift-main .gift-right h4 span.span-2 {
+  position: relative;
+}
+
+.give-gift-main .gift-right h4 span.span-2:after {
+  content: "";
+  position: absolute;
+  height: 56px;
+  width: 65px;
+  border-radius: 17px 0 17px 17px;
+  background-color: #e9ffef;
+  top: -5px;
+  z-index: -1;
+  right: -5px;
+}
+
+.give-gift-main .gift-right h4 span.span-3 {
+  position: relative;
+}
+
+.give-gift-main .gift-right h4 span.span-3:after {
+  content: "";
+  position: absolute;
+  height: 30px;
+  width: 35px;
+  border-radius: 10px 0 10px 10px;
+  background-color: #fbe8ff;
+  top: 10px;
+  z-index: -1;
+  right: -65px;
+}
+
+.give-gift-main .gift-right h4 span.span-4 {
+  position: relative;
+}
+
+.give-gift-main .gift-right h4 span.span-4:after {
+  content: "";
+  position: absolute;
+  height: 91px;
+  width: 106px;
+  border-radius: 0px 31px 31px 31px;
+  background-color: #fff6e9;
+  top: 2px;
+  z-index: -1;
+  right: -178px;
+}
+
+.give-gift-main .gift-right h4 span.span-4:before {
+  content: "";
+  position: absolute;
+  height: 53px;
+  width: 62px;
+  border-radius: 22px 0 22px 22px;
+  background-color: #e9ffef;
+  top: 100px;
+  z-index: -1;
+  right: -320px;
+}
+
+.give-gift-main .gift-right button {
+  height: 66px;
+  width: 303px;
+  border-radius: 33.75px;
+  background-color: #43aa8b;
+  border: 0;
+  text-align: left;
+  padding: 0px 20px;
+  color: #fff;
+  font-size: 20px;
+  font-family: "proxima_nova_rgbold";
+  line-height: 24px;
+  margin-top: 40px;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0.8;
+}
+
+.give-gift-main .gift-right button span {
+  float: right;
+  height: 24px;
+  width: 24px;
+  background-color: #fca834;
+  border-radius: 50%;
+  padding: 0px 7px;
+  margin-top: 0px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.give-gift-main .gift-right button span svg {
+  margin-top: 2px;
+}
+
+.give-gift-main .gift-right button:before {
+  content: "";
+  position: absolute;
+  height: 25px;
+  width: 27px;
+  border-radius: 10px 0 10px 10px;
+  background-color: #e3e5ff;
+  top: 40px;
+  z-index: -1;
+  right: -50px;
+}
+
+.give-gift-main .gift-right button:after {
+  content: "";
+  position: absolute;
+  height: 30px;
+  width: 35px;
+  border-radius: 10px 0 10px 10px;
+  background-color: #fbe8ff;
+  top: 115px;
+  z-index: -1;
+  left: 20%;
+}
+
+.button-common span svg {
+  margin-top: 0 !important;
+}
+
+.button-common:hover {
+  -webkit-box-shadow: 5px 5px 5px rgba(67, 170, 139, 0.25) !important;
+          box-shadow: 5px 5px 5px rgba(67, 170, 139, 0.25) !important;
+  opacity: 1;
+}
+
+.button-common:hover span {
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+}
+
+.learningjoyful-main .learningjoyful-right div, .olympiad-right div, .classroom-right div {
+  width: 85%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .give-gift-main .gift-right h4 span.span-4:before {
+    right: -230px;
+  }
+}
+
+@media only screen and (max-width: 1185px) {
+  .sub-list-main {
+    display: block;
+    padding: 15px 20px;
+  }
+  .sub-list-main div {
+    margin-right: 15px;
+  }
+  .sub-list-main div img {
+    height: 20px;
+    width: 20px !important;
+  }
+  .sub-list-main div h5 {
+    font-size: 14px;
+  }
+  .learningprogram-main .learning-progress-right .icon {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .give-gift-main .border-common::before {
+    left: 49.5%;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .sub-list-main div {
+    width: auto;
+  }
+  .sub-list-main div:last-child {
+    float: right;
+  }
+  .banner-main {
+    padding-top: 80px;
+  }
+  .banner-main .banner-left h4 {
+    font-size: 45px;
+  }
+  .banner-main .banner-left h4 span:after {
+    content: none !important;
+  }
+  .banner-main .banner-left p {
+    font-size: 16px;
+    margin: 25px 0px 25px;
+  }
+  .banner-main .banner-left .banner-left-bottom-icon {
+    display: none;
+  }
+  .banner-main .banner-right img {
+    margin-top: -35px;
+  }
+  .learningprogram-main .learning-progress-left h4 {
+    font-size: 25px;
+  }
+  .learningprogram-main .learning-progress-left span:after {
+    content: none !important;
+  }
+  .learningprogram-main .learning-progress-left p {
+    font-size: 16px;
+  }
+  .learningprogram-main .learning-progress-right .learning-block-main {
+    padding: 15px 20px;
+    height: auto;
+    border-radius: 20px !important;
+  }
+  .learningprogram-main .learning-progress-right .learning-block-main .row {
+    margin: 0;
+  }
+  .learningprogram-main .learning-progress-right .learning-block-main .learning-block-left {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+  .learningprogram-main .learning-progress-right .learning-block-main .learning-block-left .icon {
+    margin: 0;
+  }
+  .learningprogram-main .learning-progress-right .learning-block-main .learning-block-right {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+  }
+  .learningprogram-main .learning-progress-right .learning-block-main .learning-block-right h5 {
+    font-size: 18px;
+  }
+  .learningprogram-main .learning-progress-right .learning-block-main .learning-block-right p {
+    font-size: 13px;
+  }
+  .learningprogram-main .learning-progress-right .learning-block-main .learning-right-icon {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .learningprogram-main .learning-progress-right .learning-block-main:after {
+    content: none !important;
+  }
+  .counter-main {
+    padding: 50px 40px;
+  }
+  .counter-main .counter-common {
+    text-align: center;
+  }
+  .counter-main .counter-common h4 {
+    font-size: 22px;
+  }
+  .counter-main .counter-common p {
+    font-size: 14px;
+  }
+  .classroom-main .classroom-right h4 {
+    font-size: 35px;
+  }
+  .classroom-main .classroom-right span:after {
+    content: none !important;
+  }
+  .classroom-main .classroom-right p {
+    font-size: 16px;
+  }
+  .classroom-main .classroom-right li {
+    font-size: 15px;
+  }
+  .activities-main h4 {
+    font-size: 35px;
+    line-height: 45px;
+  }
+  .activities-main h4 span::after {
+    content: none !important;
+  }
+  .activities-main p {
+    font-size: 16px;
+  }
+  .olympiad-main h4 {
+    font-size: 35px;
+    line-height: 45px;
+  }
+  .olympiad-main h4 span::after {
+    content: none !important;
+  }
+  .olympiad-main p {
+    font-size: 16px;
+  }
+  .brain-main h4 {
+    font-size: 35px;
+    line-height: 45px;
+  }
+  .brain-main h4 span::after {
+    content: none !important;
+  }
+  .brain-main p {
+    font-size: 16px;
+  }
+  .learningjoyful-main h4 {
+    font-size: 35px;
+    line-height: 45px;
+  }
+  .learningjoyful-main h4 span::after {
+    content: none !important;
+  }
+  .learningjoyful-main p {
+    font-size: 16px;
+  }
+  .physical-classroom-main h4 {
+    font-size: 35px;
+    line-height: 45px;
+  }
+  .physical-classroom-main h4 span::after {
+    content: none !important;
+  }
+  .physical-classroom-main p.main-p {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  .physical-classroom-main .common-div {
+    padding: 40px 25px;
+    height: 340px;
+  }
+  .physical-classroom-main .common-div h5 {
+    font-size: 17px;
+  }
+  .physical-classroom-main .common-div p {
+    font-size: 14px;
+  }
+  .learning-journey-main h4 {
+    font-size: 35px;
+    line-height: 45px;
+  }
+  .learning-journey-main h4 span::after {
+    content: none !important;
+  }
+  .give-gift-main .gift-left .icon {
+    height: 35px;
+    width: 35px;
+  }
+  .give-gift-main h5 {
+    font-size: 22px !important;
+  }
+  .gift-right h4 {
+    font-size: 35px !important;
+    line-height: 45px !important;
+  }
+  .gift-right h4 span::after {
+    content: none !important;
+  }
+  .gift-right h4 span::before {
+    content: none !important;
+  }
+  .gift-right button::after {
+    content: none !important;
+  }
+  .gift-right button::before {
+    content: none !important;
+  }
+}
+
+@media only screen and (max-width: 830px) {
+  .give-gift-main h5 {
+    font-size: 18px !important;
+  }
+  .give-gift-main .border-common::before {
+    left: 48.8%;
+  }
+}
+
+@media only screen and (max-width: 805px) {
+  .sub-list-main {
+    text-align: center;
+    border-bottom: 1px solid #dfdfdf;
+  }
+  .sub-list-main div:last-child {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: center !important;
+    margin-top: 25px;
+  }
+  .banner-main .banner-left h4 {
+    font-size: 35px;
+    line-height: 45px;
+  }
+  .button-common {
+    width: 250px !important;
+    height: 50px !important;
+    font-size: 17px !important;
+  }
+  .button-common span {
+    margin-top: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .banner-main {
+    padding-top: 30px;
+  }
+  .banner-main .banner-right {
+    text-align: center;
+  }
+  .banner-main .banner-right img {
+    margin-top: 50px;
+    width: 100%;
+    max-width: 400px;
+  }
+  .learningprogram-main {
+    padding-top: 50px;
+  }
+  .learningprogram-main .learning-progress-right {
+    margin-top: 30px;
+  }
+  .counter-main .counter-common {
+    margin-bottom: 30px;
+  }
+  .counter-main .counter-common .row {
+    width: 100%;
+  }
+  .classroom-main .classroom-left {
+    text-align: center;
+  }
+  .classroom-main .classroom-left img {
+    width: 100%;
+    max-width: 400px;
+  }
+  .activities-main p {
+    margin-bottom: 0;
+  }
+  .activities-main .activity-right {
+    text-align: center;
+  }
+  .activities-main .activity-right img {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 50px;
+  }
+  .olympiad-main p {
+    margin-bottom: 0;
+  }
+  .olympiad-main .olympiad-left {
+    text-align: center;
+  }
+  .olympiad-main .olympiad-left img {
+    width: 100%;
+    max-width: 400px;
+  }
+  .brain-main p {
+    margin-bottom: 0;
+  }
+  .brain-main .brain-right {
+    text-align: center;
+    display: block;
+  }
+  .brain-main .brain-right img {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 50px;
+  }
+  .learningjoyful-main p {
+    margin-bottom: 0;
+  }
+  .learningjoyful-main .learningjoyful-left {
+    text-align: center;
+  }
+  .learningjoyful-main .learningjoyful-left img {
+    width: 100%;
+    max-width: 400px;
+  }
+  .learningjoyful-main .learningjoyful-right {
+    margin-top: 50px;
+    width: 100%;
+  }
+  .physical-classroom-main .common-div {
+    height: auto;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .learning-journey-main .learning-journey-left {
+    display: block;
+  }
+  .learning-journey-main .learning-journey-right {
+    margin-top: 50px;
+  }
+  .give-gift-main .gift-common {
+    max-width: 100%;
+  }
+  .give-gift-main .border-common {
+    max-width: 100%;
+  }
+  .learningjoyful-main .learningjoyful-right div, .olympiad-right div, .classroom-right div, .brain-left div {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 725px) {
+  .sub-list-main div {
+    width: 35%;
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 605px) {
+  .learningprogram-main .learning-progress-right .learning-block-main {
+    height: 225px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .sub-list-main div {
+    width: 100%;
+  }
+  .banner-main, .classroom-main, .activities-main, .olympiad-main, .brain-main, .physical-classroom-main, .learning-journey-main {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .give-gift-main {
+    padding-left: 40px;
+    padding-right: 20px;
+  }
+  .learningprogram-main {
+    padding: 50px 20px 50px 20px;
+  }
+  .learningprogram-main .learning-progress-right .learning-block-main {
+    height: auto;
+    border-radius: 20px !important;
+  }
+  .counter-main {
+    padding: 50px 20px;
+  }
+  .learning-journey-left {
+    padding-left: 50px !important;
+  }
+  .give-gift-main .gift-common {
+    padding-left: 10px;
+  }
+  .give-gift-main .gift-common h5 {
+    line-height: 1.3;
+  }
+  .gift-right h4, .learning-journey-main h4, .physical-classroom-main h4, .learningjoyful-main h4, .brain-main h4, .olympiad-main h4, .activities-main h4, .classroom-main .classroom-right h4, .learningprogram-main .learning-progress-left h4 {
+    font-size: 25px !important;
+    line-height: 35px !important;
+  }
+}
+/*# sourceMappingURL=home.css.map */

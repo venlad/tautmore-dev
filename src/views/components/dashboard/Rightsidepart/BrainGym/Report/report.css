@@ -1,0 +1,447 @@
+.report-main {
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  overflow-y: scroll;
+}
+
+.report-main .report-container {
+  padding: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 16px;
+}
+
+.report-main .report-container .subject-name {
+  font-size: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.report-main .report-container .subject-name h2 {
+  color: #20282A;
+  font-family: "proxima_nova_rgbold";
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.report-main .report-container .subject-name img {
+  margin-bottom: 0.988rem;
+  margin-right: 0.3125rem;
+}
+
+.report-main .report-container .subject-name button {
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
+.report-main .report-container .banner {
+  width: 100%;
+  height: auto;
+  border: 2px dashed #5A72E3;
+  font-size: 1.5rem;
+  color: #536CDF;
+  margin: 0 auto;
+  background-color: #DEE4FF;
+  font-family: "Proxima Nova";
+  border-radius: 1.25rem;
+  font-style: bold;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.report-main .report-container .banner img {
+  padding: 1.25rem;
+}
+
+.report-main .report-container .banner p {
+  margin-bottom: 0;
+}
+
+.report-main .report-container .heavy-details {
+  margin-top: 1.5rem;
+  width: 100%;
+  border-radius: 1.25rem;
+  background: linear-gradient(146.79deg, #7C92F9 0%, #526BDE 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.report-main .report-container .heavy-details .stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 30px;
+}
+
+.report-main .report-container .heavy-details .stats .stats-individual {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.report-main .report-container .heavy-details .stats .stats-individual img {
+  height: 2.5rem;
+  width: 2.7612rem;
+  margin: 0.625rem;
+}
+
+.report-main .report-container .heavy-details .stats .stats-individual .stat-name-and-values {
+  color: #FFFFFF;
+  font-family: "proxima_nova_rgregular";
+  font-size: 1.125rem;
+}
+
+.report-main .report-container .heavy-details .stats .stats-individual .stat-name-and-values .stat-name {
+  padding-top: 0.3125rem;
+}
+
+.report-main .report-container .heavy-details .stats .stats-individual .stat-name-and-values .bold {
+  font-family: "proxima_nova_rgregular";
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: -0.9375rem;
+}
+
+.report-main .report-container button.review-incorrect-button {
+  padding: 10px 50px;
+  border-radius: 1.5625rem;
+  background-color: #FFFFFF;
+  border: none;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: -0.9375rem;
+  color: #536CDF;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "proxima_nova_rgregular";
+  margin-bottom: 30px;
+}
+
+.report-main .report-container .shell-title-and-stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 2rem;
+  width: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.report-main .report-container .shell-title-and-stats .title-individual {
+  margin-right: 15px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border-radius: 1.25rem;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0.75rem 3.9rem 1.625rem rgba(0, 0, 0, 0.05);
+          box-shadow: 0 0.75rem 3.9rem 1.625rem rgba(0, 0, 0, 0.05);
+  padding: 1.25rem;
+}
+
+.report-main .report-container .shell-title-and-stats .title-individual .shell-number {
+  height: 80px;
+  width: 80px;
+  border-radius: 0.625rem;
+  background-color: #FFF6E9;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.report-main .report-container .shell-title-and-stats .title-individual .shell-number p {
+  color: #2C2F38;
+  font-family: "proxima_nova_rgregular";
+  font-size: 0.9625rem;
+  font-weight: 550;
+  margin-bottom: 9px;
+  line-height: 17px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.report-main .report-container .shell-title-and-stats .title-individual .shell-number img {
+  margin: auto;
+  width: 39px;
+  height: 33px;
+}
+
+.report-main .report-container .shell-title-and-stats .title-individual .flex-items-points {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 1.4rem 0;
+}
+
+.report-main .report-container .shell-title-and-stats .title-individual .flex-items-points .points {
+  color: #FC9D16;
+  font-family: "proxima_nova_rgregular";
+  font-size: 1.225rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.375rem;
+  padding-left: 0.5rem;
+  margin-bottom: 0;
+}
+
+.report-main .report-container .shell-title-and-stats .title-individual .shell-title {
+  color: #20282A;
+  font-family: "proxima_nova_rgregular";
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.25rem;
+  text-align: center;
+  margin-bottom: -5px;
+}
+
+.report-main .report-container .shell-title-and-stats .title-individual .level-and-correct-count {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 10px;
+}
+
+.report-main .report-container .shell-title-and-stats .title-individual .level-and-correct-count .green-level-label {
+  color: #43AA8B;
+  font-family: "proxima_nova_rgregular";
+  font-size: 0.85rem;
+  letter-spacing: 0;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-top: 1px;
+}
+
+.report-main .report-container .shell-title-and-stats .title-individual .level-and-correct-count .green-background {
+  height: 1.325rem;
+  width: 3.75rem;
+  border-radius: 0.5625rem;
+  background-color: #E3FFF6;
+}
+
+.report-main .report-container .shell-title-and-stats .title-individual .level-and-correct-count .correct-count {
+  color: #697B81;
+  font-family: "proxima_nova_rgregular";
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.0625rem;
+}
+
+.report-main .report-container .shell-title-and-stats .title-individual .level-and-correct-count .mid-border {
+  color: #C5D0E1;
+  font-size: 1.2rem;
+  padding-right: 2.5px;
+  padding-left: 5px;
+}
+
+.report-main .report-container .shell-title-and-stats .title-individual .level-and-correct-count p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@media only screen and (max-width: 1100px) {
+  .report-main .shell-title-and-stats {
+    display: block !important;
+    text-align: center;
+  }
+  .report-main .shell-title-and-stats .title-individual {
+    width: 30%;
+    display: inline-block;
+    margin-bottom: 30px !important;
+    margin-right: 30px !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .report-main .shell-title-and-stats .title-individual {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .report-main .report-container {
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .report-main .report-container .subject-name h2 {
+    font-size: 1.9rem;
+  }
+  .report-main .report-container .subject-name img {
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+  .report-main .report-container .banner {
+    font-size: 1.3rem;
+  }
+  .report-main .report-container .heavy-details {
+    height: 14.3125rem;
+  }
+  .report-main .report-container .heavy-details .stats {
+    padding: 1.2rem;
+  }
+  .report-main .report-container .heavy-details .stats .stats-individual {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .report-main .report-container .heavy-details .stats .stats-individual .stat-name-and-values {
+    text-align: center;
+  }
+  .report-main .report-container .shell-title-and-stats {
+    margin-top: 1rem;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+  .report-main .report-container .shell-title-and-stats .flex-items-points {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .report-main .report-container .shell-title-and-stats .flex-items-points .points {
+    margin-top: 0.3125rem;
+  }
+  .report-main .report-container .shell-title-and-stats .level-and-correct-count {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-top: 0rem;
+  }
+  .report-main .report-container .shell-title-and-stats .level-and-correct-count .mid-border {
+    display: none;
+  }
+  .report-main .report-container .shell-title-and-stats .title-individual {
+    height: auto;
+    padding: 10px;
+  }
+  .report-main .report-container .shell-title-and-stats .title-individual .shell-title {
+    margin-bottom: 10px;
+  }
+  .report-main .report-container .shell-title-and-stats .title-individual .level-and-correct-count {
+    margin-top: -0.625rem;
+  }
+  .report-main .report-container .shell-title-and-stats .title-individual .level-and-correct-count .green-background {
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .report-main .report-container {
+    padding: 2rem;
+  }
+  .report-main .report-container .subject-name h2 {
+    font-size: 1.8rem;
+  }
+  .report-main .report-container .banner {
+    height: auto;
+    font-size: 1rem;
+  }
+  .report-main .report-container .heavy-details {
+    height: auto;
+  }
+  .report-main .report-container .heavy-details .stats {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .report-main .report-container .heavy-details .stats .stats-individual {
+    margin-bottom: 10px;
+  }
+  .report-main .report-container .shell-title-and-stats {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .report-main .report-container .shell-title-and-stats .title-individual {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.report-main::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 5px;
+}
+
+.report-main::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+.report-main::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 5px;
+}
+
+.report-main::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/*# sourceMappingURL=report.css.map */

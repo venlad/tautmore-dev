@@ -1,5 +1,5 @@
 import React from 'react';
-import { chevRight, chevLeft } from '../../../../assets/icons/IconList';
+import { chevRight, chevLeft } from '../../../../../assets/icons/IconList';
 
 const Mysubjectcounttop = () => (
     <div className="row mysubject-count-top">

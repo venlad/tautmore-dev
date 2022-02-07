@@ -1,6 +1,6 @@
 import React from 'react';
 // import MysubProgressbar from './MysubProgressbar';
-import Mysubject from '../../../../assets/images/Mysubjects.png';
+import Mysubject from '../../../../../assets/images/Mysubjects.png';
 
 const subjectimg = {
     width: '50px',
