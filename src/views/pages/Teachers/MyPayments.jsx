@@ -58,7 +58,7 @@ const MyPayments = () => (
                         <td className="td tabledatastyle">{item.amount}</td>
                         <td className="tabledatastyle">{item.created_on}</td>
                         <td className="tabledatastyle">{item.working_days}</td>
-                        <td>{item.status === 'pending' ? <span className="pending"> Pending</span> : <span className="processed">Processed</span> }</td>
+                        <td><div className="dotdiv">{item.status === 'pending' ? <div className="dot1"><span className="dothide">hi</span> </div> : <div className="dot2"><span className="dothide">hi</span> </div>}</div><div className="">{item.status === 'pending' ? <span className="pending"> Pending</span> : <span className="processed">Processed</span> }</div></td>
                         <td className="viewdetails">{item.details}</td>
                     </tr>
                 ))}
