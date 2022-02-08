@@ -570,3 +570,252 @@ margin-bottom: 5px;
   line-height: 22px;
   }
   
+
+
+
+  //mypayments styles
+  .divbg
+  {
+  border-radius: 10px;
+  background: linear-gradient(270deg, #1C1C1C 0%, #373737 100%);
+  box-shadow: 0 1px 34px -6px rgba(154,154,154,0.1);
+  padding: 20px;
+  }
+  .paymentid
+  {
+    color: #FFFFFF;
+    font-family: "Proxima Nova";
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 15px; 
+    margin-bottom: 10px;
+  }
+  .payeename
+  {
+    color: #FFFFFF;
+    font-family: "Proxima Nova";
+    font-size: 26px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 31px;
+  }
+
+
+
+  table {
+    border-collapse: separate;
+    border-spacing: 20px 0;
+    width: 100%;
+  }
+  th {
+    // background-color: #4287f5;
+    color: white;
+    text-align: center !important;
+    color: #6F797B;
+    font-family: "Proxima Nova";
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 17px;
+  }
+  th,
+  td {
+    width: 150px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+    
+  }
+  .tablerow{
+    border-radius: 10px;
+   background-color: #FFFFFF;
+  box-shadow: 0 22px 24px -10px rgba(189,189,189,0.07);
+  border-collapse: separate;
+  border-spacing: 0 1em;
+  }
+  .gfg {
+    border-collapse:separate;
+    border-spacing:0 15px;
+}
+.pending
+{
+  color: #FCA834;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+.processed
+{
+  color: #43AA8B;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+.dot1 {
+  height: 10px;
+  width: 10px;
+  background-color: #FCA834;
+  border-radius: 50%;
+ 
+}
+.dot2 {
+  height: 10px;
+  width: 10px;
+  background-color: #43AA8B;
+  border-radius: 50%;
+ 
+}
+.viewdetails
+{
+  color: #F3722C;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 19px;
+  text-decoration: underline; 
+}
+.paymentsection
+{
+  padding-top: 40px;
+}
+.tabledatastyle
+{
+  color: #20282A;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+.topdivpad
+{
+  padding-top: 30px;
+}
+.tableheadings
+{
+  color: #6F797B;
+  font-family: "Proxima Nova";
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 17px;
+}
+.dothide
+{
+  display: none;
+}
+
+.dotdiv
+{
+  position: relative;
+  top: 15px;
+  left: 25px;
+}
+
+
+
+
+
+//mysubject styles
+.toggle-maths-div
+{
+width: 50% !important;
+}
+.mysujecthead
+{
+  color: #20282A;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: "Proxima Nova";
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 31px;
+}
+.totalstudents
+{
+  color: #7D93F2;
+  font-family: "Proxima Nova";
+  font-size: 20px;
+  padding-top: 20px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 31px;
+  text-align: right;
+}
+.innerdiv
+{
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  box-shadow: 0 6px 24px 0 rgba(181,181,181,0.24);
+}
+.studenticon
+{
+  height: 60px;
+  width: 60px;
+}
+.stdname
+{
+  color: #20282A;
+  font-family: "Proxima Nova";
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 22px;
+  padding-top: 15px;
+}
+.stdgrade
+{
+  color: #454C4E;
+  font-family: "Proxima Nova";
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 16px;
+  text-align: center;
+}
+.atteddiv .attendance {
+  color: #43AA8B;
+  font-family: "Proxima Nova";
+  
+  width: 97px;
+  border-radius: 9.5px;
+  background-color: #E3FFF6;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 14px;
+  text-align: center;
+  padding: 8px 15px 8px 15px;
+}
+.atteddiv .attendanceAbsent {
+  color: #FD2A5B;
+  font-family: "Proxima Nova";
+ 
+  width: 97px;
+  border-radius: 9.5px;
+  background-color: #FFEAF1;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 14px;
+  text-align: center;
+  padding: 8px 15px 8px 15px;
+}
+.stdloopdiv
+{
+  padding-top: 20px;
+}
+.dtoggle-bar
+{
+  width: 96% !important;
+}
+
+
