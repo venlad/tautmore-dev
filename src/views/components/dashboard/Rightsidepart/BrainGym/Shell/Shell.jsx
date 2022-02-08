@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    func, bool, string,
+    func, bool, string, object, array,
 } from 'prop-types';
 import Banner from './Banner';
 import ShellList from './ShellList';
@@ -11,7 +11,7 @@ import './style/shell.scss';
 import ShellPoupup from './ShellPoupup';
 
 const Shell = ({
-    setViewBrain, setShowShell, showShell, chestId, subjectId, setSubjectId,
+    setViewBrain, setShowShell, showShell, currentChest, selectedSubject, setSubjectId, chests,
 }) => {
     const closePopup = () => {
         setViewBrain('home');
@@ -38,7 +38,7 @@ const Shell = ({
                                     <div className="col-sm-3" />
                                     <div className="col-12 col-sm-6">
                                         <h2>Brain gym</h2>
-                                        <p className="subject-name">Mathematics</p>
+                                        <p className="subject-name">{selectedSubject?.name}</p>
                                     </div>
                                     <div className="col-12 col-sm-3">
                                         <div className="flex-items-calender-date">
@@ -52,12 +52,13 @@ const Shell = ({
                                 </div>
 
                             </div>
-
                         </div>
                         <ShellList
+                            chests={chests}
+                            currentChest={currentChest}
                             setViewBrain={setViewBrain}
                             setShowShell={setShowShell}
-                            subjectId={subjectId}
+                            selectedSubject={selectedSubject}
                         />
                     </div>
                 </div>
@@ -65,7 +66,7 @@ const Shell = ({
 
             <ShellPoupup
                 setShowShell={setShowShell}
-                chestId={chestId}
+                currentChest={currentChest}
                 setViewBrain={setViewBrain}
             />
         </div>
@@ -73,11 +74,12 @@ const Shell = ({
 };
 
 Shell.propTypes = {
+    chests: array.isRequired,
     setViewBrain: func.isRequired,
     setShowShell: func.isRequired,
     showShell: bool.isRequired,
-    chestId: string.isRequired,
-    subjectId: string.isRequired,
+    currentChest: object.isRequired,
+    selectedSubject: string.isRequired,
     setSubjectId: string.isRequired,
 };
 

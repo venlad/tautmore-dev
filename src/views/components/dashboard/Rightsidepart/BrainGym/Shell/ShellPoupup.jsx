@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {  func, array, string } from 'prop-types';
+import {  func, array, object } from 'prop-types';
 import { connect } from 'react-redux';
 import Close from '../../../../../../assets/images/shell-pop-Close.svg';
 import ActiveLevelIcon from '../../../../../../assets/images/shell-pop-OvalOrange.svg';
@@ -18,12 +18,12 @@ const ShellPoupup = ({
     setShowShell,
     getQuestionInChest,
     questionInChest,
-    chestId,
+    currentChest,
     setViewBrain,
 }) => {
     const startNow = () => {
         getQuestionInChest({
-            chestId,
+            chestId: currentChest?._id,
         });
 
         setViewBrain('question');
@@ -39,7 +39,7 @@ const ShellPoupup = ({
         <div className="shell-popup-main">
             <div className="svg-background-container">
                 <div className="flex-items-details">
-                    <h2>Shell 1</h2>
+                    <h2>Shell {currentChest?.chestIndex}</h2>
                     <h3>Topic: Count to 10  </h3>
                     <button type="button" className="close-btn" onClick={() => setShowShell(false)}>
                         <img className="floating-cross" src={Close} alt="No Imag" />
@@ -83,7 +83,7 @@ ShellPoupup.propTypes = {
     setShowShell: func.isRequired,
     getQuestionInChest: func.isRequired,
     questionInChest: array.isRequired,
-    chestId: string.isRequired,
+    currentChest: object.isRequired,
     setViewBrain: func.isRequired,
 };
 

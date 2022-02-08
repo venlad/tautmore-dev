@@ -21,14 +21,14 @@ const BrainGym = ({
     setShowShell, showShell, chests, questionInChest, completeChest, subjectList,
 }) => {
     const [viewBrain, setViewBrain] = useState('home');
-    const [chestId, setChestId] = useState('');
-    const [subjectId, setSubjectId] = useState('');
+    const [selectedSubject, setSelectedSubject] = useState({});
     const [select, setSelect] = useState('');
     const [time, setTime] = useState(180000);
     const [currenttime, setCurrenttime] = useState();
     const [eachtime, setEachtime] = useState(0);
     const [eachtimeOn, setEachTimeOn] = useState(true);
     const [eachcurrenttime, setEachcurrenttime] = useState();
+    const [currentChest, setCurrentChest] = useState({});
 
     useEffect(() => {
         let interval = null;
@@ -70,18 +70,16 @@ const BrainGym = ({
         if (questionInChest?.message === 'COMPLETED' || time === 0) {
             setViewBrain('completed_chest');
             completeChest({
-                chestId,
+                chesttId: currentChest?._id,
             });
         }
     }, [questionInChest, time]);
 
     useEffect(() => {
         if (chests?.chests?.length > 0) {
-            let chest_id = [];
-            chest_id = chests?.chests.filter((data) => data.status !== 'COMPLETED');
-            chest_id = chest_id.map((data) => data?._id);
-            chest_id = chest_id[0];
-            setChestId(chest_id);
+            const chest = chests?.chests.find((data) => data.status !== 'COMPLETED');
+            console.log(chest, 'chest');
+            setCurrentChest(chest);
         }
     }, [chests]);
 
@@ -93,11 +91,13 @@ const BrainGym = ({
                         <BrainGymHead />
                         <BrainGymSubjectlist
                             subjectList={subjectList}
-                            setSubjectId={setSubjectId}
+                            setSelectedSubject={setSelectedSubject}
+                            selectedSubject={selectedSubject}
                         />
                         <BrainGymStartToday
+                            currentChest={currentChest}
                             setViewBrain={setViewBrain}
-                            subjectId={subjectId}
+                            selectedSubject={selectedSubject}
                         />
                         <BrainGymScore />
                     </div>
@@ -108,15 +108,16 @@ const BrainGym = ({
                         setViewBrain={setViewBrain}
                         setShowShell={setShowShell}
                         showShell={showShell}
-                        chestId={chestId}
-                        subjectId={subjectId}
-                        setSubjectId={setSubjectId}
+                        chests={chests?.chests}
+                        currentChest={currentChest}
+                        selectedSubject={selectedSubject}
+                        setSubjectId={selectedSubject}
                     />
                 )}
             { viewBrain === 'question'
                 && (
                     <QueAns
-                        chestId={chestId}
+                        currentChest={currentChest}
                         setViewBrain={setViewBrain}
                         select={select}
                         setSelect={setSelect}
@@ -142,7 +143,7 @@ const BrainGym = ({
             {/* <BrainGymResult /> */}
             {/* <QueAns /> */}
             { viewBrain === 'true_false'
-            && <AnswerPopup setViewBrain={setViewBrain} chestId={chestId} />}
+            && <AnswerPopup setViewBrain={setViewBrain} chestId={currentChest} />}
         </div>
     );
 };
