@@ -60,7 +60,7 @@ const Sidemenu = ({
                     <h5>{sidebardata.title}</h5>
                     <ul>
                         {sidebardata?.data?.map((data) => (
-                            <li key={data?.title}  aria-hidden="true" className={`${viewType === data?.to ? 'active' : ''}`}>
+                            <li key={data?.title}  aria-hidden="tru e" className={`${viewType === data?.to ? 'active' : ''}`}>
                                 <Link to={`/teacher/${data?.to}`}>
                                     <img src={data?.image} alt="dash_list_img" />
                                     {data?.title}
