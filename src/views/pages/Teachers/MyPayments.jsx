@@ -53,7 +53,7 @@ const MyPayments = () => (
                     <th> </th>
                 </tr>
                 {Mypayments.map((item) => (
-                    <tr className="tablerow">
+                    <tr className="tablerow" key={item.id}>
                         <td>{item.id}</td>
                         <td className="td tabledatastyle">{item.amount}</td>
                         <td className="tabledatastyle">{item.created_on}</td>

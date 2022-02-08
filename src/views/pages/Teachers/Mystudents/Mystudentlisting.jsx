@@ -8,7 +8,7 @@ const Mystudentlisting = () => (
     <div className="col-sm-12">
         <div className="row">
             {Mystudentlistingdata.map((item) => (
-                <div className="col-sm-4 stdloopdiv">
+                <div className="col-sm-4 stdloopdiv" key={item.id}>
                     <div className="innerdiv">
                         <img className="studenticon" src={Studentimg} alt="studentimg" />
                         <p className="stdname">{item.name}</p>
