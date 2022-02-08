@@ -33,9 +33,10 @@ const QueAns = ({
         attemptQuestion(val);
         setViewBrain('true_false');
         setEachtime(0);
+        setSelect('');
     };
 
-    console.log(questionInChest, 'questionInChest from QueAns');
+    // console.log(questionInChest, 'questionInChest from QueAns');
 
     return (
         <div>

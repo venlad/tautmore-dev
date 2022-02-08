@@ -4,7 +4,7 @@ import Calendar from '../../../../../../assets/images/Calendar.svg';
 import HandGesture from '../../../../../../assets/images/HandGesture.svg';
 import Target from '../../../../../../assets/images/Target.svg';
 import CheckList from '../../../../../../assets/images/CheckList.svg';
-import Flash from '../../../../../../assets/images/Flash.svg';
+import Flash from '../../../../../../assets/images/flash.svg';
 
 const IndividualStats = () => (
     <>

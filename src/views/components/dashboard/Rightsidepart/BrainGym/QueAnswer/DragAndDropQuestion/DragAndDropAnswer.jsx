@@ -27,6 +27,14 @@ const DragAndDropAnswer = ({ questionInChest, questionType }) => {
             dropData[dragItem].value = '';
         }
     };
+    const handleClick = (ind) => {
+        const newList = [...dragData];
+        const newitem = dropData[ind].value;
+        newList.splice(dropData[ind].dragsource, 1, newitem);
+        setDragData(newList);
+        dropData[ind].value = '';
+        delete dropData[ind].dragsource;
+    };
 
     const handleDropBottom = (e, ind) => {
         if (dragSource === 'TopItem') {
@@ -83,8 +91,6 @@ const DragAndDropAnswer = ({ questionInChest, questionType }) => {
         setDragItem(index);
         setDragSource('bottomItem');
     };
-
-    console.log(dropData, 'dropData from drag and drop');
 
     return (
         <div className="drag-and-drop-que-part">
@@ -193,6 +199,7 @@ const DragAndDropAnswer = ({ questionInChest, questionType }) => {
                                         <img
                                             draggable
                                             onDragStart={() => handleDragStartBottom(key)}
+                                            onDoubleClick={() => handleClick(key)}
                                             src={dropData[key].value.image}
                                             alt="option_image"
                                         />
