@@ -1,3 +1,8 @@
+.student-image {
+  height: 60px;
+  width: 60px;
+}
+
 .main1 {
   padding-top: 30px;
 }
@@ -180,6 +185,110 @@
           box-shadow: 0 12px 34px -10px rgba(0, 0, 0, 0.05) !important;
 }
 
+.toggle-maths-div {
+  width: 50% !important;
+}
+
+.mysujecthead {
+  color: #20282A;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: "Proxima Nova";
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 31px;
+}
+
+.totalstudents {
+  color: #7D93F2;
+  font-family: "Proxima Nova";
+  font-size: 20px;
+  padding-top: 20px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 31px;
+  text-align: right;
+}
+
+.innerdiv {
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 6px 24px 0 rgba(181, 181, 181, 0.24);
+          box-shadow: 0 6px 24px 0 rgba(181, 181, 181, 0.24);
+}
+
+.studenticon {
+  height: 60px;
+  width: 60px;
+}
+
+.stdname {
+  color: #20282A;
+  font-family: "Proxima Nova";
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 22px;
+  padding-top: 15px;
+}
+
+.stdgrade {
+  color: #454C4E;
+  font-family: "Proxima Nova";
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 16px;
+  text-align: center;
+}
+
+.label-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.atteddiv .attendance {
+  color: #43AA8B;
+  font-family: "Proxima Nova";
+  width: 97px;
+  border-radius: 9.5px;
+  background-color: #E3FFF6;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 14px;
+  text-align: center;
+  padding: 8px 15px 8px 15px;
+}
+
+.atteddiv .attendanceAbsent {
+  color: #FD2A5B;
+  font-family: "Proxima Nova";
+  width: 97px;
+  border-radius: 9.5px;
+  background-color: #FFEAF1;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 14px;
+  text-align: center;
+  padding: 8px 15px 8px 15px;
+}
+
+.stdloopdiv {
+  padding-top: 20px;
+}
+
+.dtoggle-bar {
+  width: 96% !important;
+}
+
 .examHeading {
   color: #20282A;
   font-family: "Proxima Nova";
@@ -354,7 +463,8 @@
   background: linear-gradient(270deg, #1C1C1C 0%, #373737 100%);
   -webkit-box-shadow: 0 1px 34px -6px rgba(154, 154, 154, 0.1);
           box-shadow: 0 1px 34px -6px rgba(154, 154, 154, 0.1);
-  padding: 20px;
+  padding: 25px 20px;
+  height: 120px;
 }
 
 .paymentid {
@@ -364,6 +474,7 @@
   letter-spacing: 0;
   line-height: 15px;
   margin-bottom: 10px;
+  padding-top: 10px;
 }
 
 .payeename {
@@ -399,6 +510,12 @@ td {
   text-align: center;
   border: 1px solid black;
   padding: 5px;
+  color: #6F797B;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 19px;
 }
 
 .tablerow {
@@ -452,6 +569,15 @@ td {
 
 .paymentsection {
   padding-top: 40px;
+}
+
+.paymentsection h1 {
+  color: #20282A;
+  font-family: "Proxima Nova";
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 31px;
 }
 
 .tabledatastyle {
@@ -611,13 +737,12 @@ td {
 
 .dashboard-main .heading {
   color: #20282A;
-  font-family: "Proxima Nova";
+  font-family: "proxima_nova_rgbold";
   font-size: 32px;
   font-weight: bold;
   letter-spacing: 0;
   line-height: 31px;
-  padding-top: 10px;
-  padding-left: 20px;
+  padding-top: 35px;
 }
 
 .dashboard-main .student-name-and-grades {
@@ -632,6 +757,15 @@ td {
 
 .dashboard-main .container-lists-and-sublists {
   margin-right: 120px;
+}
+
+.dashboard-main .label-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .dashboard-main .lists-and-sublists {

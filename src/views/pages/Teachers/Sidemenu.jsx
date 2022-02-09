@@ -8,14 +8,13 @@ import { sidebardata, accountData } from './mockData/SidebarData';
 import { menu } from '../../../assets/icons/IconList';
 import logouticon from '../../../assets/images/logouticon.png';
 import { clearLoginAction } from '../../../stores/Auth/AuthAction';
-
 const Sidemenu = ({
     open, setOpen, clearLogin, viewType
 }) => {
     const history = useHistory();
     const logOut = () => {
         localStorage.removeItem('taut-student');
-        clearLogin();
+        clearLogin();  
         history.push('/');
     };
     const toggleTrueFalse = () => {

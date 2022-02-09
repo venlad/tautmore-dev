@@ -1,3 +1,8 @@
+
+.student-image{
+  height: 60px;
+  width: 60px;
+} // for payments page (teacher)
 .main1 {
     padding-top: 30px;
 
@@ -132,6 +137,7 @@
         .Clockicon {
             padding-right: 5px;
         }
+      
 
         .rawnimg {
             padding-right: 15px;
@@ -184,6 +190,111 @@
 
     }
 }
+
+//My Students 
+
+.toggle-maths-div
+{
+width: 50% !important;
+}
+.mysujecthead
+{
+  color: #20282A;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: "Proxima Nova";
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 31px;
+}
+.totalstudents
+{
+  color: #7D93F2;
+  font-family: "Proxima Nova";
+  font-size: 20px;
+  padding-top: 20px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 31px;
+  text-align: right;  
+}  
+.innerdiv
+{
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  box-shadow: 0 6px 24px 0 rgba(181,181,181,0.24);
+}
+.studenticon
+{
+  height: 60px;
+  width: 60px;
+}
+.stdname
+{
+  color: #20282A;
+  font-family: "Proxima Nova";
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 22px;
+  padding-top: 15px;
+}
+.stdgrade
+{
+  color: #454C4E;
+  font-family: "Proxima Nova";
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 16px;
+  text-align: center;
+}
+
+.label-main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.atteddiv .attendance {
+  color: #43AA8B;
+  font-family: "Proxima Nova";
+  
+  width: 97px;
+  border-radius: 9.5px;
+  background-color: #E3FFF6;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 14px;
+  text-align: center;
+  padding: 8px 15px 8px 15px;
+}
+.atteddiv .attendanceAbsent {
+  color: #FD2A5B;
+  font-family: "Proxima Nova";
+ 
+  width: 97px;
+  border-radius: 9.5px;
+  background-color: #FFEAF1;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 14px;
+  text-align: center;
+  padding: 8px 15px 8px 15px;
+}
+.stdloopdiv
+{
+  padding-top: 20px;
+}
+.dtoggle-bar
+{
+  width: 96% !important;
+}
+
+
 
 
 .examHeading
@@ -363,7 +474,8 @@ margin-bottom: 5px;
   border-radius: 10px;
   background: linear-gradient(270deg, #1C1C1C 0%, #373737 100%);
   box-shadow: 0 1px 34px -6px rgba(154,154,154,0.1);
-  padding: 20px;
+  padding: 25px 20px;
+  height:120px;
   }
   .paymentid
   {
@@ -373,6 +485,7 @@ margin-bottom: 5px;
     letter-spacing: 0;
     line-height: 15px; 
     margin-bottom: 10px;
+    padding-top: 10px;
   }
   .payeename
   {
@@ -409,6 +522,13 @@ margin-bottom: 5px;
     text-align: center;
     border: 1px solid black;
     padding: 5px;
+    color: #6F797B;
+    font-family: "Proxima Nova";
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 19px;
+    
     
   }
   .tablerow{
@@ -445,7 +565,7 @@ margin-bottom: 5px;
   width: 10px;
   background-color: #FCA834;
   border-radius: 50%;
- 
+     
 }
 .viewdetails
 {
@@ -456,10 +576,18 @@ margin-bottom: 5px;
   letter-spacing: 0;
   line-height: 19px;
   text-decoration: underline; 
-}
+}          
 .paymentsection
 {
   padding-top: 40px;
+  h1{
+    color: #20282A; 
+    font-family: "Proxima Nova";
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 31px;
+  }  
 }
 .tabledatastyle
 {
@@ -469,10 +597,13 @@ margin-bottom: 5px;
   font-weight: bold;
   letter-spacing: 0;
   line-height: 19px;
+
 }
 .topdivpad
 {
   padding-top: 30px;
+  
+
 }
 .tableheadings
 {
@@ -620,13 +751,12 @@ margin-bottom: 5px;
 
     .heading{
       color: #20282A;
-      font-family: "Proxima Nova";
+      font-family: "proxima_nova_rgbold";
       font-size: 32px;
       font-weight: bold;
       letter-spacing: 0;
       line-height: 31px;
-      padding-top:10px;
-      padding-left:20px;
+      padding-top:35px;
     
       
     }
@@ -639,17 +769,19 @@ margin-bottom: 5px;
       border-radius: 20px;
       background-color: #F4F7FC;
       max-height:100vh;
-
-
-     
-
     }
 
     
 
     .container-lists-and-sublists{
       margin-right: 120px;
-    }        
+    } 
+    
+    .label-main {
+      display: flex;
+      justify-content: space-between;
+    }
+    
   
     .lists-and-sublists{
       padding:40px;
@@ -658,8 +790,6 @@ margin-bottom: 5px;
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
-            
-
     }
 
     .list-name{   
@@ -722,9 +852,7 @@ margin-bottom: 5px;
       }
     }
 
-
-  
-
+  // My students -main page
 
 
   .dashboard-main .row-main .dashboard-right .myexam-answer-main-top {

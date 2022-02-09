@@ -10,7 +10,7 @@ const subjectimg = {
 const Mysubjectstop = () => (
     <div className=" row">
         <div className="col-md-4 mysubject-top-left col-12">
-            <h4><img style={subjectimg} src={Mysubject} alt="my_subject" />My subjects</h4>
+            <h4 className="heading"><img style={subjectimg} src={Mysubject} alt="my_subject" />My subjects</h4>
         </div>
         {/* <div className="col-md-8 mysubject-top-right col-12">
             <div className="row">

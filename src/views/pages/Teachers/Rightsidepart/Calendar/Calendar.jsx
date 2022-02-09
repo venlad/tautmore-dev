@@ -1,8 +1,11 @@
 import React from 'react';
 
+// import MySubjects from '../MySubjects/MySubjects';
+
 const Calendar = () => (
     <div>
-        <h1>calendar</h1>
+        <p>Calendar</p>
+
     </div>
 );
 

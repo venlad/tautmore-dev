@@ -9,7 +9,6 @@ import MyClass from './Rightsidepart/MyClass/MyClass';
 import MySubjects from './Rightsidepart/MySubjects/MySubjects';
 import MyStudents from './Rightsidepart/MyStudents/MyStudents';
 import MyPayments from './Rightsidepart/MyPayments/MyPayments';
-
 import Calendar from './Rightsidepart/Calendar/Calendar';
 import { viewTypeData } from './mockData/DashboardViewData';
 
@@ -27,7 +26,7 @@ const Teachers = ({ match }) => {
                 break;
 
             case 'subjects':
-                view = <MySubjects lgShow={lgShow} setLgShow={setLgShow} />;
+                view = <MySubjects  />;
                 break;
 
             case 'students':

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../../../components/dashboard/dashboard.scss';
-import Student from '../../../../../assets/images/sidebar-profile.png';
+import Student from '../../../../../assets/images/studentimg.png';
 import Mypayments from '../../mockData/MyPayments';
 import '../../teachers.scss';
 
@@ -11,12 +11,11 @@ const MyPayments = () => (
                 <div className="col-sm-3">
                     <div className="row">
                         <div className="col-sm-3">
-                            <img className="Clockicon" src={Student} alt="studentimg" />
+                            <img className="student-image" src={Student} alt="studentimg" />
                         </div>
                         <div className="col-sm-9">
                             <p className="paymentid">TM182902</p>
                             <p className="payeename">Diana Kent</p>
-
                         </div>
                     </div>
 
@@ -47,7 +46,7 @@ const MyPayments = () => (
                 <tr>
                     <th> </th>
                     <th className="tableheadings">AMOUNT</th>
-                    <th className="tableheadings">CREATED ON</th>
+                    <th className="tableheadings">CREDITED ON</th>
                     <th className="tableheadings">WORKING DAYS</th>
                     <th className="tableheadings">STATUS</th>
                     <th> </th>

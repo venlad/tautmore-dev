@@ -1,0 +1,25 @@
+.myexam-tab {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.myexam-tab .myexam-tab-left {
+  width: 100%;
+}
+
+
+.myexam-tab .myexam-tab-left .dtoggle-bar .toggle-maths-div {
+  width: 100% !important;
+  margin-bottom: 10px;
+}
+
+.myexam-tab .myexam-tab-left .dtoggle-bar .toggle-maths-div .toggle-maths-btn {
+  border: none;
+  color: #fca834;
+  width: 19.25vw;
+  height: 3.125rem;
+}
+/*# sourceMappingURL=student.css.map */
