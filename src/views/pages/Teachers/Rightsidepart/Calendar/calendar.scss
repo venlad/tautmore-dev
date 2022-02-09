@@ -8,15 +8,17 @@
             display: inline-block;
             margin-right: 30px;
         }
-        p {
+        p.desc {
             font-family: "Proxima Nova";
             font-size: 16px;
             color: #6F797B;
             line-height: 19px;
+            margin-top: 55px;
+            margin-bottom: 0;
         }
         .text-right {
             text-align: right;
-            button {
+            button.leave {
                 background-color: #F3722C;
                 color: #FFE7D9;
                 border-radius: 10px;
@@ -39,6 +41,38 @@
                 display: inline-flex;
                 justify-content: center;
                 align-items: center;
+            }
+        }
+        .view-part {
+            margin-bottom: 30px;
+            p {
+                font-family: "Proxima Nova";
+                font-size: 16px;
+                color: #6F797B;
+                line-height: 19px;
+                margin-bottom: 0;
+                display: inline-block;
+                margin-right: 20px;
+                position: relative;
+                top: -6px;
+            }
+            span {
+                margin-right: 20px;
+            }
+            button {
+                background-size: cover;
+                background-repeat: no-repeat;
+                height: 24px;
+                width: 24px;
+                background-color: transparent;
+                border: 0;
+            }
+            button.menu {
+                background-image: url('../../../../../../src/assets/images/menu.svg');
+                margin-right: 10px;
+            }
+            button.grid {
+                background-image: url('../../../../../../src/assets/images/grid.svg');
             }
         }
     }
@@ -67,6 +101,200 @@
                 font-size: 14px;
                 font-family: "Proxima Nova";
                 border-color: #6F797B;
+            }
+        }
+        .rbc-calendar {
+            .rbc-toolbar {
+                position: absolute;
+                top: 120px;
+                left: 17px;
+                .rbc-toolbar-label {
+                    order: 1;
+                    font-family: "proxima_nova_rgbold";
+                    font-size: 32px;
+                    color: #20282A;
+                    display: inline-block;
+                    margin-right: 30px;
+                }
+                span.rbc-btn-group:nth-child(1){
+                    order: 2;
+                    button:first-child {
+                        display: none;
+                    }
+                    button {
+                        height: 34px;
+                        width: 34px;
+                        background-color: #EAEAEA;
+                        color: #20282A;
+                        border-radius: 50%;
+                        display: inline-flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 0px;
+                        border: 0;
+                    }
+                    button:nth-child(2) {
+                        margin-right: 40px;
+                        position: relative;
+                    }
+                    button:nth-child(2)::after {
+                        content: '';
+                        background-image: url('../../../../../../src/assets/images/rectangle.svg'); 
+                        position: absolute;
+                        height: 10px;
+                        width: 10px;
+                        background-size: cover;
+                        left: 145%;
+                    }
+                    
+                }
+                span.rbc-btn-group:nth-child(3){
+                    order: 3;
+                    display: none;
+                }
+            }
+            .rbc-month-view  {
+                border: 0;
+                display: block;
+                .rbc-date-cell.rbc-now.rbc-current {
+                    color: #F3722C;
+                }
+                .rbc-event-allday {
+                    background-color: transparent;
+                    .event-common {
+                        background-image: url('../../../../../../src/assets/images/rectangle.svg'); 
+                        height: 10px;
+                        width: 10px;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        margin: auto;
+                    }
+                }
+                .rbc-date-cell a:hover {
+                    color: #20282A;
+                }
+                .rbc-header {
+                    border: 0;
+                }
+                .rbc-month-row {
+                    .rbc-day-bg + .rbc-day-bg {
+                        border: 0;
+                    }
+                    .rbc-day-bg.rbc-today {
+                        background-color: transparent;
+                    }
+                }
+                .rbc-month-row + .rbc-month-row {
+                    border: 0;
+                }
+                .rbc-month-header {
+                    border-bottom: 1px solid #6F797B;
+                    margin-bottom: 20px;
+                    padding-bottom: 25px;
+                    .rbc-header {
+                        span {
+                            color: #6F797B;
+                            font-size: 14px;
+                            font-family: "Proxima Nova";
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+                .rbc-month-row {
+                    .rbc-date-cell {
+                        text-align: center;
+                        font-family: "proxima_nova_rgbold";
+                        color: #20282A;
+                        font-size: 20px;
+                        padding: 15px 0px;
+                    }
+                    .rbc-off-range-bg {
+                        background: transparent;
+                    }
+                    .rbc-date-cell.rbc-off-range {
+                        color: #6F797B;
+                    }
+                }
+                .rbc-event.rbc-event-allday {
+
+                }
+            }
+        }
+    }
+    .calendar-row.full-view {
+        .rbc-date-cell, .rbc-header {
+            text-align: left !important;
+        }
+        .rbc-calendar {
+            min-height: auto !important;
+            display: block;
+            .rbc-month-view {
+                display: block;
+                .rbc-month-row {
+                    .rbc-date-cell {
+                       padding-bottom: 15px;
+                    }
+                }
+            }
+        }
+        .rbc-month-row { 
+            .rbc-day-bg {
+                border-bottom: 1px solid #6F797B !important;
+                margin-right: 25px;
+            }
+            .rbc-date-cell {
+                padding-top: 15px;
+            }
+        }
+        div.rbc-month-row:last-child {
+            .rbc-day-bg {
+                border: 0 !important;
+            }
+        }
+        .rbc-month-header {
+            border: 0 !important;
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+            .rbc-header {
+                border-bottom: 1px solid #6F797B !important;
+                margin-right: 25px;
+                padding-bottom: 20px;
+            }
+        }
+        .rbc-row-segment {
+            padding: 0;
+        }
+        .rbc-date-cell.rbc-now.rbc-current {
+            padding: 0 !important;
+            a {
+                padding-left: 10px;
+                width: 84%;
+                background-color: #FFF4E9;
+                height: 100%;
+                display: block;
+                padding-top: 20px;
+            }
+        }
+        .rbc-event.rbc-event-allday {
+            background-color: #FFF4E9;
+            border-radius: 0;
+            width: 84%;
+            padding-left: 10px;
+        }
+        .event-main {
+            color: #000;
+            text-align: left;
+            p.subject {
+                margin-bottom: 0;
+                color: #20282A;
+                font-family: "proxima_nova_rgbold";
+                font-size: 14px;
+            }
+            p.time {
+                color: #6F797B;
+                font-size: 14px;
+                font-family: "Proxima Nova";
+                margin-bottom: 0;
             }
         }
     }
@@ -102,6 +330,7 @@
         }
     }
     .leave-main {
+        margin-top: 30px;
         h3 {
             font-family: "proxima_nova_rgbold";
             font-size: 32px;
@@ -175,6 +404,7 @@
             }
         }
     }
+    
     @media only screen and (max-width: 767px) {
         .calendar-head {
             .text-right {
@@ -217,6 +447,63 @@
                 tbody tr td {
                     font-size: 13px;
                 }
+            }
+        }
+    }
+}
+.calendar-leave-popup {
+    .modal-dialog {
+        max-width: 620px;
+    }
+    .modal-content {
+        height: auto !important;
+        overflow: auto !important;
+        .close {
+            top: 30px;
+        }
+        .modal-header {
+            h3 {
+                font-family: "proxima_nova_rgbold";
+                font-size: 32px;
+                color: #20282A;
+            }
+            p {
+                color: #7D8283;
+                font-size: 18px;
+                line-height: 22px;
+                margin-bottom: 0;
+            }
+        }
+        .modal-body {
+            padding: 30px;
+            padding-top: 15px;
+            div.label {
+                color: #7D8283;
+                font-family: "Proxima Nova";
+                font-size: 18px;
+            }
+            input {
+                border-radius: 10px;
+                width: 100%;
+                border: 1px solid #E0E0E0;
+                height: 66px;
+                padding: 15px;
+            }
+            input[type=textarea] {
+                height: 100px;
+            }
+            input:focus {
+                border-color: #43AA8B;
+                outline: none;
+            }
+            button.button-common {
+                margin-top: 30px;
+            }
+            .mt-25.ml-25.rp-manage-school_error-message {
+                margin-top: -15px;
+                font-size: 13px;
+                color: red;
+                margin-bottom: 20px;
             }
         }
     }

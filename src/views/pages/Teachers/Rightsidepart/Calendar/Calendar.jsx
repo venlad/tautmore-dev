@@ -1,15 +1,67 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './calendar.scss';
 import { Link } from 'react-router-dom';
 import { chevLeft, chevRight } from '../../../../../assets/icons/IconList';
 import { calendar, timeTable, leaves } from './mockData/calendar';
+import LeavePopup from './LeavePopup';
+import BigCalendar from "react-big-calendar";
+import moment from "moment";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k]);
 
-const Calendar = () => (
+// BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
+moment.locale("es-es", {
+	week: {
+		dow: 1 //Monday is the first day of the week.
+	}
+});
+BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
+
+const Calendar = () => {
+
+    const [calendarView, setCalendarView] = useState(false);
+    const [model, setModel] = useState(false);
+
+    const events = [
+        {
+          id: 0,
+          name: "Holiday",
+          description: "this is description",
+          allDay: true,
+          start: new Date(),
+          end: new Date()
+        },
+        {
+            id: 0,
+            name: "two",
+            description: "desc two",
+            allDay: true,
+            start: new Date(),
+            end: new Date()
+        }
+      ];
+      const event = ({ event }) => {
+        return (
+          <div className="event-main">
+              {calendarView ? 
+                <div>
+                    <p className="subject">{event.name}</p> 
+                    <p className="time">{event.description}</p>
+                </div> : 
+                <div className="event-common" /> }
+          </div>
+        );
+      };
+
+      const onNavigate = (e) => {
+        console.log(e, 'e from navigate');
+      };
+return (
     <div className="calendar-main">
         <div className="row calendar-head">
             <div className="col-md-7">
                 <div>
-                    <h3>Aug 2021</h3>
+                    {/* <h3>Aug 2021</h3>
                     <div className="left-right-arrow">
                         <span className="arrow-common">
                             {chevLeft}
@@ -18,26 +70,39 @@ const Calendar = () => (
                         <span className="arrow-common">
                             {chevRight}
                         </span>
-                    </div>
+                    </div> */}
                 </div>
-                <p>This calendar represents all the completed,
+                <p className="desc">This calendar represents all the completed,
                     upcoming classes and leaves. You can also apply
                     leaves here and view leave history.
                 </p>
             </div>
             <div className="col-md-5 text-right">
-                <button type="button">APPLY LEAVE</button>
+                <button type="button" className="leave" onClick={() => setModel(true)}>APPLY LEAVE</button>
             </div>
             <div className="col-md-12 text-right">
                 <div className="view-part">
                     <p>view</p>
+                    <button onClick={() => setCalendarView(false)} className="menu"></button>
+                    <button onClick={() => setCalendarView(true)} className="grid"></button>
                 </div>
             </div>
         </div>
-        <div className="row">
-            <div className="col-md-8">
+        <div className={`row calendar-row ${calendarView ? 'full-view' : ''}`}>
+            <div className={`${calendarView ? 'col-md-12' : 'col-md-8'}`}>
                 <div className="calendar-table">
-                    <table>
+                <BigCalendar
+                    events={events}
+                    views={allViews}
+                    step={60}
+                    showMultiDayTimes
+                    defaultDate={new Date()}
+                    components={{
+                    event: event
+                    }}
+                    onNavigate={onNavigate}
+                />
+                    {/* <table>
                         {calendar?.map((data) => (
                             <tr>
                                 <td className="border-bottom">{data?.day}</td>
@@ -47,25 +112,27 @@ const Calendar = () => (
                                 ))}
                             </tr>
                         ))}
-                    </table>
+                    </table> */}
                 </div>
             </div>
-            <div className="col-md-4">
-                <div className="time-table">
-                    <div className="time-table-head">
-                        <p>Wed, Aug 01, 2021</p>
-                    </div>
-                    <div className="time-table-body">
-                        {timeTable?.map((data) => (
-                            <div className="time-table-common">
-                                <h5>{data?.time}</h5>
-                                <p>{data?.subject}</p>
-                                <Link to="/">View details</Link>
-                            </div>
-                        ))}
+            {!calendarView &&
+                <div className="col-md-4">
+                    <div className="time-table">
+                        <div className="time-table-head">
+                            <p>Wed, Aug 01, 2021</p>
+                        </div>
+                        <div className="time-table-body">
+                            {timeTable?.map((data) => (
+                                <div className="time-table-common">
+                                    <h5>{data?.time}</h5>
+                                    <p>{data?.subject}</p>
+                                    <Link to="/">View details</Link>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
 
         <div className="row leave-main">
@@ -97,7 +164,9 @@ const Calendar = () => (
                 </table>
             </div>
         </div>
+        <LeavePopup model={model} handleModel={setModel}/>
     </div>
 );
+};
 
 export default Calendar;

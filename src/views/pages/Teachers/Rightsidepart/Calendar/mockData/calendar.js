@@ -1,10 +1,4 @@
-// export const day = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-
-// export const arr = [];
-
-// for (let i = 1; i <= 31; i += 1) {
-//     arr.push(i);
-// }
+import * as Yup from 'yup';
 
 export const calendar = [
     {
@@ -124,5 +118,11 @@ export const leaves = [
         edit: false,
     },
 ];
+
+export const leaveValidation = Yup.object().shape({
+    fromDate: Yup.string().required('From date is Required'),
+    toDate: Yup.string().required('To date is Required'),
+    reason: Yup.string().required('Reason is Required'),
+});
 
 export default {};
