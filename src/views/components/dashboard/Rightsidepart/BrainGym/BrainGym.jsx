@@ -72,13 +72,14 @@ const BrainGym = ({
             completeChest({
                 chesttId: currentChest?._id,
             });
+            // console.log('currentChest?._id', currentChest?._id);
         }
     }, [questionInChest, time]);
 
     useEffect(() => {
         if (chests?.chests?.length > 0) {
             const chest = chests?.chests.find((data) => data.status !== 'COMPLETED');
-            console.log(chest, 'chest');
+            // console.log(chest, 'chest', chest.chestIndex);
             setCurrentChest(chest);
         }
     }, [chests]);
@@ -135,7 +136,11 @@ const BrainGym = ({
                 )}
 
             { viewBrain === 'completed_chest'
-                && <Popup />}
+                && (
+                    <Popup
+                        currentChest={currentChest}
+                    />
+                )}
 
             {/* <Report /> */}
             {/* <IncorrectAns /> */}

@@ -1,13 +1,15 @@
 import React from 'react';
+import {
+    object,
+} from 'prop-types';
 import SpecialClam from '../../../../../../assets/images/SpecialClam.svg';
 import Pencil from '../../../../../../assets/images/Pencil_brain-gym.svg';
 import CheckList from '../../../../../../assets/images/CheckList.svg';
 import Flash from '../../../../../../assets/images/flash.svg';
 import close from '../../../../../../assets/images/close.png';
-
 import './popup.scss';
 
-const Popup = () => (
+const Popup = ({ currentChest }) => (
     <>
         <div className="completed-popup-main">
             <button className="close-popup" type="button">
@@ -22,7 +24,7 @@ const Popup = () => (
 
                                 <img className="specialClam" src={SpecialClam} alt="No Imag" />
                                 <p className="bold-font">Well done!</p>
-                                <p className="light-font">Shell 1 completed!</p>
+                                <p className="light-font">Shell {currentChest?.chestIndex} completed!</p>
 
                                 <div className="flex-items-points">
                                     <img src={Pencil} alt="No Imag" />
@@ -64,5 +66,7 @@ const Popup = () => (
         </div>
     </>
 );
-
+Popup.propTypes = {
+    currentChest: object.isRequired,
+};
 export default Popup;
