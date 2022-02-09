@@ -98,7 +98,6 @@ const LeavePopup = ({ model, handleModel }) => {
                             <p className="day-leave">{ totalLeave && `${totalLeave} days leave`}</p>
                             <div className="text-center">
                                 <button type="submit" className="button-common">Apply leave</button>
-                                {/* <Button content="Apply leave" /> */}
                             </div>
                         </Form>
                     )}
