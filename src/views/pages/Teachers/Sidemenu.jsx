@@ -28,7 +28,7 @@ const Sidemenu = ({
             <div className="dashboard-profile">
                 <div className="row">
                     <div
-                        className="col-sm-3 dashboard-profile-left text-center"
+                        className="col-sm-3 dashboard-profile-left text-center"      
  
                         aria-hidden="true"
                     >
