@@ -1,0 +1,367 @@
+.shell-main-top.active .shell-popup-main {
+  display: block !important;
+}
+
+.shell-main-top.active .container-background {
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+.shell-main img[id="icon-small"] {
+  height: 38px;
+  width: 38px;
+  margin-right: 5px;
+  margin-left: -10px;
+}
+
+.shell-main p[id="date-title"] {
+  margin-bottom: 2px;
+  font-size: 18px;
+  text-align: left;
+  color: #454c4e;
+}
+
+.shell-main p[id="date"] {
+  font-weight: 800;
+  font-size: 18px;
+  color: #454c4e;
+}
+
+.shell-main img[id="icon-large"] {
+  margin-top: -15px;
+  margin-left: -5px;
+  height: 75.21px;
+  width: 87px;
+}
+
+.shell-main .container-background {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  overflow-y: scroll;
+  z-index: 9999;
+  padding: 2.7rem;
+  background-color: #E3FFF6;
+}
+
+.shell-main .container-background .image-background {
+  background: url("../../../../../../../assets/images/Background-shell.svg");
+  background-position: 240px -60px;
+  background-repeat: no-repeat;
+  background-size: 70% 100%;
+  height: 90vh;
+}
+
+.shell-main .container-background .total-points {
+  color: #f89000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-left: 0.938rem;
+  font-size: 1.25rem;
+}
+
+.shell-main .container-background .total-points .total-points-and-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-bottom: 30px;
+}
+
+.shell-main .container-background .total-points .close-btn {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.shell-main .container-background .total-points p {
+  padding-top: 8px;
+  padding-left: 7px;
+  font-weight: 800;
+  font-family: "Proxima Nova";
+}
+
+.shell-main .container-background .banner {
+  width: 100%;
+  text-align: center;
+  border: 2px dashed #43aa8b;
+  font-size: 24px;
+  color: #43aa8b;
+  margin: 0 auto;
+  background-color: #F5FFFC;
+  font-family: "Proxima Nova";
+  border-radius: 20px;
+  font-style: bold;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px;
+}
+
+.shell-main .container-background .banner p {
+  margin-bottom: 0;
+}
+
+.shell-main .container-background .banner img {
+  padding-right: 7px;
+}
+
+.shell-main .container-background .heading-brain-gym {
+  color: #43aa8b;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.shell-main .container-background .heading-brain-gym .heading-and-subject {
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 15px;
+}
+
+.shell-main .container-background .heading-brain-gym h2 {
+  font-size: 52px;
+  font-weight: bold;
+  font-family: "proxima_nova_rgbold";
+}
+
+.shell-main .container-background .heading-brain-gym .subject-name {
+  margin-top: -10px;
+  margin-bottom: 100px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 34px;
+  font-family: "Proxima Nova";
+}
+
+.shell-main .container-background .heading-brain-gym .flex-items-calender-date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 15px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.shell-main .container-background .heading-brain-gym .Calender {
+  height: 45px;
+  margin-right: 20px;
+  margin-top: 2px;
+}
+
+.shell-main .container-background .shells-and-dashed-borders {
+  border: 1px dashed #fca834;
+  width: 80%;
+  margin: 0 auto;
+  height: 10px;
+  border-radius: 3px;
+  background-color: white;
+  font-family: "proxima_nova_rgbold";
+}
+
+.shell-main .container-background .shells-and-dashed-borders .start-now1 {
+  color: #fc9607 !important;
+}
+
+.shell-main .container-background .shells-and-dashed-borders .Oyster-and-title > p {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+  color: #535868;
+  margin-bottom: -3px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.shell-main .container-background .shells-and-dashed-borders .Oyster-and-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: -15px;
+}
+
+.shell-main .container-background .shells-and-dashed-borders .Oyster-and-title .adjusted-image1, .shell-main .container-background .shells-and-dashed-borders .Oyster-and-title .adjusted-para1, .shell-main .container-background .shells-and-dashed-borders .Oyster-and-title .adjusted {
+  margin-left: -20px;
+}
+
+.shell-main .container-background .shells-and-dashed-borders .Oyster-and-title .adjusted-image2, .shell-main .container-background .shells-and-dashed-borders .Oyster-and-title .adjusted-para2 {
+  margin-right: -20px;
+}
+
+.shell-main .container-background .shells-and-dashed-borders .flex-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container-background::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 10px;
+}
+
+.container-background::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.container-background::-webkit-scrollbar-thumb {
+  background: #ddd;
+}
+
+.container-background::-webkit-scrollbar-thumb:hover {
+  background: #ddd;
+}
+
+@media only screen and (min-device-width: 1700px) and (max-device-width: 1800px) {
+  .shell-main .container-background .image-background {
+    background-position: 240px -42px;
+  }
+}
+
+@media only screen and (min-device-width: 900px) and (max-device-width: 1500px) {
+  .shell-main .container-background .image-background {
+    background-position: 180px -7px;
+    background-repeat: no-repeat;
+    background-size: 70% 120%;
+    height: 90vh;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .shell-main .container-background .image-background {
+    background-position: 62px 90px;
+    background-repeat: no-repeat;
+    background-size: 107% 97%;
+  }
+  .shell-main .container-background .banner p {
+    padding-top: 0px;
+  }
+  .shell-main .container-background .banner img {
+    display: none;
+  }
+  .shell-main .container-background .total-points {
+    color: #f89000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-left: 0.938rem;
+    font-size: 1rem;
+  }
+  .shell-main .container-background .total-points .total-points-and-icon p {
+    margin-top: 15px;
+    font-size: 20px;
+  }
+  .shell-main .container-background .total-points .total-points-and-icon img {
+    margin-top: 10px;
+    height: 50px;
+    width: 50px;
+  }
+  .shell-main .container-background .heading-brain-gym .flex-items-calender-date {
+    top: 200px;
+    right: 60px;
+  }
+}
+
+/* Phone */
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .shell-main .container-background .banner {
+    font-size: 20px;
+    height: auto;
+  }
+  .shell-main .container-background .banner p {
+    padding-top: 0px;
+  }
+  .shell-main .container-background .banner img {
+    display: none;
+  }
+  .shell-main .container-background .heading-brain-gym .heading-and-subject h2 {
+    font-size: 50px;
+  }
+  .shell-main .container-background .heading-brain-gym .heading-and-subject .subject-name {
+    margin-left: 0px;
+  }
+  .shell-main .container-background .heading-brain-gym .subject-name {
+    margin-left: -56px;
+    margin-bottom: 40px;
+  }
+  .shell-main .container-background .heading-brain-gym .subject-name h2 {
+    margin-left: 0px;
+  }
+  .shell-main .container-background .heading-brain-gym .flex-items-calender-date {
+    margin-left: 30px;
+  }
+  .shell-main .container-background .shells-and-dashed-borders {
+    margin-top: 50px;
+    width: 100%;
+  }
+  .shell-main .container-background .shells-and-dashed-borders .flex-items .Oyster-and-title p {
+    font-size: 13px;
+  }
+  .shell-main .container-background .shells-and-dashed-borders img[id="icon-large"] {
+    margin-top: -10px;
+    margin-left: -5px;
+    height: 40px;
+    width: 40px;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .shell-main .banner p {
+    font-size: 16px;
+  }
+  .shell-main .heading-brain-gym .heading-and-subject h2 {
+    font-size: 35px !important;
+  }
+  .shell-main .heading-brain-gym .heading-and-subject p.subject-name {
+    font-size: 18px;
+  }
+  .shell-main .heading-brain-gym .heading-and-subject .flex-items-calender-date {
+    margin-top: 7px;
+  }
+  .shell-main .heading-brain-gym .heading-and-subject .flex-items-calender-date img.Calender {
+    width: 40px;
+    margin-right: 15px;
+  }
+  .shell-main .heading-brain-gym .heading-and-subject .flex-items-calender-date .title-and-date p {
+    font-size: 15px !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .shell-main .heading-brain-gym .heading-and-subject .col-12 {
+    width: 100% !important;
+  }
+  .shell-main .heading-brain-gym .heading-and-subject .flex-items-calender-date {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+/*# sourceMappingURL=shell.css.map */

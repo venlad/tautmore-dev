@@ -1785,7 +1785,7 @@
               }
               .mysub-upcoming-sub {
                 background-color: #fff;
-                padding: 30px 0px;
+                padding: 30px 40px;
                 border-bottom-left-radius: 10px;
                 border-bottom-right-radius: 10px;
                 display: none;
@@ -1793,6 +1793,8 @@
                   color: #454C4E;
                   font-family: "proxima_nova_rgbold";
                   font-size: 24px;
+                  padding:40px 0px;
+                  margin-top:10px;
                 }
                 p {
                   margin: 0;
@@ -2376,6 +2378,7 @@
                 }
               }
               .myexam-tab {
+               
                 align-items: center;
                 margin-top: 10px;
                 margin-bottom: 30px;
@@ -3659,12 +3662,13 @@
         .mysubject-top-left {
           width: 100%;
           text-align: center;
-          margin-bottom: 30px;
           display: block !important;
+          .heading{
+            margin:40px 10px;
+          }
         }
         .mysubject-top-right {
           width: 100%;
-
         }
       }
       .mysubject-list {

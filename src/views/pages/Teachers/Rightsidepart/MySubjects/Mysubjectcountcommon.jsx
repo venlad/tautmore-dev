@@ -1,6 +1,6 @@
 import React from 'react';
 import {  func } from 'prop-types';
-import count from '../mockData/Mysubjectcountdata';
+import count from '../../mockData/Mysubjectcountdata';
 import Mysubjectprogressbar from './Mysubjectprogressbar';
 
 const Mysubjectcountcommon = ({ setConcept }) => {

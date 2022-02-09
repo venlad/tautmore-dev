@@ -1,0 +1,221 @@
+.shell-popup-main {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  background-color: transparent;
+  display: none;
+}
+
+.shell-popup-main .svg-background-container {
+  margin: auto;
+  width: 510px;
+  height: 518px;
+  background: url("../../../../../../../../src/assets/images/shell-pop-BackgroundNotePad.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.shell-popup-main .svg-background-container .flex-items-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: left;
+  padding-top: 90px;
+  padding-left: 60px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.shell-popup-main .svg-background-container .flex-items-details .floating-clam {
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  right: 75px;
+}
+
+.shell-popup-main .svg-background-container .flex-items-details .close-btn {
+  position: absolute;
+  right: -11px;
+  top: -11px;
+  height: 120px;
+  width: 120px;
+  background: transparent;
+  border: 0;
+}
+
+.shell-popup-main .svg-background-container .flex-items-details .close-btn img {
+  height: 120px;
+  width: 120px;
+}
+
+.shell-popup-main .svg-background-container .flex-items-details h2 {
+  color: #2C2F38;
+  font-family: "Proxima Nova";
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 39px;
+}
+
+.shell-popup-main .svg-background-container .flex-items-details h3 {
+  color: #454C4E;
+  font-family: "proxima_nova_rgregular";
+  font-size: 22px;
+}
+
+.shell-popup-main .svg-background-container .flex-items-details .current-level-and-icons {
+  font-family: "proxima_nova_rgregular";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  text-align: left;
+  margin-bottom: 35px;
+  height: 32px;
+}
+
+.shell-popup-main .svg-background-container .flex-items-details .current-level-and-icons .adjusted-para {
+  height: 20px;
+  width: 6.67px;
+  color: #FFFFFF;
+  font-family: "Proxima Nova";
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-right: -20px;
+  z-index: 2;
+}
+
+.shell-popup-main .svg-background-container .flex-items-details .current-level-and-icons p {
+  margin-top: 6px;
+  padding-right: 10px;
+  color: #F89000;
+  font-family: "Proxima Nova";
+  font-size: 18px;
+  letter-spacing: 0;
+  margin-right: 10px;
+}
+
+.shell-popup-main .svg-background-container .flex-items-details .current-level-and-icons img {
+  padding-right: 5px;
+  z-index: 1;
+  margin-right: 14px;
+  height: 30px;
+  width: 32px;
+}
+
+.shell-popup-main .svg-background-container .flex-items-details .gradient-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.shell-popup-main .svg-background-container .flex-items-details .gradient-container img {
+  height: 70px;
+  width: 80px;
+}
+
+.shell-popup-main .svg-background-container .flex-items-details .buttons-container {
+  width: 80%;
+}
+
+.shell-popup-main .svg-background-container .flex-items-details .buttons-container .text-below-gradient {
+  margin-top: 10px;
+  margin-bottom: 25px;
+  width: 80%;
+  text-align: center;
+  font-size: 16px;
+  height: 22px;
+  width: 377px;
+  font-family: "proxima_nova_rgregular";
+  color: #2C2F38;
+  font-weight: 600;
+}
+
+.shell-popup-main .svg-background-container .flex-items-details .buttons-container button {
+  height: 50px;
+  width: 290px;
+  border-radius: 30px;
+  background: #43AA8B;
+  color: #FFFFFF;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+}
+
+.shell-popup-main .svg-background-container .flex-items-details .buttons-container .total-play-and-score {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.shell-popup-main .svg-background-container .flex-items-details .buttons-container .total-play-and-score .total-plays {
+  height: 20px;
+  width: 100%;
+  color: #43AA8B;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.shell-popup-main .svg-background-container .flex-items-details .buttons-container .total-play-and-score .highlighted-score {
+  margin-left: -130px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.shell-popup-main.answer {
+  display: block !important;
+}
+
+.shell-popup-main.answer .flex-items-details {
+  padding-left: 0;
+}
+
+.shell-popup-main.answer .flex-items-details .wrong-right {
+  text-align: center;
+  margin: 30px 0px;
+}
+
+.shell-popup-main.answer .flex-items-details .wrong-right img {
+  margin-bottom: 30px;
+}
+
+.shell-popup-main.answer .flex-items-details .wrong-right h5 {
+  font-size: 32px;
+  color: #2C2F38;
+  font-family: "Proxima Nova";
+}
+
+.shell-popup-main.answer .flex-items-details .wrong-right p {
+  color: #454C4E;
+  font-size: 22px;
+  font-family: "Proxima Nova";
+}
+
+.shell-popup-main.answer .flex-items-details .buttons-container {
+  width: 100%;
+}
+/*# sourceMappingURL=popup.css.map */

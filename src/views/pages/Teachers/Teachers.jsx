@@ -3,28 +3,44 @@ import { object } from 'prop-types';
 import '../../components/dashboard/dashboard.scss';
 import Sidemenu from './Sidemenu';
 import DashSearch from '../../components/dashboard/Rightsidepart/DashSearch';
-// import ExamDetails from './ExamDetails';
 import './teachers.scss';
-// import OnlineClassCompleted from './OnlineClassCompleted';
-
-// import MyClassesCommon from '../../components/dashboard/Rightsidepart/MyClass/MyClassesCommon';
-
 import Home from './Rightsidepart/Home/Home';
+import MyClass from './Rightsidepart/MyClass/MyClass';
+import MySubjects from './Rightsidepart/MySubjects/MySubjects';
+import MyStudents from './Rightsidepart/MyStudents/MyStudents';
+import MyPayments from './Rightsidepart/MyPayments/MyPayments';
 import Calendar from './Rightsidepart/Calendar/Calendar';
 import { viewTypeData } from './mockData/DashboardViewData';
 
 const Teachers = ({ match }) => {
     const [open, setOpen] = useState(false);
     const [lgShow, setLgShow] = useState(false);
-    // const [exam, setExam] = useState('');
     const viewType = match.params.viewtype ? match.params.viewtype : '';
 
     const renderLayouts = () => {
         let view = <Home lgShow={lgShow} setLgShow={setLgShow} />;
+
         switch (viewType) {
             case 'home':
                 view = <Home lgShow={lgShow} setLgShow={setLgShow} />;
                 break;
+
+            case 'subjects':
+                view = <MySubjects  />;
+                break;
+
+            case 'students':
+                view = <MyStudents lgShow={lgShow} setLgShow={setLgShow} />;
+                break;
+
+            case 'payments':
+                view = <MyPayments lgShow={lgShow} setLgShow={setLgShow} />;
+                break;
+
+            case 'classes':
+                view = <MyClass lgShow={lgShow} setLgShow={setLgShow} />;
+                break;
+
             case viewTypeData?.CALENDAR:
                 view = <Calendar />;
                 break;

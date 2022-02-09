@@ -1,0 +1,80 @@
+.row{
+    display: flex;
+  
+}
+
+.myexam-tab{
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+
+    .myexam-tab-left{
+        width: 100%;
+        margin-top:40px;
+
+
+        .dtoggle-bar{
+           display: flex;
+           padding: 2px;
+          width: 75%;
+          background-color: #fff5e6;
+          border-radius: 1.5625rem;
+
+           .toggle-maths-div{
+            width: 100% !important;
+            margin-bottom: 10px;
+            .toggle-maths-btn {
+                border: none;
+                color: #fca834;
+                width: 19.25vw;
+                height: 3.125rem;
+              }
+              .mathbtn-act {
+                border-radius: 1.5625rem;
+                background: white;
+                box-shadow: 0px 5px 5px rgb(170 114 67 / 24%);
+              }
+              .mathbtn-un {
+                border-top-left-radius: 1.5625rem;
+                border-bottom-left-radius: 1.5625rem;
+                border-top-right-radius: none;
+                border-bottom-right-radius: none;
+                background-color: #fff5e6;
+              }
+           }
+
+
+        }
+    }
+
+    .myexam-tab-right {
+        
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+      }
+
+
+}
+
+.stdloopdiv
+{
+  padding-top: 20px;
+  
+  .innerdiv{
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 6px 24px 0 rgba(181,181,181,0.24);
+  
+
+  .studenticon{
+    height: 60px;
+    width: 60px;
+
+  }
+}
+
+}
+

@@ -8,15 +8,13 @@ import { sidebardata, accountData } from './mockData/SidebarData';
 import { menu } from '../../../assets/icons/IconList';
 import logouticon from '../../../assets/images/logouticon.png';
 import { clearLoginAction } from '../../../stores/Auth/AuthAction';
-
 const Sidemenu = ({
     open, setOpen, clearLogin, viewType
 }) => {
-  
     const history = useHistory();
     const logOut = () => {
         localStorage.removeItem('taut-student');
-        clearLogin();
+        clearLogin();  
         history.push('/');
     };
     const toggleTrueFalse = () => {
@@ -31,7 +29,7 @@ const Sidemenu = ({
                 <div className="row">
                     <div
                         className="col-sm-3 dashboard-profile-left text-center"
-
+ 
                         aria-hidden="true"
                     >
                         <Link to="/dashboard/My-profile"><img src={Sidebarprofile} alt="profile" /></Link>

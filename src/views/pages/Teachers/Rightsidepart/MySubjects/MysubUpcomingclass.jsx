@@ -1,12 +1,12 @@
 import React from 'react';
 import {  bool, func } from 'prop-types';
-import errowright from '../../../../assets/images/errowright.png';
+import errowright from '../../../../../assets/images/errowright.png';
 // import clock from '../../../../assets/images/stopwatch.png';
 // import info from '../../../../assets/images/info.png';
 import MysubProgressbar from './MysubProgressbar';
-import downArrow from '../../../../assets/images/downarrow.png';
-import { chevRight } from '../../../../assets/icons/IconList';
-import error from '../../../../assets/images/error.png';
+import downArrow from '../../../../../assets/images/downarrow.png';
+import { chevRight } from '../../../../../assets/icons/IconList';
+import error from '../../../../../assets/images/error.png';
 
 const MysubUpcomingclass = ({
     show, setShow, hide, setHide,
