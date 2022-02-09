@@ -3,6 +3,49 @@
   width: 60px;
 }
 
+.dothide {
+  display: none;
+}
+
+.dothide {
+  display: none;
+}
+
+.mypaymenttab .nav-tabs .nav-link.active {
+  color: #1C1C1C;
+  border-color: transparent transparent #eee !important;
+  border-bottom: 6px solid #1C1C1C !important;
+  background-color: transparent !important;
+}
+
+.mypaymenttab .nav-tabs .nav-link {
+  border-top-left-radius: 0rem;
+  border-top-right-radius: 0rem;
+  color: #1C1C1C;
+  font-family: "Proxima Nova";
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+.mypaymenttab {
+  padding-top: 30px;
+}
+
+.nav-link:focus, .nav-link:hover {
+  color: #495057 !important;
+}
+
+.mypaymenttab .nav-tabs {
+  width: 50% !important;
+}
+
+.paymentstdid {
+  color: #20282A;
+  font-weight: 600;
+}
+
 .main1 {
   padding-top: 30px;
 }
