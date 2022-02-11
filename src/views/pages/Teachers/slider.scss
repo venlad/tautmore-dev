@@ -4,6 +4,19 @@
         background-color: #FFFFFF !important;
         box-shadow: 0 12px 34px -10px rgba(0, 0, 0, 0.05) !important;
         padding: 30px;
+        .sub-box-main {
+            .sub-box-right {
+                text-align: right;
+                button {
+                    background-color: transparent;
+                    border: 0;
+                    cursor: pointer;
+                    color: #f3722c;
+                    text-transform: uppercase;
+                    font-family: "proxima_nova_rgbold";
+                }
+            }
+        }
     }
 
 

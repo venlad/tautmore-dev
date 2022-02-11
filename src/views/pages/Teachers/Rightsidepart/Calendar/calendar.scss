@@ -482,7 +482,7 @@
                 font-family: "Proxima Nova";
                 font-size: 18px;
             }
-            input {
+            input, button.dropdown-toggle {
                 border-radius: 10px;
                 width: 100%;
                 border: 1px solid #E0E0E0;
@@ -512,6 +512,114 @@
                 font-size: 18px;
                 margin-bottom: 0;
                 margin-top: 10px;
+            }
+        }
+    }
+}
+.reschedule-popup {
+    .time-dropdown {
+        button.dropdown-toggle {
+            color: #7D8283;
+            font-family: "Proxima Nova";
+        }
+        button.dropdown-toggle::after {
+            float: right;
+            margin-top: 10px;
+        }
+        button.dropdown-toggle:focus {
+            outline: none;
+            box-shadow: none;
+        }
+        .dropdown-menu {
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #43AA8B;
+            border-radius: 10px;
+            h5 {
+                color: #F3722C;
+                font-family: "Proxima Nova";
+                font-size: 18px;
+                border-bottom: 1px solid #6F797B;
+                padding-bottom: 15px;
+            }
+            .time-main {
+                margin-top: 20px;
+                .time-common {
+                    width: 30%;
+                    display: inline-block;
+                    input {
+                        height: 100px;
+                        color: #F3722C;
+                        font-size: 40px;
+                        font-family: "Proxima Nova";
+                        text-align: center;
+                    }
+                    input:focus {
+                        border: 2px solid #F3722C;
+                    }
+                    span {
+                        color: #7D8283;
+                        font-family: "Proxima Nova";
+                        margin-top: 10px;
+                        display: inline-block;
+                    }
+                }
+                .time-center {
+                    display: inline-block;
+                    width: 12%;
+                    text-align: center;
+                    vertical-align: top;
+                    span {
+                        font-size: 65px;
+                        margin-top: -5px;
+                        display: inline-block;
+                    }
+                }
+                .time-am-pm {
+                    display: inline-block;
+                    width: 20%;
+                    float: right;
+                    div {
+                        display: flex;
+                        justify-content: flex-end;
+                        flex-direction: column;
+                        width: 80px;
+                        float: right;
+                        border: 1px solid rgba(125,130,131,0.3);
+                        border-radius: 10px;
+                        overflow: hidden;
+                        button {
+                            border: 0;
+                            background-color: #fff;
+                            height: 50px;
+                            color: #7D8283;
+                            font-family: "Proxima Nova";
+                        }
+                        button.active {
+                            background-color: rgba(243,114,44,0.2) !important;
+                            color: #F3722C;
+                        }
+                        button:first-child{
+                            border-bottom: 1px solid rgba(125,130,131,0.3);
+                        }
+                    }
+                }
+            }
+            .time-bottom {
+                border: 1px solid transparent;
+                text-align: right;
+                margin-top: 50px;
+                button {
+                    background-color: transparent;
+                    border: 0;
+                    color: #F3722C;
+                    font-family: "proxima_nova_rgbold";
+                    text-transform: uppercase;
+                    font-size: 18px;
+                }
+                button:first-child {
+                    margin-right: 20px;
+                }
             }
         }
     }

@@ -67,7 +67,7 @@
     border-radius: 10px;
     background-color: #FFFFFF;
     box-shadow: 0 6px 24px 0 rgba(181,181,181,0.24);
-  
+    cursor: pointer;
 
   .studenticon{
     height: 60px;
@@ -77,4 +77,237 @@
 }
 
 }
-
+.student-detail-main {
+  .back-btn {
+    background-color: transparent;
+    border: 0;
+    margin: 20px 0px;
+    color: #454C4E;
+    font-family: "proxima_nova_rgbold";
+  }
+  .head {
+    background-color: #fff;
+    box-shadow: rgba(0,0,0,0.05);
+    border-radius: 10px;
+    padding: 20px;
+    .head-left {
+      img {
+        width: 100%;
+      }
+      h4 {
+        color: #20282A;
+        font-family: "Proxima Nova";
+        font-size: 24px;
+      }
+      p {
+        font-size: 18px;
+        color: #454C4E;
+        font-family: "proxima_nova_rgregular";
+        margin-bottom: 8px;
+      }
+      .text-left {
+        color: #454C4E;
+        font-family: "proxima_nova_rgregular";
+        font-size: 12px;
+        margin-bottom: 7px;
+      }
+      .text-right {
+        color: #79A2E7;
+        font-family: "proxima_nova_rgbold";
+        font-size: 14px;
+        text-align: right;
+      }
+      .progress {
+        height: 8px;
+        border-radius: 5.5px;
+        background-color: #D0E2FF;
+        .progress-bar {
+          background-color: #79A2E7 !important;
+          height: 8px;
+          border-radius: 5.5px;
+        }
+      }
+    }
+    .head-right {
+      padding-left: 60px;
+      .row {
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+      .icon {
+        height: 60px;
+        width: 60px;
+        border-radius: 10px;
+        float: left;
+        margin-right: 15px;
+      }
+      .orange {
+        .icon{
+          background-color: #FFE7D9;
+        }
+        .text {
+          h4 {
+            color: #F3722C;
+          }
+        }
+      }
+      .green {
+        .icon {
+          background-color: #E3FFF6;
+        }
+        .text {
+          h4 {
+            color: #43AA8B;
+          }
+        }
+      }
+      .text {
+        p {
+          margin-bottom: 0;
+          font-family: "Proxima Nova";
+          color: #454C4E;
+          font-size: 16px;
+        }
+        h4 {
+          font-size: 24px;
+          font-family: "proxima_nova_rgbold";
+        }
+      }
+    }
+  }
+  .sub-performance {
+    background-color: #fff;
+    box-shadow: rgba(0,0,0,0.05);
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 10px;
+    .sub-performance-head {
+      font-family: "proxima_nova_rgbold";
+      text-transform: uppercase;
+      h3 {
+        color: #454C4E;
+        font-size: 28px;
+      }
+      p {
+        color: #6F797B;
+        font-size: 18px;
+      }
+    }
+    .count-block {
+      margin-top: 30px;
+      border-radius: 10px;
+      h4 {
+        font-size: 16px;
+        padding: 10px 20px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      .count-block-desc {
+        padding: 10px 20px;
+        p.score {
+          font-size: 12px;
+          color: #6F797B;
+          font-family: "Proxima Nova";
+          img {
+            height: 28px;
+            width: 28px;
+            margin-top: -10px;
+          }
+          span {
+            font-size: 24px;
+            font-family: "proxima_nova_rgbold";
+            margin: 0px 10px;
+          }
+        } 
+        p.desc {
+          color: #454C4E;
+          font-size: 14px;
+          font-family: "Proxima Nova";
+          line-height: 19px;
+          margin-bottom: 0px;
+        }
+      }
+    }
+    .count-block.success {
+      border: 1px solid #43AA8B;
+      h4 {
+        background-color: #E3FFF6;
+        color: #4EB092;
+      }
+      p.score {
+        span {
+          color: #43AA8B;
+        }
+      }
+    }
+    .count-block.error {
+      border: 1px solid #FFBC33;
+      h4 {
+        background-color: #FCF2CE;
+        color: #F4A911;
+      }
+      p.score {
+        span {
+          color: #F4A911;
+        }
+      }
+    }
+  }
+  .assignment-main {
+    h3.title {
+      color: #20282A;
+      font-family: "proxima_nova_rgbold";
+      margin: 40px 0px;
+      img {
+        width: 40px;
+        height: 50px;
+        margin-right: 10px;
+      }
+    }
+    .assignment-common {
+      background-color: #F4F7FC;
+      border-radius: 10px;
+      padding: 30px;
+      h3 {
+        color: #20282A;
+        font-family: "proxima_nova_rgbold";
+        font-size: 24px;
+        margin-bottom: 3px;
+        span {
+          float: right;
+          background-color: #FFEAF1;
+          font-size: 12px;
+          text-transform: uppercase;
+          padding: 5px 12px;
+          border-radius: 9.5px;
+        }
+      }
+      p.desc {
+        color: #454C4E;
+        font-family: "Proxima Nova";
+        font-size: 18px;
+        text-transform: uppercase;
+      }
+      h5 {
+        color: #6F797B;
+        font-family: "Proxima Nova";
+        text-transform: uppercase;
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+      p.date {
+        margin-bottom: 0;
+        font-family: "Proxima Nova";
+        color: #20282A;
+        font-size: 16px;
+        span {
+          float: right;
+          color: #79A2E7;
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
