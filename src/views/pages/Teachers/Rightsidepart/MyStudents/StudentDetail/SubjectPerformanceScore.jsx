@@ -9,7 +9,8 @@ const SubjectPerformanceScore = ({
         <h4>{heading}</h4>
         <div className="count-block-desc">
             <p className="score"><img src={hand} alt="hand" />
-                <span>{score}</span> HIGHEST SCORE
+                <span className="score-num">{score}</span>
+                <span className="score-text">HIGHEST SCORE</span>
             </p>
             <p className="desc">{desc}</p>
         </div>
