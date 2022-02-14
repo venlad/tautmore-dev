@@ -13,11 +13,11 @@ const Sidemenu = ({
 }) => {
     const history = useHistory();
     const logOut = () => {
-        localStorage.removeItem('taut-student');
-        clearLogin();  
+        localStorage.removeItem('taut-student');              
+        clearLogin();        
         history.push('/');
     };
-    const toggleTrueFalse = () => {
+    const toggleTrueFalse = () => {    
         setOpen(!open);
     };
     return (
@@ -32,13 +32,13 @@ const Sidemenu = ({
  
                         aria-hidden="true"
                     >
-                        <Link to="/dashboard/My-profile"><img src={Sidebarprofile} alt="profile" /></Link>
+                        <Link to="/teacher/profile"><img src={Sidebarprofile} alt="profile" /></Link>
                     </div>
                     <div
                         className="col-sm-6 dashboard-profile-center"
                       
                     >
-                        <Link to="/dashboard/My-profile">
+                        <Link to="/teacher/profile">
                             <h5>Susan Richards</h5>
                             <p>susan.9871245551</p>
                         </Link>
@@ -58,7 +58,7 @@ const Sidemenu = ({
                     <h5>{sidebardata.title}</h5>
                     <ul>
                         {sidebardata?.data?.map((data) => (
-                            <li key={data?.title}  aria-hidden="tru e" className={`${viewType === data?.to ? 'active' : ''}`}>
+                            <li key={data?.title}  aria-hidden="true" className={`${viewType === data?.to ? 'active' : ''}`}>
                                 <Link to={`/teacher/${data?.to}`}>
                                     <img src={data?.image} alt="dash_list_img" />
                                     {data?.title}

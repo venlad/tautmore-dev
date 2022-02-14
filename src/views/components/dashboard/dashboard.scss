@@ -332,12 +332,13 @@
                         .progress {
                           background-color: #ffe7d9;
                           border-radius: 10px;
-                          height: 10px;
+                          height:5px;
                           .progress-bar {
                             background-color: #f3722c;
                             border-radius: 10px;
                             overflow: visible;
                             position: relative;
+                           
                             &:after {
                               content: "";
                               position: absolute;
@@ -1793,7 +1794,7 @@
                   color: #454C4E;
                   font-family: "proxima_nova_rgbold";
                   font-size: 24px;
-                  padding:40px 0px;
+                  
                   margin-top:10px;
                 }
                 p {
@@ -1917,6 +1918,7 @@
               margin-top: 30px;
               .myconcept-left {
                 .myconcept-head-main {
+                  
                  
                   .myconcept-head-top {
                     padding: 15px 20px;

@@ -1,0 +1,599 @@
+.calendar-main .calendar-head {
+  margin-top: 30px;
+}
+
+.calendar-main .calendar-head h3 {
+  font-family: "proxima_nova_rgbold";
+  font-size: 32px;
+  color: #20282A;
+  display: inline-block;
+  margin-right: 30px;
+}
+
+.calendar-main .calendar-head p.desc {
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  color: #6F797B;
+  line-height: 19px;
+  margin-top: 55px;
+  margin-bottom: 0;
+}
+
+.calendar-main .calendar-head .text-right {
+  text-align: right;
+}
+
+.calendar-main .calendar-head .text-right button.leave {
+  background-color: #F3722C;
+  color: #FFE7D9;
+  border-radius: 10px;
+  height: 50px;
+  width: 190px;
+  color: #fff;
+  font-family: "proxima_nova_rgbold";
+  font-size: 16px;
+  border: 0;
+}
+
+.calendar-main .calendar-head .left-right-arrow {
+  display: inline-block;
+}
+
+.calendar-main .calendar-head .left-right-arrow .arrow-common {
+  height: 34px;
+  width: 34px;
+  background-color: #EAEAEA;
+  color: #20282A;
+  border-radius: 50%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.calendar-main .calendar-head .view-part {
+  margin-bottom: 30px;
+}
+
+.calendar-main .calendar-head .view-part p {
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  color: #6F797B;
+  line-height: 19px;
+  margin-bottom: 0;
+  display: inline-block;
+  margin-right: 20px;
+  position: relative;
+  top: -6px;
+}
+
+.calendar-main .calendar-head .view-part span {
+  margin-right: 20px;
+}
+
+.calendar-main .calendar-head .view-part button {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 24px;
+  background-color: transparent;
+  border: 0;
+}
+
+.calendar-main .calendar-head .view-part button.menu {
+  background-image: url("../../../../../../src/assets/images/menu.svg");
+  margin-right: 10px;
+}
+
+.calendar-main .calendar-head .view-part button.grid {
+  background-image: url("../../../../../../src/assets/images/grid.svg");
+}
+
+.calendar-main .calendar-table {
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  -webkit-box-shadow: rgba(189, 189, 189, 0.07);
+          box-shadow: rgba(189, 189, 189, 0.07);
+  border-radius: 10px;
+}
+
+.calendar-main .calendar-table table {
+  border-collapse: collapse;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.calendar-main .calendar-table table tr {
+  display: inline-block;
+}
+
+.calendar-main .calendar-table table td {
+  display: block;
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+.calendar-main .calendar-table table td.border-bottom {
+  margin-bottom: 15px;
+  color: #6F797B;
+  font-size: 14px;
+  font-family: "Proxima Nova";
+  border-color: #6F797B;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-toolbar {
+  position: absolute;
+  top: 120px;
+  left: 17px;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-toolbar .rbc-toolbar-label {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  font-family: "proxima_nova_rgbold";
+  font-size: 32px;
+  color: #20282A;
+  display: inline-block;
+  margin-right: 30px;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-toolbar span.rbc-btn-group:nth-child(1) {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-toolbar span.rbc-btn-group:nth-child(1) button:first-child {
+  display: none;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-toolbar span.rbc-btn-group:nth-child(1) button {
+  height: 34px;
+  width: 34px;
+  background-color: #EAEAEA;
+  color: #20282A;
+  border-radius: 50%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 0px;
+  border: 0;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-toolbar span.rbc-btn-group:nth-child(1) button:nth-child(2) {
+  margin-right: 40px;
+  position: relative;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-toolbar span.rbc-btn-group:nth-child(1) button:nth-child(2)::after {
+  content: '';
+  background-image: url("../../../../../../src/assets/images/rectangle.svg");
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  background-size: cover;
+  left: 145%;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-toolbar span.rbc-btn-group:nth-child(3) {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  display: none;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-month-view {
+  border: 0;
+  display: block;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-month-view .rbc-date-cell.rbc-now.rbc-current {
+  color: #F3722C;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-month-view .rbc-event-allday {
+  background-color: transparent;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-month-view .rbc-event-allday .event-common {
+  background-image: url("../../../../../../src/assets/images/rectangle.svg");
+  height: 10px;
+  width: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: auto;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-month-view .rbc-date-cell a:hover {
+  color: #20282A;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-month-view .rbc-header {
+  border: 0;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-month-view .rbc-month-row .rbc-day-bg + .rbc-day-bg {
+  border: 0;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-month-view .rbc-month-row .rbc-day-bg.rbc-today {
+  background-color: transparent;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-month-view .rbc-month-row + .rbc-month-row {
+  border: 0;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-month-view .rbc-month-header {
+  border-bottom: 1px solid #6F797B;
+  margin-bottom: 20px;
+  padding-bottom: 25px;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-month-view .rbc-month-header .rbc-header span {
+  color: #6F797B;
+  font-size: 14px;
+  font-family: "Proxima Nova";
+  text-transform: uppercase;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-month-view .rbc-month-row .rbc-date-cell {
+  text-align: center;
+  font-family: "proxima_nova_rgbold";
+  color: #20282A;
+  font-size: 20px;
+  padding: 15px 0px;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-month-view .rbc-month-row .rbc-off-range-bg {
+  background: transparent;
+}
+
+.calendar-main .calendar-table .rbc-calendar .rbc-month-view .rbc-month-row .rbc-date-cell.rbc-off-range {
+  color: #6F797B;
+}
+
+.calendar-main .calendar-row.full-view .rbc-date-cell, .calendar-main .calendar-row.full-view .rbc-header {
+  text-align: left !important;
+}
+
+.calendar-main .calendar-row.full-view .rbc-calendar {
+  min-height: auto !important;
+  display: block;
+}
+
+.calendar-main .calendar-row.full-view .rbc-calendar .rbc-month-view {
+  display: block;
+}
+
+.calendar-main .calendar-row.full-view .rbc-calendar .rbc-month-view .rbc-month-row .rbc-date-cell {
+  padding-bottom: 15px;
+}
+
+.calendar-main .calendar-row.full-view .rbc-month-row .rbc-day-bg {
+  border-bottom: 1px solid #6F797B !important;
+  margin-right: 25px;
+}
+
+.calendar-main .calendar-row.full-view .rbc-month-row .rbc-date-cell {
+  padding-top: 15px;
+}
+
+.calendar-main .calendar-row.full-view div.rbc-month-row:last-child .rbc-day-bg {
+  border: 0 !important;
+}
+
+.calendar-main .calendar-row.full-view .rbc-month-header {
+  border: 0 !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.calendar-main .calendar-row.full-view .rbc-month-header .rbc-header {
+  border-bottom: 1px solid #6F797B !important;
+  margin-right: 25px;
+  padding-bottom: 20px;
+}
+
+.calendar-main .calendar-row.full-view .rbc-row-segment {
+  padding: 0;
+}
+
+.calendar-main .calendar-row.full-view .rbc-date-cell.rbc-now.rbc-current {
+  padding: 0 !important;
+}
+
+.calendar-main .calendar-row.full-view .rbc-date-cell.rbc-now.rbc-current a {
+  padding-left: 10px;
+  width: 84%;
+  background-color: #FFF4E9;
+  height: 100%;
+  display: block;
+  padding-top: 20px;
+}
+
+.calendar-main .calendar-row.full-view .rbc-event.rbc-event-allday {
+  background-color: #FFF4E9;
+  border-radius: 0;
+  width: 84%;
+  padding-left: 10px;
+}
+
+.calendar-main .calendar-row.full-view .event-main {
+  color: #000;
+  text-align: left;
+}
+
+.calendar-main .calendar-row.full-view .event-main p.subject {
+  margin-bottom: 0;
+  color: #20282A;
+  font-family: "proxima_nova_rgbold";
+  font-size: 14px;
+}
+
+.calendar-main .calendar-row.full-view .event-main p.time {
+  color: #6F797B;
+  font-size: 14px;
+  font-family: "Proxima Nova";
+  margin-bottom: 0;
+}
+
+.calendar-main .time-table {
+  background-color: #FFF4E9;
+  -webkit-box-shadow: rgba(189, 189, 189, 0.07);
+          box-shadow: rgba(189, 189, 189, 0.07);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.calendar-main .time-table .time-table-head {
+  border-bottom: 1px solid #F3722C;
+  margin-bottom: 20px;
+  color: #F3722C;
+  font-size: 16px;
+  font-family: "proxima_nova_rgbold";
+}
+
+.calendar-main .time-table .time-table-common {
+  margin-bottom: 25px;
+}
+
+.calendar-main .time-table .time-table-common h5 {
+  margin-bottom: 0;
+  font-family: "proxima_nova_rgbold";
+  color: #20282A;
+  font-size: 22px;
+}
+
+.calendar-main .time-table .time-table-common p {
+  margin: 5px 0;
+  color: #20282A;
+  font-family: "proxima_nova_rgregular";
+}
+
+.calendar-main .time-table .time-table-common a {
+  color: #F3722C;
+  font-family: "proxima_nova_rgregular";
+}
+
+.calendar-main .leave-main {
+  margin-top: 30px;
+}
+
+.calendar-main .leave-main h3 {
+  font-family: "proxima_nova_rgbold";
+  font-size: 32px;
+  color: #20282A;
+}
+
+.calendar-main .leave-main .leave-table {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.calendar-main .leave-main table {
+  border-collapse: separate;
+  border-spacing: 0px 20px;
+  width: 100%;
+}
+
+.calendar-main .leave-main table tbody tr {
+  background-color: #fff;
+  -webkit-box-shadow: rgba(189, 189, 189, 0.07) !important;
+          box-shadow: rgba(189, 189, 189, 0.07) !important;
+}
+
+.calendar-main .leave-main table tbody tr td {
+  font-size: 16px;
+  color: #20282A;
+  font-family: "proxima_nova_rgbold";
+}
+
+.calendar-main .leave-main table tbody tr td span.dot {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.calendar-main .leave-main table tbody tr td.Pending {
+  color: #FCA834;
+}
+
+.calendar-main .leave-main table tbody tr td.Pending span.dot {
+  background-color: #FCA834;
+}
+
+.calendar-main .leave-main table tbody tr td.Approved {
+  color: #43AA8B;
+}
+
+.calendar-main .leave-main table tbody tr td.Approved span.dot {
+  background-color: #43AA8B;
+}
+
+.calendar-main .leave-main table tbody tr td.Denied {
+  color: #E72D0D;
+}
+
+.calendar-main .leave-main table tbody tr td.Denied span.dot {
+  background-color: #E72D0D;
+}
+
+.calendar-main .leave-main table tbody tr td.Cancelled {
+  color: #787C7E;
+}
+
+.calendar-main .leave-main table tbody tr td.Cancelled span.dot {
+  background-color: #787C7E;
+}
+
+.calendar-main .leave-main table tbody tr td.edit {
+  color: #F3722C;
+  text-decoration: underline;
+  font-size: 16px;
+  font-family: "proxima_nova_rgbold";
+  text-transform: uppercase;
+}
+
+.calendar-main .leave-main table td {
+  padding: 15px;
+}
+
+.calendar-main .leave-main table thead td {
+  padding: 0px 15px;
+  font-size: 14px;
+  color: #6F797B;
+  font-family: "proxima_nova_rgbold";
+}
+
+@media only screen and (max-width: 767px) {
+  .calendar-main .calendar-head .text-right {
+    text-align: left;
+  }
+  .calendar-main .calendar-head .text-right button {
+    height: 45px;
+    width: 150px;
+    font-size: 15px;
+  }
+  .calendar-main .calendar-head .view-part {
+    text-align: center;
+  }
+  .calendar-main .calendar-head .view-part p {
+    margin: 1rem 0;
+  }
+  .calendar-main .calendar-head h3 {
+    font-size: 28px;
+  }
+  .calendar-main .calendar-head p {
+    font-size: 14px;
+  }
+  .calendar-main .time-table {
+    margin: 30px 0px;
+  }
+  .calendar-main .time-table .time-table-common h5 {
+    font-size: 20px;
+  }
+  .calendar-main .time-table .time-table-common p {
+    font-size: 14px;
+  }
+  .calendar-main .leave-main h3 {
+    font-size: 28px;
+  }
+  .calendar-main .leave-main .leave-table tbody tr td {
+    font-size: 13px;
+  }
+}
+
+.calendar-leave-popup .modal-dialog {
+  max-width: 620px;
+}
+
+.calendar-leave-popup .modal-content {
+  height: auto !important;
+  overflow: auto !important;
+}
+
+.calendar-leave-popup .modal-content .close {
+  top: 30px;
+}
+
+.calendar-leave-popup .modal-content .modal-header h3 {
+  font-family: "proxima_nova_rgbold";
+  font-size: 32px;
+  color: #20282A;
+}
+
+.calendar-leave-popup .modal-content .modal-header p {
+  color: #7D8283;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 0;
+}
+
+.calendar-leave-popup .modal-content .modal-body {
+  padding: 30px;
+  padding-top: 15px;
+}
+
+.calendar-leave-popup .modal-content .modal-body div.label {
+  color: #7D8283;
+  font-family: "Proxima Nova";
+  font-size: 18px;
+}
+
+.calendar-leave-popup .modal-content .modal-body input {
+  border-radius: 10px;
+  width: 100%;
+  border: 1px solid #E0E0E0;
+  height: 66px;
+  padding: 15px;
+}
+
+.calendar-leave-popup .modal-content .modal-body input[type=textarea] {
+  height: 100px;
+}
+
+.calendar-leave-popup .modal-content .modal-body input:focus {
+  border-color: #43AA8B;
+  outline: none;
+}
+
+.calendar-leave-popup .modal-content .modal-body button.button-common {
+  margin-top: 30px;
+}
+
+.calendar-leave-popup .modal-content .modal-body .mt-25.ml-25.rp-manage-school_error-message {
+  margin-top: -15px;
+  font-size: 13px;
+  color: red;
+  margin-bottom: 20px;
+}
+
+.calendar-leave-popup .modal-content .modal-body p.day-leave {
+  text-align: center;
+  color: #F3722C;
+  font-family: "proxima_nova_rgbold";
+  font-size: 18px;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+/*# sourceMappingURL=calendar.css.map */

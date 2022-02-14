@@ -51,7 +51,6 @@ const AssignmentsAndHomeWork = () => (
                             </div>
 
                         </div>
-
                         <div className="container-lists-and-sublists">
                             <h3 className="sub-topic">B. Even or Odd</h3>
                             <div className="label-and-checkbox">
