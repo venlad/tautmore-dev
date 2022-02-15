@@ -21,7 +21,6 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-    console.log(action, 'Action from reducer');
     switch (action.type) {
         case actionTypes.UPDATE_LOGIN:
             return {

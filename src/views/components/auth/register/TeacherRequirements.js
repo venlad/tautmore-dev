@@ -32,17 +32,16 @@ const TeacherRequirements = ({
 
     console.log(timeSlotMonday);
 
-    const mondayLabels = (abc) => {
-        const array1 = abc.map((item) => item.value);
-
-        return array1;
+    const labelsOnly = (array1) => {
+        const labels = array1?.map((item) => item.value);
+        return labels;
     };
 
-    const timeSlotValueonly = mondayLabels(timeSlotMonday);
+    const timeSlotMondayLabel = labelsOnly(timeSlotMonday);
 
-    console.log(timeSlotValueonly.toString());
+    console.log(timeSlotMondayLabel.toString());
 
-    const userType = 'Student';
+    const userType = 'Teacher';
 
     const experience = [
         { value: 'Yes', label: 8 },
@@ -210,7 +209,7 @@ const TeacherRequirements = ({
                                      setSubjectVal={setSubjectVal}
                                      subjectVal={subjectVal}
                                      validation={validation}
-                                     userType={userType}
+                                     userType="Teacher"
                                      styles={dropdownSingleValueStyles}
                                  />
                              ) }
@@ -222,7 +221,7 @@ const TeacherRequirements = ({
                                                 setCategoryVal={setCoCurricularActivities}
                                                 categoryVal={coCurricularActivities}
                                                 validation={validation}
-                                                userType={userType}
+                                                userType="Teacher"
                                             />
                                         )}
 
@@ -232,7 +231,7 @@ const TeacherRequirements = ({
                                             setCategoryVal={setPastExperience}
                                             categoryVal={pastExperience}
                                             validation={validation}
-                                            userType={userType}
+                                            userType="Teacher"
                                             onChange={(e) => onExperienceClick(e)}
                                         />
                                     </div>
@@ -342,7 +341,7 @@ const TeacherRequirements = ({
                                                 setCategoryVal={setPastExperience}
                                                 categoryVal={pastExperience}
                                                 validation={validation}
-                                                userType={userType}
+                                                userType="Student"
                                             />
 
                                         </div>
@@ -378,7 +377,7 @@ const TeacherRequirements = ({
                                 setTimeSlotSaturday={setTimeSlotSaturday}
                                 validation={validation}
                                 timeslots={timeslots}
-                                timeSlotValueonly={timeSlotValueonly}
+                                timeSlotValueonly={timeSlotMondayLabel}
                             />
                         </div>
 

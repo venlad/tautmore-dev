@@ -22,8 +22,18 @@ const Coursedetailsubjects = ({
         }
     };
 
+    const checkDisplay = () => {
+        if (userType === 'Student') {
+            return 'block';
+        }
+        if (userType === 'Teacher') {
+            return 'block';
+        }
+        return 'none';
+    };
+
     return (
-        <div className="col-md-6 subject-list-main" style={{ display: (userType === 'Student' ? 'block' : 'none')  }}>
+        <div className="col-md-6 subject-list-main" style={{ display: { checkDisplay }  }}>
             <label className="label" htmlFor="sublist">{label}</label>
             <div>
                 {data.map((val, ind) => (

@@ -22,8 +22,18 @@ const CourseDetailsCategories = ({
         }
     };
 
+    const checkDisplay = () => {
+        if (userType === 'Student') {
+            return 'block';
+        }
+        if (userType === 'Teacher') {
+            return 'block';
+        }
+        return 'none';
+    };
+
     return (
-        <div className="col-md-6 subject-list-main" style={{ display: (userType === 'Student' ? 'block' : 'none')  }}>
+        <div className="col-md-6 subject-list-main" style={{ display: { checkDisplay }  }}>
             <label className="label" htmlFor="sublist">{label}</label>
             <div>
                 {data.map((val, ind) => (
@@ -42,7 +52,7 @@ const CourseDetailsCategories = ({
                     </div>
                 ))}
             </div>
-            {validation.category && <span className="error-msg">category is required.</span>}
+            {validation.category && <span className="error-msg">Category is required.</span>}
         </div>
     );
 };
@@ -54,7 +64,6 @@ CourseDetailsCategories.propTypes = {
     categoryVal: array.isRequired,
     validation: object.isRequired,
     userType: string.isRequired,
-
 };
 
 export default CourseDetailsCategories;

@@ -129,7 +129,7 @@ const Coursedetail = ({
 
     // DropZone Code
 
-    const fileTypes = ['JPG', 'PNG', 'GIF', 'docx'];
+    const fileTypes = ['JPG', 'PDF', 'docx'];
     const [documents, setDocuments] = useState([]);
     const [fileNames, setFileNames] = useState([]);
 
@@ -140,21 +140,19 @@ const Coursedetail = ({
         const images = [];
         console.log(event);
         setFileNames([...fileNames, event.name]);
-
         const file = event;
-
         const reader = new FileReader();
-
         reader.onloadend =  () => {
             const reqData = {
                 file_name: new Date().getTime().toString(36),
                 base64_file: reader.result,
             };
             fetch(
-                'https://y1z2gzytv3.execute-api.us-east-2.amazonaws.com/development/api/image/upload',
+                'https://lbbhqlqib3.execute-api.us-east-1.amazonaws.com/development/api/teacher/presigned-url-doc-upload',
                 {
                     method: 'POST',
                     headers: {
+                        bucketKey: 'abc.pdf',
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(reqData),
@@ -170,9 +168,42 @@ const Coursedetail = ({
                 });
         };
         reader.readAsDataURL(file);
-
         setDocuments([...documents, images]);
     };
+
+    // const handleChange = (event) => {
+    //     const images = [];
+    //     console.log(event);
+    //     setFileNames([...fileNames, event.name]);
+    //     const file = event;
+    //     const reader = new FileReader();
+    //     reader.onloadend =  () => {
+    //         const reqData = {
+    //             file_name: new Date().getTime().toString(36),
+    //             base64_file: reader.result,
+    //         };
+    //         fetch(
+    //             'https://y1z2gzytv3.execute-api.us-east-2.amazonaws.com/development/api/image/upload',
+    //             {
+    //                 method: 'POST',
+    //                 headers: {
+    //                     'Content-Type': 'application/json',
+    //                 },
+    //                 body: JSON.stringify(reqData),
+    //             },
+    //         )
+    //             .then((response) => response.json())
+    //             .then((imgRes) => {
+    //                 console.log(imgRes);
+    //                 images.push(imgRes.response);
+    //             })
+    //             .catch((error) => {
+    //                 console.error('Error:', error);
+    //             });
+    //     };
+    //     reader.readAsDataURL(file);
+    //     setDocuments([...documents, images]);
+    // };
 
     //
 
@@ -361,6 +392,7 @@ const Coursedetail = ({
                                         types={fileTypes}
 
                                     />
+                                    <input type="file" handleChange={handleChange} />
                                 </div>
 
                                 <p className="max-size">Maximum file size : 15MB</p>

@@ -103,8 +103,8 @@ function* workerGetUniqueSubjects() {
     }
 }
 
-function* workerRegisterTeacher() {
-    const response = yield authServices.registerTeacher();
+function* workerRegisterTeacher(data) {
+    const response = yield authServices.registerTeacher(data.payload);
     //    console.log()
     if (response) {
         yield put({
