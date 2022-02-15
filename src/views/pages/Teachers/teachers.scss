@@ -310,30 +310,31 @@ width: 50% !important;
 .atteddiv .attendance {
   color: #43AA8B;
   font-family: "Proxima Nova";
-  
   width: 97px;
+  border: 1px solid #43AA8B;
   border-radius: 9.5px;
-  background-color: #E3FFF6;
+  background-color: #FFFFFF;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0;
   line-height: 14px;
   text-align: center;
-  padding: 8px 15px 8px 15px;
+  padding: 5px 15px 5px 15px;
 }
 .atteddiv .attendanceAbsent {
   color: #FD2A5B;
   font-family: "Proxima Nova";
- 
   width: 97px;
   border-radius: 9.5px;
-  background-color: #FFEAF1;
+  border: 1px solid #EB2F6A;
+  background-color: #FFFFFF;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0;
   line-height: 14px;
   text-align: center;
-  padding: 8px 15px 8px 15px;
+  padding: 5px 15px 5px 15px;
+
 }
 .stdloopdiv
 {
@@ -568,7 +569,7 @@ margin-bottom: 5px;
   }
   th,
   td {
-    width: 150px;
+    // width: 150px;
     text-align: center;
     border: 1px solid black;
     padding: 5px;
@@ -806,8 +807,7 @@ margin-bottom: 5px;
       font-weight: bold;
       letter-spacing: 0;
       line-height: 31px;
-      padding-top:35px;
-    
+      margin:30px 10px;    
       
     }
 
@@ -835,7 +835,7 @@ margin-bottom: 5px;
   
     .lists-and-sublists{
       padding:40px;
-      height: 686px;
+      height: 739px;
       max-width: 450px;
       display: flex;
       flex-direction: column;

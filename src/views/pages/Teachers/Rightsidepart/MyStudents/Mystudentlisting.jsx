@@ -4,7 +4,7 @@ import { func } from 'prop-types';
 import Studentimg from '../../../../../assets/images/studentimg.png';
 import Progressbar from '../../../../components/dashboard/Rightsidepart/Progressbar';
 import Mystudentlistingdata from '../../mockData/Mystudentlisting';
-// import './student.scss';
+import './student.scss';
 
 const Mystudentlisting = ({ setStudents }) => (
     <div className="col-sm-12">

@@ -1,5 +1,6 @@
 import React from 'react';
 import {  func } from 'prop-types';
+import { Link } from 'react-router-dom';
 import count from '../../mockData/Mysubjectcountdata';
 import Mysubjectprogressbar from './Mysubjectprogressbar';
 
@@ -47,9 +48,9 @@ const Mysubjectcountcommon = ({ setConcept }) => {
                     <div className="sub-list">
 
                         {data?.subtopiclist.map((sublist) => (
-
-                            <li key={sublist} onClick={handleChange} aria-hidden="true">{sublist}</li>
-
+                            <Link to="/teacher/concepts">
+                                <li key={sublist} onClick={handleChange} aria-hidden="true">{sublist}</li>
+                            </Link>
                         ))}
                     </div>
 

@@ -4,6 +4,9 @@ export const viewTypeData = {
     SUBJECTS: 'subjects',
     CALENDAR: 'calendar',
     PAYMENTS: 'payments',
+    PROFILE: 'profile',
+    MYCONCEPTS: 'concepts',
+    MYASSIGNMENTS: 'assignments',
 };
 
 export default {};
