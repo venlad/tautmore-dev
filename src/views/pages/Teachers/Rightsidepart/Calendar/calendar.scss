@@ -521,6 +521,8 @@
         button.dropdown-toggle {
             color: #7D8283;
             font-family: "Proxima Nova";
+            background-color: transparent;
+            text-align: left;
         }
         button.dropdown-toggle::after {
             float: right;

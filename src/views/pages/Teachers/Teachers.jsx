@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { object } from 'prop-types';
 import '../../components/dashboard/dashboard.scss';
-import { Link } from 'react-router-dom';
 import Sidemenu from './Sidemenu';
 import DashSearch from '../../components/dashboard/Rightsidepart/DashSearch';
 import './teachers.scss';
@@ -79,9 +78,6 @@ const Teachers = ({ match }) => {
                 />
                 <div className="col-sm-9 dashboard-right">
                     <DashSearch />
-                    <Link to="/teacher/assignments">
-                        <button type="button">Go to assignment Screen</button>
-                    </Link>
                     {renderLayouts()}
                 </div>
             </div>

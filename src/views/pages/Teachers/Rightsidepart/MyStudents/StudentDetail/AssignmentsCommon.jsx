@@ -1,5 +1,6 @@
 import React from 'react';
 import { string, bool } from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const AssignmentsCommon = ({
     sub, status, desc, date, viewAssignment, bgColor, color,
@@ -8,7 +9,7 @@ const AssignmentsCommon = ({
         <h3>{sub} <span className="status" style={{ color, backgroundColor: bgColor }}>{status}</span></h3>
         <p className="desc">{desc}</p>
         <h5>Submission date</h5>
-        <p className="date">{date} <span>{viewAssignment && 'View assignment'}</span></p>
+        <p className="date">{date} <span><Link to="/teacher/assignments">{viewAssignment && 'View assignment'}</Link></span></p>
     </div>
 );
 
