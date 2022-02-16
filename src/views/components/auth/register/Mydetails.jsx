@@ -18,7 +18,6 @@ import { dropdownSingleValueStyles } from './customCssDef';
 const Mydetails = ({
     setFullnameVal,
     fullnameVal,
-    countryVal,
     validation,
     setEmailVal,
     setCountryVal,
@@ -33,43 +32,18 @@ const Mydetails = ({
     otpVal,
     setOtpVal,
     userType,
-    countryList,
-    getAllCountriesAction,
     statesList,
     getAllStatesAction,
 
 }) => {
-    const [countries2, setCountries2] = useState([{
-        value: 1, label: '', flagUrl: '', countryCode: '',
-    }]);
-
-    useEffect(() => {
-        if (!countryList?.data) {
-            getAllCountriesAction();
-        }
-        if (countryList?.data?.length > 0) {
-            const cdata = countryList?.data.map((data) => (
-                {
-                    value: data.country_label,
-                    label: data.country_label,
-                    flagUrl: data.flag,
-                    countryCode: data.country_code,
-                }));
-            setCountries2(cdata);
-        }
-    }, [countryList]);
-
-    console.log(countries2);
-
-    console.log(countryVal.countryCode);
-
     const [states, setStates] = useState([{ value: 1, label: '' }]);
-    const [selected, setSelected] = useState(' ');
-    console.log(setSelected);
+    const [selected, setSelected] = useState('');
 
     useEffect(() => {
-        if (!statesList?.data) {
-            getAllStatesAction(selected);
+        if (selected) {
+            if (!statesList?.data) {
+                getAllStatesAction(selected);
+            }
         }
         if (statesList?.data?.length > 0) {
             const cdata = statesList?.data.map((data) => (
@@ -81,9 +55,6 @@ const Mydetails = ({
             setStates(cdata);
         }
     }, [statesList, selected]);
-
-    console.log(states, 'STATES');
-    console.log(statesList.data, 'From Redux');
 
     const [showResend, setShowResend] = useState(false);
 
@@ -114,8 +85,17 @@ const Mydetails = ({
         }
     };
 
-    console.log(setCountryVal);
-    console.log(selected, 'SeLECTED FROM COUNTRY');
+    const onCountrySelect = (code) => {
+        const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
+        console.log(code, 'from on country select');
+        const countryName = regionNames.of(`${code}`);
+        console.log(countryName);
+        if (countryName) {
+            setCountryVal(countryName);
+        }
+        setCountryVal(countryName);
+        setSelected(code);
+    };
 
     return (
         <div>
@@ -129,7 +109,7 @@ const Mydetails = ({
                         <ReactFlagsSelect
                             selectedSize={20}
                             selected={selected}
-                            onSelect={(code) => setSelected(code)}
+                            onSelect={(code) => onCountrySelect(code)}
                             placeholder="Select"
                             className="menu-flags"
                             searchable
@@ -159,7 +139,7 @@ const Mydetails = ({
                             // options={statesMapped}
                             value={stateVal}
                             onChange={(value) => {
-                                setStateVal(value);
+                                setStateVal(value.label);
                             }}
                             styles={dropdownSingleValueStyles}
                         />
@@ -237,12 +217,11 @@ Mydetails.propTypes = {
     sendOtp: func.isRequired,
     verifyOtp: func.isRequired,
     userType: string.isRequired,
-    countryVal: object.isRequired,
+
     setCountryVal: string.isRequired,
     stateVal: string.isRequired,
     setStateVal: func.isRequired,
-    countryList: array.isRequired,
-    getAllCountriesAction: func.isRequired,
+
     statesList: array.isRequired,
     getAllStatesAction: func.isRequired,
 };

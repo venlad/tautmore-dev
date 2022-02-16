@@ -95,8 +95,8 @@ const Register = ({ registerAction, isOtpVerified, registerTeacherAction }) => {
     });
 
     const teacherDetails = {
-        country: countryVal?.name,
-        state: stateVal?.name,
+        country: countryVal,
+        state: stateVal,
         fullName: fullnameVal,
         emailID: emailVal,
         phoneNumber: phoneNumVal,
@@ -115,7 +115,7 @@ const Register = ({ registerAction, isOtpVerified, registerTeacherAction }) => {
         },
     };
 
-    console.log(teacherDetails);
+    console.log(teacherDetails, 'teacher details');
 
     const [validation, setValidation] = useState({
         fullName: false,
