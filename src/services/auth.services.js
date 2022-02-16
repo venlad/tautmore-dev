@@ -67,7 +67,7 @@ function getStateList(countryCode) {
 }
 
 function registerTeacher(data) {
-    return fetchWrapper.post(`${baseUrl}/teacher/`, { ...data });
+    return fetchWrapper.post(`${baseUrl}/teacher`, { ...data });
 }
 
 export const authServices = {

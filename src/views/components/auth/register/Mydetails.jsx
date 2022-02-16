@@ -38,13 +38,7 @@ const Mydetails = ({
 }) => {
     const [states, setStates] = useState([{ value: 1, label: '' }]);
     const [selected, setSelected] = useState('');
-
     useEffect(() => {
-        if (selected) {
-            if (!statesList?.data) {
-                getAllStatesAction(selected);
-            }
-        }
         if (statesList?.data?.length > 0) {
             const cdata = statesList?.data.map((data) => (
                 {
@@ -54,7 +48,7 @@ const Mydetails = ({
                 }));
             setStates(cdata);
         }
-    }, [statesList, selected]);
+    }, [statesList]);
 
     const [showResend, setShowResend] = useState(false);
 
@@ -87,14 +81,12 @@ const Mydetails = ({
 
     const onCountrySelect = (code) => {
         const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
-        console.log(code, 'from on country select');
         const countryName = regionNames.of(`${code}`);
-        console.log(countryName);
         if (countryName) {
             setCountryVal(countryName);
         }
-        setCountryVal(countryName);
         setSelected(code);
+        getAllStatesAction(code);
     };
 
     return (

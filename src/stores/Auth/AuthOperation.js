@@ -105,7 +105,6 @@ function* workerGetUniqueSubjects() {
 
 function* workerRegisterTeacher(data) {
     const response = yield authServices.registerTeacher(data.payload);
-    //    console.log()
     if (response) {
         yield put({
             type: actionTypes.UPDATE_REGISTER_TEACHER,
@@ -179,7 +178,7 @@ function* watcherAuth() {
     yield takeLatest(actionTypes.SEND_OTP, workerSendOtp);
     yield takeLatest(actionTypes.GET_ALL_GRADES, workerGetAllGrades);
     yield takeLatest(actionTypes.GET_UNIQUE_SUBJECTS, workerGetUniqueSubjects);
-    yield takeLatest(actionTypes.UPDATE_REGISTER_TEACHER, workerRegisterTeacher);
+    yield takeLatest(actionTypes.REGISTER_TEACHER, workerRegisterTeacher);
     yield takeLatest(actionTypes.GET_TIMESLOTS, workerTimeslots);
     yield takeLatest(actionTypes.GET_UNIVERSITIES, workerGetUniversities);
     yield takeLatest(actionTypes.GET_QUALIFICATIONS, workerGetQualifications);

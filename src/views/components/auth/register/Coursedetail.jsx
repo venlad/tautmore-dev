@@ -160,7 +160,7 @@ const Coursedetail = ({
             )
                 .then((response) => response.json())
                 .then((imgRes) => {
-                    console.log(imgRes);
+                    console.log(imgRes, 'img Res');
                     images.push(imgRes.response);
                 })
                 .catch((error) => {
