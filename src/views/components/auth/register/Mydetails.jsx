@@ -64,7 +64,7 @@ const Mydetails = ({
     console.log(countryVal.countryCode);
 
     const [states, setStates] = useState([{ value: 1, label: '' }]);
-    const [selected, setSelected] = useState('');
+    const [selected, setSelected] = useState(' ');
     console.log(setSelected);
 
     useEffect(() => {
@@ -127,6 +127,7 @@ const Mydetails = ({
                     <div className="col-md-6 course-detail-select" style={{ display: ((userType === 'Teacher') ? 'block' : 'none')  }}>
                         <div className="label-div">Country*</div>
                         <ReactFlagsSelect
+                            selectedSize={20}
                             selected={selected}
                             onSelect={(code) => setSelected(code)}
                             placeholder="Select"

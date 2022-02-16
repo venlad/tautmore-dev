@@ -1581,8 +1581,8 @@
       padding: 5px;
     }
     .register-main .mydetails-main .mydetail-input button {
-      right: 3%;
-      bottom: 22%;
+      right: 1%;
+      bottom: 15%;
       font-size: 13px;
     }
     .register-main .pay-fees-main .payment-main h4 {
@@ -1596,7 +1596,55 @@
     }
   }
   @media only screen and (max-width: 769px) {
+
+    .register-main{
+
+      .phone-input-custom input{
+        font-size: 18px !important;
+      }
+
+      .register-top .logo {
+        height:54px;
+        width:200px;
+      }
+      .container{
+        width:100vw;
+      }
+
+      .option-part{
+        width:100%;
+
+        .option-part-head h3{
+          font-size: 35px;
+        }
+
+        .option-part-head p{
+          margin-top:50px;
+        }
+
+
+
+        .option-common{
+          width:150px;
+          padding-top:0px;
+          margin-left:0px;
+        }
+      }
+
+      .option-part h5.already-account{
+        margin-top:10px;
+      }
+
+      
+
+
+    }
+
+   
     .register-top {
+
+
+     
       text-align: center;
       
       h2{
