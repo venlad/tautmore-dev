@@ -3,9 +3,12 @@ import {
     func,
     object,
 } from 'prop-types';
-// import TursereComp from '../../../../../../assets/images/beltpopup.svg';
-import TursereComp from '../../../../../../assets/images/YellowBelt.svg';
 import yellowbeltIcon from '../../../../../../assets/images/yellowbeltIcon.svg';
+import yellowbelt from '../../../../../../assets/images/yellowBelt.png';
+import blueBelt from '../../../../../../assets/images/blueBelt.png';
+import purpleBelt from '../../../../../../assets/images/purpleBelt.png';
+import greenBelt from '../../../../../../assets/images/greenBelt.png';
+import blackBelt from '../../../../../../assets/images/blackBelt.png';
 import close from '../../../../../../assets/images/close.png';
 import './popup.scss';
 
@@ -19,19 +22,19 @@ const  BeltPopup = ({ completeChestData, setViewBrain, currentChest }) => {
     };
     const BeltData = [
         {
-            beltimg: TursereComp, textcolor: 'yellow', beltColorName: 'yellow', belticon: yellowbeltIcon, percentage: 20,
+            beltimg: yellowbelt, textcolor: 'yellow', beltColorName: 'yellow', belticon: yellowbeltIcon, percentage: 20,
         },
         {
-            beltimg: TursereComp, textcolor: 'blue', beltColorName: 'blue', belticon: yellowbeltIcon, percentage: 40,
+            beltimg: blueBelt, textcolor: 'blue', beltColorName: 'blue', belticon: yellowbeltIcon, percentage: 40,
         },
         {
-            beltimg: TursereComp, textcolor: 'purple', beltColorName: 'purple', belticon: yellowbeltIcon, percentage: 60,
+            beltimg: purpleBelt, textcolor: 'purple', beltColorName: 'purple', belticon: yellowbeltIcon, percentage: 60,
         },
         {
-            beltimg: TursereComp, textcolor: 'green', beltColorName: 'green', belticon: yellowbeltIcon, percentage: 80,
+            beltimg: greenBelt, textcolor: 'green', beltColorName: 'green', belticon: yellowbeltIcon, percentage: 80,
         },
         {
-            beltimg: TursereComp, textcolor: 'black', beltColorName: 'black', belticon: yellowbeltIcon, percentage: 100,
+            beltimg: blackBelt, textcolor: 'black', beltColorName: 'black', belticon: yellowbeltIcon, percentage: 100,
         },
     ];
 
