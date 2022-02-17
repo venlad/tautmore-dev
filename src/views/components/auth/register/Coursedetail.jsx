@@ -47,8 +47,6 @@ const Coursedetail = ({
     qualificationsList,
 
 }) => {
-    // Universities
-
     const [universities, setUniversities] = useState([{ value: 1, label: '' }]);
 
     let inputFile = '';
