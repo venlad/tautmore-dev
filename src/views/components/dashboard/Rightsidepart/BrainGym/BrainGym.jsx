@@ -76,7 +76,8 @@ const BrainGym = ({
         if (questionInChest?.message === 'COMPLETED' || time === 0) {
             setViewBrain('completed_chest');
             completeChest({
-                chesttId: currentChest?._id,
+                chestId: currentChest?._id,
+                // chesttId: currentChest?._id,
             });
         }
     }, [questionInChest, time]);

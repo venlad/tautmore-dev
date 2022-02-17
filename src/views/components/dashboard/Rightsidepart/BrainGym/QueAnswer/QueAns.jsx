@@ -45,7 +45,10 @@ const QueAns = ({
                 <h2>{renderText(data?.description)}</h2>
             </div> */}
 
-            <DraggAndDropQuestion questionInChest={data} />
+            <DraggAndDropQuestion
+                questionInChest={data}
+                setSelect={setSelect}
+            />
 
             <AnswerWrapper
                 data={data}
@@ -71,7 +74,7 @@ const QueAns = ({
                 <button
                     type="button"
                     className={`submit-answer-button ${select !== '' ? 'active' : ''}`}
-                    // disabled={select === ''}
+                    disabled={select === ''}
                     onClick={submitQuestion}
                 >
                     <div className="button-wrapper d-flex align-items-center justify-content-between">

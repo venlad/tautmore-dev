@@ -103,7 +103,7 @@ function* workerCompleteChest(data) {
 //                 questionsCount: 7,
 //                 answeredCorrect: 2,
 //                 averageSpeed: 11.71,
-//                 allChestCompleted: true,
+//                 allChestCompleted: false,
 //                 totalPoints: 20,
 //                 totalCoins: 20,
 //                 totalQuestionsCount: 7,
@@ -112,14 +112,6 @@ function* workerCompleteChest(data) {
 //             },
 //         },
 //     });
-// const response = yield brainGymServices.completeChest(value);
-
-// if (response) {
-//     yield put({
-//         type: actionTypes.UPDATE_COMPLETE_CHEST,
-//         payload: response,
-//     });
-// }
 // }
 
 function* watcherBrainGym() {
