@@ -11,7 +11,7 @@ const AnswerPopup = ({
 }) => {
     const startNow = () => {
         getQuestionInChest({
-            chestId,
+            chestId: chestId._id,
         });
         setViewBrain('question');
     };

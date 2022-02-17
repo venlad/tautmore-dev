@@ -1,10 +1,11 @@
 import React from 'react';
+import { object } from 'prop-types';
 import './incorrectAns.scss';
-import { incorrectList } from './mockData/incorrectAnsData';
+// import { incorrectList } from './mockData/incorrectAnsData';
 import IncorrectCommon from './IncorrectCommon';
 import close from '../../../../../../assets/images/close.png';
 
-const IncorrectAns = () => (
+const IncorrectAns = ({ incorrecrAnsData }) => (
     <div className="incorrect-ans-main">
         <div className="incorrect-ans">
             <div className="incorrect-ans-head">
@@ -12,11 +13,11 @@ const IncorrectAns = () => (
                 <button type="button"><img src={close} alt="close" /></button>
             </div>
             <div className="incorrect-ans-common-main">
-                {incorrectList.map((data, index) => (
+                {incorrecrAnsData?.data?.wrongAnswers.map((data, index) => (
                     <IncorrectCommon
-                        question={data.question}
-                        answer={data.answer}
-                        key={data.question}
+                        question={data?.description}
+                        answer={data?.answer}
+                        key={Math.random()}
                         index={index}
                     />
                 ))}
@@ -24,5 +25,9 @@ const IncorrectAns = () => (
         </div>
     </div>
 );
+
+IncorrectAns.propTypes = {
+    incorrecrAnsData: object.isRequired,
+};
 
 export default IncorrectAns;

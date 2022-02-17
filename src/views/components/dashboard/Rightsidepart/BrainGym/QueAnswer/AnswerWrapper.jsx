@@ -7,7 +7,7 @@ import TestQuestion from './TestQuestion';
 const AnswerWrapper = ({
     data, showOptions, setSelect, select, options, description, qIndex,
 }) => {
-    console.log(options, 'options from answer wrapper');
+    // console.log(options, 'options from answer wrapper');
     const questionType = findKeyByValue(data?.solutionType);
     if (checkDragDropSnunscramble(questionType)) return null;
     return (

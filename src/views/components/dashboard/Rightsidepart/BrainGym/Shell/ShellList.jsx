@@ -10,14 +10,14 @@ const ShellList = ({ setShowShell, currentChest, chests }) => {
         setShowShell(true);
     };
 
-    console.log(chests, currentChest, 'chest');
+    // console.log(chests, currentChest, 'chest');
 
     const isCurrentChest = (id) => currentChest?._id === id;
     return (
         <div className="shells-and-dashed-borders">
             <div className="flex-items">
                 {chests?.length > 0 && chests?.map((chest) => (
-                    <div className="Oyster-and-title">
+                    <div key={chest?._id} className="Oyster-and-title">
                         {isCurrentChest(chest?._id)
                             ? <img id="icon-large" className="adjusted-image1" src={OysterOpen} alt="No Imag" />
                             : <img id="icon-large" src={OysterClosed} alt="No Imag" />}

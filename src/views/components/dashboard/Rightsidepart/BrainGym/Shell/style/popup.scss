@@ -65,6 +65,7 @@
                 margin-bottom:35px;
                 height: 32px;
                
+                
                 .adjusted-para{
                     height: 20px;
                     width: 6.67px;
@@ -76,6 +77,9 @@
                     line-height: 20px;
                     margin-right:-20px;
                     z-index:2;
+                    margin-top: 11px;
+                    margin-left: 9.5px;
+                    position: absolute;
                 }
                 p{
                     margin-top:6px;
@@ -89,10 +93,13 @@
                 img{
                     padding-right:5px;
                     z-index: 1;
-                    margin-right:14px;
+                    // margin-right:14px;
                     height: 30px;
                     width: 32px;
-                }
+                    margin: 5px 5px 0px 0px;
+                    position: relative;
+                
+            }
             }
 
             .gradient-container{
@@ -149,9 +156,17 @@
                     }
 
                     .highlighted-score{
-                        margin-left:-130px;
-                        margin-bottom:10px;
-                        margin-top:5px;
+                        margin-left: -135px;
+                        margin-bottom: 10px;
+                        margin-top: 7px;
+                        height: 25px;
+                        width: 23px;
+                        border-radius: 5px;
+                        background-color: #b7ffe9;
+                        span{
+                            color: #4db293;
+                            margin-left: 6.5px;
+                        }
                     }
 
                 }

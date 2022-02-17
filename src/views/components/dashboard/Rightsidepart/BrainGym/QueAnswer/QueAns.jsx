@@ -24,7 +24,7 @@ const QueAns = ({
     const submitQuestion = () => {
         setEachTimeOn(false);
         const val = {
-            chestId,
+            chestId: chestId._id,
             questionId: questionInChest?.data[0]?._id,
             attemptedSolutionIndex: select,
             attemptedFillInTheBlankSolution: null,
@@ -33,7 +33,7 @@ const QueAns = ({
         attemptQuestion(val);
         setViewBrain('true_false');
         setEachtime(0);
-        setSelect('');
+        setSelect([]);
     };
 
     // console.log(questionInChest, 'questionInChest from QueAns');
@@ -56,22 +56,29 @@ const QueAns = ({
                 description={data?.description}
             />
             {findKeyByValue(data?.solutionType) === 'passage'
-                && data?.passageQuestions?.map((item, i) => (
-                    <AnswerWrapper
-                        data={item}
-                        qIndex={i + 1}
-                        description={item?.description}
-                        options={item?.options}
-                        setSelect={setSelect}
-                        select={select}
-                        showOptions
-                    />
-                ))}
+        && data?.passageQuestions?.map((item, i) => (
+            <AnswerWrapper
+                data={item}
+                qIndex={i + 1}
+                description={item?.description}
+                options={item?.options}
+                setSelect={setSelect}
+                select={select}
+                showOptions
+            />
+        ))}
             <div className="col-12">
-                <button type="button" className={`submit-answer-button ${select !== '' ? 'active' : ''}`} disabled={select === ''} onClick={submitQuestion}>
+                <button
+                    type="button"
+                    className={`submit-answer-button ${select !== '' ? 'active' : ''}`}
+                    // disabled={select === ''}
+                    onClick={submitQuestion}
+                >
                     <div className="button-wrapper d-flex align-items-center justify-content-between">
                         <span>Submit </span>
-                        <div className="icon-wrapper d-flex align-items-center justify-content-center">{chevRight}</div>
+                        <div className="icon-wrapper d-flex align-items-center justify-content-center">
+                            {chevRight}
+                        </div>
                     </div>
                 </button>
             </div>

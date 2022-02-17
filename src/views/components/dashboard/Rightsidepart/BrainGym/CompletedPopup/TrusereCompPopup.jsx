@@ -3,20 +3,24 @@ import {
     func,
     object,
 } from 'prop-types';
-import SpecialClam from '../../../../../../assets/images/SpecialClam.svg';
+import TursereComp from '../../../../../../assets/images/tresurehuntComp.svg';
 import Pencil from '../../../../../../assets/images/Pencil_brain-gym.svg';
 import CheckList from '../../../../../../assets/images/CheckList.svg';
 import Flash from '../../../../../../assets/images/flash.svg';
 import close from '../../../../../../assets/images/close.png';
 import './popup.scss';
 
-const Popup = ({ currentChest, completeChestData, setViewBrain }) => {
+const  TruserePopup = ({ completeChestData, setViewBrain }) => {
     const handleNextClick = () => {
-        setViewBrain('get_belt');
+        setViewBrain('home');
     };
     const closePopup = () => {
         setViewBrain('home');
     };
+    const viewReport = () => {
+        setViewBrain('report');
+    };
+
     return (
         <>
             <div className="completed-popup-main">
@@ -30,13 +34,15 @@ const Popup = ({ currentChest, completeChestData, setViewBrain }) => {
                             <div className="white-rectangle">
                                 <div className="flex-items">
 
-                                    <img className="specialClam" src={SpecialClam} alt="No Imag" />
-                                    <p className="bold-font">Well done!</p>
-                                    <p className="light-font">Shell {currentChest?.chestIndex} completed!</p>
+                                    <img className="specialClam" src={TursereComp} alt="No Imag" />
+                                    <p className="bold-font">Treasure hunt</p>
+                                    <p className="bold-font">completed!</p>
+                                    {/* <p className="light-font">Treasure hunt completed!
+                                    </p> */}
 
-                                    <div className="flex-items-points">
+                                    <div className="flex-items-points-trusere">
                                         <img src={Pencil} alt="No Imag" />
-                                        <p className="points">{completeChestData?.points} points</p>
+                                        <p className="points">{completeChestData?.totalPoints} points totally earned</p>
                                     </div>
 
                                     <div className="stats">
@@ -45,7 +51,7 @@ const Popup = ({ currentChest, completeChestData, setViewBrain }) => {
                                             <img src={CheckList} alt="No Imag" />
                                             <div>
                                                 <p className="right-ans">Right Answers</p>
-                                                <p className="score-1">{completeChestData?.answeredCorrect} of {completeChestData?.questionsCount}</p>
+                                                <p className="score-1">{completeChestData?.totalAnsweredCorrect} of {completeChestData?.totalQuestionsCount}</p>
                                             </div>
 
                                         </div>
@@ -54,7 +60,7 @@ const Popup = ({ currentChest, completeChestData, setViewBrain }) => {
                                             <img src={Flash} alt="No Imag" />
                                             <div>
                                                 <p className="avg-score">Average Speed</p>
-                                                <p className="score-2">{completeChestData?.averageSpeed} sec / Que</p>
+                                                <p className="score-2">{completeChestData?.totalAverageSpeed} sec / Que</p>
 
                                             </div>
 
@@ -62,8 +68,8 @@ const Popup = ({ currentChest, completeChestData, setViewBrain }) => {
 
                                     </div>
 
-                                    <button type="button" onClick={handleNextClick}>Next</button>
-
+                                    <button type="button" onClick={handleNextClick}>Finish</button>
+                                    <p className="view-report" aria-hidden="true" onClick={viewReport}>View report</p>
                                 </div>
 
                             </div>
@@ -75,9 +81,9 @@ const Popup = ({ currentChest, completeChestData, setViewBrain }) => {
         </>
     );
 };
-Popup.propTypes = {
-    currentChest: object.isRequired,
+TruserePopup.propTypes = {
+    // currentChest: object.isRequired,
     completeChestData: object.isRequired,
     setViewBrain: func.isRequired,
 };
-export default Popup;
+export default TruserePopup;

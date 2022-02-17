@@ -12,17 +12,23 @@ import Shell from './Shell/Shell';
 import QueAns from './QueAnswer';
 import AnswerPopup from './Shell/AnswerPopup';
 import Popup from './CompletedPopup/Popup';
-import { completeChestAction } from '../../../../../stores/BrainGym/BrainGymAction';
-// import IncorrectAns from './IncorrectAns/IncorrectAns';
+import {
+    completeChestAction, getAllShell, getChestInfo, getIncorrectAns,
+} from '../../../../../stores/BrainGym/BrainGymAction';
+import TruserePopup from './CompletedPopup/TrusereCompPopup';
+import BeltPopup from './CompletedPopup/BeltPopup';
+import IncorrectAns from './IncorrectAns/IncorrectAns';
 // import BrainGymResult from './BrainGymResult/BrainGymResult';
-// import Report from './Report/Report';
+import Report from './Report/Report';
 
 const BrainGym = ({
-    setShowShell, showShell, chests, questionInChest, completeChest, subjectList,
+    setShowShell, showShell, chests, questionInChest, chestInfodata,
+    completeChest, subjectList, completeChestData, chestInfo, allShell, Login,
+    allShellData, inccorectAns, incorrecrAnsData,
 }) => {
     const [viewBrain, setViewBrain] = useState('home');
     const [selectedSubject, setSelectedSubject] = useState({});
-    const [select, setSelect] = useState('');
+    const [select, setSelect] = useState([]);
     const [time, setTime] = useState(180000);
     const [currenttime, setCurrenttime] = useState();
     const [eachtime, setEachtime] = useState(0);
@@ -72,14 +78,39 @@ const BrainGym = ({
             completeChest({
                 chesttId: currentChest?._id,
             });
-            // console.log('currentChest?._id', currentChest?._id);
         }
     }, [questionInChest, time]);
 
     useEffect(() => {
+        if (currentChest?._id) {
+            chestInfo({
+                chestId: currentChest?._id,
+            });
+        }
+    },
+    [currentChest]);
+    useEffect(() => {
+        if (allShellData?.data?.masterChest?._id) {
+            inccorectAns({
+                studentId: Login?._id,
+                brainGymId: allShellData?.data?.masterChest?._id,
+            });
+        }
+    },
+    [allShellData]);
+    useEffect(() => {
+        if (completeChestData?.data?.allChestCompleted) {
+            allShell({
+                studentId: Login?._id,
+                masterId: chestInfodata?.data?.masterId,
+            });
+        }
+    },
+    [completeChestData]);
+
+    useEffect(() => {
         if (chests?.chests?.length > 0) {
             const chest = chests?.chests.find((data) => data.status !== 'COMPLETED');
-            // console.log(chest, 'chest', chest.chestIndex);
             setCurrentChest(chest);
         }
     }, [chests]);
@@ -109,10 +140,11 @@ const BrainGym = ({
                         setViewBrain={setViewBrain}
                         setShowShell={setShowShell}
                         showShell={showShell}
-                        chests={chests?.chests}
+                        chests={chests}
                         currentChest={currentChest}
                         selectedSubject={selectedSubject}
                         setSubjectId={selectedSubject}
+                        chestInfodata={chestInfodata}
                     />
                 )}
             { viewBrain === 'question'
@@ -132,6 +164,7 @@ const BrainGym = ({
                         setEachTimeOn={setEachTimeOn}
                         eachcurrenttime={eachcurrenttime}
                         setEachcurrenttime={setEachcurrenttime}
+                        chestId={currentChest}
                     />
                 )}
 
@@ -139,6 +172,42 @@ const BrainGym = ({
                 && (
                     <Popup
                         currentChest={currentChest}
+                        completeChestData={completeChestData?.data}
+                        setViewBrain={setViewBrain}
+                    />
+                )}
+
+            { viewBrain === 'get_belt'
+                && (
+                    <BeltPopup
+                        currentChest={currentChest}
+                        completeChestData={completeChestData?.data}
+                        setViewBrain={setViewBrain}
+                    />
+                )}
+            { viewBrain === 'report'
+            && (
+                <Report
+                    setViewBrain={setViewBrain}
+                    currentChest={currentChest}
+                    completeChestData={completeChestData?.data}
+                    allShellData={allShellData}
+                />
+            )}
+
+            { completeChestData?.data?.allChestCompleted
+                && viewBrain === 'completed_chest' && (
+                <TruserePopup
+                    currentChest={currentChest}
+                    completeChestData={completeChestData?.data}
+                    setViewBrain={setViewBrain}
+                />
+            )}
+            { viewBrain === 'incorrectAns'
+                && (
+                    <IncorrectAns
+                        setViewBrain={setViewBrain}
+                        incorrecrAnsData={incorrecrAnsData}
                     />
                 )}
 
@@ -147,6 +216,8 @@ const BrainGym = ({
             {/* <ShellPoupup /> */}
             {/* <BrainGymResult /> */}
             {/* <QueAns /> */}
+            {/* <BeltPopup /> */}
+            {/* <TruserePopup /> */}
             { viewBrain === 'true_false'
             && <AnswerPopup setViewBrain={setViewBrain} chestId={currentChest} />}
         </div>
@@ -160,7 +231,16 @@ BrainGym.propTypes = {
     // attemptQuestion: array.isRequired,
     chests: array.isRequired,
     completeChest: func.isRequired,
-    subjectList: object.isRequired,
+    subjectList: array.isRequired,
+    completeChestData: array.isRequired,
+    chestInfo: func.isRequired,
+    chestInfodata: array.isRequired,
+    allShell: func.isRequired,
+    Login: object.isRequired,
+    allShellData: object.isRequired,
+    inccorectAns: func.isRequired,
+    incorrecrAnsData: object.isRequired,
+
 };
 
 const mapStateToProps = (state) => ({
@@ -168,10 +248,19 @@ const mapStateToProps = (state) => ({
     questionInChest: state.BrainGym.questionInChest,
     attemptQuestion: state.BrainGym.attemptQuestion,
     chests: state.BrainGym.chests,
+    completeChestData: state.BrainGym.completeChest,
+    chestInfodata: state.BrainGym.chestInfo,
+    Login: state.Auth.Login?.data,
+    allShellData: state.BrainGym.allShell,
+    incorrecrAnsData: state.BrainGym.incorrectAnswer,
+
 });
 
 const mapDispatchToProps = (dispatch) => ({
     completeChest: (data) => dispatch(completeChestAction(data)),
+    chestInfo: (data) => dispatch(getChestInfo(data)),
+    allShell: (data) => dispatch(getAllShell(data)),
+    inccorectAns: (data) => dispatch(getIncorrectAns(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BrainGym);

@@ -1,5 +1,5 @@
 import React from 'react';
-import {  func, string, object } from 'prop-types';
+import {  func, object } from 'prop-types';
 import Line1 from '../../../../../assets/images/Line1.png';
 import Line2 from '../../../../../assets/images/Line2.png';
 import Line3 from '../../../../../assets/images/Line 3.png';
@@ -71,7 +71,7 @@ function BrainGymStartToday({ setViewBrain, selectedSubject, currentChest }) {
 BrainGymStartToday.propTypes = {
     currentChest: object.isRequired,
     setViewBrain: func.isRequired,
-    selectedSubject: string.isRequired,
+    selectedSubject: object.isRequired,
 };
 
 export default BrainGymStartToday;

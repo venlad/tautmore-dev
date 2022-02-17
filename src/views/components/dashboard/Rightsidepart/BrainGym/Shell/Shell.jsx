@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    func, bool, string, object, array,
+    func, bool, object, array,
 } from 'prop-types';
 import Banner from './Banner';
 import ShellList from './ShellList';
@@ -9,9 +9,11 @@ import Close from '../../../../../../assets/images/Close-shell.svg';
 import Calender from '../../../../../../assets/images/Calender-shell.svg';
 import './style/shell.scss';
 import ShellPoupup from './ShellPoupup';
+import currentDate from '../../../../../../helpers/utility';
 
 const Shell = ({
-    setViewBrain, setShowShell, showShell, currentChest, selectedSubject, setSubjectId, chests,
+    setViewBrain, setShowShell, showShell, currentChest,
+    selectedSubject, setSubjectId, chests, chestInfodata,
 }) => {
     const closePopup = () => {
         setViewBrain('home');
@@ -25,7 +27,7 @@ const Shell = ({
                         <div className="total-points">
                             <div className="total-points-and-icon">
                                 <img id="icon-small" src={PointsIcon} alt="No Imag" />
-                                <p>112 Total Points</p>
+                                <p>{chests?.scoreObtained} Total Points</p>
                             </div>
                             <button type="button" className="close-btn" onClick={closePopup}>
                                 <img src={Close} alt="No Imag" />
@@ -45,7 +47,8 @@ const Shell = ({
                                             <img className="Calender" src={Calender} alt="No Imag" />
                                             <div className="title-and-date">
                                                 <p id="date-title">Date</p>
-                                                <p id="date">16th Aug</p>
+                                                {/* <p id="date">16th Aug</p> */}
+                                                <p id="date">{currentDate()}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -54,7 +57,7 @@ const Shell = ({
                             </div>
                         </div>
                         <ShellList
-                            chests={chests}
+                            chests={chests?.chests}
                             currentChest={currentChest}
                             setViewBrain={setViewBrain}
                             setShowShell={setShowShell}
@@ -68,6 +71,7 @@ const Shell = ({
                 setShowShell={setShowShell}
                 currentChest={currentChest}
                 setViewBrain={setViewBrain}
+                chestInfodata={chestInfodata?.data}
             />
         </div>
     );
@@ -79,8 +83,9 @@ Shell.propTypes = {
     setShowShell: func.isRequired,
     showShell: bool.isRequired,
     currentChest: object.isRequired,
-    selectedSubject: string.isRequired,
-    setSubjectId: string.isRequired,
+    selectedSubject: object.isRequired,
+    setSubjectId: object.isRequired,
+    chestInfodata: object.isRequired,
 };
 
 export default Shell;

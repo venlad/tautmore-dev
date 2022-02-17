@@ -53,7 +53,7 @@ function BrainGymScoreChart() {
                         fill="url(#colorUv)"
                     >
                         {Score.map((entry) => (
-                            <Cell fill={entry.day === 'Today' ? 'url(#colorUv)' : 'url(#colorPv)'} />
+                            <Cell key={entry.day} fill={entry.day === 'Today' ? 'url(#colorUv)' : 'url(#colorPv)'} />
                         ))}
                         <LabelList dataKey="Score" position="middle" fill="#fff" />
                     </Bar>

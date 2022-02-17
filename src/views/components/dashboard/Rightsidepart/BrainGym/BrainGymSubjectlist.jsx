@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { object, func } from 'prop-types';
+import { object, func, array } from 'prop-types';
 import { connect } from 'react-redux';
 import { startChestAction } from '../../../../../stores/BrainGym/BrainGymAction';
 
@@ -15,7 +15,7 @@ const BrainGymSubjectlist = ({ subjectList, setSelectedSubject, selectedSubject,
             <div className="col-md-8 col-sm-12">
                 <div className="dtoggle-bar">
                 {subjectList?.map(item => (
-                      <div className="toggle-maths-div">
+                      <div key={item?.subject?._id} className="toggle-maths-div">
                       <button
                           className={`toggle-maths-btn ${selectedSubject?._id === item?.subject?._id ? 'mathbtn-act' : 'mathbtn-un'}`}
                           type="button"
@@ -32,7 +32,7 @@ const BrainGymSubjectlist = ({ subjectList, setSelectedSubject, selectedSubject,
 };
 
 BrainGymSubjectlist.propTypes = {
-    subjectList: object.isRequired,
+    subjectList: array.isRequired,
     startChest: func.isRequired,
     selectedSubject: object.isRequired
 };

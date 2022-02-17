@@ -10,7 +10,6 @@ import BlueGradientIcon from '../../../../../../assets/images/shell-pop-Blue.svg
 import PurpleGradientIcon from '../../../../../../assets/images/shell-pop-Purple.svg';
 import GreenGradientIcon from '../../../../../../assets/images/shell-pop-Green.svg';
 import BlackGradientIcon from '../../../../../../assets/images/shell-pop-Black.svg';
-import TotalPlays from '../../../../../../assets/images/shell-pop-TotalPlay.svg';
 import './style/popup.scss';
 import { getQuestionInChestAction } from '../../../../../../stores/BrainGym/BrainGymAction';
 
@@ -20,7 +19,28 @@ const ShellPoupup = ({
     questionInChest,
     currentChest,
     setViewBrain,
+    chestInfodata,
 }) => {
+    // const renderlevel = () => {
+    //     const levelhtml = [];
+    //     for (let index = 1; index < 6; index += 1) {
+    //         if (chestInfodata?.chestLevel === index) {
+    //             levelhtml.push(
+    //                 <span><p className="adjusted-para">{index}</p>
+    //                     <img src={ActiveLevelIcon} alt="No Imag" />
+    //                 </span>,
+    //             );
+    //         } else {
+    //             levelhtml.push(
+    //                 <span><p className="adjusted-para">{index}</p>
+    //                     <img src={FadedLevelIcon} alt="No Imag" />
+    //                 </span>,
+    //             );
+    //         }
+    //     }
+    //     return levelhtml;
+    // };
+    const levelArray = [{ level: 1 }, { level: 2 }, { level: 3 }, { level: 4 }, { level: 5 }];
     const startNow = () => {
         getQuestionInChest({
             chestId: currentChest?._id,
@@ -34,28 +54,28 @@ const ShellPoupup = ({
             setShowShell(false);
         }
     }, [questionInChest]);
-
     return (
         <div className="shell-popup-main">
             <div className="svg-background-container">
                 <div className="flex-items-details">
                     <h2>Shell {currentChest?.chestIndex}</h2>
-                    <h3>Topic: Count to 10  </h3>
+                    <h3>Topic: {chestInfodata?.subTopic}  </h3>
                     <button type="button" className="close-btn" onClick={() => setShowShell(false)}>
                         <img className="floating-cross" src={Close} alt="No Imag" />
                     </button>
                     <div className="current-level-and-icons">
                         <p>Currently on Level:</p>
-                        <p className="adjusted-para">1</p>
-                        <img src={ActiveLevelIcon} alt="No Imag" />
-                        <p className="adjusted-para">2</p>
-                        <img src={FadedLevelIcon} alt="No Imag" />
-                        <p className="adjusted-para">3</p>
-                        <img src={FadedLevelIcon} alt="No Imag" />
-                        <p className="adjusted-para">4</p>
-                        <img src={FadedLevelIcon} alt="No Imag" />
-                        <p className="adjusted-para">5</p>
-                        <img src={FadedLevelIcon} alt="No Imag" />
+                        {levelArray.map((item) => (
+                            <span key={item.level}>
+                                <p key={item.level} className="adjusted-para">{item.level}</p>
+                                <img
+                                    src={item.level <= chestInfodata?.chestLevel
+                                        ? ActiveLevelIcon : FadedLevelIcon}
+                                    alt="No Imag"
+                                />
+                            </span>
+                        ))}
+
                     </div>
                     <img src={Clam} className="floating-clam" alt="No Imag" />
                     <div className="gradient-container">
@@ -70,7 +90,8 @@ const ShellPoupup = ({
                         <button type="button" onClick={startNow}>Start Now</button>
                         <div className="total-play-and-score">
                             <p className="total-plays">Total Plays</p>
-                            <img src={TotalPlays} alt="No Imag" className="highlighted-score" />
+
+                            <div className="highlighted-score"> <span>{chestInfodata?.chestLevel}</span></div>
                         </div>
                     </div>
                 </div>
@@ -85,6 +106,7 @@ ShellPoupup.propTypes = {
     questionInChest: array.isRequired,
     currentChest: object.isRequired,
     setViewBrain: func.isRequired,
+    chestInfodata: object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
