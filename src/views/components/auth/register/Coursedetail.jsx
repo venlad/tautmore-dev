@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { FileUploader } from 'react-drag-drop-files';
-
+// import { FileUploader } from 'react-drag-drop-files';
 import {
     func, object, array, string,
 } from 'prop-types';
@@ -51,6 +50,13 @@ const Coursedetail = ({
     // Universities
 
     const [universities, setUniversities] = useState([{ value: 1, label: '' }]);
+
+    let inputFile = '';
+
+    const uploadClick = (e) => {
+        e.preventDefault();
+        inputFile.click();
+    };
 
     useEffect(() => {
         if (!universitiesList?.data) {
@@ -129,18 +135,18 @@ const Coursedetail = ({
 
     // DropZone Code
 
-    const fileTypes = ['JPG', 'PDF', 'docx'];
+    // const fileTypes = ['JPG', 'PDF', 'docx'];
     const [documents, setDocuments] = useState([]);
     const [fileNames, setFileNames] = useState([]);
 
     console.log(documents);
     console.log(fileNames);
 
-    const handleChange = (event) => {
+    const uploadFile = (e) => {
+        e.persist();
         const images = [];
-        console.log(event);
-        setFileNames([...fileNames, event.name]);
-        const file = event;
+        setFileNames([...fileNames, e.target.files[0].name]);
+        const file = e.target.files[0];
         const reader = new FileReader();
         reader.onloadend =  () => {
             const reqData = {
@@ -148,7 +154,7 @@ const Coursedetail = ({
                 base64_file: reader.result,
             };
             fetch(
-                'https://lbbhqlqib3.execute-api.us-east-1.amazonaws.com/development/api/teacher/presigned-url-doc-upload',
+                'https://lbbhqlqib3.execute-api.us-east-1.amazonaws.com/development/api/image/upload',
                 {
                     method: 'POST',
                     headers: {
@@ -160,7 +166,6 @@ const Coursedetail = ({
             )
                 .then((response) => response.json())
                 .then((imgRes) => {
-                    console.log(imgRes, 'img Res');
                     images.push(imgRes.response);
                 })
                 .catch((error) => {
@@ -381,18 +386,29 @@ const Coursedetail = ({
                         <div className="upload-container">
                             <p className="">Upload</p>
                             <div className="dashed-border">
-
-                                <p className="upload-text1"> Upload your education certificate <span className="orange">here</span></p>
+                                <input
+                                    type="file"
+                                    style={{ display: 'none' }}
+                                    ref={(input) => {
+                                        inputFile = input;
+                                    }}
+                                    onChange={uploadFile}
+                                    accept=".jpg,.pdf,.docx"
+                                    name="filestore"
+                                />
+                                <p className="upload-text1"> Upload your education certificate
+                                    <span className="orange" aria-hidden onClick={uploadClick}>here</span>
+                                </p>
                                 <div className="file-uploader">
-                                    <FileUploader
-                                        label=" "
+                                    {/* <FileUploader
+                                        label=""
                                         className="AA"
-                                        handleChange={handleChange}
+                                        handleChange={uploadFile}
                                         name="file"
                                         types={fileTypes}
-
-                                    />
-                                    <input type="file" handleChange={handleChange} />
+                                    /> */}
+                                    {/* <input type="file"
+                                    handleChange={(e) => uploadFile(e)} /> */}
                                 </div>
 
                                 <p className="max-size">Maximum file size : 15MB</p>
