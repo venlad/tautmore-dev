@@ -1,7 +1,7 @@
 import React from 'react';
 import { func, object } from 'prop-types';
 import IndividualCommon from './IndividualCommon';
-import Calendar from '../../../../../../assets/images/Calendar.svg';
+import Calendar from '../../../../../../assets/images/calendar.svg';
 import HandGesture from '../../../../../../assets/images/HandGesture.svg';
 import Target from '../../../../../../assets/images/Target.svg';
 import CheckList from '../../../../../../assets/images/CheckList.svg';

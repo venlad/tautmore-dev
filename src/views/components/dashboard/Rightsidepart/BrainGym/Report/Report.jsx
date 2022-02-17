@@ -8,9 +8,7 @@ import './report.scss';
 import currentDate from '../../../../../../helpers/utility';
 
 const Report = ({ allShellData, setViewBrain }) => {
-    console.log('allShellData', allShellData);
     const { chests } = allShellData?.data?.masterChest;
-    console.log('Chests', chests);
     const closePopup = () => {
         setViewBrain('home');
     };
