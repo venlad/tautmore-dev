@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {  object } from 'prop-types';
 import './dashboard.scss';
 import Sidemenu from './Leftsidepart/Sidemenu';
 import DashSearch from './Rightsidepart/DashSearch';
@@ -12,57 +13,76 @@ import MySubscription from './Rightsidepart/MySubscription/MySubscription';
 import MyProfile from './Rightsidepart/MyProfile/MyProfile';
 import Renewsub from './Rightsidepart/RenewSubscription/Renewsub';
 import BrainGym from './Rightsidepart/BrainGym/BrainGym';
+import { viewTypeData } from './mockData/dashboardViewData';
 
-const Dashboard = () => {
+const Dashboard = ({ match }) => {
+    const viewType = match.params.viewtype ? match.params.viewtype : '';
     const [open, setOpen] = useState(false);
-    const [view, setView] = useState('Dashboard');
-    const [concept, setConcept] = useState('');
-    const [renewSub, setRenewSub] = useState('');
+    const [showShell, setShowShell] = useState(false);
 
+    // const [view, setView] = useState('Dashboard');
+    // const [concept, setConcept] = useState('');
+    // const [renewSub, setRenewSub] = useState('');
+
+    const renderLayouts = () => {
+        let view = <Home />;
+        switch (viewType) {
+            case 'home':
+                view = <Home />;
+                break;
+            case viewTypeData?.SUBJECT:
+                view = <Mysubjects />;
+                break;
+            case viewTypeData?.CONCEPT:
+                view = <Myconcept />;
+                break;
+            case viewTypeData?.EXAMS:
+                view = <MyExam  />;
+                break;
+            case viewTypeData?.BRAIN_GYM:
+                view = <BrainGym setShowShell={setShowShell} showShell={showShell} />;
+                break;
+            case viewTypeData?.ASSIGNMENTS:
+                view = <MyAssignment  />;
+                break;
+            case viewTypeData?.CLASSES:
+                view = <MyClasses  />;
+                break;
+            case viewTypeData?.SUBSCRIPTIONS:
+                view = <MySubscription />;
+                break;
+            case viewTypeData?.PROFILE:
+                view = <MyProfile />;
+                break;
+            case viewTypeData?.RENEW_SUBSCRIPTION:
+                view = <Renewsub  />;
+                break;
+            default:
+                view = <Home />;
+                break;
+        }
+        return view;
+    };
     return (
 
         <div className={`dashboard-main ${open ? 'open' : 'close'}`}>
-            <div className="row row-main">
+            <div className={`row row-main dashboard-main-row ${showShell ? 'active' : ''}`}>
                 <Sidemenu
                     open={open}
                     setOpen={setOpen}
-                    setView={setView}
-                    view={view}
-                    setConcept={setConcept}
-                    setRenewSub={setRenewSub}
+                    viewType={viewType}
                 />
                 <div className="col-sm-9 dashboard-right">
                     <DashSearch />
-                    {view === 'Dashboard' && <Home />}
-                    {view === 'My subjects' && concept === '' ? (
-                        <Mysubjects
-                            concept={concept}
-                            setConcept={setConcept}
-                        />
-                    ) : ''}
-                    {view === 'My subjects' && concept === 'concept' ? (
-                        <Myconcept />
-                    ) : ''}
-
-                    {view === 'My exams' && (<MyExam  />) }
-
-                    {view === 'Brain gym' && (<BrainGym />)}
-
-                    {view === 'My assignments' && (<MyAssignment  />) }
-
-                    {view === 'My classes' && (<MyClasses  />) }
-
-                    {view === 'My subscriptions' && renewSub === '' ? (<MySubscription setRenewSub={setRenewSub} />) : ''}
-
-                    {view === 'Myprofile' && (<MyProfile />)}
-                    {view === 'My subscriptions' && renewSub === 'Renew subscriptions'
-                        ? (<Renewsub  />)
-                        : ''}
-
+                    {renderLayouts()}
                 </div>
             </div>
         </div>
     );
+};
+
+Dashboard.propTypes = {
+    match: object.isRequired,
 };
 
 export default Dashboard;

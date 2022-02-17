@@ -1,4 +1,13 @@
 
+.shell-main-top.active {
+  .shell-popup-main {
+    display: block !important;
+  }
+  .container-background {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+  }
+}
 .shell-main {
     img[id="icon-small"]  {
       height: 38px;
