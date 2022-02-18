@@ -22,7 +22,7 @@ export const  dropdownSingleValueStyles =  {
     menu: (provided) => ({
         ...provided,
         borderRadius: 10,
-        width: 650,
+        width: 490,
 
     }),
 
@@ -56,7 +56,7 @@ export const  dropdownMultiValueStyles =  {
     menu: (provided) => ({
         ...provided,
         borderRadius: 10,
-        width: 650,
+        width: 490,
 
     }),
     indicatorSeparator: (provided) => ({
@@ -105,7 +105,7 @@ export const  dropdownMultiValueTimeSlotStyles =  {
     menu: (provided) => ({
         ...provided,
         borderRadius: 10,
-        width: 470,
+        width: 450,
 
     }),
     indicatorSeparator: (provided) => ({

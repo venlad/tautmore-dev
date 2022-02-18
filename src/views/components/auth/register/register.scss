@@ -1505,6 +1505,7 @@
       transition: 0.3s;
       opacity: 0.8;
       margin-right:10px;
+      margin-bottom: 15px;
       span {
         float: right;
         height: 24px;
@@ -1597,6 +1598,54 @@
       font-size: 15px;
     }
   }
+
+  @media only screen and (max-width: 1373px){
+    .register-main{
+      .option-part{
+        width:90%;
+        margin: 56px 56px;
+
+        button{
+          width:42%;
+          height:48px;
+          margin-top: 10px;
+          font-size: 19px;
+        }
+
+        h5.already-account{
+          margin-top:30px;
+          font-size: 30px;;
+        }
+
+        .option-common{
+
+          padding-top: 0px;
+          height:140px;
+          width:200px;
+          margin-left:34px;
+
+          svg{
+            margin-top: 22px;
+          }
+
+        }
+
+        .option-part-head{
+          h3{
+            font-size: 40px;
+            margin-top: -211px;
+          }
+
+          p{
+            font-size: 28px;
+          }
+        }
+      }
+      
+    }
+  }
+
+
   @media only screen and (max-width: 769px) {
 
     .register-main{
