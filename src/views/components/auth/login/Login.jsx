@@ -23,7 +23,10 @@ const Login = ({
     const history = useHistory();
 
     useEffect(() => {
-        if (userData?.status === 'success') {
+        if (userData?.data?.userType === 'teacher') {
+            history.push('/teacher');
+        }
+        if (userData?.data?.userType === 'student') {
             history.push('/dashboard');
         }
     }, [userData]);

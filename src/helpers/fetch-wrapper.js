@@ -9,6 +9,9 @@ function handleResponse(response) {
 function get(url) {
     const requestOptions = {
         method: 'GET',
+        // headers: {
+        //     Authorization: '',
+        // },
     };
     return fetch(url, requestOptions).then(handleResponse);
 }

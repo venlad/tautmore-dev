@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-import { func, bool } from 'prop-types';
+import { func, bool, array } from 'prop-types';
 import { Formik, Form, Field } from 'formik';
 import './calendar.scss';
+import { connect } from 'react-redux';
 import { leaveValidation } from './mockData/calendar';
+import { applyLeaveAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
 
-const LeavePopup = ({ model, handleModel }) => {
+const LeavePopup = ({
+    model, handleModel, applyLeaveResponse, applyLeave, loginDetail,
+}) => {
     const [totalLeave, setTotalLeave] = useState('');
 
     const fromDateChange = (e, setFieldValue, values) => {
@@ -28,6 +32,19 @@ const LeavePopup = ({ model, handleModel }) => {
             setTotalLeave(diffDays);
         }
     };
+    const handleAddSubmit = (data) => {
+        console.log(data, 'data from apply leave form ');
+        const value = {
+            userId: loginDetail?.data?._id,
+            userType: loginDetail?.data?.userType,
+            from: `${data?.fromDate}T09:28:23.994Z`,
+            to: `${data?.toDate}T09:28:23.994Z`,
+            reason: data?.reason,
+        };
+        console.log(value, 'value from apply leave');
+        applyLeave(value);
+    };
+    console.log(applyLeaveResponse, 'applyLeaveResponse');
     return (
         <Modal
             show={model}
@@ -47,7 +64,7 @@ const LeavePopup = ({ model, handleModel }) => {
                     enableReinitialize
                     initialValues={{ fromDate: '', toDate: '', reason: '' }}
                     validationSchema={leaveValidation}
-                    // onSubmit={(data) => handleAddSubmit(data)}
+                    onSubmit={(data) => handleAddSubmit(data)}
                     validator={() => ({})}
                 >
                     {({
@@ -110,6 +127,18 @@ const LeavePopup = ({ model, handleModel }) => {
 LeavePopup.propTypes = {
     handleModel: func.isRequired,
     model: bool.isRequired,
+    applyLeaveResponse: array.isRequired,
+    applyLeave: func.isRequired,
+    loginDetail: array.isRequired,
 };
 
-export default LeavePopup;
+const mapStateToProps = (state) => ({
+    applyLeaveResponse: state.TeacherDashboard.applyLeave,
+    loginDetail: state.Auth.Login,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    applyLeave: (data) => dispatch(applyLeaveAction(data)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LeavePopup);
