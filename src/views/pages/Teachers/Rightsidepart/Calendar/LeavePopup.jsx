@@ -33,7 +33,6 @@ const LeavePopup = ({
         }
     };
     const handleAddSubmit = (data) => {
-        console.log(data, 'data from apply leave form ');
         const value = {
             userId: loginDetail?.data?._id,
             userType: loginDetail?.data?.userType,
@@ -41,7 +40,6 @@ const LeavePopup = ({
             to: `${data?.toDate}T09:28:23.994Z`,
             reason: data?.reason,
         };
-        console.log(value, 'value from apply leave');
         applyLeave(value);
     };
     console.log(applyLeaveResponse, 'applyLeaveResponse');

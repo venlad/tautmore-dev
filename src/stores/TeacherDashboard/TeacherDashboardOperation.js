@@ -1,12 +1,14 @@
 import {
-    fork, put, takeLatest,
+    fork, put, takeLatest, select,
 } from 'redux-saga/effects';
 import * as actionTypes from './TeacherDashboardTypes';
 import { teacherDashboardServices } from '../../services/teacherDashboard.service';
 
 function* workerMyLeavesList() {
     const leaveId = '61f90736bfbb960009f3716c';
-    const response = yield teacherDashboardServices.myLeavesList(leaveId);
+    const state = yield select();
+    const token = state.Auth.Login.data.accessToken;
+    const response = yield teacherDashboardServices.myLeavesList(leaveId, token);
     if (response) {
         yield put({
             type: actionTypes.UPDATE_MY_LEAVES_LIST,
@@ -17,7 +19,9 @@ function* workerMyLeavesList() {
 
 function* workerApplyLeave(data) {
     const value = data?.payload;
-    const response = yield teacherDashboardServices.applyLeave(value);
+    const state = yield select();
+    const token = state.Auth.Login.data.accessToken;
+    const response = yield teacherDashboardServices.applyLeave(value, token);
     if (response) {
         yield put({
             type: actionTypes.UPDATE_APPLY_LEAVE,

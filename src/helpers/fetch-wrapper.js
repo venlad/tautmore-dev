@@ -6,20 +6,23 @@ function handleResponse(response) {
         return data;
     });
 }
-function get(url) {
+function get(url, token) {
     const requestOptions = {
         method: 'GET',
-        // headers: {
-        //     Authorization: '',
-        // },
+        headers: {
+            Authorization: token,
+        },
     };
     return fetch(url, requestOptions).then(handleResponse);
 }
 
-function post(url, body) {
+function post(url, body, token) {
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: token,
+        },
         // credentials: "include",
         body: JSON.stringify(body),
     };

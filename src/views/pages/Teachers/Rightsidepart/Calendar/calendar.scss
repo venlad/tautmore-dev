@@ -53,8 +53,7 @@
                 margin-bottom: 0;
                 display: inline-block;
                 margin-right: 20px;
-                position: relative;
-                top: -6px;
+                vertical-align: top;
             }
             span {
                 margin-right: 20px;
@@ -67,6 +66,7 @@
                 background-color: transparent;
                 border: 0;
                 font-size: 0px;
+                vertical-align: top;
             }
             button.menu {
                 background-image: url('../../../../../../src/assets/images/menu.svg');
