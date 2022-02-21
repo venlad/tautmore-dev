@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-// import { FileUploader } from 'react-drag-drop-files';
+import { FileUploader } from 'react-drag-drop-files';
 import {
     func, object, array, string,
 } from 'prop-types';
@@ -49,12 +49,12 @@ const Coursedetail = ({
 }) => {
     const [universities, setUniversities] = useState([{ value: 1, label: '' }]);
 
-    let inputFile = '';
+    // const inputFile = '';
 
-    const uploadClick = (e) => {
-        e.preventDefault();
-        inputFile.click();
-    };
+    // const uploadClick = (e) => {
+    //     e.preventDefault();
+    //     inputFile.click();
+    // };
 
     useEffect(() => {
         if (!universitiesList?.data) {
@@ -133,18 +133,18 @@ const Coursedetail = ({
 
     // DropZone Code
 
-    // const fileTypes = ['JPG', 'PDF', 'docx'];
+    const fileTypes = ['JPG', 'PDF', 'docx'];
     const [documents, setDocuments] = useState([]);
     const [fileNames, setFileNames] = useState([]);
 
     console.log(documents);
     console.log(fileNames);
 
-    const uploadFile = (e) => {
-        e.persist();
+    const uploadFile = (event) => {
+        // e.persist();
         const images = [];
-        setFileNames([...fileNames, e.target.files[0].name]);
-        const file = e.target.files[0];
+        setFileNames([...fileNames, event.name]);
+        const file = event;
         const reader = new FileReader();
         reader.onloadend =  () => {
             const reqData = {
@@ -164,6 +164,7 @@ const Coursedetail = ({
             )
                 .then((response) => response.json())
                 .then((imgRes) => {
+                    console.log(imgRes, 'imgRes from aws');
                     images.push(imgRes.response);
                 })
                 .catch((error) => {
@@ -384,7 +385,7 @@ const Coursedetail = ({
                         <div className="upload-container">
                             <p className="">Upload</p>
                             <div className="dashed-border">
-                                <input
+                                {/* <input
                                     type="file"
                                     style={{ display: 'none' }}
                                     ref={(input) => {
@@ -395,21 +396,21 @@ const Coursedetail = ({
                                     name="filestore"
                                 />
                                 <p className="upload-text1"> Upload your education certificate
-                                    <span className="orange" aria-hidden onClick={uploadClick}>here</span>
-                                </p>
+                                    <span className="orange" aria-hidden
+                                    onClick={uploadClick}>here</span>
+                                </p> */}
                                 <div className="file-uploader">
-                                    {/* <FileUploader
-                                        label=""
+                                    <FileUploader
+                                        label="Upload Upload your education certificate"
                                         className="AA"
                                         handleChange={uploadFile}
                                         name="file"
                                         types={fileTypes}
-                                    /> */}
-                                    {/* <input type="file"
-                                    handleChange={(e) => uploadFile(e)} /> */}
+                                        maxSize={15}
+                                    />
                                 </div>
 
-                                <p className="max-size">Maximum file size : 15MB</p>
+                                {/* <p className="max-size">Maximum file size : 15MB</p> */}
 
                             </div>
 

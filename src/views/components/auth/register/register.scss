@@ -48,10 +48,7 @@
     background-color: #f4f7fc;
     padding-bottom: 50px;
     min-height:100vh;
-    max-height:220vh;
     box-shadow: 0 22px 24px -10px rgba(189,189,189,0.07);
-
-
     .container{
       width:95%
     }
@@ -338,9 +335,54 @@
           border-radius: 15px;
 
           .file-uploader{
-            display:flex;
-            justify-content: center;
-            align-items: center;
+            display:block;
+            width: 100%;
+            height: 100%;
+            label {
+              display: block;
+              width: 100% !important;
+              height: 100%;
+              max-width: 100%;
+              margin-top: 0px !important;
+              svg {
+                display: none;
+              }
+              .sc-dkPtRN.ebdQkY {
+                display: flex;
+                height: 100%;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                span {
+                  font-family: "Proxima Nova";
+                  color: #7E8283;
+                  font-size: 18px;
+                  span {
+                    display: none;
+                  }
+                }
+                span.sc-hKwDye.kCudqJ {
+                  position: relative;
+                }
+                span.sc-hKwDye::after {
+                  content: ' here';
+                  color: #F3722C;
+                  font-family: "Proxima Nova";
+                  font-size: 18px;
+                }
+                span.sc-hKwDye.kCudqJ:before {
+                  content: "Maximum file size: 15MB";
+                  position: absolute;
+                  width: 100%;
+                  text-align: center;
+                  bottom: -29px;
+                  font-size: 15px;
+                }
+                span.file-types {
+                  display: none;
+                }
+              } 
+            }
             .iciELI{
               border:none;
               width:500px;
@@ -574,11 +616,11 @@
 
         .close-grade{
           border:none;
-          background-color: #fff;
+          background-color:transparent;
           width:20px;
           height:20px;
-
-        
+          position: relative;
+          top: -20px;
         }
         .close-icon2{
           width:30px;
@@ -626,13 +668,13 @@
 
 
             .mutiple-dropdown-part{
-              width:80%;
-
               .flex-column{
                 display:flex;
-                
-                width:49vw;
-                
+                width:49vw; 
+              }
+              .subject-list-main {
+                width: 100%;
+                margin-bottom: 30px;
               }
             }
 
@@ -809,7 +851,7 @@
           }
         }
         button {
-          width: 92%;
+          width: 100%;
           border: 1px solid #e0e0e0;
           border-radius: 10px;
           height: 66px;
@@ -1018,18 +1060,21 @@
         }
         .subject-list {
           border: 1px solid #e0e0e0;
-          display: inline-block;
-          padding: 15px;
-          width: 175px;
+          display: inline-flex;
+          align-items: center;
+          padding: 10px 15px;
+          width: auto;
           border-radius: 33px;
           margin-right: 10px;
           margin-bottom: 15px;
           color: #20282A;
+          font-family: "Proxima Nova";
           background-color: #f4f7fc;
           font-size:18px;
           font-weight: 600;
-
-          
+          padding-right: 25px;
+          min-width: 175px;
+          min-height: 55px;
           .round {
             position: relative;
             cursor: pointer;
@@ -1125,6 +1170,22 @@
                   }
                 }
               }
+             
+              .select-button::after {
+                content: "";
+                display: block;
+                box-sizing: border-box;
+                width: 8px;
+                height: 8px;
+                border-bottom: 2px solid #7D8283;
+                border-right: 2px solid #7D8283;
+                transform: rotate(45deg);
+                left: 4px;
+                top: 2px;
+                border-left: 0;
+                border-top: 0;
+                margin-right: 3px;
+              }
             }
 
           #state {
@@ -1134,7 +1195,9 @@
              height: 66px;
              cursor: pointer;
            }
-          
+           .css-1okebmr-indicatorSeparator {
+            background-color: transparent;
+           }
            
           }
           

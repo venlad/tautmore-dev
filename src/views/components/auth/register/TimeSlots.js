@@ -32,9 +32,9 @@ const TimeSlots = ({
                     </p>
                 </div>
 
-                <div className="dropdowns">
-                    <div className="col-md-7 course-detail-select">
-                        <div className="col-md-7 course-detail-select mutiple-dropdown-part">
+                <div className="dropdowns row">
+                    <div className="col-md-6 course-detail-select">
+                        <div className="course-detail-select mutiple-dropdown-part">
 
                             <div className="label-div"><span className="bold-weekday">MONDAY</span> (Select at least 4 time slots)*</div>
                             <ReactMultiSelectCheckboxes
@@ -47,8 +47,8 @@ const TimeSlots = ({
                         </div>
                     </div>
 
-                    <div className="col-md-7 course-detail-select">
-                        <div className="col-md-7 course-detail-select mutiple-dropdown-part">
+                    <div className="col-md-6 course-detail-select">
+                        <div className="course-detail-select mutiple-dropdown-part">
 
                             <div className="label-div"><span className="bold-weekday">TUESDAY</span> (Select at least 4 time slots)*</div>
                             <ReactMultiSelectCheckboxes
@@ -62,9 +62,9 @@ const TimeSlots = ({
                     </div>
                 </div>
 
-                <div className="dropdowns">
-                    <div className="col-md-7 course-detail-select">
-                        <div className="col-md-7 course-detail-select mutiple-dropdown-part">
+                <div className="dropdowns row">
+                    <div className="col-md-6 course-detail-select">
+                        <div className="course-detail-select mutiple-dropdown-part">
 
                             <div className="label-div"><span className="bold-weekday">WEDNESDAY</span> (Select at least 4 time slots)*</div>
                             <ReactMultiSelectCheckboxes
@@ -77,8 +77,8 @@ const TimeSlots = ({
                         </div>
                     </div>
 
-                    <div className="col-md-7 course-detail-select">
-                        <div className="col-md-7 course-detail-select mutiple-dropdown-part">
+                    <div className="col-md-6 course-detail-select">
+                        <div className="course-detail-select mutiple-dropdown-part">
 
                             <div className="label-div"><span className="bold-weekday">THURSDAY</span> (Select at least 4 time slots)*</div>
                             <ReactMultiSelectCheckboxes
@@ -92,9 +92,9 @@ const TimeSlots = ({
                     </div>
                 </div>
 
-                <div className="dropdowns">
-                    <div className="col-md-7 course-detail-select">
-                        <div className="col-md-7 course-detail-select mutiple-dropdown-part">
+                <div className="dropdowns row">
+                    <div className="col-md-6 course-detail-select">
+                        <div className="course-detail-select mutiple-dropdown-part">
 
                             <div className="label-div"><span className="bold-weekday">FRIDAY</span> (Select at least 4 time slots)*</div>
                             <ReactMultiSelectCheckboxes
@@ -107,8 +107,8 @@ const TimeSlots = ({
                         </div>
                     </div>
 
-                    <div className="col-md-7 course-detail-select">
-                        <div className="col-md-7 course-detail-select mutiple-dropdown-part">
+                    <div className="col-md-6 course-detail-select">
+                        <div className="course-detail-select mutiple-dropdown-part">
 
                             <div className="label-div"><span className="bold-weekday">SATURDAY</span> (Select at least 4 time slots)*</div>
                             <ReactMultiSelectCheckboxes
