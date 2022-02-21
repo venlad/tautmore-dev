@@ -80,6 +80,7 @@ const Mydetails = ({
     };
 
     const onCountrySelect = (code) => {
+        setStates([{ label: 'Loading....', value: 'loading', state_code: '' }]);
         const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
         const countryName = regionNames.of(`${code}`);
         if (countryName) {
@@ -87,6 +88,7 @@ const Mydetails = ({
         }
         setSelected(code);
         getAllStatesAction(code);
+        setStateVal('');
     };
 
     return (
@@ -131,7 +133,7 @@ const Mydetails = ({
                             // options={statesMapped}
                             value={stateVal}
                             onChange={(value) => {
-                                setStateVal(value.label);
+                                setStateVal(value);
                             }}
                             styles={dropdownSingleValueStyles}
                         />

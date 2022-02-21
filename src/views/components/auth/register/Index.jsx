@@ -115,8 +115,6 @@ const Register = ({ registerAction, isOtpVerified, registerTeacherAction }) => {
         },
     };
 
-    console.log(teacherDetails, 'teacher details');
-
     const [validation, setValidation] = useState({
         fullName: false,
         emailId: false,
