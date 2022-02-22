@@ -42,6 +42,36 @@ function getUniqueSubjects() {
 function getSubjectsByclass(params) {
     return fetchWrapper.post(`${baseUrl}/syllabus/subjects-by-class`, params);
 }
+function getTimeSlots() {
+    return fetchWrapper.get('https://lbbhqlqib3.execute-api.us-east-1.amazonaws.com/development/api/teachers/timeslot');
+}
+
+function getUniversities() {
+    return fetchWrapper.get('https://lbbhqlqib3.execute-api.us-east-1.amazonaws.com/development/api/admin/universities-list');
+}
+
+function getQualifications() {
+    return fetchWrapper.get('https://lbbhqlqib3.execute-api.us-east-1.amazonaws.com/development/api/admin/qualification-list');
+}
+
+function getAllSubjects() {
+    return fetchWrapper.get('https://lbbhqlqib3.execute-api.us-east-1.amazonaws.com/development/api/syllabus/unique-subjects-dropdown');
+}
+
+function getCountryList() {
+    return fetchWrapper.get('https://lbbhqlqib3.execute-api.us-east-1.amazonaws.com/development/api/admin/countries-list');
+}
+
+function getStateList(countryCode) {
+    return fetchWrapper.get(
+        `https://lbbhqlqib3.execute-api.us-east-1.amazonaws.com/development/api/admin/state-list?country_code=${countryCode}`,
+
+    );
+}
+
+function registerTeacher(data) {
+    return fetchWrapper.post(`${baseUrl}/teacher`, { ...data });
+}
 
 export const authServices = {
     login,
@@ -52,6 +82,13 @@ export const authServices = {
     getAllGrades,
     getUniqueSubjects,
     getSubjectsByclass,
+    registerTeacher,
+    getTimeSlots,
+    getUniversities,
+    getQualifications,
+    getCountryList,
+    getStateList,
+    getAllSubjects,
 };
 
 export default {};

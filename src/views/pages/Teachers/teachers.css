@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .student-image {
   height: 60px;
   width: 60px;
@@ -46,6 +47,8 @@
   font-weight: 600;
 }
 
+=======
+>>>>>>> teacher-web-ui-bhupinder
 .main1 {
   padding-top: 30px;
 }
@@ -227,6 +230,7 @@
   -webkit-box-shadow: 0 12px 34px -10px rgba(0, 0, 0, 0.05) !important;
           box-shadow: 0 12px 34px -10px rgba(0, 0, 0, 0.05) !important;
 }
+<<<<<<< HEAD
 
 .toggle-maths-div {
   width: 50% !important;
@@ -1110,4 +1114,6 @@ td {
   letter-spacing: 0;
   line-height: 22px;
 }
+=======
+>>>>>>> teacher-web-ui-bhupinder
 /*# sourceMappingURL=teachers.css.map */
