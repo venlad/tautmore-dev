@@ -52,6 +52,7 @@ const Register = ({ registerAction, isOtpVerified, registerTeacherAction }) => {
     const [subjectVal, setSubjectVal] = useState([]);
     const [cocurricularActivities, setCocurricularActivities] = useState([]);
     const [pastExperience, setPastExperience] = useState('');
+    console.log(pastExperience.toString());
     const [experienceField, setExperienceField] = useState('');
     const [otpVal, setOtpVal] = useState('');
 
@@ -103,9 +104,11 @@ const Register = ({ registerAction, isOtpVerified, registerTeacherAction }) => {
         saturdayTimeSlots.push(item.value);
     });
 
+    console.log(saturdayTimeSlots, 'Saturday Time Slots', fridayTimeSlots, 'Friday Time Slots');
+
     const teacherDetails = {
         country: countryVal,
-        state: stateVal,
+        state: stateVal.value,
         fullName: fullnameVal,
         emailID: emailVal,
         phoneNumber: phoneNumVal,
@@ -120,8 +123,9 @@ const Register = ({ registerAction, isOtpVerified, registerTeacherAction }) => {
             wednesday: wednesdayTimeSlots,
             thursday: thursdayTimeSlots,
             friday: fridayTimeSlots,
-            saturay: saturdayTimeSlots,
+            saturday: saturdayTimeSlots,
         },
+        teaching_experience: pastExperience.toString(),
     };
 
     const [validation, setValidation] = useState({

@@ -70,7 +70,7 @@ function getStateList(countryCode) {
 }
 
 function registerTeacher(data) {
-    return fetchWrapper.post(`${baseUrl}/teacher`, { ...data });
+    return fetchWrapper.post(`${baseUrl}/teachers`, { ...data });
 }
 
 export const authServices = {
