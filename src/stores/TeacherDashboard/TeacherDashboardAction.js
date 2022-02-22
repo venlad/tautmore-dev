@@ -11,4 +11,9 @@ export const applyLeaveAction = (data) => ({
     payload: data,
 });
 
+export const getProfileAction = (data) => ({
+    type: actionTypes.GET_PROFILE,
+    payload: data,
+});
+
 export default {};

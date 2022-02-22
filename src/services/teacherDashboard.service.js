@@ -3,6 +3,10 @@ import { fetchWrapper } from '../helpers/fetch-wrapper';
 
 const baseUrl = `${config.apiBaseUrl}`;
 
+function getMyProfile(id, token) {
+    return fetchWrapper.get(`${baseUrl}/teachers/my-profile/${id}`, token);
+}
+
 function myLeavesList(id, token) {
     return fetchWrapper.get(`${baseUrl}/teachers/my-leaves-list/${id}`, token);
 }
@@ -12,6 +16,7 @@ function applyLeave(params, token) {
 }
 
 export const teacherDashboardServices = {
+    getMyProfile,
     myLeavesList,
     applyLeave,
 };

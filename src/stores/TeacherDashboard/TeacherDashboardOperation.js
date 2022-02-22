@@ -17,6 +17,19 @@ function* workerMyLeavesList() {
     }
 }
 
+function* workerMyProfile() {
+    const state = yield select();
+    const teacherID = state.Auth.Login.data._id;
+    const token = state.Auth.Login.data.accessToken;
+    const response = yield teacherDashboardServices.getMyProfile(teacherID, token);
+    if (response) {
+        yield put({
+            type: actionTypes.UPDATE_GET_PROFILE,
+            payload: response,
+        });
+    }
+}
+
 function* workerApplyLeave(data) {
     const value = data?.payload;
     const state = yield select();
@@ -33,6 +46,7 @@ function* workerApplyLeave(data) {
 function* watcherTeacherDashboard() {
     yield takeLatest(actionTypes.MY_LEAVES_LIST, workerMyLeavesList);
     yield takeLatest(actionTypes.APPLY_LEAVE, workerApplyLeave);
+    yield takeLatest(actionTypes.GET_PROFILE, workerMyProfile);
 }
 
 function* fetchAll() {
