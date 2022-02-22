@@ -3,6 +3,7 @@ import * as actionTypes from './TeacherDashboardTypes';
 const initialState = {
     myLeavesList: [],
     applyLeave: [],
+    getProfile: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -16,6 +17,11 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 applyLeave: action.payload,
+            };
+        case actionTypes.UPDATE_GET_PROFILE:
+            return {
+                ...state,
+                getProfile: action.payload,
             };
         default:
             return { ...state };
