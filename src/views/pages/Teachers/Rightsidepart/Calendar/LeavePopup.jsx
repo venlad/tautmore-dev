@@ -6,12 +6,13 @@ import './calendar.scss';
 import { connect } from 'react-redux';
 import { leaveValidation } from './mockData/calendar';
 import { applyLeaveAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
+import { chevRight } from '../../../../../assets/icons/IconList';
 
 const LeavePopup = ({
     model, handleModel, applyLeaveResponse, applyLeave, loginDetail,
 }) => {
     const [totalLeave, setTotalLeave] = useState('');
-
+    const leaveApplied = false;
     const fromDateChange = (e, setFieldValue, values) => {
         setFieldValue('fromDate', e.target.value);
         const oneDay = 24 * 60 * 60 * 1000;
@@ -48,75 +49,87 @@ const LeavePopup = ({
             show={model}
             onHide={() => handleModel(false)}
             className="calendar-leave-popup"
-        >
-            <Modal.Header closeButton>
-                <Modal.Title id="example-modal-sizes-title-lg">
-                    <h3>Apply for leave</h3>
-                    <p>Please make sure you apply your leaves
-                        1-2 days prior and not on the same day
-                    </p>
-                </Modal.Title>
-            </Modal.Header>
+        >   {!leaveApplied
+            && (
+                <Modal.Header closeButton>
+                    <Modal.Title id="example-modal-sizes-title-lg">
+                        <h3>Apply for leave</h3>
+                        <p>Please make sure you apply your leaves
+                            1-2 days prior and not on the same day
+                        </p>
+                    </Modal.Title>
+                </Modal.Header>
+            )}
             <Modal.Body>
-                <Formik
-                    enableReinitialize
-                    initialValues={{ fromDate: '', toDate: '', reason: '' }}
-                    validationSchema={leaveValidation}
-                    onSubmit={(data) => handleAddSubmit(data)}
-                    validator={() => ({})}
-                >
-                    {({
-                        errors,
-                        touched,
-                        values,
-                        handleSubmit,
-                        handleChange,
-                        setFieldValue,
-                    }) => (
-                        <Form onSubmit={handleSubmit}>
-                            <div className="label">From*</div>
-                            <Field
-                                type="date"
-                                name="fromDate"
-                                onChange={(e) => fromDateChange(e, setFieldValue, values)}
-                                value={values.fromDate}
-                            /><br /> <br />
-                            {errors.fromDate && touched.fromDate ? (
-                                <div className="mt-25 ml-25 rp-manage-school_error-message">
-                                    {errors.fromDate}
-                                </div>
-                            ) : null}
-                            <div className="label">To*</div>
-                            <Field
-                                type="date"
-                                name="toDate"
-                                onChange={(e) => toDateChange(e, setFieldValue, values)}
-                                value={values.toDate}
-                            /><br /> <br />
-                            {errors.toDate && touched.toDate ? (
-                                <div className="mt-25 ml-25 rp-manage-school_error-message">
-                                    {errors.toDate}
-                                </div>
-                            ) : null}
-                            <div className="label">Reason*</div>
-                            <Field
-                                type="textarea"
-                                name="reason"
-                                onChange={handleChange}
-                                value={values.reason}
-                            /><br /> <br />
-                            {errors.reason && touched.reason ? (
-                                <div className="mt-25 ml-25 rp-manage-school_error-message">
-                                    {errors.reason}
-                                </div>
-                            ) : null}
-                            <p className="day-leave">{ totalLeave && `${totalLeave} days leave`}</p>
-                            <div className="text-center">
-                                <button type="submit" className="button-common">Apply leave</button>
-                            </div>
-                        </Form>
+                { leaveApplied
+                    ? (
+                        <div className="leave-applied">
+                            <h3>Leave applied for 3 days!</h3>
+                            <p>From August 1, 2021 to August 3, 2021</p>
+                            <button type="button" className="button-common" onClick={() => handleModel(false)}>Continue <span>{chevRight}</span></button>
+                        </div>
+                    )
+                    : (
+                        <Formik
+                            enableReinitialize
+                            initialValues={{ fromDate: '', toDate: '', reason: '' }}
+                            validationSchema={leaveValidation}
+                            onSubmit={(data) => handleAddSubmit(data)}
+                            validator={() => ({})}
+                        >
+                            {({
+                                errors,
+                                touched,
+                                values,
+                                handleSubmit,
+                                handleChange,
+                                setFieldValue,
+                            }) => (
+                                <Form onSubmit={handleSubmit}>
+                                    <div className="label">From*</div>
+                                    <Field
+                                        type="date"
+                                        name="fromDate"
+                                        onChange={(e) => fromDateChange(e, setFieldValue, values)}
+                                        value={values.fromDate}
+                                    /><br /> <br />
+                                    {errors.fromDate && touched.fromDate ? (
+                                        <div className="mt-25 ml-25 rp-manage-school_error-message">
+                                            {errors.fromDate}
+                                        </div>
+                                    ) : null}
+                                    <div className="label">To*</div>
+                                    <Field
+                                        type="date"
+                                        name="toDate"
+                                        onChange={(e) => toDateChange(e, setFieldValue, values)}
+                                        value={values.toDate}
+                                    /><br /> <br />
+                                    {errors.toDate && touched.toDate ? (
+                                        <div className="mt-25 ml-25 rp-manage-school_error-message">
+                                            {errors.toDate}
+                                        </div>
+                                    ) : null}
+                                    <div className="label">Reason*</div>
+                                    <Field
+                                        type="textarea"
+                                        name="reason"
+                                        onChange={handleChange}
+                                        value={values.reason}
+                                    /><br /> <br />
+                                    {errors.reason && touched.reason ? (
+                                        <div className="mt-25 ml-25 rp-manage-school_error-message">
+                                            {errors.reason}
+                                        </div>
+                                    ) : null}
+                                    <p className="day-leave">{ totalLeave && `${totalLeave} days leave`}</p>
+                                    <div className="text-center">
+                                        <button type="submit" className="button-common">Apply leave <span>{chevRight}</span></button>
+                                    </div>
+                                </Form>
+                            )}
+                        </Formik>
                     )}
-                </Formik>
             </Modal.Body>
         </Modal>
     );
