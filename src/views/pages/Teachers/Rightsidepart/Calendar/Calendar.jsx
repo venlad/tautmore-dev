@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import {
+    func,
+} from 'prop-types';
+import { connect } from 'react-redux';
 import './calendar.scss';
 import { Link } from 'react-router-dom';
 import BigCalendar from 'react-big-calendar';
@@ -8,6 +12,7 @@ import {  timeTable } from './mockData/calendar';
 import LeavePopup from './LeavePopup';
 import MyLeaves from './MyLeaves';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import { applyLeaveAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
 
 const allViews = Object.keys(BigCalendar.Views).map((k) => BigCalendar.Views[k]);
 
@@ -19,7 +24,7 @@ moment.locale('es-es', {
 });
 BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
 
-const Calendar = () => {
+const Calendar = ({ applyLeave }) => {
     const [calendarView, setCalendarView] = useState(false);
     const [model, setModel] = useState(false);
 
@@ -57,6 +62,11 @@ const Calendar = () => {
     const onNavigate = (e) => {
         console.log(e, 'e from navigate');
     };
+
+    const changeApplyLeave = () => {
+        applyLeave();
+        setModel(true);
+    };
     return (
         <div className="calendar-main">
             <div className="row calendar-head">
@@ -79,7 +89,7 @@ const Calendar = () => {
                     </p>
                 </div>
                 <div className="col-md-5 text-right">
-                    <button type="button" className="leave" onClick={() => setModel(true)}>APPLY LEAVE</button>
+                    <button type="button" className="leave" onClick={changeApplyLeave}>APPLY LEAVE</button>
                 </div>
                 <div className="col-md-12 text-right">
                     <div className="view-part">
@@ -141,5 +151,11 @@ const Calendar = () => {
         </div>
     );
 };
+Calendar.propTypes = {
+    applyLeave: func.isRequired,
+};
 
-export default Calendar;
+const mapDispatchToProps = (dispatch) => ({
+    applyLeave: (data) => dispatch(applyLeaveAction(data)),
+});
+export default connect(null, mapDispatchToProps)(Calendar);
