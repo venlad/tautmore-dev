@@ -4,6 +4,12 @@ const initialState = {
     myLeavesList: [],
     applyLeave: [],
     getProfile: [],
+    changeName: [],
+    changeEmail: [],
+    changePhoneNumber: [],
+    changeQualification: [],
+    changeUniversity: [],
+
 };
 
 export default function reducer(state = initialState, action) {
@@ -22,6 +28,31 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 getProfile: action.payload,
+            };
+        case actionTypes.UPDATE_CHANGE_NAME:
+            return {
+                ...state,
+                changeName: action.payload,
+            };
+        case actionTypes.UPDATE_CHANGE_EMAIL:
+            return {
+                ...state,
+                changeEmail: action.payload,
+            };
+        case actionTypes.UPDATE_CHANGE_PHONE_NUM:
+            return {
+                ...state,
+                changePhoneNumber: action.payload,
+            };
+        case actionTypes.UPDATE_CHANGE_QUALIFICATION:
+            return {
+                ...state,
+                changeQualification: action.payload,
+            };
+        case actionTypes.UPDATE_CHANGE_UNVIERSITY:
+            return {
+                ...state,
+                changeUniversity: action.payload,
             };
         default:
             return { ...state };

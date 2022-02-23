@@ -8,12 +8,22 @@ import studentimg from '../../../../../assets/images/sidebar-profile.png';
 import totalScore from '../../../../../assets/images/totalScore.png';
 import editIcon from '../../../../../assets/images/pencil (2).svg';
 import infoIcon from '../../../../../assets/images/info-2-16.png';
-import { getProfileAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
+import { getProfileAction,changeNameAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
 import { FileUploader } from 'react-drag-drop-files';
 import UploadingIcon from '../../../../../assets/images/upload.svg';
+import ChangeNamePopUp from './ChangeDetails/ChangeNamePopUp';
+import ChangeEmailPopUp from './ChangeDetails/ChangeEmailPopUp';
+import ChangePhoneNumPopUp from './ChangeDetails/ChangePhoneNum';
+import ChangeQualPopUp from './ChangeDetails/ChangeQualification';
+import ChangeUnivPopUp from './ChangeDetails/ChangeUniversity';
 
 const MyProfile = ({ myProfile, getMyProfile }) => {
-    // const [teacherDetails, setTeacherDetails] = useState([]);
+
+    const [model, setModel] = useState(false);
+    const [modelEmail, setModelEmail] = useState(false);
+    const [modelPhone, setModelPhone] = useState(false);
+    const [modelQual, setModelQual] = useState(false);
+    const [modelUniv, setModelUniv] = useState(false);
 
     useEffect(() => {
         if (myProfile.length === 0) {
@@ -21,7 +31,7 @@ const MyProfile = ({ myProfile, getMyProfile }) => {
         }
     }, [myProfile]);
 
-    console.log(myProfile.data);
+    console.log(myProfile?.data?._id,"ID from my profile");
     const myprofileDetail = myProfile?.data;
 
     const timeData = myprofileDetail?.timeslot?.map((item) => ({
@@ -77,6 +87,10 @@ const MyProfile = ({ myProfile, getMyProfile }) => {
         console.log(documents);
         setFileNames(fileNames?.filter((item2) => item2 !== item));
     };
+
+    const onEditName = () => {
+        setModel(true)
+    }
 
     return (
 
@@ -154,7 +168,7 @@ const MyProfile = ({ myProfile, getMyProfile }) => {
                                 <h5>{myprofileDetail?.fullName}</h5>
                             </div>
 
-                            <button className="button-green" type="button">EDIT</button>
+                            <button onClick={()=>onEditName()} className="button-green" type="button">EDIT</button>
                         </div>
 
                         <div className="space-between">
@@ -163,7 +177,7 @@ const MyProfile = ({ myProfile, getMyProfile }) => {
                                 <h5>{myprofileDetail?.emailID}</h5>
                             </div>
 
-                            <button className="button-green" type="button">EDIT</button>
+                            <button onClick={()=>setModelEmail(true)} className="button-green" type="button">EDIT</button>
 
                         </div>
 
@@ -186,7 +200,7 @@ const MyProfile = ({ myProfile, getMyProfile }) => {
                                 <h5>{myprofileDetail?.phoneNumber}</h5>
                             </div>
 
-                            <button className="button-green" type="button">EDIT</button>
+                            <button onClick={()=>setModelPhone(true)} className="button-green" type="button">EDIT</button>
                         </div>
 
                     </div>
@@ -207,7 +221,7 @@ const MyProfile = ({ myProfile, getMyProfile }) => {
                                 <h5>{myprofileDetail?.qualification}</h5>
                             </div>
 
-                            <button className="button-green" type="button">EDIT</button>
+                            <button onClick={()=>setModelQual(true)} className="button-green" type="button">EDIT</button>
                         </div>
 
                         <div className="space-between">
@@ -216,7 +230,7 @@ const MyProfile = ({ myProfile, getMyProfile }) => {
                                 <h5>{myprofileDetail?.university}</h5>
                             </div>
 
-                            <button className="button-green" type="button">EDIT</button>
+                            <button  onClick={()=>setModelUniv(true)}  className="button-green" type="button">EDIT</button>
                         </div>
 
                     </div>
@@ -260,6 +274,11 @@ const MyProfile = ({ myProfile, getMyProfile }) => {
                     ))}
 
                 </div>
+                <ChangeNamePopUp id={myProfile?.data?._id} model={model} handleModel={setModel}/>
+                <ChangeEmailPopUp id={myProfile?.data?._id} model={modelEmail} handleModel={setModelEmail}/>
+                <ChangePhoneNumPopUp id={myProfile?.data?._id} model={modelPhone} handleModel={setModelPhone}/>
+                <ChangeQualPopUp id={myProfile?.data?._id} model={modelQual} handleModel={setModelQual}/>
+                <ChangeUnivPopUp id={myProfile?.data?._id} model={modelUniv} handleModel={setModelUniv}/>
 
             </div>
         </>
@@ -278,6 +297,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     getMyProfile: () => dispatch(getProfileAction()),
+    changeName : (data)=>(changeNameAction(data))
 });
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyProfile);

@@ -9,8 +9,10 @@ import { menu } from '../../../assets/icons/IconList';
 import logouticon from '../../../assets/images/logouticon.png';
 import { clearLoginAction } from '../../../stores/Auth/AuthAction';
 const Sidemenu = ({
-    open, setOpen, clearLogin, viewType
+    open, setOpen, clearLogin, viewType,myProfile
 }) => {
+    
+    const myprofileDetail = myProfile?.data;
     const history = useHistory();
     const logOut = () => {
         localStorage.removeItem('taut-student');              
@@ -39,7 +41,7 @@ const Sidemenu = ({
                       
                     >
                         <Link to="/teacher/profile">
-                            <h5>Susan Richards</h5>
+                            <h5>{myprofileDetail?.fullName}</h5>
                             <p>susan.9871245551</p>
                         </Link>
                     </div>
@@ -93,9 +95,14 @@ Sidemenu.propTypes = {
     setOpen: func.isRequired,
     clearLogin: func.isRequired,
     viewType: string.isRequired,
+    
 };
+
+const mapStateToProps = (state) => ({
+    myProfile: state.TeacherDashboard.getProfile,
+});
 
 const mapDispatchToProps = (dispatch) => ({
     clearLogin: () => dispatch(clearLoginAction()),
 });
-export default connect(null, mapDispatchToProps)(Sidemenu);
+export default connect(mapStateToProps, mapDispatchToProps)(Sidemenu);

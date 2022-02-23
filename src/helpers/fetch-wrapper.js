@@ -29,10 +29,16 @@ function post(url, body, token) {
     return fetch(url, requestOptions).then(handleResponse);
 }
 
-function put(url, body) {
+function put(url, body, token) {
+    console.log(token, 'Token from put fetch wrapper');
     const requestOptions = {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: token,
+        },
+
+        // headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
     };
     return fetch(url, requestOptions).then(handleResponse);

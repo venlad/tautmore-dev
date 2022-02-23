@@ -104,8 +104,6 @@ const Register = ({ registerAction, isOtpVerified, registerTeacherAction }) => {
         saturdayTimeSlots.push(item.value);
     });
 
-    console.log(saturdayTimeSlots, 'Saturday Time Slots', fridayTimeSlots, 'Friday Time Slots');
-
     const teacherDetails = {
         country: countryVal,
         state: stateVal.value,
