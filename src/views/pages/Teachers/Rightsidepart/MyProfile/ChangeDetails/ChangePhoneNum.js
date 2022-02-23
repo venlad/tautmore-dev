@@ -12,8 +12,6 @@ const ChangePhoneNumPopUp = ({
     const [newPhoneNum, setPhoneNum] = useState('');
 
     const onSaveClick = () => {
-        console.log(id, 'on save Click');
-        console.log(newPhoneNum);
         changePhoneNumber({ id, phone: newPhoneNum });
         handleModel(false);
     };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { connect } from 'react-redux';
 import {  bool, func, string } from 'prop-types';
 import { Link, useHistory } from 'react-router-dom';
@@ -8,11 +8,22 @@ import { sidebardata, accountData } from './mockData/SidebarData';
 import { menu } from '../../../assets/icons/IconList';
 import logouticon from '../../../assets/images/logouticon.png';
 import { clearLoginAction } from '../../../stores/Auth/AuthAction';
+import { getProfileAction } from '../../../stores/TeacherDashboard/TeacherDashboardAction'
+
 const Sidemenu = ({
-    open, setOpen, clearLogin, viewType,myProfile
+    open, setOpen, clearLogin, viewType,myProfile,getMyProfile
 }) => {
     
+
+    useEffect(() => {
+        if (myProfile.length === 0) {
+            getMyProfile();
+        }
+    }, [myProfile]);
+
     const myprofileDetail = myProfile?.data;
+
+
     const history = useHistory();
     const logOut = () => {
         localStorage.removeItem('taut-student');              
@@ -104,5 +115,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     clearLogin: () => dispatch(clearLoginAction()),
+    getMyProfile: () => dispatch(getProfileAction())
+
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Sidemenu);

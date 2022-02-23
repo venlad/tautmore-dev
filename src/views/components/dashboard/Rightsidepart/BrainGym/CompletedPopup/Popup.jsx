@@ -2,7 +2,7 @@ import React from 'react';
 import SpecialClam from '../../../../../../assets/images/SpecialClam.svg';
 import Pencil from '../../../../../../assets/images/Pencil_brain-gym.svg';
 import CheckList from '../../../../../../assets/images/CheckList.svg';
-import Flash from '../../../../../../assets/images/flash.svg';
+// import Flash from '../../../../../../assets/images/flash.svg';
 import close from '../../../../../../assets/images/close.png';
 
 import './popup.scss';
@@ -41,7 +41,7 @@ const Popup = () => (
                                     </div>
 
                                     <div className="stats-2">
-                                        <img src={Flash} alt="No Imag" />
+                                        <img src={close} alt="No Imag" />
                                         <div>
                                             <p className="avg-score">Average Speed</p>
                                             <p className="score-2">8.2 sec / Que</p>

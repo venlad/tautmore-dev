@@ -11,7 +11,6 @@ const ChangeUnivPopUp = ({
     const [newUniv, setUniv] = useState('');
 
     const onSaveClick = () => {
-        console.log(id, 'on save Click');
         changeUniv({ id, univ: newUniv });
         handleModel(false);
     };

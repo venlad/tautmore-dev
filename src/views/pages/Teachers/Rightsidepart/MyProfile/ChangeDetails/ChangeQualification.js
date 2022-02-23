@@ -11,7 +11,6 @@ const ChangeQualPopUp = ({
     const [newQualification, setQualification] = useState('');
 
     const onSaveClick = () => {
-        console.log(id, 'on save Click');
         changeQual({ id, qualification: newQualification });
         handleModel(false);
     };

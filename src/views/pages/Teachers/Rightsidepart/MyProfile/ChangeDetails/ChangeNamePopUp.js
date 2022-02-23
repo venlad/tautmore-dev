@@ -11,7 +11,6 @@ const ChangeNamePopUp = ({
     const [newName, setNewName] = useState('');
 
     const onSaveClick = () => {
-        console.log(id, 'on save Click');
         changeName({ id, name: newName });
         handleModel(false);
     };

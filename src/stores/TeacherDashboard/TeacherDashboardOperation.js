@@ -98,7 +98,7 @@ function* workerChangeQualification(data) {
 
     if (response) {
         yield put({
-            type: actionTypes.UPDATE_CHANGE_PHONE_NUM,
+            type: actionTypes.UPDATE_CHANGE_QUALIFICATION,
             payload: response,
         });
     }
@@ -113,7 +113,7 @@ function* workerChangeUniversity(data) {
 
     if (response) {
         yield put({
-            type: actionTypes.UPDATE_CHANGE_PHONE_NUM,
+            type: actionTypes.UPDATE_CHANGE_UNVIERSITY,
             payload: response,
         });
     }
