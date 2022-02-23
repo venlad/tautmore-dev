@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
 import { func, bool, array } from 'prop-types';
 import { Formik, Form, Field } from 'formik';
 import './calendar.scss';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import { leaveValidation } from './mockData/calendar';
 import { applyLeaveAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
 import { chevRight } from '../../../../../assets/icons/IconList';
@@ -12,7 +13,10 @@ const LeavePopup = ({
     model, handleModel, applyLeaveResponse, applyLeave, loginDetail,
 }) => {
     const [totalLeave, setTotalLeave] = useState('');
-    const leaveApplied = false;
+    const [appliedFromDate, setAppliedFromDate] = useState('');
+    const [appliedToDate, setAppliedToDate] = useState('');
+    const [totalAppliedLeave, setTotalAppliedLeave] = useState('');
+
     const fromDateChange = (e, setFieldValue, values) => {
         setFieldValue('fromDate', e.target.value);
         const oneDay = 24 * 60 * 60 * 1000;
@@ -36,20 +40,47 @@ const LeavePopup = ({
     const handleAddSubmit = (data) => {
         const value = {
             userId: loginDetail?.data?._id,
-            userType: loginDetail?.data?.userType,
-            from: `${data?.fromDate}T09:28:23.994Z`,
-            to: `${data?.toDate}T09:28:23.994Z`,
+            userType: 'Teacher',
+            from: moment(data?.fromDate).toISOString(),
+            to: moment(data?.toDate).toISOString(),
             reason: data?.reason,
         };
         applyLeave(value);
     };
-    console.log(applyLeaveResponse, 'applyLeaveResponse');
+
+    useEffect(() => {
+        if (applyLeaveResponse?.data) {
+            const oneDay = 24 * 60 * 60 * 1000;
+            const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+            let frmDate = new Date(applyLeaveResponse?.data?.from);
+            const fromLeave = `${month[frmDate.getMonth()]} ${frmDate.getDate()}, ${frmDate.getFullYear()}`;
+            setAppliedFromDate(fromLeave);
+            frmDate = `${frmDate.getFullYear()}-${frmDate.getMonth() + 1}-${frmDate.getDate()}`;
+
+            let toDate = new Date(applyLeaveResponse?.data?.to);
+            const toLeave = `${month[toDate.getMonth()]} ${toDate.getDate()}, ${toDate.getFullYear()}`;
+            setAppliedToDate(toLeave);
+            toDate = `${toDate.getFullYear()}-${toDate.getMonth() + 1}-${toDate.getDate()}`;
+
+            const fromLeaveDay = new Date(frmDate.replace(/-/g, ', '));
+            const toLeaveDay = new Date(toDate.replace(/-/g, ', '));
+            const totalLeaveDay = Math.round(Math.abs((fromLeaveDay - toLeaveDay) / oneDay));
+            setTotalAppliedLeave(totalLeaveDay);
+        }
+    }, [applyLeaveResponse]);
+
+    const continueApplyLeave = () => {
+        handleModel(false);
+        applyLeave();
+    };
+
     return (
         <Modal
             show={model}
             onHide={() => handleModel(false)}
             className="calendar-leave-popup"
-        >   {!leaveApplied
+        >   {!applyLeaveResponse?.data
             && (
                 <Modal.Header closeButton>
                     <Modal.Title id="example-modal-sizes-title-lg">
@@ -61,12 +92,18 @@ const LeavePopup = ({
                 </Modal.Header>
             )}
             <Modal.Body>
-                { leaveApplied
+                {applyLeaveResponse?.data
                     ? (
                         <div className="leave-applied">
-                            <h3>Leave applied for 3 days!</h3>
-                            <p>From August 1, 2021 to August 3, 2021</p>
-                            <button type="button" className="button-common" onClick={() => handleModel(false)}>Continue <span>{chevRight}</span></button>
+                            { applyLeaveResponse?.data?.from && applyLeaveResponse?.data?.to
+                                ? (
+                                    <>
+                                        <h3>Leave applied for {totalAppliedLeave} days!</h3>
+                                        <p>From {appliedFromDate} to {appliedToDate}</p>
+                                    </>
+                                ) : <h3>{applyLeaveResponse?.data}</h3>}
+
+                            <button type="button" className="button-common" onClick={continueApplyLeave}>Continue <span>{chevRight}</span></button>
                         </div>
                     )
                     : (

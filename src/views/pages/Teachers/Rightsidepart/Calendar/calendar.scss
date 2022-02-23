@@ -518,6 +518,16 @@
     }
     .leave-applied {
         text-align: center;
+        h3 {
+            font-family: "proxima_nova_rgbold";
+            font-size: 32px;
+            color: #20282A;
+        }
+        p {
+            font-family: "Proxima Nova";
+            font-size: 18px;
+            color: #7D8283;
+        }
     }
 }
 .reschedule-popup {
