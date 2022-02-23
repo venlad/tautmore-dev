@@ -1,17 +1,15 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { leaves } from './mockData/calendar';
+import { func, array } from 'prop-types';
+// import { leaves } from './mockData/calendar';
 import { myLeavesListAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
 
-const MyLeaves = ({myLeavesList, myLeaves}) => {
+const MyLeaves = ({ myLeavesList, myLeaves }) => {
     useEffect(() => {
         if (myLeaves?.length === 0) {
-            console.log('yes not data');
             myLeavesList();
         }
     }, [myLeaves]);
-
-    console.log(myLeaves, 'myLeaves from leave');
 
     return (
         <div className="row leave-main">
@@ -35,7 +33,7 @@ const MyLeaves = ({myLeavesList, myLeaves}) => {
                                 <td>{data?.from.split('T')[0]}</td>
                                 <td>{data?.to}</td>
                                 <td>{data?.reason}</td>
-                                <td className={`${data?.status}`}><span className="dot" />{data?.status}</td>
+                                <td className={data?.status}><span className="dot" />{data?.status}</td>
                                 <td className="edit">{data?.edit && 'Edit'}</td>
                             </tr>
                         ))}
@@ -43,8 +41,13 @@ const MyLeaves = ({myLeavesList, myLeaves}) => {
                 </table>
             </div>
         </div>
-    )
-}
+    );
+};
+
+MyLeaves.propTypes = {
+    myLeavesList: func.isRequired,
+    myLeaves: array.isRequired,
+};
 
 const mapStateToProps = (state) => ({
     myLeaves: state.TeacherDashboard.myLeavesList,

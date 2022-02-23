@@ -1,12 +1,13 @@
 export const viewTypeData = {
-    CLASSES: 'classes',
-    STUDENTS: 'students',
-    SUBJECTS: 'subjects',
-    CALENDAR: 'calendar',
-    PAYMENTS: 'payments',
-    PROFILE: 'profile',
-    MYCONCEPTS: 'concepts',
-    MYASSIGNMENTS: 'assignments',
+    DASHBOARD: '/teacher',
+    CLASSES: '/teacher/classes',
+    STUDENTS: '/teacher/students',
+    SUBJECTS: '/teacher/subjects',
+    CALENDAR: '/teacher/calendar',
+    PAYMENTS: '/teacher/payments',
+    PROFILE: '/teacher/profile',
+    MYCONCEPTS: '/teacher/concepts',
+    MYASSIGNMENTS: '/teacher/assignments',
 };
 
 export default {};

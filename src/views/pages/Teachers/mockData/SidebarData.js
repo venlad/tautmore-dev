@@ -6,13 +6,13 @@ import Helpdeskicon from '../../../../assets/images/helpdeskicon.png';
 import Logouticon from '../../../../assets/images/logouticon.png';
 import { viewTypeData } from './DashboardViewData';
 
-export const sidebardata =     {
+export const sidebardata = {
     title: 'OVERVIEW',
     data: [
         {
             title: 'Dashboard',
             image: Dashboardicon,
-            to: '',
+            to: viewTypeData?.DASHBOARD,
         },
         {
             title: 'My classes',

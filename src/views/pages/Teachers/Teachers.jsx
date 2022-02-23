@@ -12,18 +12,18 @@ import MyPayments from './Rightsidepart/MyPayments/MyPayments';
 import Calendar from './Rightsidepart/Calendar/Calendar';
 import MyProfile from './Rightsidepart/MyProfile/MyProfile';
 import Myconcept from './Rightsidepart/MyStudents/StudentConcepts/MyConcepts';
-import { viewTypeData } from './mockData/DashboardViewData';
 import AssignmentsAndHomeWork from './Rightsidepart/MyStudents/Assignments/AssignmentsAndHomework';
 
 const Teachers = ({ match }) => {
     const [open, setOpen] = useState(false);
     const [lgShow, setLgShow] = useState(false);
-    const viewType = match.params.viewtype ? match.params.viewtype : '';
+    const viewType = match.url;
+    const caseType = match.params.viewtype ? match.params.viewtype : '';
 
     const renderLayouts = () => {
         let view = <Home lgShow={lgShow} setLgShow={setLgShow} />;
 
-        switch (viewType) {
+        switch (caseType) {
             case 'home':
                 view = <Home lgShow={lgShow} setLgShow={setLgShow} />;
                 break;
@@ -44,19 +44,19 @@ const Teachers = ({ match }) => {
                 view = <MyClass lgShow={lgShow} setLgShow={setLgShow} />;
                 break;
 
-            case viewTypeData?.CALENDAR:
+            case 'calendar':
                 view = <Calendar />;
                 break;
 
-            case viewTypeData?.PROFILE:
+            case 'profile':
                 view = <MyProfile />;
                 break;
 
-            case viewTypeData?.MYCONCEPTS:
+            case 'concepts':
                 view = <Myconcept />;
                 break;
 
-            case viewTypeData?.MYASSIGNMENTS:
+            case 'assignments':
                 view = <AssignmentsAndHomeWork />;
                 break;
 

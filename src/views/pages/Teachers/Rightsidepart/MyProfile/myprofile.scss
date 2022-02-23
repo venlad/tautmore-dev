@@ -195,6 +195,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            min-width: 100%;
         }
         svg {
             display: none;
@@ -318,6 +319,12 @@
                     h5.faded {
                         font-size: 18px;
                     }
+                    .certificate-buttons {
+                        text-align: center;
+                        button {
+                            text-align: left;
+                        }
+                    }
                 }
              
             }
@@ -335,8 +342,7 @@
             }
         }
         .changes-admin3{
-                width: 90% !important;
-            
+                width: 100%;
         }
         .heading-and-icon  {
             align-items: center;
@@ -351,4 +357,17 @@
 
     }
     
+}
+
+@media only screen and (max-width: 350px){
+    .container-teacher-profile {
+        .teacher-details .heading-and-icon h4 {
+            font-size: 20px !important;
+        }
+        p.changes-admin3 {
+            margin-left: 0;
+            margin-right: 0;
+            font-size: 14px;
+        }
+    }
 }

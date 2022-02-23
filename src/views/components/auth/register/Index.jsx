@@ -163,12 +163,11 @@ const Register = ({ registerAction, isOtpVerified, registerTeacherAction }) => {
         },
     ]);
 
-    console.log(examVal);
-
     const olympiadExamList = olympiadExamVal.map((data) =>  data?.value);
 
+    console.log(examVal);
+
     const handleRegister = () => {
-        console.log(userType);
         if (userType === 'Teacher') {
             console.log(userType);
         }
@@ -725,7 +724,7 @@ const Register = ({ registerAction, isOtpVerified, registerTeacherAction }) => {
                                     className="next-button"
                                     onClick={handleRegister}
                                 >
-                                    Submit <span>{chevRight}</span>{' '}
+                                    Submit <span>{chevRight}</span>
                                 </button>
                             )}
                             {step === 5 && userType === 'Student' && (
