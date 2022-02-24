@@ -5,8 +5,8 @@ import * as actionTypes from './TeacherDashboardTypes';
 import { teacherDashboardServices } from '../../services/teacherDashboard.service';
 
 function* workerMyLeavesList() {
-    const leaveId = '61f90736bfbb960009f3716c';
     const state = yield select();
+    const leaveId = state.Auth.Login.data._id;
     const token = state.Auth.Login.data.accessToken;
     const response = yield teacherDashboardServices.myLeavesList(leaveId, token);
     if (response) {

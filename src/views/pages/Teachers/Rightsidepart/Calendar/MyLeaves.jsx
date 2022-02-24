@@ -4,12 +4,12 @@ import { func, array } from 'prop-types';
 // import { leaves } from './mockData/calendar';
 import { myLeavesListAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
 
-const MyLeaves = ({ myLeavesList, myLeaves }) => {
+const MyLeaves = ({ myLeavesList, myLeaves, applyLeaveResponse }) => {
     useEffect(() => {
-        if (myLeaves?.length === 0) {
+        if (myLeaves?.length === 0 || applyLeaveResponse?.data) {
             myLeavesList();
         }
-    }, [myLeaves]);
+    }, [myLeaves, applyLeaveResponse]);
 
     return (
         <div className="row leave-main">
@@ -31,7 +31,7 @@ const MyLeaves = ({ myLeavesList, myLeaves }) => {
                             <tr>
                                 <td>{index + 1}</td>
                                 <td>{data?.from.split('T')[0]}</td>
-                                <td>{data?.to}</td>
+                                <td>{data?.to.split('T')[0]}</td>
                                 <td>{data?.reason}</td>
                                 <td className={data?.status}><span className="dot" />{data?.status}</td>
                                 <td className="edit">{data?.edit && 'Edit'}</td>
@@ -47,10 +47,12 @@ const MyLeaves = ({ myLeavesList, myLeaves }) => {
 MyLeaves.propTypes = {
     myLeavesList: func.isRequired,
     myLeaves: array.isRequired,
+    applyLeaveResponse: array.isRequired,
 };
 
 const mapStateToProps = (state) => ({
     myLeaves: state.TeacherDashboard.myLeavesList,
+    applyLeaveResponse: state.TeacherDashboard.applyLeave,
 });
 
 const mapDispatchToProps = (dispatch) => ({
