@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
-import { gradeLinks } from './data';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const Chapterslink = () => {
-    const [selectedLink, setSelectedLink] = useState(0);
-    return (
-        <div className="chapters-links">
-            <h1>Grade</h1>
-            <ul className="links-list">
-                {gradeLinks.map((link, linkIdx) => (
-                    <li
-                        key={link}
-                        className={linkIdx === selectedLink ? 'active' : ''}
+const Chapterslink = ({ grades, setSelectGrade, selectGrade }) => (
+    <div className="chapters-links">
+        <h1>Grade</h1>
+        <ul className="links-list">
+            {grades.map((grade) => (
+                <li key={grade?.id} className={grade?.attributes?.title === selectGrade ? 'active' : ''}>
+                    <button
+                        type="button"
+                        onClick={() => setSelectGrade(grade?.attributes?.title)}
+                        className={grade?.attributes?.title === selectGrade ? 'active' : ''}
                     >
-                        <button
-                            type="button"
-                            onClick={() => setSelectedLink(linkIdx)}
-                            className={linkIdx === selectedLink ? 'active' : ''}
-                        >{link}
-                        </button>
+                        {grade?.attributes?.title}
+                    </button>
+                </li>
+            ))}
+        </ul>
+    </div>
+);
 
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
+Chapterslink.propTypes = {
+    grades: PropTypes.array.isRequired,
+    setSelectGrade: PropTypes.isRequired,
+    selectGrade: PropTypes.isRequired,
 };
 
 export default Chapterslink;

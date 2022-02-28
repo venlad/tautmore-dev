@@ -1,24 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { string } from 'prop-types';
 import { errowRight } from '../../../assets/icons/IconList';
-import  SubjectData  from './mockData/SubjectlistData';
+import STRAPI_URL from '../../../constants/strapi';
 
 const Subjectlist = ({ subdata }) => {
-    const divClass = (data) => (subdata === data.title ? 'col-md-2 active' : 'col-md-2');
-    const link = (data) => `/chapters/${data.title}`;
+    const [activities, setActivities] = useState([]);
+
+    const fetchActivity = async () => {
+        const res = await fetch(
+            `${STRAPI_URL}/api/activities?populate=*`,
+        );
+        const data = await res.json();
+        setActivities(data?.data);
+    };
+
+    // eslint-disable-next-line max-len
+    const divClass = (data) => (subdata === data?.attributes?.slug ? 'col-md-2 active' : 'col-md-2');
+    const link = (data) => `/chapters/${data}`;
+
+    useEffect(() => {
+        fetchActivity();
+    }, []);
 
     return (
         <div>
             <div className={`sub-list-main ${subdata && 'mainactive'}`}>
-                {SubjectData?.map((data) => (
+                {activities?.map((data) => (
                     <div
                         className={divClass(data)}
-                        key={data.key}
+                        key={data.id}
                     >
-                        <Link to={link(data)}>
-                            <img src={data.image} alt="webbsite_log" />
-                            <h5>{data.title}</h5>
+                        <Link to={link(data?.attributes?.slug)}>
+                            <img
+                                src={STRAPI_URL + data?.attributes?.icon?.data?.attributes?.url}
+                                alt="webbsite_log"
+                            />
+                            <h5>{data?.attributes?.title}</h5>
                         </Link>
                     </div>
                 ))}

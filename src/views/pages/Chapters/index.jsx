@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+    useEffect, useRef, useState, useCallback,
+} from 'react';
 import { object } from 'prop-types';
 import { data } from './data';
 import './style.scss';
@@ -7,6 +9,7 @@ import Mathicon from '../../../assets/images/design-tool@1.5x.svg';
 import Chapterslink from './Chapterslink';
 import Topiclist from './Topiclist';
 import Layout from '../../../Layout/Layout';
+import STRAPI_URL from '../../../constants/strapi';
 
 const Chapters = ({ match }) => {
     const [viewMoreTopic, setViewMoreTopic] = useState(['', '']);
@@ -16,6 +19,32 @@ const Chapters = ({ match }) => {
 
     const descRef = useRef(null);
 
+    const [grades, setGrades] = useState([]);
+    const [selectGrade, setSelectGrade] = useState('Pre-Kindergarten');
+    const [activities, setActivities] = useState([]);
+    const [filterAct, setFilterAct] = useState([]);
+
+    const fetchGrades = useCallback(async () => {
+        const res = await fetch(
+            `${STRAPI_URL}/api/grades?populate=*`,
+        );
+        const dataRes = await res.json();
+        setGrades(dataRes?.data);
+
+        const activityRes = await fetch(
+            `${STRAPI_URL}/api/activities?populate=*`,
+        );
+        const activityData = await activityRes.json();
+        // eslint-disable-next-line max-len
+        setActivities(activityData?.data);
+        console.log('fetch is called', activities, filterAct);
+    }, []);
+
+    useEffect(() => {
+        fetchGrades();
+        setFilterAct(activities?.filter((item) => item?.attributes?.slug === match.params.subject));
+    }, []);
+
     useEffect(() => {
         const elStart = descRef.current?.getBoundingClientRect();
         setShouldToggleStyle(elStart?.right < window.innerWidth / 2 + 200);
@@ -24,13 +53,22 @@ const Chapters = ({ match }) => {
     useEffect(() => {
         const sub = match.params.subject;
         setSubdata(sub);
+        // eslint-disable-next-line max-len
+        setFilterAct(activities?.filter((item) => item?.attributes?.slug === match.params.subject));
+        console.log('fetch is', filterAct);
     }, [match.params.subject]);
+
+    console.log(filterAct[0]?.attributes?.title, 'HA');
 
     return (
         <Layout>
             <Subjectlist subdata={subdata} setSubdata={setSubdata} />
             <div className="chapters-main-container">
-                <Chapterslink />
+                <Chapterslink
+                    grades={grades}
+                    setSelectGrade={setSelectGrade}
+                    selectGrade={selectGrade}
+                />
                 <div className="chapters-details">
                     <h1>
                         <img src={Mathicon} alt="Math_img" />
