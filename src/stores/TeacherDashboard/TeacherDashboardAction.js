@@ -11,6 +11,11 @@ export const applyLeaveAction = (data) => ({
     payload: data,
 });
 
+export const cancelLeaveAction = (data, token) => ({
+    type: actionTypes.CANCEL_LEAVE,
+    payload: data,
+});
+
 export const getProfileAction = (data) => ({
     type: actionTypes.GET_PROFILE,
     payload: data,

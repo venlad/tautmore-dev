@@ -3,6 +3,7 @@ import * as actionTypes from './TeacherDashboardTypes';
 const initialState = {
     myLeavesList: [],
     applyLeave: [],
+    cancelLeave: [],
     getProfile: [],
     changeName: [],
     changeEmail: [],
@@ -23,6 +24,11 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 applyLeave: action.payload,
+            };
+        case actionTypes.UPDATE_CANCEL_LEAVE:
+            return {
+                ...state,
+                cancelLeave: action.payload,
             };
         case actionTypes.UPDATE_GET_PROFILE:
             return {

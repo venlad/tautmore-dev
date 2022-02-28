@@ -5,10 +5,14 @@ import { Formik, Form, Field } from 'formik';
 import './calendar.scss';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import DatePicker, { registerLocale }  from 'react-datepicker';
+import enGb from 'date-fns/locale/en-GB';
+import 'react-datepicker/dist/react-datepicker.css';
 import { leaveValidation } from './mockData/calendar';
 import { applyLeaveAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
 import { chevRight } from '../../../../../assets/icons/IconList';
 
+registerLocale('en-gb', enGb);
 const LeavePopup = ({
     model, handleModel, applyLeaveResponse, applyLeave, loginDetail,
 }) => {
@@ -18,7 +22,8 @@ const LeavePopup = ({
     const [totalAppliedLeave, setTotalAppliedLeave] = useState('');
 
     const fromDateChange = (e, setFieldValue, values) => {
-        setFieldValue('fromDate', e.target.value);
+        console.log(e, 'from eee');
+        setFieldValue('fromDate', e);
         const oneDay = 24 * 60 * 60 * 1000;
         const firstDate = new Date(e.target.value.replace(/-/g, ', '));
         const secondDate = new Date(values?.toDate.replace(/-/g, ', '));
@@ -28,7 +33,7 @@ const LeavePopup = ({
         }
     };
     const toDateChange = (e, setFieldValue, values) => {
-        setFieldValue('toDate', e.target.value);
+        setFieldValue('toDate', e);
         const oneDay = 24 * 60 * 60 * 1000;
         const firstDate = new Date(values?.fromDate.replace(/-/g, ', '));
         const secondDate = new Date(e.target.value.replace(/-/g, ', '));
@@ -124,23 +129,40 @@ const LeavePopup = ({
                             }) => (
                                 <Form onSubmit={handleSubmit}>
                                     <div className="label">From*</div>
-                                    <Field
+                                    {/* <Field
                                         type="date"
                                         name="fromDate"
                                         onChange={(e) => fromDateChange(e, setFieldValue, values)}
                                         value={values.fromDate}
+                                    /><br /> <br /> */}
+                                    <DatePicker
+                                        name="fromDate"
+                                        dateFormat="dd/MM/yyyy"
+                                        locale="en-gb"
+                                        formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 3)}
+                                        selected={values.fromDate}
+                                        onChange={(e) => fromDateChange(e, setFieldValue, values)}
                                     /><br /> <br />
+
                                     {errors.fromDate && touched.fromDate ? (
                                         <div className="mt-25 ml-25 rp-manage-school_error-message">
                                             {errors.fromDate}
                                         </div>
                                     ) : null}
                                     <div className="label">To*</div>
-                                    <Field
+                                    {/* <Field
                                         type="date"
                                         name="toDate"
                                         onChange={(e) => toDateChange(e, setFieldValue, values)}
                                         value={values.toDate}
+                                    /><br /> <br /> */}
+                                    <DatePicker
+                                        name="toDate"
+                                        dateFormat="dd/MM/yyyy"
+                                        locale="en-gb"
+                                        formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 3)}
+                                        selected={values.toDate}
+                                        onChange={(e) => toDateChange(e, setFieldValue, values)}
                                     /><br /> <br />
                                     {errors.toDate && touched.toDate ? (
                                         <div className="mt-25 ml-25 rp-manage-school_error-message">

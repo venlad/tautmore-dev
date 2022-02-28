@@ -1,15 +1,34 @@
 const assignments = [
     {
         title: '1. Numbers and comparing',
-        subTopic: [
-            'A. Even or odd',
-            'B. Which number is greatest/least?',
-        ],
+        // subTopic: [
+        //     'A. Even or odd',
+        //     'B. Which number is greatest/least?',
+        // ],
+        // subTopicListItems: [
+        //     'A.1 Sub-topic 1',
+        //     'A.2 Sub-topic 1',
+        //     'A.3 Sub-topic 1',
+        //     'A.4 Sub-topic 1',
+        // ],
         subTopicListItems: [
-            'A.1 Sub-topic 1',
-            'A.2 Sub-topic 1',
-            'A.3 Sub-topic 1',
-            'A.4 Sub-topic 1',
+            {
+                title: 'A. Even or odd',
+                desc: [
+                    'A.1 Sub-topic 1',
+                    'A.2 Sub-topic 1',
+                    'A.3 Sub-topic 1',
+                    'A.4 Sub-topic 1',
+                ],
+            },
+            {
+                title: 'B. Which number is greatest/least?',
+                desc: [
+                    'B.1 Sub-topic 1',
+                    'B.2 Sub-topic 1',
+                    'B.3 Sub-topic 1',
+                ],
+            },
         ],
         progressbar: [
             {
@@ -20,15 +39,34 @@ const assignments = [
     },
     {
         title: '2.PlaceValues',
-        subTopic: [
-            'A. Even or odd',
-            'B. Which number is greatest/least?',
-        ],
+        // subTopic: [
+        //     'A. Even or odd',
+        //     'B. Which number is greatest/least?',
+        // ],
+        // subTopicListItems: [
+        //     'A.1 Sub-topic 1',
+        //     'A.2 Sub-topic 1',
+        //     'A.3 Sub-topic 1',
+        //     'A.4 Sub-topic 1',
+        // ],
         subTopicListItems: [
-            'A.1 Sub-topic 1',
-            'A.2 Sub-topic 1',
-            'A.3 Sub-topic 1',
-            'A.4 Sub-topic 1',
+            {
+                title: 'A. Even or odd',
+                desc: [
+                    'A.1 Sub-topic 1',
+                    'A.2 Sub-topic 1',
+                    'A.3 Sub-topic 1',
+                    'A.4 Sub-topic 1',
+                ],
+            },
+            {
+                title: 'B. Which number is greatest/least?',
+                desc: [
+                    'B.1 Sub-topic 1',
+                    'B.2 Sub-topic 1',
+                    'B.3 Sub-topic 1',
+                ],
+            },
         ],
         progressbar: [
             {
@@ -39,15 +77,34 @@ const assignments = [
     },
     {
         title: '3.Multiplication',
-        subTopic: [
-            'A. Even or odd',
-            'B. Which number is greatest/least?',
-        ],
+        // subTopic: [
+        //     'A. Even or odd',
+        //     'B. Which number is greatest/least?',
+        // ],
+        // subTopicListItems: [
+        //     'A.1 Sub-topic 1',
+        //     'A.2 Sub-topic 1',
+        //     'A.3 Sub-topic 1',
+        //     'A.4 Sub-topic 1',
+        // ],
         subTopicListItems: [
-            'A.1 Sub-topic 1',
-            'A.2 Sub-topic 1',
-            'A.3 Sub-topic 1',
-            'A.4 Sub-topic 1',
+            {
+                title: 'A. Even or odd',
+                desc: [
+                    'A.1 Sub-topic 1',
+                    'A.2 Sub-topic 1',
+                    'A.3 Sub-topic 1',
+                    'A.4 Sub-topic 1',
+                ],
+            },
+            {
+                title: 'B. Which number is greatest/least?',
+                desc: [
+                    'B.1 Sub-topic 1',
+                    'B.2 Sub-topic 1',
+                    'B.3 Sub-topic 1',
+                ],
+            },
         ],
         progressbar: [
             {
@@ -58,15 +115,34 @@ const assignments = [
     },
     {
         title: '4. Logical Reasoning',
-        subTopic: [
-            'A. Even or odd',
-            'B. Which number is greatest/least?',
-        ],
+        // subTopic: [
+        //     'A. Even or odd',
+        //     'B. Which number is greatest/least?',
+        // ],
+        // subTopicListItems: [
+        //     'A.1 Sub-topic 1',
+        //     'A.2 Sub-topic 1',
+        //     'A.3 Sub-topic 1',
+        //     'A.4 Sub-topic 1',
+        // ],
         subTopicListItems: [
-            'A.1 Sub-topic 1',
-            'A.2 Sub-topic 1',
-            'A.3 Sub-topic 1',
-            'A.4 Sub-topic 1',
+            {
+                title: 'A. Even or odd',
+                desc: [
+                    'A.1 Sub-topic 1',
+                    'A.2 Sub-topic 1',
+                    'A.3 Sub-topic 1',
+                    'A.4 Sub-topic 1',
+                ],
+            },
+            {
+                title: 'B. Which number is greatest/least?',
+                desc: [
+                    'B.1 Sub-topic 1',
+                    'B.2 Sub-topic 1',
+                    'B.3 Sub-topic 1',
+                ],
+            },
         ],
         progressbar: [
             {
@@ -77,15 +153,34 @@ const assignments = [
     },
     {
         title: '5.Estimation and rounding',
-        subTopic: [
-            'A. Even or odd',
-            'B. Which number is greatest/least?',
-        ],
+        // subTopic: [
+        //     'A. Even or odd',
+        //     'B. Which number is greatest/least?',
+        // ],
+        // subTopicListItems: [
+        //     'A.1 Sub-topic 1',
+        //     'A.2 Sub-topic 1',
+        //     'A.3 Sub-topic 1',
+        //     'A.4 Sub-topic 1',
+        // ],
         subTopicListItems: [
-            'A.1 Sub-topic 1',
-            'A.2 Sub-topic 1',
-            'A.3 Sub-topic 1',
-            'A.4 Sub-topic 1',
+            {
+                title: 'A. Even or odd',
+                desc: [
+                    'A.1 Sub-topic 1',
+                    'A.2 Sub-topic 1',
+                    'A.3 Sub-topic 1',
+                    'A.4 Sub-topic 1',
+                ],
+            },
+            {
+                title: 'B. Which number is greatest/least?',
+                desc: [
+                    'B.1 Sub-topic 1',
+                    'B.2 Sub-topic 1',
+                    'B.3 Sub-topic 1',
+                ],
+            },
         ],
         progressbar: [
             {
@@ -96,15 +191,34 @@ const assignments = [
     },
     {
         title: '6. Logical Reasoning',
-        subTopic: [
-            'A. Even or odd',
-            'B. Which number is greatest/least?',
-        ],
+        // subTopic: [
+        //     'A. Even or odd',
+        //     'B. Which number is greatest/least?',
+        // ],
+        // subTopicListItems: [
+        //     'A.1 Sub-topic 1',
+        //     'A.2 Sub-topic 1',
+        //     'A.3 Sub-topic 1',
+        //     'A.4 Sub-topic 1',
+        // ],
         subTopicListItems: [
-            'A.1 Sub-topic 1',
-            'A.2 Sub-topic 1',
-            'A.3 Sub-topic 1',
-            'A.4 Sub-topic 1',
+            {
+                title: 'A. Even or odd',
+                desc: [
+                    'A.1 Sub-topic 1',
+                    'A.2 Sub-topic 1',
+                    'A.3 Sub-topic 1',
+                    'A.4 Sub-topic 1',
+                ],
+            },
+            {
+                title: 'B. Which number is greatest/least?',
+                desc: [
+                    'B.1 Sub-topic 1',
+                    'B.2 Sub-topic 1',
+                    'B.3 Sub-topic 1',
+                ],
+            },
         ],
         progressbar: [
             {
