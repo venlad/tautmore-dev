@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { array, string } from 'prop-types';
 import { Link } from 'react-router-dom';
 import STRAPI_URL from '../../../constants/strapi';
 
@@ -43,8 +43,13 @@ function Rightpart({ selectGrade, activities }) {
 }
 
 Rightpart.propTypes = {
-    selectGrade: PropTypes.string.isRequired,
-    activities: PropTypes.array.isRequired,
+    selectGrade: string,
+    activities: array,
+};
+
+Rightpart.defaultProps = {
+    selectGrade: '',
+    activities: [],
 };
 
 export default Rightpart;

@@ -9,6 +9,7 @@ const Grades = () => {
     const [grades, setGrades] = useState([]);
     const [activities, setActivities] = useState([]);
     const [selectGrade, setSelectGrade] = useState('Pre-Kindergarten');
+    // const [filterActivity, setFilterActivity] = useState([]);
 
     const fetchGrades = async () => {
         const res = await fetch(
@@ -17,16 +18,18 @@ const Grades = () => {
         const data = await res.json();
         setGrades(data?.data);
 
-        const activityRes = await fetch(
-            `${STRAPI_URL}/api/activities?populate=*`,
-        );
-        const activityData = await activityRes.json();
-        setActivities(activityData?.data);
+        // eslint-disable-next-line max-len
+        setActivities(data?.data?.filter((item) => item?.attributes?.title === selectGrade)[0]?.attributes?.activities?.data);
     };
 
     useEffect(() => {
         fetchGrades();
     }, []);
+
+    useEffect(() => {
+        // eslint-disable-next-line max-len
+        setActivities(grades?.filter((item) => item?.attributes?.title === selectGrade)[0]?.attributes?.activities?.data);
+    }, [selectGrade]);
 
     return (
         <Layout>

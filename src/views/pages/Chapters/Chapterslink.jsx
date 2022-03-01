@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { array, string, func } from 'prop-types';
 
 const Chapterslink = ({ grades, setSelectGrade, selectGrade }) => (
     <div className="chapters-links">
@@ -21,9 +21,15 @@ const Chapterslink = ({ grades, setSelectGrade, selectGrade }) => (
 );
 
 Chapterslink.propTypes = {
-    grades: PropTypes.array.isRequired,
-    setSelectGrade: PropTypes.isRequired,
-    selectGrade: PropTypes.isRequired,
+    grades: array,
+    setSelectGrade: func,
+    selectGrade: string,
+};
+
+Chapterslink.defaultProps = {
+    grades: [],
+    setSelectGrade: () => {},
+    selectGrade: '',
 };
 
 export default Chapterslink;

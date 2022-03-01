@@ -40,8 +40,6 @@ const Chapters = ({ match }) => {
 
     useEffect(() => {
         fetchGrades();
-        // eslint-disable-next-line max-len
-        setFilterSubjects(subjects?.filter((item) => item?.attributes?.slug === match.params.subject));
     }, []);
 
     useEffect(() => {
@@ -92,6 +90,7 @@ const Chapters = ({ match }) => {
                                             descRef={descRef}
                                             shouldToggleStyle={shouldToggleStyle}
                                             setViewMoreTopic={setViewMoreTopic}
+                                            key={topic?.id}
                                         />
                                     ))}
                                 </ul>
