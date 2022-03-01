@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { v4 as uuid } from 'uuid';
 import {
     object, bool, string, number, array, func, shape, arrayOf,
 } from 'prop-types';
@@ -52,8 +51,7 @@ const Topiclist = ({
                                 ? setDescriptionAnchor([idx, topicIdx, subIdx]) : '')}
                             className="sub-topic-div"
                         >
-                            {`${String.fromCharCode(65 + topicIdx)}.${subIdx + 1}`}
-                            {subTopic?.subTopicName} {subIdx + 1}
+                            {`${String.fromCharCode(65 + topicIdx)}.${subIdx + 1}`} {subTopic?.subTopicName} {subIdx + 1}
                             <SubtopicDesc
                                 isShow={
                                     descriptionAnchor[0] === idx

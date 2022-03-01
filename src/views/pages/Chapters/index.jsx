@@ -56,9 +56,8 @@ const Chapters = ({ match }) => {
         setFilterSubjects(subjects?.filter((item) => item?.attributes?.slug === match.params.subject));
     }, [match.params.subject]);
 
-    console.log(filterSubjects);
-
-    const chapters = filterSubjects[0]?.attributes?.chapters?.data;
+    // eslint-disable-next-line max-len
+    const chapters = filterSubjects[0]?.attributes?.chapters?.data.filter((item) => item?.attributes?.grade?.data?.attributes?.title === selectGrade);
 
     return (
         <Layout>
