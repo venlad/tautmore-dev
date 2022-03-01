@@ -9,7 +9,7 @@ import Close from '../../../../../../assets/images/Close-shell.svg';
 import Calender from '../../../../../../assets/images/Calender-shell.svg';
 import './style/shell.scss';
 import ShellPoupup from './ShellPoupup';
-import currentDate from '../../../../../../helpers/utility';
+import { currentDate } from '../../../../../../helpers/utility';
 
 const Shell = ({
     setViewBrain, setShowShell, showShell, currentChest,

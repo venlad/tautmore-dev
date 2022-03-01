@@ -2186,7 +2186,11 @@
                   }
                 }
               }
+              .myexam-main-common-left{
+                display: contents;
+              }
               .myexam-common-top {
+                width: 50%;
                 margin: auto;
                 .myexam-common {
                   .test-audio-video {
@@ -2199,6 +2203,7 @@
                   background-color: #fff;
                   padding: 20px;
                   border-radius: 10px;
+                  margin-top: 30px;
                   .myassignment-common-row {
                     align-items: baseline;
                   }
@@ -2219,14 +2224,18 @@
                     font-family: "proxima_nova_rgbold";
                   }
                   .myexam-common-left {
+                    display: contents;
                     h4 {
                       font-family: "proxima_nova_rgbold";
                       color: #454C4E;
                       margin-bottom: 9px;
+                      padding-left: 15px;
+                      width: 38%;
                     }
                     h5 {
                       font-size: 16px;
                       color: #454C4E;
+                      padding-left: 15px;
                     }
                   }
 
@@ -2305,6 +2314,9 @@
                         font-weight: 600;
                         padding-left: 25px;
                       }
+                      img{
+                        width: 10px;
+                      }
                  
                     }
                   .myexam-common-right {
@@ -2327,6 +2339,11 @@
                     }
                     span.span-two {
                       margin: 0px 15px;
+                    }
+                    span.span-three {
+                     img{
+                       margin-bottom: 4px;
+                     }
                     }
                     span.span-student {
                       color: #43AA8B;
@@ -2687,6 +2704,7 @@
                   }
                 }
               }
+              
               .myexam-answer-right {
                 h3 {
                   font-family: "proxima_nova_rgregular";
@@ -2701,20 +2719,99 @@
                   margin-bottom: 20px;
                   .exam-right-left {
                     img {
-                      width: 28px;
-                      height: 19px;
+                      width: 35px;
+                      height: 25px;
+                      margin-top: 15px;
                     }
                   }
                   .exam-right-center {
+                    .question{
+                      display: flex;
+                    }
                     h5 {
                       font-family: "proxima_nova_rgregular";
                       color: #20282A;
                       font-size: 20px;
                     }
-                    h5.answer {
+                    h5.answerRight {
                       color: #43AA8B;
                       font-family: "proxima_nova_rgbold";
-                      margin: 15px 0px;
+                      margin: 10px 0px 0px 0px;
+                      display: flex;
+                      
+                      span.text{
+                        height: 50px;
+                        width: 227px;
+                        color: #20282A;
+                        font-family: "proxima_nova_rgregular";
+                        font-size: 20px;
+                        letter-spacing: 0;
+                        line-height: 22px;
+                        margin-left: 10px;
+
+                        img{
+                          height: 80px;
+                          width: 80px;
+                          margin-left: 20px;
+                        }
+                      }
+                      span.image{
+                        height: 85px;
+                        width: 227px;
+                        color: #20282A;
+                        font-family: "proxima_nova_rgregular";
+                        font-size: 20px;
+                        letter-spacing: 0;
+                        line-height: 22px;
+                        margin-left: 10px;
+                        
+                        img{
+                          height: 80px;
+                          width: 80px;
+                          margin-left: 20px;
+                        }
+                      }
+                    
+                    }
+                    h5.answerWrong{
+                      color: #fd2b5c;
+                      font-family: "proxima_nova_rgbold";
+                      margin: 10px 0px 0px 0px;
+                      display: flex;
+                      
+                      span.text{
+                        height: 50px;
+                        width: 227px;
+                        color: #20282A;
+                        font-family: "proxima_nova_rgregular";
+                        font-size: 20px;
+                        letter-spacing: 0;
+                        line-height: 22px;
+                        margin-left: 10px;
+
+                        img{
+                          height: 80px;
+                          width: 80px;
+                          margin-left: 20px;
+                        }
+                      }
+                      span.image{
+                        height: 85px;
+                        width: 227px;
+                        color: #20282A;
+                        font-family: "proxima_nova_rgregular";
+                        font-size: 20px;
+                        letter-spacing: 0;
+                        line-height: 22px;
+                        margin-left: 10px;
+                        
+                        img{
+                          height: 80px;
+                          width: 80px;
+                          margin-left: 20px;
+                        }
+                      }
+                    
                     }
                     .option-main {
                       height: 0px;
@@ -3802,6 +3899,10 @@
   }
 
   @media only screen and (max-width: 991px) {
+    .dashboard-main .row-main .dashboard-right .myexam-main .myexam-common-top {
+      width: 100% !important;
+      margin: auto;
+  }
     .dashboard-left {
       width: 6% !important;
       .logo-profile {
@@ -4461,6 +4562,10 @@
     .dashboard-main .row-main .dashboard-right .myexam-main .myexam-title h3 {
       font-size: 25px !important;
     }
+    .dashboard-main .row-main .dashboard-right .myexam-main .myexam-common-top {
+      width: 100% !important;
+      margin: auto;
+  }
     .dashboard-main .row-main .dashboard-right .myexam-main .myexam-common-top .myexam-common .myexam-common-right {
       text-align: left !important;
     }

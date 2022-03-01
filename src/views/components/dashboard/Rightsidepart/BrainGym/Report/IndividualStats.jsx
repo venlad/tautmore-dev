@@ -6,7 +6,7 @@ import HandGesture from '../../../../../../assets/images/HandGesture.svg';
 import Target from '../../../../../../assets/images/Target.svg';
 import CheckList from '../../../../../../assets/images/CheckList.svg';
 import Flash from '../../../../../../assets/images/flash.svg';
-import currentDate from '../../../../../../helpers/utility';
+import { currentDate } from '../../../../../../helpers/utility';
 
 const IndividualStats = ({  allShellData, setViewBrain }) => {
     const { masterChest } = allShellData?.data;

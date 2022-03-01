@@ -193,6 +193,80 @@
             .answer-title {
                 margin-top: 25px;
             }
+            .subscribe-for-more-exam {
+                // text-align: center;
+                display: flex;
+                .next {
+                  width: 246px;
+                  background-color: #43aa8b;
+                  border-radius: 33.75px;
+                  color: #fff;
+                  border: 0;
+                  height: 66px;
+                  font-weight: bold;
+                  font-size: 20px;
+                  font-family: "proxima_nova_rgbold";
+                  text-align: left;
+                  padding: 0px 25px;
+                  box-shadow: none;
+                  transition: 0.3s;
+                  opacity: 0.8;
+                  margin-left: 20px;
+                //   margin: 50px 0px;
+                  position: relative;
+                  z-index: 9;
+                  margin-bottom: 20px;
+                  span {
+                    float: right;
+                    height: 24px;
+                    width: 24px;
+                    background-color: #fca834;
+                    border-radius: 50%;
+                    padding: 0px 7px;
+                    margin-top: 4px;
+                    box-shadow: 5px 5px 5px rgb(0 0 0 / 24%) !important;
+                    display: flex;
+                    align-items: center;
+                  }
+                }
+                .prev {
+                    width: 246px;
+                    background-color: #fff;
+                    border-radius: 33.75px;
+                    color: #6F797C;
+                    border: 1px solid #6F797C; 
+                    height: 66px;
+                    font-weight: bold;
+                    font-size: 20px;
+                    font-family: "proxima_nova_rgbold";
+                    text-align: left;
+                    padding: 0px 25px;
+                    box-shadow: none;
+                    transition: 0.3s;
+                    opacity: 0.8;
+                  //   margin: 50px 0px;
+                    position: relative;
+                    z-index: 9;
+                    margin-bottom: 20px;
+                    span {
+                      float: left;
+                      height: 24px;
+                      width: 24px;
+                      color: #fff;
+                      background-color: #6F797C;
+                      border-radius: 50%;
+                      padding: 0px 7px;
+                      margin: 3px 13px 0px -10px;
+                      box-shadow: 5px 5px 5px rgb(0 0 0 / 24%) !important;
+                      display: flex;
+                      align-items: center;
+                    }
+                  }
+                button:hover {
+                  box-shadow: 5px 5px 5px rgb(67 170 139 / 25%) !important;
+                  opacity: 1;
+                }
+              }
             .Header, .footer-main {
                 display: none;
             }
