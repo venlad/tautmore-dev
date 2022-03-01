@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { string } from 'prop-types';
+import { array, string } from 'prop-types';
 import { errowRight } from '../../../assets/icons/IconList';
 import STRAPI_URL from '../../../constants/strapi';
 
-const Subjectlist = ({ subdata }) => {
+const Subjectlist = ({ subdata, subjects }) => {
     const [activities, setActivities] = useState([]);
 
     const fetchActivity = async () => {
@@ -23,10 +23,12 @@ const Subjectlist = ({ subdata }) => {
         fetchActivity();
     }, []);
 
+    console.log(activities);
+
     return (
         <div>
             <div className={`sub-list-main ${subdata && 'mainactive'}`}>
-                {activities?.map((data) => (
+                {subjects?.map((data) => (
                     <div
                         className={divClass(data)}
                         key={data.id}
@@ -49,9 +51,11 @@ const Subjectlist = ({ subdata }) => {
 };
 Subjectlist.propTypes = {
     subdata: string,
+    subjects: array,
 };
 
 Subjectlist.defaultProps = {
     subdata: '',
+    subjects: [],
 };
 export default Subjectlist;

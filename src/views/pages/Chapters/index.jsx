@@ -1,11 +1,9 @@
 import React, {
-    useEffect, useRef, useState, useCallback,
+    useEffect, useRef, useState,
 } from 'react';
 import { object } from 'prop-types';
-import { data } from './data';
 import './style.scss';
 import Subjectlist from '../home/Subjectlist';
-import Mathicon from '../../../assets/images/design-tool@1.5x.svg';
 import Chapterslink from './Chapterslink';
 import Topiclist from './Topiclist';
 import Layout from '../../../Layout/Layout';
@@ -21,10 +19,10 @@ const Chapters = ({ match }) => {
 
     const [grades, setGrades] = useState([]);
     const [selectGrade, setSelectGrade] = useState('Pre-Kindergarten');
-    const [activities, setActivities] = useState([]);
-    const [filterAct, setFilterAct] = useState([]);
+    const [subjects, setSubjects] = useState([]);
+    const [filterSubjects, setFilterSubjects] = useState([]);
 
-    const fetchGrades = useCallback(async () => {
+    const fetchGrades = async () => {
         const res = await fetch(
             `${STRAPI_URL}/api/grades?populate=*`,
         );
@@ -32,17 +30,18 @@ const Chapters = ({ match }) => {
         setGrades(dataRes?.data);
 
         const activityRes = await fetch(
-            `${STRAPI_URL}/api/activities?populate=*`,
+            `${STRAPI_URL}/api/subjects?populate=*`,
         );
         const activityData = await activityRes.json();
+        setSubjects(activityData?.data);
         // eslint-disable-next-line max-len
-        setActivities(activityData?.data);
-        console.log('fetch is called', activities, filterAct);
-    }, []);
+        setFilterSubjects(activityData?.data?.filter((item) => item?.attributes?.slug === match.params.subject));
+    };
 
     useEffect(() => {
         fetchGrades();
-        setFilterAct(activities?.filter((item) => item?.attributes?.slug === match.params.subject));
+        // eslint-disable-next-line max-len
+        setFilterSubjects(subjects?.filter((item) => item?.attributes?.slug === match.params.subject));
     }, []);
 
     useEffect(() => {
@@ -54,15 +53,16 @@ const Chapters = ({ match }) => {
         const sub = match.params.subject;
         setSubdata(sub);
         // eslint-disable-next-line max-len
-        setFilterAct(activities?.filter((item) => item?.attributes?.slug === match.params.subject));
-        console.log('fetch is', filterAct);
+        setFilterSubjects(subjects?.filter((item) => item?.attributes?.slug === match.params.subject));
     }, [match.params.subject]);
 
-    console.log(filterAct[0]?.attributes?.title, 'HA');
+    console.log(filterSubjects);
+
+    const chapters = filterSubjects[0]?.attributes?.chapters?.data;
 
     return (
         <Layout>
-            <Subjectlist subdata={subdata} setSubdata={setSubdata} />
+            <Subjectlist subdata={subdata} setSubdata={setSubdata} subjects={subjects} />
             <div className="chapters-main-container">
                 <Chapterslink
                     grades={grades}
@@ -71,19 +71,18 @@ const Chapters = ({ match }) => {
                 />
                 <div className="chapters-details">
                     <h1>
-                        <img src={Mathicon} alt="Math_img" />
-                        {subdata}
+                        <img src={STRAPI_URL + filterSubjects[0]?.attributes?.icon?.data?.attributes?.url} alt="Math_img" />
+                        {filterSubjects[0]?.attributes?.title}
                     </h1>
                     <p>
-                        Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do
-                        eiusmod tem por incididunt ut
+                        {filterSubjects[0]?.attributes?.smallDescription}
                     </p>
                     <div className="chapters-container">
-                        {data.map((chapter, idx) => (
-                            <div className="chapter-name" key={chapter.key}>
-                                <h2>{`Chapter ${idx + 1} - ${chapter.name}`}</h2>
+                        {chapters?.map((chapter, idx) => (
+                            <div className="chapter-name" key={chapter?.id}>
+                                <h2>Chapter {idx + 1} - {chapter?.attributes?.title}</h2>
                                 <ul>
-                                    {chapter.chapters.map((topic, topicIdx) => (
+                                    {chapter?.attributes?.topic?.map((topic, topicIdx) => (
                                         <Topiclist
                                             topic={topic}
                                             topicIdx={topicIdx}
@@ -94,7 +93,6 @@ const Chapters = ({ match }) => {
                                             descRef={descRef}
                                             shouldToggleStyle={shouldToggleStyle}
                                             setViewMoreTopic={setViewMoreTopic}
-                                            key={`topic_${topic.key}`}
                                         />
                                     ))}
                                 </ul>

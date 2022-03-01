@@ -33,12 +33,12 @@ const Topiclist = ({
     return (
         <li>
             <span>
-                {`${String.fromCharCode(65 + topicIdx)}.`} {topic.name} {topicIdx + 1}
+                {`${String.fromCharCode(65 + topicIdx)}.`} {topic?.topicName} {topicIdx + 1}
             </span>
             <ul>
-                {topic.topics.map((subTopic, subIdx) => (
+                {topic?.subTopic?.map((subTopic, subIdx) => (
                     subIdx <= 3 || (viewMoreTopic[0] === idx && viewMoreTopic[1] === topicIdx)) && (
-                    <li key={`sub_${uuid()}`}>
+                    <li key={subTopic?.id}>
                         <div
                             role="button"
                             tabIndex={0}
@@ -53,7 +53,7 @@ const Topiclist = ({
                             className="sub-topic-div"
                         >
                             {`${String.fromCharCode(65 + topicIdx)}.${subIdx + 1}`}
-                            {subTopic} {subIdx + 1}
+                            {subTopic?.subTopicName} {subIdx + 1}
                             <SubtopicDesc
                                 isShow={
                                     descriptionAnchor[0] === idx
@@ -68,7 +68,7 @@ const Topiclist = ({
 
                     </li>
                 ))}
-                {topic.topics.length > 4 && (
+                {topic?.subTopic?.length > 4 && (
                     <li
                         className={`view-more ${
                             viewMoreTopic[0] === idx && viewMoreTopic[1] === topicIdx
