@@ -33,7 +33,8 @@ const Chapters = ({ match }) => {
             `${STRAPI_URL}/api/subjects?populate=*`,
         );
         const activityData = await activityRes.json();
-        setSubjects(activityData?.data);
+        // eslint-disable-next-line max-len
+        setSubjects(activityData?.data?.filter((item) => item?.attributes?.popularSubject === true));
         // eslint-disable-next-line max-len
         setFilterSubjects(activityData?.data?.filter((item) => item?.attributes?.slug === match.params.subject));
     };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Subjectlist from './Subjectlist';
 import Banner from './Banner';
 import Learningprogram from './Learningprogram';
@@ -15,11 +15,27 @@ import brainImg from '../../../assets/images/Group 20.png';
 import joyfulImg from '../../../assets/images/Group 27.png';
 import Layout from '../../../Layout/Layout';
 import './styles/home.scss';
+import STRAPI_URL from '../../../constants/strapi';
 
 function Home() {
+    const [subjects, setSubjects] = useState([]);
+
+    const fetchSubjects = async () => {
+        const activityRes = await fetch(
+            `${STRAPI_URL}/api/subjects?populate=*`,
+        );
+        const activityData = await activityRes.json();
+        // eslint-disable-next-line max-len
+        setSubjects(activityData?.data?.filter((item) => item?.attributes?.popularSubject === true));
+    };
+
+    useEffect(() => {
+        fetchSubjects();
+    }, []);
+
     return (
         <Layout>
-            <Subjectlist />
+            <Subjectlist subjects={subjects} />
             <Banner />
             <Learningprogram />
             <Counter />
