@@ -1,5 +1,8 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
-import { bool, object, string } from 'prop-types';
+import {
+    array, bool, object, string,
+} from 'prop-types';
 import Button from './Button';
 
 const HomeUISlide = ({
@@ -8,9 +11,6 @@ const HomeUISlide = ({
     title,
     span,
     desc,
-    circcontentone,
-    circcontenttwo,
-    circcontentthree,
     leftImg,
     rightImg,
     title2,
@@ -18,6 +18,7 @@ const HomeUISlide = ({
     classleft,
     classright,
     buttoncontent,
+    points,
 }) => (
     <div>
         {leftImg && (
@@ -30,21 +31,20 @@ const HomeUISlide = ({
                         <div>
                             <h4>
                                 {title}
-                                <span>{span}</span>
+                                <span />
                             </h4>
+
                             <p>{desc}</p>
 
                             {Circle && (
                                 <ul>
-                                    <li>
-                                        {Circle} {circcontentone}
-                                    </li>
-                                    <li>
-                                        {Circle} {circcontenttwo}
-                                    </li>
-                                    <li>
-                                        {Circle} {circcontentthree}
-                                    </li>
+                                    {
+                                        points?.map((item) => (
+                                            <li key={item?.id}>
+                                                {Circle} {item?.text}
+                                            </li>
+                                        ))
+                                    }
                                 </ul>
                             )}
 
@@ -62,8 +62,9 @@ const HomeUISlide = ({
                         <div>
                             <h4>
                                 {title}
-                                <span>{span}</span>
+                                {span}
                                 {title2}
+                                <span />
                             </h4>
                             <p>{desc}</p>
 
@@ -86,9 +87,6 @@ HomeUISlide.propTypes = {
     title: string.isRequired,
     span: string,
     desc: string.isRequired,
-    circcontentone: string.isRequired,
-    circcontenttwo: string.isRequired,
-    circcontentthree: string.isRequired,
     leftImg: bool,
     rightImg: bool,
     title2: string,
@@ -96,6 +94,7 @@ HomeUISlide.propTypes = {
     classleft: string.isRequired,
     classright: string,
     buttoncontent: string.isRequired,
+    points: array,
 
 };
 HomeUISlide.defaultProps = {
@@ -103,11 +102,9 @@ HomeUISlide.defaultProps = {
     leftImg: false,
     rightImg: false,
     Circle: '',
-    // circcontentone: '',
-    // circcontenttwo: '',
-    // circcontentthree: '',
     classright: '',
     span: '',
+    points: [],
 };
 
 export default HomeUISlide;

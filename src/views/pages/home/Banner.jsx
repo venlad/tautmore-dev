@@ -9,8 +9,10 @@ function Banner({ banner }) {
     return (
         <div className="banner-main">
             <div className="row">
-                <div className="col-md-6 col-sm-12 banner-left">
-                    <h4 dangerouslySetInnerHTML={{ __html: banner?.heading }} />
+                <div className="col-md-6 col-sm-12 banner-left banner-text-div">
+                    <h4 className="banner-text-bg">
+                        { banner?.heading }
+                    </h4>
                     <p>
                         {banner?.description}
                     </p>

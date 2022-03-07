@@ -98,6 +98,7 @@
         right: -15%;
       }
     }
+    
     p {
       font-family: "proxima_nova_rgregular";
       font-size: 20px;
@@ -198,6 +199,17 @@
         right: 5%;
       }
     }
+    // h4:after{
+    //   content: "";
+    //   position: absolute;
+    //   width: 35px;
+    //   height: 30px;
+    //   border-radius: 10px 0px 10px 10px;
+    //   background-color: #e3e5ff;
+    //   top: -45px;
+    //   z-index: -1;
+    //   right: 5%;
+    // }
     p {
       margin-top: 25px;
       font-family: "proxima_nova_rgregular";
@@ -308,7 +320,7 @@
       background-color: #c5f7e7;
       z-index: -1;
       top: -47px;
-      right: -6%;
+      right: -3%;
     }
     .learning-block-main.third {
       position: relative;
@@ -379,13 +391,17 @@
     font-family: "proxima_nova_rgregular";
     display: flex;
     align-items: center;
+    position: relative;
+ 
     h4 {
       font-size: 45px;
       font-family: "proxima_nova_rgbold";
       line-height: 64px;
+      position: relative;
+      z-index: 9;
       span {
         position: relative;
-        z-index: 9;
+       
       }
       span:after {
         content: "";
@@ -398,7 +414,21 @@
         z-index: -1;
         right: -15%;
       }
+     
     }
+
+    
+    // h4:after{
+    //   content: "";
+    //   position: absolute;
+    //   height: 66px;
+    //   width: 85px;
+    //   border-radius: 25px 0 25px 25px;
+    //   background-color: #fff6e9;
+    //   top: -10px;
+    //   z-index: -1;
+    //   left: 152px;
+    // }
     p {
       font-size: 22px;
       line-height: 32px;
@@ -468,6 +498,7 @@
     font-family: "proxima_nova_rgbold";
     line-height: 64px;
     position: relative;
+    max-width: 396px;
     z-index: 9;
     span {
       position: relative;
@@ -479,11 +510,22 @@
       width: 85px;
       border-radius: 25px 0 25px 25px;
       background-color: #e3fff6;
-      top: -10px;
+      top: 10%;
       z-index: -1;
-      right: -60%;
+      left: 72%;
     }
   }
+  // h4:after {
+  //   content: "";
+  //   position: absolute;
+  //   height: 76px;
+  //   width: 85px;
+  //   border-radius: 25px 0 25px 25px;
+  //   background-color: #e3fff6;
+  //   top: 5%;
+  //   z-index: -1;
+  //   left: 72px;
+  // }
   p {
     font-size: 22px;
     line-height: 32px;
@@ -558,6 +600,17 @@
       right: -16%;
     }
   }
+  // h4:after{
+  //   content: "";
+  //   position: absolute;
+  //   height: 76px;
+  //   width: 85px;
+  //   border-radius: 25px 0 25px 25px;
+  //   background-color: #fff6e9;
+  //   top: 50px;
+  //   z-index: -1;
+  //   left: 145px;
+  // }
   p {
     font-size: 22px;
     line-height: 32px;
@@ -829,6 +882,7 @@
     line-height: 64px;
     position: relative;
     z-index: 9;
+    max-width: 454px;
     span {
       position: relative;
     }
@@ -969,6 +1023,7 @@
   .gift-right {
     display: flex;
     align-items: center;
+    position: relative;
     h4 {
       font-size: 52px;
       font-family: "proxima_nova_rgbold";
@@ -977,6 +1032,7 @@
       z-index: 9;
       margin-bottom: 25px;
       margin-top: 50px;
+      max-width: 503px;
       span.span-1 {
         position: relative;
       }
@@ -989,7 +1045,7 @@
         background-color: #e3e5ff;
         top: -45px;
         z-index: -1;
-        right: 8px;
+        left: 64px;
       }
       span.span-2 {
         position: relative;
@@ -1003,10 +1059,11 @@
         background-color: #e9ffef;
         top: -5px;
         z-index: -1;
-        right: -5px;
+        left: 285px;
       }
       span.span-3 {
         position: relative;
+        width: 100%;
       }
       span.span-3:after {
         content: "";
@@ -1015,9 +1072,9 @@
         width: 35px;
         border-radius: 10px 0 10px 10px;
         background-color: #fbe8ff;
-        top: 10px;
+        top: 23px;
         z-index: -1;
-        right: -65px;
+        right: -550px;
       }
       span.span-4 {
         position: relative;
@@ -1029,9 +1086,9 @@
         width: 106px;
         border-radius: 0px 31px 31px 31px;
         background-color: #fff6e9;
-        top: 2px;
+        top: 138px;
         z-index: -1;
-        right: -178px;
+        left: 334px;
       }
       span.span-4:before {
         content: "";
@@ -1040,9 +1097,9 @@
         width: 62px;
         border-radius: 22px 0 22px 22px;
         background-color: #e9ffef;
-        top: 100px;
+        top: 281px;
         z-index: -1;
-        right: -320px;
+        right: -480px;
       }
     }
 
@@ -1620,4 +1677,35 @@
     font-size: 25px !important;
     line-height: 35px !important;
   }
+}
+
+// few changes to css, inorder to be suitable for strapi data
+
+.banner-text-bg {
+  position: relative;
+  z-index: 9;
+  max-width: 594px;
+}
+.banner-text-bg:after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 260px;
+  border-radius: 90px 0px 90px 90px;
+  background-color: #fff6e9;
+  top: -57px;
+  z-index: -1;
+  left: 166px;
+}
+
+.banner-text-div:after {
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 30px;
+  border-radius: 10px 0 10px 10px;
+  background-color: #E3F1FF;
+  top: -57px;
+  z-index: -1;
+  left: 10px;
 }

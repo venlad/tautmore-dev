@@ -8,11 +8,6 @@ import Learningjourney from './Learningjourney';
 import Givegift from './Givegift';
 import HomeUISlide from './HomeUISlide';
 import { Circle } from '../../../assets/icons/IconList';
-import classroomimg from '../../../assets/images/Group 17.png';
-import activityImg from '../../../assets/images/Group 14.png';
-import olympidImg from '../../../assets/images/Groupolm.png';
-import brainImg from '../../../assets/images/Group 20.png';
-import joyfulImg from '../../../assets/images/Group 27.png';
 import Layout from '../../../Layout/Layout';
 import './styles/home.scss';
 import STRAPI_URL from '../../../constants/strapi';
@@ -35,7 +30,14 @@ function Home() {
         setHomeData(data?.data);
     };
 
-    // const extraCurricular = homeData?.attributes?.sections[0];
+    const classroom = homeData?.attributes?.sections[0];
+    const extraCurricular = homeData?.attributes?.sections[1];
+    const olymp = homeData?.attributes?.sections[2];
+    const brainGym = homeData?.attributes?.sections[3];
+    const brainGymJoy = homeData?.attributes?.sections[4];
+    const physicalClassroom = homeData?.attributes?.sections[5];
+    const learningJourney = homeData?.attributes?.sections[6];
+    const giveGift = homeData?.attributes?.sections[7];
 
     useEffect(() => {
         fetchSubjects();
@@ -49,11 +51,10 @@ function Home() {
             <Counter count={homeData?.attributes?.numberInfo} />
             <HomeUISlide
                 Circle={Circle}
-                img={classroomimg}
-                title="Class"
+                img={STRAPI_URL +  classroom?.heroImage?.data?.attributes?.url}
+                title={classroom?.heading}
                 span="room"
-                desc="Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do
-        eiusmod tem por incididunt ut"
+                desc={classroom?.description}
                 circcontentone="Sed do eiusmod tem por incididunt ut"
                 circcontenttwo="Lorem ipsum dolor sit amet"
                 circcontentthree="Consec tetur adipiscing elit"
@@ -61,65 +62,60 @@ function Home() {
                 classmain="classroom-main"
                 classleft="classroom-left"
                 classright="classroom-right"
-                buttoncontent="Subscribe now"
+                buttoncontent={classroom?.buttonText}
+                points={classroom?.listItems}
             />
 
             <HomeUISlide
-                img={activityImg}
-                title="Ex"
-                span="tra"
-                title2=" - Curricular activities"
-                desc="Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do
-        eiusmod tem por incididunt ut"
+                img={STRAPI_URL +  extraCurricular?.heroImage?.data?.attributes?.url}
+                title={extraCurricular?.heading}
+                span=""
+                title2=""
+                desc={extraCurricular?.description}
                 rightImg
                 classmain="activities-main"
                 classleft="col-md-5"
                 classright="col-md-7 activity-right"
-                buttoncontent="Subscribe now"
+                buttoncontent={extraCurricular?.buttonText}
             />
 
             <HomeUISlide
-                img={olympidImg}
-                title="Olymp"
-                span="iad"
-                desc="Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do
-        eiusmod tem por incididunt ut"
+                img={STRAPI_URL +  olymp?.heroImage?.data?.attributes?.url}
+                title={olymp?.heading}
+                span=""
+                desc={olymp?.description}
                 leftImg
                 classmain="olympiad-main"
                 classleft="olympiad-left"
                 classright="olympiad-right"
-                buttoncontent="Take sample test"
+                buttoncontent={olymp?.buttonText}
             />
 
             <HomeUISlide
-                img={brainImg}
-                title="Brain - "
-                span="gym"
-                desc="Lorem ipsum dolor sit amet, consec teturadipiscing elit, sed do
-        eiusmod tem porincididunt ut"
+                img={STRAPI_URL +  brainGym?.heroImage?.data?.attributes?.url}
+                title={brainGym?.heading}
+                span=""
+                desc={brainGym?.description}
                 rightImg
                 classmain="brain-main"
                 classleft="col-md-6 brain-left"
                 classright="col-md-6 brain-right"
-                buttoncontent="Let's try brain-gym"
+                buttoncontent={brainGym?.buttonText}
             />
 
             <HomeUISlide
-                img={joyfulImg}
-                title="Tautmore makes learning joyful"
-                desc="Brain gym is a unique activity created by our educators. It tests
-        your child on various skills everyday for 10 mins. It’s a fun
-        activity that also helps your child learn concepts beyond
-        classroom."
+                img={STRAPI_URL +  brainGymJoy?.heroImage?.data?.attributes?.url}
+                title={brainGymJoy?.heading}
+                desc={brainGymJoy?.description}
                 leftImg
                 classmain="learningjoyful-main"
                 classleft="learningjoyful-left"
                 classright="learningjoyful-right"
-                buttoncontent="Let's try brain-gym"
+                buttoncontent={brainGymJoy?.buttonText}
             />
-            <Physicalclassroom />
-            <Learningjourney />
-            <Givegift />
+            <Physicalclassroom data={physicalClassroom} />
+            <Learningjourney data={learningJourney} />
+            <Givegift data={giveGift} />
         </Layout>
     );
 }

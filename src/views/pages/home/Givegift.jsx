@@ -1,45 +1,40 @@
+/* eslint-disable no-sequences */
 import React from 'react';
+import { object } from 'prop-types';
 import GivegiftBlock from './GivegiftBlock';
 import Buttoncommon from './Button';
 
-function Givegift() {
+function Givegift({ data }) {
     return (
         <div>
             <div className="give-gift-main">
                 <div className="row">
                     <div className="col-md-6 gift-left">
-                        <GivegiftBlock
-                            icon="1"
-                            content="Enrol your child"
-                            className="gift-common-1"
-                        />
-                        <div className="border-common"><span /></div>
-                        <GivegiftBlock
-                            icon="2"
-                            content="Select one of our programs"
-                            className="gift-common-2"
-                        />
+                        {
+                            data?.listItems?.map((item, i) => (
+                                <>
+                                    <GivegiftBlock
+                                        icon={i + 1}
+                                        content={item?.text}
+                                        className={'gift-common-'.concat(i + 1)}
+                                    />
+                                    {i < 2 && (<div className={i === 0 ? 'border-common' : 'border-common border-common-2'}><span /></div>)}
+                                </>
 
-                        <div className="border-common border-common-2"><span /></div>
-                        <GivegiftBlock
-                            icon="3"
-                            content="Lorem ipsum dolar sit"
-                            className="gift-common-3"
-                        />
+                            ))
+                        }
                     </div>
                     <div className="col-md-6 gift-right">
                         <div>
                             <h4>
-                                <span className="span-1">Give</span> the gift
-                                <span className="span-2"> of</span>
-                                <span className="span-3"> better</span>
-                                <br />
-                                learning in just 3
-                                <br />
-                                easy <span className="span-4">steps</span>.
+                                <span className="span-1" />
+                                <span className="span-2" />
+                                <span className="span-3" />
+                                <span className="span-4" />
+                                {data?.heading}
                             </h4>
 
-                            <Buttoncommon content="Subscribe now" />
+                            <Buttoncommon content={data?.buttonText} />
                         </div>
                     </div>
                 </div>
@@ -47,5 +42,11 @@ function Givegift() {
         </div>
     );
 }
+Givegift.propTypes = {
+    data: object,
+};
 
+Givegift.defaultProps = {
+    data: {},
+};
 export default Givegift;

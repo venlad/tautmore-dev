@@ -1,8 +1,9 @@
+import { object } from 'prop-types';
 import React from 'react';
-import journeyImg from '../../../assets/images/Group 24.png';
+import STRAPI_URL from '../../../constants/strapi';
 import Buttoncommon from './Button';
 
-function Learningjourney() {
+function Learningjourney({ data }) {
     return (
         <div>
             <div className="learning-journey-main">
@@ -10,23 +11,25 @@ function Learningjourney() {
                     <div className="col-md-5 learning-journey-left">
                         <div>
                             <h4>
-                                <span>We</span> keep the fun
-                                <br />
-                                going throughout
-                                <br />
-                                the learning journey
+                                <span /> {data?.heading}
                             </h4>
 
-                            <Buttoncommon content="Let’s try brain-gym" />
+                            <Buttoncommon content={data?.buttonText} />
                         </div>
                     </div>
                     <div className="col-md-7 learning-journey-right">
-                        <img src={journeyImg} alt="Journey_img" />
+                        <img src={STRAPI_URL +  data?.heroImage?.data?.attributes?.url} alt="Journey_img" />
                     </div>
                 </div>
             </div>
         </div>
     );
 }
+Learningjourney.propTypes = {
+    data: object,
+};
 
+Learningjourney.defaultProps = {
+    data: {},
+};
 export default Learningjourney;
