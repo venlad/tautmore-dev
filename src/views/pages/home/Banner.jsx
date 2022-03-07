@@ -1,33 +1,37 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
+/* eslint-disable react/no-danger */
+import { object } from 'prop-types';
 import React from 'react';
-import Bannerimg from '../../../assets/images/Banner 5.png';
+import STRAPI_URL from '../../../constants/strapi';
 import Buttoncommon from './Button';
 
-function Banner() {
+function Banner({ banner }) {
     return (
         <div className="banner-main">
             <div className="row">
                 <div className="col-md-6 col-sm-12 banner-left">
-                    <h4>
-                        Better <span>Learning.</span>
-                    </h4>
-                    <h4>Better Results.</h4>
-
+                    <h4 dangerouslySetInnerHTML={{ __html: banner?.heading }} />
                     <p>
-                        Tautmore is a holistic platform with focus on both classroom &
-                        co-curricular learning. Give your child the gift of wholesome
-                        development & prepare for the future.
+                        {banner?.description}
                     </p>
-
-                    <Buttoncommon content="Let’s try brain - gym" />
+                    <Buttoncommon content={banner?.buttonText} />
 
                     <div className="banner-left-bottom-icon" />
                 </div>
                 <div className="col-md-6 col-sm-12 banner-right">
-                    <img src={Bannerimg} alt="banner_img" />
+                    <img src={STRAPI_URL +  banner?.heroImage?.data?.attributes?.url} alt="banner_img" />
                 </div>
             </div>
         </div>
     );
 }
+
+Banner.propTypes = {
+    banner: object,
+};
+
+Banner.defaultProps = {
+    banner: {},
+};
 
 export default Banner;

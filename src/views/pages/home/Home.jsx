@@ -19,15 +19,23 @@ import STRAPI_URL from '../../../constants/strapi';
 
 function Home() {
     const [subjects, setSubjects] = useState([]);
+    const [homeData, setHomeData] = useState([]);
 
     const fetchSubjects = async () => {
         const activityRes = await fetch(
             `${STRAPI_URL}/api/subjects?populate=*`,
         );
+        const res = await fetch(
+            `${STRAPI_URL}/api/home?populate=*`,
+        );
         const activityData = await activityRes.json();
         // eslint-disable-next-line max-len
         setSubjects(activityData?.data?.filter((item) => item?.attributes?.popularSubject === true));
+        const data = await res.json();
+        setHomeData(data?.data);
     };
+
+    // const extraCurricular = homeData?.attributes?.sections[0];
 
     useEffect(() => {
         fetchSubjects();
@@ -36,9 +44,9 @@ function Home() {
     return (
         <Layout>
             <Subjectlist subjects={subjects} />
-            <Banner />
-            <Learningprogram />
-            <Counter />
+            <Banner banner={homeData?.attributes?.hero} />
+            <Learningprogram learning={homeData?.attributes?.ourLearning} />
+            <Counter count={homeData?.attributes?.numberInfo} />
             <HomeUISlide
                 Circle={Circle}
                 img={classroomimg}
