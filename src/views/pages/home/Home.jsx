@@ -109,7 +109,7 @@ function Home() {
                 desc={brainGymJoy?.description}
                 leftImg
                 classmain="learningjoyful-main"
-                classleft="learningjoyful-left"
+                classleft="learningjoy-left"
                 classright="learningjoyful-right"
                 buttoncontent={brainGymJoy?.buttonText}
             />

@@ -42,50 +42,49 @@ const routes = [
     },
     {
         key: 5,
+        path: RouteEnum.ABOUTUS_TEACHER,
+        component: AboutUsTeacher,
+    },
+    {
+        key: 6,
         path: RouteEnum.PRACTICE_TEST,
         component: PracticeTest,
     },
     {
-        key: 6,
+        key: 7,
         path: RouteEnum.DASHBOARD,
         component: Dashboard,
     },
     {
-        key: 7,
+        key: 8,
         path: RouteEnum.BRAINGYM,
         component: Braingym,
     },
     {
-        key: 8,
+        key: 9,
         path: RouteEnum.REGISTER,
         component: Register,
     },
     {
-        key: 9,
+        key: 10,
         path: RouteEnum.OLYMPIAD,
         component: Olympiad,
     },
     {
-        key: 10,
+        key: 11,
         path: RouteEnum.LOGIN,
         component: Login,
     },
     {
-        key: 11,
+        key: 12,
         path: RouteEnum.HOMESKELETON,
         component: Homepage,
     },
     {
-        key: 12,
+        key: 13,
         path: RouteEnum.TEACHERS,
         component: Teachers,
     },
-    {
-        key: 13,
-        path: RouteEnum.ABOUTUS_TEACHER,
-        component: AboutUsTeacher,
-    },
-
 ];
 
 export default routes;

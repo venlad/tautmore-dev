@@ -1,5 +1,6 @@
 const RouteEnum = {
     HOME: '/',
+    ABOUTUS_TEACHER: '/aboutus-teacher',
     SUBJECT: '/subject',
     GRADES: '/grades',
     CHAPTERS: '/chapters/:subject',
@@ -12,7 +13,6 @@ const RouteEnum = {
     HOMESKELETON: '/home-skeleton',
     // TEACHERS: '/teacher',
     EXAMDETAILS: '/exam-details',
-    ABOUTUS_TEACHER: '/aboutus-teacher',
 };
 
 export default RouteEnum;

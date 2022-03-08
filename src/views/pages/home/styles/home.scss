@@ -725,6 +725,8 @@
 }
 .learningjoyful-main {
   padding: 50px 40px;
+  background-color: #F8F8FF;
+  border-radius: 180px 0 180px 0;
 
   .learningjoyful-right {
     display: flex;
@@ -740,12 +742,14 @@
     line-height: 64px;
     position: relative;
     z-index: 9;
+    max-width: 396px;
   }
   p {
     font-size: 22px;
     line-height: 32px;
     margin: 30px 0px;
     margin-bottom: 15px;
+    max-width: 504px;
   }
   button {
     height: 66px;
@@ -1584,10 +1588,10 @@
       margin-bottom: 0;
     }
     .learningjoyful-left {
+      width: 100%;
       text-align: center;
       img {
         width: 100%;
-        max-width: 400px;
       }
     }
     .learningjoyful-right {
@@ -1595,6 +1599,7 @@
       width: 100%;
     }
   }
+
   .physical-classroom-main {
     .common-div {
       height: auto;
@@ -1708,6 +1713,15 @@
   top: -57px;
   z-index: -1;
   left: 10px;
+}
+
+.learningjoy-left {
+  width: 100%;
+  text-align: center;
+  img {
+    width: 100%;
+    max-width: 598px;
+  }
 }
 
 @media screen and (max-width: 767px) {
