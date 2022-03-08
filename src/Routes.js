@@ -12,6 +12,7 @@ import Login from './views/components/auth/login/Login';
 import Homepage from './views/components/skeleton/Homepage/Homepage';
 import Teachers from './views/pages/Teachers/Teachers';
 import ExamDetails from './views/pages/Teachers/ExamDetails';
+import AboutUsTeacher from './views/pages/AboutUsTeacher/About';
 
 const routes = [
     {
@@ -78,6 +79,11 @@ const routes = [
         key: 12,
         path: RouteEnum.TEACHERS,
         component: Teachers,
+    },
+    {
+        key: 13,
+        path: RouteEnum.ABOUTUS_TEACHER,
+        component: AboutUsTeacher,
     },
 
 ];

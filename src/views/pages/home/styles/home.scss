@@ -1709,3 +1709,29 @@
   z-index: -1;
   left: 10px;
 }
+
+@media screen and (max-width: 767px) {
+  .banner-text-bg:after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 160px;
+    border-radius: 90px 0px 90px 90px;
+    background-color: #fff6e9;
+    top: 57px;
+    z-index: -1;
+    right: 0px;
+  }
+
+  .banner-text-div:after {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 30px;
+    border-radius: 10px 0 10px 10px;
+    background-color: #E3F1FF;
+    top: 17px;
+    z-index: -1;
+    left: 10px;
+  }
+}
