@@ -1,0 +1,56 @@
+import React from 'react';
+
+const WhyTautmore = () => (
+    <div className="why-wrap">
+        <h1>Why do you need TautMore?</h1>
+        <div className="why-points-wrapper">
+            <div className="row">
+                <div className="col-12 col-md-6">
+                    <div className="why-card">
+                        <h2>We enable omnichannel teaching</h2>
+                        <p>Deliver blended learning experiences for your students in the classroom
+                            and after school. With TautMore you can teach on the web and mobile from
+                            anywhere, anytime.
+                        </p>
+                    </div>
+                </div>
+                <div className="col-12 col-md-6">
+                    <div className="why-card">
+                        <h2>We enable omnichannel teaching</h2>
+                        <p>Deliver blended learning experiences for your students in the classroom
+                            and after school. With TautMore you can teach on the web and mobile from
+                            anywhere, anytime.
+                        </p>
+
+                        <span className="dot">{' '}</span>
+                        <small> We train every instructor to effectively use our platform.</small>
+                        <br />
+                        <span className="dot" />
+                        <small>We train every instructor to effectively use our platform.</small>
+
+                    </div>
+                </div>
+                <div className="col-12 col-md-6">
+                    <div className="why-card">
+                        <h2>We enable omnichannel teaching</h2>
+                        <p>Deliver blended learning experiences for your students in the classroom
+                            and after school. With TautMore you can teach on the web and mobile from
+                            anywhere, anytime.
+                        </p>
+                    </div>
+                </div>
+                <div className="col-12 col-md-6">
+                    <div className="why-card">
+                        <h2>We enable omnichannel teaching</h2>
+                        <p>Deliver blended learning experiences for your students in the classroom
+                            and after school. With TautMore you can teach on the web and mobile from
+                            anywhere, anytime.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+);
+
+export default WhyTautmore;
