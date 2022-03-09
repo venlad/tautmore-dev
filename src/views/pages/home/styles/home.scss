@@ -936,6 +936,7 @@
   }
 }
 .give-gift-main {
+  overflow-x: hidden;
   padding: 120px 40px;
 
   .border-common {
@@ -1028,6 +1029,23 @@
     display: flex;
     align-items: center;
     position: relative;
+    h2{
+      color: #20282A;
+      font-family: "Proxima Nova";
+      font-size: 52px;
+      font-weight: bold;
+      letter-spacing: 0;
+      line-height: 64px;
+      padding-bottom: 60px;
+    }
+    p{
+      color: #20282A;
+      font-family: "proxima_nova_rgregular";
+      font-weight: 300;
+      font-size: 24px;
+      letter-spacing: 0;
+      line-height: 32px;
+    }
     h4 {
       font-size: 52px;
       font-family: "proxima_nova_rgbold";
@@ -1445,6 +1463,16 @@
   }
 
   .gift-right {
+    h2{
+      font-size: 32px;
+      line-height: 24px;
+      padding-bottom: 30px;
+    }
+    p{
+      font-size: 18px;
+      line-height: 26px;
+      font-family: "proxima_nova_rgregular";
+    }
     h4 {
       font-size: 35px !important;
       line-height: 45px !important;
@@ -1626,6 +1654,18 @@
 
   .learningjoyful-main .learningjoyful-right div, .olympiad-right div, .classroom-right div, .brain-left div {
     width: 100% !important;
+  }
+
+  .gift-right{
+    h2{
+      font-size: 32px;
+      line-height: 24px;
+      padding-bottom: 30px;
+    }
+    p{
+      font-size: 18px;
+      line-height: 26px;
+    }
   }
 }
 

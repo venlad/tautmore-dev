@@ -1,4 +1,5 @@
 import React from 'react';
+import Buttoncommon from '../home/Button';
 
 const WhyTautmore = () => (
     <div className="why-wrap">
@@ -47,6 +48,9 @@ const WhyTautmore = () => (
                             anywhere, anytime.
                         </p>
                     </div>
+                </div>
+                <div className="col-12 d-flex justify-content-center">
+                    <Buttoncommon content="Start nurturing leaders" />
                 </div>
             </div>
         </div>
