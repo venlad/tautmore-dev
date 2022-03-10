@@ -1031,7 +1031,6 @@
     position: relative;
     h2{
       color: #20282A;
-      font-family: "Proxima Nova";
       font-size: 52px;
       font-weight: bold;
       letter-spacing: 0;
@@ -1678,6 +1677,12 @@
       margin-bottom: 20px;
     }
   }
+  .gift-right{
+    h2{
+      font-size: 32px;
+      list-style: 44px;
+    }
+  }
 }
 @media only screen and (max-width: 605px) {
   .learningprogram-main .learning-progress-right .learning-block-main {
@@ -1721,6 +1726,12 @@
   .gift-right h4, .learning-journey-main h4, .physical-classroom-main h4, .learningjoyful-main h4, .brain-main h4, .olympiad-main h4, .activities-main h4, .classroom-main .classroom-right h4, .learningprogram-main .learning-progress-left h4 {
     font-size: 25px !important;
     line-height: 35px !important;
+  }
+  .gift-right{
+    h2{
+      font-size: 32px;
+      list-style: 44px;
+    }
   }
 }
 

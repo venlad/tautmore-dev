@@ -33,7 +33,6 @@ const Resources = () => {
             },
         ],
     };
-    console.log(slide, 'SLIDE');
 
     return (
 

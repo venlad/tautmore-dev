@@ -10,14 +10,22 @@ import STRAPI_URL from '../../../constants/strapi';
 import Givegift from './Works';
 import Resources from './Resources';
 import FAQ from './FAQ';
+import Subjectlist from '../home/Subjectlist';
 
 const About = () => {
+    const [subjects, setSubjects] = useState([]);
     const [homeData, setHomeData] = useState([]);
 
     const fetchSubjects = async () => {
+        const activityRes = await fetch(
+            `${STRAPI_URL}/api/subjects?populate=*`,
+        );
         const res = await fetch(
             `${STRAPI_URL}/api/home?populate=*`,
         );
+        const activityData = await activityRes.json();
+        // eslint-disable-next-line max-len
+        setSubjects(activityData?.data?.filter((item) => item?.attributes?.popularSubject === true));
         const data = await res.json();
         setHomeData(data?.data);
     };
@@ -28,6 +36,7 @@ const About = () => {
     }, []);
     return (
         <Layout>
+            <Subjectlist subjects={subjects} />
             <Banner />
             <WhyTautmore />
             <Features />

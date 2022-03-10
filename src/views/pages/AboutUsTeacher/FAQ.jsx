@@ -4,8 +4,7 @@
 import React, { useState } from 'react';
 
 const FAQ = () => {
-    const [show, setShow] = useState(1);
-    console.log(show);
+    const [show, setShow] = useState(null);
 
     const showFaq = (index) => {
         if (index !== show) {

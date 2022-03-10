@@ -5,6 +5,22 @@
 .bg2{
   background-color: #fdfdfd;
 }
+.gift-right-abt{
+  h2{
+    color: #20282A;
+    font-size: 52px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 64px;
+    margin-bottom: 60px;
+  }
+  p{
+    color: #20282A;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 32px;
+  }
+}
 
 .resources-main{
  
@@ -318,6 +334,10 @@
 }
 
 .button-common-abt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 13px;
   height: 66px;
   width: 516px;
   border-radius: 33.75px;
@@ -337,8 +357,11 @@
     width: 24px;
     background-color: #FCA834;
     border-radius: 50%;
-    padding: 3px 5px;
+    padding: 0px 7px;
     margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -355,6 +378,7 @@
 
 .features-wrap{
   padding: 50px;
+  padding-bottom: 0px;
   background-color: #fdfdfd;
   h2{
     color: #20282A;
@@ -490,6 +514,42 @@
 }
 
 @media only screen and (max-width: 767px) {
+  .slick-list{
+    padding: 40px 0px;
+  }
+  .faq-main{
+    margin-top: 40px;
+    padding: 20px 10px;
+    h2{
+      font-size: 32px;
+      line-height: 44px
+    }
+    .acc-wrap{
+      margin-top: 30px;
+      .acc-single{
+        min-height: 60px;
+        margin-bottom: 15px;
+  
+        .faq-content{
+          transition-property: height;
+          transition-duration: 1s;
+          p{
+            padding: 0px 30px 14px 30px;
+          }
+        }
+  
+        .acc-header{
+          padding: 20px 26px;
+  
+          h4{
+            font-size: 18px;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+  
   .banner-about {
     padding: 30px 10px;
     .banner-right {
@@ -532,6 +592,7 @@
 
   .features-wrap{
     padding: 30px 10px;
+    padding-bottom: 0px;
   
     h2{
       font-size: 32px;
@@ -546,10 +607,70 @@
     }
   
     .features-left{
+      margin-bottom: 40px;
       p{
         font-size: 14px;
         line-height: 18px;
       }
+    }
+  }
+
+  .button-common-abt {
+    padding: 5px 15px;
+    width: 95%;
+    font-size: 18px;
+  }
+  
+  .button-common-abt span svg {
+    margin-top: 0 !important;
+  }
+  .button-common-abt:hover {
+    box-shadow: 5px 5px 5px rgba(67, 170, 139, 0.25) !important;
+    opacity: 1;
+    span {
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24) !important;
+    }
+  }
+
+  .resources-main{
+ 
+    h2{
+      padding: 0 10px;
+      font-size: 32px;
+      line-height: 44px;
+    }
+  
+    .card-wrap{
+      margin: 0 auto;
+    }
+  
+    // .btn-div{
+    //   margin-top: -20px;
+    // }
+    .resource-card{
+      width: 100%;
+      h4{
+        font-size: 24px;
+        line-height: 34px;
+      }
+      a{
+        padding-top: 28px;
+        font-size: 16px;
+        line-height: 20px;
+      }
+    }
+  }
+
+  .gift-right-abt{
+    margin-bottom: 40px;
+    h2{
+      font-size: 32px;
+      line-height: 44px;
+      margin-bottom: 40px;
+    }
+    p{
+      font-size: 18px;
+      line-height: 26px;
     }
   }
 }
