@@ -14,6 +14,7 @@ const initialState = {
     chapterBySubject: [],
     conceptByChapter: [],
     SubconceptByConcept: [],
+    myClassesHistory: [],
 
 };
 
@@ -29,6 +30,12 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 myLeavesList: action.payload,
+            };
+
+        case actionTypes.UPDATE_GET_MY_CLASSES_HISTORY:
+            return {
+                ...state,
+                myClassesHistory: action.payload,
             };
 
         case actionTypes.UPDATE_GET_CHAPTER_BY_SUBJECT:

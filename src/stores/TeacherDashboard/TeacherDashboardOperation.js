@@ -140,7 +140,6 @@ function* workerMyClasses() {
         page_no: 1,
     };
     const response = yield teacherDashboardServices.getMyClasses(body, token);
-    console.log(response, 'Res from my classes');
     if (response) {
         yield put({
             type: actionTypes.UPDATE_GET_MY_CLASSES,
@@ -189,6 +188,40 @@ function* workertGetSubconceptByConcept(data) {
     }
 }
 
+function* workerMyClassesHistory() {
+    const state = yield select();
+    const teacherID = state.Auth.Login.data._id;
+    const token = state.Auth.Login.data.accessToken;
+    const body = {
+        teacher: teacherID,
+        subject: '',
+        timeFrame: 'last_30_days',
+        page_no: 1,
+    };
+    const response = yield teacherDashboardServices.getMyClassesHistory(body, token);
+    if (response) {
+        yield put({
+            type: actionTypes.UPDATE_GET_MY_CLASSES_HISTORY,
+            payload: response,
+        });
+    }
+}
+
+function* workerRescheduleClass(data) {
+    const value = { university: data?.payload?.univ };
+    const id = data?.payload?.id;
+    const state = yield select();
+    const token = state.Auth.Login.data.accessToken;
+    const response = yield teacherDashboardServices.rescheduleClass(id, value, token);
+
+    if (response) {
+        yield put({
+            type: actionTypes.UPDATE_RESCHEDULE_CLASS,
+            payload: response,
+        });
+    }
+}
+
 function* watcherTeacherDashboard() {
     yield takeLatest(actionTypes.MY_LEAVES_LIST, workerMyLeavesList);
     yield takeLatest(actionTypes.APPLY_LEAVE, workerApplyLeave);
@@ -203,6 +236,7 @@ function* watcherTeacherDashboard() {
     yield takeLatest(actionTypes.GET_CHAPTER_BY_SUBJECT, workerGetChapterBySubject);
     yield takeLatest(actionTypes.GET_CONCEPT_BY_CHAPTER, workerGetConceptByChapter);
     yield takeLatest(actionTypes.GET_SUB_CONCEPT_BY_CONCEPT, workertGetSubconceptByConcept);
+    yield takeLatest(actionTypes.GET_MY_CLASSES_HISTORY, workerMyClassesHistory);
 }
 
 function* fetchAll() {

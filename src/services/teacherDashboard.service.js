@@ -55,6 +55,14 @@ function getSubconceptByConcept(id, token) {
     return fetchWrapper.get(`${baseUrl}/sub-concepts/subconcepts-by-concept/${id}`, token);
 }
 
+function getMyClassesHistory(body, token) {
+    return fetchWrapper.post(`${baseUrl}/online-class/teachers/history`, body, token);
+}
+
+function rescheduleClass(body, token) {
+    return fetchWrapper.post(`${baseUrl}online-class/teachers/reschedule`, body, token);
+}
+
 export const teacherDashboardServices = {
     getMyProfile,
     myLeavesList,
@@ -69,6 +77,8 @@ export const teacherDashboardServices = {
     getChapterBySubject,
     getConceptByChapter,
     getSubconceptByConcept,
+    getMyClassesHistory,
+    rescheduleClass,
 };
 
 export default {};

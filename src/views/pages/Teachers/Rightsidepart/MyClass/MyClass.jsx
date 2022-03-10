@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { object, func, bool } from 'prop-types';
+import {
+    object, func, bool, array,
+} from 'prop-types';
 import { connect } from 'react-redux';
 import OnlineClassalert from '../../OnlineClassalert';
 import MyClassesTitle from '../../../../components/dashboard/Rightsidepart/MyexamTitle';
@@ -10,19 +12,24 @@ import SubjectModel from '../../SubjectModel';
 
 // import Mysubjects from '../../Mysubjects/MySubjects';
 import ReschedulePopup from './ReschedulePopup';
-import { getMyClassesAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
+import { getMyClassesAction, getMyClassesHistoryAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
 
 const MyClass = ({
-    lgShow, setLgShow, myClasses, getMyClasses,
+    lgShow, setLgShow, myClasses, getMyClasses, getMyClassesHistory, myClassesHistory,
 }) => {
     const [model, setModel] = useState(false);
 
     const [myClassesList, setMyClassesList] = useState([]);
+    // const [myClassesHistoryList, setMyClassesHistoryList] = useState([]);
 
     useEffect(() => {
         if (!myClasses.data) {
             getMyClasses();
         }
+
+        // if (!myClassesHistory.data) {
+        //     getMyClassesHistory();
+        // }
 
         if (myClasses?.data) {
             console.log('Inside condition');
@@ -41,7 +48,9 @@ const MyClass = ({
                 }));
             setMyClassesList(cdata);
         }
-    }, [myClasses]);
+    }, [myClasses, myClassesHistory]);
+
+    console.log(myClassesHistory, 'myClassesHistory');
 
     console.log(myClassesList, 'myClassesList');
 
@@ -84,14 +93,19 @@ MyClass.propTypes = {
     setLgShow: func.isRequired,
     myClasses: object.isRequired,
     getMyClasses: func.isRequired,
+    myClassesHistory: array.isRequired,
+    getMyClassesHistory: func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
     myClasses: state.TeacherDashboard.myClasses,
+    myClassesHistory: state.TeacherDashboard.myClassesHistory,
 });
 
 const mapDispatchToProps = (dispatch) => ({
     getMyClasses: () => dispatch(getMyClassesAction()),
+    getMyClassesHistory: () => dispatch(getMyClassesHistoryAction()),
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyClass);

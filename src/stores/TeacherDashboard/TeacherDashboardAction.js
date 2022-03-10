@@ -11,7 +11,7 @@ export const applyLeaveAction = (data) => ({
     payload: data,
 });
 
-export const cancelLeaveAction = (data, token) => ({
+export const cancelLeaveAction = (data) => ({
     type: actionTypes.CANCEL_LEAVE,
     payload: data,
 });
@@ -62,6 +62,15 @@ export const getConceptByChapterAction = (data) => ({
 
 export const getSubconceptByConceptAction = (data) => ({
     type: actionTypes.GET_SUB_CONCEPT_BY_CONCEPT,
+    payload: data,
+});
+
+export const getMyClassesHistoryAction = () => ({
+    type: actionTypes.GET_MY_CLASSES_HISTORY,
+});
+
+export const rescheduleClass = (data) => ({
+    type: actionTypes.RESCHEDULE_CLASS,
     payload: data,
 });
 
