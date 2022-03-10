@@ -9,6 +9,7 @@ import Features from './Features';
 import STRAPI_URL from '../../../constants/strapi';
 import Givegift from './Works';
 import Resources from './Resources';
+import FAQ from './FAQ';
 
 const About = () => {
     const [homeData, setHomeData] = useState([]);
@@ -32,6 +33,7 @@ const About = () => {
             <Features />
             <Givegift data={giveGift} />
             <Resources />
+            <FAQ />
         </Layout>
     );
 };
