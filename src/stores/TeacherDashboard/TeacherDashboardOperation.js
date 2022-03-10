@@ -34,11 +34,22 @@ function* workerApplyLeave(data) {
     const value = data?.payload;
     const state = yield select();
     const token = state.Auth.Login.data.accessToken;
-    console.log(token, 'Token froma operation');
     const response = yield teacherDashboardServices.applyLeave(value, token);
     if (response) {
         yield put({
             type: actionTypes.UPDATE_APPLY_LEAVE,
+            payload: response,
+        });
+    }
+}
+
+function* workerCancelLeave(data) {
+    const value = data?.payload?.id;
+    const token = data?.payload?.token;
+    const response = yield teacherDashboardServices.cancelLeave(value, token);
+    if (response) {
+        yield put({
+            type: actionTypes.UPDATE_CANCEL_LEAVE,
             payload: response,
         });
     }
@@ -181,6 +192,7 @@ function* workertGetSubconceptByConcept(data) {
 function* watcherTeacherDashboard() {
     yield takeLatest(actionTypes.MY_LEAVES_LIST, workerMyLeavesList);
     yield takeLatest(actionTypes.APPLY_LEAVE, workerApplyLeave);
+    yield takeLatest(actionTypes.CANCEL_LEAVE, workerCancelLeave);
     yield takeLatest(actionTypes.GET_PROFILE, workerMyProfile);
     yield takeLatest(actionTypes.CHANGE_NAME, workerChangeName);
     yield takeLatest(actionTypes.CHANGE_EMAIL, workerChangeEmail);

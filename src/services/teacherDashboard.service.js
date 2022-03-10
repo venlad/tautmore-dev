@@ -15,6 +15,10 @@ function applyLeave(params, token) {
     return fetchWrapper.post(`${baseUrl}/teachers/apply-leave`, params, token);
 }
 
+function cancelLeave(id, token) {
+    return fetchWrapper.remove(`${baseUrl}/teachers/cancel-leave/${id}`, token);
+}
+
 function changeTeacherName(id, params, token) {
     return fetchWrapper.put(`${baseUrl}/teachers/update-record/${id}`, params, token);
 }
@@ -55,6 +59,7 @@ export const teacherDashboardServices = {
     getMyProfile,
     myLeavesList,
     applyLeave,
+    cancelLeave,
     changeTeacherName,
     changeTeacherEmail,
     changeTeacherPhoneNumber,
