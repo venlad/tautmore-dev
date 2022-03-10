@@ -1,7 +1,21 @@
-.change-name-pop-up{
+.change-name-pop-up, .change-course-details-pop-up{
 
-    height:225px !important;
+    height:325px !important;
     top:200px !important;
+
+    h3{
+        width:100%;
+        margin:0px auto;
+    }
+
+    .container-phone-number{
+        width:100%;
+
+        .phone-input{
+            margin-left: 69px;;
+        }
+    }
+
     
 
     .name-input{
@@ -12,6 +26,9 @@
         height: 36px;
         margin-right:20px;
         padding-left:10px;
+        margin:10px auto;
+        display: block;
+        width:90%;
     }
 
     .save-button{
@@ -22,12 +39,37 @@
         color:white;
         height: 36px;
         width: 133px;
+        margin:30px auto;
+        display: block;
+    }
 
+    .save-button::selection{
+        border:red;
     }
 
 
     .update-username{
         font-size: 20px;
     }
-    
+}
+
+.change-course-details-pop-up{
+
+    height:425px !important;
+    top:100px !important;
+   
+    .save-button{
+        border-radius: 33.75px;
+        background-color: #43AA8B;
+        box-shadow: 0 12px 10px 0 rgba(67,170,139,0.25);
+        border:none;
+        color:white;
+        height: 36px;
+        width: 133px;
+        margin-top: 50px;
+    }
+ 
+    .select-modal{
+        border:red;
+    }
 }

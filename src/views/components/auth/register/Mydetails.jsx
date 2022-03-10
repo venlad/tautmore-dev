@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import  {
     string, func, object, number, array,
 } from 'prop-types';
-import ReactFlagsSelect from 'react-flags-select';
+// import ReactFlagsSelect from 'react-flags-select';
 import { connect } from 'react-redux';
 import Select from 'react-select';
 import PhoneInput from 'react-phone-input-2';
+import Dropdown from './customDropdown/cutomDopdown';
 import './phoneStyle.css';
 import Mydetailsinput from './Mydetailsinput';
 import Mydetailotpinput from './Mydetailotpinput';
@@ -17,6 +18,7 @@ import { dropdownSingleValueStyles } from './customCssDef';
 const Mydetails = ({
     setFullnameVal,
     fullnameVal,
+    countryVal,
     validation,
     setEmailVal,
     setCountryVal,
@@ -31,12 +33,38 @@ const Mydetails = ({
     otpVal,
     setOtpVal,
     userType,
+    countries,
     statesList,
     getAllStatesAction,
+    getAllCountriesAction,
 
 }) => {
+    const [countryList, setCountryList] = useState([{ value: 1, name: '', flag: '' }]);
+    useEffect(() => {
+        if (!countries?.data) {
+            getAllCountriesAction();
+        }
+        if (countries?.data?.length > 0) {
+            const cdata = countries?.data.map((data) => ({
+                id: data._id,
+                name: data.country_label,
+                label: data.country_label,
+                code: data.country_code,
+                flag: data.flag,
+            }));
+            setCountryList(cdata);
+        }
+    }, [countries, getAllCountries]);
+
+    console.log(countryVal, 'Country Val');
+
+    console.log(countries, 'redux countries');
+    console.log(countryList, 'countryList');
+
     const [states, setStates] = useState([{ value: 1, label: '' }]);
+
     const [selected, setSelected] = useState('');
+
     useEffect(() => {
         if (statesList?.data?.length > 0) {
             const cdata = statesList?.data.map((data) => (
@@ -99,7 +127,22 @@ const Mydetails = ({
                 <div className="row">
                     <div className="col-md-6 course-detail-select" style={{ display: ((userType === 'Teacher') ? 'block' : 'none')  }}>
                         <div className="label-div">Country*</div>
-                        <ReactFlagsSelect
+
+                        <div className="custom-dropdown">
+                            <Dropdown
+                                options={countryList}
+                                prompt="Select countries"
+                                onChange={(val) => setCountryVal(val)}
+                                value={countryVal}
+                                id="id"
+                                name="name"
+                                label="name"
+                                selectedFlag={countryVal?.flag ? countryVal?.flag : ''}
+                            />
+
+                        </div>);
+
+                        {/* <ReactFlagsSelect
                             selectedSize={20}
                             selected={selected}
                             onSelect={(code) => onCountrySelect(code)}
@@ -107,7 +150,7 @@ const Mydetails = ({
                             className="menu-flags"
                             searchable
                             selectButtonClassName="select-button"
-                        />
+                        /> */}
                         {/* <Select
                             id="country"
                             name="country"
@@ -199,6 +242,7 @@ const Mydetails = ({
 Mydetails.propTypes = {
     fullnameVal: string.isRequired,
     setFullnameVal: func.isRequired,
+    countryVal: string.isRequired,
     validation: object.isRequired,
     setEmailVal: object.isRequired,
     emailVal: string.isRequired,
@@ -210,18 +254,18 @@ Mydetails.propTypes = {
     sendOtp: func.isRequired,
     verifyOtp: func.isRequired,
     userType: string.isRequired,
-
     setCountryVal: string.isRequired,
     stateVal: string.isRequired,
     setStateVal: func.isRequired,
-
     statesList: array.isRequired,
     getAllStatesAction: func.isRequired,
+    countries: array.isRequired,
+    getAllCountriesAction: func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
     otp: state.Auth.otp,
-    countryList: state.Auth.countryList,
+    countries: state.Auth.countryList,
     statesList: state.Auth.statesList,
 });
 const mapDispatchToProps = (dispatch) => ({

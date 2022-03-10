@@ -46,4 +46,23 @@ export const changeUniversityAction = (data) => ({
     payload: data,
 });
 
+export const getMyClassesAction = () => ({
+    type: actionTypes.GET_MY_CLASSES,
+});
+
+export const getChapterBySubjectAction = (data) => ({
+    type: actionTypes.GET_CHAPTER_BY_SUBJECT,
+    payload: data,
+});
+
+export const getConceptByChapterAction = (data) => ({
+    type: actionTypes.GET_CONCEPT_BY_CHAPTER,
+    payload: data,
+});
+
+export const getSubconceptByConceptAction = (data) => ({
+    type: actionTypes.GET_SUB_CONCEPT_BY_CONCEPT,
+    payload: data,
+});
+
 export default {};

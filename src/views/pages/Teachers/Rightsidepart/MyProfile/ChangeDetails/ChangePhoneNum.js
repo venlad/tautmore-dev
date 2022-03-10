@@ -3,17 +3,20 @@ import { Modal } from 'react-bootstrap';
 import { func, string, bool } from 'prop-types';
 import { connect } from 'react-redux';
 import './changedetails.scss';
+import PhoneInput from 'react-phone-input-2';
 
-import { changePhoneNumberAction } from '../../../../../../stores/TeacherDashboard/TeacherDashboardAction';
+import '../../../../../components/auth/register/phoneStyle.css';
+
+import { changePhoneNumberAction, getProfileAction } from '../../../../../../stores/TeacherDashboard/TeacherDashboardAction';
 
 const ChangePhoneNumPopUp = ({
-    id, model, handleModel, changePhoneNumber,
+    id, model, handleModel, changePhoneNumber, getProfile,
 }) => {
     const [newPhoneNum, setPhoneNum] = useState('');
-
     const onSaveClick = () => {
         changePhoneNumber({ id, phone: newPhoneNum });
         handleModel(false);
+        getProfile();
     };
 
     return (
@@ -31,7 +34,22 @@ const ChangePhoneNumPopUp = ({
 
             </Modal.Header>
             <Modal.Body>
-                <input onChange={(e) => setPhoneNum(e.target.value)} className="name-input" type="number" name="name"  />
+                <div className="container-phone-number">
+                    <PhoneInput
+                        specialLabel=""
+                        country="us"
+                        className="phone-input"
+                        inputStyle={{
+                            fontSize: 16,
+                            buttonStyle: {
+                                display: 'none',
+                            },
+
+                        }}
+                        onChange={(e) => setPhoneNum(e)}
+                    />
+                </div>
+
                 <button onClick={() => onSaveClick()} className="save-button" type="button">Save</button>
             </Modal.Body>
 
@@ -44,11 +62,14 @@ ChangePhoneNumPopUp.propTypes = {
     model: bool.isRequired,
     changePhoneNumber: func.isRequired,
     id: string.isRequired,
+    getProfile: func.isRequired,
 
 };
 
 const mapDispatchToProps = (dispatch) => ({
     changePhoneNumber: (data) => dispatch(changePhoneNumberAction(data)),
+    getProfile: () => dispatch(getProfileAction()),
+
 });
 
 export default connect(null, mapDispatchToProps)(ChangePhoneNumPopUp);
