@@ -36,7 +36,7 @@ const Resources = () => {
 
     return (
 
-        <div className="resources-main">
+        <div className="resources-main bg2">
             <h2>Resources for better pedagogy</h2>
 
             <div className="carousel-wrap">

@@ -5,6 +5,9 @@ const WhyTautmore = () => (
     <div className="why-wrap">
         <h1>Why do you need TautMore?</h1>
         <div className="why-points-wrapper">
+            <span className="sw-ab-1" />
+            <span className="sw-ab-2" />
+            <span className="sw-ab-3" />
             <div className="row">
                 <div className="col-12 col-md-6">
                     <div className="why-card">

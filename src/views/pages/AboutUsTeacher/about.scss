@@ -262,6 +262,7 @@
 }
 
 .why-wrap {
+  position: relative;
   h1 {
     color: #20282a;
     font-size: 52px;
@@ -280,7 +281,42 @@
   display: flex;
   justify-content: space-around;
 
+  .sw-ab-1{
+    position: absolute;
+    left: 48px;
+    top: 420px;
+    height: 78px;
+    width: 91px;
+    transform: scaleX(-1);
+    border-radius: 31px 0 31px 31px;
+    background-color: #F8E1FD;
+    z-index: 1;
+  }
+
+  .sw-ab-2{
+    position: absolute;
+    right: 417px;
+    top: 400px;
+    height: 53px;
+    width: 62px;
+    border-radius: 22px 0 22px 22px;
+    background-color: #C9FCBC;
+    z-index: 1;
+  }
+
+  .sw-ab-3{
+    position: absolute;
+    right: 0px;
+    z-index: 1;
+    top: 600px;
+    height: 123px;
+    width: 143px;
+    border-radius: 47px 0 47px 47px;
+    background-color: #C5F7E7;
+  }
+
   .why-card {
+    position: relative;
     margin-bottom: 50px;
     min-height: 215px;
     height: unset;
@@ -288,6 +324,7 @@
     background-color: #ffffff;
     box-shadow: 0 22px 24px 0 rgba(0, 0, 0, 0.07);
     padding: 30px 20px 20px 50px;
+    z-index: 2;
 
     h2 {
       color: #277da1;
