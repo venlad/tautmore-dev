@@ -22,11 +22,10 @@ const LeavePopup = ({
     const [totalAppliedLeave, setTotalAppliedLeave] = useState('');
 
     const fromDateChange = (e, setFieldValue, values) => {
-        console.log(e, 'from eee');
         setFieldValue('fromDate', e);
         const oneDay = 24 * 60 * 60 * 1000;
-        const firstDate = new Date(e.target.value.replace(/-/g, ', '));
-        const secondDate = new Date(values?.toDate.replace(/-/g, ', '));
+        const firstDate = new Date(`${e.getFullYear()}, ${e.getMonth() + 1}, ${e.getDate()}`);
+        const secondDate = new Date(`${values?.toDate.getFullYear()}, ${values?.toDate.getMonth() + 1}, ${values?.toDate.getDate()}`);
         const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
         if (!Number.isNaN(diffDays)) {
             setTotalLeave(diffDays);
@@ -35,8 +34,8 @@ const LeavePopup = ({
     const toDateChange = (e, setFieldValue, values) => {
         setFieldValue('toDate', e);
         const oneDay = 24 * 60 * 60 * 1000;
-        const firstDate = new Date(values?.fromDate.replace(/-/g, ', '));
-        const secondDate = new Date(e.target.value.replace(/-/g, ', '));
+        const firstDate = new Date(`${e.getFullYear()}, ${e.getMonth() + 1}, ${e.getDate()}`);
+        const secondDate = new Date(`${values?.fromDate.getFullYear()}, ${values?.fromDate.getMonth() + 1}, ${values?.fromDate.getDate()}`);
         const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
         if (!Number.isNaN(diffDays)) {
             setTotalLeave(diffDays);
@@ -137,7 +136,7 @@ const LeavePopup = ({
                                     /><br /> <br /> */}
                                     <DatePicker
                                         name="fromDate"
-                                        dateFormat="dd/MM/yyyy"
+                                        dateFormat="MMMM dd, yyyy"
                                         locale="en-gb"
                                         formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 3)}
                                         selected={values.fromDate}
@@ -158,7 +157,7 @@ const LeavePopup = ({
                                     /><br /> <br /> */}
                                     <DatePicker
                                         name="toDate"
-                                        dateFormat="dd/MM/yyyy"
+                                        dateFormat="MMMM dd, yyyy"
                                         locale="en-gb"
                                         formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 3)}
                                         selected={values.toDate}
