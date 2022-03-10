@@ -734,10 +734,7 @@
         }
       }
       .course-detail-select {
-
-
-
-
+        
         .ReactFlagsSelect-module_selectBtn__19wW7{
           border-radius: 10px;
           height: 66px;
@@ -1206,7 +1203,30 @@
         color: #7d8283;
 
         .course-detail-select{
-
+          .dropdown {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            .selected-value {
+              display: block !important;
+            }
+            input {
+              border: 0;
+              width: 100%;
+              height: 90%;
+            }
+            .options {
+              left: 0;
+            }
+            .arrow {
+              top: 42%;
+            }
+            .country-flag-and-selected-value {
+              align-items: center;
+            }
+          }
           
         .custom-dropdown{
           width:100%

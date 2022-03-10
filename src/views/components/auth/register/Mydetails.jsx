@@ -140,7 +140,7 @@ const Mydetails = ({
                                 selectedFlag={countryVal?.flag ? countryVal?.flag : ''}
                             />
 
-                        </div>);
+                        </div>
 
                         {/* <ReactFlagsSelect
                             selectedSize={20}

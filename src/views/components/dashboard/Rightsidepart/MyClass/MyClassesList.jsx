@@ -1,17 +1,20 @@
 import React from 'react';
-import classesList from '../../mockData/MyClassesList';
+import { array } from 'prop-types';
+// import classesList from '../../mockData/MyClassesList';
 import MyClassesListCommon from './MyClassesListCommomn';
 
-const MyClassesList = () => (
+const MyClassesList = ({ classHistory }) => (
     <div className="myexam-examlist">
-        {classesList.map((data) => (
-            <div>
-                {data?.data?.map((val) => (
-                    <MyClassesListCommon val={val} key={val.key}  />
-                ))}
-            </div>
-        ))}
+        <div>
+            {classHistory?.map((val) => (
+                <MyClassesListCommon val={val} key={val.key}  />
+            ))}
+        </div>
     </div>
 );
+
+MyClassesList.propTypes = {
+    classHistory: array.isRequired,
+};
 
 export default MyClassesList;

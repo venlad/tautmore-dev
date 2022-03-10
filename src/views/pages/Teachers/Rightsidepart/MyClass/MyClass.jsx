@@ -26,13 +26,7 @@ const MyClass = ({
         if (!myClasses.data) {
             getMyClasses();
         }
-
-        // if (!myClassesHistory.data) {
-        //     getMyClassesHistory();
-        // }
-
         if (myClasses?.data) {
-            console.log('Inside condition');
             const cdata = myClasses?.data[0]?.response?.map((data) => (
                 {
                     grade: data?.gradeInfo?.name,
@@ -48,13 +42,13 @@ const MyClass = ({
                 }));
             setMyClassesList(cdata);
         }
-    }, [myClasses, myClassesHistory]);
+    }, [myClasses]);
 
-    console.log(myClassesHistory, 'myClassesHistory');
-
-    console.log(myClassesList, 'myClassesList');
-
-    console.log(myClasses, 'My Classes!');
+    useEffect(() => {
+        if (!myClassesHistory?.data) {
+            getMyClassesHistory();
+        }
+    }, [myClassesHistory]);
 
     return (
         <div>
@@ -80,7 +74,9 @@ const MyClass = ({
                 <MyClassesTitle title="Completed classes history" />
                 <MyClassesTAB />
 
-                <MyClassesList />
+                <MyClassesList
+                    classHistory={myClassesHistory?.data?.[0]?.response}
+                />
                 {/* <ExamDetails /> */}
                 {/* <Mysubjects /> */}
             </div>
@@ -105,7 +101,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     getMyClasses: () => dispatch(getMyClassesAction()),
     getMyClassesHistory: () => dispatch(getMyClassesHistoryAction()),
-
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyClass);
