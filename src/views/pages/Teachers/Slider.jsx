@@ -9,9 +9,10 @@ import 'slick-carousel/slick/slick-theme.css';
 import '../../components/dashboard/dashboard.scss';
 import { Button } from 'react-bootstrap';
 import { func } from 'prop-types';
+import { array } from 'yup/lib/locale';
 // import ArrowRight from  '../../../assets/images/sliderlefticon.svg';
 
-const SimpleSlider = ({ handleSubjectModel, handleModel }) =>  {
+const SimpleSlider = ({ myClassesList, handleSubjectModel, handleModel }) =>  {
     const  settings = {
         dots: false,
         infinite: true,
@@ -26,7 +27,38 @@ const SimpleSlider = ({ handleSubjectModel, handleModel }) =>  {
     return (
 
         <Slider {...settings}>
-            <div className=" sliderBox">
+
+            {myClassesList?.map((item) => (
+                <div key={item.id} className=" sliderBox">
+                    <div className="sub-box-main row">
+                        <div className="sub-box-left col-sm-8">
+                            <h3 className="subname">{item.subject}</h3>
+                            {/*
+                            <p>Trigonometry - Topic 2</p> */}
+
+                            <p><span>{item.date} </span>| <span> {item.timeslot}</span></p>
+                        </div>
+                        <div className="sub-box-right col-sm-4">
+                            <button onClick={openReschedule} type="button">reschedule</button>
+                        </div>
+                    </div>
+                    <div className="row gradesection">
+                        <div className="col-sm-4 floatleft">
+                            <p>Grade {item.grade}</p>
+                        </div>
+                        <div className="col-sm-4 floatleft">
+                            <p>{item.numberOfStudent} students</p>
+                        </div>
+                        <div className="col-sm-4 floatleft">
+                            <p>45 minutes class</p>
+                        </div>
+                    </div>
+                    <div className="buttondiv">
+                        <Button className="viewdetailsbutton" onClick={() => handleSubjectModel(true)}>VIEW DETAILS</Button>
+                    </div>
+                </div>
+            ))}
+            {/* <div className=" sliderBox">
                 <div className="sub-box-main row">
                     <div className="sub-box-left col-sm-8">
                         <h3 className="subname">Mathematics</h3>
@@ -49,7 +81,8 @@ const SimpleSlider = ({ handleSubjectModel, handleModel }) =>  {
                     </div>
                 </div>
                 <div className="buttondiv">
-                    <Button className="viewdetailsbutton" onClick={() => handleSubjectModel(true)}>VIEW DETAILS</Button>
+                    <Button className="viewdetailsbutton" onClick={()
+                        => handleSubjectModel(true)}>VIEW DETAILS</Button>
                 </div>
             </div>
             <div className=" sliderBox">
@@ -75,7 +108,8 @@ const SimpleSlider = ({ handleSubjectModel, handleModel }) =>  {
                     </div>
                 </div>
                 <div className="buttondiv">
-                    <Button className="viewdetailsbutton"><a href="/" className="">VIEW DETAILS</a></Button>
+                    <Button className="viewdetailsbutton">
+                    <a href="/" className="">VIEW DETAILS</a></Button>
                 </div>
             </div>
             <div className="col-sm-6 col-md-6 sliderBox">
@@ -101,9 +135,10 @@ const SimpleSlider = ({ handleSubjectModel, handleModel }) =>  {
                     </div>
                 </div>
                 <div className="buttondiv">
-                    <Button className="viewdetailsbutton"><a href="/" className="">VIEW DETAILS</a></Button>
+                    <Button className="viewdetailsbutton">
+                    a href="/" className="">VIEW DETAILS</a></Button>
                 </div>
-            </div>
+            </div> */}
 
         </Slider>
 
@@ -112,5 +147,6 @@ const SimpleSlider = ({ handleSubjectModel, handleModel }) =>  {
 SimpleSlider.propTypes = {
     handleSubjectModel: func.isRequired,
     handleModel: func.isRequired,
+    myClassesList: array.isRequired,
 };
 export default SimpleSlider;

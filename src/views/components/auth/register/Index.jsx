@@ -34,7 +34,7 @@ const Register = ({ registerAction, isOtpVerified, registerTeacherAction }) => {
     const [step, setStep] = useState(0);
     const [userType, setUserType] = useState('');
     const [coActivity, setCoActivity] = useState();
-    const [countryVal, setCountryVal] = useState('');
+    const [countryVal, setCountryVal] = useState(null);
     const [stateVal, setStateVal] = useState('');
     const [fullnameVal, setFullnameVal] = useState('');
     const [emailVal, setEmailVal] = useState('');

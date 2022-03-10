@@ -1,25 +1,36 @@
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-import { func, string, bool } from 'prop-types';
+import {
+    func, string, bool, array,
+} from 'prop-types';
 import './changedetails.scss';
 import { connect } from 'react-redux';
-import { changeQualificationAction } from '../../../../../../stores/TeacherDashboard/TeacherDashboardAction';
+import Select from 'react-select';
+import { changeQualificationAction, getProfileAction } from '../../../../../../stores/TeacherDashboard/TeacherDashboardAction';
 
 const ChangeQualPopUp = ({
-    id, model, handleModel, changeQual,
+    qualificationsList, id, model, handleModel, changeQual, getProfile,
 }) => {
     const [newQualification, setQualification] = useState('');
+    const [selectedObject, setSelectedObject] = useState({});
 
     const onSaveClick = () => {
-        changeQual({ id, qualification: newQualification });
+        changeQual({ id, qualification: selectedObject?.id });
         handleModel(false);
+        getProfile();
+    };
+
+    const onSelectQualChange = (val) => {
+        setSelectedObject(val);
+        setQualification(val);
+        console.log(newQualification);
     };
 
     return (
         <Modal
             show={model}
             onHide={() => handleModel(false)}
-            className="change-name-pop-up"
+            className="change-course-details-pop-up"
 
         >
             <Modal.Header closeButton>
@@ -30,7 +41,14 @@ const ChangeQualPopUp = ({
 
             </Modal.Header>
             <Modal.Body>
-                <input onChange={(e) => setQualification(e.target.value)} className="name-input" type="text" name="name"  />
+
+                <Select
+                    className="select-modal"
+                    options={qualificationsList}
+                    onChange={(val) =>  onSelectQualChange(val)}
+                    value={newQualification}
+                />
+
                 <button onClick={() => onSaveClick()} className="save-button" type="button">Save</button>
             </Modal.Body>
 
@@ -39,15 +57,19 @@ const ChangeQualPopUp = ({
 };
 
 ChangeQualPopUp.propTypes = {
+    qualificationsList: array.isRequired,
     handleModel: func.isRequired,
     model: bool.isRequired,
     changeQual: func.isRequired,
     id: string.isRequired,
+    getProfile: func.isRequired,
 
 };
 
 const mapDispatchToProps = (dispatch) => ({
     changeQual: (data) => dispatch(changeQualificationAction(data)),
+    getProfile: () => dispatch(getProfileAction()),
+
 });
 
 export default connect(null, mapDispatchToProps)(ChangeQualPopUp);

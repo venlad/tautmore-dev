@@ -2,20 +2,18 @@ import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import { func, bool, string } from 'prop-types';
 import { connect } from 'react-redux';
-import { changeEmailAction } from '../../../../../../stores/TeacherDashboard/TeacherDashboardAction';
-
-// import { Field } from 'formik';
+import { changeEmailAction, getProfileAction } from '../../../../../../stores/TeacherDashboard/TeacherDashboardAction';
 import './changedetails.scss';
 
-// import { connect } from 'react-redux';
-
 const ChangeEmailPopUp = ({
-    id, model, handleModel, changeEmail,
+    id, model, handleModel, changeEmail, getProfile,
 }) => {
     const [newEmail, setNewEmail] = useState('');
 
     const onSaveClick = () => {
         changeEmail({ id, email: newEmail });
+        handleModel(false);
+        getProfile();
     };
 
     return (
@@ -44,13 +42,15 @@ const ChangeEmailPopUp = ({
 ChangeEmailPopUp.propTypes = {
     handleModel: func.isRequired,
     model: bool.isRequired,
-    changeEmail: func.isRequired,
     id: string.isRequired,
+    changeEmail: func.isRequired,
+    getProfile: func.isRequired,
 
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    changeName: (id, data) => dispatch(changeEmailAction(id, data)),
+    changeEmail: (data) => dispatch(changeEmailAction(data)),
+    getProfile: () => dispatch(getProfileAction()),
 });
 
 export default connect(null, mapDispatchToProps)(ChangeEmailPopUp);

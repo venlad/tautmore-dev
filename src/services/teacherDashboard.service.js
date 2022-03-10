@@ -35,6 +35,22 @@ function changeTeacherUniversity(id, params, token) {
     return fetchWrapper.put(`${baseUrl}/teachers/update-record/${id}`, params, token);
 }
 
+function getMyClasses(body, token) {
+    return fetchWrapper.post(`${baseUrl}/online-class/teachers/upcoming-classes`, body, token);
+}
+
+function getChapterBySubject(id, token) {
+    return fetchWrapper.get(`${baseUrl}/getChaptersBySubject/${id}`, token);
+}
+
+function getConceptByChapter(id, token) {
+    return fetchWrapper.get(`${baseUrl}/concepts/concepts-by-chapter/${id}`, token);
+}
+
+function getSubconceptByConcept(id, token) {
+    return fetchWrapper.get(`${baseUrl}/sub-concepts/subconcepts-by-concept/${id}`, token);
+}
+
 export const teacherDashboardServices = {
     getMyProfile,
     myLeavesList,
@@ -44,6 +60,10 @@ export const teacherDashboardServices = {
     changeTeacherPhoneNumber,
     changeTeacherQualification,
     changeTeacherUniversity,
+    getMyClasses,
+    getChapterBySubject,
+    getConceptByChapter,
+    getSubconceptByConcept,
 };
 
 export default {};

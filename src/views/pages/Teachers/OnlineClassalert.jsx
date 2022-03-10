@@ -1,5 +1,6 @@
 import React from 'react';
 import './teachers.scss';
+import { array } from 'yup/lib/locale';
 import Warning from '../../../assets/images/warning.svg';
 import Clockicon from '../../../assets/images/Shape.svg';
 // import Subicon from '../../../assets/images/comp.svg';
@@ -9,7 +10,7 @@ import Gradeicon from '../../../assets/images/gradeicon.svg';
 import Studenticon from '../../../assets/images/students.svg';
 import Testaudiovideo from '../../../assets/images/testaudiovideo.svg';
 
-const OnlineClassalert = () => (
+const OnlineClassalert = ({ latestClass }) => (
     <div>
         <div className="main1">
             <div className="main2">
@@ -24,27 +25,27 @@ const OnlineClassalert = () => (
                                 <img className="" src={Lapicon} alt="warning" />
                             </div>
                             <div className="col-sm-8 subtopicsec">
-                                <p className="onlineSubTitle">Mathematics</p>
-                                <p className="onlineTopic">Algebra - Topic 2</p>
+                                <p className="onlineSubTitle">{latestClass?.subject}</p>
+                                {/* <p className="onlineTopic">Algebra - Topic 2</p> */}
                                 <a href="/" className="onlineTopiclink">View study material</a>
                             </div>
                         </div>
                         <div className="col-md-6 col-sm-6">
                             <div className="row middlediv">
                                 <div className="col-sm-4">
-                                    <img className="" src={Gradeicon} alt="Gradeicon" /> <span>Grade 4</span>
+                                    <img className="" src={Gradeicon} alt="Gradeicon" /> <span>Grade {latestClass?.grade}</span>
                                 </div>
                                 <div className="col-sm-4">
-                                    <img className="" src={Studenticon} alt="Studenticon" /> <span>27 students</span>
+                                    <img className="" src={Studenticon} alt="Studenticon" /> <span>{latestClass?.numberOfStudent} students</span>
                                 </div>
                                 <div className="col-sm-4">
-                                    <img className="Clockicon" src={Clockicon} alt="clock" /><span>45 minutes class</span>
+                                    <img className="Clockicon" src={Clockicon} alt="clock" /><span>{latestClass?.duration} minutes class</span>
                                 </div>
                             </div>
                         </div>
                         <div className="col-sm-3 col-md-3 floatleft">
                             <div className="jionlink">
-                                <button type="button"><a href="/">JOIN LINK</a></button>
+                                <button type="button"><a href={latestClass?.startUrl}>JOIN LINK</a></button>
                             </div>
                             <div className="audioLinkdiv"> <a className="audioLink" href="/"> <img className="testicon" src={Testaudiovideo} alt="clock" />Test audio & video</a></div>
                         </div>
@@ -54,5 +55,9 @@ const OnlineClassalert = () => (
         </div>
     </div>
 );
+
+OnlineClassalert.propTypes = {
+    latestClass: array.isRequired,
+};
 
 export default OnlineClassalert;

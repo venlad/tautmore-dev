@@ -9,6 +9,8 @@ import totalScore from '../../../../../assets/images/totalScore.png';
 import editIcon from '../../../../../assets/images/pencil (2).svg';
 import infoIcon from '../../../../../assets/images/info-2-16.png';
 import { getProfileAction,changeNameAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
+import { getAllUniversities, getAllQualifications } from '../../../../../stores/Auth/AuthAction';
+
 import { FileUploader } from 'react-drag-drop-files';
 import UploadingIcon from '../../../../../assets/images/upload.svg';
 import ChangeNamePopUp from './ChangeDetails/ChangeNamePopUp';
@@ -17,7 +19,11 @@ import ChangePhoneNumPopUp from './ChangeDetails/ChangePhoneNum';
 import ChangeQualPopUp from './ChangeDetails/ChangeQualification';
 import ChangeUnivPopUp from './ChangeDetails/ChangeUniversity';
 
-const MyProfile = ({ myProfile, getMyProfile }) => {
+
+const MyProfile = ({ myProfile, getMyProfile
+    ,getUniversityList,getAllQualificationList,
+    universitiesList,qualificationsList
+    })=> {
 
     const [model, setModel] = useState(false);
     const [modelEmail, setModelEmail] = useState(false);
@@ -26,12 +32,12 @@ const MyProfile = ({ myProfile, getMyProfile }) => {
     const [modelUniv, setModelUniv] = useState(false);
 
     useEffect(() => {
-        if (myProfile.length === 0) {
+        if (myProfile.length === 0)
+         {
             getMyProfile();
         }
     }, [myProfile]);
 
-    console.log(myProfile?.data?._id,"ID from my profile");
     const myprofileDetail = myProfile?.data;
 
     const timeData = myprofileDetail?.timeslot?.map((item) => ({
@@ -46,6 +52,36 @@ const MyProfile = ({ myProfile, getMyProfile }) => {
     const fileTypes = ['JPG', 'PDF', 'docx'];
     const [documents, setDocuments] = useState([]);
     const [fileNames, setFileNames] = useState([]);
+
+    const [universities, setUniversities] = useState([{ value: 1, label: '' }]);
+
+    useEffect(() => {
+        if (!universitiesList?.data) {
+            getUniversityList();
+        }
+        if (universitiesList?.data?.length > 0) {
+            const cdata = universitiesList?.data.map((data) => (
+                { value: data.universityName, label: data.universityName,id: data._id }));
+            setUniversities(cdata);
+        }
+    }, [universitiesList]);
+
+
+    const [qualification1, setQualification1] = useState([{ value: 1, label: '' }]);
+
+    useEffect(() => {
+        if (!qualificationsList?.data) {
+            getAllQualificationList();
+        }
+        if (qualificationsList?.data?.length > 0) {
+            const cdata = qualificationsList?.data.map((data) => (
+                { value: data.qualificationName, 
+                label: data.qualificationName,
+                id: data._id
+                 }));    
+            setQualification1(cdata);
+        }
+    }, [qualificationsList]);
 
     const uploadFile = (event) => {
         // e.persist();
@@ -91,6 +127,8 @@ const MyProfile = ({ myProfile, getMyProfile }) => {
     const onEditName = () => {
         setModel(true)
     }
+
+    console.log(myprofileDetail,"My Details",myProfile,"My Details2")
 
     return (
 
@@ -277,8 +315,8 @@ const MyProfile = ({ myProfile, getMyProfile }) => {
                 <ChangeNamePopUp id={myProfile?.data?._id} model={model} handleModel={setModel}/>
                 <ChangeEmailPopUp id={myProfile?.data?._id} model={modelEmail} handleModel={setModelEmail}/>
                 <ChangePhoneNumPopUp id={myProfile?.data?._id} model={modelPhone} handleModel={setModelPhone}/>
-                <ChangeQualPopUp id={myProfile?.data?._id} model={modelQual} handleModel={setModelQual}/>
-                <ChangeUnivPopUp id={myProfile?.data?._id} model={modelUniv} handleModel={setModelUniv}/>
+                <ChangeQualPopUp qualificationsList={qualification1} id={myProfile?.data?._id} model={modelQual} handleModel={setModelQual}/>
+                <ChangeUnivPopUp universitiesList={universities} id={myProfile?.data?._id} model={modelUniv} handleModel={setModelUniv}/>
 
             </div>
         </>
@@ -289,15 +327,27 @@ const MyProfile = ({ myProfile, getMyProfile }) => {
 MyProfile.propTypes = {
     myProfile: object.isRequired,
     getMyProfile: func.isRequired,
+    getUniversities: func.isRequired,
+    getAllQualificationList : func.isRequired,
+    // changeNameResponse: array.isRequired,
+    // changePhoneResponse : array.isRequired ,
+    // changeQualResponse :array.isRequired ,
+    // changeUnivResponse : array.isRequired
+    
+
 };
 
 const mapStateToProps = (state) => ({
     myProfile: state.TeacherDashboard.getProfile,
+    universitiesList: state.Auth.universities,
+    qualificationsList: state.Auth.qualifications,
 });
 
 const mapDispatchToProps = (dispatch) => ({
     getMyProfile: () => dispatch(getProfileAction()),
-    changeName : (data)=>(changeNameAction(data))
+    changeName : (data)=>(changeNameAction(data)),
+    getUniversityList: () => dispatch(getAllUniversities()),
+    getAllQualificationList: () => dispatch(getAllQualifications()),
 });
 
 
