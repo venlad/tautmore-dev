@@ -265,7 +265,7 @@ const MyProfile = ({ myProfile, getMyProfile
                         <div className="space-between">
                             <div className="details">
                                 <h5 className="faded">University</h5>
-                                <h5>{myprofileDetail?.university}</h5>
+                                <h5>{myprofileDetail?.university.universityName}</h5>
                             </div>
 
                             <button  onClick={()=>setModelUniv(true)}  className="button-green" type="button">EDIT</button>
