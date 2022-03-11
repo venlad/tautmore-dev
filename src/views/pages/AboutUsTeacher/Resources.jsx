@@ -1,27 +1,41 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useRef, useState } from 'react';
 import Slider from 'react-slick';
+import { object } from 'prop-types';
 import ResourceCard from './ResourceCard';
-import { chevRight } from '../../../assets/icons/IconList';
+import { chevLeft, chevRight } from '../../../assets/icons/IconList';
+import useWindowSize from '../../../helpers/useWindowSize';
 
-const Resources = () => {
+const Resources = ({ data }) => {
+    // eslint-disable-next-line no-unused-vars
     const [slide, setSlide] = useState(0);
     const slider = useRef(null);
+    const { width } = useWindowSize();
+    console.log(width);
 
     const settings = {
         dots: false,
         infinite: false,
         speed: 500,
+        arrows: false,
         slidesToShow: 2,
         slidesToScroll: 1,
-        arrows: false,
         beforeChange: (_current, next) => setSlide(next),
+        initialSlide: 0,
         responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
             {
                 breakpoint: 600,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
+                    initialSlide: 2,
                 },
             },
             {
@@ -37,21 +51,22 @@ const Resources = () => {
     return (
 
         <div className="resources-main bg2">
-            <h2>Resources for better pedagogy</h2>
+            <h2>{data?.heading}</h2>
 
             <div className="carousel-wrap">
-                {slide > 0 && <div className="prev-btn" onClick={() => slider?.current?.slickPrev()} onKeyPress={() => slider?.current?.slickPrev()} role="button" tabIndex={0}>{' < '}</div>}
+                {slide > 0 && <div className="prev-btn" onClick={() => slider?.current?.slickPrev()} onKeyPress={() => slider?.current?.slickPrev()} role="button" tabIndex={0}>{chevLeft}</div>}
                 <Slider ref={slider} {...settings}>
-                    <ResourceCard />
-                    <ResourceCard />
-                    <ResourceCard />
-                    <ResourceCard />
+                    {
+                        data?.carouselcard?.map((item) => (
+                            <ResourceCard data={item} />
+                        ))
+                    }
                 </Slider>
-                {slide < 4 - 2 && <div className="next-btn" onClick={() => slider?.current?.slickNext()} onKeyPress={() => slider?.current?.slickNext()} role="button" tabIndex={0}>{' > '}</div>}
+                {slide < 4 - 2 && <div className="next-btn" onClick={() => slider?.current?.slickNext()} onKeyPress={() => slider?.current?.slickNext()} role="button" tabIndex={0}>{chevRight}</div>}
             </div>
             <div className="col-12 d-flex justify-content-center btn-div">
                 <button type="button" className="button-common-abt">
-                    Take smart kids to brilliance, teach with TautMore
+                    {data?.buttonText}
                     <span>{chevRight}</span>
                 </button>
             </div>
@@ -59,5 +74,11 @@ const Resources = () => {
 
     );
 };
+Resources.propTypes = {
+    data: object,
+};
 
+Resources.defaultProps = {
+    data: {},
+};
 export default Resources;

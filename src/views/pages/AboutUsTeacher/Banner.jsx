@@ -1,33 +1,38 @@
+/* eslint-disable react/no-danger */
+import { object } from 'prop-types';
 import React from 'react';
-import BannerImg from '../../../assets/images/Group 27.png';
+import STRAPI_URL from '../../../constants/strapi';
 import Buttoncommon from '../home/Button';
 
-const Banner = () => (
+const Banner = ({ banner }) => (
     <div className="banner-about">
         <div className="row">
-            <div className="col-md-6 col-sm-12 banner-left">
+            <div className="col-md-7 col-sm-12 banner-left">
                 <div className="span-grp">
                     <span className="span-1" />
                     <span className="span-2" />
                     <span className="span-3" />
                     <span className="span-4" />
                 </div>
-                <h4>
-                    Leaders learn, Leaders teach, All the time!
-                </h4>
+                <h4 dangerouslySetInnerHTML={{ __html: banner?.heading }} />
                 <p>
-                    Take your passion global with TautMore. Teach students all around the world,
-                    prepare them for the global competition, help them unlock the joy of learning.
+                    {banner?.description}.
                 </p>
-                <Buttoncommon content="Start nurturing leaders" />
+                <Buttoncommon content={banner?.buttonText} />
 
                 <div className="banner-left-bottom-icon" />
             </div>
-            <div className="col-md-6 col-sm-12 banner-right">
-                <img src={BannerImg} alt="banner_img" />
+            <div className="col-md-5 col-sm-12 banner-right">
+                <img src={STRAPI_URL + banner?.heroImage?.data?.attributes?.url} alt="banner_img" />
             </div>
         </div>
     </div>
 );
+Banner.propTypes = {
+    banner: object,
+};
 
+Banner.defaultProps = {
+    banner: {},
+};
 export default Banner;

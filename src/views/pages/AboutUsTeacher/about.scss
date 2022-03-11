@@ -1,5 +1,5 @@
 .slick-list{
-  padding: 40px 40px 60px 40px;
+  padding: 40px 40px 80px 40px;
 }
 
 .bg2{
@@ -134,20 +134,9 @@
       position: relative;
       z-index: 9;
       span {
-        position: relative;
-        z-index: 9;
+        color: #F3722C;
       }
-      span:after {
-        content: "";
-        position: absolute;
-        width: 300px;
-        height: 260px;
-        border-radius: 90px 0px 90px 90px;
-        background-color: #fff6e9;
-        top: -57px;
-        z-index: -1;
-        right: -15%;
-      }
+     
     }
 
     p {
@@ -202,7 +191,7 @@
     display: flex;
     justify-content: center;
     img {
-      // margin-top: -115px;
+      margin-top: -115px;
       width: 100%;
       // max-width: 389px;
       max-height: 584px;
@@ -334,14 +323,19 @@
       line-height: 24px;
     }
     p {
-      max-width: 530px;
       color: #20282a;
       font-size: 16px;
       letter-spacing: 0;
       line-height: 24px;
     }
+    .size-sm{
+      width: 8px;
+      height: 8px;
+      background-color: black;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
     small {
-      width: 339px;
       color: #277da1;
       font-family: "proxima_nova_rgregular";
       font-size: 14px;
@@ -438,6 +432,20 @@
   }
 
   .features-left{
+    .point{
+      height: 14px;
+      width: 14px;
+      background-color: #F9C74F;
+      border-radius: 50%;
+      padding: 5px;
+      margin-right: 10px;
+      margin-top: 5px;
+      span{
+        background-color: #F9C74F;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+    }
     p{
       color: #20282A;
       font-size: 18px;
@@ -581,6 +589,7 @@
           h4{
             font-size: 18px;
             line-height: 20px;
+            max-width: 90%;
           }
         }
       }

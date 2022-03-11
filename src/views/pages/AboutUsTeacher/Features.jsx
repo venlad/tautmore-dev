@@ -1,50 +1,37 @@
 import React from 'react';
-import BannerImg from '../../../assets/images/Group 27.png';
-import { Circle } from '../../../assets/icons/IconList';
+import { object } from 'prop-types';
 import Buttoncommon from '../home/Button';
+import STRAPI_URL from '../../../constants/strapi';
 
-const Features = () => (
+const Features = ({ features }) => (
     <div className="features-wrap">
-        <h2>TautMore’s features for teachers</h2>
+        <h2>{features?.heading}</h2>
         <div className="row">
             <div className="col-12 col-md-6 features-left">
-                <div className="d-flex">
-                    <div className="mr-point">{Circle}</div>
-                    <p>Engage your students with Co-curricular activities for their wholesome
-                        personality development
-                    </p>
-                </div>
-                <div className="d-flex">
-                    <div className="mr-point">{Circle}</div>
-                    <p>Engage your students with Co-curricular activities for their wholesome
-                        personality development
-                    </p>
-                </div>
-                <div className="d-flex">
-                    <div className="mr-point">{Circle}</div>
-                    <p>Engage your students with Co-curricular activities for their wholesome
-                        personality development
-                    </p>
-                </div>
-                <div className="d-flex">
-                    <div className="mr-point">{Circle}</div>
-                    <p>Engage your students with Co-curricular activities for their wholesome
-                        personality development
-                    </p>
-                </div>
-                <div className="d-flex">
-                    <div className="mr-point">{Circle}</div>
-                    <p>Engage your students with Co-curricular activities for their wholesome
-                        personality development
-                    </p>
-                </div>
-                <Buttoncommon content="Start nurturing leaders" />
+                {
+                    features?.listItems?.map((item) => (
+                        <div className="d-flex" key={item?.id}>
+                            <div className="point">
+                                <span />
+                            </div>
+                            <p>{item?.text}
+                            </p>
+                        </div>
+                    ))
+                }
+                <Buttoncommon content={features?.buttonText} />
             </div>
             <div className="col-12 col-md-6 features-right">
-                <img src={BannerImg} alt="banner_img" />
+                <img src={STRAPI_URL + features?.heroImage?.data?.attributes?.url} alt="banner_img" />
             </div>
         </div>
     </div>
 );
+Features.propTypes = {
+    features: object,
+};
 
+Features.defaultProps = {
+    features: {},
+};
 export default Features;

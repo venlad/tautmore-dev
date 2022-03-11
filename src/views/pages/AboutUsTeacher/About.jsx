@@ -7,29 +7,29 @@ import Layout from '../../../Layout/Layout';
 import WhyTautmore from './WhyTautmore';
 import Features from './Features';
 import STRAPI_URL from '../../../constants/strapi';
-import Givegift from './Works';
+// import Givegift from './Works';
 import Resources from './Resources';
 import FAQ from './FAQ';
 import Subjectlist from '../home/Subjectlist';
+import Givegift from './Works';
 
 const About = () => {
     const [subjects, setSubjects] = useState([]);
-    const [homeData, setHomeData] = useState([]);
+    const [aboutData, setAboutData] = useState([]);
 
     const fetchSubjects = async () => {
         const activityRes = await fetch(
             `${STRAPI_URL}/api/subjects?populate=*`,
         );
         const res = await fetch(
-            `${STRAPI_URL}/api/home?populate=*`,
+            `${STRAPI_URL}/api/about?populate=*`,
         );
         const activityData = await activityRes.json();
         // eslint-disable-next-line max-len
         setSubjects(activityData?.data?.filter((item) => item?.attributes?.popularSubject === true));
         const data = await res.json();
-        setHomeData(data?.data);
+        setAboutData(data?.data?.attributes);
     };
-    const giveGift = homeData?.attributes?.sections[7];
 
     useEffect(() => {
         fetchSubjects();
@@ -37,12 +37,12 @@ const About = () => {
     return (
         <Layout>
             <Subjectlist subjects={subjects} />
-            <Banner />
-            <WhyTautmore />
-            <Features />
-            <Givegift data={giveGift} />
-            <Resources />
-            <FAQ />
+            <Banner banner={aboutData?.banner} />
+            <WhyTautmore cardData={aboutData?.whyCards} btnText={aboutData?.whyTautmoreButtonText} title={aboutData?.whyTautmoreHeading} />
+            <Features features={aboutData?.tautMoreFeatures} />
+            <Givegift data={aboutData?.works} />
+            <Resources data={aboutData?.carousel} />
+            <FAQ faq={aboutData?.FAQ} />
         </Layout>
     );
 };
