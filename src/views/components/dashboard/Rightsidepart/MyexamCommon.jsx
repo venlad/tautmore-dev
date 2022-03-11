@@ -8,7 +8,7 @@ const MyexamCommon = ({
     const startExamClick = () => {
         setStartExam(examId);
     };
-    console.log('examId', examId);
+    // console.log('examId', examId);
     return (
         <div className="row myexam-common-top">
             <div className="col-md-12 ">

@@ -1,12 +1,34 @@
-import { func, object, string } from 'prop-types';
-import React, { useState } from 'react';
-import { answerque, notanswerque } from './mockData/RightsidepartData';
+import {
+    array,
+    func, object, string,
+} from 'prop-types';
+import React, {  useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 import OlympiadQueanspart from './OlympiadQueanspart';
 
-const OlympiadRIghtsidepart = ({ questionInExamData, selectedQuestion, setSelectedQuestion  }) => {
+const OlympiadRIghtsidepart = ({
+    questionInExamData, selectedQuestion, setSelectedQuestion, selectedOption,
+    setSelectedOption, allQuesAns, setEachTimeOn,
+    eachcurrenttime,
+    setEachtime,
+}) => {
+    // useEffect(() => {
+    //     const setQueAnsData = questionInExamData?.map((data) => ({
+    //         question: data?._id,
+    //         solutionIndex:[
+    //             -1,
+    //         ],
+    //         timeTakenInSecs: 0,
+    //     }));
+    //     addQueAns(setQueAnsData);
+    // }, [questionInExamData]);
+
     const [show, setShow] = useState(false);
     const [showtwo, setShowtwo] = useState(false);
-
+    const [answedQue, setAnswedQue] = useState([]);
+    const [notanswedQue, setNotanswedQue] = useState([]);
+    // const answedQue = [];// allQuesAns?.filter((x) => !x?.solutionIndex?.includes(-1));
+    // const notanswedQue = []; // allQuesAns?.filter((x) => x?.solutionIndex?.includes(-1));
     const dropDownone = () => {
         setShow(!show);
         setShowtwo(false);
@@ -16,6 +38,14 @@ const OlympiadRIghtsidepart = ({ questionInExamData, selectedQuestion, setSelect
         setShowtwo(!showtwo);
         setShow(false);
     };
+    // let answedQue = [];
+    // let notanswedQue = [];
+    useEffect(() => {
+        // console.log('SSSSSS');
+        setAnswedQue(allQuesAns?.filter((x) => !x?.solutionIndex?.includes(-1)));
+        setNotanswedQue(allQuesAns?.filter((x) => x?.solutionIndex?.includes(-1)));
+    }, [allQuesAns]);
+
     return (
         <div className="olympiad-rightside-part">
             <div className="rightsidepart-top row">
@@ -38,20 +68,23 @@ const OlympiadRIghtsidepart = ({ questionInExamData, selectedQuestion, setSelect
                                     onClick={dropDownone}
                                     aria-hidden="true"
                                 >
-                                    Answered Questions : <span className="number green">24</span> <span className="arrow-down" />
+                                    Answered Questions : <span className="number green">{answedQue?.length}</span> <span className="arrow-down" />
                                 </div>
                                 <div className={`dropdown ${show ? 'active' : ''}`}>
-                                    {answerque.map((val) => (
-                                        <div
-                                            key={val}
-                                            onClick={() => {
+                                    {allQuesAns?.map((val, i) => (
+                                        !val?.solutionIndex.includes(-1) && (
+                                            <div
+                                                key={val}
+                                                onClick={() => {
                                                 // setSelect(val);
-                                                setShow(false);
-                                            }}
-                                            aria-hidden="true"
-                                        >
-                                            Question {val}
-                                        </div>
+                                                    setSelectedQuestion(i);
+                                                    setShow(false);
+                                                }}
+                                                aria-hidden="true"
+                                            >
+                                                Question {i + 1}
+                                            </div>
+                                        )
                                     ))}
                                 </div>
                             </div>
@@ -63,20 +96,23 @@ const OlympiadRIghtsidepart = ({ questionInExamData, selectedQuestion, setSelect
                                     onClick={dropDowntwo}
                                     aria-hidden="true"
                                 >
-                                    Questions not Answered :<span className="number orange">6</span> <span className="arrow-down" />
+                                    Questions not Answered :<span className="number orange">{notanswedQue?.length}</span> <span className="arrow-down" />
                                 </div>
                                 <div className={`dropdown ${showtwo ? 'active' : ''}`}>
-                                    {notanswerque.map((val) => (
-                                        <div
-                                            key={val}
-                                            onClick={() => {
+                                    {allQuesAns.map((val, i) => (
+                                        val?.solutionIndex.includes(-1) && (
+                                            <div
+                                                key={val}
+                                                onClick={() => {
                                                 // setSelecttwo(val);
-                                                setShowtwo(false);
-                                            }}
-                                            aria-hidden="true"
-                                        >
-                                            Question {val}
-                                        </div>
+                                                    setSelectedQuestion(i);
+                                                    setShowtwo(false);
+                                                }}
+                                                aria-hidden="true"
+                                            >
+                                                Question {i + 1}
+                                            </div>
+                                        )
                                     ))}
                                 </div>
                             </div>
@@ -90,6 +126,11 @@ const OlympiadRIghtsidepart = ({ questionInExamData, selectedQuestion, setSelect
                     questionInExamData={questionInExamData}
                     selectedQuestion={selectedQuestion}
                     setSelectedQuestion={setSelectedQuestion}
+                    selectedOption={selectedOption}
+                    setSelectedOption={setSelectedOption}
+                    setEachTimeOn={setEachTimeOn}
+                    eachcurrenttime={eachcurrenttime}
+                    setEachtime={setEachtime}
                 />
             </div>
 
@@ -100,5 +141,15 @@ OlympiadRIghtsidepart.propTypes = {
     questionInExamData: object.isRequired,
     selectedQuestion: string.isRequired,
     setSelectedQuestion: func.isRequired,
+    selectedOption: string.isRequired,
+    setSelectedOption: func.isRequired,
+    allQuesAns: array.isRequired,
+    setEachTimeOn: func.isRequired,
+    eachcurrenttime: string.isRequired,
+    setEachtime: func.isRequired,
 };
-export default OlympiadRIghtsidepart;
+const mapStateToProps = (state) => ({
+    allQuesAns: state.MyExam.allQuesAns,
+});
+
+export default  connect(mapStateToProps)(OlympiadRIghtsidepart);

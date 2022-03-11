@@ -6,6 +6,8 @@ const initialState = {
     startExam: [],
     questionInExam: [],
     myReport: {},
+    allQuesAns: [],
+    finishExam: [],
 
 };
 
@@ -31,11 +33,28 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 startExam: action.payload,
             };
+        case actionTypes.UPDATE_FINISH_EXAM:
+            return {
+                ...state,
+                finishExam: action.payload,
+            };
 
         case actionTypes.UPDATE_GET_QUESTION_IN_EXAM:
             return {
                 ...state,
                 questionInExam: action.payload,
+            };
+        case actionTypes.UPDATE_ALL_QUESTION_ANSWER:
+            return {
+                ...state,
+                allQuesAns: action.payload,
+                // arr: [...state.arr, action.newItem]
+            };
+        case actionTypes.ADD_ALL_QUESTION_ANSWER:
+            return {
+                ...state,
+                allQuesAns: [...state.allQuesAns, action.payload],
+                // arr: [...state.arr, action.newItem]
             };
 
         default:

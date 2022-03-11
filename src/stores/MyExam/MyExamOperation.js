@@ -48,6 +48,17 @@ function* workerStartExam(data) {
         });
     }
 }
+function* workerFinishExam(data) {
+    const value = data?.payload;
+    const response = yield myexamStudentServices.finishExam(value);
+
+    if (response) {
+        yield put({
+            type: actionTypes.UPDATE_FINISH_EXAM,
+            payload: response,
+        });
+    }
+}
 
 function* workerGetQuestionInExam(data) {
     const value = data?.payload;
@@ -65,6 +76,7 @@ function* watcherMyExam() {
     yield takeLatest(actionTypes.UPCOMING_EXAM, workerUpcomingExam);
     yield takeLatest(actionTypes.PREVIOUS_EXAM, workerPreviousExam);
     yield takeLatest(actionTypes.START_EXAM, workerStartExam);
+    yield takeLatest(actionTypes.FINISH_EXAM, workerFinishExam);
     yield takeLatest(actionTypes.GET_QUESTION_IN_EXAM, workerGetQuestionInExam);
     yield takeLatest(actionTypes.GET_MY_REPORT, workerMyReport);
 }
