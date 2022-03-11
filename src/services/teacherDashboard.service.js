@@ -7,8 +7,8 @@ function getMyProfile(id, token) {
     return fetchWrapper.get(`${baseUrl}/teachers/my-profile/${id}`, token);
 }
 
-function myLeavesList(id, token) {
-    return fetchWrapper.get(`${baseUrl}/teachers/my-leaves-list/${id}`, token);
+function myLeavesList(data, token) {
+    return fetchWrapper.get(`${baseUrl}/teachers/my-leaves-list/${data?.teacherId}?status=${data?.status}&pageNumber=${data?.pageNumber}&limit=${data?.limit}`, token);
 }
 
 function applyLeave(params, token) {
@@ -59,8 +59,12 @@ function getMyClassesHistory(body, token) {
     return fetchWrapper.post(`${baseUrl}/online-class/teachers/history`, body, token);
 }
 
+function teacherSlotsPerDate(id, date, token) {
+    return fetchWrapper.get(`${baseUrl}/online-class/teachers/slots-per-date?teacher=${id}&date=${date}`, token);
+}
+
 function rescheduleClass(body, token) {
-    return fetchWrapper.post(`${baseUrl}online-class/teachers/reschedule`, body, token);
+    return fetchWrapper.post(`${baseUrl}/online-class/teachers/reschedule`, body, token);
 }
 
 export const teacherDashboardServices = {
@@ -78,6 +82,7 @@ export const teacherDashboardServices = {
     getConceptByChapter,
     getSubconceptByConcept,
     getMyClassesHistory,
+    teacherSlotsPerDate,
     rescheduleClass,
 };
 

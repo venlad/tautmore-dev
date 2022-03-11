@@ -619,7 +619,101 @@
     }
 }
 .reschedule-popup {
+    .time-list-main {
+        margin-bottom: 10px;
+        label.label {
+          display: block;
+          color: #7d8283;
+          font-family: "Proxima Nova";
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 22px;
+          margin-bottom: 5px;
+          margin-top: 10px;
+        }
+        .time-list {
+          border: 1px solid #e0e0e0;
+          display: inline-flex;
+          align-items: center;
+          padding: 10px 15px;
+          width: auto;
+          border-radius: 33px;
+          margin-right: 10px;
+          margin-bottom: 15px;
+          color: #20282A;
+          font-family: "Proxima Nova";
+          background-color: #f4f7fc;
+          font-size:18px;
+          font-weight: 600;
+          padding-right: 25px;
+          min-width: 175px;
+          min-height: 55px;
+          position: relative;
+          .round {
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 35px;
+            input {
+              border-radius: 50%;
+              margin-right: 10px;
+              position: absolute;
+              opacity: 0;
+              cursor: pointer;
+              height: 0;
+              width: 0;
+            }
+            input:checked ~ .checkmark {
+              background-color: #43aa8b;
+            }
+            .checkmark {
+              position: absolute;
+              top: 28%;
+              left: 5%;
+              height: 25px;
+              width: 25px;
+              background-color: #fff;
+              border: 1px solid #e0e0e0;
+              border-radius: 50%;
+            }
+            .checkmark:after {
+              content: "";
+              position: absolute;
+              display: none;
+            }
+            input:checked ~ .checkmark:after {
+              display: block;
+            }
+            .checkmark:after {
+              left: 9px;
+              top: 5px;
+              width: 5px;
+              height: 10px;
+              border: solid white;
+              border-width: 0 3px 3px 0;
+              -webkit-transform: rotate(45deg);
+              -ms-transform: rotate(45deg);
+              transform: rotate(45deg);
+            }
+          }
+        }
+        .time-list.active {
+          border: 1px solid #43aa8b;
+          background-color: #fff;
+          color: #43aa8b;
+        }
+    }
+    .timer-loader {
+        margin-bottom: 10px;
+        text-align: center;
+    }
     .time-dropdown {
+        width: 100%;
+        border: 0;
         button.dropdown-toggle {
             color: #7D8283;
             font-family: "Proxima Nova";
@@ -725,6 +819,15 @@
                     margin-right: 20px;
                 }
             }
+        }
+    }
+    .reschedule-success {
+        text-align: center;
+        h3 {
+            font-family: "proxima_nova_rgbold";
+            font-size: 32px;
+            color: #20282A;
+            margin-top: 30px;
         }
     }
 }

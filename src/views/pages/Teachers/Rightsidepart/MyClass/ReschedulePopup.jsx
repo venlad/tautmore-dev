@@ -1,43 +1,86 @@
-import React, { useState } from 'react';
-import { Modal, Dropdown } from 'react-bootstrap';
-import { func, bool } from 'prop-types';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { Modal } from 'react-bootstrap';
+import {
+    func, bool, string, array, object
+} from 'prop-types';
 import { Formik, Form, Field } from 'formik';
 import { rescheduleValidation } from './mockData/rescheduleData';
+import { teacherSlotsPerDateAction, rescheduleClassAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
+import Spinner from 'react-bootstrap/Spinner';
+import { chevRight } from '../../../../../assets/icons/IconList'
 
-const ReschedulePopup = ({ model, handleModel }) => {
-    const [ampmActive, setAmPmActive] = useState('am');
-    // const [time, setTime] = useState({
-    //     hour: '',
-    //     minute: '',
-    //     am_pm: '',
-    // });
+const ReschedulePopup = ({
+    model, 
+    handleModel, 
+    scheduleId, 
+    teacherSlotsPerDate, 
+    teacherSlotsPerDateData, 
+    rescheduleClass,
+    reScheduleClassData,
+}) => {
+    const [checked, setChecked] = useState('');
+    const [timeError, setTimeError] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        if(teacherSlotsPerDateData?.status == "success"){
+            setLoading(false);
+        }
+    }, [teacherSlotsPerDateData]);
 
     const rescheduleDateChange = (e, setFieldValue) => {
+        setLoading(true);
         setFieldValue('rescheduleDate', e.target.value);
+        teacherSlotsPerDate(e.target.value);
     };
-    // const timeChange = (e, setFieldValue) => {
-    //     setFieldValue('time', e.target.value);
-    // };
 
-    const amChange = () => {
-        setAmPmActive('am');
+    const handleClick = (time) => {
+        setChecked(time);
+        checked !== '' && setTimeError(false);
     };
-    const pmChange = () => {
-        setAmPmActive('pm');
+
+    const submitReschedule = (values) => {
+        if(checked === ''){
+            setTimeError(true);
+            return;
+        }
+        if(values.rescheduleDate === '' || values.reason === ''){
+            return;
+        }
+        const data = {
+            schedule: scheduleId,
+            date: values?.rescheduleDate,
+            timeSlot: checked,
+            reason: values?.reason,
+        };
+        rescheduleClass(data);
     };
+    const modelHide = () => {
+        handleModel(false);
+        rescheduleClass();
+    };
+
+    const rescheduleContinue = () => {
+        handleModel(false);
+        rescheduleClass();
+    };
+
     return (
         <Modal
             show={model}
-            onHide={() => handleModel(false)}
+            onHide={() => modelHide()}
             className="calendar-leave-popup reschedule-popup"
         >
             <Modal.Header closeButton>
-                <Modal.Title id="example-modal-sizes-title-lg">
-                    <h3>Reschedule Class</h3>
-                    <p>Please make sure you Re-schedule your class 1 day
-                        prior and not on the same day
-                    </p>
-                </Modal.Title>
+                {reScheduleClassData?.status === 'success' ? <div /> :
+                    <Modal.Title id="example-modal-sizes-title-lg">
+                        <h3>Reschedule Class</h3>
+                        <p>Please make sure you Re-schedule your class 1 day
+                            prior and not on the same day
+                        </p>
+                    </Modal.Title>
+                }
             </Modal.Header>
             <Modal.Body>
                 <Formik
@@ -55,7 +98,13 @@ const ReschedulePopup = ({ model, handleModel }) => {
                         handleChange,
                         setFieldValue,
                     }) => (
-                        <Form onSubmit={handleSubmit}>
+                        <>
+                        {reScheduleClassData?.status === 'success' ?
+                            <div className="reschedule-success">
+                                <h3>Class rescheduled successfully</h3>
+                                <button className="button-common" onClick={rescheduleContinue}>Continue <span>{chevRight}</span></button>
+                            </div> : 
+                            <Form onSubmit={handleSubmit}>
                             <div className="label">Re-schedule date* </div>
                             <Field
                                 type="date"
@@ -68,64 +117,28 @@ const ReschedulePopup = ({ model, handleModel }) => {
                                     {errors.rescheduleDate}
                                 </div>
                             ) : null}
-                            <div className="label">Time*</div>
-                            {/* <Field
-                                type="date"
-                                name="time"
-                                onChange={(e) => timeChange(e, setFieldValue)}
-                                value={values.time}
-                            />
-                            <br /> <br />
-                            {errors.time && touched.time ? (
-                                <div className="mt-25 ml-25 rp-manage-school_error-message">
-                                    {errors.time}
+                            {loading ? <div className="timer-loader"><Spinner animation="border" variant="success"/></div> : 
+                            teacherSlotsPerDateData?.data?.availableSlots &&
+                                <>
+                                <div className="label">Time*</div>
+                                <div className="time-list-main">
+                                {teacherSlotsPerDateData?.data?.availableSlots?.map((val, ind) => (
+                                    <div
+                                        key={val}
+                                        className={`time-list ${checked === val ? 'active' : ''}`}
+                                    >
+
+                                        <label htmlFor={val.label} className="round">
+                                            <input type="radio" name="time" id={val} onClick={() => handleClick(val)} />
+                                            <span className="checkmark"  />
+                                        </label>
+                                        {val}
+                                    </div>
+                                ))}
                                 </div>
-                            ) : null} */}
-                            <Dropdown className="time-dropdown">
-
-                                <Dropdown.Toggle>
-                                    Select time
-                                </Dropdown.Toggle>
-
-                                <Dropdown.Menu>
-                                    <>
-                                        <h5>ENTER TIME</h5>
-                                        <div className="time-main">
-                                            <div className="time-common">
-                                                <input type="text" maxLength="2"  />
-                                                <span>Hour</span>
-                                            </div>
-                                            <div className="time-center">
-                                                <span>:</span>
-                                            </div>
-                                            <div className="time-common">
-                                                <input type="number" min="0" max="60" onWheel={(e) => e.target.blur()}  />
-                                                <span>Minute</span>
-                                            </div>
-                                            <div className="time-am-pm">
-                                                <div>
-                                                    <button
-                                                        type="button"
-                                                        className={`${ampmActive === 'am' ? 'active' : ''}`}
-                                                        onClick={amChange}
-                                                    >AM
-                                                    </button>
-                                                    <button
-                                                        type="button"
-                                                        className={`${ampmActive === 'pm' ? 'active' : ''}`}
-                                                        onClick={pmChange}
-                                                    >PM
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="time-bottom">
-                                            <button type="button">cancel</button>
-                                            <button type="button">ok</button>
-                                        </div>
-                                    </>
-                                </Dropdown.Menu>
-                            </Dropdown> <br />
+                                {timeError && <div className="mt-25 ml-25 rp-manage-school_error-message">Time is required</div>}
+                                </>
+                            }
                             <div className="label">Reason*</div>
                             <Field
                                 type="textarea"
@@ -139,9 +152,12 @@ const ReschedulePopup = ({ model, handleModel }) => {
                                 </div>
                             ) : null}
                             <div className="text-center">
-                                <button type="submit" className="button-common">Re-schedule</button>
+                                <button type="submit" onClick={() => submitReschedule(values)} className="button-common">Re-schedule <span>{chevRight}</span></button>
                             </div>
-                        </Form>
+                            </Form>
+                        }
+                        
+                        </>
                     )}
                 </Formik>
             </Modal.Body>
@@ -152,6 +168,21 @@ const ReschedulePopup = ({ model, handleModel }) => {
 ReschedulePopup.propTypes = {
     model: bool.isRequired,
     handleModel: func.isRequired,
+    scheduleId: string.isRequired,
+    teacherSlotsPerDate: func.isRequired,
+    teacherSlotsPerDateData: array.isRequired,
+    rescheduleClass: func.isRequired,
+    reScheduleClassData: object.isRequired,
 };
 
-export default ReschedulePopup;
+const mapStateToProps = (state) => ({
+    teacherSlotsPerDateData: state.TeacherDashboard.teacherSlotsPerDateData,
+    reScheduleClassData: state.TeacherDashboard.rescheduleclassData,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    teacherSlotsPerDate: (data) => dispatch(teacherSlotsPerDateAction(data)),
+    rescheduleClass: (data) => dispatch(rescheduleClassAction(data)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReschedulePopup);

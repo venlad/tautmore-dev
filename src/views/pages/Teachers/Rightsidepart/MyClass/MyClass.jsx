@@ -5,23 +5,32 @@ import {
 import { connect } from 'react-redux';
 import OnlineClassalert from '../../OnlineClassalert';
 import MyClassesTitle from '../../../../components/dashboard/Rightsidepart/MyexamTitle';
-import MyClassesTAB from '../../../../components/dashboard/Rightsidepart/MyClass/MyClassesTab';
-import MyClassesList from '../../../../components/dashboard/Rightsidepart/MyClass/MyClassesList';
+// import MyClassesTAB from '../../../../components/dashboard/Rightsidepart/MyClass/MyClassesTab';
+import MyClassListCommon from './MyClassListCommon';
 import SimpleSlider from '../../Slider';
 import SubjectModel from '../../SubjectModel';
+import SubjectTab from './SubjectTab';
 
 // import Mysubjects from '../../Mysubjects/MySubjects';
 import ReschedulePopup from './ReschedulePopup';
 import { getMyClassesAction, getMyClassesHistoryAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
 
 const MyClass = ({
-    lgShow, setLgShow, myClasses, getMyClasses, getMyClassesHistory, myClassesHistory,
+    lgShow,
+    setLgShow,
+    myClasses,
+    getMyClasses,
+    getMyClassesHistory,
+    myClassesHistory,
+    getProfile,
 }) => {
     const [model, setModel] = useState(false);
-
     const [myClassesList, setMyClassesList] = useState([]);
-    // const [myClassesHistoryList, setMyClassesHistoryList] = useState([]);
+    const [scheduleId, setScheduleId] = useState('');
 
+    // const [myClassesHistoryList, setMyClassesHistoryList] = useState([]);
+    console.log(myClasses, 'myClasses from myclass');
+    console.log(getProfile, 'getProfile from myclass');
     useEffect(() => {
         if (!myClasses.data) {
             getMyClasses();
@@ -55,13 +64,16 @@ const MyClass = ({
             <OnlineClassalert latestClass={myClassesList[0]} />
             <div className="myexam-main">
                 <MyClassesTitle title={`My upcoming classes ${myClassesList.length}`} />
-                <MyClassesTAB />
+                <SubjectTab
+                    data={getProfile?.data?.subject}
+                />
                 <div className="row">
                     <div className="col-md-12 col-sm-12">
                         <SimpleSlider
                             myClassesList={myClassesList}
                             handleSubjectModel={setLgShow}
                             handleModel={setModel}
+                            setScheduleId={setScheduleId}
                         />
                     </div>
                 </div>
@@ -72,15 +84,17 @@ const MyClass = ({
                     />
                 </div>
                 <MyClassesTitle title="Completed classes history" />
-                <MyClassesTAB />
+                <SubjectTab data={getProfile?.data?.subject} />
 
-                <MyClassesList
-                    classHistory={myClassesHistory?.data?.[0]?.response}
-                />
+                <div className="myexam-examlist">
+                    {myClassesHistory?.data?.[0]?.response?.map((data) => (
+                        <MyClassListCommon val={data} />
+                    ))}
+                </div>
                 {/* <ExamDetails /> */}
                 {/* <Mysubjects /> */}
             </div>
-            <ReschedulePopup model={model} handleModel={setModel} />
+            <ReschedulePopup model={model} handleModel={setModel} scheduleId={scheduleId} />
         </div>
     );
 };
@@ -91,11 +105,13 @@ MyClass.propTypes = {
     getMyClasses: func.isRequired,
     myClassesHistory: array.isRequired,
     getMyClassesHistory: func.isRequired,
+    getProfile: array.isRequired,
 };
 
 const mapStateToProps = (state) => ({
     myClasses: state.TeacherDashboard.myClasses,
     myClassesHistory: state.TeacherDashboard.myClassesHistory,
+    getProfile: state.TeacherDashboard.getProfile,
 });
 
 const mapDispatchToProps = (dispatch) => ({

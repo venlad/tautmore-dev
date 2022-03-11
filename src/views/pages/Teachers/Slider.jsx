@@ -12,7 +12,9 @@ import { func } from 'prop-types';
 import { array } from 'yup/lib/locale';
 // import ArrowRight from  '../../../assets/images/sliderlefticon.svg';
 
-const SimpleSlider = ({ myClassesList, handleSubjectModel, handleModel }) =>  {
+const SimpleSlider = ({
+    myClassesList, handleSubjectModel, handleModel, setScheduleId,
+}) =>  {
     const  settings = {
         dots: false,
         infinite: true,
@@ -21,9 +23,11 @@ const SimpleSlider = ({ myClassesList, handleSubjectModel, handleModel }) =>  {
         slidesToScroll: 1,
         // prevArrow: <ArrowRight />,
     };
-    const openReschedule = () => {
+    const openReschedule = (item) => {
         handleModel(true);
+        setScheduleId(item?.id);
     };
+    console.log(myClassesList, 'myClassesList from slider');
     return (
 
         <Slider {...settings}>
@@ -39,7 +43,7 @@ const SimpleSlider = ({ myClassesList, handleSubjectModel, handleModel }) =>  {
                             <p><span>{item.date} </span>| <span> {item.timeslot}</span></p>
                         </div>
                         <div className="sub-box-right col-sm-4">
-                            <button onClick={openReschedule} type="button">reschedule</button>
+                            <button onClick={() => openReschedule(item)} type="button">reschedule</button>
                         </div>
                     </div>
                     <div className="row gradesection">
@@ -148,5 +152,6 @@ SimpleSlider.propTypes = {
     handleSubjectModel: func.isRequired,
     handleModel: func.isRequired,
     myClassesList: array.isRequired,
+    setScheduleId: func.isRequired,
 };
 export default SimpleSlider;

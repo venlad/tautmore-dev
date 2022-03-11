@@ -1,4 +1,18 @@
-
+.dashboard-main {
+  .dashboard-right {
+    .myexam-main {
+      .myexam-tab-left {
+        .dtoggle-bar {
+          .toggle-maths-div{
+            width: auto !important;
+            min-width: 230px;
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+}
 .student-image{
   height: 60px;
   width: 60px;

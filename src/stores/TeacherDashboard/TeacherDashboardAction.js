@@ -1,8 +1,9 @@
 import * as actionTypes from './TeacherDashboardTypes';
 
-export function myLeavesListAction() {
+export function myLeavesListAction(data) {
     return {
         type: actionTypes.MY_LEAVES_LIST,
+        payload: data,
     };
 }
 
@@ -69,8 +70,13 @@ export const getMyClassesHistoryAction = () => ({
     type: actionTypes.GET_MY_CLASSES_HISTORY,
 });
 
-export const rescheduleClass = (data) => ({
+export const rescheduleClassAction = (data) => ({
     type: actionTypes.RESCHEDULE_CLASS,
+    payload: data,
+});
+
+export const teacherSlotsPerDateAction = (data) => ({
+    type: actionTypes.TEACHER_SLOTS_PER_DATE,
     payload: data,
 });
 

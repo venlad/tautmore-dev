@@ -4,11 +4,17 @@ import {
 import * as actionTypes from './TeacherDashboardTypes';
 import { teacherDashboardServices } from '../../services/teacherDashboard.service';
 
-function* workerMyLeavesList() {
+function* workerMyLeavesList(data) {
     const state = yield select();
-    const leaveId = state.Auth.Login.data._id;
+    const teacherId = state.Auth.Login.data._id;
+    const value = {
+        teacherId,
+        status: data?.payload?.status,
+        pageNumber: data?.payload?.pageNumber,
+        limit: data?.payload?.limit,
+    };
     const token = state.Auth.Login.data.accessToken;
-    const response = yield teacherDashboardServices.myLeavesList(leaveId, token);
+    const response = yield teacherDashboardServices.myLeavesList(value, token);
     if (response) {
         yield put({
             type: actionTypes.UPDATE_MY_LEAVES_LIST,
@@ -208,15 +214,37 @@ function* workerMyClassesHistory() {
 }
 
 function* workerRescheduleClass(data) {
-    const value = { university: data?.payload?.univ };
-    const id = data?.payload?.id;
+    // const value = { university: data?.payload?.univ };
+    // const id = data?.payload?.id;
     const state = yield select();
     const token = state.Auth.Login.data.accessToken;
-    const response = yield teacherDashboardServices.rescheduleClass(id, value, token);
+    const body = {
+        teacher: state.Auth.Login.data._id,
+        schedule: data?.payload?.schedule,
+        date: data?.payload?.date,
+        timeSlot: data?.payload?.timeSlot,
+        reason: data?.payload?.reason,
+    };
+    const response = yield teacherDashboardServices.rescheduleClass(body, token);
 
     if (response) {
         yield put({
             type: actionTypes.UPDATE_RESCHEDULE_CLASS,
+            payload: response,
+        });
+    }
+}
+
+function* workerTeacherSlotsPerDate(data) {
+    const date = data?.payload?.date;
+    const state = yield select();
+    const id = state.Auth.Login.data._id;
+    const token = state.Auth.Login.data.accessToken;
+    const response = yield teacherDashboardServices.teacherSlotsPerDate(id, date, token);
+
+    if (response) {
+        yield put({
+            type: actionTypes.UPDATE_TEACHER_SLOTS_PER_DATE,
             payload: response,
         });
     }
@@ -237,6 +265,8 @@ function* watcherTeacherDashboard() {
     yield takeLatest(actionTypes.GET_CONCEPT_BY_CHAPTER, workerGetConceptByChapter);
     yield takeLatest(actionTypes.GET_SUB_CONCEPT_BY_CONCEPT, workertGetSubconceptByConcept);
     yield takeLatest(actionTypes.GET_MY_CLASSES_HISTORY, workerMyClassesHistory);
+    yield takeLatest(actionTypes.TEACHER_SLOTS_PER_DATE, workerTeacherSlotsPerDate);
+    yield takeLatest(actionTypes.RESCHEDULE_CLASS, workerRescheduleClass);
 }
 
 function* fetchAll() {

@@ -10,20 +10,35 @@ const MyLeaves = ({
 }) => {
     useEffect(() => {
         if (myLeaves?.length === 0) {
-            myLeavesList();
+            const data = {
+                status: 'approved',
+                pageNumber: 1,
+                limit: 5,
+            };
+            myLeavesList(data);
         }
     }, [myLeaves]);
 
     useEffect(() => {
         if (cancelLeaveResponse?.status === 'success') {
-            myLeavesList();
+            const data = {
+                status: 'approved',
+                pageNumber: 1,
+                limit: 5,
+            };
+            myLeavesList(data);
             // cancelLeave();
         }
     }, [cancelLeaveResponse]);
 
     useEffect(() => {
         if (applyLeaveResponse?.data) {
-            myLeavesList();
+            const data = {
+                status: 'approved',
+                pageNumber: 1,
+                limit: 5,
+            };
+            myLeavesList(data);
             // applyLeave();
         }
     }, [applyLeaveResponse]);
@@ -122,7 +137,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    myLeavesList: () => dispatch(myLeavesListAction()),
+    myLeavesList: (data) => dispatch(myLeavesListAction(data)),
     cancelLeave: (id) => dispatch(cancelLeaveAction(id)),
     applyLeave: (data) => dispatch(applyLeaveAction(data)),
 });

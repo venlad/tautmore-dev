@@ -15,7 +15,8 @@ const initialState = {
     conceptByChapter: [],
     SubconceptByConcept: [],
     myClassesHistory: [],
-
+    teacherSlotsPerDateData: [],
+    rescheduleclassData: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -94,6 +95,16 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 changeUniversity: action.payload,
+            };
+        case actionTypes.UPDATE_TEACHER_SLOTS_PER_DATE:
+            return {
+                ...state,
+                teacherSlotsPerDateData: action.payload,
+            };
+        case actionTypes.UPDATE_RESCHEDULE_CLASS:
+            return {
+                ...state,
+                rescheduleclassData: action.payload,
             };
         default:
             return { ...state };
