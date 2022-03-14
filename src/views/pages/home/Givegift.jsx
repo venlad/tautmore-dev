@@ -34,7 +34,7 @@ function Givegift({ data }) {
                                 {data?.heading}
                             </h4>
 
-                            <Buttoncommon content={data?.buttonText} />
+                            <Buttoncommon content={data?.buttonText} link={data?.buttonUrl} />
                         </div>
                     </div>
                 </div>

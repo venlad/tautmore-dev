@@ -1,6 +1,7 @@
 const RouteEnum = {
     HOME: '/',
     ABOUTUS_TEACHER: '/aboutus-teacher',
+    ABOUTUS_PARENT: '/aboutus-parent',
     SUBJECT: '/subject',
     GRADES: '/grades',
     CHAPTERS: '/chapters/:subject',

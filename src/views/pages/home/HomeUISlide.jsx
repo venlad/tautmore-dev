@@ -1,54 +1,47 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import {
-    array, bool, object, string,
+    bool, object, string,
 } from 'prop-types';
 import Button from './Button';
+import { Circle } from '../../../assets/icons/IconList';
+import STRAPI_URL from '../../../constants/strapi';
 
 const HomeUISlide = ({
-    Circle,
-    img,
-    title,
-    span,
-    desc,
     leftImg,
     rightImg,
-    title2,
     classmain,
     classleft,
     classright,
-    buttoncontent,
-    points,
+    data,
 }) => (
     <div>
         {leftImg && (
             <div className={`${classmain}`}>
                 <div className="row">
                     <div className={`col-md-6 ${classleft}`}>
-                        <img src={img} alt="Classroom_img" />
+                        <img src={STRAPI_URL +  data?.heroImage?.data?.attributes?.url} alt="Classroom_img" />
                     </div>
                     <div className={`col-md-6 ${classright}`}>
                         <div>
                             <h4>
-                                {title}
+                                {data?.heading}
                                 <span />
                             </h4>
 
-                            <p>{desc}</p>
+                            <p>{data?.description}</p>
 
-                            {Circle && (
-                                <ul>
-                                    {
-                                        points?.map((item) => (
-                                            <li key={item?.id}>
-                                                {Circle} {item?.text}
-                                            </li>
-                                        ))
-                                    }
-                                </ul>
-                            )}
+                            <ul>
+                                {
+                                    data?.listItems?.map((item) => (
+                                        <li key={item?.id}>
+                                            {Circle} {item?.text}
+                                        </li>
+                                    ))
+                                }
+                            </ul>
 
-                            <Button content={buttoncontent} />
+                            <Button content={data?.buttonText} />
                         </div>
                     </div>
                 </div>
@@ -61,19 +54,26 @@ const HomeUISlide = ({
                     <div className={`${classleft}`}>
                         <div>
                             <h4>
-                                {title}
-                                {span}
-                                {title2}
+                                {data?.heading}
                                 <span />
                             </h4>
-                            <p>{desc}</p>
+                            <p>{data?.description}</p>
+                            <ul>
+                                {
+                                    data?.listItems?.map((item) => (
+                                        <li key={item?.id}>
+                                            {Circle} {item?.text}
+                                        </li>
+                                    ))
+                                }
+                            </ul>
 
-                            <Button content={buttoncontent} />
+                            <Button content={data?.buttonText} link={data?.buttonUrl} />
                         </div>
                     </div>
 
                     <div className={`${classright}`}>
-                        <img src={img} alt="Classroom_img" />
+                        <img src={STRAPI_URL +  data?.heroImage?.data?.attributes?.url} alt="Classroom_img" />
                     </div>
                 </div>
             </div>
@@ -82,29 +82,18 @@ const HomeUISlide = ({
 );
 
 HomeUISlide.propTypes = {
-    Circle: object,
-    img: string.isRequired,
-    title: string.isRequired,
-    span: string,
-    desc: string.isRequired,
     leftImg: bool,
     rightImg: bool,
-    title2: string,
     classmain: string.isRequired,
     classleft: string.isRequired,
     classright: string,
-    buttoncontent: string.isRequired,
-    points: array,
-
+    data: object,
 };
 HomeUISlide.defaultProps = {
-    title2: '',
     leftImg: false,
     rightImg: false,
-    Circle: '',
     classright: '',
-    span: '',
-    points: [],
+    data: {},
 };
 
 export default HomeUISlide;

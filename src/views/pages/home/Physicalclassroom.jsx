@@ -17,12 +17,13 @@ function Physicalclassroom({ data }) {
 
                 <div className="row">
                     {
-                        data?.activities?.map((item) => (
+                        data?.activities?.map((item, i) => (
                             <PhysicalclassroomBlock
                                 key={item?.id}
                                 title={item?.heading}
                                 desc={item?.description}
                                 image={STRAPI_URL +  item?.image?.data?.attributes?.url}
+                                index={i}
                             />
                         ))
                     }

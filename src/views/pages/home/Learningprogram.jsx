@@ -18,8 +18,7 @@ function Learningprogram({ learning }) {
                         {
                             learning?.activities?.slice(0, 2)?.map((item, i) => (
                                 <LearningprogramBlock
-                                    title={item?.heading}
-                                    desc={item?.description}
+                                    data={item}
                                     className={i === 0 ? 'first' : 'second'}
                                     second={i === 0 ? 'secondtop' : ''}
                                 />
@@ -31,8 +30,7 @@ function Learningprogram({ learning }) {
                         {
                             learning?.activities?.slice(2)?.map((item, i) => (
                                 <LearningprogramBlock
-                                    title={item?.heading}
-                                    desc={item?.description}
+                                    data={item}
                                     className={i === 0 ? 'third' : 'fourth'}
                                 />
                             ))

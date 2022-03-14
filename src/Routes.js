@@ -13,6 +13,7 @@ import Homepage from './views/components/skeleton/Homepage/Homepage';
 import Teachers from './views/pages/Teachers/Teachers';
 import ExamDetails from './views/pages/Teachers/ExamDetails';
 import AboutUsTeacher from './views/pages/AboutUsTeacher/About';
+import AboutUsParent from './views/pages/AboutUsParent/About';
 
 const routes = [
     {
@@ -47,41 +48,46 @@ const routes = [
     },
     {
         key: 6,
+        path: RouteEnum.ABOUTUS_PARENT,
+        component: AboutUsParent,
+    },
+    {
+        key: 7,
         path: RouteEnum.PRACTICE_TEST,
         component: PracticeTest,
     },
     {
-        key: 7,
+        key: 8,
         path: RouteEnum.DASHBOARD,
         component: Dashboard,
     },
     {
-        key: 8,
+        key: 9,
         path: RouteEnum.BRAINGYM,
         component: Braingym,
     },
     {
-        key: 9,
+        key: 10,
         path: RouteEnum.REGISTER,
         component: Register,
     },
     {
-        key: 10,
+        key: 11,
         path: RouteEnum.OLYMPIAD,
         component: Olympiad,
     },
     {
-        key: 11,
+        key: 12,
         path: RouteEnum.LOGIN,
         component: Login,
     },
     {
-        key: 12,
+        key: 13,
         path: RouteEnum.HOMESKELETON,
         component: Homepage,
     },
     {
-        key: 13,
+        key: 14,
         path: RouteEnum.TEACHERS,
         component: Teachers,
     },

@@ -515,6 +515,17 @@
       left: 72%;
     }
   }
+  li {
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 36px;
+    svg {
+      height: 14px;
+      width: 14px;
+      margin-right: 5px;
+      color: #fca834;
+    }
+  }
   // h4:after {
   //   content: "";
   //   position: absolute;
@@ -787,12 +798,14 @@
   padding: 50px 40px;
 
   h4 {
+    max-width: 1030px;
     font-size: 45px;
     font-family: "proxima_nova_rgbold";
     line-height: 64px;
     position: relative;
     z-index: 9;
     text-align: center;
+    margin: 0 auto;
     span {
       position: relative;
     }
@@ -821,9 +834,11 @@
   .common-div {
     border-radius: 80px 0 80px 80px;
     padding: 40px;
+    padding-right: 10px;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 306px;
+    min-height: 306px;
+    // min-width: 277px;
 
     svg {
       height: 70px;
@@ -842,26 +857,107 @@
       font-size: 16px;
       line-height: 24px;
       font-family: "proxima_nova_rgregular";
+      z-index: 3;
     }
   }
   .common-div-1 {
-    //background: linear-gradient(#fffbf6, #fff0da);
+    background: linear-gradient(137.81deg, #FFFBF6 0%, #FFF0DA 100%);
     position: relative;
+    overflow: hidden;
+    z-index: 3;
+
+    .layer-1 {
+      content: "";
+      position: absolute;
+      height: 133px;
+      width: 199px;
+      border-radius: 100px 100px 0 0;
+      background-color: #E9FFEF;
+      top: 220px;
+      left: 228px;
+      z-index: -2;
+    }
+
+    .layer-2 {
+      content: "";
+      position: absolute;
+      height: 185px;
+      width: 277px;
+      border-radius: 100px 100px 0 0;
+      background-color: #CDFFDB;
+      z-index: -3;
+      top: 198px;
+      left: 198px;
+    }
   }
   .common-div-1:after {
     content: "";
     position: absolute;
   }
-  // .common-div-2 {
-  //   background: #fff;
-  //   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1) !important;
-  // }
-  // .common-div-3 {
-  //   background: linear-gradient(#fdf5ff, #f7d4ff);
-  // }
-  // .common-div-4 {
-  //   background: linear-gradient(#f6fff8, #d5ffe1);
-  // }
+  .common-div-2 {
+    background: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1) !important;
+  }
+  .common-div-3 {
+    background: linear-gradient(139deg, #FDF5FF 0%, #F7D4FF 100%);
+    position: relative;
+    overflow: hidden;
+    z-index: 3;
+
+    .layer-1 {
+      content: "";
+      position: absolute;
+      height: 133px;
+      width: 199px;
+      border-radius: 100px 100px 0 0;
+      background-color: #F8E1FD;
+      top: 220px;
+      left: 228px;
+      z-index: -2;
+    }
+
+    .layer-2 {
+      content: "";
+      position: absolute;
+      height: 185px;
+      width: 277px;
+      border-radius: 100px 100px 0 0;
+      background-color: #F7D0FF;
+      z-index: -3;
+      top: 198px;
+      left: 198px;
+    }
+  }
+  .common-div-4 {
+    background: linear-gradient(137.56deg, #F6FFF8 0%, #D5FFE1 100%);
+    position: relative;
+    overflow: hidden;
+    z-index: 3;
+
+    .layer-1 {
+      content: "";
+      position: absolute;
+      height: 133px;
+      width: 199px;
+      border-radius: 100px 100px 0 0;
+      background-color: #E9FFEF;
+      top: 220px;
+      left: 228px;
+      z-index: -2;
+    }
+
+    .layer-2 {
+      content: "";
+      position: absolute;
+      height: 185px;
+      width: 277px;
+      border-radius: 100px 100px 0 0;
+      background-color: #CDFFDB;
+      z-index: -3;
+      top: 198px;
+      left: 198px;
+    }
+  }
 }
 
 .learning-journey-main {

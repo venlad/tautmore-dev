@@ -16,7 +16,7 @@ function Banner({ banner }) {
                     <p>
                         {banner?.description}
                     </p>
-                    <Buttoncommon content={banner?.buttonText} />
+                    <Buttoncommon content={banner?.buttonText} link={banner?.buttonUrl} />
 
                     <div className="banner-left-bottom-icon" />
                 </div>

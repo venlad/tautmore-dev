@@ -7,7 +7,6 @@ import Physicalclassroom from './Physicalclassroom';
 import Learningjourney from './Learningjourney';
 import Givegift from './Givegift';
 import HomeUISlide from './HomeUISlide';
-import { Circle } from '../../../assets/icons/IconList';
 import Layout from '../../../Layout/Layout';
 import './styles/home.scss';
 import STRAPI_URL from '../../../constants/strapi';
@@ -42,7 +41,7 @@ function Home() {
     useEffect(() => {
         fetchSubjects();
     }, []);
-
+    console.log(extraCurricular);
     return (
         <Layout>
             <Subjectlist subjects={subjects} />
@@ -50,68 +49,43 @@ function Home() {
             <Learningprogram learning={homeData?.attributes?.ourLearning} />
             <Counter count={homeData?.attributes?.numberInfo} />
             <HomeUISlide
-                Circle={Circle}
-                img={STRAPI_URL +  classroom?.heroImage?.data?.attributes?.url}
-                title={classroom?.heading}
-                span="room"
-                desc={classroom?.description}
-                circcontentone="Sed do eiusmod tem por incididunt ut"
-                circcontenttwo="Lorem ipsum dolor sit amet"
-                circcontentthree="Consec tetur adipiscing elit"
                 leftImg
                 classmain="classroom-main"
                 classleft="classroom-left"
                 classright="classroom-right"
-                buttoncontent={classroom?.buttonText}
-                points={classroom?.listItems}
+                data={classroom}
             />
 
             <HomeUISlide
-                img={STRAPI_URL +  extraCurricular?.heroImage?.data?.attributes?.url}
-                title={extraCurricular?.heading}
-                span=""
-                title2=""
-                desc={extraCurricular?.description}
                 rightImg
                 classmain="activities-main"
                 classleft="col-md-5"
                 classright="col-md-7 activity-right"
-                buttoncontent={extraCurricular?.buttonText}
+                data={extraCurricular}
             />
 
             <HomeUISlide
-                img={STRAPI_URL +  olymp?.heroImage?.data?.attributes?.url}
-                title={olymp?.heading}
-                span=""
-                desc={olymp?.description}
                 leftImg
-                classmain="olympiad-main"
-                classleft="olympiad-left"
-                classright="olympiad-right"
-                buttoncontent={olymp?.buttonText}
+                classmain="classroom-main"
+                classleft="classroom-left"
+                classright="classroom-right"
+                data={olymp}
             />
 
             <HomeUISlide
-                img={STRAPI_URL +  brainGym?.heroImage?.data?.attributes?.url}
-                title={brainGym?.heading}
-                span=""
-                desc={brainGym?.description}
                 rightImg
-                classmain="brain-main"
-                classleft="col-md-6 brain-left"
-                classright="col-md-6 brain-right"
-                buttoncontent={brainGym?.buttonText}
+                classmain="activities-main"
+                classleft="col-md-5"
+                classright="col-md-7 activity-right"
+                data={brainGym}
             />
 
             <HomeUISlide
-                img={STRAPI_URL +  brainGymJoy?.heroImage?.data?.attributes?.url}
-                title={brainGymJoy?.heading}
-                desc={brainGymJoy?.description}
                 leftImg
                 classmain="learningjoyful-main"
                 classleft="learningjoy-left"
                 classright="learningjoyful-right"
-                buttoncontent={brainGymJoy?.buttonText}
+                data={brainGymJoy}
             />
             <Physicalclassroom data={physicalClassroom} />
             <Learningjourney data={learningJourney} />

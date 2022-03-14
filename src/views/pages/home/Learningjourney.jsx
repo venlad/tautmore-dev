@@ -14,7 +14,7 @@ function Learningjourney({ data }) {
                                 <span /> {data?.heading}
                             </h4>
 
-                            <Buttoncommon content={data?.buttonText} />
+                            <Buttoncommon content={data?.buttonText} link={data?.buttonUrl} />
                         </div>
                     </div>
                     <div className="col-md-7 learning-journey-right">

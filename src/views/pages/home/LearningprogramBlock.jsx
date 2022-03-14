@@ -1,20 +1,23 @@
 import React from 'react';
-import { string } from 'prop-types';
-import { Building, errowRight } from '../../../assets/icons/IconList';
+import { object, string } from 'prop-types';
+import { errowRight } from '../../../assets/icons/IconList';
+import STRAPI_URL from '../../../constants/strapi';
 
 function LearningprogramBlock({
-    title, desc, className, second,
+    data, className, second,
 }) {
     return (
         <div className={`col-md-6 col-sm-6 ${second}`}>
             <div className={`col-md-12 learning-block-main ${className}`}>
                 <div className="row">
-                    <div className="col-md-3 learning-block-left">
-                        <div className="icon">{Building}</div>
+                    <div className="col-md-3 learning-block-left d-flex align-items-center">
+                        <div className="icon">
+                            <img src={STRAPI_URL + data?.image?.data?.attributes?.url} alt="" width="100%" height="100%" />
+                        </div>
                     </div>
                     <div className="col-md-7 learning-block-right">
-                        <h5>{title}</h5>
-                        <p>{desc}</p>
+                        <h5>{data?.heading}</h5>
+                        <p>{data?.description}</p>
                     </div>
 
                     <div className="col-md-2 learning-right-icon">{errowRight}</div>
@@ -24,14 +27,14 @@ function LearningprogramBlock({
     );
 }
 LearningprogramBlock.propTypes = {
-    title: string.isRequired,
-    desc: string.isRequired,
     className: string.isRequired,
     second: string,
+    data: object,
 
 };
 LearningprogramBlock.defaultProps = {
     second: '',
+    data: {},
 };
 
 export default LearningprogramBlock;
