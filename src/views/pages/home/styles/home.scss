@@ -1,7 +1,10 @@
+
 .sub-list-main {
   padding: 15px 40px;
   margin: 0 auto !important;
   display: block;
+  box-shadow: 0 22px 24px -10px rgba(189,189,189,0.07);
+  background-color: #FFFFFF;
   div {
     display: inline-block;
     width: 14.4%;
@@ -66,6 +69,69 @@
   }
   div:last-child {
     text-align: right;
+  }
+}
+
+.subject-list-wrap{
+  width: 100%;
+  height: 84px;
+  box-shadow: 0 22px 24px -10px rgba(189,189,189,0.07);
+  display: flex;
+  align-items: center;
+  .slick-list{
+    padding: 0;
+  }
+  .pill{
+    height: 52px;
+    max-width: 193px;
+    border-radius: 10px;
+    background-color: #F9F9F9;
+    margin: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a{
+      text-decoration: none;
+    }
+    .pill-content{
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+     
+      img{
+        height: 34px;
+        width: 31px;
+      }
+      h5{
+        padding-left: 10px;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        color: #454C4E;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 22px;
+      }
+    }
+  }
+  .sub-next{
+    color: #43AA8B;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 24px;
+    text-align: left;
+    padding-left: 15px;
+  }
+  .sub-prev{
+    color: #43AA8B;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 24px;
+    text-align: right;
+    padding-left: 20px;
   }
 }
 
@@ -873,8 +939,8 @@
       width: 199px;
       border-radius: 100px 100px 0 0;
       background-color: #E9FFEF;
-      top: 220px;
-      left: 228px;
+      bottom: -60px;
+      right: -100px;
       z-index: -2;
     }
 
@@ -886,8 +952,8 @@
       border-radius: 100px 100px 0 0;
       background-color: #CDFFDB;
       z-index: -3;
-      top: 198px;
-      left: 198px;
+       bottom: -80px;
+      right: -150px;
     }
   }
   .common-div-1:after {
@@ -911,8 +977,8 @@
       width: 199px;
       border-radius: 100px 100px 0 0;
       background-color: #F8E1FD;
-      top: 220px;
-      left: 228px;
+      bottom: -60px;
+      right: -100px;
       z-index: -2;
     }
 
@@ -924,8 +990,8 @@
       border-radius: 100px 100px 0 0;
       background-color: #F7D0FF;
       z-index: -3;
-      top: 198px;
-      left: 198px;
+       bottom: -80px;
+      right: -150px;
     }
   }
   .common-div-4 {
@@ -941,8 +1007,8 @@
       width: 199px;
       border-radius: 100px 100px 0 0;
       background-color: #E9FFEF;
-      top: 220px;
-      left: 228px;
+      bottom: -60px;
+      right: -100px;
       z-index: -2;
     }
 
@@ -954,8 +1020,8 @@
       border-radius: 100px 100px 0 0;
       background-color: #CDFFDB;
       z-index: -3;
-      top: 198px;
-      left: 198px;
+       bottom: -80px;
+      right: -150px;
     }
   }
 }

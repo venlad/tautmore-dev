@@ -26,7 +26,7 @@ const About = () => {
         );
         const activityData = await activityRes.json();
         // eslint-disable-next-line max-len
-        setSubjects(activityData?.data?.filter((item) => item?.attributes?.popularSubject === true));
+        setSubjects(activityData?.data);
         const data = await res.json();
         setAboutData(data?.data?.attributes);
     };

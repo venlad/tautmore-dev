@@ -4,14 +4,11 @@ import Slider from 'react-slick';
 import { object } from 'prop-types';
 import ResourceCard from './ResourceCard';
 import { chevLeft, chevRight } from '../../../assets/icons/IconList';
-import useWindowSize from '../../../helpers/useWindowSize';
 
 const Resources = ({ data }) => {
     // eslint-disable-next-line no-unused-vars
     const [slide, setSlide] = useState(0);
     const slider = useRef(null);
-    const { width } = useWindowSize();
-    console.log(width);
 
     const settings = {
         dots: false,
@@ -62,7 +59,7 @@ const Resources = ({ data }) => {
                         ))
                     }
                 </Slider>
-                {slide < 4 - 2 && <div className="next-btn" onClick={() => slider?.current?.slickNext()} onKeyPress={() => slider?.current?.slickNext()} role="button" tabIndex={0}>{chevRight}</div>}
+                {slide < data?.carouselcard?.length - 2 && <div className="next-btn" onClick={() => slider?.current?.slickNext()} onKeyPress={() => slider?.current?.slickNext()} role="button" tabIndex={0}>{chevRight}</div>}
             </div>
             <div className="col-12 d-flex justify-content-center btn-div">
                 <button type="button" className="button-common-abt">

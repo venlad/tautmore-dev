@@ -34,7 +34,7 @@ const Chapters = ({ match }) => {
         );
         const activityData = await activityRes.json();
         // eslint-disable-next-line max-len
-        setSubjects(activityData?.data?.filter((item) => item?.attributes?.popularSubject === true));
+        setSubjects(activityData?.data);
         // eslint-disable-next-line max-len
         setFilterSubjects(activityData?.data?.filter((item) => item?.attributes?.slug === match.params.subject));
     };
