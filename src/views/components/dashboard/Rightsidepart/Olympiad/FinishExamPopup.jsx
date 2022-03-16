@@ -7,18 +7,18 @@ import {
 const FinishExamPopup = ({
     setFinishTest, modal, setModal,
 }) => {
+    // console.log('modal', modal);
     const FinishExam = () => {
         setFinishTest('step3');
     };
     return (
         <div>
             <Modal
-                isOpen
-                toggle={() => setModal(!modal)}
+                show={modal}
+                style={{ zIndex: 9999 }}
                 className="delete-popup"
             >
-                {/* <ModalHeader toggle={toggle}>Modal title</ModalHeader> */}
-                <ModalBody>Are you sure you want to delete?</ModalBody>
+                <ModalBody>Are you sure you want to Finish Exam?</ModalBody>
                 <ModalFooter>
                     <Button color="primary" onClick={FinishExam}>
                         Yes

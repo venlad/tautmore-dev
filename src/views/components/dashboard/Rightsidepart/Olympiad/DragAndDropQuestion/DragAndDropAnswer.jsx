@@ -1,8 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { array, func, string } from 'prop-types';
+import {
+    array, func, string, number,
+} from 'prop-types';
+import { connect } from 'react-redux';
 
-const DragAndDropAnswer = ({ questionInChest, questionType, setSelect }) => {
-    const [dragData, setDragData] = useState(questionInChest?.options);
+const DragAndDropAnswer = ({
+    questionInChest, questionType, setSelect,
+    // selectedOption,
+    selectedQuestion, allQuesAns,
+
+}) => {
+    // eslint-disable-next-line prefer-const
+    // let dragDefaultOption = questionInChest?.options;
+    console.log('allQuesAns', allQuesAns, selectedQuestion);
+    const dragDefaultOption = [...questionInChest?.options];
+    const [dragData, setDragData] = useState(dragDefaultOption);
+
+    //  console.log(mapAnsOpt, 'mapAnsOpt');
     const [dropData, setDropData] = useState([
         { name: 'name 1', value: '' },
         { name: 'name 2', value: '' },
@@ -13,11 +27,39 @@ const DragAndDropAnswer = ({ questionInChest, questionType, setSelect }) => {
     const [dragSource, setDragSource] = useState();
 
     useEffect(() => {
-        const checkAllItemFilled = dropData.every((v) => v?.value !== '');
-        if (checkAllItemFilled) {
-            setSelect(true);
+        console.log('dropData', dropData);
+        let allHasValue = true;
+        let solIndex = [];
+        dropData.forEach((element) => {
+            if (element?.value !== '' && allHasValue) {
+                solIndex.push(element?.dragsource);
+            } else {
+                allHasValue = false;
+                solIndex = [-1];
+            }
+        });
+        if (!solIndex?.includes(-1)
+        ) {
+            setSelect(solIndex);
         }
     }, [dropData]);
+    // useEffect(() => {
+    //     console.log('selectedOptionsssssss', selectedOption);
+    //     if (selectedOption?.length > 1) {
+    //         console.log(dropData, 'dropdata');
+    //         const mapAnsOpt =  selectedOption?.map((element) => (
+    //             {
+    //                 name: '',
+    //                 value: questionInChest?.options[element],
+    //                 dragsource: element,
+    //             }));
+    //         console.log(mapAnsOpt, 'mapAnsOpt');
+    //         setDropData(mapAnsOpt);
+    //         setDragData(Array(mapAnsOpt?.length).fill(''));
+    //         // setSelect(mapAnsOpt);
+    //         // {console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', selectedOption)}
+    //     }
+    // }, [selectedOption]);
 
     const handleDragStartTop = (index) => {
         setDragItem(index);
@@ -101,6 +143,7 @@ const DragAndDropAnswer = ({ questionInChest, questionType, setSelect }) => {
 
     return (
         <div className="drag-and-drop-que-part">
+
             {questionType !== 'scrambled-and-unscrambled' && (
                 <div>
                     <div className="object-container">
@@ -233,6 +276,11 @@ DragAndDropAnswer.propTypes = {
     questionInChest: array.isRequired,
     questionType: string.isRequired,
     setSelect: func.isRequired,
+    // selectedOption: array.isRequired,
+    selectedQuestion: number.isRequired,
+    allQuesAns: array.isRequired,
 };
-
-export default DragAndDropAnswer;
+const mapStateToProps = (state) => ({
+    allQuesAns: state.MyExam.allQuesAns,
+});
+export default connect(mapStateToProps)(DragAndDropAnswer);

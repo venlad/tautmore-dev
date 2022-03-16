@@ -7,9 +7,14 @@ import close from '../../../../assets/images/close.png';
 import { myReportAction } from '../../../../stores/MyExam/MyExamAction';
 
 const MyexamAnswer = ({
-    setExam, prevExamId, myReport, myReportData,
+    setExam, prevExamId, myReport, myReportData, setStartExam,
 }) => {
+    const closeReport = () => {
+        setExam(false);
+        setStartExam('');
+    };
     useEffect(() => {
+        console.log('prev exam test called');
         myReport({
             examResultId: prevExamId,
         });
@@ -18,7 +23,7 @@ const MyexamAnswer = ({
     return (
         <div className="myexam-answer-main-top">
             <div className="close-top">
-                <button type="button" className="close-btn" onClick={() => setExam(false)}><img src={close} alt="close" /></button>
+                <button type="button" className="close-btn" onClick={closeReport}><img src={close} alt="close" /></button>
             </div>
             <div className="row myexam-answer-main">
 
@@ -43,6 +48,7 @@ MyexamAnswer.propTypes = {
     prevExamId: string.isRequired,
     myReport: func.isRequired,
     myReportData: object.isRequired,
+    setStartExam: string.isRequired,
 };
 const mapStateToProps = (state) => ({
     myReportData: state.MyExam.myReport,

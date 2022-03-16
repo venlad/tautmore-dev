@@ -3,7 +3,7 @@ import {  string, number, func } from 'prop-types';
 import exam from '../../../../assets/images/timeClock.svg';
 
 const MyexamCommon = ({
-    subject, date, time, student, title, setStartExam, examId,
+    subject, date, time, examType, title, setStartExam, examId,
 }) => {
     const startExamClick = () => {
         setStartExam(examId);
@@ -34,7 +34,7 @@ const MyexamCommon = ({
                             <h5>{title}</h5>
                         </div>
                         <div className="col-md-7 col-sm-7 col-12 myexam-common-right">
-                            <p className="p-two"><span className="span-student">{student}</span> <span>Students completed</span></p>
+                            <p className="p-two"><span className="span-student">{examType}</span> </p>
                         </div>
                     </div>
 
@@ -53,7 +53,7 @@ MyexamCommon.propTypes = {
     subject: string.isRequired,
     date: string.isRequired,
     time: string.isRequired,
-    student: number.isRequired,
+    examType: number.isRequired,
     title: string.isRequired,
     setStartExam: func.isRequired,
     examId: string.isRequired,

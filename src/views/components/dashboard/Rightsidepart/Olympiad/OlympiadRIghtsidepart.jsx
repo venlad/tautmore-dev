@@ -25,10 +25,8 @@ const OlympiadRIghtsidepart = ({
 
     const [show, setShow] = useState(false);
     const [showtwo, setShowtwo] = useState(false);
-    const [answedQue, setAnswedQue] = useState([]);
-    const [notanswedQue, setNotanswedQue] = useState([]);
-    // const answedQue = [];// allQuesAns?.filter((x) => !x?.solutionIndex?.includes(-1));
-    // const notanswedQue = []; // allQuesAns?.filter((x) => x?.solutionIndex?.includes(-1));
+    const [answedQueCount, setAnswedQueCount] = useState([]);
+    const [notanswedQueCount, setNotanswedQueCount] = useState(allQuesAns);
     const dropDownone = () => {
         setShow(!show);
         setShowtwo(false);
@@ -38,13 +36,35 @@ const OlympiadRIghtsidepart = ({
         setShowtwo(!showtwo);
         setShow(false);
     };
-    // let answedQue = [];
-    // let notanswedQue = [];
     useEffect(() => {
-        // console.log('SSSSSS');
-        setAnswedQue(allQuesAns?.filter((x) => !x?.solutionIndex?.includes(-1)));
-        setNotanswedQue(allQuesAns?.filter((x) => x?.solutionIndex?.includes(-1)));
-    }, [allQuesAns]);
+        const ansQ = [];
+        const noAnsQ = [];
+        allQuesAns.forEach((element, index) => {
+            const copyOfElement = element;
+            copyOfElement.index = index;
+            if ('passageQuestions' in element) {
+                let allPasQueAnswered = true;
+                element?.passageQuestions?.forEach((item) => {
+                    if (allPasQueAnswered && !item?.solutionIndex?.includes(-1)) {
+                        allPasQueAnswered = true;
+                    } else {
+                        allPasQueAnswered = false;
+                    }
+                });
+                if (allPasQueAnswered) {
+                    ansQ.push(copyOfElement);
+                } else {
+                    noAnsQ.push(copyOfElement);
+                }
+            } else if (element?.solutionIndex?.includes(-1)) {
+                noAnsQ.push(copyOfElement);
+            } else {
+                ansQ.push(copyOfElement);
+            }
+        });
+        setAnswedQueCount(ansQ);
+        setNotanswedQueCount(noAnsQ);
+    }, [selectedOption, allQuesAns]);
 
     return (
         <div className="olympiad-rightside-part">
@@ -68,23 +88,23 @@ const OlympiadRIghtsidepart = ({
                                     onClick={dropDownone}
                                     aria-hidden="true"
                                 >
-                                    Answered Questions : <span className="number green">{answedQue?.length}</span> <span className="arrow-down" />
+                                    Answered Questions : <span className="number green">{answedQueCount?.length}</span> <span className="arrow-down" />
                                 </div>
                                 <div className={`dropdown ${show ? 'active' : ''}`}>
-                                    {allQuesAns?.map((val, i) => (
-                                        !val?.solutionIndex.includes(-1) && (
-                                            <div
-                                                key={val}
-                                                onClick={() => {
+                                    {answedQueCount?.map((val) => (
+                                        // !val?.solutionIndex.includes(-1) && (
+                                        <div
+                                            key={Math.random()}
+                                            onClick={() => {
                                                 // setSelect(val);
-                                                    setSelectedQuestion(i);
-                                                    setShow(false);
-                                                }}
-                                                aria-hidden="true"
-                                            >
-                                                Question {i + 1}
-                                            </div>
-                                        )
+                                                setSelectedQuestion(val?.index);
+                                                setShow(false);
+                                            }}
+                                            aria-hidden="true"
+                                        >
+                                            Question {val?.index + 1}
+                                        </div>
+                                        // )
                                     ))}
                                 </div>
                             </div>
@@ -96,23 +116,23 @@ const OlympiadRIghtsidepart = ({
                                     onClick={dropDowntwo}
                                     aria-hidden="true"
                                 >
-                                    Questions not Answered :<span className="number orange">{notanswedQue?.length}</span> <span className="arrow-down" />
+                                    Questions not Answered :<span className="number orange">{notanswedQueCount?.length}</span> <span className="arrow-down" />
                                 </div>
                                 <div className={`dropdown ${showtwo ? 'active' : ''}`}>
-                                    {allQuesAns.map((val, i) => (
-                                        val?.solutionIndex.includes(-1) && (
-                                            <div
-                                                key={val}
-                                                onClick={() => {
+                                    {notanswedQueCount?.map((val) => (
+                                        // val?.solutionIndex.includes(-1) && (
+                                        <div
+                                            key={Math.random()}
+                                            onClick={() => {
                                                 // setSelecttwo(val);
-                                                    setSelectedQuestion(i);
-                                                    setShowtwo(false);
-                                                }}
-                                                aria-hidden="true"
-                                            >
-                                                Question {i + 1}
-                                            </div>
-                                        )
+                                                setSelectedQuestion(val?.index);
+                                                setShowtwo(false);
+                                            }}
+                                            aria-hidden="true"
+                                        >
+                                            Question {val?.index + 1}
+                                        </div>
+                                        // )
                                     ))}
                                 </div>
                             </div>

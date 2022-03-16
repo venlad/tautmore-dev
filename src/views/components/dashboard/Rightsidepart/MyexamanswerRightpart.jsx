@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Fade from 'react-bootstrap/Fade';
+import Collapse from 'react-bootstrap/Collapse';
 import { object } from 'prop-types';
 // import { rightpart } from '../mockData/Myanswerdata';
 import right from '../../../../assets/images/right.png';
@@ -7,11 +7,14 @@ import wrong from '../../../../assets/images/wrong.png';
 import minus from '../../../../assets/images/minus.png';
 import plus from '../../../../assets/images/plus.png';
 import { renderText } from './BrainGym/QueAnswer/textHelper';
+import MyExamReportOptions from './MyExamReportOptions';
 
 const MyexamanswerRightpart = ({ myReportData }) => {
     const [toggle, setToggle] = useState('');
+    const [open, setOpen] = useState(false);
 
     const handleClick = (val) => {
+        setOpen(!open);
         if (toggle === val) {
             setToggle('');
         } else {
@@ -46,15 +49,33 @@ const MyexamanswerRightpart = ({ myReportData }) => {
                                     {item?.options[item?.solutionIndex]?.image && <img src={item?.options[item?.solutionIndex]?.image} alt="true" />}
                                 </span>
                             </h5>
-                            <Fade in={ind === toggle}>
-                                <div id="example-fade-text" className="option-main" />
-                            </Fade>
+                            <Collapse in={ind === toggle}>
+                                <div id="example-collapse-text" className="option-main">
+                            {console.log('item', item)}
+                                <div className={`question-options-wrapper ${item && item?.questionOrientaion}`}>
+                                    {item?.options?.map((ele, i) => ((ele?.text !== '' || ele?.image !== '')
+                                        && (
+                                            <MyExamReportOptions
+                                                questionObject={data?.questionDetails
+                                            && data?.questionDetails}
+                                                item={ele}
+                                                selectedOption={item?.solutionIndex}
+                                                // setSelectedOption={setSelectedOption}
+                                                ind={i}
+                                            />
+                                        )
+
+                                    ))}
+                                </div>
+                                </div>
+                            </Collapse>
                         </div>
                         <div className="col-md-1 col-sm-1 col-2 exam-right-right">
                             <button
                                 type="button"
                                 onClick={() => handleClick(ind)}
-                                aria-controls="example-fade-text"
+                                aria-controls="example-collapse-text"
+                                aria-expanded={open}
                             >
                                 {
                                     ind === toggle ? <img src={minus} alt="minus" />

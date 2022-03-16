@@ -1,10 +1,10 @@
-import { object } from 'prop-types';
+import { object, string } from 'prop-types';
 
 import React from 'react';
 // import { examlist } from '../mockData/MyexamExamlist';
 import MyexamExamlistcommon from './MyexamExamlistcommon';
 
-const MyexamExamlist = ({ previousexamData }) => (
+const MyexamExamlist = ({ previousexamData, setStartExam }) => (
     // console.log('previousexamData', previousexamData);
     <div className="myexam-examlist">
         {/* {examlist.map((data) => (
@@ -22,11 +22,12 @@ const MyexamExamlist = ({ previousexamData }) => (
         </div>
         {/* {console.log('previousexamData@@@@@', previousexamData?.data[0]?.response)} */}
         {previousexamData?.data && previousexamData?.data[0]?.response?.map((item) => (
-            <MyexamExamlistcommon val={item} key={item?._id} />
+            <MyexamExamlistcommon val={item} key={item?._id} setStartExam={setStartExam}  />
         ))}
     </div>
 );
 MyexamExamlist.propTypes = {
     previousexamData: object.isRequired,
+    setStartExam: string.isRequired,
 };
 export default MyexamExamlist;

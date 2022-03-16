@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { array, func, string } from 'prop-types';
-import { renderText } from '../BrainGym/QueAnswer/textHelper';
+import { renderText } from './BrainGym/QueAnswer/textHelper';
 // import { findKeyByValue, checkDragDropSnunscramble, structureDragAndDrop }
 // from '../BrainGym/QueAnswer/questionHelper';
-import { findKeyByValue } from '../BrainGym/QueAnswer/questionHelper';
-import { checkIcon } from '../../../../../assets/icons/IconList';
+import { findKeyByValue } from './BrainGym/QueAnswer/questionHelper';
+import { checkIcon } from '../../../../assets/icons/IconList';
 
-const OlympiadAnswerOption = ({
-    questionObject, item, ind, selectedOption, setSelectedOption,
+const MyExamReportOptions = ({
+    questionObject, item, ind, selectedOption,
 }) => {
     const [dragData, setDragData] = useState([]);
     // console.log('item', item, ind);
@@ -24,9 +24,9 @@ const OlympiadAnswerOption = ({
     //     }
     }, [questionObject]);
 
-    const selectAns = (id) => {
-        setSelectedOption([id]);
-    };
+    // const selectAns = (id) => {
+    //     setSelectedOption([id]);
+    // };
 
     const questionType = findKeyByValue(questionObject?.solutionType);
 
@@ -78,12 +78,15 @@ const OlympiadAnswerOption = ({
         default:
             renderAnswer = (
                 <div
-                    className={`option-wrapper-tile-type d-flex align-items-center justify-content-between p-4
+                    className={`option-wrapper-tile-type d-flex align-items-center
+                 justify-content-between p-4
                      ${selectedOption?.includes(ind) ? 'true' : ''}
                     `}
                 >
                     {/* {console.log('selectedOption', selectedOption)} */}
-                    <button type="button" className="optionsbtn" onClick={() => selectAns(ind)}>
+                    <div className="optionsbtn d-flex align-items-center
+                justify-content-between"
+                    >
                         {String.fromCharCode(ind + 65)} <span className="opti"> . </span>
                         {item?.image && (
                             <div className="questionHtlm-left">
@@ -95,17 +98,20 @@ const OlympiadAnswerOption = ({
                                 <span>{renderText(item?.text)}</span>
                             </div>
                         )}
-                        <div className="icon--check-wrapper d-flex align-items-center justify-content-center">
+                        <div className="icon--check-wrapper d-flex align-items-center
+                 justify-content-center"
+                        >
                             {checkIcon}
                         </div>
-                    </button>
+                    </div>
                 </div>
+
             );
     }
     return renderAnswer;
 };
 
-OlympiadAnswerOption.propTypes = {
+MyExamReportOptions.propTypes = {
     // questionInChest: array.isRequired,
     item: array.isRequired,
     ind: array.isRequired,
@@ -113,4 +119,4 @@ OlympiadAnswerOption.propTypes = {
     setSelectedOption: func.isRequired,
 };
 
-export default OlympiadAnswerOption;
+export default MyExamReportOptions;

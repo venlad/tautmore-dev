@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {  object } from 'prop-types';
+import {  object, string } from 'prop-types';
 import examlisthand from '../../../../assets/images/examlisthand.png';
 import examlisthandhover from '../../../../assets/images/examlisthover1.png';
 import examlistidea from '../../../../assets/images/examlistidea.png';
@@ -11,7 +11,7 @@ import examlistglasshover from '../../../../assets/images/examlisthover4.png';
 import MyexamAnswer from './MyexamAnswer';
 import { formatDate, formatTime, formatTimeSectoMin } from '../../../../helpers/utility';
 
-const MyexamExamlistcommon = ({ val }) => {
+const MyexamExamlistcommon = ({ val, setStartExam }) => {
     const [handimg, setHandimg] = useState(examlisthand);
     const [ideaimg, setIdeaimg] = useState(examlistidea);
     const [clipboardimg, setClipboardimg] = useState(examlistclipboard);
@@ -109,7 +109,13 @@ const MyexamExamlistcommon = ({ val }) => {
             </div>
 
             {
-                exam && <MyexamAnswer setExam={setExam} prevExamId={prevExamId} />
+                exam && (
+                    <MyexamAnswer
+                        setStartExam={setStartExam}
+                        setExam={setExam}
+                        prevExamId={prevExamId}
+                    />
+                )
             }
 
         </div>
@@ -118,6 +124,7 @@ const MyexamExamlistcommon = ({ val }) => {
 
 MyexamExamlistcommon.propTypes = {
     val: object.isRequired,
+    setStartExam: string.isRequired,
 };
 
 export default MyexamExamlistcommon;

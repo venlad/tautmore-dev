@@ -13,16 +13,20 @@ const Olympiad = ({
     setFinishTest,
     setModal,
     modal,
+    setTime,
+    examName,
 }) => (
     <div className="Olympiad-main">
         {/* {console.log('questionInExamData@@@@@@@@@', questionInExamData)} */}
         <OlympiadHead
             questionInExamData={questionInExamData}
             currenttime={currenttime}
+            setTime={setTime}
             finishTest={finishTest}
             setFinishTest={setFinishTest}
             setModal={setModal}
             modal={modal}
+            examName={examName}
         />
         <OlympiadPart
             questionInExamData={questionInExamData}
@@ -42,6 +46,8 @@ Olympiad.propTypes = {
     finishTest: string.isRequired,
     setModal: func.isRequired,
     modal: string.isRequired,
+    setTime: string.isRequired,
+    examName: string.isRequired,
 
 };
 
