@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-    func, bool, string, array,
+    func, bool, string, array, object, number,
 } from 'prop-types';
 import { Modal } from 'react-bootstrap';
 import './calendar.scss';
@@ -37,8 +37,6 @@ const LeaveConfirmPopup = ({
         cancelLeave('id');
         handleModel(false);
     };
-
-    console.log(cancelLeaveResponse, 'cancelLeaveResponse from cncl');
 
     return (
 
@@ -89,11 +87,11 @@ LeaveConfirmPopup.propTypes = {
     handleModel: func.isRequired,
     fromDate: string.isRequired,
     toDate: string.isRequired,
-    totalDay: string.isRequired,
+    totalDay: number.isRequired,
     cancelLeave: func.isRequired,
     selectedLeave: string.isRequired,
     cancelLeaveResponse: array.isRequired,
-    Login: array.isRequired,
+    Login: object.isRequired,
 };
 
 const mapStateToProps = (state) => ({

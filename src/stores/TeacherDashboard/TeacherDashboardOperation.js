@@ -155,8 +155,9 @@ function* workerMyClasses() {
 }
 
 function* workerGetChapterBySubject(data) {
-    const value = { subject_id: data?.payload?.subject_id };
-    const response = yield teacherDashboardServices.getChapterBySubject(value);
+    const value = { subjectId: data?.payload?.subject_id };
+
+    const response = yield teacherDashboardServices.getChapterBySubjectId(value);
 
     if (response) {
         yield put({
@@ -168,9 +169,9 @@ function* workerGetChapterBySubject(data) {
 
 function* workerGetConceptByChapter(data) {
     const value = { chapterId: data?.payload?.chapterId };
-    const state = yield select();
-    const token = state.Auth.Login.data.accessToken;
-    const response = yield teacherDashboardServices.getConceptByChapter(value, token);
+    // const state = yield select();
+    // const token = state.Auth.Login.data.accessToken;
+    const response = yield teacherDashboardServices.getConceptsByChapterId(value);
 
     if (response) {
         yield put({
@@ -180,19 +181,47 @@ function* workerGetConceptByChapter(data) {
     }
 }
 
-function* workertGetSubconceptByConcept(data) {
+function* workerGetConceptsByConceptId(data) {
     const value = { conceptId: data?.payload?.conceptId };
-    const state = yield select();
-    const token = state.Auth.Login.data.accessToken;
-    const response = yield teacherDashboardServices.getSubconceptByConcept(value, token);
+    const response = yield teacherDashboardServices.getSubConceptsByConceptId(value);
 
     if (response) {
         yield put({
-            type: actionTypes.UPDATE_GET_SUB_CONCEPT_BY_CONCEPT,
+            type: actionTypes.UPDATE_GET_SUB_CONCEPTS,
             payload: response,
         });
     }
 }
+
+function* workerAddTeachingHistory(data) {
+    const value = data.payload;
+    const state = yield select();
+    const token = state.Auth.Login.data.accessToken;
+    const response = yield teacherDashboardServices.addTeachingHistory(value, token);
+
+    if (response) {
+        yield put({
+            type: actionTypes.UPDATE_ADD_HISTORY,
+            payload: response,
+        });
+    }
+}
+
+// function* workertGetSubconceptByConcept(data) {
+//     // const value = { conceptId: data?.payload?.conceptId };
+//     const value = { conceptId: '61cc0cf273d0681f81d109ff' };
+
+//     // const state = yield select();
+//     // const token = state.Auth.Login.data.accessToken;
+//     const response = yield teacherDashboardServices.getSubConceptsByConceptId(value);
+
+//     if (response) {
+//         yield put({
+//             type: actionTypes.UPDATE_GET_SUB_CONCEPT_BY_CONCEPT,
+//             payload: response,
+//         });
+//     }
+// }
 
 function* workerMyClassesHistory() {
     const state = yield select();
@@ -263,10 +292,11 @@ function* watcherTeacherDashboard() {
     yield takeLatest(actionTypes.GET_MY_CLASSES, workerMyClasses);
     yield takeLatest(actionTypes.GET_CHAPTER_BY_SUBJECT, workerGetChapterBySubject);
     yield takeLatest(actionTypes.GET_CONCEPT_BY_CHAPTER, workerGetConceptByChapter);
-    yield takeLatest(actionTypes.GET_SUB_CONCEPT_BY_CONCEPT, workertGetSubconceptByConcept);
+    yield takeLatest(actionTypes.GET_SUB_CONCEPTS, workerGetConceptsByConceptId);
     yield takeLatest(actionTypes.GET_MY_CLASSES_HISTORY, workerMyClassesHistory);
     yield takeLatest(actionTypes.TEACHER_SLOTS_PER_DATE, workerTeacherSlotsPerDate);
     yield takeLatest(actionTypes.RESCHEDULE_CLASS, workerRescheduleClass);
+    yield takeLatest(actionTypes.ADD_HISTORY, workerAddTeachingHistory);
 }
 
 function* fetchAll() {

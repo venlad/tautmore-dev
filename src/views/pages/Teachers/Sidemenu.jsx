@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import {
-    bool, func, string, array,
+    bool, func, string, object,
 } from 'prop-types';
 import { Link, useHistory } from 'react-router-dom';
 import sidebarLogo from '../../../assets/images/sidebarlogo.png';
@@ -36,9 +36,9 @@ const Sidemenu = ({
     // const url = window.location.href;
     // const urlParam = `/teacher/${url.split('/').slice(-1)[0]}`;
     // console.log(urlParam, 'urlParam');
+    // // console.log(sidebardata, 'sidebardata');
+    // console.log(viewType, 'viewType from sidemenu');
     // console.log(sidebardata, 'sidebardata');
-    console.log(viewType, 'viewType from sidemenu');
-    console.log(sidebardata, 'sidebardata');
 
     return (
         <div className=" dashboard-left col-sm-3">
@@ -112,7 +112,7 @@ Sidemenu.propTypes = {
     setOpen: func.isRequired,
     clearLogin: func.isRequired,
     viewType: string.isRequired,
-    myProfile: array.isRequired,
+    myProfile: object.isRequired,
     getMyProfile: func.isRequired,
 };
 

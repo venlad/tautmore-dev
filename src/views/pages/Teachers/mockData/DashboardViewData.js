@@ -8,6 +8,7 @@ export const viewTypeData = {
     PROFILE: '/teacher/profile',
     MYCONCEPTS: '/teacher/concepts',
     MYASSIGNMENTS: '/teacher/assignments',
+    ZOOMCALL: './teacher/zoomCall',
 };
 
 export default {};

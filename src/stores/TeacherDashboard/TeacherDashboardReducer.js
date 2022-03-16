@@ -13,10 +13,12 @@ const initialState = {
     myClasses: [],
     chapterBySubject: [],
     conceptByChapter: [],
-    SubconceptByConcept: [],
+    subconceptByConcept: [],
     myClassesHistory: [],
     teacherSlotsPerDateData: [],
     rescheduleclassData: [],
+    teachingHistory: [],
+
 };
 
 export default function reducer(state = initialState, action) {
@@ -51,7 +53,7 @@ export default function reducer(state = initialState, action) {
                 conceptByChapter: action.payload,
             };
 
-        case actionTypes.UPDATE_GET_SUB_CONCEPT_BY_CONCEPT:
+        case actionTypes.UPDATE_GET_SUB_CONCEPTS:
             return {
                 ...state,
                 subconceptByConcept: action.payload,
@@ -106,6 +108,12 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 rescheduleclassData: action.payload,
             };
+        case actionTypes.UPDATE_ADD_HISTORY:
+            return {
+                ...state,
+                teachingHistory: action.payload,
+            };
+
         default:
             return { ...state };
     }

@@ -10,7 +10,6 @@ import assignmentlistclipboard from '../../../../../assets/images/examlisthover3
 import assignmentlistclipboardnormal from '../../../../../assets/images/examlistclipboard.png';
 
 const MyClassListCommon = ({ val }) => {
-    console.log(val, 'val from cmn');
     const [calendar, setCalendar] = useState(assignmetlistcalendernormal);
     const [target, setTarget] = useState(assignmentlistclocknormal);
     const [idea, setIdea] = useState(assignmentlistdurationnormal);

@@ -62,7 +62,7 @@ export const getConceptByChapterAction = (data) => ({
 });
 
 export const getSubconceptByConceptAction = (data) => ({
-    type: actionTypes.GET_SUB_CONCEPT_BY_CONCEPT,
+    type: actionTypes.GET_SUB_CONCEPTS,
     payload: data,
 });
 
@@ -77,6 +77,11 @@ export const rescheduleClassAction = (data) => ({
 
 export const teacherSlotsPerDateAction = (data) => ({
     type: actionTypes.TEACHER_SLOTS_PER_DATE,
+    payload: data,
+});
+
+export const addTeachingHistoryAction = (data) => ({
+    type: actionTypes.ADD_HISTORY,
     payload: data,
 });
 

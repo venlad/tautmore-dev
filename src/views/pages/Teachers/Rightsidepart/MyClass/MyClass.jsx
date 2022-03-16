@@ -3,6 +3,7 @@ import {
     object, func, bool, array,
 } from 'prop-types';
 import { connect } from 'react-redux';
+// import { Link } from 'react-router-dom';
 import OnlineClassalert from '../../OnlineClassalert';
 import MyClassesTitle from '../../../../components/dashboard/Rightsidepart/MyexamTitle';
 // import MyClassesTAB from '../../../../components/dashboard/Rightsidepart/MyClass/MyClassesTab';
@@ -10,7 +11,7 @@ import MyClassListCommon from './MyClassListCommon';
 import SimpleSlider from '../../Slider';
 import SubjectModel from '../../SubjectModel';
 import SubjectTab from './SubjectTab';
-
+// import ZoomClassContainer from './ZoomClassContainer';
 // import Mysubjects from '../../Mysubjects/MySubjects';
 import ReschedulePopup from './ReschedulePopup';
 import { getMyClassesAction, getMyClassesHistoryAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
@@ -47,6 +48,8 @@ const MyClass = ({
                     startTime: data?.scheduleInfo?.startTime,
                     id: data?.scheduleInfo?._id,
                     startUrl: data?.scheduleInfo?.startUrl,
+                    subjectInfo: data?.subjectInfo,
+                    scheduleInfo: data?.scheduleInfo,
 
                 }));
             setMyClassesList(cdata);
@@ -61,7 +64,7 @@ const MyClass = ({
 
     return (
         <div>
-            <OnlineClassalert latestClass={myClassesList[0]} />
+            <OnlineClassalert latestClass={myClassesList[0]}  />
             <div className="myexam-main">
                 <MyClassesTitle title={`My upcoming classes ${myClassesList.length}`} />
                 <SubjectTab
@@ -79,6 +82,8 @@ const MyClass = ({
                 </div>
                 <div>
                     <SubjectModel
+                        classTitle={myClassesList?.subject}
+                        timeslot={myClassesList?.startTime}
                         showSubjectModel={lgShow}
                         handleSubjectModel={setLgShow}
                     />

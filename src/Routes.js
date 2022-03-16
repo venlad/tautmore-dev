@@ -11,6 +11,7 @@ import Login from './views/components/auth/login/Login';
 import Homepage from './views/components/skeleton/Homepage/Homepage';
 import Teachers from './views/pages/Teachers/Teachers';
 import ExamDetails from './views/pages/Teachers/ExamDetails';
+import ZoomClassContainer from './views/pages/Teachers/Rightsidepart/MyClass/ZoomClassContainer';
 
 const routes = [
     {
@@ -82,6 +83,11 @@ const routes = [
         key: 12,
         path: RouteEnum.TEACHERS,
         component: Teachers,
+    },
+    {
+        key: 14,
+        path: RouteEnum.ZOOMCALL,
+        component: ZoomClassContainer,
     },
 
 ];

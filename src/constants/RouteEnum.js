@@ -14,6 +14,7 @@ const RouteEnum = {
     TEACHERSHOME: '/teacher/',
     TEACHERS: '/teacher/:viewtype',
     EXAMDETAILS: '/exam-details',
+    ZOOMCALL: '/zoomCall',
 
 };
 

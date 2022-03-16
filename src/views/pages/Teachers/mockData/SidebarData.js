@@ -20,6 +20,11 @@ export const sidebardata = {
             to: viewTypeData?.CLASSES,
         },
         {
+            title: 'My calendar',
+            image: Dashboardicon,
+            to: viewTypeData?.CALENDAR,
+        },
+        {
             title: 'My students',
             image: Dashboardicon,
             to: viewTypeData?.STUDENTS,
@@ -28,11 +33,6 @@ export const sidebardata = {
             title: 'My subjects',
             image: Mysubjecticon,
             to: viewTypeData?.SUBJECTS,
-        },
-        {
-            title: 'My calendar',
-            image: Dashboardicon,
-            to: viewTypeData?.CALENDAR,
         },
         {
             title: 'My payments',

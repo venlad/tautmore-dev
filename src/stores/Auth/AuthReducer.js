@@ -19,6 +19,7 @@ const initialState = {
     countryList: [],
     statesList: [],
     subjects: [],
+
 };
 
 export default function reducer(state = initialState, action) {

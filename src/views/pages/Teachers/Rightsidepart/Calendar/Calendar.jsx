@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
-    func,
+    func, object,
 } from 'prop-types';
 import { connect } from 'react-redux';
 import './calendar.scss';
@@ -8,11 +8,10 @@ import { Link } from 'react-router-dom';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 // import { chevLeft, chevRight } from '../../../../../assets/icons/IconList';
-import {  timeTable } from './mockData/calendar';
 import LeavePopup from './LeavePopup';
 import MyLeaves from './MyLeaves';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { applyLeaveAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
+import { applyLeaveAction, getMyClassesAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
 
 const allViews = Object.keys(BigCalendar.Views).map((k) => BigCalendar.Views[k]);
 
@@ -24,28 +23,74 @@ moment.locale('es-es', {
 });
 BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
 
-const Calendar = ({ applyLeave }) => {
+const Calendar = ({
+    applyLeave, myClasses,
+    getMyClasses,
+}) => {
     const [calendarView, setCalendarView] = useState(false);
     const [model, setModel] = useState(false);
+    const [myClassesList, setMyClassesList] = useState([]);
 
-    const events = [
-        {
-            id: 0,
-            name: 'Holiday',
-            description: 'this is description',
-            allDay: true,
-            start: new Date(),
-            end: new Date(),
-        },
-        {
-            id: 0,
-            name: 'two',
-            description: 'desc two',
-            allDay: true,
-            start: new Date(),
-            end: new Date(),
-        },
-    ];
+    console.log(myClassesList);
+
+    console.log(moment('1994-07-01').format('DD-MM-YYYY'));
+
+    useEffect(() => {
+        if (!myClasses.data) {
+            getMyClasses();
+        }
+        if (myClasses?.data) {
+            const cdata = myClasses?.data[0]?.response?.map((data) => (
+                {
+                    grade: data?.gradeInfo?.name,
+                    subject: data?.subjectInfo.name,
+                    numberOfStudent: data?.numOfStudents,
+                    date: data?.scheduleInfo?.date,
+                    duration: data?.scheduleInfo?.duration,
+                    timeslot: data?.scheduleInfo?.timeSlot,
+                    startTime: data?.scheduleInfo?.startTime,
+                    id: data?.scheduleInfo?._id,
+                    startUrl: data?.scheduleInfo?.startUrl,
+
+                }));
+            setMyClassesList(cdata);
+        }
+    }, [myClasses]);
+
+    const customEvent = myClassesList?.map((item) => ({
+        id: item.id,
+        name: item.subject,
+        description: '',
+        allDay: true,
+        start: moment(item.date).format('MM-DD-YYYY'),
+        end: moment(item.date).format('MM-DD-YYYY'),
+        time: item.timeslot,
+    }
+    ));
+    console.log(customEvent);
+
+    const betterDate = new Date().toLocaleDateString('en-us', {
+        weekday: 'long', year: 'numeric', month: 'short', day: 'numeric',
+    });
+
+    // const events = [
+    //     {
+    //         id: 0,
+    //         name: 'Holiday',
+    //         description: 'this is description',
+    //         allDay: true,
+    //         start: new Date(),
+    //         end: new Date(),
+    //     },
+    //     {
+    //         id: 0,
+    //         name: 'two',
+    //         description: 'desc two',
+    //         allDay: true,
+    //         start: '03-15-2022',
+    //         end: 'Mon Mar 15 2022',
+    //     },
+    // ];
     const event = ({ event }) => (
         <div className="event-main">
             {calendarView
@@ -67,6 +112,7 @@ const Calendar = ({ applyLeave }) => {
         applyLeave();
         setModel(true);
     };
+
     return (
         <div className="calendar-main">
             <div className="row calendar-head">
@@ -103,7 +149,7 @@ const Calendar = ({ applyLeave }) => {
                 <div className={`${calendarView ? 'col-md-12' : 'col-md-8'}`}>
                     <div className="calendar-table">
                         <BigCalendar
-                            events={events}
+                            events={customEvent}
                             views={allViews}
                             step={60}
                             showMultiDayTimes
@@ -131,13 +177,13 @@ const Calendar = ({ applyLeave }) => {
                     <div className="col-md-4">
                         <div className="time-table">
                             <div className="time-table-head">
-                                <p>Wed, Aug 01, 2021</p>
+                                <p>{betterDate}</p>
                             </div>
                             <div className="time-table-body">
-                                {timeTable?.map((data) => (
+                                {customEvent?.map((data) => (
                                     <div className="time-table-common">
                                         <h5>{data?.time}</h5>
-                                        <p>{data?.subject}</p>
+                                        <p>{data?.name}</p>
                                         <Link to="/">View details</Link>
                                     </div>
                                 ))}
@@ -146,16 +192,27 @@ const Calendar = ({ applyLeave }) => {
                     </div>
                 )}
             </div>
-            <MyLeaves />
+            {/* <MyLeaves /> */}
             <LeavePopup model={model} handleModel={setModel} />
         </div>
     );
 };
 Calendar.propTypes = {
     applyLeave: func.isRequired,
+    myClasses: object.isRequired,
+    getMyClasses: func.isRequired,
+
 };
+
+const mapStateToProps = (state) => ({
+    myClasses: state.TeacherDashboard.myClasses,
+    myClassesHistory: state.TeacherDashboard.myClassesHistory,
+    getProfile: state.TeacherDashboard.getProfile,
+});
 
 const mapDispatchToProps = (dispatch) => ({
     applyLeave: (data) => dispatch(applyLeaveAction(data)),
+    getMyClasses: () => dispatch(getMyClassesAction()),
+
 });
-export default connect(null, mapDispatchToProps)(Calendar);
+export default connect(mapStateToProps, mapDispatchToProps)(Calendar);
