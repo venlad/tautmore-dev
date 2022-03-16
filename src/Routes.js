@@ -6,10 +6,11 @@ import Register from './views/components/auth/register/Index';
 import Chapters from './views/pages/Chapters';
 import PracticeTest from './views/pages/PracticeTest/PracticeTest';
 import Dashboard from './views/components/dashboard/Dashboard';
-import Olympiad from './views/pages/Olympiad/Olympiad';
+// import Olympiad from './views/pages/Olympiad/Olympiad';
 import Login from './views/components/auth/login/Login';
 import Homepage from './views/components/skeleton/Homepage/Homepage';
 import Teachers from './views/pages/Teachers/Teachers';
+import Olympiad from './views/pages/Olympiad/Olympiad';
 
 const routes = [
     {

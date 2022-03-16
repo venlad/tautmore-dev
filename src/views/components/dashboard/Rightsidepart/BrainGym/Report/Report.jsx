@@ -5,7 +5,7 @@ import IndividualStats from './IndividualStats';
 import ShellTitleStats from './ShellTitleStats';
 import BlueTick from '../../../../../../assets/images/NounTick.svg';
 import './report.scss';
-import currentDate from '../../../../../../helpers/utility';
+import { currentDate } from '../../../../../../helpers/utility';
 
 const Report = ({ allShellData, setViewBrain }) => {
     const { chests } = allShellData?.data?.masterChest;

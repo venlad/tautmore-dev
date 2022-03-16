@@ -7,7 +7,7 @@ const OlympiadSidebar = () => {
         <div className="olympiad-sidebar">
             <ul>
                 {sidebar.map((data, ind) => (
-                    <li aria-hidden="true" key={data} onClick={() => setActive(ind)} className={`${active === ind ? 'active' : ''}`}>{data}</li>
+                    <li aria-hidden="true" key={Math.random()} onClick={() => setActive(ind)} className={`${active === ind ? 'active' : ''}`}>{data}</li>
                 ))}
             </ul>
         </div>
