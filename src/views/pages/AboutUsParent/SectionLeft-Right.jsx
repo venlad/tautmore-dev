@@ -1,9 +1,10 @@
-import { bool, string } from 'prop-types';
+/* eslint-disable react/no-danger */
+import { bool, object, string } from 'prop-types';
 import React from 'react';
-import Image from '../../../assets/images/Group 20.png';
+import STRAPI_URL from '../../../constants/strapi';
 import Button from '../home/Button';
 
-const SectionLeftRight = ({ className, fromLeft }) => (
+const SectionLeftRight = ({ className, fromLeft, data }) => (
     <>
         <div className={className}>
             {
@@ -15,15 +16,9 @@ const SectionLeftRight = ({ className, fromLeft }) => (
                                 <span className="shade-2" />
                                 <span className="shade-3" />
                                 <span className="shade-4" />
-                                <h2>Traditional to transformational education</h2>
-                                <p>
-                                    The rote learning culture is ineffective for the 21st century.
-                                    Your kid needs progressive education. TautMore harnesses
-                                    cutting-edge transformational technologies to facilitate the
-                                    right learning
-                                    environment for your kid by gamifying education.
-                                </p>
-                                <Button content="Shit Bro" link="/" />
+                                <h2>{data?.heading}</h2>
+                                <div dangerouslySetInnerHTML={{ __html: data?.description }} />
+                                <Button content={data?.buttonText} link={data?.buttonUrl} />
                             </div>
                         </div>
                         <div className="col-5">
@@ -32,7 +27,7 @@ const SectionLeftRight = ({ className, fromLeft }) => (
                                 <span className="shade-2" />
                                 <span className="shade-3" />
                                 <span className="shade-4" />
-                                <img src={Image} alt="" />
+                                <img src={STRAPI_URL + data?.image?.data?.attributes?.url} alt="" />
                             </div>
                         </div>
                     </div>
@@ -40,20 +35,22 @@ const SectionLeftRight = ({ className, fromLeft }) => (
                     <div className="row">
                         <div className="col-5">
                             <div className="section-left-1">
-                                <img src={Image} alt="" />
+                                <span className="shade-1" />
+                                <span className="shade-2" />
+                                <span className="shade-3" />
+                                <span className="shade-4" />
+                                <img src={STRAPI_URL + data?.image?.data?.attributes?.url} alt="" />
                             </div>
                         </div>
                         <div className="col-7">
                             <div className="section-right-1">
-                                <h2>Traditional to transformational education</h2>
-                                <p>
-                                    The rote learning culture is ineffective for the 21st century.
-                                    Your kid needs progressive education. TautMore harnesses
-                                    cutting-edge transformational technologies to
-                                    facilitate the right learning
-                                    environment for your kid by gamifying education.
-                                </p>
-                                <Button content="Shit Bro" link="/" />
+                                <span className="shade-1" />
+                                <span className="shade-2" />
+                                <span className="shade-3" />
+                                <span className="shade-4" />
+                                <h2>{data?.heading}</h2>
+                                <div dangerouslySetInnerHTML={{ __html: data?.description }} />
+                                <Button content={data?.buttonText} link={data?.buttonUrl} />
                             </div>
                         </div>
                     </div>
@@ -65,9 +62,11 @@ const SectionLeftRight = ({ className, fromLeft }) => (
 SectionLeftRight.propTypes = {
     className: string,
     fromLeft: bool.isRequired,
+    data: object,
 };
 
 SectionLeftRight.defaultProps = {
     className: 'section-main',
+    data: {},
 };
 export default SectionLeftRight;

@@ -1,67 +1,48 @@
+import { object } from 'prop-types';
 import React from 'react';
-import Image from '../../../assets/images/trophy.png';
+import STRAPI_URL from '../../../constants/strapi';
 import Button from '../home/Button';
 
-const TabGroup = () => (
+const TabGroup = ({ data }) => (
     <div>
         <div>
             <div className="physical-classroom-main">
                 <h4>
-                    Keep a tab on your kids growth
+                    {data?.heading}
                 </h4>
 
                 <p className="main-p">
-                    TautMore’s AI-powered, real-time in-app analytics dashboard enables you to
+                    {data?.description}
                 </p>
 
                 <div className="row">
-                    <div className="col-md-3">
-                        <div
-                            className="common-tab-div-1"
-                        >
-                            <img src={Image} alt="user_image" />
-                            <h5>Track the overall growth of your kid</h5>
-                            <span className="layer-1" />
-                            <span className="layer-2" />
-                        </div>
-                    </div>
-                    <div className="col-md-3">
-                        <div
-                            className="common-tab-div-2"
-                        >
-                            <img src={Image} alt="user_image" />
-                            <h5>Track the overall growth of your kid</h5>
-                            <span className="layer-1" />
-                            <span className="layer-2" />
-                        </div>
-                    </div>
-                    <div className="col-md-3">
-                        <div
-                            className="common-tab-div-2"
-                        >
-                            <img src={Image} alt="user_image" />
-                            <h5>Track the overall growth of your kid</h5>
-                            <span className="layer-1" />
-                            <span className="layer-2" />
-                        </div>
-                    </div>
-                    <div className="col-md-3">
-                        <div
-                            className="common-tab-div-1"
-                        >
-                            <img src={Image} alt="user_image" />
-                            <h5>Track the overall growth of your kid</h5>
-                            <span className="layer-1" />
-                            <span className="layer-2" />
-                        </div>
-                    </div>
+                    {
+                        data?.activities?.map((item) => (
+                            <div className="col-md-3" key={item?.id}>
+                                <div
+                                    className="common-tab-div-1"
+                                >
+                                    <img src={STRAPI_URL + item?.image?.data?.attributes?.url} alt="user_image" />
+                                    <h5>{item?.heading}</h5>
+                                    <span className="layer-1" />
+                                    <span className="layer-2" />
+                                </div>
+                            </div>
+                        ))
+                    }
                 </div>
                 <div className="text-center">
-                    <Button content="Sick Bro" link="/" />
+                    <Button content={data?.buttonText} link={data?.buttonUrl} />
                 </div>
             </div>
         </div>
     </div>
 );
+TabGroup.propTypes = {
+    data: object,
+};
 
+TabGroup.defaultProps = {
+    data: {},
+};
 export default TabGroup;

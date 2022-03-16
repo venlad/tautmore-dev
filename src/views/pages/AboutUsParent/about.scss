@@ -136,7 +136,7 @@
 .section-wrap-bg{
     background-color: #F8F8FF;
     border-radius: 180px 0px 180px 0px;
-    padding: 80px 0px;
+    padding: 50px 0px 0px 0px;
 }
 
 .common-tab-div-1{
@@ -253,14 +253,19 @@
         text-align: center;
     }
     .testimonial-slider{
-        width: 100%;
+        width: 96%;
         .wrap{
+            max-width: 960px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .outer-wrap{
             max-width: 1100px;
             margin: 0 auto;
             position: relative;
             .slide-prev{
                 position: absolute;
-                left: -60px;
+                left: 0px;
                 top: 40%;
                 display: flex;
                 justify-content: center;
@@ -268,9 +273,11 @@
                 height: 55px;
                 width: 55px;
                 box-shadow: 0 3px 8px 0 rgba(0,0,0,0.24);
+                background-color: #FFFFFF;
                 border-radius: 50%;
                 color: #20282A;
                 font-size: 28px;
+                z-index: 3;
             }
 
             .slide-next{
@@ -283,16 +290,17 @@
                 height: 55px;
                 width: 55px;
                 box-shadow: 0 3px 8px 0 rgba(0,0,0,0.24);
+                background-color: #FFFFFF;
                 border-radius: 50%;
                 color: #20282A;
                 font-size: 28px;
+                z-index: 3;
             }
             
         }
     }
     .testimonial-card{
         min-height: 384px;
-        max-width: 994px;
         border-radius: 20px;
         background-color: #FFFFFF;
         box-shadow: 0 12px 20px 0 rgba(0,0,0,0.1);
@@ -344,4 +352,7 @@
             }
         }
     }
+}
+.mt--110{
+    margin-top: -110px;
 }

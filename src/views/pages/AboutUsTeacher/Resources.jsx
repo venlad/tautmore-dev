@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useRef, useState } from 'react';
 import Slider from 'react-slick';
-import { object } from 'prop-types';
+import { bool, object } from 'prop-types';
 import ResourceCard from './ResourceCard';
 import { chevLeft, chevRight } from '../../../assets/icons/IconList';
 
-const Resources = ({ data }) => {
+const Resources = ({ data, showButton }) => {
     // eslint-disable-next-line no-unused-vars
     const [slide, setSlide] = useState(0);
     const slider = useRef(null);
@@ -47,7 +47,7 @@ const Resources = ({ data }) => {
 
     return (
 
-        <div className="resources-main bg2">
+        <div className="resources-main">
             <h2>{data?.heading}</h2>
 
             <div className="carousel-wrap">
@@ -61,21 +61,25 @@ const Resources = ({ data }) => {
                 </Slider>
                 {slide < data?.carouselcard?.length - 2 && <div className="next-btn" onClick={() => slider?.current?.slickNext()} onKeyPress={() => slider?.current?.slickNext()} role="button" tabIndex={0}>{chevRight}</div>}
             </div>
-            <div className="col-12 d-flex justify-content-center btn-div">
-                <button type="button" className="button-common-abt">
-                    {data?.buttonText}
-                    <span>{chevRight}</span>
-                </button>
-            </div>
+            {showButton && (
+                <div className="col-12 d-flex justify-content-center btn-div">
+                    <button type="button" className="button-common-abt">
+                        {data?.buttonText}
+                        <span>{chevRight}</span>
+                    </button>
+                </div>
+            )}
         </div>
 
     );
 };
 Resources.propTypes = {
     data: object,
+    showButton: bool,
 };
 
 Resources.defaultProps = {
     data: {},
+    showButton: true,
 };
 export default Resources;

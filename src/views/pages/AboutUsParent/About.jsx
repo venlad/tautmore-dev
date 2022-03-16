@@ -9,6 +9,8 @@ import './about.scss';
 import SectionLeftRight from './SectionLeft-Right';
 import TabGroup from './TabGroup';
 import ParentTestimonials from './ParentTestimonials';
+import Resources from '../AboutUsTeacher/Resources';
+import FAQ from '../AboutUsTeacher/FAQ';
 
 const About = () => {
     const [subjects, setSubjects] = useState([]);
@@ -19,7 +21,7 @@ const About = () => {
             `${STRAPI_URL}/api/subjects?populate=*`,
         );
         const res = await fetch(
-            `${STRAPI_URL}/api/about?populate=*`,
+            `${STRAPI_URL}/api/about-parent?populate=*`,
         );
         const activityData = await activityRes.json();
         // eslint-disable-next-line max-len
@@ -31,25 +33,31 @@ const About = () => {
     useEffect(() => {
         fetchSubjects();
     }, []);
-
+    console.log(aboutData?.sections);
     return (
         <Layout>
             <Subjectlist subjects={subjects} />
             <Banner banner={aboutData?.banner} />
-            <h2 className="why-h2 text-center">Why does your kid need TautMore?</h2>
-            <SectionLeftRight className="section-main" fromLeft />
-            <SectionLeftRight className="section-main" />
-            <SectionLeftRight className="section-main" fromLeft />
-            <SectionLeftRight className="section-main" />
-            <SectionLeftRight className="section-main" fromLeft />
-            <SectionLeftRight className="section-main" />
-            <h2 className="why2-h2">Why do you need TautMore as a parent?</h2>
+            <h2 className="why-h2 text-center">{aboutData?.sectionHeading1}</h2>
+            {
+                aboutData?.sections?.slice(0, 6)?.map((item, i) => (
+                    <SectionLeftRight className="section-main" fromLeft={i % 2 === 0} data={item} />
+                ))
+            }
+            <h2 className="why2-h2">{aboutData?.sectionHeading2}</h2>
             <div className="section-wrap-bg">
-                <SectionLeftRight className="section-main" fromLeft />
-                <SectionLeftRight className="section-main" />
-                <TabGroup />
+                {
+                    aboutData?.sections?.slice(6)?.map((item, i) => (
+                        <SectionLeftRight className="section-main" fromLeft={i % 2 === 0} data={item} />
+                    ))
+                }
+                <TabGroup data={aboutData?.benefitsSection} />
             </div>
-            <ParentTestimonials />
+            <ParentTestimonials data={aboutData?.testimonials} />
+            <Resources data={aboutData?.carousel} showButton={false} />
+            <div className="mt--110">
+                <FAQ faq={aboutData?.FAQ} />
+            </div>
         </Layout>
     );
 };

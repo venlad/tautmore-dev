@@ -1,10 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useRef } from 'react';
 import Slider from 'react-slick';
-import Image from '../../../assets/images/testi.jpg';
+import { array } from 'prop-types';
 import { chevLeft, chevRight } from '../../../assets/icons/IconList';
+import STRAPI_URL from '../../../constants/strapi';
 
-const ParentTestimonials = () => {
+const ParentTestimonials = ({ data }) => {
     const slider = useRef(null);
     const settings = {
         dots: true,
@@ -20,63 +21,27 @@ const ParentTestimonials = () => {
         <div className="testimonial-main">
             <h2>Parents Testimonals</h2>
             <div className="testimonial-slider">
-                <div className="wrap">
+                <div className="outer-wrap">
                     <div className="slide-prev" onClick={() => slider?.current?.slickPrev()} onKeyPress={() => slider?.current?.slickPrev()} role="button" tabIndex={0}>{chevLeft}</div>
                     <Slider ref={slider} {...settings}>
-                        <div className="testimonial-card d-flex">
-                            <div className="testimonial-image">
-                                <img src={Image} alt="" />
-                            </div>
-                            <div className="testimonial-info">
-                                <p>
-                                    Exploring, playing, curiosity, and creativity are the
-                                    characteristic nature of a child. TautMore overcomes
-                                    the limitations of traditional platforms and harnesses
-                                    smart technologies to bring out the best in every child,
-                                    to make learning a joyful experience.
-                                </p>
-                                <span>
-                                    <h5>Satish Kumar</h5>
-                                    <p>Senior Manager, Paypal</p>
-                                </span>
-                            </div>
-                        </div>
-                        <div className="testimonial-card d-flex">
-                            <div className="testimonial-image">
-                                <img src={Image} alt="" />
-                            </div>
-                            <div className="testimonial-info">
-                                <p>
-                                    Exploring, playing, curiosity, and creativity are the
-                                    characteristic nature of a child. TautMore overcomes
-                                    the limitations of traditional platforms and harnesses
-                                    smart technologies to bring out the best in every child,
-                                    to make learning a joyful experience.
-                                </p>
-                                <span>
-                                    <h5>Satish Kumar</h5>
-                                    <p>Senior Manager, Paypal</p>
-                                </span>
-                            </div>
-                        </div>
-                        <div className="testimonial-card d-flex">
-                            <div className="testimonial-image">
-                                <img src={Image} alt="" />
-                            </div>
-                            <div className="testimonial-info">
-                                <p>
-                                    Exploring, playing, curiosity, and creativity are the
-                                    characteristic nature of a child. TautMore overcomes
-                                    the limitations of traditional platforms and harnesses
-                                    smart technologies to bring out the best in every child,
-                                    to make learning a joyful experience.
-                                </p>
-                                <span>
-                                    <h5>Satish Kumar</h5>
-                                    <p>Senior Manager, Paypal</p>
-                                </span>
-                            </div>
-                        </div>
+                        {
+                            data?.map((item) => (
+                                <div className="wrap testimonial-card d-flex" key={item?.id}>
+                                    <div className="testimonial-image">
+                                        <img src={STRAPI_URL + item?.image?.data?.attributes?.url} alt="" />
+                                    </div>
+                                    <div className="testimonial-info">
+                                        <p>
+                                            {item?.info}
+                                        </p>
+                                        <span>
+                                            <h5>{item?.name}</h5>
+                                            <p>{item?.profession}</p>
+                                        </span>
+                                    </div>
+                                </div>
+                            ))
+                        }
                     </Slider>
                     <div className="slide-next" onClick={() => slider?.current?.slickNext()} onKeyPress={() => slider?.current?.slickNext()} role="button" tabIndex={0}>{chevRight}</div>
                 </div>
@@ -85,5 +50,11 @@ const ParentTestimonials = () => {
         </div>
     );
 };
+ParentTestimonials.propTypes = {
+    data: array,
+};
 
+ParentTestimonials.defaultProps = {
+    data: [],
+};
 export default ParentTestimonials;

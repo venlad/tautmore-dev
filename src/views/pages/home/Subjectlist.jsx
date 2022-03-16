@@ -13,7 +13,6 @@ const Subjectlist = ({ subdata, subjects }) => {
 
     const divClass = (data) => (subdata === data?.attributes?.slug ? 'pill active' : 'pill');
     const link = (data) => `/chapters/${data}`;
-    console.log(divClass);
     const settings = {
         focusOnSelect: true,
         dots: false,
