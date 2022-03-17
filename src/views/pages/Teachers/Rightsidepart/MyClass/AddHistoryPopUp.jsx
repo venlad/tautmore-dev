@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Modal } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Modal, Button } from 'react-bootstrap';
+import { Link, useHistory } from 'react-router-dom';
 import {
     func, bool, string, array, object,
 } from 'prop-types';
+import '../../teachers.scss';
 
 import Select from 'react-select';
 import {
     getProfileAction, getChapterBySubjectAction,
     getConceptByChapterAction, getSubconceptByConceptAction, addTeachingHistoryAction,
-
 } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
 
 // import Spinner from 'react-bootstrap/Spinner';
@@ -33,6 +33,8 @@ const AddHistoryPopUp = ({
             getMyProfile();
         }
     }, [myProfile]);
+
+    const history = useHistory();
 
     // FOR CHAPTERS
     const [selectedChapter, setSelectedChapter] = useState('');
@@ -132,15 +134,20 @@ const AddHistoryPopUp = ({
                 <Modal.Header closeButton>
 
                     <Modal.Title>
-                        <h3 className="pop-up-heading">Meeting Details</h3>
-                        <p>Please select the following details prior to the meeting
+                        <h3 style={{ fontSize: 30, textAlign: 'center', marginBottom: 10 }}>Meeting Details</h3>
+                        <p style={{ fontSize: 20, textAlign: 'center' }}>
+                            Please select the following details prior to the meeting
                         </p>
                     </Modal.Title>
 
                 </Modal.Header>
                 <Modal.Body>
 
-                    <div className="label-div">Which chapter are you going to teach today?</div>
+                    <div style={{
+                        fontSize: 15, color: 'black', marginBottom: 10,
+                    }}
+                    >Which chapter are you going to teach today?
+                    </div>
                     <Select
                         id="chapters"
                         name="chapter"
@@ -151,10 +158,17 @@ const AddHistoryPopUp = ({
                             setSelectedChapter(value.label);
                             setSelectedChapterId(value.id);
                         }}
+                        style={{ marginBottom: 10 }}
 
                     />
 
-                    <div className="label-div">Select a concept</div>
+                    <div
+                        style={{
+                            fontSize: 15, color: 'black', marginBottom: 10, marginTop: 10,
+                        }}
+                        className="label-div"
+                    >Select a concept in selected chapter
+                    </div>
 
                     <Select
                         id="chapters"
@@ -166,9 +180,16 @@ const AddHistoryPopUp = ({
                             setSelectedConcept(value.label);
                             setSelectedConceptId(value.id);
                         }}
+                        style={{ display: 'none' }}
                     />
 
-                    <div className="label-div">Select a subtopic</div>
+                    <div
+                        style={{
+                            fontSize: 15, color: 'black', marginBottom: 10,  marginTop: 10,
+                        }}
+                        className="label-div"
+                    >Select a subtopic for the selected sub-topic
+                    </div>
 
                     <Select
                         id="chapters"
@@ -180,11 +201,12 @@ const AddHistoryPopUp = ({
                             setSelectedSubConcept(value.label);
                             setSelectedSubConceptId(value.id);
                         }}
+                        style={{ marginBottom: 10 }}
                     />
 
-                    <button type="button" onClick={onAddDetailsClick}>Click to Submit</button>
+                    <Button style={{ marginTop: 20, marginLeft: 50 }} type="button" onClick={() => onAddDetailsClick()}>Click to Submit</Button>
 
-                    <Link to="/zoomCall" target="_blank"> JOIN MEETING </Link>
+                    <Link style={{ marginTop: 10 }} to="/zoomCall" target="_blank"> JOIN MEETING </Link>
 
                 </Modal.Body>
             </Modal>
