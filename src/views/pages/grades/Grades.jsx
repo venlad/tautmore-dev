@@ -34,6 +34,10 @@ const Grades = () => {
         setActivities(grades?.filter((item) => item?.attributes?.title === selectGrade)[0]?.attributes?.activities?.data);
     }, [selectGrade]);
 
+    useEffect(() => {
+        setSelectGrade(footerGrade);
+    }, [footerGrade]);
+
     return (
         <Layout>
             <div className="grade-container">

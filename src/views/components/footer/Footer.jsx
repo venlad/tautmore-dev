@@ -39,7 +39,9 @@ function Footer() {
                         <div className="col-sm-12 col-md-5 footer-top-left">
                             <div className="row">
                                 <div className="col-sm-12 col-md-8">
-                                    <img src={STRAPI_URL + footer?.logo?.data?.attributes?.url} alt="website_logo" />
+                                    <Link to="/">
+                                        <img src={STRAPI_URL + footer?.logo?.data?.attributes?.url} alt="website_logo" />
+                                    </Link>
                                     <p>
                                         {footer?.info}
                                     </p>
