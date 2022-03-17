@@ -10,12 +10,31 @@ import {
 import { getMyClassesAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
 import '../../teachers.scss';
 
+const apiKeys = {
+    apiKey: 'nRL8IN65TFmul9s0RSq8vg',
+    apiSecret: 'Uhn2PTl9UaivyLnvB5MqMwSGRiTi5GB3m2ih',
+};
+const meetConfig = {
+    apiKey: apiKeys.apiKey,
+    meetingNumber: 93475407732,
+    userName: 'bhupinder',
+    userEmail: '', // must be the attendee email address
+    passWord: 'RnVITEdZS0RXeVd1RXN0QWNmYXI1dz09',
+    role: 1,
+};
+
 const ZoomClassContainer = ({
     myClasses,
     getMyClasses,
     Login,
 }) => {
     const [myClassesList, setMyClassesList] = useState([]);
+
+    useEffect(() => {
+        ZoomMtg.setZoomJSLib('https://source.zoom.us/2.2.0/lib', '/av');
+        ZoomMtg.preLoadWasm();
+        ZoomMtg.prepareJssdk();
+    });
 
     useEffect(() => {
         if (!myClasses.data) {
@@ -35,42 +54,21 @@ const ZoomClassContainer = ({
 
     console.log(myClassesList);
 
-    console.log(Login?.data.accessToken);
-
-    const signatureEndpoint = 'https://lbbhqlqib3.execute-api.us-east-1.amazonaws.com/development/api/admin/zoom/create-signature';
-    const apiKey = 'nRL8IN65TFmul9s0RSq8vg';
-    const meetingNumber = myClassesList[0]?.meetingId; // should be dynamic95538527953
-    const role = 1; // 1 is for teacher host.. 0 is for students
-    const leaveUrl = 'http://localhost:3000';
-    const userName = 'mithun'; // should be dyanmic from auth
-    const userEmail = ''; // optional
-    const passWord = myClassesList[0]?.passWord;
-    // should be dyanmic from API. shud be blank in case of no password(in students)
-    const registrantToken = '';  // optional
-
-    ZoomMtg.setZoomJSLib('https://source.zoom.us/2.3.0/lib', '/av');
-    ZoomMtg.preLoadWasm();
-    ZoomMtg.prepareWebSDK();
-    // loads language files, also passes any error messages to the ui
-    ZoomMtg.i18n.load('en-US');
-    ZoomMtg.i18n.reload('en-US');
-
-    function startMeeting(signature) {
-        console.log(signature);
+    function joinMeeting(signature, meetConfig) {
         document.getElementById('zmmtg-root').style.display = 'block';
+
         ZoomMtg.init({
-            leaveUrl,
+            leaveUrl: 'http://localhost:3000/',
             isSupportAV: true,
-            success: (success) => {
-                console.log(success);
+            success(success) {
+                console.log('Init Success ', success);
                 ZoomMtg.join({
+
+                    meetingNumber: meetConfig.meetingNumber,
+                    userName: meetConfig.userName,
                     signature,
-                    meetingNumber,
-                    userName,
-                    apiKey,
-                    userEmail,
-                    passWord,
-                    tk: registrantToken,
+                    apiKey: meetConfig.apiKey,
+                    passWord: meetConfig.passWord,
                     success: (success) => {
                         console.log(success);
                     },
@@ -79,38 +77,101 @@ const ZoomClassContainer = ({
                     },
                 });
             },
-            error: (error) => {
-                console.log(error);
-            },
         });
     }
 
-    function getSignature(e) {
-        // console.log(e)
-        e.preventDefault();
-        fetch(signatureEndpoint, { // Auth token should dynamic
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json',  Authorization: Login?.data.accessToken  },
-            body: JSON.stringify({
-                meetingNumber,
-                role,
-            }),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                startMeeting(data.data.signature);
-                // const joinUrl = `http://localhost:3000/${testTool.serialize(data.data.signature)}`;
+    // const signatureEndpoint = 'https://lbbhqlqib3.execute-api.us-east-1.amazonaws.com/development/api/admin/zoom/create-signature';
+    // const apiKey = 'nRL8IN65TFmul9s0RSq8vg';
+    // const meetingNumber = myClassesList[0]?.meetingId; // should be dynamic95538527953
+    // const role = 1; // 1 is for teacher host.. 0 is for students
+    // const leaveUrl = 'http://localhost:3000';
+    // const userName = 'mithun'; // should be dyanmic from auth
+    // const userEmail = ''; // optional
+    // const passWord = myClassesList[0]?.passWord;
+    // should be dyanmic from API. shud be blank in case of no password(in students)
+    const registrantToken = '';  // optional
 
-                // window.open(joinUrl, '_blank');
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-    }
+    // ZoomMtg.setZoomJSLib('https://source.zoom.us/2.3.0/lib', '/av');
+    // ZoomMtg.preLoadWasm();
+    // ZoomMtg.prepareWebSDK();
+    // // loads language files, also passes any error messages to the ui
+    // ZoomMtg.i18n.load('en-US');
+    // ZoomMtg.i18n.reload('en-US');
+
+    // function startMeeting(signature) {
+    //     console.log(signature);
+    //     document.getElementById('zmmtg-root').style.display = 'block';
+    //     ZoomMtg.init({
+    //         leaveUrl,
+    //         isSupportAV: true,
+    //         success: (success) => {
+    //             console.log(success);
+    //             ZoomMtg.join({
+    //                 signature,
+    //                 meetingNumber,
+    //                 userName,
+    //                 apiKey,
+    //                 userEmail,
+    //                 passWord,
+    //                 tk: registrantToken,
+    //                 success: (success) => {
+    //                     console.log(success);
+    //                 },
+    //                 error: (error) => {
+    //                     console.log(error);
+    //                 },
+    //             });
+    //         },
+    //         error: (error) => {
+    //             console.log(error);
+    //         },
+    //     });
+    // }
+
+    // function getSignature(e) {
+    //     // console.log(e)
+    //     e.preventDefault();
+    //     fetch(signatureEndpoint, { // Auth token should dynamic
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json',  Authorization: Login?.data.accessToken  },
+    //         body: JSON.stringify({
+    //             meetingNumber,
+    //             role,
+    //         }),
+    //     })
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             startMeeting(data.data.signature);
+    //             // const joinUrl = `http://localhost:3000/${testTool.serialize(data.data.signature)}`;
+
+    //             // window.open(joinUrl, '_blank');
+    //         })
+    //         .catch((error) => {
+    //             console.error('Error:', error);
+    //         });
+    // }
+
+    const getSignature = () => {
+        ZoomMtg.generateSignature({
+            meetingNumber: meetConfig.meetingNumber,
+            apiKey: meetConfig.apiKey,
+            apiSecret: apiKeys.apiSecret,
+            role: meetConfig.role,
+            success(res) {
+                console.log('res', res);
+                setTimeout(() => {
+                    joinMeeting(res.result, meetConfig);
+                }, 1000);
+            },
+        });
+    };
     return (
         <div>
             <div className="jionlink">
-                <button type="button" onClick={getSignature}>
+                <button
+                    type="button"
+                    onClick={getSignature}
+                >
                     JOIN LINK
 
                 </button>

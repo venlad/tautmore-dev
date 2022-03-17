@@ -146,7 +146,7 @@ const AddHistoryPopUp = ({
                         name="chapter"
                         placeholder="Select chapter"
                         options={chapterListBySubject}
-                        value={selectedChapter}
+                        value={selectedChapter.label}
                         onChange={(value) => {
                             setSelectedChapter(value.label);
                             setSelectedChapterId(value.id);
@@ -161,7 +161,7 @@ const AddHistoryPopUp = ({
                         name="chapter"
                         placeholder="Select concept"
                         options={conceptListByChapter}
-                        value={selectedConcept}
+                        value={selectedConcept.label}
                         onChange={(value) => {
                             setSelectedConcept(value.label);
                             setSelectedConceptId(value.id);
@@ -169,13 +169,13 @@ const AddHistoryPopUp = ({
                     />
 
                     <div className="label-div">Select a subtopic</div>
-                    62307d5523630d000938f024
+
                     <Select
                         id="chapters"
                         name="chapter"
                         placeholder="Select sub-concept"
                         options={subConceptList}
-                        value={selectedSubConcept}
+                        value={selectedSubConcept.label}
                         onChange={(value) => {
                             setSelectedSubConcept(value.label);
                             setSelectedSubConceptId(value.id);
