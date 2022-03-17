@@ -1,12 +1,19 @@
+/* eslint-disable max-len */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/heading-has-content */
 import React, { useEffect, useState } from 'react';
 import './footer.scss';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import STRAPI_URL from '../../../constants/strapi';
+import selectFooterLinkAction from '../../../stores/Grades/GradesAction';
 
 function Footer() {
     const [footer, setFooter] = useState([]);
     const [grades, setGrades] = useState([]);
+
+    const dispatch = useDispatch();
 
     const fetchData = async () => {
         const res = await fetch(
@@ -24,7 +31,6 @@ function Footer() {
     useEffect(() => {
         fetchData();
     }, []);
-    console.log(grades);
     return (
         <div>
             <div className="footer-main">
@@ -55,12 +61,17 @@ function Footer() {
                         <div className="col-sm-12 col-md-7 footer-top-right">
                             <div className="row">
                                 <div className="col-sm-3 col-md-3 col-6">
-                                    <h4>Grades</h4>
+                                    <h4
+                                        // eslint-disable-next-line max-len
+                                        onClick={() => dispatch(selectFooterLinkAction('PPOKA'))}
+                                    >
+                                        Grades
+                                    </h4>
                                     <ul>
                                         {
                                             grades?.slice(0, 4)?.map((item) => (
-                                                <li key={item?.id}>
-                                                    <Link to={item?.attributes?.slug}>
+                                                <li key={item?.attributes?.id} onClick={() => dispatch(selectFooterLinkAction(item?.attributes?.title))}>
+                                                    <Link to="/grades">
                                                         {item?.attributes?.title}
                                                     </Link>
                                                 </li>
@@ -73,8 +84,8 @@ function Footer() {
                                     <ul>
                                         {
                                             grades?.slice(4, 8)?.map((item) => (
-                                                <li key={item?.id}>
-                                                    <Link to={item?.attributes?.slug}>
+                                                <li key={item?.attributes?.id} onClick={() => dispatch(selectFooterLinkAction(item?.attributes?.title))}>
+                                                    <Link to="/grades">
                                                         {item?.attributes?.title}
                                                     </Link>
                                                 </li>
@@ -87,8 +98,8 @@ function Footer() {
                                     <ul>
                                         {
                                             grades?.slice(9)?.map((item) => (
-                                                <li key={item?.id}>
-                                                    <Link to={item?.attributes?.slug}>
+                                                <li key={item?.attributes?.id} onClick={() => dispatch(selectFooterLinkAction(item?.attributes?.title))}>
+                                                    <Link to="/grades">
                                                         {item?.attributes?.title}
                                                     </Link>
                                                 </li>

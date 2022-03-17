@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import Rightpart from './Rightpart';
 import './style.scss';
 import Chapterslink from '../Chapters/Chapterslink';
@@ -6,9 +7,11 @@ import Layout from '../../../Layout/Layout';
 import STRAPI_URL from '../../../constants/strapi';
 
 const Grades = () => {
+    const footerGrade = useSelector((state) => state.footerGrade);
+
     const [grades, setGrades] = useState([]);
     const [activities, setActivities] = useState([]);
-    const [selectGrade, setSelectGrade] = useState('Pre-Kindergarten');
+    const [selectGrade, setSelectGrade] = useState(footerGrade);
     // const [filterActivity, setFilterActivity] = useState([]);
 
     const fetchGrades = async () => {
