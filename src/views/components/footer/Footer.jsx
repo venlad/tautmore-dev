@@ -1,14 +1,30 @@
-import React from 'react';
-import Logo from '../../../assets/images/Logo.png';
+/* eslint-disable jsx-a11y/heading-has-content */
+import React, { useEffect, useState } from 'react';
 import './footer.scss';
-import {
-    twitterIcon,
-    faceBook,
-    instaGram,
-    linkedIn,
-} from '../../../assets/icons/IconList';
+import { Link } from 'react-router-dom';
+import STRAPI_URL from '../../../constants/strapi';
 
 function Footer() {
+    const [footer, setFooter] = useState([]);
+    const [grades, setGrades] = useState([]);
+
+    const fetchData = async () => {
+        const res = await fetch(
+            `${STRAPI_URL}/api/footer?populate=*`,
+        );
+        const gradesRes = await fetch(
+            `${STRAPI_URL}/api/grades?populate=*`,
+        );
+        const data = await res.json();
+        const gradesData = await gradesRes.json();
+        setFooter(data?.data?.attributes);
+        setGrades(gradesData?.data);
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+    console.log(grades);
     return (
         <div>
             <div className="footer-main">
@@ -17,18 +33,20 @@ function Footer() {
                         <div className="col-sm-12 col-md-5 footer-top-left">
                             <div className="row">
                                 <div className="col-sm-12 col-md-8">
-                                    <img src={Logo} alt="website_logo" />
+                                    <img src={STRAPI_URL + footer?.logo?.data?.attributes?.url} alt="website_logo" />
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                        do eiusmod tempor incididunt ut labore et dolore magna
-                                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                        ullamco
+                                        {footer?.info}
                                     </p>
                                     <ul>
-                                        <li>{twitterIcon}</li>
-                                        <li>{faceBook}</li>
-                                        <li>{instaGram}</li>
-                                        <li>{linkedIn}</li>
+                                        {
+                                            footer?.socialLinks?.map((item) => (
+                                                <li>
+                                                    <Link to={item?.link}>
+                                                        <img src={STRAPI_URL + item?.icon?.data?.attributes?.url} alt="website_logo" />
+                                                    </Link>
+                                                </li>
+                                            ))
+                                        }
                                     </ul>
                                 </div>
                                 <div className="col-sm-12 col-md-4" />
@@ -39,38 +57,53 @@ function Footer() {
                                 <div className="col-sm-3 col-md-3 col-6">
                                     <h4>Grades</h4>
                                     <ul>
-                                        <li>Kindergarten</li>
-                                        <li>L K G</li>
-                                        <li>U K G</li>
-                                        <li>Grade 1</li>
-                                        <li>Grade 2</li>
+                                        {
+                                            grades?.slice(0, 4)?.map((item) => (
+                                                <li key={item?.id}>
+                                                    <Link to={item?.attributes?.slug}>
+                                                        {item?.attributes?.title}
+                                                    </Link>
+                                                </li>
+                                            ))
+                                        }
                                     </ul>
                                 </div>
-                                <div className="col-sm-3 col-md-3 col-6">
+                                <div className="col-sm-3 col-md-3 col-6 mt-4 pt-2">
+
                                     <ul>
-                                        <li>Grade 3</li>
-                                        <li>Grade 4</li>
-                                        <li>Grade 5</li>
-                                        <li>Grade 6</li>
-                                        <li>Grade 7</li>
+                                        {
+                                            grades?.slice(4, 8)?.map((item) => (
+                                                <li key={item?.id}>
+                                                    <Link to={item?.attributes?.slug}>
+                                                        {item?.attributes?.title}
+                                                    </Link>
+                                                </li>
+                                            ))
+                                        }
                                     </ul>
                                 </div>
-                                <div className="col-sm-3 col-md-3 col-6">
+                                <div className="col-sm-3 col-md-3 col-6 mt-4 pt-2">
+
                                     <ul>
-                                        <li>Grade 8</li>
-                                        <li>Grade 9</li>
-                                        <li>Grade 10</li>
-                                        <li>Grade 11</li>
-                                        <li>Grade 12</li>
+                                        {
+                                            grades?.slice(9)?.map((item) => (
+                                                <li key={item?.id}>
+                                                    <Link to={item?.attributes?.slug}>
+                                                        {item?.attributes?.title}
+                                                    </Link>
+                                                </li>
+                                            ))
+                                        }
                                     </ul>
                                 </div>
                                 <div className="col-sm-3 col-md-3 col-6">
                                     <h4>Company</h4>
                                     <ul>
-                                        <li>About us</li>
-                                        <li>Contact</li>
-                                        <li>FAQs</li>
-                                        <li>For parents</li>
+                                        {
+                                            footer?.navItems?.slice(0, -2)?.map((item) => (
+                                                <li><Link to={item?.link}>{item?.label}</Link></li>
+                                            ))
+                                        }
                                     </ul>
                                 </div>
                             </div>
@@ -80,10 +113,17 @@ function Footer() {
                 <div className="footer-bottom">
                     <div className="row">
                         <div className="col-sm-7 col-12 text-left">
-                            <p>© 2021 Ultimate Learning Corp. All rights reserved.</p>
+                            <p>{footer?.copyRight}</p>
                         </div>
                         <div className="col-sm-5 col-12 text-right">
-                            <p>Privacy policy | Terms & Condition</p>
+                            <p>
+                                <Link to={footer?.navItems?.slice(-2, -1)[0]?.link}>
+                                    {footer?.navItems?.slice(-2, -1)[0]?.label}
+                                </Link> |
+                                <Link to={footer?.navItems?.slice(-1)[0]?.link}>
+                                    {footer?.navItems?.slice(-1)[0]?.label}
+                                </Link>
+                            </p>
                         </div>
                     </div>
                 </div>

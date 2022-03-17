@@ -33,7 +33,6 @@ const About = () => {
     useEffect(() => {
         fetchSubjects();
     }, []);
-    console.log(aboutData?.sections);
     return (
         <Layout>
             <Subjectlist subjects={subjects} />
