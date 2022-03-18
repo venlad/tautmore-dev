@@ -1288,7 +1288,7 @@
 
     button {
       height: 66px;
-      width: 303px;
+      min-width: 303px;
       border-radius: 33.75px;
       background-color: #43aa8b;
       border: 0;
@@ -1686,9 +1686,11 @@
     }
   }
   .button-common {
-    width: 250px !important;
-    height: 50px !important;
+    min-width: 250px !important;
+    min-height: 50px !important;
+    max-width: 100%;
     font-size: 17px !important;
+    margin-top: 30px !important;
     span {
       margin-top: 0 !important;
     }
