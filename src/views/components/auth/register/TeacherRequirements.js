@@ -27,8 +27,11 @@ const TeacherRequirements = ({
     subjectsList, getSubjectsAction,
 }) => {
     const [showSubject, setShowSubject] = useState(false);
+    const [showSubject2, setShowSubject2] = useState(false);
     const [showCategories, setShowCategories] = useState(false);
+    const [showCategories2, setShowCategories2] = useState(false);
     const [showAddNewGrade, setShowAddNewGrade] = useState(false);
+    const [selectedGrades, setSelectedGrades] = useState([]);
 
     console.log(timeSlotMonday);
 
@@ -144,9 +147,45 @@ const TeacherRequirements = ({
         }
     };
 
+    let arrayOnly2 = [];
+
+    const setCategoryHandler2 = (val) => {
+        arrayOnly2 = val.map((item) => item.value);
+
+        if (arrayOnly2.includes('subjects') && arrayOnly2.includes('co-curricular')) {
+            setShowSubject2(true);
+            setShowCategories2(true);
+        } else if (arrayOnly2.includes('subjects') && !arrayOnly2.includes('co-curricular')) {
+            setShowSubject2(true);
+            setShowCategories2(false);
+        } else if (arrayOnly2.includes('subjects')) {
+            setShowSubject2(true);
+        } else if (arrayOnly2.includes('co-curricular')) {
+            setShowCategories2(true);
+        } else if (arrayOnly2.includes('subjects')) {
+            setShowSubject2(true);
+        } else if (!arrayOnly2.includes('subjects') && !arrayOnly2.includes('co-curricular')) {
+            setShowSubject2(false);
+            setShowCategories2(false);
+        }  else if (!arrayOnly2.includes('subjects')) {
+            setShowSubject2(false);
+        } else if (!arrayOnly2.includes('co-curricular')) {
+            setShowCategories2(false);
+        } else if (!arrayOnly.includes('subjects') || arrayOnly2.includes('co-curricular')) {
+            setShowCategories2(true);
+            setShowSubject2(false);
+        } else if (arrayOnly2.includes('subjects') || !arrayOnly2.includes('co-curricular')) {
+            setShowCategories2(false);
+            setShowSubject2(true);
+        }
+    };
+
     const gradeHandler = (value) => {
         setGradeVal(value);
+        setSelectedGrades([...selectedGrades, value]);
     };
+
+    console.log(selectedGrades, 'Selected Grades');
 
     const onExperienceClick = (e) => {
         console.log(e, 'On experience click');
@@ -305,13 +344,13 @@ const TeacherRequirements = ({
                                         placeholderButtonLabel="Select here"
                                         isMulti
                                         styles={dropdownMultiValueStyles}
-                                        onChange={(value) => { setCategoryHandler(value); }}
+                                        onChange={(value) => { setCategoryHandler2(value); }}
                                     />
 
                                     <div className="col-md-6 course-detail-select mutiple-dropdown-part">
 
                                         <div className="flex-column">
-                                            { showSubject
+                                            { showSubject2
                              && (
                                  <Coursedetailsubjects
                                      label={`Select subject(s) for ${gradeVal?.label?.toUpperCase()}*`}
@@ -323,7 +362,7 @@ const TeacherRequirements = ({
                                  />
                              ) }
 
-                                            {showCategories && (
+                                            {showCategories2 && (
                                                 <CourseDetailsCategories
                                                     label="Select Co-curricular activitie(s)*"
                                                     data={coActivityValue}

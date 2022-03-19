@@ -56,14 +56,7 @@ const Mydetails = ({
         }
     }, [countries, getAllCountries]);
 
-    console.log(countryVal, 'Country Val');
-
-    console.log(countries, 'redux countries');
-    console.log(countryList, 'countryList');
-
     const [states, setStates] = useState([{ value: 1, label: '' }]);
-
-    const [selected, setSelected] = useState('');
 
     useEffect(() => {
         if (statesList?.data?.length > 0) {
@@ -106,16 +99,19 @@ const Mydetails = ({
         }
     };
 
-    const onCountrySelect = (code) => {
-        setStates([{ label: 'Loading....', value: 'loading', state_code: '' }]);
-        const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
-        const countryName = regionNames.of(`${code}`);
-        if (countryName) {
-            setCountryVal(countryName);
-        }
-        setSelected(code);
-        getAllStatesAction(code);
-        setStateVal('');
+    const onCountrySelect = (val) => {
+        console.log(val);
+        setCountryVal(val);
+
+        //     setStates([{ label: 'Loading....', value: 'loading', state_code: '' }]);
+        //     // const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
+        //     // const countryName = regionNames.of(`${code}`);
+        //     // if (countryName) {
+        //     //     setCountryVal(countryName);
+        //     // }
+
+        const response = getAllStatesAction(val.code);
+        setStates(response?.data);
     };
 
     return (
@@ -132,7 +128,7 @@ const Mydetails = ({
                             <Dropdown
                                 options={countryList}
                                 prompt="Select countries"
-                                onChange={(val) => setCountryVal(val)}
+                                onChange={(val) => onCountrySelect(val)}
                                 value={countryVal}
                                 id="id"
                                 name="name"
