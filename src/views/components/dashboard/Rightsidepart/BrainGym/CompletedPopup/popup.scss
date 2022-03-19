@@ -101,6 +101,28 @@
             letter-spacing: 0;
         }
     }
+    .flex-items-points-trusere {
+        display: flex;
+        height: 2.5rem;
+        width: 17.938rem;
+        border-radius: 1.219rem;
+        background-color: #FFF4E9;
+        padding-top: auto;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0.938rem;
+        .points {
+            height: 1.5rem;
+            width: 42.125rem;
+            color: #FCA834;
+            font-family: "proxima_nova_rgregular";
+            font-size: 1.25rem;
+            font-weight: bold;
+            letter-spacing: 0;
+            margin-top: 0.6rem;
+            margin-left: 0.5rem;
+        }
+    }
     .stats{
         display:flex;
         flex-direction: row;
@@ -156,9 +178,75 @@
         margin-bottom:1.9rem;
        
     }
+    .beltpopup-button {
+        height: 3.125rem;
+        width: 12.125rem;
+        border-radius: 1.875rem;
+        background: #43AA8B;
+        color: #FFFFFF;
+        font-size: 1rem;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0.125rem;
+        margin-top: 1.45rem;
+        margin-bottom: 1.9rem;
+    }
     }
     }
 }
+.yellow-belt-achieved {
+    height: 29px;
+    width: 300px;
+    font-family: "Proxima Nova";
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 29px;
+    text-align: center;
+    margin-top: -34px;
+    margin-bottom: 38px;
+  }
+  .in-topic {
+    height: 22px;
+    width: 198px;
+    color: #20282A;
+    font-family: "Proxima Nova";
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 22px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .view-report {
+    height: 20px;
+    width: 84px;
+    color: #43AA8B;
+    font-family: "Proxima Nova";
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin: -16px 0 0px 54px;
+  }
+  .white-rectangle-belt {
+    height: 33.438rem;
+    width: 26.688rem;
+    border-radius: 0 5.563rem 0 5.563rem;
+    background-color: #FFFFFF;
+    z-index: 2;
+}
+.green-rectangle-belt {
+    height: 34.4rem;
+    width: 27.488rem;
+    border-radius: 0 5.563rem 0 5.563rem;
+    background-color: #C3FFEC;
+    z-index: 1;
+}
+
+
 }
 
 @media only screen and (max-width: 767px) {

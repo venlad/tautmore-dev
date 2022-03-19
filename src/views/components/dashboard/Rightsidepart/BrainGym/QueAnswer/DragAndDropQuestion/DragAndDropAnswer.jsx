@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { array, string } from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { array, func, string } from 'prop-types';
 
-const DragAndDropAnswer = ({ questionInChest, questionType }) => {
+const DragAndDropAnswer = ({ questionInChest, questionType, setSelect }) => {
     const [dragData, setDragData] = useState(questionInChest?.options);
     const [dropData, setDropData] = useState([
         { name: 'name 1', value: '' },
@@ -11,6 +11,13 @@ const DragAndDropAnswer = ({ questionInChest, questionType }) => {
     ]);
     const [dragItem, setDragItem] = useState();
     const [dragSource, setDragSource] = useState();
+
+    useEffect(() => {
+        const checkAllItemFilled = dropData.every((v) => v?.value !== '');
+        if (checkAllItemFilled) {
+            setSelect(true);
+        }
+    }, [dropData]);
 
     const handleDragStartTop = (index) => {
         setDragItem(index);
@@ -26,6 +33,14 @@ const DragAndDropAnswer = ({ questionInChest, questionType }) => {
             setDragData(newList);
             dropData[dragItem].value = '';
         }
+    };
+    const handleClick = (ind) => {
+        const newList = [...dragData];
+        const newitem = dropData[ind].value;
+        newList.splice(dropData[ind].dragsource, 1, newitem);
+        setDragData(newList);
+        dropData[ind].value = '';
+        delete dropData[ind].dragsource;
     };
 
     const handleDropBottom = (e, ind) => {
@@ -83,8 +98,6 @@ const DragAndDropAnswer = ({ questionInChest, questionType }) => {
         setDragItem(index);
         setDragSource('bottomItem');
     };
-
-    console.log(dropData, 'dropData from drag and drop');
 
     return (
         <div className="drag-and-drop-que-part">
@@ -193,6 +206,7 @@ const DragAndDropAnswer = ({ questionInChest, questionType }) => {
                                         <img
                                             draggable
                                             onDragStart={() => handleDragStartBottom(key)}
+                                            onDoubleClick={() => handleClick(key)}
                                             src={dropData[key].value.image}
                                             alt="option_image"
                                         />
@@ -218,6 +232,7 @@ const DragAndDropAnswer = ({ questionInChest, questionType }) => {
 DragAndDropAnswer.propTypes = {
     questionInChest: array.isRequired,
     questionType: string.isRequired,
+    setSelect: func.isRequired,
 };
 
 export default DragAndDropAnswer;

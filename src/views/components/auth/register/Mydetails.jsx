@@ -229,6 +229,14 @@ const Mydetails = ({
                     </div>
 
                     <Mydetailotpinput label="Enter OTP" verifyOtp={verifyOtp} showResendOtp={showResend} resendotp="Resend OTP" otpVal={otpVal} setOtpVal={setOtpVal} />
+                    <Mydetailotpinput
+                        label="Enter OTP"
+                        verifyOtp={verifyOtp}
+                        resendotp="Resend OTP"
+                        otpVal={otpVal}
+                        phoneNumVal={phoneNumVal}
+                        setOtpVal={setOtpVal}
+                    />
                 </div>
             </div>
         </div>

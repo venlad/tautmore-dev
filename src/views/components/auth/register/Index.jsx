@@ -180,8 +180,7 @@ const Register = ({ registerAction, isOtpVerified, registerTeacherAction }) => {
             grade: gradeVal,
             cocurricularActivity: coActivity,
             olympiadSubscriptionType: olympiadSubscriptionVal,
-            olympiadExamType: olympiadExamList,
-            // olympiadExamType: 'weekly',
+            olympiadExamType: olympiadExamList?.[0],
             subjectsEnrolled: subjectEnrolled,
             onBoardThrough: 'web',
         };

@@ -11,6 +11,9 @@
     position: fixed;
     overflow-y: scroll;
     width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 9999;
     .olympiad-head {
         margin-bottom: 20px;
         img {
@@ -245,6 +248,77 @@
     .olympiad-bottom::-webkit-scrollbar-thumb {
         background: #CBCDCD;
         border-radius: 3px;
+    }
+    .congrats-popup-main {
+        position: fixed;
+        height: 100vh;
+        z-index: 9999;
+        background-color: #E3FFF6;
+        left: 0;
+        width: 100%;
+        top: 0;
+        .right-answer-container {
+            width: 75%;
+            margin: auto;
+            .right-answer-modal {
+                padding: 0px 60px;
+                height: 530px;
+            }
+            .right-answer-modal-bg {
+                height: 550px;
+                border-radius: 0 100px 0 100px;
+            }
+        }
+        .congrats-detail {
+            text-align: center;
+            h2 {
+                font-family: "proxima_nova_rgbold";
+                font-size: 52px;
+                font-weight: bold;
+                color: #20282A;
+            }
+            h4 {
+                color: #4A5052;
+                font-size: 27px;
+                font-family: "proxima_nova_rgregular";
+                margin-bottom: 30px;
+                span {
+                    color: #43AA8B;
+                    font-family: "proxima_nova_rgbold";
+                }
+            }
+            .congrats-detail-sub {
+                background-color: #F4F7FC;
+                border-radius: 30px;
+                padding: 20px;
+                img {
+                    height: 40px;
+                    width: 35px;
+                    float: left;
+                    margin-right: 15px;
+                }
+                .congrats-detail-sub-part-right {
+                    text-align: left;
+                    float: left;
+                    p {
+                        margin-bottom: 5px;
+                    }
+                    h5 {
+                        margin-bottom: 0;
+                    }
+                }
+                .congrats-detail-sub-part {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .congrats-detail-sub-part:after {
+                    content: '';
+                    display: block;
+                    clear: both;
+                }
+            }
+        }
     }
 }
 .Olympiad-main::-webkit-scrollbar {

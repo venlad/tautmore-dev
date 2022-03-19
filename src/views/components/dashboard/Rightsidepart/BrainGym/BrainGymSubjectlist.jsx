@@ -1,34 +1,29 @@
 import React, { useState } from 'react';
-import { object } from 'prop-types';
+import { object, func, array } from 'prop-types';
+import { connect } from 'react-redux';
+import { startChestAction } from '../../../../../stores/BrainGym/BrainGymAction';
 
-const BrainGymSubjectlist = ({ subjectList, setSubjectId })  => {
-    const [activebtn, setActivebtn] = useState('');
-    const handleSciColor = () => setActivebtn('science');
-    const handleMathsColor = (id) => {
-        setActivebtn('maths');
-        setSubjectId(id);
+const BrainGymSubjectlist = ({ subjectList, setSelectedSubject, selectedSubject, startChest})  => {
+    
+    const handleSelectSubject = (obj) => {
+        setSelectedSubject(obj);
+        startChest(obj?._id)
     };
-    const handleEnglishcolor = () => {
-        setActivebtn('english');
-    };
-
-    console.log(subjectList, 'subjectList from brain-gym');
 
     return (
         <div className="row braingym-sublisttab">
             <div className="col-md-8 col-sm-12">
                 <div className="dtoggle-bar">
                 {subjectList?.map(item => (
-                      <div className="toggle-maths-div">
+                      <div key={item?.subject?._id} className="toggle-maths-div">
                       <button
-                          className={`toggle-maths-btn ${activebtn === 'maths' ? 'mathbtn-act' : 'mathbtn-un'}`}
+                          className={`toggle-maths-btn ${selectedSubject?._id === item?.subject?._id ? 'mathbtn-act' : 'mathbtn-un'}`}
                           type="button"
-                          onClick={() => handleMathsColor(item?.subject?._id)}
+                          onClick={() => handleSelectSubject(item?.subject)}
                       >
                           {item?.subject.name}
                       </button>
                   </div>
-
                 ))}
                 </div>
             </div>
@@ -37,7 +32,13 @@ const BrainGymSubjectlist = ({ subjectList, setSubjectId })  => {
 };
 
 BrainGymSubjectlist.propTypes = {
-    subjectList: object.isRequired,
+    subjectList: array.isRequired,
+    startChest: func.isRequired,
+    selectedSubject: object.isRequired
 };
 
-export default BrainGymSubjectlist;
+const mapDispatchToProps = (dispatch) => ({
+    startChest: (data) => dispatch(startChestAction(data)),
+});
+
+export default connect(null, mapDispatchToProps)(BrainGymSubjectlist);

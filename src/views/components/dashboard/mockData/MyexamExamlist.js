@@ -41,5 +41,9 @@ export const allsubject = [
 ];
 
 export const alltime = [
-    'All time',
+    { name: 'All time', value: '' },
+    { name: 'last 7 days', value: 'last_7_days' },
+    { name: 'last 30 days', value: 'last_30_days' },
+    { name: 'last 365 days', value: 'last_365_days' },
+
 ];

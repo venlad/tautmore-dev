@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    func, bool, string,
+    func, bool, object, array,
 } from 'prop-types';
 import Banner from './Banner';
 import ShellList from './ShellList';
@@ -9,9 +9,11 @@ import Close from '../../../../../../assets/images/Close-shell.svg';
 import Calender from '../../../../../../assets/images/Calender-shell.svg';
 import './style/shell.scss';
 import ShellPoupup from './ShellPoupup';
+import { currentDate } from '../../../../../../helpers/utility';
 
 const Shell = ({
-    setViewBrain, setShowShell, showShell, chestId, subjectId, setSubjectId,
+    setViewBrain, setShowShell, showShell, currentChest,
+    selectedSubject, setSubjectId, chests, chestInfodata,
 }) => {
     const closePopup = () => {
         setViewBrain('home');
@@ -25,7 +27,7 @@ const Shell = ({
                         <div className="total-points">
                             <div className="total-points-and-icon">
                                 <img id="icon-small" src={PointsIcon} alt="No Imag" />
-                                <p>112 Total Points</p>
+                                <p>{chests?.scoreObtained} Total Points</p>
                             </div>
                             <button type="button" className="close-btn" onClick={closePopup}>
                                 <img src={Close} alt="No Imag" />
@@ -38,26 +40,28 @@ const Shell = ({
                                     <div className="col-sm-3" />
                                     <div className="col-12 col-sm-6">
                                         <h2>Brain gym</h2>
-                                        <p className="subject-name">Mathematics</p>
+                                        <p className="subject-name">{selectedSubject?.name}</p>
                                     </div>
                                     <div className="col-12 col-sm-3">
                                         <div className="flex-items-calender-date">
                                             <img className="Calender" src={Calender} alt="No Imag" />
                                             <div className="title-and-date">
                                                 <p id="date-title">Date</p>
-                                                <p id="date">16th Aug</p>
+                                                {/* <p id="date">16th Aug</p> */}
+                                                <p id="date">{currentDate()}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                             </div>
-
                         </div>
                         <ShellList
+                            chests={chests?.chests}
+                            currentChest={currentChest}
                             setViewBrain={setViewBrain}
                             setShowShell={setShowShell}
-                            subjectId={subjectId}
+                            selectedSubject={selectedSubject}
                         />
                     </div>
                 </div>
@@ -65,20 +69,23 @@ const Shell = ({
 
             <ShellPoupup
                 setShowShell={setShowShell}
-                chestId={chestId}
+                currentChest={currentChest}
                 setViewBrain={setViewBrain}
+                chestInfodata={chestInfodata?.data}
             />
         </div>
     );
 };
 
 Shell.propTypes = {
+    chests: array.isRequired,
     setViewBrain: func.isRequired,
     setShowShell: func.isRequired,
     showShell: bool.isRequired,
-    chestId: string.isRequired,
-    subjectId: string.isRequired,
-    setSubjectId: string.isRequired,
+    currentChest: object.isRequired,
+    selectedSubject: object.isRequired,
+    setSubjectId: object.isRequired,
+    chestInfodata: object.isRequired,
 };
 
 export default Shell;

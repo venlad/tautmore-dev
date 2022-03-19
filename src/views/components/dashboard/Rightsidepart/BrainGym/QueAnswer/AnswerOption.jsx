@@ -22,7 +22,7 @@ const AnswerOption = ({
     }, [questionInChest]);
 
     const selectAns = (id) => {
-        setSelect(id);
+        setSelect([id]);
     };
 
     const questionType = findKeyByValue(questionInChest?.solutionType);
@@ -75,7 +75,7 @@ const AnswerOption = ({
         default:
             renderAnswer = (
                 <div
-                    className={`option-wrapper-tile-type d-flex align-items-center justify-content-between p-4 ${ind === select ? 'true' : ''}`}
+                    className={`option-wrapper-tile-type d-flex align-items-center justify-content-between p-4 ${select.includes(ind) ? 'true' : ''}`}
                 >
                     <button type="button" onClick={() => selectAns(ind)}>
                         {String.fromCharCode(ind + 65)} <span className="opti"> . </span>

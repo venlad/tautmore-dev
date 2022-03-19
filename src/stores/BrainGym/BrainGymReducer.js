@@ -5,6 +5,9 @@ const initialState = {
     questionInChest: [],
     attemptQuestion: [],
     completeChest: [],
+    chestInfo: [],
+    allShell: [],
+    incorrectAnswer: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -19,6 +22,21 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 questionInChest: action.payload,
             };
+        case actionTypes.UPDATE_GET_CHEST_INFO:
+            return {
+                ...state,
+                chestInfo: action.payload,
+            };
+        case actionTypes.UPDATE_ALL_SHELL:
+            return {
+                ...state,
+                allShell: action.payload,
+            };
+        case actionTypes.UPDATE_INCORRECT_ANSWER:
+            return {
+                ...state,
+                incorrectAnswer: action.payload,
+            };
         case actionTypes.UPDATE_ATTEMPT_QUESTION:
             return {
                 ...state,
@@ -27,7 +45,7 @@ export default function reducer(state = initialState, action) {
         case actionTypes.UPDATE_COMPLETE_CHEST:
             return {
                 ...state,
-                attemptQuestion: action.payload,
+                completeChest: action.payload,
             };
         default:
             return { ...state };

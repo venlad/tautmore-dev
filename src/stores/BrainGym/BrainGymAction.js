@@ -19,5 +19,17 @@ export const completeChestAction = (data) => ({
     type: actionTypes.COMPLETE_CHEST,
     payload: data,
 });
+export const getChestInfo = (data) => ({
+    type: actionTypes.GET_CHEST_INFO,
+    payload: data,
+});
+export const getAllShell = (data) => ({
+    type: actionTypes.GET_ALL_SHELL,
+    payload: data,
+});
+export const getIncorrectAns = (data) => ({
+    type: actionTypes.GET_INCORRECT_ANSWER,
+    payload: data,
+});
 
 export default {};
