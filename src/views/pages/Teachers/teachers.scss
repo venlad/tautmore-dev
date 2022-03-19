@@ -1,3 +1,67 @@
+.dashboard-main {
+  .dashboard-right {
+    .myexam-main {
+      .myexam-tab-left {
+        .dtoggle-bar {
+          .toggle-maths-div{
+            width: auto !important;
+            min-width: 230px;
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.student-image{
+  height: 60px;
+  width: 60px;
+} 
+.dothide {
+  display: none;
+}
+.dothide {    display: none;
+}
+
+// my payments 
+
+
+.mypaymenttab .nav-tabs .nav-link.active {
+  color: #1C1C1C;
+  border-color: transparent transparent #eee !important;
+  border-bottom: 6px solid #1C1C1C !important;
+  background-color: transparent !important;
+}
+.mypaymenttab .nav-tabs .nav-link {
+  border-top-left-radius: 0rem;
+  border-top-right-radius: 0rem;
+  color: #1C1C1C;
+  font-family: "Proxima Nova";
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+.mypaymenttab
+{
+  padding-top: 30px;
+}
+.nav-link:focus, .nav-link:hover {
+  color: #495057 !important;
+}
+.mypaymenttab .nav-tabs
+{
+  width: 50% !important;
+}
+.paymentstdid
+{
+  color:#20282A;
+  font-weight: 600;
+}
+
+
+// for payments page (teacher)
 .main1 {
     padding-top: 30px;
 
@@ -132,6 +196,7 @@
         .Clockicon {
             padding-right: 5px;
         }
+      
 
         .rawnimg {
             padding-right: 15px;
@@ -185,7 +250,161 @@
     }
 }
 
+//My Students 
 
+.toggle-maths-div
+{
+width: 50% !important;
+}
+.mysujecthead
+{
+  color: #20282A;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: "Proxima Nova";
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 31px;
+}
+.totalstudents
+{
+  color: #7D93F2;
+  font-family: "Proxima Nova";
+  font-size: 20px;
+  padding-top: 20px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 31px;
+  text-align: right;  
+}  
+.innerdiv
+{
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  box-shadow: 0 6px 24px 0 rgba(181,181,181,0.24);
+}
+.studenticon
+{
+  height: 60px;
+  width: 60px;
+}
+.stdname
+{
+  color: #20282A;
+  font-family: "Proxima Nova";
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 22px;
+  padding-top: 15px;
+}
+.stdgrade
+{
+  color: #454C4E;
+  font-family: "Proxima Nova";
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 16px;
+  text-align: center;
+}
+
+.label-main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.atteddiv .attendance {
+  color: #43AA8B;
+  font-family: "Proxima Nova";
+  width: 97px;
+  border: 1px solid #43AA8B;
+  border-radius: 9.5px;
+  background-color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 14px;
+  text-align: center;
+  padding: 5px 15px 5px 15px;
+}
+.atteddiv .attendanceAbsent {
+  color: #FD2A5B;
+  font-family: "Proxima Nova";
+  width: 97px;
+  border-radius: 9.5px;
+  border: 1px solid #EB2F6A;
+  background-color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 14px;
+  text-align: center;
+  padding: 5px 15px 5px 15px;
+
+}
+.stdloopdiv
+{
+  padding-top: 20px;
+}
+.dtoggle-bar
+{
+  width: 96% !important;
+}
+
+
+
+
+.examHeading
+{
+    color: #20282A;
+    font-family: "Proxima Nova";
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: 34px;
+}
+.examsidediv
+{
+    border-radius: 0 100px 0 100px;
+  background: linear-gradient(143.67deg, #39C399 0%, #00A070 100%);
+  
+}
+.cupicon
+{
+    width: 80%;
+}
+.aasigngradediv p
+{
+margin-bottom: 5px;
+}
+.assinon
+{
+    color: #FFFFFF;
+    font-family: "Proxima Nova";
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 22px;
+}
+.gradename
+{
+    color: #FFFFFF;
+  font-family: "Proxima Nova";
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+.cupicondiv
+{
+    text-align: right;
+}
+.rowpadding
+{
+    padding-top: 30px;
+    padding-bottom: 25px;
+}
 // .dashboard-main
 // { 
 //     .row-main {
@@ -194,3 +413,957 @@
 //                 .myexam-title{
 //                     margin: 0px;
 //                 } }}}}
+
+
+.completeddiv
+{
+    border-radius: 10px;
+  background-color: #F4F7FC;
+  width: 100%;
+  float: left;
+  padding: 30px;
+  margin-top: 20px;
+  .row{
+    padding-bottom: 20px;
+  }
+}
+
+
+.chapttitle
+{
+    color: #6F797B;
+    font-family: "Proxima Nova";
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 17px;
+    margin-bottom: 5px;
+}
+.subtitle
+{
+    color: #454C4E;
+    font-family: "Proxima Nova";
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 24px;
+    margin-bottom: 5px;
+}
+
+.myexam-answer-right {
+    h3 {
+      font-family: "proxima_nova_rgregular";
+      font-size: 24px;
+      color: #20282A;
+      margin-bottom: 20px;
+    }
+    .exam-right-common {
+      background-color: #F4F7FC;
+      border-radius: 20px;
+      padding: 15px;
+      margin-bottom: 20px;
+      .exam-right-left {
+        img {
+          width: 28px;
+          height: 19px;
+        }
+      }
+      .exam-right-center {
+        h5 {
+          font-family: "proxima_nova_rgregular";
+          color: #20282A;
+          font-size: 20px;
+        }
+        h5.answer {
+          color: #43AA8B;
+          font-family: "proxima_nova_rgbold";
+          margin: 15px 0px;
+        }
+        .option-main {
+          height: 0px;
+        }
+        .option-main.show {
+          height: 100px;
+        }
+        .option-top {
+          display: flex;
+          div {
+            width: 100px;
+            height: auto;
+           
+            img {
+              width: 56px;
+              height: 56px;
+            }
+            span {
+              width: 34px;
+              height: 34px;
+              border-radius: 50%;
+              background-color: #A0A4A6;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: #fff;
+              font-family: "proxima_nova_rgbold";
+             
+            }
+          }
+        }
+        span.index {
+          font-family: "proxima_nova_rgbold";
+        }
+      }
+      .exam-right-right {
+        button {
+          cursor: pointer;
+          background-color: transparent;
+          border: 0;
+        }
+        img {
+          height: 20px;
+          width: 20px;
+        }
+      }
+    }
+  }
+
+  // My Payments
+  
+  .divbg
+  {
+  border-radius: 10px;
+  background: linear-gradient(270deg, #1C1C1C 0%, #373737 100%);
+  box-shadow: 0 1px 34px -6px rgba(154,154,154,0.1);
+  padding: 25px 20px;
+  height:120px;
+  }
+  .paymentid
+  {
+    color: #FFFFFF;
+    font-family: "Proxima Nova";
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 15px; 
+    margin-bottom: 10px;
+    padding-top: 10px;
+  }
+  .payeename
+  {
+    color: #FFFFFF;
+    font-family: "Proxima Nova";
+    font-size: 26px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 31px;
+  }
+
+
+
+  table {
+    border-collapse: separate;
+    border-spacing: 20px 0;
+    width: 100%;
+  }
+  th {
+    // background-color: #4287f5;
+    color: white;
+    text-align: center !important;
+    color: #6F797B;
+    font-family: "Proxima Nova";
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 17px;
+  }
+  th,
+  td {
+    // width: 150px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+    color: #6F797B;
+    font-family: "Proxima Nova";
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 19px;
+    
+    
+  }
+  .tablerow{
+    border-radius: 10px;
+   background-color: #FFFFFF;
+  box-shadow: 0 22px 24px -10px rgba(189,189,189,0.07);
+  border-collapse: separate;
+  border-spacing: 0 1em;
+  }
+  .gfg {
+    border-collapse:separate;
+    border-spacing:0 15px;
+}
+.pending
+{
+  color: #FCA834;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+.processed
+{
+  color: #43AA8B;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: #FCA834;
+  border-radius: 50%;
+     
+}
+.viewdetails
+{
+  color: #F3722C;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 19px;
+  text-decoration: underline; 
+}          
+.paymentsection
+{
+  padding-top: 40px;
+  h1{
+    color: #20282A; 
+    font-family: "Proxima Nova";
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 31px;
+  }  
+}
+.tabledatastyle
+{
+  color: #20282A;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 19px;
+
+}
+.topdivpad
+{
+  padding-top: 30px;
+  
+
+}
+.tableheadings
+{
+  color: #6F797B;
+  font-family: "Proxima Nova";
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 17px;
+}
+
+  // My Students - Assignments
+
+  .dashboard-main{
+    .fixed-assign-bar{
+      width:100%;
+      position: fixed;
+      bottom: 0;
+      background-color: #FFFFFF;
+      box-shadow: -40px -18px 34px -10px rgba(0,0,0,0.12);
+      left: 0;
+      .container-fixed-assign-bar{
+        .heading-and-selected-topics {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 30px 0px 30px 50px;
+          p.selected-topics {
+            margin-bottom: 0;
+          }
+        }
+      }
+      .student-name-and-assign-button{
+        background-color: #E3FFF6;
+        // box-shadow: 0 -18px 34px -10px rgba(0,0,0,0.12);
+        display: flex;
+        align-items: center;
+        width:50%;
+        padding: 30px 50px;
+        position: relative;
+        img {
+          height: 70px;
+          width: 70px;
+          margin-right: 20px;
+        }
+        .student-name-and-grades {
+          h4.grades {
+            margin-bottom: 0;
+          }
+        }
+      }
+      .student-name-and-assign-button.mobile-view {
+        display: none;
+      }
+      .student-name-and-assign-button.desktop-view {
+        display: flex;
+      } 
+
+      .heading-assigned{ color: #42494B;
+        font-family: "Proxima Nova";
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 24px;}
+
+      .selected-topics{
+        color: #20282A;
+        font-family: "Proxima Nova";
+        font-size: 18px;
+        letter-spacing: 0;
+        line-height: 20px;
+      }
+
+      .student-name{
+        color: #20282A;
+        font-family: "Proxima Nova";
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 29px;
+      }
+
+      .grades{
+        color: #454C4E;
+        font-family: "Proxima Nova";
+        font-size: 18px;
+        letter-spacing: 0;
+        line-height: 20px;
+      }
+
+      
+      .assign-button{
+        height: 60px;
+        width: 250px;
+        border-radius: 33.75px;
+        background-color: #43AA8B;
+        box-shadow: 0 12px 10px 0 rgba(67,170,139,0.25);
+        border:none;
+        color: #FFFFFF;
+        font-family: "Proxima Nova";
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 24px;
+        text-align: left;
+        padding-left:20px;
+        position: absolute;
+        right: 50px;
+        margin-top: 0;
+      }
+     
+
+
+    }
+
+
+    .progress-and-percentage{
+      width: 80%;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      .progress {
+        width: 85%;
+        height: 100%;
+        background-color: #D0E2FF;
+        .progress-bar {
+          background-color: #79A2E7;
+        }
+      }
+      .percentage{
+        padding-left: 10px;
+        color: #79A2E7;
+        font-family: "Proxima Nova";
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 17px;
+        text-align: right;
+        float: right;
+        margin-top: -10px;
+      }
+    }
+    .container-body{
+      .heading-and-icon{
+        display: flex;
+        margin-bottom: 20px;
+        img {
+          float: left;
+          margin-right: 25px;
+        }
+        h3 {
+          margin-top: 20px;
+          color: #20282A;
+          font-family: "proxima_nova_rgregular";
+          font-size: 22px;
+          line-height: 32px;
+        }
+        .text-right {
+          text-align: right;
+          button {
+            background-color: transparent;
+            border: 0;
+            height: 20px;
+            width: 20px;
+            padding: 0;
+            margin-top: 5px;
+            position: relative;
+            left: 20px;
+            img {
+              height: 100%;
+              width: 100%;
+            }
+          }
+        }
+    }
+  }
+    .heading{
+      color: #20282A;
+      font-family: "proxima_nova_rgbold";
+      font-size: 32px;
+      font-weight: bold;
+      letter-spacing: 0;
+      margin-top: 10px;
+    }
+
+    .container-lists-and-sublists-main{
+      border-radius: 20px;
+      background-color: #F4F7FC;
+      margin-bottom: 125px;
+    }
+    .label-main {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+  
+    .lists-and-sublists{
+      padding:40px;
+      column-count: 3;
+      padding-right: 0;
+      .container-lists-and-sublists {
+        border: 1px solid transparent;
+        margin-bottom: 20px;
+      }
+    }
+
+    .list-name{   
+      color: #20282A;
+      font-family: "Proxima Nova";
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0;
+      line-height: 26px;
+      margin-top:10px;
+      
+    }
+
+    .sub-topic{
+      color: #20282A;
+      font-family: "proxima_nova_rgregular";
+      font-size: 20px;
+      letter-spacing: 0;
+      line-height: 1.3;
+      margin-top: 10px;
+    }
+    
+
+    .progress-bar{
+      height: 6px;
+      width: 253px;
+      color:#79A2E7;
+    }
+
+    .label-and-checkbox{
+      display: flex;
+      flex-direction: column;
+      .data-desc {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+      .checkbox{
+        margin-top: 5px;
+        margin-right: 5px;
+        height: 24px;
+        width: 24px;
+      }
+
+      .subtopic-name-selected{
+        color: #4FB697;
+        font-family: "Proxima Nova";
+        font-size: 18px;
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-top: 10px;
+        margin-right: 5px;
+      }
+
+      .subtopic-name{
+        color: #42494B;
+        font-family: "proxima_nova_rgregular";
+        font-size: 18px;
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 0;
+        text-decoration: underline;
+      }
+
+      }
+    }
+
+  // My students -main page
+
+
+  .dashboard-main .row-main .dashboard-right .myexam-answer-main-top {
+    padding: 15px !important;
+    .myexam-answer-left {
+      margin-top: 65px;
+    }
+
+    
+
+
+  }
+  .dashboard-main .row-main .dashboard-right .renewsub-main .renew-right-main button.payment-process {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .myexam-answer-main-top {
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    top: 0;
+    left: 0;
+    padding: 35px;
+    height: 100vh;
+    z-index: 9999;
+    padding-top: 70px;
+    padding-right: 20px;
+    padding-bottom: 0;
+  }
+  .close-top{
+    height: 70px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #fff;
+    text-align: right;
+    .close-btn {
+      background-color: transparent;
+      border: 0;
+      position: absolute;
+      right: 4%;
+      top: 25%;
+      img {
+        height: 20px;
+        width: 20px;
+      }
+    }
+}
+
+.myexam-answer-main {
+    width: 100%;
+    margin: auto;
+    overflow-y: scroll;
+    height: 100%;
+    padding-bottom: 30px;
+    padding-right: 20px;
+    .myexam-answer-left {
+      padding: 50px 30px;
+      background: linear-gradient(#39C399, #00A070);
+      border-radius: 0 100px 0 100px;
+      color: #FFFFFF;
+      .row {
+        margin-bottom: 40px;
+      }
+      .row:last-child {
+        margin-bottom: 0px;
+      }
+      p {
+        
+        font-family: "proxima_nova_rgregular";
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+      h5 {
+        font-size: 19px;
+        font-family: "proxima_nova_rgbold";
+      }
+      .Olympiad {
+        img {
+          width: 48px;
+          height: 50px;
+        }
+      }
+      .Total {
+        img {
+          width: 50px;
+          height: 50px;
+        }
+      }
+      .Date {
+        img {
+          width: 45px;
+          height: 50px;
+        }
+      }
+      .Time {
+        img {
+          width: 43px;
+          height: 51px;
+        }
+      }
+      .Accuracy {
+        img {
+          width: 47px;
+          height: 50px;
+        }
+      }
+      .Right {
+        img {
+          width: 36px;
+          height: 50px;
+        }
+      }
+    }
+    .myexam-answer-right {
+      h3 {
+        font-family: "proxima_nova_rgregular";
+        font-size: 24px;
+        color: #20282A;
+        margin-bottom: 20px;
+      }
+      .exam-right-common {
+        background-color: #F4F7FC;
+        border-radius: 20px;
+        padding: 15px;
+        margin-bottom: 20px;
+        .exam-right-left {
+          img {
+            width: 28px;
+            height: 19px;
+          }
+        }
+        .exam-right-center {
+          h5 {
+            font-family: "proxima_nova_rgregular";
+            color: #20282A;
+            font-size: 20px;
+          }
+          h5.answer {
+            color: #43AA8B;
+            font-family: "proxima_nova_rgbold";
+            margin: 15px 0px;
+          }
+          .option-main {
+            height: 0px;
+          }
+          .option-main.show {
+            height: 100px;
+          }
+          .option-top {
+            display: flex;
+            div {
+              width: 100px;
+              height: auto;
+             
+              img {
+                width: 56px;
+                height: 56px;
+              }
+              span {
+                width: 34px;
+                height: 34px;
+                border-radius: 50%;
+                background-color: #A0A4A6;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-family: "proxima_nova_rgbold";
+               
+              }
+            }
+          }
+          span.index {
+            font-family: "proxima_nova_rgbold";
+          }
+        }
+        .exam-right-right {
+          button {
+            cursor: pointer;
+            background-color: transparent;
+            border: 0;
+          }
+          img {
+            height: 20px;
+            width: 20px;
+          }
+        }
+      }
+    }
+  }
+
+
+  .assignbutdiv
+  {
+      text-align: center;
+  }
+  .classcompleted
+  {
+    color: #43AA8B;
+    font-family: "Proxima Nova";
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 29px;
+  }
+  .sendassignment
+  {
+    color: #454C4E;
+  font-family: "Proxima Nova";
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 22px;
+  }
+.teacher-assign-main {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 999;
+  height: 100vh;
+  overflow-y: scroll;
+  padding: 30px 40px;
+}
+
+@media only screen and (max-width: 1250px) {
+  .fixed-assign-bar {
+    .col-md-6 {
+      width: 100% !important;
+    }
+    .heading-and-selected-topics {
+      padding: 20px !important;
+      padding-left: 50px !important;
+      h2 {
+        font-size: 18px !important;
+      }
+      p {
+        font-size: 15px !important;
+      }
+    }
+    .student-name-and-assign-button {
+      padding: 20px !important;
+      padding-left: 50px !important;
+      img {
+        width: 50px !important;
+        height: 50px !important;
+      }
+      .student-name-and-grades {
+        .student-name {
+          font-size: 20px;
+          margin-bottom: 3px;
+        }
+        .grades {
+          font-size: 15px;
+        }
+      }
+      button.assign-button {
+        height: 50px;
+        width: 200px;
+        font-size: 18px;
+      }
+    }
+  }
+  .container-lists-and-sublists-main {
+    margin-bottom: 200px !important;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .teacher-assign-main {
+    .heading-and-icon {
+      img {
+        height: 40px;
+        width: 40px;
+      }
+      h2.heading {
+        font-size: 30px;
+        margin-top: 5px;
+      }
+      h3 {
+        font-size: 18px !important;
+      }
+    }
+    .lists-and-sublists {
+      column-count: 2;
+      .container-lists-and-sublists {
+        .list-name {
+          font-size: 20px;
+        }
+        .sub-topic {
+          font-size: 17px;
+        }
+        p.subtopic-name {
+          font-size: 15px;
+        }
+        .checkbox {
+          height: 18px;
+          width: 18px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 900px) {
+  .teacher-assign-main {
+    .heading-and-icon {
+      .col-md-7 {
+        width: 80%;
+      }
+      .col-md-5 {
+        width: 19%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .teacher-assign-main {
+    .heading-and-icon {
+      .col-md-7 {
+        width: 100%;
+        order: 2;
+        img {
+          height: 30px;
+          width: 30px;
+          float: left;
+        }
+        h2.heading {
+          font-size: 25px;
+        }
+        h3 {
+          font-size: 15px !important;
+        }
+      }
+      .col-md-5 {
+        width: 100%;
+        order: 1;
+        text-align: right;
+      }
+    }
+    .container-lists-and-sublists-main {
+      margin-bottom: 250px !important;
+      .lists-and-sublists {
+        column-count: 1;
+        .container-lists-and-sublists {
+          h3.list-name {
+            font-size: 17px;
+          }
+          .progress-and-percentage {
+            max-width: 300px;
+          }
+          .label-and-checkbox {
+            h3.sub-topic {
+              font-size: 16px;
+            }
+            .data-desc {
+              p.subtopic-name {
+                font-size: 14px;
+              }
+              .checkbox {
+                height: 12px;
+                width: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .fixed-assign-bar {
+      .heading-and-selected-topics {
+        h2.heading-assigned {
+          font-size: 16px !important;
+        }
+        p.selected-topics {
+          font-size: 14px !important;
+        }
+      }
+      .student-name-and-assign-button.mobile-view {
+        display: block;
+        text-align: center;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        .stu-common {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 20px;
+          
+        }
+        button.assign-button {
+          position: unset !important;
+          height: 45px;
+          width: 185px;
+          font-size: 16px;
+        }
+      }
+      .student-name-and-assign-button.desktop-view {
+        display: none;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 450px) {
+  .teacher-assign-main {
+    padding: 20px;
+    .heading-and-icon {
+      .col-md-7 {
+        text-align: center;
+        img {
+          float: none;
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+      }
+      button {
+        left: 0 !important;
+      }
+    }
+  }
+}
+
+body{
+overflow: auto !important;}
+
+#zmmtg-root {
+  display: none;
+}

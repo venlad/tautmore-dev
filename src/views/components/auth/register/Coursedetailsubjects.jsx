@@ -4,6 +4,7 @@ import  { array, string, object } from 'prop-types';
 const Coursedetailsubjects = ({
     label, data, setSubjectVal, subjectVal, validation, userType,
 }) => {
+    // console.log(subjectVal);
     const [checked, setChecked] = useState([]);
     const handleClick = (value, ind) => {
         if (checked.indexOf(ind) > -1) {
@@ -21,8 +22,18 @@ const Coursedetailsubjects = ({
         }
     };
 
+    const checkDisplay = () => {
+        if (userType === 'Student') {
+            return 'block';
+        }
+        if (userType === 'Teacher') {
+            return 'block';
+        }
+        return 'none';
+    };
+
     return (
-        <div className="col-md-6 subject-list-main" style={{ display: (userType === 'Student' ? 'none' : 'none')  }}>
+        <div className="col-md-6 subject-list-main" style={{ display: { checkDisplay }  }}>
             <label className="label" htmlFor="sublist">{label}</label>
             <div>
                 {data.map((val, ind) => (

@@ -11,6 +11,11 @@ const RouteEnum = {
     OLYMPIAD: '/olympiad',
     LOGIN: '/login',
     HOMESKELETON: '/home-skeleton',
+    TEACHERSHOME: '/teacher/',
+    TEACHERS: '/teacher/:viewtype',
+    EXAMDETAILS: '/exam-details',
+    ZOOMCALL: '/zoomCall',
+
 };
 
 export default RouteEnum;

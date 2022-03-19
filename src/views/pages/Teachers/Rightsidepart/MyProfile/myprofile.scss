@@ -1,0 +1,373 @@
+.container-teacher-profile{
+    
+    width:100%; 
+    margin-top: 30px;    
+    .name-and-id{
+        padding-top: 25px;
+        h5{
+            color: #20282A;
+            font-family: "Proxima Nova";
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 0;
+            line-height: 29px;
+        }
+
+        h6{
+            color: grey;
+            font-family: "Proxima Nova";
+            font-size: 18px;
+            letter-spacing: 0;
+            line-height: 20px;
+        }
+    }
+
+
+    .teacher-details{
+    display: flex;
+    flex-direction: column;
+    width:100%; 
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 12px 34px -10px rgba(0,0,0,0.05);
+    padding:30px;
+    margin:40px 0px;
+
+    .info-icon{
+        height: 18px;
+        width: 18px;
+        color:red;
+        margin-right:5px;
+        margin-bottom: 2px;
+      }
+
+    .heading-and-icon{
+        display: flex;
+
+        h4{
+            margin-top:10px;
+            margin-right:20px;
+            color: #454C4E;
+            font-family: "proxima_nova_rgbold";
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 0;
+            line-height: 29px;
+            text-align: center;
+        }
+    }
+
+    .details-and-change-button{
+        display: flex;
+        color: #20282A;
+        font-family: "Proxima Nova";
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 24px;
+        margin-top:30px;
+        width:100%;
+
+        .space-between{
+            display: flex;
+            justify-content: space-between;
+            width:50%;
+            margin-right:30px;
+
+
+            .button-green{
+                height: 49px;
+                width: 100px;
+                border-radius: 10px;
+                background-color: #43AA8B;
+            }
+
+            .certificate-buttons{
+                button{
+                    background-color: transparent;
+                    color: #43AA8B;
+                    font-family: "Proxima Nova";
+                    font-size: 16px;
+                    font-weight: 600;
+                    letter-spacing: 0;
+                    line-height: 19px;
+              
+                }
+
+                .faded{
+                    color:#7D8283
+                }        
+            
+            }    
+        }
+
+        .faded{
+            color: #7D8283;
+            font-family: "Proxima Nova";
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0;
+            line-height: 22px;
+        }
+
+        button{
+            height: 49px;
+            width: 100px;
+            border-radius: 10px;
+            background-color: #DDDDDD;
+            border:none;
+            color: #FFFFFF;
+            font-family: "proxima_nova_rgbold";
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 0;
+            line-height: 22px;
+            padding-top: 5px;
+        }
+        .details {
+            h5.sub-common {
+                display: inline-block;
+                margin-right: 7px;
+                text-transform: capitalize;
+            }
+        }
+    }
+    
+    }
+
+    .profile-pic-and-name{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:100%;   
+      
+        img{
+            margin-right:30px;
+            margin-top: 20px;;
+            height:100px;
+            width:100px;
+        }
+
+        .edit-icon{
+            height:30px;
+            width:30px;
+            margin-left:-55px;
+            margin-bottom: -68px;;
+        }
+          
+    }
+
+    .upload-container{
+
+        box-sizing: border-box;
+        height: 49px;
+        width: 540px;
+        border: 1px dashed #E0E0E0;
+        border-radius: 10px;
+        background-color: #FFFFFF;
+        align-self: center ;
+
+        .orange-underlined{
+            color:#F3722C;
+            text-decoration: underline;
+           
+        }
+        
+
+        p{
+            width:100%;
+            text-align: center;
+            padding-top:15px;
+            color: #7D8283;
+            font-family: "Proxima Nova";
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0;
+            line-height: 19px;
+            text-align: center;
+        }
+        label {
+            border: 0;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 100%;
+        }
+        svg {
+            display: none;
+        }
+        div.sc-dkPtRN.ebdQkY {
+            flex-direction: column;
+            align-items: center;
+            span.sc-hKwDye.kCudqJ {
+                position: relative;
+            }
+            span.sc-hKwDye.kCudqJ::after {
+                content: " here";
+                color: #F3722C;
+                font-family: "Proxima Nova";
+                font-size: 18px;
+            }
+        }
+        span {
+            text-decoration: none;
+            color: #7D8283;
+            font-size: 16px;
+            font-family: "Proxima Nova";
+        }
+        span.file-types {
+            display: none;
+        }
+    }
+
+  
+
+    .changes-admin3{
+        width: 511px;
+        text-align: center;
+        color: #7D8283;
+        font-family: "Proxima Nova";
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 19px;
+        margin:10px auto;
+        padding-top:20px;
+
+        .orange-underlined{
+            color:#F3722C;
+            text-decoration: underline;
+        }
+
+
+    }
+    .upload-notif {
+        margin-top: 35px;
+        border: #E0E0E0 solid 2px;
+        width: 100%;
+        height: 66px;
+        display: flex;
+        justify-content: space-between;
+        color: #20282A;
+        font-size: 18px;
+        align-items: center;
+        font-style: "proxima_nova_rgregular";
+        padding-left: 50px;
+        border-radius: 15px;
+        .upload-image {
+            margin-right: 10px;
+        }
+        .remove-file {
+            border: none;
+            background-color: #fff;
+            margin-right: 50px;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 1100px){
+    .container-teacher-profile {
+        .teacher-details {
+            .details-and-change-button {
+                flex-direction: column;
+                .space-between {
+                    width: 100%;
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px){
+    .container-teacher-profile{
+
+        .profile-pic-and-name{
+            padding:0px;
+            display: block;
+            text-align: center;
+            img {
+                margin: 0;
+                height: 70px;
+                width: 70px;
+            }
+            img.edit-icon {
+                height: 20px;
+                width: 20px;
+                margin-left: -20px;
+                margin-top: -10px;
+            }
+        }
+        .teacher-details{
+            margin:20px 0px;
+            .details-and-change-button{
+                width:110%;
+                .space-between{
+                    .button-green{
+                        height: 40px;
+                        font-size: 12px;
+                        margin-top: 10px;
+                    }
+                    h5 {
+                        font-size: 15px;
+                    }
+                    h5.faded {
+                        font-size: 18px;
+                    }
+                    .certificate-buttons {
+                        text-align: center;
+                        button {
+                            text-align: left;
+                        }
+                    }
+                }
+             
+            }
+            .space-between{
+                flex-direction: column;
+                button{
+                    height: 40px;
+                    font-size: 12px;
+                    margin-top: 10px;
+                }
+            }
+            .upload-container {
+                max-width: 540px;
+                width: 100%;
+            }
+        }
+        .changes-admin3{
+                width: 100%;
+        }
+        .heading-and-icon  {
+            align-items: center;
+            h4 {
+                font-size: 22px !important;
+            }
+            img {
+                height: 25px;
+                width: 25px;
+            }
+        }
+
+    }
+    
+}
+
+@media only screen and (max-width: 350px){
+    .container-teacher-profile {
+        .teacher-details .heading-and-icon h4 {
+            font-size: 20px !important;
+        }
+        p.changes-admin3 {
+            margin-left: 0;
+            margin-right: 0;
+            font-size: 14px;
+        }
+    }
+}

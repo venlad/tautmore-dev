@@ -1,23 +1,71 @@
 import React, { useState } from 'react';
+import { object } from 'prop-types';
 import '../../components/dashboard/dashboard.scss';
-import Sidemenu from '../../components/dashboard/Leftsidepart/Sidemenu';
+import Sidemenu from './Sidemenu';
 import DashSearch from '../../components/dashboard/Rightsidepart/DashSearch';
-import MyClassesTitle from '../../components/dashboard/Rightsidepart/MyexamTitle';
-import MyClassesTAB from '../../components/dashboard/Rightsidepart/MyClass/MyClassesTab';
-import MyClassesList from '../../components/dashboard/Rightsidepart/MyClass/MyClassesList';
-import SimpleSlider from './Slider';
-import SubjectModel from './SubjectModel';
 import './teachers.scss';
+import Home from './Rightsidepart/Home/Home';
+import MyClass from './Rightsidepart/MyClass/MyClass';
+import MySubjects from './Rightsidepart/MySubjects/MySubjects';
+import MyStudents from './Rightsidepart/MyStudents/MyStudents';
+import MyPayments from './Rightsidepart/MyPayments/MyPayments';
+import Calendar from './Rightsidepart/Calendar/Calendar';
+import MyProfile from './Rightsidepart/MyProfile/MyProfile';
+import Myconcept from './Rightsidepart/MyStudents/StudentConcepts/MyConcepts';
+import AssignmentsAndHomeWork from './Rightsidepart/MyStudents/Assignments/AssignmentsAndHomework';
 
-// import MyClassesCommon from '../../components/dashboard/Rightsidepart/MyClass/MyClassesCommon';
-import OnlineClassalert from './OnlineClassalert';
-
-const Teachers = () => {
+const Teachers = ({ match }) => {
     const [open, setOpen] = useState(false);
-    const [view, setView] = useState('Dashboard');
-    const [setConcept] = useState('');
     const [lgShow, setLgShow] = useState(false);
-    // const [exam, setExam] = useState('');
+    const viewType = match.url;
+    const caseType = match.params.viewtype ? match.params.viewtype : '';
+
+    const renderLayouts = () => {
+        let view = <Home lgShow={lgShow} setLgShow={setLgShow} />;
+
+        switch (caseType) {
+            case 'home':
+                view = <Home lgShow={lgShow} setLgShow={setLgShow} />;
+                break;
+
+            case 'subjects':
+                view = <MySubjects  />;
+                break;
+
+            case 'students':
+                view = <MyStudents lgShow={lgShow} setLgShow={setLgShow} />;
+                break;
+
+            case 'payments':
+                view = <MyPayments lgShow={lgShow} setLgShow={setLgShow} />;
+                break;
+
+            case 'classes':
+                view = <MyClass lgShow={lgShow} setLgShow={setLgShow} />;
+                break;
+
+            case 'calendar':
+                view = <Calendar />;
+                break;
+
+            case 'profile':
+                view = <MyProfile />;
+                break;
+
+            case 'concepts':
+                view = <Myconcept />;
+                break;
+
+            case 'assignments':
+                view = <AssignmentsAndHomeWork />;
+                break;
+
+            default:
+                view = <Home lgShow={lgShow} setLgShow={setLgShow} />;
+                break;
+        }
+        return view;
+    };
 
     return (
 
@@ -26,36 +74,19 @@ const Teachers = () => {
                 <Sidemenu
                     open={open}
                     setOpen={setOpen}
-                    setView={setView}
-                    view={view}
-                    setConcept={setConcept}
+                    viewType={viewType}
                 />
                 <div className="col-sm-9 dashboard-right">
                     <DashSearch />
-                    <OnlineClassalert />
-                    <div className="myexam-main">
-                        <MyClassesTitle title="My upcoming classes - 3"  />
-                        <MyClassesTAB />
-                        <div className="row">
-                            <div className="col-md-12 col-sm-12">
-                                <SimpleSlider handleSubjectModel={setLgShow} />
-                            </div>
-                        </div>
-                        <div>
-                            <SubjectModel
-                                showSubjectModel={lgShow}
-                                handleSubjectModel={setLgShow}
-                            />
-                        </div>
-                        <MyClassesTitle title="Completed classes history" />
-                        <MyClassesTAB />
-
-                        <MyClassesList />
-                    </div>
+                    {renderLayouts()}
                 </div>
             </div>
         </div>
     );
+};
+
+Teachers.propTypes = {
+    match: object.isRequired,
 };
 
 export default Teachers;

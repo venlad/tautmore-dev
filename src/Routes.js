@@ -10,9 +10,16 @@ import Dashboard from './views/components/dashboard/Dashboard';
 import Login from './views/components/auth/login/Login';
 import Homepage from './views/components/skeleton/Homepage/Homepage';
 import Teachers from './views/pages/Teachers/Teachers';
+import ExamDetails from './views/pages/Teachers/ExamDetails';
+import ZoomClassContainer from './views/pages/Teachers/Rightsidepart/MyClass/ZoomClassContainer';
 import Olympiad from './views/pages/Olympiad/Olympiad';
 
 const routes = [
+    {
+        key: 13,
+        path: RouteEnum.EXAMDETAILS,
+        component: ExamDetails,
+    },
     {
         key: 1,
         path: RouteEnum.HOME,
@@ -69,10 +76,21 @@ const routes = [
         component: Homepage,
     },
     {
+        key: 6,
+        path: RouteEnum.TEACHERSHOME,
+        component: Teachers,
+    },
+    {
         key: 12,
         path: RouteEnum.TEACHERS,
         component: Teachers,
     },
+    {
+        key: 14,
+        path: RouteEnum.ZOOMCALL,
+        component: ZoomClassContainer,
+    },
+
 ];
 
 export default routes;

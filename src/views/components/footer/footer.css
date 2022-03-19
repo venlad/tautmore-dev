@@ -1,0 +1,107 @@
+.footer-main .footer-top {
+  padding: 60px 50px;
+  background-color: #f0f4fa;
+}
+
+.footer-main .footer-top .footer-top-left img {
+  width: 248px;
+  height: 63px;
+  margin-bottom: 30px;
+}
+
+.footer-main .footer-top .footer-top-left ul {
+  padding: 0;
+  margin: 0;
+  margin-top: 40px;
+}
+
+.footer-main .footer-top .footer-top-left ul li {
+  list-style-type: none;
+  display: inline-block;
+  margin-right: 33px;
+  cursor: pointer;
+}
+
+.footer-main .footer-top .footer-top-left ul li svg {
+  height: 30px;
+  width: 30px;
+}
+
+.footer-main .footer-top .footer-top-right h4 {
+  font-size: 16px;
+  font-family: "Proxima Nova";
+  color: #20282a;
+  margin-bottom: 15px;
+}
+
+.footer-main .footer-top .footer-top-right ul {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-main .footer-top .footer-top-right ul li {
+  font-family: "proxima_nova_rgregular";
+  font-size: 18px;
+  line-height: 40px;
+  color: #4e5d61;
+  list-style: none;
+  cursor: pointer;
+}
+
+.footer-main .footer-bottom {
+  height: 76px;
+  background-color: #34373b;
+  padding: 27px 40px;
+  color: #fff;
+  font-family: "proxima_nova_rgregular";
+}
+
+.footer-main .footer-bottom .text-right {
+  text-align: right;
+}
+
+@media only screen and (max-width: 1070px) {
+  .footer-main .footer-top .footer-top-left img {
+    width: 200px;
+    height: 50px;
+  }
+  .footer-main .footer-top .footer-top-left p {
+    font-size: 15px;
+  }
+  .footer-main .footer-top .footer-top-left li {
+    margin-bottom: 30px;
+  }
+  .footer-main .footer-top .footer-top-right li {
+    font-size: 15px !important;
+  }
+}
+
+@media only screen and (max-width: 815px) {
+  .footer-main .footer-bottom {
+    height: auto;
+    padding: 15px;
+  }
+  .footer-main .footer-bottom p {
+    margin-bottom: 0;
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .footer-top-right {
+    margin-top: 30px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .footer-top {
+    padding: 60px 20px !important;
+  }
+  .footer-top p {
+    font-size: 13px !important;
+  }
+  .footer-bottom .text-right, .footer-bottom .text-left {
+    text-align: center !important;
+  }
+}
+/*# sourceMappingURL=footer.css.map */
