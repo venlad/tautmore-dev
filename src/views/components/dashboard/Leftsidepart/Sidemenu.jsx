@@ -10,9 +10,8 @@ import logouticon from '../../../../assets/images/logouticon.png';
 import { clearLoginAction } from '../../../../stores/Auth/AuthAction';
 
 const Sidemenu = ({
-    open, setOpen, clearLogin, viewType
+    open, setOpen, clearLogin, viewType,
 }) => {
-  
     const history = useHistory();
     const logOut = () => {
         localStorage.removeItem('taut-student');
@@ -31,14 +30,13 @@ const Sidemenu = ({
                 <div className="row">
                     <div
                         className="col-sm-3 dashboard-profile-left text-center"
-
                         aria-hidden="true"
                     >
                         <Link to="/dashboard/My-profile"><img src={Sidebarprofile} alt="profile" /></Link>
                     </div>
                     <div
                         className="col-sm-6 dashboard-profile-center"
-                      
+
                     >
                         <Link to="/dashboard/My-profile">
                             <h5>Susan Richards</h5>
@@ -60,8 +58,8 @@ const Sidemenu = ({
                     <h5>{sidebardata.title}</h5>
                     <ul>
                         {sidebardata?.data?.map((data) => (
-                            <li key={data?.title}  aria-hidden="true" className={`${viewType === data?.to ? 'active' : ''}`}>
-                                <Link to={`/dashboard/${data?.to}`}>
+                            <li key={data?.title} aria-hidden="true" className={viewType === data?.to ? 'active' : ''}>
+                                <Link to={'/dashboard/'.concat(data?.to)}>
                                     <img src={data?.image} alt="dash_list_img" />
                                     {data?.title}
                                 </Link>
