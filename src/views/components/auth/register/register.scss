@@ -1,65 +1,184 @@
+.PhoneInputCountrySelect {display:none}
+
+.outermost-div{
+
+  
+  .invisible-part{
+      
+    height:50px;
+   
+    margin-top: 40px;
+    border-top-left-radius: -9px;
+    display: flex;
+    justify-content: space-between;
+    padding:10px;
+    
+    .plus-icon{
+      width:24px;
+      height:24px;
+      display:flex;
+      justify-content:center;
+      align-items: center;
+          
+    }
+
+    .add-grade{
+      
+      display:flex;
+      justify-content:center;
+      align-items: center;
+      color: #43AA8B;
+      font-family: "proxima_nova_rgbold";
+      font-size: 24px;
+      font-weight: bold;
+      
+      
+      
+      line-height: 24px;
+
+
+    }
+  }
+
+
+
+}
+  
 .register-main {
     background-color: #f4f7fc;
     padding-bottom: 50px;
+    min-height:100vh;
+    box-shadow: 0 22px 24px -10px rgba(189,189,189,0.07);
+    .container{
+      width:95%
+    }
     .step-body {
-      padding: 40px;
+      padding: 40px 50px;
       background-color: #fff;
-      max-width: 80%;
-      margin: 50px auto;
+      max-width: 100%;
+      margin: 20px auto;
       border-radius: 40px;
-      box-shadow: 5px 5px 5px rgba(189, 189, 189, 0.07) !important;
+      box-shadow: 0 22px 24px -10px rgba(189,189,189,0.07);
+
+   
+    
       .step-btn-part {
         margin-top: 50px;
       }
       span.error-msg {
-        font-size: 13px;
+        font-size: 15px;
         color: red;
         margin-top: 10px;
+        font-family: "Proxima Nova";
+      }
+      .css-6kb8m9-menu {
+        div {
+          cursor: pointer;
+        }
+        div:hover {
+          background-color: #E3FFF6;
+          color: #43AA8B;
+        }
       }
     }
     .register-top {
-      padding: 30px 40px 15px;
+      padding: 40px 0px 15px;
+      .row{
+        width:100%;
+        display:flex;
+        justify-content: space-between;
+        margin-left:-40px;
+
+        .flex-row{
+          display: flex;
+          width:100%;
+        }
+
+
+
+        .inline-cross{
+          
+          width:30px;
+          padding-top:15px;
+          margin-right:-40px;
+
+        }
+
+
+
+        
+       
+      }
+      .close{
+      
+        width:20px;
+        height:20px;
+
+      }
+
+      .logo{
+        height: 63.32px;
+  width: 241px;
+      }
       h2 {
         font-size: 40px;
         line-height: 48px;
         color: #20282a;
         font-family: "Proxima Nova";
         margin-top: 10px;
+        margin-bottom: 30px;
+        margin-left:-50px;
         span {
           color: #43aa8b;
         }
       }
     }
     .option-part {
-      padding: 30px 40px 15px;
+      padding: 90px 40px 15px;
+      background-color: #fff;
+      height: 323px;
+      margin:108px 10px;
+      width: 1250px;
+      border-radius: 40px;
+      box-shadow: 0 22px 24px -10px rgba(189,189,189,0.07);
       .option-part-head {
         margin-bottom: 30px;
         text-align: center;
         h3 {
-          font-size: 32px;
+          font-size: 50px;
           font-family: "Proxima Nova";
+          margin-top:-267px;
         }
         p {
-          font-family: "proxima_nova_rgregular";
-          font-size: 24px;
+          font-family: "Proxima Nova";
+          font-size: 30px;
+          width:100%;
+          margin-bottom: 68px;
         }
       }
       .option-common {
         display: inline-block;
-        height: 137px;
-        width: 157px;
+        padding-top:14px;
+        height: 207px;
+        width: 250px;
         border-radius: 10px;
         background-color: #fff;
+        box-shadow: 0 5px 18px 0 rgba(140,140,140,0.1);
+        margin-left:72px;
+        margin-bottom:5rem;
+        margin-top:50px;
+        margin-right:53px;
+
         cursor: pointer;
         box-shadow: rgba(140,140,140,0.1);
         margin-right: 20px;
         svg {
-          margin-top: 20px;
+          margin-top: 50px;
         }
         p {
           margin-top: 20px;
           font-family: "proxima_nova_rgbold";
-          font-size: 18px;
+          font-size: 25px;
         }
         &:hover {
           background-color: #43AA8B;
@@ -85,7 +204,7 @@
       }
       h5.already-account {
         margin-top: 100px;
-        font-size: 18px;
+        font-size: 30px;
         font-family: "Proxima Nova";
         color: #20282A;
         a {
@@ -96,14 +215,14 @@
       button {
         max-width: 335px;
         width: 100%;
-        height: 50px;
+        height: 55px;
         border-radius: 25px;
         border: 0;
         background-color: #40A486;
         color: #fff;
         margin-top: 30px;
         font-family: "Proxima Nova";
-        font-size: 18px;
+        font-size: 20px;
         svg {
           margin-left: 10px;
         }
@@ -133,7 +252,7 @@
       span {
         display: block;
         font-family: "proxima_nova_rgregular";
-        font-size: 18px;
+        font-size: 20px;
         line-height: 20px;
         margin-top: 12px;
         color: #4a5052;
@@ -167,82 +286,442 @@
     div.stepper-above:last-child:after {
       content: none !important;
     }
+
+    // .coursedetails-main2{
+    //   background-color: #fff ;
+    //   border-radius:20px;
+
+    //   .dropdown-class{
+    //     margin-left:20px;
+    //   }
+
+    //   .label-div{
+    //     margin-left:20px
+    //   }
+      
+    //   .coursedetails-main{
+    //     .course-detail-select{
+        
+    //       .div.css-1s2u09g-control,.css-1pahdxg-control{
+    //       display:none;
+    //     }}
+    //   }
+      
+
+      
+      
+    // }
+
+
     .coursedetails-main {
-      button.add-subject {
-        background-color: transparent;
-        border: 0;
-        margin-top: 50px;
-        text-transform: uppercase;
-        font-family: "proxima_nova_rgbold";
-        color: #43AA8B;
+      .upload-container{
+        margin-top: 50px;;
+        font-style:'proxima_nova_rgregular';
+        width: 98%;
+        color: #7D8283;
         font-size: 20px;
-        img {
-          margin-right: 10px;
-          margin-top: -3px;
-        }
-      }
-      .choose-subject {
-        .counter, .input-box {
-          display: inline-block;
-        }
-        .counter {
-          height: 66px;
-          width: 66px;
-          cursor: pointer;
-          display: inline-block;
-          vertical-align: top;
-          img {
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 22px;
+
+        .dashed-border{
+
+          border :dashed 3px #E0E0E0 ;
+          height: 176px;
+          width: 100%;
+          border-radius: 15px;
+
+          .file-uploader{
+            display:block;
             width: 100%;
-          }
-        }
-        .input-box {
-          width: 90px;
-          height: 66px;
-          display: inline-block;
-          margin: 0px 10px;
-          vertical-align: top;
-          background-color: #F3F3F3;
-          border-radius: 10px;
-          input {
-            width: 100%;
-            border: 0;
             height: 100%;
-            background-color: #F3F3F3;
-            border-radius: 10px;
+            label {
+              display: block;
+              width: 100% !important;
+              height: 100%;
+              max-width: 100%;
+              margin-top: 0px !important;
+              svg {
+                display: none;
+              }
+              .sc-dkPtRN.ebdQkY {
+                display: flex;
+                height: 100%;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                span {
+                  font-family: "Proxima Nova";
+                  color: #7E8283;
+                  font-size: 18px;
+                  span {
+                    display: none;
+                  }
+                }
+                span.sc-hKwDye.kCudqJ {
+                  position: relative;
+                }
+                span.sc-hKwDye::after {
+                  content: ' here';
+                  color: #F3722C;
+                  font-family: "Proxima Nova";
+                  font-size: 18px;
+                }
+                span.sc-hKwDye.kCudqJ:before {
+                  content: "Maximum file size: 15MB";
+                  position: absolute;
+                  width: 100%;
+                  text-align: center;
+                  bottom: -29px;
+                  font-size: 15px;
+                }
+                span.file-types {
+                  display: none;
+                }
+              } 
+            }
+            .iciELI{
+              border:none;
+              width:500px;
+            }
+
+            .kCudqJ span{
+              font-size:20px;
+              color:black;
+            }
+
+            .kCudqJ{
+              font-size:18px;
+
+            }
+
+            .ebdQkY > span{
+              font-size:15px;
+
+
+            }
+
+            .iciELI {
+              margin-top:-10px;
+            }
+
+            
+         
+          }
+
+         
+
+          .upload-text1{
+
+
+
+           text-align: center;
+           padding-top:50px;
+           font-size: 20px;
+           font-weight: 600;
+           letter-spacing: 0;
+           line-height: 22px;
+           color: #7D8283;
+
+
+
+
+
+
+           .file-uploader{
+             border:"red";
+           }
+          
+           
+          }
+
+          .max-size{
             text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0;
+            line-height: 17px;
+            text-align: center;
+            color: #7D8283;
           }
-          input:focus {
-            outline: none;
+
+         
+
+          .orange{
+            color:#F3722C;
+            margin-left: 7px;
+            cursor: pointer;
           }
+
+      
+
         }
-        .remove-part {
-          display: inline-block;
-          margin-left: 50px;
-          margin-top: 20px;
-          cursor: pointer;
-          font-family: "proxima_nova_rgbold";
-          color: #FD2A5B;
-          img {
-            height: 24px;
-            width: 24px;
-            margin-top: -3px;
-          }
+
+        .upload-image{
+          margin-right:10px;
         }
-        .course-detail-select .label-div .info-icon {
-          height: 20px;
-          width: 20px;
-          background-color: #FCA834;
-          display: inline-flex;
-          border-radius: 50%;
-          color: #fff;
+
+        .upload-notif{
+          margin-top: 35px;;
+          border:#E0E0E0 solid 2px;
+          width:100%;
+          height: 66px;
+          display: flex;
+          justify-content: space-between;
+          color: #20282A;
+          font-size: 18px;
           align-items: center;
-          justify-content: center;
-          font-size: 14px;
-          margin-left: 10px;
-          position: relative;
-          top: -3px;
+          font-style:'proxima_nova_rgregular';
+          padding-left: 50px;
+          border-radius:15px;
+
+          .remove-file{
+            border:none;
+            font-style:'proxima_nova_rgregular';
+            background-color: #fff;
+            margin-right:50px;
+
+          }
+
+          .preview-image{
+            height:40px;
+            width:40px;
+          }
+
+          .close{
+      
+            width:20px;
+            height:20px;
+            margin-right:20px;
+    
+          }
+
+
+
+          .faded{
+            color:#7E8283;            }
+
         }
       }
+
+    
+
+
+
+   
+
+
+
+      .heading-and-dropdown{
+
+        .subject-list-main{
+
+          .subject-list{
+            .round{
+              .checkmark{
+                top:-25px;
+              }
+            }
+          }
+        }
+      }
+      .border1{
+        background-color: #FFFFFF;
+        height:50px;
+        width:99.2%;
+        border-bottom-left-radius:40px ;
+        border-bottom-right-radius:40px ;
+        
+        
+      }
+
+      .border2{
+        background-color: #FFFFFF;
+        height:50px;
+        width:99.2%;
+        border-top-left-radius:40px ;
+        border-top-right-radius:40px ;
+        
+        
+      }
+
+      .invisible-part{
+      
+        height:100px;
+        width:60vw;
+        margin-left:-80px;
+        margin-top: 40px;
+        border-top-left-radius: -9px;
+        display: flex;
+        justify-content: space-between;
+        padding:10px;
+        
+        .plus-icon{
+          width:24px;
+          height:24px;
+          display:flex;
+          justify-content:center;
+          align-items: center;
+              
+        }
+
+        .add-grade{
+          
+          display:flex;
+          justify-content:center;
+          align-items: center;
+          color: #43AA8B;
+          font-family: "proxima_nova_rgbold";
+          font-size: 24px;
+          font-weight: bold;
+          
+          
+          
+          line-height: 24px;
+
+
+        }
+      }
+
+    
+
+      // .row{
+
+      //   .css-1s2u09g-control{
+      //     display:none;
+      //   }
+      //   .inactive{
+      //     display:none;
+      //   }
+      // }
+
+      
+
+      .heading-and-dropdown{
+        width:100%;
+        height:auto;
+
+        .close-icon-container{
+        width:100%;
+          height:40px;
+          display:flex;
+          flex-direction: row-reverse;
+          margin-top:-80px;
+        }
+
+
+
+        .close-grade{
+          border:none;
+          background-color:transparent;
+          width:20px;
+          height:20px;
+          position: relative;
+          top: -20px;
+        }
+        .close-icon2{
+          width:30px;
+          height:30px;
+        }
+    
+        .heading{
+            padding-top:30px;
+            width:100%;
+            
+            h2{
+                color: #454C4E;
+                font-family: "proxima_nova_rgbold";
+                font-size: 24px;
+                font-weight: bold;
+                letter-spacing: 0;
+                line-height: 29px;
+                text-align: center;
+            }
+            
+            p{
+                color: #7D8283;
+                font-family: "Proxima Nova";
+                font-size: 19px;
+                font-weight: 600;
+                letter-spacing: 0;
+                line-height: 22px;
+                text-align: center;
+            }
+    
+            h2,p{
+                text-align: center;
+            }
+            
+            
+        }
+    
+    
+        .dropdowns{
+            display:flex;
+            justify-content: space-between;
+            
+
+           
+
+
+            .mutiple-dropdown-part{
+              .flex-column{
+                display:flex;
+                width:49vw; 
+              }
+              .subject-list-main {
+                width: 100%;
+                margin-bottom: 30px;
+              }
+            }
+
+            
+              .experience-field{
+                width:100%;
+                height:66px;
+                padding: 0px 10px;
+                border: 1px solid #e0e0e0;
+                border-radius: 10px;
+              }
+              .experience-field.focus-visible {
+                border: 1px solid #43aa8b;
+                border-radius: 10px;
+                box-shadow: none;
+                outline: none;
+              }
+            
+        
+            .label-div{
+                color: #7D8283;
+                font-family: "Proxima Nova";
+                font-size: 20px;
+                font-weight: 600;
+                letter-spacing: 0;
+                line-height: 25px;
+
+                .bold-weekday{
+                  color: #454C4E
+                }
+            }
+    
+            .dropdown-class{
+                color: #7D8283;
+                font-family: "Proxima Nova";
+                font-size: 18px;
+                font-weight: 600;
+                letter-spacing: 0;
+                line-height: 35px;
+                height:80px;
+                width:80%;
+                
+            }
+
+            
+
+            
+        }
+    
+    }
       h3.text-center {
         font-family: "proxima_nova_rgbold";
         color: #454c4e;
@@ -254,16 +733,54 @@
           color: #f3722c;
         }
       }
-      h3.bottom-title {
-        margin-bottom: 10px;
-        margin-top: 70px;
-      }
-      p.bottom-desc {
-        color: #7D8283;
-        font-family: "Proxima Nova";
-        font-size: 15px;
-      }
       .course-detail-select {
+        
+        .ReactFlagsSelect-module_selectBtn__19wW7{
+          border-radius: 10px;
+          height: 66px;
+          border: 1px solid #e0e0e0;
+          width: 100%;
+        }
+        .css-6j8wv5-Input{
+          font-size:20px;
+        }
+        .css-1kixbkd:hover{
+          background-color:  "blue";
+        }
+        .css-12jo7m5{
+          border-radius: 33px;
+          color: #7D8283;
+          font-size: 18px;
+          overflow: hidden;
+          padding: 7px;
+          margin: 0 5px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          box-sizing: border-box;
+          background-color: #E3FFF6;
+          font-style:"Proxima Nova";
+          font-weight: 600;
+        }
+         .css-xb97g8 {
+          border-radius: 50%;
+          color: #7D8283;
+          font-size: 20px;
+          margin-left:-10px
+         }
+
+         .css-xb97g8 :hover {
+          background-color: #E3FFF6;
+          color:black;
+         }
+
+         .css-1rhbuit-multiValue{
+          border-radius: 33px;
+          width:auto;
+         
+          background-color: #E3FFF6;
+          border: 1px solid #E0E0E0;
+
+         }
         label, div.label-div {
           display: block;
           color: #7d8283;
@@ -273,20 +790,25 @@
           margin-bottom: 5px;
           margin-top: 30px;
         }
+        div.css-1s2u09g-control:focus, .css-1pahdxg-control:focus{
+          border-color: blue;
+        }
+
+       
         div.css-1s2u09g-control, .css-1pahdxg-control {
-          width: 100%;
+          width: 120%;
           border: 1px solid #e0e0e0;
           border-radius: 10px;
           height: 66px;
           background-color: #fff;
           padding: 0px 20px;
           cursor: pointer;
-          display: flex;
           align-items: center;
           position: relative;
           box-shadow: none;
+
           .css-319lph-ValueContainer {
-            padding: 0;
+           
           }
           .css-1hb7zxy-IndicatorsContainer {
             span {
@@ -301,6 +823,9 @@
           }
         }
         div.select {
+          .css-1s2u09g-control{
+            margin-top:10px;
+            }
           width: 100%;
           border: 1px solid #e0e0e0;
           border-radius: 10px;
@@ -314,6 +839,8 @@
           svg {
             position: absolute;
             right: 20px;
+
+            
           }
         }
         button {
@@ -362,31 +889,127 @@
             z-index: 9;
           }
         }
-        .coursedetail-input-part {
-          input {
-            width: 100%;
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            height: 66px;
-            background-color: #fff;
-            padding: 0px 20px;
-            margin-top: 5px;
-          }
-          input:focus {
-            outline: none;
-          }
-        }
+
         
+       
       }
       .mutiple-dropdown-part {
-        div {
+        width:100%;
+        height: auto;
+
+       
+
+        
+        .qual-and-edu{
+          display:flex;
+          justify-content: space-between;
+
          
-          .css-1jllj6i-control {
-            display: none;
+
+
+        }
+
+
+        .qual{
+          margin-right: 50px;;
+
+          .div.css-1s2u09g-control{
+            width:150%
           }
+
+          
+        }
+
+        .upload-container{
+          margin-top: 50px;;
+          font-style:'proxima_nova_rgregular';
+          width: 100%;
+          color: #7D8283;
+          font-size: 18px;
+          font-weight: 600;
+          letter-spacing: 0;
+          line-height: 22px;
+
+
+          .dashed-border{
+
+         
+            
+            border :dashed 3px #E0E0E0 ;
+            height: 176px;
+            width: 100%;
+            border-radius: 15px;
+
+            
+
+            .upload-text1{
+             text-align: center;
+             padding-top:50px;
+             font-size: 18px;
+             font-weight: 600;
+             letter-spacing: 0;
+             line-height: 22px;
+             color: #7D8283;
+             
+            }
+
+            .max-size{
+              text-align: center;
+              font-size: 14px;
+              font-weight: 600;
+              letter-spacing: 0;
+              line-height: 17px;
+              text-align: center;
+              color: #7D8283;
+            }
+
+           
+
+            .orange{
+              color:#F3722C;
+            }
+
+        
+
+          }
+
+          .upload-image{
+            margin-right:10px;
+          }
+
+          .upload-notif{
+            margin-top: 60px;;
+            border:#E0E0E0 solid 2px;
+            width:100%;
+            height: 66px;
+            display: flex;
+            color: #20282A;
+            font-size: 18px;
+            align-items: center;
+            font-style:'proxima_nova_rgregular';
+            padding-left: 50px;
+
+            .faded{
+              color:#7E8283;            }
+
+          }
+        }
+       
+        
+
+        
+        div {
+          
+         
           span.css-1v99tuv {
-            color: #20282a;
-            font-size: 16px;
+            color: #7D8283;
+            font-family: "Proxima Nova";
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0;
+            line-height: 22px;
+            
+
           }
           .css-1vr111p-option,
           .css-1qprcsu-option {
@@ -489,21 +1112,29 @@
           display: block;
           color: #7d8283;
           font-family: "Proxima Nova";
+          font-weight: 600;
           font-size: 18px;
           line-height: 22px;
           margin-bottom: 5px;
-          margin-top: 30px;
+          margin-top: 10px;
         }
         .subject-list {
           border: 1px solid #e0e0e0;
-          display: inline-block;
-          padding: 15px;
-          width: 175px;
+          display: inline-flex;
+          align-items: center;
+          padding: 10px 15px;
+          width: auto;
           border-radius: 33px;
           margin-right: 10px;
           margin-bottom: 15px;
-          color: #000;
+          color: #20282A;
+          font-family: "Proxima Nova";
           background-color: #f4f7fc;
+          font-size:18px;
+          font-weight: 600;
+          padding-right: 25px;
+          min-width: 175px;
+          min-height: 55px;
           .round {
             position: relative;
             cursor: pointer;
@@ -565,7 +1196,181 @@
       }
     }
     .mydetails-main {
+      .row{
+        font-family: "Proxima Nova";
+        font-size: 20px;
+        padding-bottom: 10px;
+        color: #7d8283;
+
+        .course-detail-select{
+          .dropdown {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            .selected-value {
+              display: block !important;
+            }
+            input {
+              border: 0;
+              width: 100%;
+              height: 90%;
+            }
+            .options {
+              left: 0;
+            }
+            .arrow {
+              top: 42%;
+            }
+            .country-flag-and-selected-value {
+              align-items: center;
+            }
+          }
+          
+        .custom-dropdown{
+          width:100%
+        }
+            
+            .element-style{
+              font-size: 20px;;
+            }
+
+            .select-button{
+              font-size: 40px;;
+
+            }
+
+            .menu-flags{
+              font-size: 40px;
+              .ReactFlagsSelect-module_filterBox__3m8EU {
+                padding: 15px;
+                padding-bottom: 0;
+                input {
+                  margin: 0;
+                }
+              }
+              ul {
+                li:hover {
+                  background-color: #E3FFF6;
+                  span {
+                    color: #43AA8B;
+                  }
+                }
+              }
+             
+              .select-button::after {
+                content: "";
+                display: block;
+                box-sizing: border-box;
+                width: 8px;
+                height: 8px;
+                border-bottom: 2px solid #7D8283;
+                border-right: 2px solid #7D8283;
+                transform: rotate(45deg);
+                left: 4px;
+                top: 2px;
+                border-left: 0;
+                border-top: 0;
+                margin-right: 3px;
+              }
+            }
+
+          #state {
+           .css-1pahdxg-control {
+             box-shadow: none;
+             border: 1px solid #e0e0e0;
+             height: 66px;
+             cursor: pointer;
+           }
+           .css-1okebmr-indicatorSeparator {
+            background-color: transparent;
+           }
+           
+          }
+          
+          button.select-button:focus {
+            border: 1px solid #43AA8B;
+          }
+          .ReactFlagsSelect-module_selectBtn__19wW7{
+            border-radius: 10px;
+            height: 66px;
+            border: 1px solid #e0e0e0;
+            width: 100%;
+            font-size: 20px;
+          }
+
+          .ReactFlagsSelect-module_fullWidthOptions__1XeR6{
+            max-height:350px;
+            border-radius: 10px;
+          }
+
+          .ReactFlagsSelect-module_selectOptionValue__vS99-{
+            font-size: 20px;
+            padding:20px 10px;
+          }
+
+        }
+
+
+
+
+
+        
+        .ABC{
+          input{
+            margin-left:-72px;
+            padding-left:80px;
+          }
+
+          svg{
+            padding-left:20px
+          }
+        }
+
+       
+
+        .css-1s2u09g-control {
+         
+          border-radius: 10px;
+          height: 66px;
+          border: 1px solid #e0e0e0;
+          width: 100%;
+          
+
+          .css-2613qy-menu{
+            color:black;
+          }
+
+        }
+
+     
+
+        
+
+        
+
+
+        // .css-1s2u09g-control:focus{
+        //   border: 1px solid greenyellow;
+        // }
+        .css-319lph-ValueContainer{
+          margin: -12px;
+         
+          margin-left: 10px;;
+        }
+
+       
+      }
+
+     
+     
       .otp-block {
+        button{
+          background-color: #FFFFFF;
+          border:none;
+          color: #43aa8b;
+        }
         input {
           width: 100% !important;
         }
@@ -577,6 +1382,7 @@
           font-family: "proxima_nova_rgbold";
           margin-top: 7px;
           text-align: right;
+         
           span {
             margin-right: 0;
             cursor: pointer;
@@ -587,6 +1393,27 @@
       .mydetail-input {
         .mydetail-input-part {
           position: relative;
+
+          .phone-input-custom{
+            input{
+                  padding: 10px 70px;
+                  font-size: 18px;
+                  
+                  image{
+                    height:20px;
+                  }
+            }
+
+          }
+          
+            
+          
+
+        
+
+
+         
+
         }
         button {
           display: inline-block;
@@ -605,7 +1432,7 @@
       h3.text-center {
         font-family: "proxima_nova_rgbold";
         color: #454c4e;
-        font-size: 24px;
+        font-size: 25px;
         line-height: 29px;
         text-transform: uppercase;
         margin-bottom: 40px;
@@ -617,10 +1444,11 @@
         display: block;
         color: #7d8283;
         font-family: "Proxima Nova";
-        font-size: 18px;
+        font-size: 20px;
         line-height: 22px;
-        
-        margin-top: 30px;
+        margin-top: 38px;
+
+       
       }
       input {
         width: 100%;
@@ -633,6 +1461,11 @@
       }
       input:focus {
         outline: 0 !important;
+        border: 1px solid #43AA8B;
+        box-shadow: none;
+      }
+      input:hover {
+        border-color: #e0e0e0;
       }
     }
 
@@ -725,6 +1558,7 @@
       //     margin-bottom: 40px;
       //   }
       // }
+
       .student-last {
         position: relative;
         top: 32px;
@@ -810,6 +1644,13 @@
         color: #4a5052;
         line-height: 34px;
       }
+
+      .success-icon{
+        width:180px;
+        height:180px;
+      }
+
+
     }
     .next-button {
       background-color: #43aa8b;
@@ -825,6 +1666,8 @@
       padding: 0px 25px;
       transition: 0.3s;
       opacity: 0.8;
+      margin-right:10px;
+      margin-bottom: 10px;
       span {
         float: right;
         height: 24px;
@@ -903,8 +1746,8 @@
       padding: 5px;
     }
     .register-main .mydetails-main .mydetail-input button {
-      right: 3%;
-      bottom: 22%;
+      right: 1%;
+      bottom: 15%;
       font-size: 13px;
     }
     .register-main .pay-fees-main .payment-main h4 {
@@ -917,9 +1760,111 @@
       font-size: 15px;
     }
   }
-  @media only screen and (max-width: 767px) {
+
+  @media only screen and (max-width: 1373px){
+    .register-main{
+      .option-part{
+        width:90%;
+        margin: 56px 56px;
+
+        button{
+          width:42%;
+          height:48px;
+          margin-top: 10px;
+          font-size: 19px;
+        }
+
+        h5.already-account{
+          margin-top:30px;
+          font-size: 30px;;
+        }
+
+        .option-common{
+
+          padding-top: 0px;
+          height:140px;
+          width:200px;
+          margin-left:34px;
+
+          svg{
+            margin-top: 22px;
+          }
+
+        }
+
+        .option-part-head{
+          h3{
+            font-size: 40px;
+            margin-top: -211px;
+          }
+
+          p{
+            font-size: 28px;
+          }
+        }
+      }
+      
+    }
+  }
+
+
+  @media only screen and (max-width: 769px) {
+
+    .register-main{
+
+      .phone-input-custom input{
+        font-size: 18px !important;
+      }
+
+      .register-top .logo {
+        height:54px;
+        width:200px;
+      }
+      .container{
+        width:100vw;
+      }
+
+      .option-part{
+        width:100%;
+
+        .option-part-head h3{
+          font-size: 35px;
+        }
+
+        .option-part-head p{
+          margin-top:50px;
+        }
+
+
+
+        .option-common{
+          width:150px;
+          padding-top:0px;
+          margin-left:0px;
+        }
+      }
+
+      .option-part h5.already-account{
+        margin-top:10px;
+      }
+
+      
+
+
+    }
+
+   
     .register-top {
+
+
+     
       text-align: center;
+      
+      h2{
+        font-size:20px;
+        margin-top:440px;
+      }
+
     }
     .register-main .next-button {
       width: 250px;

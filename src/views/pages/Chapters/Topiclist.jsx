@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 import {
     object, bool, string, number, array, func, shape, arrayOf,
@@ -32,7 +33,7 @@ const Topiclist = ({
     return (
         <li>
             <span>
-                {`${String.fromCharCode(65 + topicIdx)}.`} {topic?.topicName} {topicIdx + 1}
+                {`${String.fromCharCode(65 + topicIdx)}.`} {topic?.topicName}
             </span>
             <ul>
                 {topic?.subTopic?.map((subTopic, subIdx) => (
@@ -51,7 +52,7 @@ const Topiclist = ({
                                 ? setDescriptionAnchor([idx, topicIdx, subIdx]) : '')}
                             className="sub-topic-div"
                         >
-                            {`${String.fromCharCode(65 + topicIdx)}.${subIdx + 1}`} {subTopic?.subTopicName} {subIdx + 1}
+                            {String.fromCharCode(65 + topicIdx)}.{subIdx + 1} {subTopic?.subTopicName}
                             <SubtopicDesc
                                 isShow={
                                     descriptionAnchor[0] === idx
@@ -60,7 +61,8 @@ const Topiclist = ({
                                 }
                                 ref={descRef}
                                 shouldToggleStyle={shouldToggleStyle}
-                                index={`${idx}_${topicIdx}_${subIdx}`}
+                                // eslint-disable-next-line prefer-template
+                                index={idx + '_' + topicIdx + '_' + subIdx}
                             />
                         </div>
 

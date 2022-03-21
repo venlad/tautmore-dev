@@ -12,6 +12,14 @@ const initialState = {
     AllGrades: [],
     Subjects: [],
     SubjectsByclass: [],
+    teacherData: [{}],
+    timeSlots: [],
+    universities: [],
+    qualifications: [],
+    countryList: [],
+    statesList: [],
+    subjects: [],
+
 };
 
 export default function reducer(state = initialState, action) {
@@ -73,6 +81,45 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 SubjectsByclass: action.payload,
             };
+        case actionTypes.UPDATE_REGISTER_TEACHER:
+            return {
+                ...state,
+                teacherData: action.payload,
+            };
+
+        case actionTypes.UPDATE_GET_TIMESLOTS:
+            return {
+                ...state,
+                timeSlots: action.payload,
+            };
+        case actionTypes.UPDATE_GET_UIVERSITIES:
+            return {
+                ...state,
+                universities: action.payload,
+            };
+        case actionTypes.UPDATE_GET_QUALIFICATIONS:
+            return {
+                ...state,
+                qualifications: action.payload,
+            };
+
+        case actionTypes.UPDATE_GET_SUBJECTS:
+            return {
+                ...state,
+                subjects: action.payload,
+            };
+
+        case actionTypes.UPDATE_GET_COUNTRY_LIST:
+            return {
+                ...state,
+                countryList: action.payload,
+            };
+        case actionTypes.UPDATE_GET_STATE_LIST:
+            return {
+                ...state,
+                statesList: action.payload,
+            };
+
         default:
             return { ...state };
     }

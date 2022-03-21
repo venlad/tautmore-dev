@@ -1,0 +1,874 @@
+.calendar-main {
+    .calendar-head {
+        margin-top: 30px;
+        h3 {
+            font-family: "proxima_nova_rgbold";
+            font-size: 32px;
+            color: #20282A;
+            display: inline-block;
+            margin-right: 30px;
+        }
+        p.desc {
+            font-family: "Proxima Nova";
+            font-size: 16px;
+            color: #6F797B;
+            line-height: 19px;
+            margin-top: 55px;
+            margin-bottom: 0;
+        }
+        .text-right {
+            text-align: right;
+            button.leave {
+                background-color: #F3722C;
+                color: #FFE7D9;
+                border-radius: 10px;
+                height: 50px;
+                width: 190px;
+                color: #fff;
+                font-family: "proxima_nova_rgbold";
+                font-size: 16px;
+                border: 0;
+            }
+        }
+        .left-right-arrow {
+            display: inline-block;
+            .arrow-common {
+                height: 34px;
+                width: 34px;
+                background-color: #EAEAEA;
+                color: #20282A;
+                border-radius: 50%;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        .view-part {
+            margin-bottom: 30px;
+            p {
+                font-family: "Proxima Nova";
+                font-size: 16px;
+                color: #6F797B;
+                line-height: 19px;
+                margin-bottom: 0;
+                display: inline-block;
+                margin-right: 20px;
+                vertical-align: top;
+            }
+            span {
+                margin-right: 20px;
+            }
+            button {
+                background-size: cover;
+                background-repeat: no-repeat;
+                height: 24px;
+                width: 24px;
+                background-color: transparent;
+                border: 0;
+                font-size: 0px;
+                vertical-align: top;
+            }
+            button.menu {
+                background-image: url('../../../../../../src/assets/images/menu.svg');
+                margin-right: 10px;
+            }
+            button.grid {
+                background-image: url('../../../../../../src/assets/images/grid.svg');
+            }
+        }
+    }
+    .calendar-table {
+        background-color: #fff;
+        padding: 20px;
+        text-align: center;
+        box-shadow: rgba(189,189,189,0.07);
+        border-radius: 10px;
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            tr {
+                display: inline-block;
+            }
+            td {
+                display: block;
+                text-align: left;
+                padding-bottom: 20px;
+            }
+            td.border-bottom {
+                margin-bottom: 15px;
+                color: #6F797B;
+                font-size: 14px;
+                font-family: "Proxima Nova";
+                border-color: #6F797B;
+            }
+        }
+        .rbc-calendar {
+            .rbc-toolbar {
+                position: absolute;
+                top: 120px;
+                left: 17px;
+                .rbc-toolbar-label {
+                    order: 1;
+                    font-family: "proxima_nova_rgbold";
+                    font-size: 32px;
+                    color: #20282A;
+                    display: inline-block;
+                    margin-right: 30px;
+                }
+                span.rbc-btn-group:nth-child(1){
+                    order: 2;
+                    button:first-child {
+                        display: none;
+                    }
+                    button {
+                        height: 34px;
+                        width: 34px;
+                        background-color: #EAEAEA;
+                        color: #20282A;
+                        border-radius: 50%;
+                        display: inline-flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 0px;
+                        border: 0;
+                    }
+                    button:nth-child(2) {
+                        margin-right: 40px;
+                        position: relative;
+                    }
+                    button:nth-child(2)::after {
+                        content: '';
+                        background-image: url('../../../../../../src/assets/images/rectangle.svg'); 
+                        position: absolute;
+                        height: 10px;
+                        width: 10px;
+                        background-size: cover;
+                        left: 145%;
+                    }
+                    
+                }
+                span.rbc-btn-group:nth-child(3){
+                    order: 3;
+                    display: none;
+                }
+            }
+            .rbc-month-view  {
+                border: 0;
+                display: block;
+                .rbc-date-cell.rbc-now.rbc-current {
+                    color: #F3722C;
+                }
+                .rbc-event-allday {
+                    background-color: transparent;
+                    .event-common {
+                        background-image: url('../../../../../../src/assets/images/rectangle.svg'); 
+                        height: 10px;
+                        width: 10px;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        margin: auto;
+                    }
+                }
+                .rbc-date-cell a:hover {
+                    color: #20282A;
+                }
+                .rbc-header {
+                    border: 0;
+                }
+                .rbc-month-row {
+                    .rbc-day-bg + .rbc-day-bg {
+                        border: 0;
+                    }
+                    .rbc-day-bg.rbc-today {
+                        background-color: transparent;
+                    }
+                }
+                .rbc-month-row + .rbc-month-row {
+                    border: 0;
+                }
+                .rbc-month-header {
+                    border-bottom: 1px solid #6F797B;
+                    margin-bottom: 20px;
+                    padding-bottom: 25px;
+                    .rbc-header {
+                        span {
+                            color: #6F797B;
+                            font-size: 14px;
+                            font-family: "Proxima Nova";
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+                .rbc-month-row {
+                    .rbc-date-cell {
+                        text-align: center;
+                        font-family: "proxima_nova_rgbold";
+                        color: #20282A;
+                        font-size: 20px;
+                        padding: 15px 0px;
+                    }
+                    .rbc-off-range-bg {
+                        background: transparent;
+                    }
+                    .rbc-date-cell.rbc-off-range {
+                        color: #6F797B;
+                    }
+                }
+                .rbc-event.rbc-event-allday {
+
+                }
+            }
+        }
+    }
+    .calendar-row.full-view {
+        .rbc-date-cell, .rbc-header {
+            text-align: left !important;
+        }
+        .rbc-calendar {
+            min-height: auto !important;
+            display: block;
+            .rbc-month-view {
+                display: block;
+                .rbc-month-row {
+                    .rbc-date-cell {
+                       padding-bottom: 15px;
+                    }
+                }
+            }
+        }
+        .rbc-month-row { 
+            .rbc-day-bg {
+                border-bottom: 1px solid #6F797B !important;
+                margin-right: 25px;
+            }
+            .rbc-date-cell {
+                padding-top: 15px;
+            }
+        }
+        div.rbc-month-row:last-child {
+            .rbc-day-bg {
+                border: 0 !important;
+            }
+        }
+        .rbc-month-header {
+            border: 0 !important;
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+            .rbc-header {
+                border-bottom: 1px solid #6F797B !important;
+                margin-right: 25px;
+                padding-bottom: 20px;
+            }
+        }
+        .rbc-row-segment {
+            padding: 0;
+        }
+        .rbc-date-cell.rbc-now.rbc-current {
+            padding: 0 !important;
+            a {
+                padding-left: 10px;
+                width: 84%;
+                background-color: #FFF4E9;
+                height: 100%;
+                display: block;
+                padding-top: 20px;
+            }
+        }
+        .rbc-event.rbc-event-allday {
+            background-color: #FFF4E9;
+            border-radius: 0;
+            width: 84%;
+            padding-left: 10px;
+        }
+        .event-main {
+            color: #000;
+            text-align: left;
+            p.subject {
+                margin-bottom: 0;
+                color: #20282A;
+                font-family: "proxima_nova_rgbold";
+                font-size: 14px;
+            }
+            p.time {
+                color: #6F797B;
+                font-size: 14px;
+                font-family: "Proxima Nova";
+                margin-bottom: 0;
+            }
+        }
+    }
+    .time-table {
+        background-color: #FFF4E9;
+        box-shadow: rgba(189,189,189,0.07);
+        padding: 20px;
+        border-radius: 10px;
+        .time-table-head {
+            border-bottom: 1px solid #F3722C;
+            margin-bottom: 20px;
+            color: #F3722C;
+            font-size: 16px;
+            font-family: "proxima_nova_rgbold";
+        }
+        .time-table-common {
+            margin-bottom: 25px;
+            h5 {
+                margin-bottom: 0;
+                font-family: "proxima_nova_rgbold";
+                color: #20282A;
+                font-size: 22px;    
+            }
+            p {
+                margin: 5px 0;
+                color: #20282A;
+                font-family: "proxima_nova_rgregular";
+            }
+            a {
+                color: #F3722C;
+                font-family: "proxima_nova_rgregular";
+            }
+        }
+    }
+    .leave-main {
+        margin-top: 30px;
+        h3 {
+            font-family: "proxima_nova_rgbold";
+            font-size: 32px;
+            color: #20282A;
+        }
+        .leave-table {
+            width: 100%;
+            overflow-x: scroll;
+            td.comments {
+                width: 320px;
+            }
+        }
+        table {
+            border-collapse: separate;
+            border-spacing: 0px 20px;
+            width: 100%;
+            tbody tr {
+                background-color: #fff;
+                box-shadow: rgba(189,189,189,0.07) !important;
+                td {
+                    font-size: 16px;
+                    color: #20282A;
+                    font-family: "proxima_nova_rgbold";
+                    span.dot {
+                        width: 10px;
+                        height: 10px;
+                        display: inline-block;
+                        border-radius: 50%;
+                        margin-right: 10px;
+                    }
+                }
+                td.Pending {
+                    color: #FCA834;
+                    span.dot {
+                        background-color: #FCA834;
+                    }
+                }
+                td.Approved {
+                    color: #43AA8B;
+                    span.dot {
+                        background-color: #43AA8B;
+                    }
+                }
+                td.Denied {
+                    color: #E72D0D;
+                    span.dot {
+                        background-color: #E72D0D;
+                    }
+                }
+                td.Cancelled {
+                    color: #787C7E;
+                    span.dot {
+                        background-color: #787C7E;
+                    }
+                }
+                td.edit {
+                    color: #F3722C;
+                    text-decoration: underline;
+                    font-size: 16px;
+                    font-family: "proxima_nova_rgbold";
+                    text-transform: uppercase;
+                    button {
+                        background-color: transparent;
+                        border: 0;
+                        color: #F3722C;
+                    }
+                }
+            }
+            td {
+                padding: 15px;
+            }
+            thead {
+                td {
+                    padding: 0px 15px;
+                    font-size: 14px;
+                    color: #6F797B;
+                    font-family: "proxima_nova_rgbold";
+                }
+            }
+        }
+    }
+    
+    
+    @media only screen and (max-width: 767px) {
+        .calendar-head {
+            .text-right {
+                text-align: left;
+                button {
+                    height: 45px;
+                    width: 150px;
+                    font-size: 15px;
+                }
+            }
+            .view-part {
+                text-align: center;
+                p {
+                    margin: 1rem 0;
+                }
+            }
+            h3 {
+                font-size: 28px;
+            }
+            p {
+                font-size: 14px;
+            }
+        }
+        .time-table {
+            margin: 30px 0px;
+            .time-table-common {
+                h5 {
+                    font-size: 20px;
+                }
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+        .leave-main {
+            h3 {
+                font-size: 28px;
+            }
+            .leave-table {
+                tbody tr td {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}
+.calendar-leave-popup {
+    .modal-dialog {
+        max-width: 620px;
+    }
+    .modal-content {
+        height: auto !important;
+        overflow: auto !important;
+        .close {
+            top: 30px;
+        }
+        .modal-header {
+            h3 {
+                font-family: "proxima_nova_rgbold";
+                font-size: 32px;
+                color: #20282A;
+            }
+            p {
+                color: #7D8283;
+                font-size: 18px;
+                line-height: 22px;
+                margin-bottom: 0;
+            }
+        }
+        .modal-body {
+            padding: 30px;
+            padding-top: 15px;
+            div.label {
+                color: #7D8283;
+                font-family: "Proxima Nova";
+                font-size: 18px;
+            }
+            input, button.dropdown-toggle {
+                border-radius: 10px;
+                width: 100%;
+                border: 1px solid #E0E0E0;
+                height: 66px;
+                padding: 15px;
+                color: #7D8283;
+                font-family: "Proxima Nova";
+            }
+            input[type=textarea] {
+                height: 100px;
+            }
+            input:focus {
+                border-color: #43AA8B;
+                outline: none;
+            }
+            button.button-common {
+                margin-top: 30px;
+            }
+            .mt-25.ml-25.rp-manage-school_error-message {
+                margin-top: -15px;
+                font-size: 13px;
+                color: red;
+                margin-bottom: 20px;
+            }
+            p.day-leave {
+                text-align: center;
+                color: #F3722C;
+                font-family: "proxima_nova_rgbold";
+                font-size: 18px;
+                margin-bottom: 0;
+                margin-top: 10px;
+            }
+        }
+    }
+    .leave-applied {
+        text-align: center;
+        h3 {
+            font-family: "proxima_nova_rgbold";
+            font-size: 32px;
+            color: #20282A;
+        }
+        p {
+            font-family: "Proxima Nova";
+            font-size: 18px;
+            color: #7D8283;
+        }
+    }
+    .react-datepicker-popper {
+        width: 90%;
+        .react-datepicker {
+            width: 100%;
+            padding: 25px;
+            border-color: #43AA8B;
+            padding-top: 10px;
+            .react-datepicker__month-container {
+                width: 100%;
+                .react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
+                    width: 14%;
+                    text-align: left;
+                    padding: 12px 5px;
+                    text-transform: uppercase;
+                }
+            }
+            .react-datepicker__month {
+                margin: 0 !important;
+            }
+            .react-datepicker__triangle::after {
+                content: none !important;
+            }
+            .react-datepicker__triangle::before {
+                content: none !important;
+            }
+            .react-datepicker__header  {
+                background-color: transparent;
+                border-color: #6F797B;
+                margin-bottom: 10px;
+                padding-bottom: 15px;
+                .react-datepicker__current-month {
+                    // display: none;
+                    display: inline-block;
+                    position: relative;
+                    top: -10px;
+                    color: #F3722C;
+                }
+            }
+            .react-datepicker__navigation {
+                top: 2%;
+            }
+            .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range {
+                border-radius: 0;
+                background-color: #FFF4E9;
+                color: #020202 !important;
+            }
+            .react-datepicker__day--selected {
+                color: #F3722C !important;
+                border-radius: 0;
+                background-color: #FFF4E9;
+            }
+            .react-datepicker__day:hover, .react-datepicker__month-text:hover, .react-datepicker__quarter-text:hover, .react-datepicker__year-text:hover {
+                border-radius: 0;
+                background-color: #FFF4E9;
+                color: #F3722C !important;
+            }
+            .react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected, .react-datepicker__quarter-text--keyboard-selected, .react-datepicker__year-text--keyboard-selected {
+                border-radius: 0;
+                background-color: #FFF4E9;
+                color: #F3722C !important;
+            }
+            .react-datepicker__day-names {
+                .react-datepicker__day-name {
+                    color: #6F797B;
+                    font-family: "Proxima Nova";
+                    font-size: 14px;
+                }
+            }
+            .react-datepicker__week {
+                .react-datepicker__day {
+                    font-family: "proxima_nova_rgbold";
+                    color: #20282A;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+.reschedule-popup {
+    .time-list-main {
+        margin-bottom: 10px;
+        label.label {
+          display: block;
+          color: #7d8283;
+          font-family: "Proxima Nova";
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 22px;
+          margin-bottom: 5px;
+          margin-top: 10px;
+        }
+        .time-list {
+          border: 1px solid #e0e0e0;
+          display: inline-flex;
+          align-items: center;
+          padding: 10px 15px;
+          width: auto;
+          border-radius: 33px;
+          margin-right: 10px;
+          margin-bottom: 15px;
+          color: #20282A;
+          font-family: "Proxima Nova";
+          background-color: #f4f7fc;
+          font-size:18px;
+          font-weight: 600;
+          padding-right: 25px;
+          min-width: 175px;
+          min-height: 55px;
+          position: relative;
+          .round {
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 35px;
+            input {
+              border-radius: 50%;
+              margin-right: 10px;
+              position: absolute;
+              opacity: 0;
+              cursor: pointer;
+              height: 0;
+              width: 0;
+            }
+            input:checked ~ .checkmark {
+              background-color: #43aa8b;
+            }
+            .checkmark {
+              position: absolute;
+              top: 28%;
+              left: 5%;
+              height: 25px;
+              width: 25px;
+              background-color: #fff;
+              border: 1px solid #e0e0e0;
+              border-radius: 50%;
+            }
+            .checkmark:after {
+              content: "";
+              position: absolute;
+              display: none;
+            }
+            input:checked ~ .checkmark:after {
+              display: block;
+            }
+            .checkmark:after {
+              left: 9px;
+              top: 5px;
+              width: 5px;
+              height: 10px;
+              border: solid white;
+              border-width: 0 3px 3px 0;
+              -webkit-transform: rotate(45deg);
+              -ms-transform: rotate(45deg);
+              transform: rotate(45deg);
+            }
+          }
+        }
+        .time-list.active {
+          border: 1px solid #43aa8b;
+          background-color: #fff;
+          color: #43aa8b;
+        }
+    }
+    .timer-loader {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .time-dropdown {
+        width: 100%;
+        border: 0;
+        button.dropdown-toggle {
+            color: #7D8283;
+            font-family: "Proxima Nova";
+            background-color: transparent;
+            text-align: left;
+        }
+        button.dropdown-toggle::after {
+            float: right;
+            margin-top: 10px;
+        }
+        button.dropdown-toggle:focus {
+            outline: none;
+            box-shadow: none;
+        }
+        .dropdown-menu {
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #43AA8B;
+            border-radius: 10px;
+            h5 {
+                color: #F3722C;
+                font-family: "Proxima Nova";
+                font-size: 18px;
+                border-bottom: 1px solid #6F797B;
+                padding-bottom: 15px;
+            }
+            .time-main {
+                margin-top: 20px;
+                .time-common {
+                    width: 30%;
+                    display: inline-block;
+                    input {
+                        height: 100px;
+                        color: #F3722C;
+                        font-size: 40px;
+                        font-family: "Proxima Nova";
+                        text-align: center;
+                    }
+                    input:focus {
+                        border: 2px solid #F3722C;
+                    }
+                    span {
+                        color: #7D8283;
+                        font-family: "Proxima Nova";
+                        margin-top: 10px;
+                        display: inline-block;
+                    }
+                }
+                .time-center {
+                    display: inline-block;
+                    width: 12%;
+                    text-align: center;
+                    vertical-align: top;
+                    span {
+                        font-size: 65px;
+                        margin-top: -5px;
+                        display: inline-block;
+                    }
+                }
+                .time-am-pm {
+                    display: inline-block;
+                    width: 20%;
+                    float: right;
+                    div {
+                        display: flex;
+                        justify-content: flex-end;
+                        flex-direction: column;
+                        width: 80px;
+                        float: right;
+                        border: 1px solid rgba(125,130,131,0.3);
+                        border-radius: 10px;
+                        overflow: hidden;
+                        button {
+                            border: 0;
+                            background-color: #fff;
+                            height: 50px;
+                            color: #7D8283;
+                            font-family: "Proxima Nova";
+                        }
+                        button.active {
+                            background-color: rgba(243,114,44,0.2) !important;
+                            color: #F3722C;
+                        }
+                        button:first-child{
+                            border-bottom: 1px solid rgba(125,130,131,0.3);
+                        }
+                    }
+                }
+            }
+            .time-bottom {
+                border: 1px solid transparent;
+                text-align: right;
+                margin-top: 50px;
+                button {
+                    background-color: transparent;
+                    border: 0;
+                    color: #F3722C;
+                    font-family: "proxima_nova_rgbold";
+                    text-transform: uppercase;
+                    font-size: 18px;
+                }
+                button:first-child {
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+    .reschedule-success {
+        text-align: center;
+        h3 {
+            font-family: "proxima_nova_rgbold";
+            font-size: 32px;
+            color: #20282A;
+            margin-top: 30px;
+        }
+    }
+}
+.confirm-leave-popup {
+    .modal-content {
+        height: auto !important;
+        overflow: auto !important;
+        .modal-body {
+            text-align: center;
+            font-family: "Proxima Nova";
+            h3 {
+                font-size: 29px;
+                font-family: "proxima_nova_rgbold";
+                color: #20282A;
+            }
+            p {
+                margin-bottom: 5px;
+                color: #20282A;
+                font-family: "proxima_nova_rgbold";
+                span {
+                    color: #7D8283;
+                    font-family: "Proxima Nova";
+                }
+            }
+            .leave-cancel {
+                h3 {
+                    font-size: 32px;
+                }
+                p {
+                    color: #7D8283;
+                }
+            }
+        }
+        .modal-footer {
+            justify-content: center;
+            align-items: center;
+            button {
+                width: 150px;
+                padding: 15px;
+                height: 60px;
+            }
+        }
+    }
+}

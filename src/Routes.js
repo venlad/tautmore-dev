@@ -6,14 +6,15 @@ import Register from './views/components/auth/register/Index';
 import Chapters from './views/pages/Chapters';
 import PracticeTest from './views/pages/PracticeTest/PracticeTest';
 import Dashboard from './views/components/dashboard/Dashboard';
-import Braingym from './views/pages/Brain-gym/Braingym';
-import Olympiad from './views/pages/Olympiad/Olympiad';
+// import Olympiad from './views/pages/Olympiad/Olympiad';
 import Login from './views/components/auth/login/Login';
 import Homepage from './views/components/skeleton/Homepage/Homepage';
 import Teachers from './views/pages/Teachers/Teachers';
 import ExamDetails from './views/pages/Teachers/ExamDetails';
 import AboutUsTeacher from './views/pages/AboutUsTeacher/About';
 import AboutUsParent from './views/pages/AboutUsParent/About';
+import ZoomClassContainer from './views/pages/Teachers/Rightsidepart/MyClass/ZoomClassContainer';
+import Olympiad from './views/pages/Olympiad/Olympiad';
 
 const routes = [
     {
@@ -58,13 +59,13 @@ const routes = [
     },
     {
         key: 8,
-        path: RouteEnum.DASHBOARD,
+        path: RouteEnum.DASHBOARDHOME,
         component: Dashboard,
     },
     {
         key: 9,
-        path: RouteEnum.BRAINGYM,
-        component: Braingym,
+        path: RouteEnum.DASHBOARD,
+        component: Dashboard,
     },
     {
         key: 10,
@@ -88,9 +89,20 @@ const routes = [
     },
     {
         key: 14,
+        path: RouteEnum.TEACHERSHOME,
+        component: Teachers,
+    },
+    {
+        key: 15,
         path: RouteEnum.TEACHERS,
         component: Teachers,
     },
+    {
+        key: 16,
+        path: RouteEnum.ZOOMCALL,
+        component: ZoomClassContainer,
+    },
+
 ];
 
 export default routes;

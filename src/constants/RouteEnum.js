@@ -6,14 +6,18 @@ const RouteEnum = {
     GRADES: '/grades',
     CHAPTERS: '/chapters/:subject',
     PRACTICE_TEST: '/practice-test',
-    DASHBOARD: '/dashboard',
-    BRAINGYM: '/brain-gym',
+    DASHBOARDHOME: '/dashboard/',
+    DASHBOARD: '/dashboard/:viewtype',
+    // BRAINGYM: '/dashboard',
     REGISTER: '/register',
     OLYMPIAD: '/olympiad',
     LOGIN: '/login',
     HOMESKELETON: '/home-skeleton',
-    // TEACHERS: '/teacher',
+    TEACHERSHOME: '/teacher/',
+    TEACHERS: '/teacher/:viewtype',
     EXAMDETAILS: '/exam-details',
+    ZOOMCALL: '/zoomCall',
+
 };
 
 export default RouteEnum;

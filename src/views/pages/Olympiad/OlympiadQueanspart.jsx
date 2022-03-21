@@ -13,7 +13,7 @@ const OlympiadQueanspart = () => (
                     <h2><span className="span-one">{speaker}</span> <span>{quesData?.title}</span></h2>
                     <div className="question-box-common mt-4">
                         {quesData?.objects?.map(() => (
-                            <img className="image" src={APImage} alt="answer" />
+                            <img key={Math.random()} className="image" src={APImage} alt="answer" />
                         ))}
                     </div>
                 </div>

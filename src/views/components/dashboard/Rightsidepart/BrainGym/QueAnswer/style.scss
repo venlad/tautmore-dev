@@ -1,0 +1,283 @@
+.brain-que-ans-main {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: #F4F7FC;
+    .question-box {
+      h4 {
+        font-weight: bold;
+        color: #20282a;
+        font-size: 20px;
+      }
+      h2 {
+        margin-bottom: 0;
+        font-weight: normal;
+        font-size: 16px;
+      }
+    }
+    .brain-gym-main.braingym-page {
+        margin: 0 !important;
+        padding: 0 !important;
+        background-color: #F4F7FC !important;
+        .brain-gym-head-main {
+            .head-logo {
+                img {
+                    width: 220px;
+                }
+            }
+            .head-right {
+                img {
+                    width: 20px;
+                }
+            }
+        }
+    }
+    .question-options-wrapper.selectTyleType {
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-column-gap: 20px;
+        width: 70%;
+        width: 100%;
+        .option-wrapper-tile-type {
+          margin-bottom: 30px;
+          position: relative;
+          width: 100%;
+          height: auto !important;
+          min-height: 70px;
+          padding: 0 !important;
+          button {
+            height: 100%;
+            width: 100%;
+            left: 0;
+            border: 0;
+            border-radius: 20px;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .questionHtlm-right {
+              padding: 20px 20px 20px 0px;
+              img {
+                height: 80px;
+                width: 80px;
+                object-fit: cover;
+              }
+              p {
+                margin-bottom: 0;
+              }
+            }
+            span.opti {
+              margin-right: 10px;
+            }
+            span {
+              display: inline-block !important;
+              //width: 85% !important;
+              text-align: left;
+              font-family: "proxima_nova_rgregular";
+            }
+            div.icon--check-wrapper {
+              display: inline-block !important;
+              svg {
+                height: 25px;
+                width: 25px;
+                // margin-top: -5px;
+              }
+            }
+          }
+        }
+        .questionHtlm-left {
+            width: 80%;
+            display: inline-block;
+            img {
+              height: 60px;
+              width: 60px;
+            }
+        }
+        .questionHtlm-right {
+            padding: 20px 20px 20px 0px;
+            width: 80%;
+            text-align: left;
+            display: inline-block;
+        }
+    }
+
+    .drag-detail-table {
+      border: 1px solid #dddddd;
+      border-collapse: collapse;
+      max-width: 100%;
+      background-color: #fff;
+      width: 100%;
+      margin-bottom: 20px;
+      th,
+      td {
+        border: 1px solid #dddddd;
+        padding: 10px;
+        font-size: 15px;
+      }
+      th {
+        font-weight: bold;
+      }
+      img {
+        height: 80px !important;
+        width: 80px !important;
+      }
+    }
+}
+
+.drag-and-drop-que-part {
+  .drag-item-index-main {
+    display: table !important;
+    border-spacing: 25px !important;
+    border-collapse: separate !important;
+    width: 100%;
+    position: relative;
+    top: 40px;
+    .drag-item-index {
+      width: 25%;
+      text-align: center;
+      display: table-cell;
+    }
+  }
+  .object-container {
+    margin-top: 50px;
+    display: block !important;
+    border-spacing: 25px !important;
+    border-collapse: separate !important;
+    width: 100%;
+    .drag-item-main {
+      
+    }
+    .drag-item-index {
+      display: flex;
+      width: 100%;
+      padding: 4px;
+      justify-content: space-around;
+      position: absolute;
+      top: -50px;
+      left: 0;
+    }
+    .drag-item {
+      border: 0 !important;
+      box-shadow: 0px 0px 10px #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: auto;
+      min-height: 125px;
+      min-width: 150px;
+      background-color: #fff;
+      border-radius: 10px;
+      word-break: break-all;
+      flex-direction: column;
+      width: auto;
+      max-width: 324px;
+      display: table-cell;
+      vertical-align: middle;
+      position: relative;
+      .drag-item-sub {
+        min-height: 100px;
+        text-align: center;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .horizontal-text {
+          word-break: break-word;
+        }
+      }
+      img {
+        width: 80px !important;
+        height: 80px !important;
+        margin-top: 10px;
+      }
+      span {
+        //max-width: 140px;
+      }
+    }
+  }
+  .drag-detail-table {
+    td {
+      img {
+        height: auto;
+        width: auto;
+        max-height: 80px;
+        max-width: 80px;
+      }
+    }
+  }
+  .preview-table-main {
+    overflow-x: scroll;
+  }
+  .drag-detail-table.horizontal {
+    width: 100%;
+    word-break: break-all;
+    th {
+      min-width: 110px;
+    }
+    .horizontal-cell {
+      min-height: 80px;
+      min-width: 120px;
+      display: flex;
+      align-items: center;
+      .opti {
+        font-weight: bold;
+        margin-right: 6px;
+      }
+      .hori-text-img {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        .horizontal-text {
+          order: 1;
+          -webkit-order: 1;
+          word-break: break-word;
+        }
+        img {
+          order: 2;
+          -webkit-order: 2;
+        }
+      }
+    }
+  }
+  .drag-detail-table.vertical {
+    .vertical-cell {
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      .vertical-text {
+        word-break: break-all;
+        margin-right: 12px;
+        max-width: 80%;
+      }
+      .right-part-val {
+        width: 100%;
+        display: inline-block;
+        min-height: 70px;
+        .right-part-val-common {
+          display: inline-block;
+        }
+      }
+    }
+    .opti {
+      font-weight: bold;
+      margin-right: 6px;
+    }
+  }
+  .test-header {
+    font-family: "Montserrat", Helvetica, Arial, serif !important;
+  }
+}
+.drag-detail-table.vertical {
+  .left-part {
+    width: 50%;
+  }
+  .right-part {
+    width: 50%;
+  }
+}

@@ -56,5 +56,6 @@
     url("//db.onlinewebfonts.com/t/f14eee643541cf03a10f26c944cc29f5.svg#Proxima Nova")
       format("svg");
 }
-
-
+iframe[style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; border: none; z-index: 2147483647;"] {
+  pointer-events: none;
+}

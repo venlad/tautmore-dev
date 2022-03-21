@@ -1,0 +1,355 @@
+.brain-que-ans-main {
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: #F4F7FC;
+}
+
+.brain-que-ans-main .question-box h4 {
+  font-weight: bold;
+  color: #20282a;
+  font-size: 20px;
+}
+
+.brain-que-ans-main .question-box h2 {
+  margin-bottom: 0;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.brain-que-ans-main .brain-gym-main.braingym-page {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #F4F7FC !important;
+}
+
+.brain-que-ans-main .brain-gym-main.braingym-page .brain-gym-head-main .head-logo img {
+  width: 220px;
+}
+
+.brain-que-ans-main .brain-gym-main.braingym-page .brain-gym-head-main .head-right img {
+  width: 20px;
+}
+
+.brain-que-ans-main .question-options-wrapper.selectTyleType {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 2fr;
+      grid-template-columns: 2fr 2fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  grid-column-gap: 20px;
+  width: 70%;
+  width: 100%;
+}
+
+.brain-que-ans-main .question-options-wrapper.selectTyleType .option-wrapper-tile-type {
+  margin-bottom: 30px;
+  position: relative;
+  width: 100%;
+  height: auto !important;
+  min-height: 70px;
+  padding: 0 !important;
+}
+
+.brain-que-ans-main .question-options-wrapper.selectTyleType .option-wrapper-tile-type button {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  border: 0;
+  border-radius: 20px;
+  background: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.brain-que-ans-main .question-options-wrapper.selectTyleType .option-wrapper-tile-type button .questionHtlm-right {
+  padding: 20px 20px 20px 0px;
+}
+
+.brain-que-ans-main .question-options-wrapper.selectTyleType .option-wrapper-tile-type button .questionHtlm-right img {
+  height: 80px;
+  width: 80px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.brain-que-ans-main .question-options-wrapper.selectTyleType .option-wrapper-tile-type button .questionHtlm-right p {
+  margin-bottom: 0;
+}
+
+.brain-que-ans-main .question-options-wrapper.selectTyleType .option-wrapper-tile-type button span.opti {
+  margin-right: 10px;
+}
+
+.brain-que-ans-main .question-options-wrapper.selectTyleType .option-wrapper-tile-type button span {
+  display: inline-block !important;
+  text-align: left;
+  font-family: "proxima_nova_rgregular";
+}
+
+.brain-que-ans-main .question-options-wrapper.selectTyleType .option-wrapper-tile-type button div.icon--check-wrapper {
+  display: inline-block !important;
+}
+
+.brain-que-ans-main .question-options-wrapper.selectTyleType .option-wrapper-tile-type button div.icon--check-wrapper svg {
+  height: 25px;
+  width: 25px;
+}
+
+.brain-que-ans-main .question-options-wrapper.selectTyleType .questionHtlm-left {
+  width: 80%;
+  display: inline-block;
+}
+
+.brain-que-ans-main .question-options-wrapper.selectTyleType .questionHtlm-left img {
+  height: 60px;
+  width: 60px;
+}
+
+.brain-que-ans-main .question-options-wrapper.selectTyleType .questionHtlm-right {
+  padding: 20px 20px 20px 0px;
+  width: 80%;
+  text-align: left;
+  display: inline-block;
+}
+
+.brain-que-ans-main .drag-detail-table {
+  border: 1px solid #dddddd;
+  border-collapse: collapse;
+  max-width: 100%;
+  background-color: #fff;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.brain-que-ans-main .drag-detail-table th,
+.brain-que-ans-main .drag-detail-table td {
+  border: 1px solid #dddddd;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.brain-que-ans-main .drag-detail-table th {
+  font-weight: bold;
+}
+
+.brain-que-ans-main .drag-detail-table img {
+  height: 80px !important;
+  width: 80px !important;
+}
+
+.drag-and-drop-que-part .drag-item-index-main {
+  display: table !important;
+  border-spacing: 25px !important;
+  border-collapse: separate !important;
+  width: 100%;
+  position: relative;
+  top: 40px;
+}
+
+.drag-and-drop-que-part .drag-item-index-main .drag-item-index {
+  width: 25%;
+  text-align: center;
+  display: table-cell;
+}
+
+.drag-and-drop-que-part .object-container {
+  margin-top: 50px;
+  display: block !important;
+  border-spacing: 25px !important;
+  border-collapse: separate !important;
+  width: 100%;
+}
+
+.drag-and-drop-que-part .object-container .drag-item-index {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding: 4px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  position: absolute;
+  top: -50px;
+  left: 0;
+}
+
+.drag-and-drop-que-part .object-container .drag-item {
+  border: 0 !important;
+  -webkit-box-shadow: 0px 0px 10px #ddd;
+          box-shadow: 0px 0px 10px #ddd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: auto;
+  min-height: 125px;
+  min-width: 150px;
+  background-color: #fff;
+  border-radius: 10px;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: auto;
+  max-width: 324px;
+  display: table-cell;
+  vertical-align: middle;
+  position: relative;
+}
+
+.drag-and-drop-que-part .object-container .drag-item .drag-item-sub {
+  min-height: 100px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.drag-and-drop-que-part .object-container .drag-item .drag-item-sub .horizontal-text {
+  word-break: break-word;
+}
+
+.drag-and-drop-que-part .object-container .drag-item img {
+  width: 80px !important;
+  height: 80px !important;
+  margin-top: 10px;
+}
+
+.drag-and-drop-que-part .drag-detail-table td img {
+  height: auto;
+  width: auto;
+  max-height: 80px;
+  max-width: 80px;
+}
+
+.drag-and-drop-que-part .preview-table-main {
+  overflow-x: scroll;
+}
+
+.drag-and-drop-que-part .drag-detail-table.horizontal {
+  width: 100%;
+  word-break: break-all;
+}
+
+.drag-and-drop-que-part .drag-detail-table.horizontal th {
+  min-width: 110px;
+}
+
+.drag-and-drop-que-part .drag-detail-table.horizontal .horizontal-cell {
+  min-height: 80px;
+  min-width: 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.drag-and-drop-que-part .drag-detail-table.horizontal .horizontal-cell .opti {
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.drag-and-drop-que-part .drag-detail-table.horizontal .horizontal-cell .hori-text-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.drag-and-drop-que-part .drag-detail-table.horizontal .horizontal-cell .hori-text-img .horizontal-text {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  -webkit-order: 1;
+  word-break: break-word;
+}
+
+.drag-and-drop-que-part .drag-detail-table.horizontal .horizontal-cell .hori-text-img img {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  -webkit-order: 2;
+}
+
+.drag-and-drop-que-part .drag-detail-table.vertical .vertical-cell {
+  min-height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.drag-and-drop-que-part .drag-detail-table.vertical .vertical-cell .vertical-text {
+  word-break: break-all;
+  margin-right: 12px;
+  max-width: 80%;
+}
+
+.drag-and-drop-que-part .drag-detail-table.vertical .vertical-cell .right-part-val {
+  width: 100%;
+  display: inline-block;
+  min-height: 70px;
+}
+
+.drag-and-drop-que-part .drag-detail-table.vertical .vertical-cell .right-part-val .right-part-val-common {
+  display: inline-block;
+}
+
+.drag-and-drop-que-part .drag-detail-table.vertical .opti {
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.drag-and-drop-que-part .test-header {
+  font-family: "Montserrat", Helvetica, Arial, serif !important;
+}
+
+.drag-detail-table.vertical .left-part {
+  width: 50%;
+}
+
+.drag-detail-table.vertical .right-part {
+  width: 50%;
+}
+/*# sourceMappingURL=style.css.map */

@@ -10,6 +10,7 @@ import assignmentlistclipboard from '../../../../../assets/images/examlisthover3
 import assignmentlistclipboardnormal from '../../../../../assets/images/examlistclipboard.png';
 
 const MyClassListCommon = ({ val }) => {
+    console.log(val, 'val from vvvv');
     const [calendar, setCalendar] = useState(assignmetlistcalendernormal);
     const [target, setTarget] = useState(assignmentlistclocknormal);
     const [idea, setIdea] = useState(assignmentlistdurationnormal);
@@ -38,7 +39,7 @@ const MyClassListCommon = ({ val }) => {
                     <div className="col-md-3 col-sm-4">
                         <p>
                             <span>Grade</span> -{' '}
-                            <span className="span-bold">{val.grade}</span>
+                            <span className="span-bold">{val?.grade}</span>
                         </p>
                     </div>
                     {/* <div className="col-md-3 col-sm-4 examlist-common-date-time ">
@@ -49,13 +50,13 @@ const MyClassListCommon = ({ val }) => {
                     <div className="col-md-4 col-sm-4">
                         <p>
                             <span>Subject</span> -{' '}
-                            <span className="span-bold">{val.subject}</span>
+                            <span className="span-bold">{val?.subject}</span>
                         </p>
                     </div>
                     <div className="col-md-3 col-sm-4">
                         <p>
                             <span>Concept</span> -{' '}
-                            <span className="span-bold">{val.concept}</span>
+                            <span className="span-bold">{val?.concept}</span>
                         </p>
                     </div>
                     {/* <div className="col-md-4 col-sm-6 examlist-common-date-time">
@@ -76,7 +77,7 @@ const MyClassListCommon = ({ val }) => {
                         </div>
                         <div className="right-content">
                             <p>Date</p>
-                            <h5>{val.date}</h5>
+                            <h5>{val?.date}</h5>
                         </div>
                     </div>
                     <div className="col-md-4 col-sm-6 col-12 examlist-common-bottom">
@@ -85,7 +86,7 @@ const MyClassListCommon = ({ val }) => {
                         </div>
                         <div className="right-content">
                             <p>Time</p>
-                            <h5>{val.time}</h5>
+                            <h5>{val?.time}</h5>
                         </div>
                     </div>
                     <div className="col-md-2 col-sm-6 col-12 examlist-common-bottom">
@@ -94,7 +95,7 @@ const MyClassListCommon = ({ val }) => {
                         </div>
                         <div className="right-content">
                             <p>Duration</p>
-                            <h5>{val.duration}</h5>
+                            <h5>{val?.duration}</h5>
                         </div>
                     </div>
                     <div className="col-md-3 col-sm-6 col-12 examlist-common-bottom">
@@ -103,7 +104,7 @@ const MyClassListCommon = ({ val }) => {
                         </div>
                         <div className="right-content">
                             <p>Assignments</p>
-                            <h5>{val.assignments}</h5>
+                            <h5>{val?.assignments}</h5>
                         </div>
                     </div>
                 </div>

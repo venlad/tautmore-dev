@@ -1,61 +1,52 @@
 import * as actionTypes from './BrainGymTypes';
 
 const initialState = {
-    Allgym: [],
-    queCounter: 0,
-    chestUnlockPopup: false,
-    chestData: [],
-    masterBrainGym: [],
-    questionByTag: [],
-    attempQuestion: [],
+    chests: [],
+    questionInChest: [],
+    attemptQuestion: [],
+    completeChest: [],
+    chestInfo: [],
+    allShell: [],
+    incorrectAnswer: [],
 };
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-        case actionTypes.SET_CHEST_DATA:
+        case actionTypes.UPDATE_START_CHEST:
             return {
                 ...state,
-                chestData: action.payload,
+                chests: action.payload,
             };
-
-        case actionTypes.UPDATE_UNLOCK_CHEST:
+        case actionTypes.UPDATE_GET_QUESTION_IN_CHEST:
             return {
                 ...state,
-                chestUnlockPopup: action.payload,
+                questionInChest: action.payload,
             };
-
-        case actionTypes.SET_QUESTION_COUNTER:
+        case actionTypes.UPDATE_GET_CHEST_INFO:
             return {
                 ...state,
-                queCounter: action.payload,
+                chestInfo: action.payload,
             };
-
-        case actionTypes.UPDATE_MASTER_BRAIN_GYM_BY_ID:
+        case actionTypes.UPDATE_ALL_SHELL:
             return {
                 ...state,
-                masterBrainGym: action.payload,
+                allShell: action.payload,
             };
-
-        case actionTypes.UPDATE_QUESTION_BY_TAG:
+        case actionTypes.UPDATE_INCORRECT_ANSWER:
             return {
                 ...state,
-                questionByTag: action.payload,
+                incorrectAnswer: action.payload,
             };
-
         case actionTypes.UPDATE_ATTEMPT_QUESTION:
             return {
                 ...state,
-                attempQuestion: action.attempt_que,
-
+                attemptQuestion: action.payload,
             };
-
-        case actionTypes.GET_USERS_FAILED:
+        case actionTypes.UPDATE_COMPLETE_CHEST:
             return {
                 ...state,
-                error: action.message,
+                completeChest: action.payload,
             };
-        case actionTypes.SET_LOADING:
-            return { ...state, loading: action.payload };
         default:
             return { ...state };
     }

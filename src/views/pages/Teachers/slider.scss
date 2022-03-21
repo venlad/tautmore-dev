@@ -4,6 +4,19 @@
         background-color: #FFFFFF !important;
         box-shadow: 0 12px 34px -10px rgba(0, 0, 0, 0.05) !important;
         padding: 30px;
+        .sub-box-main {
+            .sub-box-right {
+                text-align: right;
+                button {
+                    background-color: transparent;
+                    border: 0;
+                    cursor: pointer;
+                    color: #f3722c;
+                    text-transform: uppercase;
+                    font-family: "proxima_nova_rgbold";
+                }
+            }
+        }
     }
 
 
@@ -219,12 +232,12 @@
 
     .studentlistdiv {
         border-radius: 10px 10px 0px 0px;
-        background-color: #F4F7FC;
+        background: linear-gradient(125.92deg, #C4DAFE 0%, #F4F7FC 100%);
         padding: 15px 15px;
     }
     .viewassign
     {
-    background-color: #79A2E7;
+    background-color: #79A2E7;  
     border-radius: 0px 0px 10px 10px;
     text-align: center;
     padding: 5px;
