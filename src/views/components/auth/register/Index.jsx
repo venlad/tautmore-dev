@@ -52,7 +52,6 @@ const Register = ({ registerAction, isOtpVerified, registerTeacherAction }) => {
     const [subjectVal, setSubjectVal] = useState([]);
     const [cocurricularActivities, setCocurricularActivities] = useState([]);
     const [pastExperience, setPastExperience] = useState('');
-    console.log(pastExperience.toString());
     const [experienceField, setExperienceField] = useState('');
     const [otpVal, setOtpVal] = useState('');
 
