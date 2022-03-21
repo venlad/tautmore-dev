@@ -13,7 +13,8 @@ import Coursedetailsubjects from './Coursedetailsubjects';
 import CourseDetailsCategories from './CourseDetailsCategories';
 import { dropdownSingleValueStyles, dropdownMultiValueStyles } from './customCssDef';
 import {
-    coCurricularActivitiesAction, getAllGradesAction, getAllTimeslots, getAllSubjects,
+    coCurricularActivitiesAction, getAllGradesAction,
+    getAllTimeslots, getAllSubjects, getUniqueSubjectsAction,
 } from '../../../../stores/Auth/AuthAction';
 import TimeSlots from './TimeSlots';
 import close from '../../../../assets/images/close.png';
@@ -24,7 +25,7 @@ const TeacherRequirements = ({
     setExperienceField, setTimeSlotMonday, setTimeSlotTuesday, setTimeSlotWednesday,
     setTimeSlotThursday, setTimeSlotFriday, setTimeSlotSaturday, timeSlotMonday, gradeVal,
     fetchCoCurricularActivities, coCurricular, getAllGrades, allGrades, getAllTimeSlots, timeSlots,
-    subjectsList, getSubjectsAction,
+    subjectsList, getSubjectsAction, getSubjectsByClassId,
 }) => {
     const [showSubject, setShowSubject] = useState(false);
     const [showSubject2, setShowSubject2] = useState(false);
@@ -34,6 +35,12 @@ const TeacherRequirements = ({
     const [selectedGrades, setSelectedGrades] = useState([]);
 
     console.log(timeSlotMonday);
+
+    useEffect(() => {
+        if (selectedGrades[0]) {
+            getSubjectsByClassId({ classId: selectedGrades[0]?.value });
+        }
+    });
 
     const labelsOnly = (array1) => {
         const labels = array1?.map((item) => item.value);
@@ -54,16 +61,16 @@ const TeacherRequirements = ({
 
     const [subjects, setSubjects] = useState([{ value: 1, label: '' }]);
 
-    useEffect(() => {
-        if (!subjectsList?.data) {
-            getSubjectsAction();
-        }
-        if (subjectsList?.data?.length > 0) {
-            const cdata = subjectsList?.data.map((data) => (
-                { value: data.label, label: data.label }));
-            setSubjects(cdata);
-        }
-    }, [subjectsList]);
+    // useEffect(() => {
+    //     if (!subjectsList?.data) {
+    //         getSubjectsAction();
+    //     }
+    //     if (subjectsList?.data?.length > 0) {
+    //         const cdata = subjectsList?.data.map((data) => (
+    //             { value: data.label, label: data.label }));
+    //         setSubjects(cdata);
+    //     }
+    // }, [subjectsList]);
 
     // console.log(subjects, 'Fetched', subjectsList);
 
@@ -457,6 +464,7 @@ TeacherRequirements.propTypes = {
     timeSlots: object.isRequired,
     subjectsList: array.isRequired,
     getSubjectsAction: func.isRequired,
+    getSubjectsByClassId: func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -472,6 +480,7 @@ const mapDispatchToProps = (dispatch) => ({
     getAllGrades: () => dispatch(getAllGradesAction()),
     getAllTimeSlots: () => dispatch(getAllTimeslots()),
     getSubjectsAction: () => dispatch(getAllSubjects()),
+    getSubjectsByClassId: (data) => dispatch(getUniqueSubjectsAction(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeacherRequirements);

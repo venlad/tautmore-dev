@@ -228,7 +228,14 @@ const Mydetails = ({
                         {validation.phoneNumber && <span className="error-msg">Phone number is required.</span>}
                     </div>
 
-                    <Mydetailotpinput label="Enter OTP" verifyOtp={verifyOtp} showResendOtp={showResend} resendotp="Resend OTP" otpVal={otpVal} setOtpVal={setOtpVal} />
+                    {/* <Mydetailotpinput
+                        label="Enter OTP"
+                        verifyOtp={verifyOtp}
+                        showResendOtp={showResend}
+                        resendotp="Resend OTP"
+                        otpVal={otpVal}
+                        setOtpVal={setOtpVal}
+                    /> */}
                     <Mydetailotpinput
                         label="Enter OTP"
                         verifyOtp={verifyOtp}
