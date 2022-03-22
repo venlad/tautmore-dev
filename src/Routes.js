@@ -15,10 +15,11 @@ import AboutUsTeacher from './views/pages/AboutUsTeacher/About';
 import AboutUsParent from './views/pages/AboutUsParent/About';
 import ZoomClassContainer from './views/pages/Teachers/Rightsidepart/MyClass/ZoomClassContainer';
 import Olympiad from './views/pages/Olympiad/Olympiad';
+import SubTopic from './views/pages/SubTopic/SubTopic';
 
 const routes = [
     {
-        key: 13,
+        key: 17,
         path: RouteEnum.EXAMDETAILS,
         component: ExamDetails,
     },
@@ -102,7 +103,11 @@ const routes = [
         path: RouteEnum.ZOOMCALL,
         component: ZoomClassContainer,
     },
-
+    {
+        key: 18,
+        path: RouteEnum.SUBTOPIC,
+        component: SubTopic,
+    },
 ];
 
 export default routes;

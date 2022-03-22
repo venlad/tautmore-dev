@@ -17,6 +17,7 @@ const RouteEnum = {
     TEACHERS: '/teacher/:viewtype',
     EXAMDETAILS: '/exam-details',
     ZOOMCALL: '/zoomCall',
+    SUBTOPIC: '/chapters/:subject/:chapter/:topic',
 
 };
 

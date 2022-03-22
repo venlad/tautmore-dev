@@ -63,10 +63,7 @@ function Footer() {
                         <div className="col-sm-12 col-md-7 footer-top-right">
                             <div className="row">
                                 <div className="col-sm-3 col-md-3 col-6">
-                                    <h4
-                                        // eslint-disable-next-line max-len
-                                        onClick={() => dispatch(selectFooterLinkAction('PPOKA'))}
-                                    >
+                                    <h4>
                                         Grades
                                     </h4>
                                     <ul>

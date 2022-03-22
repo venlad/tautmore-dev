@@ -1963,7 +1963,7 @@
                       color: #20282A;
                       font-family: "proxima_nova_rgbold";
                     }
-                    li {
+                    .head-li {
                       list-style: none;
                       display: inline-block;
                       font-size: 16px;
@@ -1976,13 +1976,24 @@
                       cursor: pointer;
                       color: #454C4E;
                     }
-                    li:hover {
+                    .head-li-active {
+                      list-style: none;
+                      display: inline-block;
+                      font-size: 16px;
+                      font-family: "Proxima Nova";
+                      margin-right: 15px;
+                      border-radius: 5px;
+                      padding: 5px 10px;
+                      margin-bottom: 13px;
+                      cursor: pointer;
                       background-color: #43aa8b;
                       color: #fff;
                     }
-                    
+                    .head-li:hover {
+                      background-color: #43aa8b;
+                      color: #fff;
+                    }
                   }
-                  
                 }
               }
               .myconcept-right {

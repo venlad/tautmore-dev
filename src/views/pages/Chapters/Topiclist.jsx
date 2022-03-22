@@ -1,9 +1,11 @@
-/* eslint-disable max-len */
+/* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 import React, { useEffect, useState } from 'react';
 import {
-    string, number, array, func, shape, arrayOf,
+    string, number, array, func, shape, arrayOf, object,
 } from 'prop-types';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { chapterAction, conceptAction, topicAction } from '../../../stores/Concept/ConceptActions';
 
 const Topiclist = ({
     topic,
@@ -12,7 +14,11 @@ const Topiclist = ({
     idx,
     setDescriptionAnchor,
     setViewMoreTopic,
+    chapterSlug,
+    subjectSlug,
+    chapter,
 }) => {
+    const dispatch = useDispatch();
     const [desktop, setDesktop] = useState(true);
     const handleResize = () => {
         if (window.innerWidth < 992) {
@@ -28,15 +34,31 @@ const Topiclist = ({
     });
 
     return (
-        <li>
+        <li
+            role="button"
+            tabIndex={0}
+            onKeyPress={() => dispatch(topicAction(topic))}
+            onClick={() => {
+                dispatch(topicAction(topic));
+                dispatch(chapterAction(chapter));
+            }}
+        >
             <span>
-                {`${String.fromCharCode(65 + topicIdx)}.`} {topic?.topicName}
+                <Link to={'/chapters/'.concat(subjectSlug) + '/'.concat(chapterSlug) + '/'.concat(topic?.slug)}>
+                    {`${String.fromCharCode(65 + topicIdx)}.`} {topic?.topicName}
+                </Link>
             </span>
             <ul>
                 {topic?.subTopic?.map((subTopic, subIdx) => (
                     subIdx <= 3 || (viewMoreTopic[0] === idx && viewMoreTopic[1] === topicIdx)) && (
-                    <li key={subTopic?.id}>
-                        <Link to={'/dashboard/'.concat(subTopic?.slug)}>
+                    <li
+                        key={subTopic?.id}
+                        role="button"
+                        tabIndex={0}
+                        onKeyPress={() => dispatch(conceptAction(subTopic))}
+                        onClick={() => dispatch(conceptAction(subTopic))}
+                    >
+                        <Link to={'/chapters/'.concat(subjectSlug) + '/'.concat(chapterSlug) + '/'.concat(topic?.slug)}>
                             <div
                                 role="button"
                                 tabIndex={0}
@@ -50,7 +72,8 @@ const Topiclist = ({
                                     ? setDescriptionAnchor([idx, topicIdx, subIdx]) : '')}
                                 className="sub-topic-div"
                             >
-                                {String.fromCharCode(65 + topicIdx)}.{subIdx + 1} {subTopic?.subTopicName}
+                                {String.fromCharCode(65 + topicIdx)}.{subIdx + 1}
+                                {' '}{subTopic?.subTopicName}
 
                             </div>
                         </Link>
@@ -92,6 +115,8 @@ Topiclist.propTypes = {
     idx: number.isRequired,
     setDescriptionAnchor: func.isRequired,
     setViewMoreTopic: func.isRequired,
-
+    chapterSlug: string.isRequired,
+    subjectSlug: string.isRequired,
+    chapter: object.isRequired,
 };
 export default Topiclist;

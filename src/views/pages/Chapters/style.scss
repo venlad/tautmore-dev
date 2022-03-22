@@ -101,7 +101,12 @@
   margin-bottom: 27px;
 }
 
-.chapter-name a{
+.chapter-name ul li span a{
+  text-decoration: none;
+  color: #42494b;
+}
+
+.chapter-name ul li a{
   color: #42494b;
 }
 

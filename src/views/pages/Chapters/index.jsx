@@ -28,15 +28,14 @@ const Chapters = ({ match }) => {
         );
         const dataRes = await res.json();
         setGrades(dataRes?.data);
-
         const activityRes = await fetch(
             `${STRAPI_URL}/api/subjects?populate=*`,
         );
         const activityData = await activityRes.json();
-        // eslint-disable-next-line max-len
         setSubjects(activityData?.data);
-        // eslint-disable-next-line max-len
-        setFilterSubjects(activityData?.data?.filter((item) => item?.attributes?.slug === match.params.subject));
+        setFilterSubjects(activityData?.data?.filter(
+            (item) => item?.attributes?.slug === match.params.subject,
+        ));
     };
 
     useEffect(() => {
@@ -51,13 +50,16 @@ const Chapters = ({ match }) => {
     useEffect(() => {
         const sub = match.params.subject;
         setSubdata(sub);
-        // eslint-disable-next-line max-len
-        setFilterSubjects(subjects?.filter((item) => item?.attributes?.slug === match.params.subject));
+        setFilterSubjects(
+            subjects?.filter(
+                (item) => item?.attributes?.slug === match.params.subject,
+            ),
+        );
     }, [match.params.subject]);
 
-    // eslint-disable-next-line max-len
-    const chapters = filterSubjects[0]?.attributes?.chapters?.data.filter((item) => item?.attributes?.grade?.data?.attributes?.title === selectGrade);
-
+    const chapters = filterSubjects[0]?.attributes?.chapters?.data.filter(
+        (item) => item?.attributes?.grade?.data?.attributes?.title === selectGrade,
+    );
     return (
         <Layout>
             <Subjectlist subdata={subdata} setSubdata={setSubdata} subjects={subjects} />
@@ -92,6 +94,9 @@ const Chapters = ({ match }) => {
                                             shouldToggleStyle={shouldToggleStyle}
                                             setViewMoreTopic={setViewMoreTopic}
                                             key={topic?.id}
+                                            chapterSlug={chapter?.attributes?.slug}
+                                            subjectSlug={filterSubjects[0]?.attributes?.slug}
+                                            chapter={chapter?.attributes}
                                         />
                                     ))}
                                 </ul>
