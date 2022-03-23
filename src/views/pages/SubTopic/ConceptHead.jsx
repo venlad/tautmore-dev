@@ -3,7 +3,7 @@ import { object } from 'prop-types';
 import React from 'react';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import { useDispatch } from 'react-redux';
-import { conceptAction } from '../../../../stores/Concept/ConceptActions';
+import { conceptAction } from '../../../stores/Concept/ConceptActions';
 
 const MyconceptHead = ({ chapter, subTopic, topic }) => {
     const dispatch = useDispatch();

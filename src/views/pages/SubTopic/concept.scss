@@ -1,0 +1,130 @@
+.sub-title{
+    width: 50%;
+    display: flex;
+    margin-top: 22px;
+    margin-bottom: 35px;
+    h6{
+        color: #1B1B1B;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-left: 50px;
+    }
+    span{
+        color: #43AA8B;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-left: 72px;
+    }
+}
+.nxt-video{
+    height: 35px;
+    width: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #E3FFF6;
+    color: #43AA8B;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 17px;
+    margin-left: 60px;
+    margin-bottom: 20px;
+}
+
+.tree{
+    margin: 0 auto;
+    box-sizing: border-box;
+    height: 314px;
+    width: 617px;
+    border: 0.5px solid #979797;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    padding: 23px;
+    overflow: scroll;
+    position: relative;
+    
+    .view{
+        position: absolute;
+        bottom: 0px;
+        left: 15px;
+        color: #43AA8B;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: underline;
+    }
+}
+
+.videos-tree{
+    box-sizing: border-box;
+    width: 1px;
+    border-left: 2px dashed rgba(27,27,27,0.5);
+
+    .branch{
+        display: flex;
+        align-items: center;
+        margin-bottom: 26px;
+        
+        .branch-line{
+            padding-left: 29px;
+            height: 1px;
+            border-bottom: 2px dashed rgba(27,27,27,0.5);        
+        }
+        .type{
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 5px 10px;
+            border: 0.5px solid #43AA8B;
+            border-radius: 2px;
+            img{
+                margin-right: 5px;
+            }
+            p{
+                color: #43AA8B;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: 0;
+                line-height: 12px;
+                margin: 0;
+                padding: 0;
+            }
+        }
+        h4{
+            color: #1B1B1B;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0;
+            line-height: 20px;
+            white-space: nowrap;
+            margin: 0;
+            margin-left: 20px;
+            margin-right: 10px;
+            padding: 0;
+        }
+    }
+}
+
+.btn-wrap{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn-normal{
+height: 50px;
+  width: 305px;
+  border-radius: 33.75px;
+  background-color: #43AA8B;
+  color: #FFFFFF;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: center;
+}

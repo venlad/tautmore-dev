@@ -1,9 +1,14 @@
 import React from 'react';
-import Dashboard from './Dashboard';
+import '../../components/dashboard/dashboard.scss';
+import Myconcept from './Concept';
 
 const SubTopic = () => (
-    <div>
-        <Dashboard />
+    <div className="dashboard-main open">
+        <div className="row row-main dashboard-main-row">
+            <div className="col-sm-12 dashboard-right">
+                <Myconcept />
+            </div>
+        </div>
     </div>
 );
 

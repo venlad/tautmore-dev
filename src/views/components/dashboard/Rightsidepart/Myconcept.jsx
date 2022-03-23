@@ -21,13 +21,13 @@ const Myconcept = () => {
         <div className="myconcept-main row">
             <div className="col-md-8">
                 <div className="myconcept-left">
-                    <MyconceptHead />
-                    <Myconceptdesc />
+                    <MyconceptHead chapter={chapter} topic={topic} subTopic={subTopic} />
+                    <Myconceptdesc subTopic={subTopic} />
                 </div>
             </div>
             <div className="col-md-4">
                 <div className="myconcept-right">
-                    <MyconceptVideo />
+                    <MyconceptVideo topic={topic} />
                 </div>
             </div>
         </div>

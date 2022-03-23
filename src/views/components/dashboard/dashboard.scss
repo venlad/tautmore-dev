@@ -2123,9 +2123,11 @@
                   font-size: 18px;
                   text-decoration: underline;
                   font-family: "proxima_nova_rgbold";
+                  display: flex;
+                  align-items: center;
                   a {
                     color: #43AA8B !important;
-                   
+                    margin-left: 10px;
                   }
                   span.span-icon {
                     height: 24px;
@@ -2138,6 +2140,7 @@
                     margin-right: 10px;
                     position: relative;
                     top: 8px;
+                    
                     
                     svg {
                       color: #fff;

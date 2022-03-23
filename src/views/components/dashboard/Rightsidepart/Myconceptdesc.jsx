@@ -1,11 +1,12 @@
+import { object } from 'prop-types';
 import React from 'react';
 import { chevRight, play } from '../../../../assets/icons/IconList';
 
-const Myconceptdesc = () => (
+const Myconceptdesc = ({ subTopic }) => (
     <div className="myconcept-desc">
         <div className="row desc-top">
             <div className="col-md-7">
-                <h5>1.1.1 Learn to count</h5>
+                <h5>{subTopic?.subTopicNumber} {subTopic?.subTopicName}</h5>
                 <li><span className="span-icon">{play}</span> <a href="useful">What is counting and why its useful</a></li>
             </div>
             <div className="col-md-5">
@@ -23,5 +24,11 @@ const Myconceptdesc = () => (
         </div>
     </div>
 );
+Myconceptdesc.propTypes = {
+    subTopic: object,
+};
 
+Myconceptdesc.defaultProps = {
+    subTopic: {},
+};
 export default Myconceptdesc;

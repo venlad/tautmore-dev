@@ -15,7 +15,9 @@ const SubjectTab = ({ data }) => {
     //     setActivebtn('cocurri');
     // };
     useEffect(() => {
-        data && setActivebtn(data[0]?.name);
+        if (data) {
+            setActivebtn(data[0]?.name);
+        }
     }, [data]);
     console.log(activebtn, 'activebtn');
     return (
@@ -25,9 +27,9 @@ const SubjectTab = ({ data }) => {
                     {data?.map((val) => (
                         <div className="toggle-maths-div">
                             <button
-                                className={`toggle-maths-btn ${
-                                    activebtn === val.name ? 'mathbtn-act' : 'mathbtn-un'
-                                }`}
+                                className={'toggle-maths-btn'.concat(
+                                    activebtn === val.name ? 'mathbtn-act' : 'mathbtn-un',
+                                )}
                                 type="button"
                                 onClick={() => setActivebtn(val?.name)}
                             >

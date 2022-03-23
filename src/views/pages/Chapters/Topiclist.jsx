@@ -43,7 +43,14 @@ const Topiclist = ({
                 dispatch(chapterAction(chapter));
             }}
         >
-            <span>
+            <span
+                role="button"
+                tabIndex={0}
+                onKeyPress={() => dispatch(topicAction(topic))}
+                onClick={() => {
+                    dispatch(conceptAction(topic?.subTopic[0]));
+                }}
+            >
                 <Link to={'/chapters/'.concat(subjectSlug) + '/'.concat(chapterSlug) + '/'.concat(topic?.slug)}>
                     {`${String.fromCharCode(65 + topicIdx)}.`} {topic?.topicName}
                 </Link>
