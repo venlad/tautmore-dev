@@ -1,17 +1,20 @@
+/* eslint-disable react/no-unused-prop-types */
+/* eslint-disable react/prop-types */
+/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 import './myprofile.scss';
 import { connect } from 'react-redux';
 import {
     object, func,
 } from 'prop-types';
+import { FileUploader } from 'react-drag-drop-files';
 import studentimg from '../../../../../assets/images/sidebar-profile.png';
 import totalScore from '../../../../../assets/images/totalScore.png';
 import editIcon from '../../../../../assets/images/pencil (2).svg';
 import infoIcon from '../../../../../assets/images/info-2-16.png';
-import { getProfileAction,changeNameAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
+import { getProfileAction, changeNameAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
 import { getAllUniversities, getAllQualifications } from '../../../../../stores/Auth/AuthAction';
 
-import { FileUploader } from 'react-drag-drop-files';
 import UploadingIcon from '../../../../../assets/images/upload.svg';
 import ChangeNamePopUp from './ChangeDetails/ChangeNamePopUp';
 import ChangeEmailPopUp from './ChangeDetails/ChangeEmailPopUp';
@@ -19,12 +22,11 @@ import ChangePhoneNumPopUp from './ChangeDetails/ChangePhoneNum';
 import ChangeQualPopUp from './ChangeDetails/ChangeQualification';
 import ChangeUnivPopUp from './ChangeDetails/ChangeUniversity';
 
-
-const MyProfile = ({ myProfile, getMyProfile
-    ,getUniversityList,getAllQualificationList,
-    universitiesList,qualificationsList
-    })=> {
-
+const MyProfile = ({
+    myProfile, getMyProfile,
+    getUniversityList, getAllQualificationList,
+    universitiesList, qualificationsList,
+}) => {
     const [model, setModel] = useState(false);
     const [modelEmail, setModelEmail] = useState(false);
     const [modelPhone, setModelPhone] = useState(false);
@@ -32,8 +34,7 @@ const MyProfile = ({ myProfile, getMyProfile
     const [modelUniv, setModelUniv] = useState(false);
 
     useEffect(() => {
-        if (myProfile.length === 0)
-         {
+        if (myProfile.length === 0) {
             getMyProfile();
         }
     }, [myProfile]);
@@ -41,12 +42,12 @@ const MyProfile = ({ myProfile, getMyProfile
     const myprofileDetail = myProfile?.data;
 
     const timeData = myprofileDetail?.timeslot?.map((item) => ({
-        monday: item.monday.toString().split(',').map((data) => Number(data.split("-")[0].split(":")[0]) + data.slice(-2)),
-        tuesday: item.tuesday.toString().split(',').map((data) => Number(data.split("-")[0].split(":")[0]) + data.slice(-2)),
-        wednesday: item.wednesday.toString().split(',').map((data) => Number(data.split("-")[0].split(":")[0]) + data.slice(-2)),
-        thursday: item.thursday.toString().split(',').map((data) => Number(data.split("-")[0].split(":")[0]) + data.slice(-2)),
-        friday: item.friday.toString().split(',').map((data) => Number(data.split("-")[0].split(":")[0]) + data.slice(-2)),
-        saturday: item.saturday.toString().split(',').map((data) => Number(data.split("-")[0].split(":")[0]) + data.slice(-2)),
+        monday: item.monday.toString().split(',').map((data) => Number(data.split('-')[0].split(':')[0]) + data.slice(-2)),
+        tuesday: item.tuesday.toString().split(',').map((data) => Number(data.split('-')[0].split(':')[0]) + data.slice(-2)),
+        wednesday: item.wednesday.toString().split(',').map((data) => Number(data.split('-')[0].split(':')[0]) + data.slice(-2)),
+        thursday: item.thursday.toString().split(',').map((data) => Number(data.split('-')[0].split(':')[0]) + data.slice(-2)),
+        friday: item.friday.toString().split(',').map((data) => Number(data.split('-')[0].split(':')[0]) + data.slice(-2)),
+        saturday: item.saturday.toString().split(',').map((data) => Number(data.split('-')[0].split(':')[0]) + data.slice(-2)),
     }));
 
     const fileTypes = ['JPG', 'PDF', 'docx'];
@@ -61,11 +62,10 @@ const MyProfile = ({ myProfile, getMyProfile
         }
         if (universitiesList?.data?.length > 0) {
             const cdata = universitiesList?.data.map((data) => (
-                { value: data.universityName, label: data.universityName,id: data._id }));
+                { value: data.universityName, label: data.universityName, id: data._id }));
             setUniversities(cdata);
         }
     }, [universitiesList]);
-
 
     const [qualification1, setQualification1] = useState([{ value: 1, label: '' }]);
 
@@ -75,10 +75,11 @@ const MyProfile = ({ myProfile, getMyProfile
         }
         if (qualificationsList?.data?.length > 0) {
             const cdata = qualificationsList?.data.map((data) => (
-                { value: data.qualificationName, 
-                label: data.qualificationName,
-                id: data._id
-                 }));    
+                {
+                    value: data.qualificationName,
+                    label: data.qualificationName,
+                    id: data._id,
+                }));
             setQualification1(cdata);
         }
     }, [qualificationsList]);
@@ -125,10 +126,10 @@ const MyProfile = ({ myProfile, getMyProfile
     };
 
     const onEditName = () => {
-        setModel(true)
-    }
+        setModel(true);
+    };
 
-    console.log(myprofileDetail,"My Details",myProfile,"My Details2")
+    console.log(myprofileDetail, 'My Details', myProfile, 'My Details2');
 
     return (
 
@@ -158,24 +159,23 @@ const MyProfile = ({ myProfile, getMyProfile
                         <div className="space-between">
                             <div className="details">
                                 <h5 className="faded">Subjects</h5>
-                                {myprofileDetail?.subject?.map((data, i, arr) => <h5 className="sub-common">{`${data}` + `${!i + 1 === arr.length ? ',' : ''}` }</h5>)}
+                                {myprofileDetail?.subject?.map((data, i, arr) => <h5 className="sub-common">{data.concat(!i + 1 === arr.length ? ',' : '')}</h5>)}
 
                             </div>
-
                             <button type="button">CHANGE</button>
                         </div>
 
                         <div className="space-between">
                             <div className="details">
                                 <h5 className="faded">Timings</h5>
-                                {timeData?.map((data, i , arr) => (
+                                {timeData?.map((data, i, arr) => (
                                     <div>
-                                    <h5>Mon ({`${data?.monday}` + `${!arr.length - 1 === i ? ',' : ''}` })</h5>
-                                    <h5>Tue ({`${data?.tuesday}` + `${!arr.length - 1 === i ? ',' : ''}`})</h5>
-                                    <h5>Wed ({`${data?.wednesday}` + `${!arr.length - 1 === i ? ',' : ''}`})</h5>
-                                    <h5>Thu ({`${data?.thursday}` + `${!arr.length - 1 === i ? ',' : ''}`})</h5>
-                                    <h5>Fri ({`${data?.friday}` + `${!arr.length - 1 === i ? ',' : ''}`})</h5>
-                                    <h5>Sat ({`${data?.saturday}` + `${!arr.length - 1 === i ? ',' : ''}`})</h5>
+                                        <h5>Mon ({data?.monday.concat(!i + 1 === arr.length ? ',' : '')})</h5>
+                                        <h5>Tue ({data?.tuesday.concat(!i + 1 === arr.length ? ',' : '')})</h5>
+                                        <h5>Wed ({data?.wednesday.concat(!i + 1 === arr.length ? ',' : '')})</h5>
+                                        <h5>Thu ({data?.thursday.concat(!i + 1 === arr.length ? ',' : '')})</h5>
+                                        <h5>Fri ({data?.friday.concat(!i + 1 === arr.length ? ',' : '')})</h5>
+                                        <h5>Sat ({data?.saturday.concat(!i + 1 === arr.length ? ',' : '')})</h5>
                                     </div>
                                 ))}
                                 {/* <h5>09:30 AM - 05:00PM</h5> */}
@@ -206,7 +206,7 @@ const MyProfile = ({ myProfile, getMyProfile
                                 <h5>{myprofileDetail?.fullName}</h5>
                             </div>
 
-                            <button onClick={()=>onEditName()} className="button-green" type="button">EDIT</button>
+                            <button onClick={() => onEditName()} className="button-green" type="button">EDIT</button>
                         </div>
 
                         <div className="space-between">
@@ -215,7 +215,7 @@ const MyProfile = ({ myProfile, getMyProfile
                                 <h5>{myprofileDetail?.emailID}</h5>
                             </div>
 
-                            <button onClick={()=>setModelEmail(true)} className="button-green" type="button">EDIT</button>
+                            <button onClick={() => setModelEmail(true)} className="button-green" type="button">EDIT</button>
 
                         </div>
 
@@ -238,7 +238,7 @@ const MyProfile = ({ myProfile, getMyProfile
                                 <h5>{myprofileDetail?.phoneNumber}</h5>
                             </div>
 
-                            <button onClick={()=>setModelPhone(true)} className="button-green" type="button">EDIT</button>
+                            <button onClick={() => setModelPhone(true)} className="button-green" type="button">EDIT</button>
                         </div>
 
                     </div>
@@ -259,7 +259,7 @@ const MyProfile = ({ myProfile, getMyProfile
                                 <h5>{myprofileDetail?.qualification}</h5>
                             </div>
 
-                            <button onClick={()=>setModelQual(true)} className="button-green" type="button">EDIT</button>
+                            <button onClick={() => setModelQual(true)} className="button-green" type="button">EDIT</button>
                         </div>
 
                         <div className="space-between">
@@ -268,7 +268,7 @@ const MyProfile = ({ myProfile, getMyProfile
                                 <h5>{myprofileDetail?.university.universityName}</h5>
                             </div>
 
-                            <button  onClick={()=>setModelUniv(true)}  className="button-green" type="button">EDIT</button>
+                            <button onClick={() => setModelUniv(true)} className="button-green" type="button">EDIT</button>
                         </div>
 
                     </div>
@@ -300,7 +300,7 @@ const MyProfile = ({ myProfile, getMyProfile
                             name="file"
                             types={fileTypes}
                             maxSize={15}
-                         />
+                        />
                     </div>
 
                     {documents?.length > 0 && documents.map((item, i) => (
@@ -312,11 +312,11 @@ const MyProfile = ({ myProfile, getMyProfile
                     ))}
 
                 </div>
-                <ChangeNamePopUp id={myProfile?.data?._id} model={model} handleModel={setModel}/>
-                <ChangeEmailPopUp id={myProfile?.data?._id} model={modelEmail} handleModel={setModelEmail}/>
-                <ChangePhoneNumPopUp id={myProfile?.data?._id} model={modelPhone} handleModel={setModelPhone}/>
-                <ChangeQualPopUp qualificationsList={qualification1} id={myProfile?.data?._id} model={modelQual} handleModel={setModelQual}/>
-                <ChangeUnivPopUp universitiesList={universities} id={myProfile?.data?._id} model={modelUniv} handleModel={setModelUniv}/>
+                <ChangeNamePopUp id={myProfile?.data?._id} model={model} handleModel={setModel} />
+                <ChangeEmailPopUp id={myProfile?.data?._id} model={modelEmail} handleModel={setModelEmail} />
+                <ChangePhoneNumPopUp id={myProfile?.data?._id} model={modelPhone} handleModel={setModelPhone} />
+                <ChangeQualPopUp qualificationsList={qualification1} id={myProfile?.data?._id} model={modelQual} handleModel={setModelQual} />
+                <ChangeUnivPopUp universitiesList={universities} id={myProfile?.data?._id} model={modelUniv} handleModel={setModelUniv} />
 
             </div>
         </>
@@ -328,12 +328,11 @@ MyProfile.propTypes = {
     myProfile: object.isRequired,
     getMyProfile: func.isRequired,
     getUniversities: func.isRequired,
-    getAllQualificationList : func.isRequired,
+    getAllQualificationList: func.isRequired,
     // changeNameResponse: array.isRequired,
     // changePhoneResponse : array.isRequired ,
     // changeQualResponse :array.isRequired ,
     // changeUnivResponse : array.isRequired
-    
 
 };
 
@@ -345,10 +344,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     getMyProfile: () => dispatch(getProfileAction()),
-    changeName : (data)=>(changeNameAction(data)),
+    changeName: (data) => (changeNameAction(data)),
     getUniversityList: () => dispatch(getAllUniversities()),
     getAllQualificationList: () => dispatch(getAllQualifications()),
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyProfile);

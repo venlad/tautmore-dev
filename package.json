@@ -26,6 +26,7 @@
     "react-event-calendar": "^0.3.0",
     "react-flags-select": "^2.1.2",
     "react-html-parser": "^2.0.2",
+    "react-markdown": "^8.0.1",
     "react-mathjax-preview": "^2.2.4",
     "react-modal": "^3.14.4",
     "react-multiselect-checkboxes": "^0.1.1",

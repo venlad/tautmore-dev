@@ -4,7 +4,7 @@ import {
     string, number, array, func, shape, arrayOf, object,
 } from 'prop-types';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { chapterAction, conceptAction, topicAction } from '../../../stores/Concept/ConceptActions';
 
 const Topiclist = ({
@@ -18,6 +18,7 @@ const Topiclist = ({
     subjectSlug,
     chapter,
 }) => {
+    const grade = useSelector((state) => state.footerGrade);
     const dispatch = useDispatch();
     const [desktop, setDesktop] = useState(true);
     const handleResize = () => {
@@ -51,7 +52,7 @@ const Topiclist = ({
                     dispatch(conceptAction(topic?.subTopic[0]));
                 }}
             >
-                <Link to={'/chapters/'.concat(subjectSlug) + '/'.concat(chapterSlug) + '/'.concat(topic?.slug)}>
+                <Link to={'/'.concat(grade) + '/'.concat(subjectSlug) + '/'.concat(chapterSlug) + '/'.concat(topic?.slug)}>
                     {`${String.fromCharCode(65 + topicIdx)}.`} {topic?.topicName}
                 </Link>
             </span>

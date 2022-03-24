@@ -1,11 +1,14 @@
+/* eslint-disable react/prop-types */
 import { array } from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 import { Dropdown } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { alltime } from '../mockData/MyexamExamlist';
 
-const MyexamTab = ({subjectList, setSelectedSubject, selectedSubject,timedata,setTimedata}) => {
-    console.log('selectedSubject',selectedSubject);
+const MyexamTab = ({
+    subjectList, setSelectedSubject, selectedSubject, timedata, setTimedata,
+}) => {
+    console.log('selectedSubject', selectedSubject);
     // const [activebtn, setActivebtn] = useState('All subjects');
     // const handleMathsColor = () => setActivebtn('maths');
     // const handleAllsubcolor = () => {
@@ -29,28 +32,28 @@ const MyexamTab = ({subjectList, setSelectedSubject, selectedSubject,timedata,se
                 <div className="dtoggle-bar">
                     {console.log('subjectList', subjectList)}
                     <div key="all" className="toggle-maths-div">
-                      <button
-                          className={`toggle-maths-btn ${selectedSubject?.name === "All Subject"  ?
-                             'mathbtn-act' : 'mathbtn-un'}`}
-                          type="button"
-                          onClick={() => handleSelectSubject({ _id: '', name: 'All Subject' })}
-                      >
-                         All Subject
-                      </button>
-                  </div>
-                    {subjectList && subjectList?.map(item => (
-                      <div key={item?.subject?._id} className="toggle-maths-div">
-                        
-                      <button
-                          className={`toggle-maths-btn ${selectedSubject?.name === item?.subject?.name  ?
-                             'mathbtn-act' : 'mathbtn-un'}`}
-                          type="button"
-                          onClick={() => handleSelectSubject(item?.subject)}
-                      >
-                          {item?.subject.name}
-                      </button>
-                  </div>
-                ))}
+                        <button
+                            className={`toggle-maths-btn ${selectedSubject?.name === 'All Subject'
+                                ?  'mathbtn-act' : 'mathbtn-un'}`}
+                            type="button"
+                            onClick={() => handleSelectSubject({ _id: '', name: 'All Subject' })}
+                        >
+                            All Subject
+                        </button>
+                    </div>
+                    {subjectList && subjectList?.map((item) => (
+                        <div key={item?.subject?._id} className="toggle-maths-div">
+
+                            <button
+                                className={'toggle-maths-btn'.concat(selectedSubject?.name === item?.subject?.name
+                                    ?  'mathbtn-act' : 'mathbtn-un')}
+                                type="button"
+                                onClick={() => handleSelectSubject(item?.subject)}
+                            >
+                                {item?.subject.name}
+                            </button>
+                        </div>
+                    ))}
                     {/* <div className="toggle-maths-div">
                         <button
                             className={`toggle-maths-btn ${
@@ -110,10 +113,10 @@ const MyexamTab = ({subjectList, setSelectedSubject, selectedSubject,timedata,se
         </div>
     );
 };
- MyexamTab.propTypes = {
-    subjectList:array.isRequired
- };
+MyexamTab.propTypes = {
+    subjectList: array.isRequired,
+};
 const mapStateToProps = (state) => ({
     subjectList: state.Auth.Login?.data?.subjectsEnrolled,
 });
-export default connect(mapStateToProps) (MyexamTab);
+export default connect(mapStateToProps)(MyexamTab);

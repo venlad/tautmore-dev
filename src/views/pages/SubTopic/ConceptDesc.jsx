@@ -1,15 +1,25 @@
 import { object } from 'prop-types';
 import React, { useEffect, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 import { chevRight } from '../../../assets/icons/IconList';
 import VideoMap from './VideoMap';
 import PlaySmall from '../../../assets/icons/play-sm.svg';
 
 const Myconceptdesc = ({ subTopic }) => {
     const [currVideo, setCurrVideo] = useState(null);
+    const [playVideo, setPlayVideo] = useState(null);
 
     const openCurrentVideo = (id) => {
         if (currVideo !== id) {
             setCurrVideo(id);
+        }
+    };
+
+    const playCurrentVideo = (id) => {
+        if (playVideo !== id) {
+            setPlayVideo(id);
+        } else {
+            setPlayVideo(null);
         }
     };
 
@@ -32,16 +42,34 @@ const Myconceptdesc = ({ subTopic }) => {
             </div>
             <div className="sub-title">
                 <h6>1.1.1 What makes us live?</h6>
-                <span>Total : 8</span>
+                <span>Total : {subTopic?.section?.length}</span>
             </div>
             <span type="button" className="nxt-video">
                 What is counting and why it’s useful
             </span>
-            <VideoMap
-                subTopic={subTopic}
-                openCurrentVideo={openCurrentVideo}
-                currVideo={currVideo}
-            />
+            {subTopic?.section?.length > 0 && (
+                <VideoMap
+                    subTopic={subTopic}
+                    openCurrentVideo={openCurrentVideo}
+                    currVideo={currVideo}
+                    playCurrentVideo={playCurrentVideo}
+                    playVideo={playVideo}
+                />
+            )}
+
+            <div className="topic-wrap">
+                {
+                    subTopic?.section?.map((item) => (
+                        <div className="single-topic" id={item?.serialNumber}>
+                            <h4>{item?.serialNumber}. {item?.title}</h4>
+                            <p>{item?.description}</p>
+                            <div className="markdown">
+                                <ReactMarkdown>{item?.content}</ReactMarkdown>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
         </div>
     );
 };
