@@ -6,7 +6,7 @@ import { myLeavesListAction, cancelLeaveAction, applyLeaveAction } from '../../.
 import LeaveConfirmPopup from './LeaveConfirmPopup';
 
 const MyLeaves = ({
-    myLeavesList, myLeaves, applyLeaveResponse, cancelLeaveResponse
+    myLeavesList, myLeaves, applyLeaveResponse, cancelLeaveResponse,
 }) => {
     useEffect(() => {
         if (myLeaves?.length === 0) {
@@ -126,8 +126,6 @@ MyLeaves.propTypes = {
     myLeaves: array.isRequired,
     applyLeaveResponse: array.isRequired,
     cancelLeaveResponse: array.isRequired,
-    cancelLeave: func.isRequired,
-    applyLeave: func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

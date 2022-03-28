@@ -462,8 +462,6 @@ TeacherRequirements.propTypes = {
     allGrades: object.isRequired,
     getAllTimeSlots: func.isRequired,
     timeSlots: object.isRequired,
-    subjectsList: array.isRequired,
-    getSubjectsAction: func.isRequired,
     getSubjectsByClassId: func.isRequired,
 };
 

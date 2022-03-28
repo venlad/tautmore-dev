@@ -109,7 +109,6 @@ const ZoomClassContainer = ({
 ZoomClassContainer.propTypes = {
     myClasses: object.isRequired,
     getMyClasses: func.isRequired,
-    Login: object.isRequired,
 };
 const mapStateToProps = (state) => ({
     myClasses: state.TeacherDashboard.myClasses,
