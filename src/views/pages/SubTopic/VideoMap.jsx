@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 import { func, number, object } from 'prop-types';
 import React from 'react';
@@ -34,7 +35,7 @@ const VideoMap = ({
                 <div className="videos-tree">
                     <div className="side-line" />
                     {
-                        subTopic?.section?.map((item, i) => (
+                        subTopic?.videoAndMedia?.map((item, i) => (
                             <div
                                 className="branch"
                                 key={item?.id}
@@ -74,13 +75,13 @@ const VideoMap = ({
                                     </Modal>
                                 </div>
 
-                                <a href={'#'.concat(item?.serialNumber)}>
+                                <a href="#">
                                     <h4
                                         onClick={() => openCurrentVideo(item?.id)}
                                         onKeyPress={() => {}}
                                         role="button"
                                         tabIndex={0}
-                                    >{item?.title}
+                                    >{item?.videoTitle}
                                     </h4>
                                 </a>
                                 {currVideo === item?.id && (<img src={Tick} alt="" />)}

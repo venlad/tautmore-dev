@@ -1,6 +1,9 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { object } from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import ReactPlayer from 'react-player';
+import Modal from 'react-modal';
 import { chevRight } from '../../../assets/icons/IconList';
 import VideoMap from './VideoMap';
 import PlaySmall from '../../../assets/icons/play-sm.svg';
@@ -8,6 +11,25 @@ import PlaySmall from '../../../assets/icons/play-sm.svg';
 const Myconceptdesc = ({ subTopic }) => {
     const [currVideo, setCurrVideo] = useState(null);
     const [playVideo, setPlayVideo] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+
+    const customStyles = {
+        content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+            padding: '0px',
+            overflow: 'hidden',
+            backgroundColor: '#000000bf',
+        },
+        overlay: {
+            backgroundColor: '#000000bf',
+            zIndex: 999,
+        },
+    };
 
     const openCurrentVideo = (id) => {
         if (currVideo !== id) {
@@ -24,8 +46,10 @@ const Myconceptdesc = ({ subTopic }) => {
     };
 
     useEffect(() => {
-        setCurrVideo(subTopic?.section[0]?.id);
+        setCurrVideo(subTopic?.videoAndMedia[0]?.id);
     }, [subTopic]);
+
+    const currVideoTitle = subTopic?.videoAndMedia?.filter((item) => item.id === currVideo)[0];
     return (
         <div className="myconcept-desc">
             <div className="row desc-top">
@@ -33,7 +57,32 @@ const Myconceptdesc = ({ subTopic }) => {
                     <h5>{subTopic?.subTopicNumber} {subTopic?.subTopicName}</h5>
                     <li>
                         <img width="24px" height="24px" className="span-icon" src={PlaySmall} alt="" />
-                        <a href="useful">{subTopic?.section[0]?.title}</a>
+                        <a href="#" onClick={() => setShowModal(!showModal)}>
+                            {currVideoTitle?.videoTitle}
+                            <Modal
+                                isOpen={showModal}
+                                onRequestClose={() => setShowModal(false)}
+                                contentLabel="My dialog"
+                                style={customStyles}
+                            >
+                                <div>
+                                    {
+                                        currVideoTitle?.type === 'Video' ? (
+                                            <ReactPlayer
+                                                url={currVideoTitle?.videoUrl}
+                                                width="75vw"
+                                                height="75vh"
+                                            />
+                                        ) : (
+                                            <ReactMarkdown>
+                                                {currVideoTitle?.forMedia}
+                                            </ReactMarkdown>
+                                        )
+                                    }
+
+                                </div>
+                            </Modal>
+                        </a>
                     </li>
                 </div>
                 <div className="col-md-5">
@@ -42,7 +91,7 @@ const Myconceptdesc = ({ subTopic }) => {
             </div>
             <div className="sub-title">
                 <h6>1.1.1 What makes us live?</h6>
-                <span>Total : {subTopic?.section?.length}</span>
+                <span>Total : {subTopic?.videoAndMedia?.length}</span>
             </div>
             <span type="button" className="nxt-video">
                 What is counting and why it’s useful
