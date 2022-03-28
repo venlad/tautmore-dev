@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './teachers.scss';
 import { array } from 'yup/lib/locale';
-import { ZoomMtg } from '@zoomus/websdk';
 // import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 // import ZoomClassContainer from './Rightsidepart/MyClass/ZoomClassContainer';

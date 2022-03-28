@@ -1,10 +1,11 @@
+/* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
 import './zoomClass.scss';
 // import OnlineClassalert from '../../OnlineClassalert';
 import { ZoomMtg } from '@zoomus/websdk';
 import { connect } from 'react-redux';
 import {
-    object, func, bool, array,
+    object, func,
 } from 'prop-types';
 import { getMyClassesAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
 import '../../teachers.scss';
@@ -24,7 +25,6 @@ const meetConfig = {
 const ZoomClassContainer = ({
     myClasses,
     getMyClasses,
-    Login,
 }) => {
     const [myClassesList, setMyClassesList] = useState([]);
     useEffect(() => {
@@ -46,7 +46,7 @@ const ZoomClassContainer = ({
         }
     }, [myClasses]);
     console.log(myClassesList);
-    function joinMeeting(signature, meetConfig) {
+    function joinMeeting(signature) {
         document.getElementById('zmmtg-root').style.display = 'block';
         ZoomMtg.init({
             leaveUrl: 'http://localhost:3000/',
@@ -59,8 +59,8 @@ const ZoomClassContainer = ({
                     signature,
                     apiKey: meetConfig.apiKey,
                     passWord: meetConfig.passWord,
-                    success: (success) => {
-                        console.log(success);
+                    success: (succes) => {
+                        console.log(succes);
                     },
                     error: (error) => {
                         console.log(error);
@@ -69,7 +69,7 @@ const ZoomClassContainer = ({
             },
         });
     }
-    function getSignaturee(e) {
+    function getSignaturee() {
         // console.log(e)
         // e.preventDefault();
         fetch(signatureEndpoint, {

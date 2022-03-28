@@ -6,7 +6,7 @@ import { myLeavesListAction, cancelLeaveAction, applyLeaveAction } from '../../.
 import LeaveConfirmPopup from './LeaveConfirmPopup';
 
 const MyLeaves = ({
-    myLeavesList, myLeaves, applyLeaveResponse, cancelLeaveResponse, cancelLeave, applyLeave,
+    myLeavesList, myLeaves, applyLeaveResponse, cancelLeaveResponse
 }) => {
     useEffect(() => {
         if (myLeaves?.length === 0) {

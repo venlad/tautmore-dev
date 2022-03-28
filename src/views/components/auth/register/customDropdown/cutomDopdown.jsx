@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useRef, useEffect } from 'react';
 import './style.css';
 import {
@@ -20,8 +22,6 @@ const Dropdown = ({
         document.addEventListener('click', close);
         return () => document.removeEventListener('click', close);
     }, []);
-
-    const getClassNames = (selectedObj) => `option ${value === selectedObj ? 'selected' : null}`;
 
     function filter(GivenArray) {
         return GivenArray.filter((option) => option[label].toLowerCase()

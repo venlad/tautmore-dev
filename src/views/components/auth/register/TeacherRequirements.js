@@ -25,7 +25,7 @@ const TeacherRequirements = ({
     setExperienceField, setTimeSlotMonday, setTimeSlotTuesday, setTimeSlotWednesday,
     setTimeSlotThursday, setTimeSlotFriday, setTimeSlotSaturday, timeSlotMonday, gradeVal,
     fetchCoCurricularActivities, coCurricular, getAllGrades, allGrades, getAllTimeSlots, timeSlots,
-    subjectsList, getSubjectsAction, getSubjectsByClassId,
+    getSubjectsByClassId,
 }) => {
     const [showSubject, setShowSubject] = useState(false);
     const [showSubject2, setShowSubject2] = useState(false);
@@ -59,7 +59,7 @@ const TeacherRequirements = ({
 
     // Fetch Subjects
 
-    const [subjects, setSubjects] = useState([{ value: 1, label: '' }]);
+    const [subjects] = useState([{ value: 1, label: '' }]);
 
     // useEffect(() => {
     //     if (!subjectsList?.data) {

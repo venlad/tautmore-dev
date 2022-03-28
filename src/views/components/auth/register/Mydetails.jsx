@@ -70,7 +70,7 @@ const Mydetails = ({
         }
     }, [statesList]);
 
-    const [showResend, setShowResend] = useState(false);
+    const [setShowResend] = useState(false);
 
     const otpClick = () => {
         setShowResend(true);

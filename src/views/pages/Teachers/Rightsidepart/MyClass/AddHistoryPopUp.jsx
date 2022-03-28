@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Modal, Button } from 'react-bootstrap';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
-    func, bool, string, array, object,
+    func, bool, array, object,
 } from 'prop-types';
 import '../../teachers.scss';
 
@@ -33,8 +33,6 @@ const AddHistoryPopUp = ({
             getMyProfile();
         }
     }, [myProfile]);
-
-    const history = useHistory();
 
     // FOR CHAPTERS
     const [selectedChapter, setSelectedChapter] = useState('');

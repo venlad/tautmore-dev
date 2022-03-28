@@ -9,7 +9,6 @@ import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 // import { chevLeft, chevRight } from '../../../../../assets/icons/IconList';
 import LeavePopup from './LeavePopup';
-import MyLeaves from './MyLeaves';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { applyLeaveAction, getMyClassesAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
 
@@ -91,7 +90,7 @@ const Calendar = ({
     //         end: 'Mon Mar 15 2022',
     //     },
     // ];
-    const event = ({ event }) => (
+    const event = () => (
         <div className="event-main">
             {calendarView
                 ? (

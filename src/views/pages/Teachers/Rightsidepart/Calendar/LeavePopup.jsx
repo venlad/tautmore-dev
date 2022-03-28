@@ -6,13 +6,12 @@ import './calendar.scss';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import DatePicker, { registerLocale }  from 'react-datepicker';
-import enGb from 'date-fns/locale/en-GB';
 import 'react-datepicker/dist/react-datepicker.css';
 import { leaveValidation } from './mockData/calendar';
 import { applyLeaveAction } from '../../../../../stores/TeacherDashboard/TeacherDashboardAction';
 import { chevRight } from '../../../../../assets/icons/IconList';
 
-registerLocale('en-gb', enGb);
+registerLocale('en-gb');
 const LeavePopup = ({
     model, handleModel, applyLeaveResponse, applyLeave, loginDetail,
 }) => {
