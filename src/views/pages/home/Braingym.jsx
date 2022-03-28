@@ -1,6 +1,6 @@
 import React from 'react';
 import brainImg from '../../../assets/images/Group 20.png';
-import Buttoncommon from './Buttoncommon';
+import Buttoncommon from './Button';
 
 function Braingym() {
     return (

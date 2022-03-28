@@ -1,7 +1,6 @@
 import React from 'react';
 import { array, string } from 'prop-types';
 import { Link } from 'react-router-dom';
-import STRAPI_URL from '../../../constants/strapi';
 
 function Rightpart({ selectGrade, activities }) {
     const linkUrl = (val) => `/chapters/${val}`;
@@ -26,7 +25,7 @@ function Rightpart({ selectGrade, activities }) {
                                             <img
                                                 className="myexams-icon"
                                                 // eslint-disable-next-line max-len
-                                                src={STRAPI_URL + item?.attributes?.icon?.data?.attributes?.url}
+                                                src={item?.attributes?.icon?.data?.attributes?.url}
                                                 alt="logo"
                                             />
                                             {item?.attributes?.title}

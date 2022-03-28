@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { array, string } from 'prop-types';
 import Slider from 'react-slick';
 import { errowRight } from '../../../assets/icons/IconList';
-import STRAPI_URL from '../../../constants/strapi';
 
 const Subjectlist = ({ subdata, subjects }) => {
     const slider = useRef(null);
@@ -61,7 +60,7 @@ const Subjectlist = ({ subdata, subjects }) => {
                                 <div className="pill-content">
                                     <img
                                         src={
-                                            STRAPI_URL + data?.attributes?.icon?.data?.attributes?.url
+                                            data?.attributes?.icon?.data?.attributes?.url
                                         }
                                         alt="webbsite_log"
                                     />

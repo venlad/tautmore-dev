@@ -40,7 +40,7 @@ function Footer() {
                             <div className="row">
                                 <div className="col-sm-12 col-md-8">
                                     <Link to="/">
-                                        <img src={STRAPI_URL + footer?.logo?.data?.attributes?.url} alt="website_logo" />
+                                        <img src={footer?.logo?.data?.attributes?.url} alt="website_logo" />
                                     </Link>
                                     <p>
                                         {footer?.info}
@@ -50,7 +50,7 @@ function Footer() {
                                             footer?.socialLinks?.map((item) => (
                                                 <li>
                                                     <Link to={item?.link}>
-                                                        <img src={STRAPI_URL + item?.icon?.data?.attributes?.url} alt="website_logo" />
+                                                        <img src={item?.icon?.data?.attributes?.url} alt="website_logo" />
                                                     </Link>
                                                 </li>
                                             ))

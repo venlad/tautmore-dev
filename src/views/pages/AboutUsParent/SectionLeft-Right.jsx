@@ -1,7 +1,6 @@
 /* eslint-disable react/no-danger */
 import { bool, object, string } from 'prop-types';
 import React from 'react';
-import STRAPI_URL from '../../../constants/strapi';
 import Button from '../home/Button';
 
 const SectionLeftRight = ({ className, fromLeft, data }) => (
@@ -27,7 +26,7 @@ const SectionLeftRight = ({ className, fromLeft, data }) => (
                             <span className="shade-3" />
                             <span className="shade-4" />
                             <img
-                                src={STRAPI_URL + data?.image?.data?.attributes?.url}
+                                src={data?.image?.data?.attributes?.url}
                                 alt=""
                             />
                         </div>
@@ -42,7 +41,7 @@ const SectionLeftRight = ({ className, fromLeft, data }) => (
                             <span className="shade-3" />
                             <span className="shade-4" />
                             <img
-                                src={STRAPI_URL + data?.image?.data?.attributes?.url}
+                                src={data?.image?.data?.attributes?.url}
                                 alt=""
                             />
                         </div>

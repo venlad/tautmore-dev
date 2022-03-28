@@ -1,3 +1,3 @@
-const STRAPI_URL = 'http://localhost:1337';
+const STRAPI_URL = 'https://tautmore.herokuapp.com';
 
 export default STRAPI_URL;

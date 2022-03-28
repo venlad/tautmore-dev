@@ -1,7 +1,6 @@
 import React from 'react';
 import { object } from 'prop-types';
 import Buttoncommon from '../home/Button';
-import STRAPI_URL from '../../../constants/strapi';
 
 const Features = ({ features }) => (
     <div className="features-wrap">
@@ -22,7 +21,7 @@ const Features = ({ features }) => (
                 <Buttoncommon content={features?.buttonText} />
             </div>
             <div className="col-12 col-md-6 features-right">
-                <img src={STRAPI_URL + features?.heroImage?.data?.attributes?.url} alt="banner_img" />
+                <img src={features?.heroImage?.data?.attributes?.url} alt="banner_img" />
             </div>
         </div>
     </div>

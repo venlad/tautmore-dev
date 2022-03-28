@@ -1,7 +1,6 @@
 import React from 'react';
 import { object, string } from 'prop-types';
 import { errowRight } from '../../../assets/icons/IconList';
-import STRAPI_URL from '../../../constants/strapi';
 
 function LearningprogramBlock({
     data, className, second,
@@ -12,7 +11,7 @@ function LearningprogramBlock({
                 <div className="row">
                     <div className="col-md-3 learning-block-left d-flex align-items-center">
                         <div className="icon">
-                            <img src={STRAPI_URL + data?.image?.data?.attributes?.url} alt="" width="100%" height="100%" />
+                            <img src={data?.image?.data?.attributes?.url} alt="" width="100%" height="100%" />
                         </div>
                     </div>
                     <div className="col-md-7 learning-block-right">

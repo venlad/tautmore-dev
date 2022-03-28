@@ -3,7 +3,6 @@ import React, { useRef } from 'react';
 import Slider from 'react-slick';
 import { array } from 'prop-types';
 import { chevLeft, chevRight } from '../../../assets/icons/IconList';
-import STRAPI_URL from '../../../constants/strapi';
 
 const ParentTestimonials = ({ data }) => {
     const slider = useRef(null);
@@ -28,7 +27,7 @@ const ParentTestimonials = ({ data }) => {
                             data?.map((item) => (
                                 <div className="wrap testimonial-card d-flex" key={item?.id}>
                                     <div className="testimonial-image">
-                                        <img src={STRAPI_URL + item?.image?.data?.attributes?.url} alt="" />
+                                        <img src={item?.image?.data?.attributes?.url} alt="" />
                                     </div>
                                     <div className="testimonial-info">
                                         <p>

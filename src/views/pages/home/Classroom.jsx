@@ -1,7 +1,7 @@
 import React from 'react';
 import { Circle } from '../../../assets/icons/IconList';
 import classroomimg from '../../../assets/images/Group 17.png';
-import Buttoncommon from './Buttoncommon';
+import Buttoncommon from './Button';
 
 function Classroom() {
     return (

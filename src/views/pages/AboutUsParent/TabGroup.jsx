@@ -1,6 +1,5 @@
 import { object } from 'prop-types';
 import React from 'react';
-import STRAPI_URL from '../../../constants/strapi';
 import Button from '../home/Button';
 
 const TabGroup = ({ data }) => (
@@ -22,7 +21,7 @@ const TabGroup = ({ data }) => (
                                 <div
                                     className="common-tab-div-1"
                                 >
-                                    <img src={STRAPI_URL + item?.image?.data?.attributes?.url} alt="user_image" />
+                                    <img src={item?.image?.data?.attributes?.url} alt="user_image" />
                                     <h5>{item?.heading}</h5>
                                     <span className="layer-1" />
                                     <span className="layer-2" />

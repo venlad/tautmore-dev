@@ -5,7 +5,6 @@ import {
 } from 'prop-types';
 import Button from './Button';
 import { Circle } from '../../../assets/icons/IconList';
-import STRAPI_URL from '../../../constants/strapi';
 
 const HomeUISlide = ({
     leftImg,
@@ -20,7 +19,7 @@ const HomeUISlide = ({
             <div className={`${classmain}`}>
                 <div className="row">
                     <div className={`col-md-6 ${classleft}`}>
-                        <img src={STRAPI_URL +  data?.heroImage?.data?.attributes?.url} alt="Classroom_img" />
+                        <img src={data?.heroImage?.data?.attributes?.url} alt="Classroom_img" />
                     </div>
                     <div className={`col-md-6 ${classright}`}>
                         <div>
@@ -73,7 +72,7 @@ const HomeUISlide = ({
                     </div>
 
                     <div className={`${classright}`}>
-                        <img src={STRAPI_URL +  data?.heroImage?.data?.attributes?.url} alt="Classroom_img" />
+                        <img src={data?.heroImage?.data?.attributes?.url} alt="Classroom_img" />
                     </div>
                 </div>
             </div>

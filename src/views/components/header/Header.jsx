@@ -23,7 +23,7 @@ function Header() {
                 <div className="row">
                     <div className="col-sm-2 header-left">
                         <Link to="/">
-                            <img src={STRAPI_URL + navData?.logo?.data?.attributes?.url} alt="website_log" />
+                            <img src={navData?.logo?.data?.attributes?.url} alt="website_log" />
                         </Link>
                     </div>
                     <div className="col-sm-10 header-right">

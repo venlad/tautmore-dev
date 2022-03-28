@@ -1,6 +1,5 @@
 import { object } from 'prop-types';
 import React from 'react';
-import STRAPI_URL from '../../../constants/strapi';
 import Buttoncommon from './Button';
 
 function Learningjourney({ data }) {
@@ -18,7 +17,7 @@ function Learningjourney({ data }) {
                         </div>
                     </div>
                     <div className="col-md-7 learning-journey-right">
-                        <img src={STRAPI_URL +  data?.heroImage?.data?.attributes?.url} alt="Journey_img" />
+                        <img src={data?.heroImage?.data?.attributes?.url} alt="Journey_img" />
                     </div>
                 </div>
             </div>

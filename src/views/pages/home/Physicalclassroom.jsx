@@ -1,7 +1,6 @@
 import React from 'react';
 import { object } from 'prop-types';
 import PhysicalclassroomBlock from './PhysicalclassroomBlock';
-import STRAPI_URL from '../../../constants/strapi';
 
 function Physicalclassroom({ data }) {
     return (
@@ -22,7 +21,7 @@ function Physicalclassroom({ data }) {
                                 key={item?.id}
                                 title={item?.heading}
                                 desc={item?.description}
-                                image={STRAPI_URL +  item?.image?.data?.attributes?.url}
+                                image={item?.image?.data?.attributes?.url}
                                 index={i}
                             />
                         ))

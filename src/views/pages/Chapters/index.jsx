@@ -71,7 +71,7 @@ const Chapters = ({ match }) => {
                 />
                 <div className="chapters-details">
                     <h1>
-                        <img src={STRAPI_URL + filterSubjects[0]?.attributes?.icon?.data?.attributes?.url} alt="" />
+                        <img src={filterSubjects[0]?.attributes?.icon?.data?.attributes?.url} alt="" />
                         {filterSubjects[0]?.attributes?.title}
                     </h1>
                     <p>

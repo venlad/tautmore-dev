@@ -1,6 +1,6 @@
 import React from 'react';
 import joyfulImg from '../../../assets/images/Group 27.png';
-import Buttoncommon from './Buttoncommon';
+import Buttoncommon from './Button';
 
 function Learningjoyful() {
     return (
