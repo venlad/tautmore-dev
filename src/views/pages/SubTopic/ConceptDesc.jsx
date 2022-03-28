@@ -96,7 +96,7 @@ const Myconceptdesc = ({ subTopic }) => {
             <span type="button" className="nxt-video">
                 What is counting and why it’s useful
             </span>
-            {subTopic?.section?.length > 0 && (
+            {subTopic?.videoAndMedia?.length > 0 && (
                 <VideoMap
                     subTopic={subTopic}
                     openCurrentVideo={openCurrentVideo}
