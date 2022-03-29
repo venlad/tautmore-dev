@@ -22,7 +22,7 @@ function Footer() {
             `${STRAPI_URL}/api/footer?populate=*`,
         );
         const gradesRes = await fetch(
-            `${STRAPI_URL}/api/grades?populate=*&sort=id:ASC`,
+            `${STRAPI_URL}/api/grades?populate=*&sort=id:asc`,
         );
         const data = await res.json();
         const gradesData = await gradesRes.json();

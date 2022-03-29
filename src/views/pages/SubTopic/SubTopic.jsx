@@ -10,7 +10,7 @@ const SubTopic = () => {
 
     const fetchSubjects = async () => {
         const activityRes = await fetch(
-            `${STRAPI_URL}/api/subjects?populate=*&sort=id:ASC`,
+            `${STRAPI_URL}/api/subjects?populate=*&sort=id:asc`,
         );
         const activityData = await activityRes.json();
         setSubjects(activityData?.data);

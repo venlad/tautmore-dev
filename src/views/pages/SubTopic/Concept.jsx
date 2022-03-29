@@ -15,7 +15,7 @@ const Myconcept = () => {
 
     const fetchByUrlParams = async () => {
         const subjectData = await axios.get(
-            `${STRAPI_URL}/api/subjects?populate=*&sort=id:ASC&filters[slug]=${Subject}`,
+            `${STRAPI_URL}/api/subjects?populate=*&sort=id:asc&filters[slug]=${Subject}`,
         );
 
         const fromSubject = subjectData?.data?.data;

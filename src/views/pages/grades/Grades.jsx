@@ -16,7 +16,7 @@ const Grades = () => {
 
     const fetchGrades = async () => {
         const res = await fetch(
-            `${STRAPI_URL}/api/grades?populate=*&sort=id:ASC`,
+            `${STRAPI_URL}/api/grades?populate=*&sort=id:asc`,
         );
         const data = await res.json();
         setGrades(data?.data);
