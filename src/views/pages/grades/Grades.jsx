@@ -8,11 +8,11 @@ import STRAPI_URL from '../../../constants/strapi';
 
 const Grades = () => {
     const footerGrade = useSelector((state) => state.footerGrade);
+    const allGrades = useSelector((state) => state.fetchAll);
 
-    const [grades, setGrades] = useState([]);
+    const [grades, setGrades] = useState(allGrades?.grades);
     const [activities, setActivities] = useState([]);
     const [selectGrade, setSelectGrade] = useState(footerGrade);
-    // const [filterActivity, setFilterActivity] = useState([]);
 
     const fetchGrades = async () => {
         const res = await fetch(
@@ -20,18 +20,21 @@ const Grades = () => {
         );
         const data = await res.json();
         setGrades(data?.data);
-
-        // eslint-disable-next-line max-len
-        setActivities(data?.data?.filter((item) => item?.attributes?.title === selectGrade)[0]?.attributes?.activities?.data);
+        setActivities(data?.data?.filter(
+            (item) => item?.attributes?.title === selectGrade,
+        )[0]?.attributes?.activities?.data);
     };
 
     useEffect(() => {
-        fetchGrades();
+        if (allGrades.grades === null) {
+            fetchGrades();
+        }
     }, []);
 
     useEffect(() => {
-        // eslint-disable-next-line max-len
-        setActivities(grades?.filter((item) => item?.attributes?.title === selectGrade)[0]?.attributes?.activities?.data);
+        setActivities(grades?.filter(
+            (item) => item?.attributes?.title === selectGrade,
+        )[0]?.attributes?.activities?.data);
     }, [selectGrade]);
 
     useEffect(() => {

@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import Layout from '../../../Layout/Layout';
 import STRAPI_URL from '../../../constants/strapi';
 import Subjectlist from '../home/Subjectlist';
@@ -13,8 +14,10 @@ import Resources from '../AboutUsTeacher/Resources';
 import FAQ from '../AboutUsTeacher/FAQ';
 
 const About = () => {
-    const [subjects, setSubjects] = useState([]);
-    const [aboutData, setAboutData] = useState([]);
+    const fetchAll = useSelector((state) => state.fetchAll);
+
+    const [subjects, setSubjects] = useState(fetchAll.subjects);
+    const [aboutData, setAboutData] = useState(fetchAll.parent);
 
     const fetchSubjects = async () => {
         const activityRes = await fetch(
@@ -31,7 +34,9 @@ const About = () => {
     };
 
     useEffect(() => {
-        fetchSubjects();
+        if (fetchAll.parent === null && fetchAll.subjects === null) {
+            fetchSubjects();
+        }
     }, []);
     return (
         <Layout>

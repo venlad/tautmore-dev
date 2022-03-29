@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import STRAPI_URL from '../../../constants/strapi';
 import './header.scss';
 
 function Header() {
-    const [navData, setNavData] = useState([]);
+    const fetchAll = useSelector((state) => state.fetchAll);
+
+    const [navData, setNavData] = useState(fetchAll.navbar);
 
     const fetchNavData = async () => {
         const res = await fetch(
@@ -15,7 +18,9 @@ function Header() {
     };
 
     useEffect(() => {
-        fetchNavData();
+        if (fetchAll.navbar === null) {
+            fetchNavData();
+        }
     }, []);
     return (
         <div>

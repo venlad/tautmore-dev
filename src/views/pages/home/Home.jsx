@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import Subjectlist from './Subjectlist';
 import Banner from './Banner';
 import Learningprogram from './Learningprogram';
@@ -12,8 +13,10 @@ import './styles/home.scss';
 import STRAPI_URL from '../../../constants/strapi';
 
 function Home() {
-    const [subjects, setSubjects] = useState([]);
-    const [homeData, setHomeData] = useState([]);
+    const fetchAll = useSelector((state) => state.fetchAll);
+
+    const [subjects, setSubjects] = useState(fetchAll.subjects);
+    const [homeData, setHomeData] = useState(fetchAll.home);
 
     const fetchSubjects = async () => {
         const activityRes = await fetch(
@@ -39,9 +42,10 @@ function Home() {
     const giveGift = homeData?.attributes?.sections[7];
 
     useEffect(() => {
-        fetchSubjects();
+        if (fetchAll.home === null && fetchAll.subjects === null) {
+            fetchSubjects();
+        }
     }, []);
-    console.log(extraCurricular);
     return (
         <Layout>
             <Subjectlist subjects={subjects} />

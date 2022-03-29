@@ -5,13 +5,15 @@
 import React, { useEffect, useState } from 'react';
 import './footer.scss';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import STRAPI_URL from '../../../constants/strapi';
 import selectFooterLinkAction from '../../../stores/Grades/GradesAction';
 
 function Footer() {
-    const [footer, setFooter] = useState([]);
-    const [grades, setGrades] = useState([]);
+    const fetchAll = useSelector((state) => state.fetchAll);
+
+    const [footer, setFooter] = useState(fetchAll.footer);
+    const [grades, setGrades] = useState(fetchAll.grades);
 
     const dispatch = useDispatch();
 
@@ -29,7 +31,9 @@ function Footer() {
     };
 
     useEffect(() => {
-        fetchData();
+        if (fetchAll.footer === null && fetchAll.grades === null) {
+            fetchData();
+        }
     }, []);
     return (
         <div>

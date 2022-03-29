@@ -1,4 +1,5 @@
-const selectFooterGradeReducer = (state = 'Pre-Kindergarten', action) => {
+/* eslint-disable import/prefer-default-export */
+export const selectFooterGradeReducer = (state = 'Pre-Kindergarten', action) => {
     switch (action.type) {
         case 'SELECT_FOOTER_LINK':
             return action.payload;
@@ -6,5 +7,3 @@ const selectFooterGradeReducer = (state = 'Pre-Kindergarten', action) => {
             return state;
     }
 };
-
-export default selectFooterGradeReducer;

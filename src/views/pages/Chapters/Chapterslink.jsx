@@ -5,7 +5,7 @@ const Chapterslink = ({ grades, setSelectGrade, selectGrade }) => (
     <div className="chapters-links">
         <h1>Grade</h1>
         <ul className="links-list">
-            {grades.map((grade) => (
+            {grades?.map((grade) => (
                 <li key={grade?.id} className={grade?.attributes?.title === selectGrade ? 'active' : ''}>
                     <button
                         type="button"

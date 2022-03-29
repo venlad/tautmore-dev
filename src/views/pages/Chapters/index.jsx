@@ -1,6 +1,7 @@
 import React, {
     useEffect, useRef, useState,
 } from 'react';
+import { useSelector } from 'react-redux';
 import { object } from 'prop-types';
 import './style.scss';
 import Subjectlist from '../home/Subjectlist';
@@ -10,6 +11,8 @@ import Layout from '../../../Layout/Layout';
 import STRAPI_URL from '../../../constants/strapi';
 
 const Chapters = ({ match }) => {
+    const fetchAll = useSelector((state) => state.fetchAll);
+
     const [viewMoreTopic, setViewMoreTopic] = useState(['', '']);
     const [descriptionAnchor, setDescriptionAnchor] = useState(['', '', '']);
     const [shouldToggleStyle, setShouldToggleStyle] = useState(false);
@@ -17,9 +20,9 @@ const Chapters = ({ match }) => {
 
     const descRef = useRef(null);
 
-    const [grades, setGrades] = useState([]);
+    const [grades, setGrades] = useState(fetchAll.grades);
     const [selectGrade, setSelectGrade] = useState('Pre-Kindergarten');
-    const [subjects, setSubjects] = useState([]);
+    const [subjects, setSubjects] = useState(fetchAll.subjects);
     const [filterSubjects, setFilterSubjects] = useState([]);
 
     const fetchGrades = async () => {
@@ -39,7 +42,9 @@ const Chapters = ({ match }) => {
     };
 
     useEffect(() => {
-        fetchGrades();
+        if (fetchAll.grades === null && fetchAll.subjects === null) {
+            fetchGrades();
+        }
     }, []);
 
     useEffect(() => {
