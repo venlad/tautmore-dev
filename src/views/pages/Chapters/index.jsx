@@ -27,12 +27,12 @@ const Chapters = ({ match }) => {
 
     const fetchGrades = async () => {
         const res = await fetch(
-            `${STRAPI_URL}/api/grades?populate=*`,
+            `${STRAPI_URL}/api/grades?populate=*&sort=id:ASC`,
         );
         const dataRes = await res.json();
         setGrades(dataRes?.data);
         const activityRes = await fetch(
-            `${STRAPI_URL}/api/subjects?populate=*`,
+            `${STRAPI_URL}/api/subjects?populate=*&sort=id:ASC`,
         );
         const activityData = await activityRes.json();
         setSubjects(activityData?.data);

@@ -15,43 +15,43 @@ const Layout = ({ children }) => {
 
     const fetchAll = async () => {
         const gradesRes = await fetch(
-            `${STRAPI_URL}/api/grades?populate=*`,
+            `${STRAPI_URL}/api/grades?populate=*&sort=id:ASC`,
         );
         const grades = await gradesRes.json();
         dispatch(fetchGrades(grades?.data));
 
         const subjectsRes = await fetch(
-            `${STRAPI_URL}/api/subjects?populate=*`,
+            `${STRAPI_URL}/api/subjects?populate=*&sort=id:ASC`,
         );
         const subjects = await subjectsRes.json();
         dispatch(fetchSubjects(subjects?.data));
 
         const homeRes = await fetch(
-            `${STRAPI_URL}/api/home?populate=*`,
+            `${STRAPI_URL}/api/home?populate=*&sort=id:ASC`,
         );
         const home = await homeRes.json();
         dispatch(fetchHome(home?.data));
 
         const parentRes = await fetch(
-            `${STRAPI_URL}/api/about-parent?populate=*`,
+            `${STRAPI_URL}/api/about-parent?populate=*&sort=id:ASC`,
         );
         const parent = await parentRes.json();
         dispatch(fetchParent(parent?.data));
 
         const teacherRes = await fetch(
-            `${STRAPI_URL}/api/about?populate=*`,
+            `${STRAPI_URL}/api/about?populate=*&sort=id:ASC`,
         );
         const teacher = await teacherRes.json();
         dispatch(fetchTeacher(teacher?.data));
 
         const footerRes = await fetch(
-            `${STRAPI_URL}/api/footer?populate=*`,
+            `${STRAPI_URL}/api/footer?populate=*&sort=id:ASC`,
         );
         const footer = await footerRes.json();
         dispatch(fetchFooter(footer?.data?.attributes));
 
         const navbarRes = await fetch(
-            `${STRAPI_URL}/api/navbar?populate=*`,
+            `${STRAPI_URL}/api/navbar?populate=*&sort=id:ASC`,
         );
         const navbar = await navbarRes.json();
         dispatch(fetchNavbar(navbar?.data?.attributes));
