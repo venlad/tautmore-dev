@@ -5,6 +5,7 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import Modal from 'react-modal';
 import ReactPlayer from 'react-player';
+import { Link } from 'react-router-dom';
 import PlaySmall from '../../../assets/icons/play-sm.svg';
 import Tick from '../../../assets/icons/tick.svg';
 
@@ -93,7 +94,9 @@ const VideoMap = ({
                 </div>
             </div>
             <div className="btn-wrap">
-                <button className="btn-normal" type="button">Take test</button>
+                <Link to={subTopic?.takeTestButton2link}>
+                    <button className="btn-normal" type="button">{subTopic?.takeTestButton2}</button>
+                </Link>
             </div>
         </div>
     );

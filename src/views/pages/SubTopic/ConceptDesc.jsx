@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import ReactPlayer from 'react-player';
 import Modal from 'react-modal';
+import { Link } from 'react-router-dom';
 import { chevRight } from '../../../assets/icons/IconList';
 import VideoMap from './VideoMap';
 import PlaySmall from '../../../assets/icons/play-sm.svg';
@@ -86,7 +87,9 @@ const Myconceptdesc = ({ subTopic }) => {
                     </li>
                 </div>
                 <div className="col-md-5">
-                    <button type="button">Take practice test <span>{chevRight}</span></button>
+                    <Link to={subTopic?.takeTestButton1link}>
+                        <button type="button">{subTopic?.takeTestButton1} <span>{chevRight}</span></button>
+                    </Link>
                 </div>
             </div>
             <div className="sub-title">
