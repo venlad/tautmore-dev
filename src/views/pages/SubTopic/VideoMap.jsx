@@ -45,7 +45,10 @@ const VideoMap = ({
                                 <div className="branch-line" style={{ paddingLeft: 29 * (i + 1) }}>{' '}</div>
                                 <div
                                     className="type"
-                                    onClick={() => playCurrentVideo(item?.id)}
+                                    onClick={() => {
+                                        playCurrentVideo(item?.id);
+                                        openCurrentVideo(item?.id);
+                                    }}
                                     onKeyPress={() => {}}
                                     role="button"
                                     tabIndex={0}
@@ -76,12 +79,7 @@ const VideoMap = ({
                                 </div>
 
                                 <a href="#">
-                                    <h4
-                                        onClick={() => openCurrentVideo(item?.id)}
-                                        onKeyPress={() => {}}
-                                        role="button"
-                                        tabIndex={0}
-                                    >{item?.videoTitle}
+                                    <h4>{item?.videoTitle}
                                     </h4>
                                 </a>
                                 {currVideo === item?.id && (<img src={Tick} alt="" />)}

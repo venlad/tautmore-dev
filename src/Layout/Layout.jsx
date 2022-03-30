@@ -1,19 +1,28 @@
-import React, { useEffect } from 'react';
-import  { object } from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { object } from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
+import Loader from 'react-loader';
 import Header from '../views/components/header/Header';
 import Footer from '../views/components/footer/Footer';
 import STRAPI_URL from '../constants/strapi';
 import {
     fetchFooter,
-    fetchGrades, fetchHome, fetchNavbar, fetchParent, fetchSubjects, fetchTeacher,
+    fetchGrades,
+    fetchHome,
+    fetchNavbar,
+    fetchParent,
+    fetchSubjects,
+    fetchTeacher,
 } from '../stores/Fetch/FetchAction';
 
 const Layout = ({ children }) => {
     const dispatch = useDispatch();
     const fetchall = useSelector((state) => state.fetchAll);
 
+    const [loaded, setLoaded] = useState(true);
+
     const fetchAll = async () => {
+        setLoaded(true);
         const gradesRes = await fetch(
             `${STRAPI_URL}/api/grades?populate=*&sort=id:ASC`,
         );
@@ -55,24 +64,58 @@ const Layout = ({ children }) => {
         );
         const navbar = await navbarRes.json();
         dispatch(fetchNavbar(navbar?.data?.attributes));
+
+        setLoaded(false);
     };
 
     useEffect(() => {
         if (
             fetchall.subjects === null
-            && fetchall.grades === null
-            && fetchall.home === null
-            && fetchall.parent === null
-            && fetchall.teacher === null
+      && fetchall.grades === null
+      && fetchall.home === null
+      && fetchall.parent === null
+      && fetchall.teacher === null
         ) {
             fetchAll();
+        } else {
+            setLoaded(false);
         }
     }, []);
-
     return (
         <>
             <Header />
-            {children}
+            {
+                loaded ? (
+                    <div style={{
+                        width: '100%',
+                        height: '70vh',
+                    }}
+                    >
+                        <Loader
+                            loaded={!loaded}
+                            lines={13}
+                            length={20}
+                            width={10}
+                            radius={30}
+                            corners={1}
+                            rotate={0}
+                            direction={1}
+                            color="#edaf54"
+                            speed={1}
+                            trail={60}
+                            shadow={false}
+                            hwaccel
+                            className="spinner"
+                            zIndex={99999}
+                            top="50%"
+                            left="50%"
+                            scale={1.0}
+                            loadedClassName="loadedContent"
+                        />
+                    </div>
+                ) : children
+            }
+
             <Footer />
         </>
     );
@@ -80,6 +123,5 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
     children: object.isRequired,
-
 };
 export default Layout;
