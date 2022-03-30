@@ -17,7 +17,7 @@ const About = () => {
     const fetchAll = useSelector((state) => state.fetchAll);
 
     const [subjects, setSubjects] = useState(fetchAll.subjects);
-    const [aboutData, setAboutData] = useState(fetchAll.parent?.attributes);
+    const [aboutData, setAboutData] = useState(fetchAll.parent);
 
     const fetchSubjects = async () => {
         const activityRes = await fetch(
