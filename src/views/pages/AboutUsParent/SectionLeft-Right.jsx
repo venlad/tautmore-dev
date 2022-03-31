@@ -5,6 +5,7 @@ import { bool, object, string } from 'prop-types';
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import ReactPlayer from 'react-player';
+import ReactMarkdown from 'react-markdown';
 import Button from '../home/Button';
 
 const SectionLeftRight = ({ className, fromLeft, data }) => {
@@ -56,7 +57,8 @@ const SectionLeftRight = ({ className, fromLeft, data }) => {
                                 <span className="shade-3" />
                                 <span className="shade-4" />
                                 <h2>{data?.heading}</h2>
-                                <div dangerouslySetInnerHTML={{ __html: data?.description }} />
+
+                                <ReactMarkdown>{data?.description}</ReactMarkdown>
                                 <Button content={data?.buttonText} link={data?.buttonUrl} />
                             </div>
                         </div>
@@ -119,7 +121,8 @@ const SectionLeftRight = ({ className, fromLeft, data }) => {
                                 <span className="shade-3" />
                                 <span className="shade-4" />
                                 <h2>{data?.heading}</h2>
-                                <div dangerouslySetInnerHTML={{ __html: data?.description }} />
+
+                                <ReactMarkdown>{data?.description}</ReactMarkdown>
                                 <Button content={data?.buttonText} link={data?.buttonUrl} />
                             </div>
                         </div>

@@ -40,52 +40,6 @@ const FAQ = ({ faq }) => {
                     ))
                 }
 
-                <div className="acc-single">
-                    <div className="acc-header">
-                        <h4>How TautMore works?</h4>
-                        <div className="acc-btn" onClick={() => showFaq(1)}>
-                            {show === 1 ? '-' : '+' }
-                        </div>
-                    </div>
-                    {
-                        show === 1 && (
-                            <div className="faq-content">
-                                <p>It is a long established fact that a reader will be distracted by
-                                    the readable content of a page when
-                                    It is a long established fact that a reader will be
-                                    distracted by
-                                    the readable content of a page when
-                                    It is a long established fact that a reader will be
-                                    distracted by
-                                    the readable content of a page when
-                                </p>
-                            </div>
-                        )
-                    }
-                </div>
-                <div className="acc-single">
-                    <div className="acc-header">
-                        <h4>How TautMore works?</h4>
-                        <div className="acc-btn" onClick={() => showFaq(2)}>
-                            {show === 2 ? '-' : '+' }
-                        </div>
-                    </div>
-                    {
-                        show === 2 && (
-                            <div className="faq-content">
-                                <p>It is a long established fact that a reader will be distracted by
-                                    the readable content of a page when
-                                    It is a long established fact that a reader will be
-                                    distracted by
-                                    the readable content of a page when
-                                    It is a long established fact that a reader will be
-                                    distracted by
-                                    the readable content of a page when
-                                </p>
-                            </div>
-                        )
-                    }
-                </div>
             </div>
         </div>
     );

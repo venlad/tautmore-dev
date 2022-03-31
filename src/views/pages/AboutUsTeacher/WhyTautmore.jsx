@@ -3,6 +3,7 @@
 /* eslint-disable react/no-danger */
 import { string } from 'prop-types';
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 import { array } from 'yup';
 import Buttoncommon from '../home/Button';
 
@@ -29,7 +30,7 @@ const WhyTautmore = ({ cardData, btnText, title }) => {
                             <div className="col-12 col-md-6" key={item?.id}>
                                 <div className="why-card">
                                     <h2>{item?.heading}</h2>
-                                    <div dangerouslySetInnerHTML={{ __html: item?.description }} />
+                                    <ReactMarkdown>{item?.description}</ReactMarkdown>
                                     {
                                         (
                                             view === item?.id
@@ -46,7 +47,7 @@ const WhyTautmore = ({ cardData, btnText, title }) => {
                                         ))
                                     }
                                     {
-                                        item?.listItems.length > 0 && (
+                                        item?.listItems.length > 2 && (
                                             <h5 className="viewmore-li" onClick={() => viewMore(item?.id)}>view {view === item?.id ? 'less' : ' more'}</h5>
                                         )
                                     }

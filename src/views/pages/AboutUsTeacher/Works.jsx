@@ -2,6 +2,7 @@
 /* eslint-disable no-sequences */
 import React from 'react';
 import { object } from 'prop-types';
+import ReactMarkdown from 'react-markdown';
 import GivegiftBlock from '../home/GivegiftBlock';
 import Buttoncommon from '../home/Button';
 
@@ -16,7 +17,7 @@ function Givegift({ data }) {
                             <h2>
                                 {data?.heading}
                             </h2>
-                            <div dangerouslySetInnerHTML={{ __html: data?.description }} />
+                            <ReactMarkdown>{data?.description }</ReactMarkdown>
 
                             <Buttoncommon content={data?.buttonText} />
                         </div>
