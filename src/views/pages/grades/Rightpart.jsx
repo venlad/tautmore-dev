@@ -12,14 +12,16 @@ function Rightpart({ selectGrade, activities }) {
             </div>
 
             <div className="classroom-subject main-common">
-                {activities?.map((data) => (
+                {activities?.sort((a, b) => (a.id > b.id ? 1 : -1))?.map((data) => (
                     <div key={data?.id} className="subject-list-main">
                         <div className="classroom head-common">
                             <p>{data?.attributes?.title}</p>
                         </div>
                         <div className="subjects">
                             <ul className="row">
-                                {data?.attributes?.subjects?.data?.map((item) => (
+                                {data?.attributes?.subjects?.data?.sort(
+                                    (a, b) => (a.id > b.id ? 1 : -1),
+                                )?.map((item) => (
                                     <li key={item?.id} className="col-md-4 math">
                                         <Link to={linkUrl(item?.attributes?.slug)}>
                                             <img
