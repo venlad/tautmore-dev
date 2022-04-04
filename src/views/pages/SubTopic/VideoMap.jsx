@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 import { func, number, object } from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import Modal from 'react-modal';
 import ReactPlayer from 'react-player';
@@ -29,6 +31,8 @@ const VideoMap = ({
             zIndex: 999,
         },
     };
+
+    const [openView, setOpenView] = useState(false);
 
     return (
         <div>
@@ -89,7 +93,7 @@ const VideoMap = ({
                         ))
                     }
                 </div>
-                <div className="view">
+                <div className="view" onKeyPress={() => {}} tabIndex={0} onClick={() => setOpenView(true)}>
                     View all
                 </div>
             </div>
@@ -98,6 +102,73 @@ const VideoMap = ({
                     <button className="btn-normal" type="button">{subTopic?.takeTestButton2}</button>
                 </Link>
             </div>
+            <Modal
+                isOpen={openView}
+                onRequestClose={() => setOpenView(false)}
+                contentLabel="My dialog"
+                style={customStyles}
+            >
+                <div className="full-tree">
+                    <div className="videos-tree">
+                        <div className="side-line" />
+                        {
+                            subTopic?.videoAndMedia?.map((item, i) => (
+                                <div
+                                    className="branch"
+                                    key={item?.id}
+
+                                >
+
+                                    <div className="branch-line" style={{ paddingLeft: 29 * (i + 1) }}>{' '}</div>
+                                    <div
+                                        className="type"
+                                        onClick={() => {
+                                            playCurrentVideo(item?.id);
+                                            openCurrentVideo(item?.id);
+                                        }}
+                                        onKeyPress={() => {}}
+                                        role="button"
+                                        tabIndex={0}
+                                        aria-label="Play"
+                                    >
+                                        <img src={PlaySmall} alt="" /> <p>{item?.type}</p>
+                                        <Modal
+                                            isOpen={playVideo === item?.id}
+                                            onRequestClose={() => playCurrentVideo(null)}
+                                            contentLabel="My dialog"
+                                            style={customStyles}
+                                        >
+                                            <div>
+                                                {
+                                                    item?.type === 'Video' ? (
+                                                        <ReactPlayer
+                                                            url={item?.videoUrl}
+                                                            width="75vw"
+                                                            height="75vh"
+                                                        />
+                                                    ) : (
+                                                        <ReactMarkdown>
+                                                            {item?.forMedia}
+                                                        </ReactMarkdown>
+                                                    )
+                                                }
+
+                                            </div>
+                                        </Modal>
+                                    </div>
+
+                                    <a href="#">
+                                        <h4>{item?.videoTitle}
+                                        </h4>
+                                    </a>
+                                    {currVideo === item?.id && (<img src={Tick} alt="" />)}
+
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </Modal>
         </div>
     );
 };
