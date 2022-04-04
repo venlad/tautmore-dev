@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { array, string } from 'prop-types';
 import Slider from 'react-slick';
-import { errowRight } from '../../../assets/icons/IconList';
+import Arr from '../../../assets/icons/arr.svg';
 
 const Subjectlist = ({ subdata, subjects }) => {
     const slider = useRef(null);
@@ -46,7 +46,9 @@ const Subjectlist = ({ subdata, subjects }) => {
                 {
                     slide > 0 && (
                         <div className="d-none d-sm-block col-1">
-                            <span className="sub-prev" onClick={() => slider?.current?.slickPrev()} onKeyPress={() => slider?.current?.slickPrev()} role="button" tabIndex={0}>{errowRight} Prev</span>
+                            <span className="sub-prev" onClick={() => slider?.current?.slickPrev()} onKeyPress={() => slider?.current?.slickPrev()} role="button" tabIndex={0}>
+                                <img src={Arr} alt="" />    Prev
+                            </span>
                         </div>
                     )
                 }
@@ -73,7 +75,9 @@ const Subjectlist = ({ subdata, subjects }) => {
                 {
                     slide < subjects?.length - 5 && (
                         <div className="d-none d-sm-block col-1">
-                            <span className="sub-next" onClick={() => slider?.current?.slickNext()} onKeyPress={() => slider?.current?.slickNext()} role="button" tabIndex={0}>Next {errowRight}</span>
+                            <span className="sub-next" onClick={() => slider?.current?.slickNext()} onKeyPress={() => slider?.current?.slickNext()} role="button" tabIndex={0}>
+                                Next <img src={Arr} alt="" />
+                            </span>
                         </div>
                     )
                 }
