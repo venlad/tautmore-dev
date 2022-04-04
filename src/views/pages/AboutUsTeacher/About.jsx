@@ -17,7 +17,7 @@ const About = () => {
     const fetchAll = useSelector((state) => state.fetchAll);
 
     const [subjects, setSubjects] = useState(fetchAll.subjects);
-    const [aboutData, setAboutData] = useState(fetchAll.teacher);
+    const [aboutData, setAboutData] = useState(fetchAll.teacher?.attributes);
 
     console.log(aboutData);
 
