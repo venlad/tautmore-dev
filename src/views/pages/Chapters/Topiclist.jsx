@@ -12,7 +12,6 @@ const Topiclist = ({
     topicIdx,
     viewMoreTopic,
     idx,
-    setDescriptionAnchor,
     setViewMoreTopic,
     chapterSlug,
     subjectSlug,
@@ -26,6 +25,8 @@ const Topiclist = ({
             setDesktop(false);
         }
     };
+
+    console.log(desktop);
 
     useEffect(() => {
         window.addEventListener('resize', handleResize);
@@ -70,14 +71,6 @@ const Topiclist = ({
                             <div
                                 role="button"
                                 tabIndex={0}
-                                onMouseEnter={() => (desktop
-                                    ? setDescriptionAnchor([idx, topicIdx, subIdx]) : '')}
-                                onMouseLeave={() => (desktop
-                                    ? setDescriptionAnchor([idx, topicIdx, subIdx]) : '')}
-                                onClick={() => (!desktop
-                                    ? setDescriptionAnchor([idx, topicIdx, subIdx]) : '')}
-                                onKeyDown={() => (!desktop
-                                    ? setDescriptionAnchor([idx, topicIdx, subIdx]) : '')}
                                 className="sub-topic-div"
                             >
                                 {String.fromCharCode(65 + topicIdx)}.{subIdx + 1}
@@ -121,7 +114,6 @@ Topiclist.propTypes = {
     topicIdx: number.isRequired,
     viewMoreTopic: array.isRequired,
     idx: number.isRequired,
-    setDescriptionAnchor: func.isRequired,
     setViewMoreTopic: func.isRequired,
     chapterSlug: string.isRequired,
     subjectSlug: string.isRequired,
