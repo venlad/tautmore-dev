@@ -7,7 +7,6 @@ import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import Modal from 'react-modal';
 import ReactPlayer from 'react-player';
-import { Link } from 'react-router-dom';
 import PlaySmall from '../../../assets/icons/play-sm.svg';
 import Tick from '../../../assets/icons/tick.svg';
 
@@ -73,6 +72,7 @@ const VideoMap = ({
                                                         url={item?.videoUrl}
                                                         width="75vw"
                                                         height="75vh"
+                                                        controls
                                                     />
                                                 ) : (
                                                     <ReactMarkdown>{item?.forMedia}</ReactMarkdown>
@@ -93,14 +93,12 @@ const VideoMap = ({
                         ))
                     }
                 </div>
-                <div className="view" onKeyPress={() => {}} tabIndex={0} onClick={() => setOpenView(true)}>
-                    View all
-                </div>
-            </div>
-            <div className="btn-wrap">
-                <Link to={subTopic?.takeTestButton2link}>
-                    <button className="btn-normal" type="button">{subTopic?.takeTestButton2}</button>
-                </Link>
+                {subTopic?.videoAndMedia?.length > 5 && (
+                    <div className="view" onKeyPress={() => {}} tabIndex={0} onClick={() => setOpenView(true)}>
+                        View all
+                    </div>
+                )}
+
             </div>
             <Modal
                 isOpen={openView}
@@ -145,6 +143,7 @@ const VideoMap = ({
                                                             url={item?.videoUrl}
                                                             width="75vw"
                                                             height="75vh"
+                                                            controls
                                                         />
                                                     ) : (
                                                         <ReactMarkdown>

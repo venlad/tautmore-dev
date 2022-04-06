@@ -86,11 +86,13 @@ const Myconceptdesc = ({ subTopic }) => {
                         </a>
                     </li>
                 </div>
-                <div className="col-md-5">
-                    <Link to={subTopic?.takeTestButton1link}>
-                        <button type="button">{subTopic?.takeTestButton1} <span>{chevRight}</span></button>
-                    </Link>
-                </div>
+                {subTopic?.takeTestButton1 && (
+                    <div className="col-md-5">
+                        <Link to={subTopic?.takeTestButton1link}>
+                            <button type="button">{subTopic?.takeTestButton1} <span>{chevRight}</span></button>
+                        </Link>
+                    </div>
+                )}
             </div>
             <div className="sub-title">
                 <h6>1.1.1 What makes us live?</h6>

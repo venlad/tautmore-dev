@@ -15,14 +15,13 @@ const Grades = () => {
     const [selectGrade, setSelectGrade] = useState(footerGrade);
 
     const fetchGrades = async () => {
-        const res = await fetch(
-            `${STRAPI_URL}/api/grades?populate=*&sort=id:asc`,
-        );
+        const res = await fetch(`${STRAPI_URL}/api/grades?populate=*&sort=id:asc`);
         const data = await res.json();
         setGrades(data?.data);
-        setActivities(data?.data?.filter(
-            (item) => item?.attributes?.title === selectGrade,
-        )[0]?.attributes?.activities?.data);
+        setActivities(
+            data?.data?.filter((item) => item?.attributes?.title === selectGrade)[0]
+                ?.attributes?.activities?.data,
+        );
     };
 
     useEffect(() => {
@@ -32,9 +31,10 @@ const Grades = () => {
     }, []);
 
     useEffect(() => {
-        setActivities(grades?.filter(
-            (item) => item?.attributes?.title === selectGrade,
-        )[0]?.attributes?.activities?.data);
+        setActivities(
+            grades?.filter((item) => item?.attributes?.title === selectGrade)[0]
+                ?.attributes?.activities?.data,
+        );
     }, [selectGrade]);
 
     useEffect(() => {

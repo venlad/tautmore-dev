@@ -43,6 +43,7 @@ function Banner({ banner }) {
                             url={banner?.videoUrl}
                             width="75vw"
                             height="75vh"
+                            controls
                         />
 
                     </div>
