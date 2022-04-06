@@ -1,24 +1,34 @@
 import React from 'react';
 import { array, string, func } from 'prop-types';
+import { useDispatch } from 'react-redux';
+import selectFooterLinkAction from '../../../stores/Grades/GradesAction';
 
-const Chapterslink = ({ grades, setSelectGrade, selectGrade }) => (
-    <div className="chapters-links">
-        <h1 id="top">Grade</h1>
-        <ul className="links-list">
-            {grades?.map((grade) => (
-                <li key={grade?.id} className={grade?.attributes?.title === selectGrade ? 'active' : ''}>
-                    <button
-                        type="button"
-                        onClick={() => setSelectGrade(grade?.attributes?.title)}
-                        className={grade?.attributes?.title === selectGrade ? 'active' : ''}
-                    >
-                        {grade?.attributes?.title}
-                    </button>
-                </li>
-            ))}
-        </ul>
-    </div>
-);
+const Chapterslink = ({ grades, setSelectGrade, selectGrade }) => {
+    const dispatch = useDispatch();
+    return (
+        <div className="chapters-links">
+            <h1 id="top">Grade</h1>
+            <ul className="links-list">
+                {grades?.map((grade) => (
+                    <li key={grade?.id} className={grade?.attributes?.title === selectGrade ? 'active' : ''}>
+                        <button
+                            type="button"
+                            onClick={
+                                () => {
+                                    setSelectGrade(grade?.attributes?.title);
+                                    dispatch(selectFooterLinkAction(grade?.attributes?.title));
+                                }
+                            }
+                            className={grade?.attributes?.title === selectGrade ? 'active' : ''}
+                        >
+                            {grade?.attributes?.title}
+                        </button>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+};
 
 Chapterslink.propTypes = {
     grades: array,

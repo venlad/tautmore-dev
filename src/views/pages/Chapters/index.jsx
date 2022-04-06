@@ -12,6 +12,7 @@ import STRAPI_URL from '../../../constants/strapi';
 
 const Chapters = ({ match }) => {
     const fetchAll = useSelector((state) => state.fetchAll);
+    const footerGrade = useSelector((state) => state.footerGrade);
 
     const [viewMoreTopic, setViewMoreTopic] = useState(['', '']);
     const [descriptionAnchor, setDescriptionAnchor] = useState(['', '', '']);
@@ -21,7 +22,7 @@ const Chapters = ({ match }) => {
     const descRef = useRef(null);
 
     const [grades, setGrades] = useState(fetchAll.grades);
-    const [selectGrade, setSelectGrade] = useState('Pre-Kindergarten');
+    const [selectGrade, setSelectGrade] = useState(footerGrade);
     const [subjects, setSubjects] = useState(fetchAll.subjects);
     const [filterSubjects, setFilterSubjects] = useState([]);
 
@@ -61,6 +62,10 @@ const Chapters = ({ match }) => {
             ),
         );
     }, [match.params.subject]);
+
+    useEffect(() => {
+        setSelectGrade(footerGrade);
+    }, [footerGrade]);
 
     const chapters = filterSubjects[0]?.attributes?.chapters?.data.filter(
         (item) => item?.attributes?.grade?.data?.attributes?.title === selectGrade,
