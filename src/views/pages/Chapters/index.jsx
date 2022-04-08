@@ -77,7 +77,11 @@ const Chapters = () => {
 
     return (
         <Layout>
-            <Subjectlist subdata={subdata} setSubdata={setSubdata} subjects={subjects} />
+            <Subjectlist
+                subdata={subdata}
+                setSubdata={setSubdata}
+                subjects={subjects}
+            />
             <div className="chapters-main-container">
                 <Chapterslink
                     grades={grades}
@@ -86,34 +90,39 @@ const Chapters = () => {
                 />
                 <div className="chapters-details">
                     <h1>
-                        <img src={filterSubjects?.attributes?.icon?.data?.attributes?.url} alt="" />
+                        <img
+                            src={filterSubjects?.attributes?.icon?.data?.attributes?.url}
+                            alt=""
+                        />
                         {filterSubjects?.attributes?.title}
                     </h1>
-                    <p>
-                        {filterSubjects?.attributes?.smallDescription}
-                    </p>
+                    <p>{filterSubjects?.attributes?.smallDescription}</p>
                     <div className="chapters-container">
-                        {chapters?.map((chapter, idx) => (
-                            <div className="chapter-name" key={chapter?.id}>
-                                <h2>Chapter {idx + 1} - {chapter?.attributes?.title}</h2>
-                                <ul>
-                                    {chapter?.attributes?.topic?.map((topic, topicIdx) => (
-                                        <Topiclist
-                                            topic={topic}
-                                            topicIdx={topicIdx}
-                                            viewMoreTopic={viewMoreTopic}
-                                            idx={idx}
-                                            descRef={descRef}
-                                            setViewMoreTopic={setViewMoreTopic}
-                                            key={topic?.id}
-                                            chapterSlug={chapter?.attributes?.slug}
-                                            subjectSlug={filterSubjects?.attributes?.slug}
-                                            chapter={chapter?.attributes}
-                                        />
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
+                        {chapters
+                            ?.sort((a, b) => (a?.id > b?.id ? 1 : -1))
+                            ?.map((chapter, idx) => (
+                                <div className="chapter-name" key={chapter?.id}>
+                                    <h2>
+                                        Chapter {idx + 1} - {chapter?.attributes?.title}
+                                    </h2>
+                                    <ul>
+                                        {chapter?.attributes?.topic?.map((topic, topicIdx) => (
+                                            <Topiclist
+                                                topic={topic}
+                                                topicIdx={topicIdx}
+                                                viewMoreTopic={viewMoreTopic}
+                                                idx={idx}
+                                                descRef={descRef}
+                                                setViewMoreTopic={setViewMoreTopic}
+                                                key={topic?.id}
+                                                chapterSlug={chapter?.attributes?.slug}
+                                                subjectSlug={filterSubjects?.attributes?.slug}
+                                                chapter={chapter?.attributes}
+                                            />
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))}
                     </div>
                 </div>
             </div>
