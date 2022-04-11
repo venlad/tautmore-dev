@@ -41,8 +41,6 @@ const Myconceptdesc = ({ subTopic }) => {
     const playCurrentVideo = (id) => {
         if (playVideo !== id) {
             setPlayVideo(id);
-        } else {
-            setPlayVideo(null);
         }
     };
 

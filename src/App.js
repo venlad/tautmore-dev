@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import routes from './Routes';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'video-react/dist/video-react.css';
 
 function App() {
     return (

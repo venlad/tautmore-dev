@@ -4,11 +4,10 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 import { func, number, object } from 'prop-types';
 import React, { useState } from 'react';
-import ReactMarkdown from 'react-markdown';
 import Modal from 'react-modal';
-import ReactPlayer from 'react-player';
 import PlaySmall from '../../../assets/icons/play-sm.svg';
 import Tick from '../../../assets/icons/tick.svg';
+import VideoModal from '../../components/VideoModal';
 
 const VideoMap = ({
     subTopic, openCurrentVideo, currVideo, playCurrentVideo, playVideo,
@@ -65,17 +64,12 @@ const VideoMap = ({
                                         contentLabel="My dialog"
                                         style={customStyles}
                                     >
-                                        <div>
+                                        <div style={{ width: '75vw', height: '100%' }} className="d-flex justify-content-center">
                                             {
                                                 item?.type === 'Video' ? (
-                                                    <ReactPlayer
-                                                        url={item?.videoUrl}
-                                                        width="75vw"
-                                                        height="75vh"
-                                                        controls
-                                                    />
+                                                    <VideoModal videoUrl={item?.videoUrl} />
                                                 ) : (
-                                                    <ReactMarkdown>{item?.forMedia}</ReactMarkdown>
+                                                    <img src={item?.videoUrl} alt="" />
                                                 )
                                             }
 
@@ -136,19 +130,12 @@ const VideoMap = ({
                                             contentLabel="My dialog"
                                             style={customStyles}
                                         >
-                                            <div>
+                                            <div style={{ width: '75vw', height: '100%' }} className="d-flex justify-content-center">
                                                 {
                                                     item?.type === 'Video' ? (
-                                                        <ReactPlayer
-                                                            url={item?.videoUrl}
-                                                            width="75vw"
-                                                            height="75vh"
-                                                            controls
-                                                        />
+                                                        <VideoModal videoUrl={item?.videoUrl} />
                                                     ) : (
-                                                        <ReactMarkdown>
-                                                            {item?.forMedia}
-                                                        </ReactMarkdown>
+                                                        <img src={item?.videoUrl} alt="" />
                                                     )
                                                 }
 
