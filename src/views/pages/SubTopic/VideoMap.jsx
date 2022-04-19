@@ -5,9 +5,9 @@
 import { func, number, object } from 'prop-types';
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+import ReactPlayer from 'react-player';
 import PlaySmall from '../../../assets/icons/play-sm.svg';
 import Tick from '../../../assets/icons/tick.svg';
-import VideoModal from '../../components/VideoModal';
 
 const VideoMap = ({
     subTopic, openCurrentVideo, currVideo, playCurrentVideo, playVideo,
@@ -64,10 +64,16 @@ const VideoMap = ({
                                         contentLabel="My dialog"
                                         style={customStyles}
                                     >
-                                        <div style={{ width: '75vw', height: '100%' }} className="d-flex justify-content-center">
+                                        <div>
                                             {
                                                 item?.type === 'Video' ? (
-                                                    <VideoModal videoUrl={item?.videoUrl} />
+                                                    <ReactPlayer
+                                                        className="react-player"
+                                                        url={item?.videoUrl}
+                                                        width="75vw"
+                                                        height="75vh"
+                                                        controls
+                                                    />
                                                 ) : (
                                                     <img src={item?.videoUrl} alt="" />
                                                 )
@@ -130,10 +136,16 @@ const VideoMap = ({
                                             contentLabel="My dialog"
                                             style={customStyles}
                                         >
-                                            <div style={{ width: '75vw', height: '100%' }} className="d-flex justify-content-center">
+                                            <div>
                                                 {
                                                     item?.type === 'Video' ? (
-                                                        <VideoModal videoUrl={item?.videoUrl} />
+                                                        <ReactPlayer
+                                                            className="react-player"
+                                                            url={item?.videoUrl}
+                                                            width="75vw"
+                                                            height="75vh"
+                                                            controls
+                                                        />
                                                     ) : (
                                                         <img src={item?.videoUrl} alt="" />
                                                     )
