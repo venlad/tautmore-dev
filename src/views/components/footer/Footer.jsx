@@ -18,9 +18,7 @@ function Footer() {
     const dispatch = useDispatch();
 
     const fetchData = async () => {
-        const res = await fetch(
-            `${STRAPI_URL}/api/footer?populate=*`,
-        );
+        const res = await fetch(`${STRAPI_URL}/api/footer?populate=*`);
         const gradesRes = await fetch(
             `${STRAPI_URL}/api/grades?populate=*&sort=id:asc`,
         );
@@ -44,21 +42,23 @@ function Footer() {
                             <div className="row">
                                 <div className="col-sm-12 col-md-8">
                                     <Link to="/">
-                                        <img src={footer?.logo?.data?.attributes?.url} alt="website_logo" />
+                                        <img
+                                            src={footer?.logo?.data?.attributes?.url}
+                                            alt="website_logo"
+                                        />
                                     </Link>
-                                    <p>
-                                        {footer?.info}
-                                    </p>
+                                    <p>{footer?.info}</p>
                                     <ul>
-                                        {
-                                            footer?.socialLinks?.map((item) => (
-                                                <li>
-                                                    <Link to={item?.link}>
-                                                        <img src={item?.icon?.data?.attributes?.url} alt="website_logo" />
-                                                    </Link>
-                                                </li>
-                                            ))
-                                        }
+                                        {footer?.socialLinks?.map((item) => (
+                                            <li>
+                                                <Link to={item?.link}>
+                                                    <img
+                                                        src={item?.icon?.data?.attributes?.url}
+                                                        alt="website_logo"
+                                                    />
+                                                </Link>
+                                            </li>
+                                        ))}
                                     </ul>
                                 </div>
                                 <div className="col-sm-12 col-md-4" />
@@ -67,57 +67,56 @@ function Footer() {
                         <div className="col-sm-12 col-md-7 footer-top-right">
                             <div className="row">
                                 <div className="col-sm-3 col-md-3 col-6">
-                                    <h4>
-                                        Grades
-                                    </h4>
+                                    <h4>Grades</h4>
                                     <ul>
-                                        {
-                                            grades?.slice(0, 4)?.map((item) => (
-                                                <li key={item?.attributes?.id} onClick={() => dispatch(selectFooterLinkAction(item?.attributes?.title))}>
-                                                    <Link to="/grades">
-                                                        {item?.attributes?.title}
-                                                    </Link>
-                                                </li>
-                                            ))
-                                        }
+                                        {grades?.slice(0, 4)?.map((item) => (
+                                            <li
+                                                key={item?.attributes?.id}
+                                                onClick={() => dispatch(
+                                                    selectFooterLinkAction(item?.attributes?.title),
+                                                )}
+                                            >
+                                                <Link to="/grades">{item?.attributes?.title}</Link>
+                                            </li>
+                                        ))}
                                     </ul>
                                 </div>
                                 <div className="col-sm-3 col-md-3 col-6 mt-4 pt-2">
-
                                     <ul>
-                                        {
-                                            grades?.slice(4, 8)?.map((item) => (
-                                                <li key={item?.attributes?.id} onClick={() => dispatch(selectFooterLinkAction(item?.attributes?.title))}>
-                                                    <Link to="/grades">
-                                                        {item?.attributes?.title}
-                                                    </Link>
-                                                </li>
-                                            ))
-                                        }
+                                        {grades?.slice(4, 8)?.map((item) => (
+                                            <li
+                                                key={item?.attributes?.id}
+                                                onClick={() => dispatch(
+                                                    selectFooterLinkAction(item?.attributes?.title),
+                                                )}
+                                            >
+                                                <Link to="/grades">{item?.attributes?.title}</Link>
+                                            </li>
+                                        ))}
                                     </ul>
                                 </div>
                                 <div className="col-sm-3 col-md-3 col-6 mt-4 pt-2">
-
                                     <ul>
-                                        {
-                                            grades?.slice(9)?.map((item) => (
-                                                <li key={item?.attributes?.id} onClick={() => dispatch(selectFooterLinkAction(item?.attributes?.title))}>
-                                                    <Link to="/grades">
-                                                        {item?.attributes?.title}
-                                                    </Link>
-                                                </li>
-                                            ))
-                                        }
+                                        {grades?.slice(8)?.map((item) => (
+                                            <li
+                                                key={item?.attributes?.id}
+                                                onClick={() => dispatch(
+                                                    selectFooterLinkAction(item?.attributes?.title),
+                                                )}
+                                            >
+                                                <Link to="/grades">{item?.attributes?.title}</Link>
+                                            </li>
+                                        ))}
                                     </ul>
                                 </div>
                                 <div className="col-sm-3 col-md-3 col-6">
                                     <h4>Company</h4>
                                     <ul>
-                                        {
-                                            footer?.navItems?.slice(0, -2)?.map((item) => (
-                                                <li><Link to={item?.link}>{item?.label}</Link></li>
-                                            ))
-                                        }
+                                        {footer?.navItems?.slice(0, -2)?.map((item) => (
+                                            <li>
+                                                <Link to={item?.link}>{item?.label}</Link>
+                                            </li>
+                                        ))}
                                     </ul>
                                 </div>
                             </div>
@@ -133,7 +132,8 @@ function Footer() {
                             <p>
                                 <Link to={footer?.navItems?.slice(-2, -1)[0]?.link}>
                                     {footer?.navItems?.slice(-2, -1)[0]?.label}
-                                </Link> |
+                                </Link>{' '}
+                                |
                                 <Link to={footer?.navItems?.slice(-1)[0]?.link}>
                                     {footer?.navItems?.slice(-1)[0]?.label}
                                 </Link>

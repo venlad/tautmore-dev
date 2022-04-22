@@ -41,10 +41,21 @@ const Chapters = () => {
     };
 
     const fetchFiltered = async () => {
+        let filterData;
         const filterRes = await fetch(
             `${STRAPI_URL}/api/subjects?populate=*&sort=id:asc&filters[slug]=${subject}`,
         );
-        const filterData = await filterRes.json();
+
+        // eslint-disable-next-line prefer-const
+        filterData = await filterRes.json();
+
+        if (filterData?.data?.length <= 0) {
+            const filterCoCorricularRes = await fetch(
+                `${STRAPI_URL}/api/co-corriculars?populate=*&sort=id:asc&filters[slug]=${subject}`,
+            );
+
+            filterData = await filterCoCorricularRes.json();
+        }
         setFilterSubjects(...filterData?.data);
     };
 

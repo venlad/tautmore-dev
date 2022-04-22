@@ -12,6 +12,7 @@ const Grades = () => {
 
     const [grades, setGrades] = useState(allGrades?.grades);
     const [activities, setActivities] = useState([]);
+    const [coCorricular, setCoCorricular] = useState([]);
     const [selectGrade, setSelectGrade] = useState(footerGrade);
 
     const fetchGrades = async () => {
@@ -20,7 +21,11 @@ const Grades = () => {
         setGrades(data?.data);
         setActivities(
             data?.data?.filter((item) => item?.attributes?.title === selectGrade)[0]
-                ?.attributes?.activities?.data,
+                ?.attributes?.subjects?.data,
+        );
+        setCoCorricular(
+            data?.data?.filter((item) => item?.attributes?.title === selectGrade)[0]
+                ?.attributes?.co_corriculars?.data,
         );
     };
 
@@ -33,7 +38,11 @@ const Grades = () => {
     useEffect(() => {
         setActivities(
             grades?.filter((item) => item?.attributes?.title === selectGrade)[0]
-                ?.attributes?.activities?.data,
+                ?.attributes?.subjects?.data,
+        );
+        setCoCorricular(
+            grades?.filter((item) => item?.attributes?.title === selectGrade)[0]
+                ?.attributes?.co_corriculars?.data,
         );
     }, [selectGrade]);
 
@@ -49,7 +58,11 @@ const Grades = () => {
                     setSelectGrade={setSelectGrade}
                     selectGrade={selectGrade}
                 />
-                <Rightpart selectGrade={selectGrade} activities={activities} />
+                <Rightpart
+                    selectGrade={selectGrade}
+                    activities={activities}
+                    coCorricular={coCorricular}
+                />
             </div>
         </Layout>
     );
