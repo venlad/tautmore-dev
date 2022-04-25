@@ -2,7 +2,7 @@ import React from 'react';
 import { array, string } from 'prop-types';
 import { Link } from 'react-router-dom';
 
-function Rightpart({ selectGrade, activities, coCorricular }) {
+function Rightpart({ selectGrade, subjects, coCorricular }) {
     const linkUrl = (val) => `/chapters/${val}`;
 
     return (
@@ -40,7 +40,7 @@ function Rightpart({ selectGrade, activities, coCorricular }) {
                     </div>
                     <div className="subjects">
                         <ul className="row">
-                            {activities?.sort((a, b) => (a.id > b.id ? 1 : -1))?.map((item) => (
+                            {subjects?.sort((a, b) => (a.id > b.id ? 1 : -1))?.map((item) => (
                                 <li key={item?.id} className="col-md-4 math">
                                     <Link to={linkUrl(item?.attributes?.slug)}>
                                         <img
@@ -63,13 +63,13 @@ function Rightpart({ selectGrade, activities, coCorricular }) {
 
 Rightpart.propTypes = {
     selectGrade: string,
-    activities: array,
+    subjects: array,
     coCorricular: array,
 };
 
 Rightpart.defaultProps = {
     selectGrade: '',
-    activities: [],
+    subjects: [],
     coCorricular: [],
 };
 

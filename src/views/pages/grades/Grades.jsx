@@ -11,7 +11,7 @@ const Grades = () => {
     const allGrades = useSelector((state) => state.fetchAll);
 
     const [grades, setGrades] = useState(allGrades?.grades);
-    const [activities, setActivities] = useState([]);
+    const [subjects, setSubjects] = useState([]);
     const [coCorricular, setCoCorricular] = useState([]);
     const [selectGrade, setSelectGrade] = useState(footerGrade);
 
@@ -19,7 +19,7 @@ const Grades = () => {
         const res = await fetch(`${STRAPI_URL}/api/grades?populate=*&sort=id:asc`);
         const data = await res.json();
         setGrades(data?.data);
-        setActivities(
+        setSubjects(
             data?.data?.filter((item) => item?.attributes?.title === selectGrade)[0]
                 ?.attributes?.subjects?.data,
         );
@@ -36,7 +36,7 @@ const Grades = () => {
     }, []);
 
     useEffect(() => {
-        setActivities(
+        setSubjects(
             grades?.filter((item) => item?.attributes?.title === selectGrade)[0]
                 ?.attributes?.subjects?.data,
         );
@@ -60,7 +60,7 @@ const Grades = () => {
                 />
                 <Rightpart
                     selectGrade={selectGrade}
-                    activities={activities}
+                    subjects={subjects}
                     coCorricular={coCorricular}
                 />
             </div>

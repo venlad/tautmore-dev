@@ -49,6 +49,8 @@ const Chapters = () => {
         // eslint-disable-next-line prefer-const
         filterData = await filterRes.json();
 
+        console.log(filterData, 'jaffa-1');
+
         if (filterData?.data?.length <= 0) {
             const filterCoCorricularRes = await fetch(
                 `${STRAPI_URL}/api/co-corriculars?populate=*&sort=id:asc&filters[slug]=${subject}`,
@@ -57,6 +59,7 @@ const Chapters = () => {
             filterData = await filterCoCorricularRes.json();
         }
         setFilterSubjects(...filterData?.data);
+        console.log(filterData, 'jaffa');
     };
 
     useEffect(() => {
@@ -110,7 +113,9 @@ const Chapters = () => {
                     <p>{filterSubjects?.attributes?.smallDescription}</p>
                     <div className="chapters-container">
                         {chapters
-                            ?.sort((a, b) => (a?.id > b?.id ? 1 : -1))
+                            ?.sort((a, b) => (
+                                Number(a?.attributes?.chapterNumber)
+                                > Number(b?.attributes?.chapterNumber) ? 1 : -1))
                             ?.map((chapter, idx) => (
                                 <div className="chapter-name" key={chapter?.id}>
                                     <h2>

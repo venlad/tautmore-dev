@@ -1,6 +1,5 @@
 const intialState = {
     grades: null,
-    activities: null,
     subjects: null,
     chapters: null,
     navbar: null,
@@ -15,9 +14,6 @@ const fetchReducer = (state = intialState, action) => {
         case 'FETCH_GRADES':
             localStorage.setItem('grades', JSON.stringify(action.payload));
             return { ...state, grades: action.payload };
-        case 'FETCH_ACTIVITIES':
-            localStorage.setItem('activities', JSON.stringify(action.payload));
-            return { ...state, activities: action.payload };
         case 'FETCH_SUBJECTS':
             localStorage.setItem('subjects', JSON.stringify(action.payload));
             return { ...state, subjects: action.payload };

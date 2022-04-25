@@ -5,13 +5,6 @@ export function fetchGrades(data) {
     };
 }
 
-export function fetchActivities(data) {
-    return {
-        type: 'FETCH_ACTIVITIES',
-        payload: data,
-    };
-}
-
 export function fetchSubjects(data) {
     return {
         type: 'FETCH_SUBJECTS',
