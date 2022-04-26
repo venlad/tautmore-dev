@@ -5,7 +5,7 @@
 import { func, number, object } from 'prop-types';
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import ReactPlayer from 'react-player';
+import Vimeo from '@u-wave/react-vimeo';
 import PlaySmall from '../../../assets/icons/play-sm.svg';
 import Tick from '../../../assets/icons/tick.svg';
 
@@ -21,8 +21,8 @@ const VideoMap = ({
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
             padding: '0px',
-            overflow: 'hidden',
-            backgroundColor: '#000000bf',
+            border: 0,
+            backgroundColor: 'transparent',
         },
         overlay: {
             backgroundColor: '#000000bf',
@@ -67,13 +67,9 @@ const VideoMap = ({
                                         <div>
                                             {
                                                 item?.type === 'Video' ? (
-                                                    <ReactPlayer
-                                                        className="react-player"
-                                                        url={item?.videoUrl}
-                                                        width="75vw"
-                                                        height="75vh"
-                                                        controls
-                                                    />
+                                                    <div className="d-flex justify-content-center align-items-center">
+                                                        <Vimeo video={item?.videoUrl} autoplay width="720px" height="480px" />
+                                                    </div>
                                                 ) : (
                                                     <img src={item?.videoUrl} alt="" />
                                                 )
@@ -139,13 +135,9 @@ const VideoMap = ({
                                             <div>
                                                 {
                                                     item?.type === 'Video' ? (
-                                                        <ReactPlayer
-                                                            className="react-player"
-                                                            url={item?.videoUrl}
-                                                            width="75vw"
-                                                            height="75vh"
-                                                            controls
-                                                        />
+                                                        <div className="d-flex justify-content-center align-items-center">
+                                                            <Vimeo video={item?.videoUrl} autoplay width="720px" height="480px" />
+                                                        </div>
                                                     ) : (
                                                         <img src={item?.videoUrl} alt="" />
                                                     )
