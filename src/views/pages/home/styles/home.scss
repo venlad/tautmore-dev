@@ -81,6 +81,10 @@
   .slick-list{
     padding: 0;
   }
+  .active{
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px #ffcccc;
+  }
   .pill{
     height: 52px;
     max-width: 193px;

@@ -12,6 +12,13 @@ export function fetchSubjects(data) {
     };
 }
 
+export function fetchBoards(data) {
+    return {
+        type: 'FETCH_BOARDS',
+        payload: data,
+    };
+}
+
 export function fetchChapters(data) {
     return {
         type: 'FETCH_CHAPTERS',

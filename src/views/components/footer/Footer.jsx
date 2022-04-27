@@ -33,6 +33,7 @@ function Footer() {
             fetchData();
         }
     }, []);
+    const splitCols = Math.round(grades?.length / 3);
     return (
         <div>
             <div className="footer-main">
@@ -69,7 +70,7 @@ function Footer() {
                                 <div className="col-sm-3 col-md-3 col-6">
                                     <h4>Grades</h4>
                                     <ul>
-                                        {grades?.slice(0, 4)?.map((item) => (
+                                        {grades?.slice(0, splitCols)?.map((item) => (
                                             <li
                                                 key={item?.attributes?.id}
                                                 onClick={() => dispatch(
@@ -83,7 +84,7 @@ function Footer() {
                                 </div>
                                 <div className="col-sm-3 col-md-3 col-6 mt-4 pt-2">
                                     <ul>
-                                        {grades?.slice(4, 8)?.map((item) => (
+                                        {grades?.slice(splitCols, splitCols + splitCols)?.map((item) => (
                                             <li
                                                 key={item?.attributes?.id}
                                                 onClick={() => dispatch(
@@ -97,7 +98,7 @@ function Footer() {
                                 </div>
                                 <div className="col-sm-3 col-md-3 col-6 mt-4 pt-2">
                                     <ul>
-                                        {grades?.slice(8)?.map((item) => (
+                                        {grades?.slice(splitCols + splitCols)?.map((item) => (
                                             <li
                                                 key={item?.attributes?.id}
                                                 onClick={() => dispatch(

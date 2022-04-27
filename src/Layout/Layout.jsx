@@ -6,6 +6,7 @@ import Header from '../views/components/header/Header';
 import Footer from '../views/components/footer/Footer';
 import STRAPI_URL from '../constants/strapi';
 import {
+    fetchBoards,
     fetchFooter,
     fetchGrades,
     fetchHome,
@@ -64,6 +65,12 @@ const Layout = ({ children }) => {
         );
         const navbar = await navbarRes.json();
         dispatch(fetchNavbar(navbar?.data?.attributes));
+
+        const boardsRes = await fetch(
+            `${STRAPI_URL}/api/boards?populate=*&sort=id:ASC`,
+        );
+        const boards = await boardsRes.json();
+        dispatch(fetchBoards(boards?.data));
 
         setLoaded(false);
     };

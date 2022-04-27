@@ -7,6 +7,7 @@ const intialState = {
     home: null,
     parent: null,
     teacher: null,
+    boards: null,
 };
 
 const fetchReducer = (state = intialState, action) => {
@@ -35,6 +36,9 @@ const fetchReducer = (state = intialState, action) => {
         case 'FETCH_TEACHER':
             localStorage.setItem('teacher', JSON.stringify(action.payload));
             return { ...state, teacher: action.payload };
+        case 'FETCH_BOARDS':
+            localStorage.setItem('boards', JSON.stringify(action.payload));
+            return { ...state, boards: action.payload };
         default:
             return state;
     }

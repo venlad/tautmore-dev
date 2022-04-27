@@ -10,16 +10,16 @@ const Chapterslink = ({ grades, setSelectGrade, selectGrade }) => {
             <h1 id="top">Grade</h1>
             <ul className="links-list">
                 {grades?.map((grade) => (
-                    <li key={grade?.id} className={grade?.attributes?.title === selectGrade ? 'active' : ''}>
+                    <li key={grade?.id} className={grade?.attributes?.slug === selectGrade ? 'active' : ''}>
                         <button
                             type="button"
                             onClick={
                                 () => {
                                     setSelectGrade(grade?.attributes?.title);
-                                    dispatch(selectFooterLinkAction(grade?.attributes?.title));
+                                    dispatch(selectFooterLinkAction(grade?.attributes?.slug));
                                 }
                             }
-                            className={grade?.attributes?.title === selectGrade ? 'active' : ''}
+                            className={grade?.attributes?.slug === selectGrade ? 'active' : ''}
                         >
                             {grade?.attributes?.title}
                         </button>

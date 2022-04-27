@@ -49,17 +49,7 @@ const Chapters = () => {
         // eslint-disable-next-line prefer-const
         filterData = await filterRes.json();
 
-        console.log(filterData, 'jaffa-1');
-
-        if (filterData?.data?.length <= 0) {
-            const filterCoCorricularRes = await fetch(
-                `${STRAPI_URL}/api/co-corriculars?populate=*&sort=id:asc&filters[slug]=${subject}`,
-            );
-
-            filterData = await filterCoCorricularRes.json();
-        }
         setFilterSubjects(...filterData?.data);
-        console.log(filterData, 'jaffa');
     };
 
     useEffect(() => {
