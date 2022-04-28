@@ -82,7 +82,6 @@ const Chapters = () => {
         (item) => item?.attributes?.grade?.data?.attributes?.slug === selectGrade,
     )?.filter((item) => item?.attributes?.board?.data?.attributes?.slug === currentBoard);
 
-    console.log(chapters);
     return (
         <Layout>
             <Subjectlist

@@ -16,6 +16,7 @@ import AboutUsParent from './views/pages/AboutUsParent/About';
 import ZoomClassContainer from './views/pages/Teachers/Rightsidepart/MyClass/ZoomClassContainer';
 import Olympiad from './views/pages/Olympiad/Olympiad';
 import SubTopic from './views/pages/SubTopic/SubTopic';
+import CoCorricular from './views/pages/CoCorricular';
 
 const routes = [
     {
@@ -107,6 +108,11 @@ const routes = [
         key: 18,
         path: RouteEnum.SUBTOPIC,
         component: SubTopic,
+    },
+    {
+        key: 19,
+        path: RouteEnum.COCORRICULAR,
+        component: CoCorricular,
     },
 ];
 

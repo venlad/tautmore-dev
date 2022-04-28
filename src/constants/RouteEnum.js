@@ -18,7 +18,7 @@ const RouteEnum = {
     EXAMDETAILS: '/exam-details',
     ZOOMCALL: '/zoomCall',
     SUBTOPIC: '/:Grade/:Subject/:Chapter/:Topic',
-
+    COCORRICULAR: '/co-corricular',
 };
 
 export default RouteEnum;
