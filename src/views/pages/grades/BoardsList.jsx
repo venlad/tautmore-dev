@@ -6,13 +6,16 @@
 import React, { useRef, useState } from 'react';
 import { array, func, string } from 'prop-types';
 import Slider from 'react-slick';
+import { useDispatch } from 'react-redux';
 import Arr from '../../../assets/icons/arr.svg';
+import { selectBoardAction } from '../../../stores/Grades/GradesAction';
 
 const Boardslist = ({
     boards, currentBoard, setCurrentBoard,
 }) => {
     const slider = useRef(null);
     const [slide, setSlide] = useState(0);
+    const dispatch = useDispatch();
 
     const settings = {
         focusOnSelect: true,
@@ -62,7 +65,10 @@ const Boardslist = ({
 
                             <div
                                 className="pill-content"
-                                onClick={() => setCurrentBoard(data?.attributes?.slug)}
+                                onClick={() => {
+                                    setCurrentBoard(data?.attributes?.slug);
+                                    dispatch(selectBoardAction(data?.attributes?.slug));
+                                }}
                                 role="button"
                             >
                                 <img

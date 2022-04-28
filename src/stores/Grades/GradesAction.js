@@ -4,3 +4,10 @@ export default function selectFooterLinkAction(data) {
         payload: data,
     };
 }
+
+export function selectBoardAction(data) {
+    return {
+        type: 'SELECT_BOARD',
+        payload: data,
+    };
+}

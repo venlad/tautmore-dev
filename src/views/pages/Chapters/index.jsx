@@ -9,12 +9,15 @@ import Chapterslink from './Chapterslink';
 import Topiclist from './Topiclist';
 import Layout from '../../../Layout/Layout';
 import STRAPI_URL from '../../../constants/strapi';
+import Boardslist from '../grades/BoardsList';
 
 const Chapters = () => {
     const { subject } = useParams();
 
     const fetchAll = useSelector((state) => state.fetchAll);
     const footerGrade = useSelector((state) => state.footerGrade);
+    const board = useSelector((state) => state.board);
+    const boards = fetchAll?.boards;
 
     const [viewMoreTopic, setViewMoreTopic] = useState(['', '']);
     const [subdata, setSubdata] = useState();
@@ -25,6 +28,7 @@ const Chapters = () => {
     const [selectGrade, setSelectGrade] = useState(footerGrade);
     const [subjects, setSubjects] = useState(fetchAll.subjects);
     const [filterSubjects, setFilterSubjects] = useState(null);
+    const [currentBoard, setCurrentBoard] = useState(board);
 
     const fetchGrades = async () => {
         const res = await fetch(
@@ -38,6 +42,8 @@ const Chapters = () => {
         );
         const activityData = await activityRes.json();
         setSubjects(activityData?.data);
+
+        setSelectGrade(dataRes?.data[0]?.attributes?.slug);
     };
 
     const fetchFiltered = async () => {
@@ -45,10 +51,8 @@ const Chapters = () => {
         const filterRes = await fetch(
             `${STRAPI_URL}/api/subjects?populate=*&sort=id:asc&filters[slug]=${subject}`,
         );
-
         // eslint-disable-next-line prefer-const
         filterData = await filterRes.json();
-
         setFilterSubjects(...filterData?.data);
     };
 
@@ -74,17 +78,23 @@ const Chapters = () => {
             setFilterSubjects(filterSub[0]);
         }
     }, [subject]);
-
     const chapters = filterSubjects?.attributes?.chapters?.data.filter(
-        (item) => item?.attributes?.grade?.data?.attributes?.title === selectGrade,
-    );
+        (item) => item?.attributes?.grade?.data?.attributes?.slug === selectGrade,
+    )?.filter((item) => item?.attributes?.board?.data?.attributes?.slug === currentBoard);
 
+    console.log(chapters);
     return (
         <Layout>
             <Subjectlist
                 subdata={subdata}
                 setSubdata={setSubdata}
                 subjects={subjects}
+            />
+            <h4 className="text-center mt-2 mb-0">Boards</h4>
+            <Boardslist
+                boards={boards}
+                currentBoard={currentBoard}
+                setCurrentBoard={setCurrentBoard}
             />
             <div className="chapters-main-container">
                 <Chapterslink

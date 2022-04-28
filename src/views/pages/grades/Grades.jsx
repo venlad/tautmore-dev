@@ -13,12 +13,13 @@ const Grades = () => {
     const dispatch = useDispatch();
     const footerGrade = useSelector((state) => state.footerGrade);
     const allGrades = useSelector((state) => state.fetchAll);
+    const board = useSelector((state) => state.board);
     const boards = allGrades?.boards;
 
     const [grades, setGrades] = useState(allGrades?.grades);
     const [subjects, setSubjects] = useState([]);
     const [selectGrade, setSelectGrade] = useState(footerGrade);
-    const [currentBoard, setCurrentBoard] = useState('cbse');
+    const [currentBoard, setCurrentBoard] = useState(board);
 
     const fetchGrades = async () => {
         const res = await fetch(`${STRAPI_URL}/api/grades?populate=*&sort=id:asc`);
@@ -55,8 +56,11 @@ const Grades = () => {
     }, [selectGrade]);
 
     useEffect(() => {
-        // eslint-disable-next-line no-unused-expressions
-        grades?.length > 0 && dispatch(selectFooterLinkAction(grades[0]?.attributes?.slug));
+        const selectedFooterExists = grades?.filter((item) => item?.attributes?.slug === footerGrade);
+        if (selectedFooterExists?.length === 0) {
+            // eslint-disable-next-line no-unused-expressions
+            grades?.length > 0 && dispatch(selectFooterLinkAction(grades[0]?.attributes?.slug));
+        }
     }, [grades]);
 
     useEffect(() => {

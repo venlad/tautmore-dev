@@ -15,7 +15,7 @@ const Chapterslink = ({ grades, setSelectGrade, selectGrade }) => {
                             type="button"
                             onClick={
                                 () => {
-                                    setSelectGrade(grade?.attributes?.title);
+                                    setSelectGrade(grade?.attributes?.slug);
                                     dispatch(selectFooterLinkAction(grade?.attributes?.slug));
                                 }
                             }

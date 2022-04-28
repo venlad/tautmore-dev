@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import BrainGym from './BrainGym/BrainGymReducer';
 import Auth from './Auth/AuthReducer';
-import { selectFooterGradeReducer } from './Grades/GradesReducer';
+import { selectBoardReducer, selectFooterGradeReducer } from './Grades/GradesReducer';
 import TeacherDashboard from './TeacherDashboard/TeacherDashboardReducer';
 import MyExam from './MyExam/MyExamReducer';
 import concept from './Concept/ConceptReducer';
@@ -15,6 +15,7 @@ const rootReducer = combineReducers({
     MyExam,
     concept,
     fetchAll: fetchReducer,
+    board: selectBoardReducer,
 });
 
 export default rootReducer;

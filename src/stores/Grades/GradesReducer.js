@@ -7,3 +7,12 @@ export const selectFooterGradeReducer = (state = 'pre-kindergarten', action) => 
             return state;
     }
 };
+
+export const selectBoardReducer = (state = 'cbse', action) => {
+    switch (action.type) {
+        case 'SELECT_BOARD':
+            return action.payload;
+        default:
+            return state;
+    }
+};
