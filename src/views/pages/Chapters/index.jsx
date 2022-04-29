@@ -54,6 +54,7 @@ const Chapters = () => {
         // eslint-disable-next-line prefer-const
         filterData = await filterRes.json();
         setFilterSubjects(...filterData?.data);
+        console.log(filterData, 'jaffa');
     };
 
     useEffect(() => {

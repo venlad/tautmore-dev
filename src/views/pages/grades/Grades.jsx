@@ -24,13 +24,14 @@ const Grades = () => {
     const fetchGrades = async () => {
         const res = await fetch(`${STRAPI_URL}/api/grades?populate=*&sort=id:asc`);
         const data = await res.json();
-        const filterGradesByBoard =  data?.data?.filter(
-            (item) => item?.attributes?.boards?.data?.find((sub) => sub?.attributes?.slug === currentBoard)?.attributes?.slug === currentBoard,
+        const filterGradesByBoard = data?.data?.filter(
+            (item) => item?.attributes?.board?.data?.attributes?.slug === currentBoard,
         );
         setGrades(filterGradesByBoard);
         setSubjects(
-            filterGradesByBoard?.filter((item) => item?.attributes?.slug === selectGrade)[0]
-                ?.attributes?.subjects?.data,
+            filterGradesByBoard?.filter(
+                (item) => item?.attributes?.slug === selectGrade,
+            )[0]?.attributes?.subjects?.data,
         );
     };
 
@@ -43,9 +44,10 @@ const Grades = () => {
     useEffect(() => {
         setGrades(
             allGrades?.grades?.filter(
-                (item) => item?.attributes?.boards?.data?.find((sub) => sub?.attributes?.slug === currentBoard)?.attributes?.slug === currentBoard,
+                (item) => item?.attributes?.board?.data?.attributes?.slug === currentBoard,
             ),
         );
+        console.log(allGrades?.grades);
     }, [currentBoard]);
 
     useEffect(() => {
@@ -56,10 +58,13 @@ const Grades = () => {
     }, [selectGrade]);
 
     useEffect(() => {
-        const selectedFooterExists = grades?.filter((item) => item?.attributes?.slug === footerGrade);
+        const selectedFooterExists = grades?.filter(
+            (item) => item?.attributes?.slug === footerGrade,
+        );
         if (selectedFooterExists?.length === 0) {
             // eslint-disable-next-line no-unused-expressions
-            grades?.length > 0 && dispatch(selectFooterLinkAction(grades[0]?.attributes?.slug));
+            grades?.length > 0
+        && dispatch(selectFooterLinkAction(grades[0]?.attributes?.slug));
         }
     }, [grades]);
 
@@ -80,10 +85,7 @@ const Grades = () => {
                     setSelectGrade={setSelectGrade}
                     selectGrade={selectGrade}
                 />
-                <Rightpart
-                    selectGrade={selectGrade}
-                    subjects={subjects}
-                />
+                <Rightpart selectGrade={selectGrade} subjects={subjects} />
             </div>
         </Layout>
     );
