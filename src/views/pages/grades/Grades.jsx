@@ -85,7 +85,7 @@ const Grades = () => {
                     setSelectGrade={setSelectGrade}
                     selectGrade={selectGrade}
                 />
-                <Rightpart selectGrade={selectGrade} subjects={subjects} />
+                <Rightpart selectGrade={selectGrade} subjects={subjects} grades={grades} />
             </div>
         </Layout>
     );

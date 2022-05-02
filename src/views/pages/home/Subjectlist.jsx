@@ -58,7 +58,7 @@ const Subjectlist = ({ subdata, subjects }) => {
                             className={divClass(data)}
                             key={data.id}
                         >
-                            <Link to={link(data?.attributes?.slug)}>
+                            <Link to={link(data?.attributes?.commonSlug)}>
                                 <div className="pill-content">
                                     <img
                                         src={

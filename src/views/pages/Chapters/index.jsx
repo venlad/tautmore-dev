@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, {
     useEffect, useRef, useState,
 } from 'react';
@@ -30,6 +31,8 @@ const Chapters = () => {
     const [filterSubjects, setFilterSubjects] = useState(null);
     const [currentBoard, setCurrentBoard] = useState(board);
 
+    const [commonSubs, setCommonSubs] = useState([]);
+
     const fetchGrades = async () => {
         const res = await fetch(
             `${STRAPI_URL}/api/grades?populate=*&sort=id:asc`,
@@ -49,12 +52,12 @@ const Chapters = () => {
     const fetchFiltered = async () => {
         let filterData;
         const filterRes = await fetch(
-            `${STRAPI_URL}/api/subjects?populate=*&sort=id:asc&filters[slug]=${subject}`,
+            `${STRAPI_URL}/api/subjects?populate=*&sort=id:asc&filters[commonSlug]=${subject}`,
         );
         // eslint-disable-next-line prefer-const
         filterData = await filterRes.json();
         setFilterSubjects(...filterData?.data);
-        console.log(filterData, 'jaffa');
+        setCommonSubs(filterData?.data);
     };
 
     useEffect(() => {
@@ -69,20 +72,25 @@ const Chapters = () => {
     }, []);
 
     const filterSub = subjects?.filter(
-        (item) => item?.attributes?.slug === subject,
+        (item) => item?.attributes?.commonSlug === subject,
     );
-
+    console.log(filterSub, 'jaffa-2');
     useEffect(() => {
         const sub = subject;
         setSubdata(sub);
         if (filterSub?.length > 0) {
             setFilterSubjects(filterSub[0]);
+            setCommonSubs(filterSub);
         }
     }, [subject]);
     const chapters = filterSubjects?.attributes?.chapters?.data.filter(
         (item) => item?.attributes?.grade?.data?.attributes?.slug === selectGrade,
     )?.filter((item) => item?.attributes?.board?.data?.attributes?.slug === currentBoard);
 
+    const filterByGrade = commonSubs?.filter((item) => item?.attributes?.grade?.data?.attributes?.slug === selectGrade);
+    const filterByBoard = filterByGrade[0]?.attributes?.chapters?.data?.filter((item) => item?.attributes?.board?.data?.attributes?.slug === currentBoard);
+
+    console.log(chapters, filterByBoard, filterSubjects, 'jaffa');
     return (
         <Layout>
             <Subjectlist
@@ -112,7 +120,7 @@ const Chapters = () => {
                     </h1>
                     <p>{filterSubjects?.attributes?.smallDescription}</p>
                     <div className="chapters-container">
-                        {chapters
+                        {filterByBoard
                             ?.sort((a, b) => (
                                 Number(a?.attributes?.chapterNumber)
                                 > Number(b?.attributes?.chapterNumber) ? 1 : -1))
